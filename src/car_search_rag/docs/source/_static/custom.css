@@ -1,0 +1,21 @@
+/* Keep API signatures easy to scan in both Furo color schemes. */
+.py.class > dt {
+  border-left: 4px solid var(--color-brand-primary, #3b6ea8);
+  border-radius: 0.35rem;
+  background: var(--color-background-secondary, #f5f7fa);
+  padding: 0.65rem 0.8rem;
+  text-indent: 0;
+}
+
+.py.method > dt,
+.py.function > dt {
+  border-left: 3px solid var(--color-brand-primary, #3b6ea8);
+  border-radius: 0.25rem;
+  background: var(--color-background-secondary, #f5f7fa);
+  padding: 0.4rem 0.65rem;
+  text-indent: 0;
+}
+
+.highlight pre {
+  line-height: 1.55;
+}

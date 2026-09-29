@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+<style>text{font-family:Arial,'Noto Sans KR',sans-serif;fill:#123} .t{font-size:42px;font-weight:700}.h{font-size:25px;font-weight:700}.b{font-size:20px}.box{fill:#fff;stroke:#2185d0;stroke-width:3;rx:18}.g{stroke:#2185d0;stroke-width:4;fill:none;marker-end:url(#a)}</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2185d0"/></marker></defs>
+<rect width="1400" height="760" fill="#f8fbff"/>
+<text x="700" y="70" text-anchor="middle" class="t">Coffee Search 프로그램 연계 구조</text>
+<rect class="box" x="55" y="145" width="250" height="135"/><text x="180" y="190" text-anchor="middle" class="h">coffee_search.py</text><text x="180" y="228" text-anchor="middle" class="b">실행 / 메인</text>
+<rect class="box" x="370" y="145" width="300" height="135"/><text x="520" y="190" text-anchor="middle" class="h">coffee_search_service.py</text><text x="520" y="228" text-anchor="middle" class="b">PDF 처리 · 등록 · 검색</text>
+<rect class="box" x="760" y="105" width="260" height="95"/><text x="890" y="160" text-anchor="middle" class="h">DocumentReader</text>
+<rect class="box" x="760" y="230" width="260" height="95"/><text x="890" y="285" text-anchor="middle" class="h">OpenAIEmbeddings</text>
+<rect class="box" x="760" y="355" width="260" height="95"/><text x="890" y="410" text-anchor="middle" class="h">SqlSession</text>
+<rect class="box" x="1090" y="355" width="250" height="95"/><text x="1215" y="410" text-anchor="middle" class="h">COFFEE_SEARCH.sql</text>
+<rect class="box" x="1090" y="500" width="250" height="95"/><text x="1215" y="555" text-anchor="middle" class="h">DatabaseManager</text>
+<rect class="box" x="760" y="615" width="580" height="95"/><text x="1050" y="670" text-anchor="middle" class="h">PostgreSQL + pgvector</text>
+<path class="g" d="M305 212 H370"/><path class="g" d="M670 190 H760"/><path class="g" d="M670 215 C710 215 710 277 760 277"/><path class="g" d="M670 240 C710 240 710 402 760 402"/><path class="g" d="M1020 402 H1090"/><path class="g" d="M1215 450 V500"/><path class="g" d="M1215 595 V615"/>
+<text x="700" y="735" text-anchor="middle" class="b">원본 문서 구조를 팀 저장소에서 HTML로 확인하기 위한 경량 구조도</text>
+</svg>

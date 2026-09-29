@@ -1,0 +1,395 @@
+<!doctype html>
+<html class="no-js" lang="ko" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="색인" href="genindex.html"><link rel="search" title="검색" href="search.html"><link rel="next" title="SQL / SqlSession 사용 가이드" href="sql_mapper_guide.html"><link rel="prev" title="시작하기" href="getting_started.html">
+
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
+        <title>개발 공통 가이드 - SQL Mapper Documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=261a68a7" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">SQL Mapper Documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  <span class="sidebar-brand-text">SQL Mapper Documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="검색" name="q" aria-label="검색">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">개발 문서</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">개발 공통 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL / SqlSession 사용 가이드</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">프로젝트 구조</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="id1">
+<h1>개발 공통 가이드<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p>이 페이지는 Coffee Search의 실행 경로와 공통 모듈의 경계를 설명합니다. 시작 명령은 <a class="reference internal" href="getting_started.html"><span class="doc">시작하기</span></a>, SQL 작성과 로그 옵션은 <a class="reference internal" href="sql_mapper_guide.html"><span class="doc">SQL / SqlSession 사용 가이드</span></a>, 실제 파일 트리는 <a class="reference internal" href="project_structure.html"><span class="doc">프로젝트 구조</span></a> 에서 확인할 수 있습니다.</p>
+<section id="id2">
+<h2>전체 프로그램 구조<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="_images/coffee_search_structure.png"><img alt="Coffee Search 실행, PDF 등록, 질문 검색과 공통 모듈의 연계 구조" class="align-center" src="_images/coffee_search_structure.png" style="width: 100%;" />
+</a>
+<p><code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code> 가 진입점이고 <code class="docutils literal notranslate"><span class="pre">CoffeeSearchService</span></code> 에 등록·검색을 요청합니다. PDF 읽기는 <code class="docutils literal notranslate"><span class="pre">DocumentReader</span></code>, 임베딩은 <code class="docutils literal notranslate"><span class="pre">OpenAIEmbeddings</span></code>, SQL 실행은 <code class="docutils literal notranslate"><span class="pre">SqlSession</span></code> 이 맡습니다. 서비스의 SQL 호출은 <code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code> 의 statement로 이어지고, <code class="docutils literal notranslate"><span class="pre">SqlSession</span></code> 은 <code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code> 가 만든 PostgreSQL 연결을 사용합니다. DB의 벡터 저장과 유사도 연산에는 pgvector 타입이 필요합니다.</p>
+<p>그림에는 등록과 검색 흐름을 함께 그렸지만 <strong>현재 메인 스크립트의 활성 코드는 검색 테스트뿐</strong> 입니다. <code class="docutils literal notranslate"><span class="pre">VectorStoreManager</span></code> 로 표시된 영역은 현재 빈 파일입니다. 그림의 메서드·경로 예시는 아래의 실제 소스를 우선해 읽으세요.</p>
+</section>
+<section id="service-sql">
+<h2>실행 파일 → Service → SQL<a class="headerlink" href="#service-sql" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code> 의 파일 하단은 <code class="docutils literal notranslate"><span class="pre">SqlSession(result_log=True)</span></code> 와 <code class="docutils literal notranslate"><span class="pre">CoffeeSearchService</span></code> 를 생성한 뒤 <code class="docutils literal notranslate"><span class="pre">search_machine_manual()</span></code> 을 호출합니다. <code class="docutils literal notranslate"><span class="pre">CoffeeSearch</span></code> 클래스는 등록 경로에서 PDF를 <code class="docutils literal notranslate"><span class="pre">DocumentReader</span></code> 로 읽습니다. <code class="docutils literal notranslate"><span class="pre">coffee_machine_register()</span></code> 는 PDF 필터와 등록 서비스를 연결하지만 호출 예시는 주석 처리되어 있습니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">SqlSession</span><span class="p">(</span><span class="n">result_log</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">coffee_search_service</span> <span class="o">=</span> <span class="n">CoffeeSearchService</span><span class="p">(</span><span class="n">sql_session</span><span class="o">=</span><span class="n">session</span><span class="p">)</span>
+<span class="n">search_docs</span> <span class="o">=</span> <span class="n">coffee_search_service</span><span class="o">.</span><span class="n">search_machine_manual</span><span class="p">(</span>
+    <span class="n">brand</span><span class="o">=</span><span class="s2">"네스프레소"</span><span class="p">,</span>
+    <span class="n">machine_name</span><span class="o">=</span><span class="s2">"에센자 미니"</span><span class="p">,</span>
+    <span class="n">question</span><span class="o">=</span><span class="s2">"커피가 나오지 않을 때 어떻게 해야 하나요?"</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>실제 스크립트에서는 서비스 변수 이름을 <code class="docutils literal notranslate"><span class="pre">coffeeSearchService</span></code> 로 사용합니다. 위 예제는 동일한 생성·호출 API를 보여줍니다. <code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code> 에는 머신 조회와 상세 등록, 검색 statement가 있고 서비스는 이를 <code class="docutils literal notranslate"><span class="pre">coffee_search.statement</span></code> 이름으로 호출합니다.</p>
+</section>
+<section id="id3">
+<h2>공통 영역<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">common/sql_session.py</span></code> 의 <code class="docutils literal notranslate"><span class="pre">SqlSession</span></code> 은 생성 시 <code class="docutils literal notranslate"><span class="pre">group_project/</span></code> 아래 <code class="docutils literal notranslate"><span class="pre">*.sql</span></code> 을 aiosql에 등록합니다. <code class="docutils literal notranslate"><span class="pre">select_list()</span></code> 와 <code class="docutils literal notranslate"><span class="pre">select_one()</span></code> 은 조회, <code class="docutils literal notranslate"><span class="pre">execute()</span></code> 와 <code class="docutils literal notranslate"><span class="pre">execute_many()</span></code> 는 변경·배치 실행에 사용합니다. <code class="docutils literal notranslate"><span class="pre">transaction()</span></code> 은 여러 호출이 같은 연결을 쓰도록 묶습니다. <code class="docutils literal notranslate"><span class="pre">result_log</span></code> 는 반환 행을 표로 표시하고 <code class="docutils literal notranslate"><span class="pre">sql_log_mode</span></code> 는 QUERY 로그 형식을 정합니다. <code class="docutils literal notranslate"><span class="pre">Vector</span></code> 파라미터는 로그에서 앞부분 값과 차원만 표시하며 원본은 DB에 전달합니다. <code class="docutils literal notranslate"><span class="pre">execute_many()</span></code> 는 INFO 로그가 활성화되면 모든 배치 건의 파라미터를 순번과 함께 출력합니다. <code class="docutils literal notranslate"><span class="pre">get_pg_engine()</span></code> 은 <code class="docutils literal notranslate"><span class="pre">DB_URL</span></code> 로 <code class="docutils literal notranslate"><span class="pre">PGEngine</span></code> 을 지연 생성하지만 Coffee Search는 현재 이 경로를 사용하지 않습니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">common/database_manager.py</span></code> 의 <code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code> 는 <code class="docutils literal notranslate"><span class="pre">load_dotenv()</span></code> 로 환경을 읽고 <code class="docutils literal notranslate"><span class="pre">connect()</span></code> 호출마다 psycopg 연결을 만듭니다. 연결 직후 pgvector 어댑터를 등록합니다. <code class="docutils literal notranslate"><span class="pre">common/document_reader.py</span></code> 의 <code class="docutils literal notranslate"><span class="pre">DocumentReader</span></code> 는 PDF를 페이지 번호와 추출 텍스트의 <code class="docutils literal notranslate"><span class="pre">doc_list</span></code> 로 바꿉니다. <code class="docutils literal notranslate"><span class="pre">common/vector_store_manager.py</span></code> 는 존재하지만 현재 내용이 없어 사용하지 않습니다.</p>
+</section>
+<section id="coffee-search-pdf">
+<h2>Coffee Search 영역과 PDF 등록<a class="headerlink" href="#coffee-search-pdf" title="Link to this heading">¶</a></h2>
+<p>등록 입력 PDF는 <code class="docutils literal notranslate"><span class="pre">group_project/data/에센자미니_c30.pdf</span></code> 입니다. 다음은 현재 구현된 순서입니다. 등록 함수는 구현되어 있으나 메인 스크립트에서 호출은 주석 처리되어 있습니다.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">coffee_machine_register()</span></code> 가 <code class="docutils literal notranslate"><span class="pre">CoffeeSearch(file_path)</span></code> 를 만듭니다. 생성자에서 <code class="docutils literal notranslate"><span class="pre">DocumentReader(file_path)</span></code> → <code class="docutils literal notranslate"><span class="pre">set_pdf_reader()</span></code> → <code class="docutils literal notranslate"><span class="pre">set_pdf_doc_list()</span></code> 를 호출해 페이지별 <code class="docutils literal notranslate"><span class="pre">document_reader.doc_list</span></code> 를 준비합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CoffeeSearchService.pdf_filter()</span></code> 가 각 페이지의 <code class="docutils literal notranslate"><span class="pre">KR</span></code> 뒤 텍스트를 다음 언어 코드 등의 경계까지 추출합니다. 추출 텍스트가 없으면 그 페이지를 제외하고 원본 페이지 번호를 유지합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">insert_pdf_docs()</span></code> 가 텍스트 목록을 <code class="docutils literal notranslate"><span class="pre">OpenAIEmbeddings.embed_documents()</span></code> 에 전달합니다. 반환값은 상세 등록 시 <code class="docutils literal notranslate"><span class="pre">Vector</span></code> 로 변환합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SqlSession.transaction()</span></code> 안에서 <code class="docutils literal notranslate"><span class="pre">coffee_search.select_machine</span></code> 으로 기존 머신을 찾습니다. 없으면 <code class="docutils literal notranslate"><span class="pre">generate_biz_id</span></code> 로 ID를 받고 <code class="docutils literal notranslate"><span class="pre">insert_machine</span></code> 으로 <code class="docutils literal notranslate"><span class="pre">CFF_MACH</span></code> 에 등록합니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">delete_machine_details</span></code> 로 해당 머신의 기존 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_DTL</span></code> 행을 지웁니다. <code class="docutils literal notranslate"><span class="pre">insert_machine_details()</span></code> 가 페이지 번호·텍스트·벡터를 맞춰 배치 파라미터를 만들고 <code class="docutils literal notranslate"><span class="pre">execute_many(&quot;coffee_search.insert_machine_detail&quot;,</span> <span class="pre">...)</span></code> 로 상세를 다시 넣습니다.</p></li>
+</ol>
+<p>임베딩 호출은 트랜잭션에 <strong>들어가기 전</strong> 에 이루어집니다. 따라서 API 호출이 실패하면 DB 변경이 시작되지 않습니다. 재등록 시 기존 상세 행은 삭제·재생성되므로 등록 호출을 활성화할 때 이 동작을 고려하세요. <code class="docutils literal notranslate"><span class="pre">DocumentReader.set_pdf_chunk_doc_list()</span></code> 는 현재 <code class="docutils literal notranslate"><span class="pre">구현</span> <span class="pre">예정</span></code> 만 출력하며 이 흐름에 쓰이지 않습니다.</p>
+</section>
+<section id="vector">
+<h2>질문 검색과 Vector 검색<a class="headerlink" href="#vector" title="Link to this heading">¶</a></h2>
+<p>현재 활성 경로는 <code class="docutils literal notranslate"><span class="pre">CoffeeSearchService.search_machine_manual()</span></code> → <code class="docutils literal notranslate"><span class="pre">OpenAIEmbeddings.embed_query(question)</span></code> → <code class="docutils literal notranslate"><span class="pre">Vector(query_vector)</span></code> → <code class="docutils literal notranslate"><span class="pre">SqlSession.select_list(&quot;coffee_search.search_machine_manual&quot;,</span> <span class="pre">...)</span></code> 순서입니다. 브랜드와 모델명, 질문 벡터, <code class="docutils literal notranslate"><span class="pre">LIMIT</span></code> 을 SQL 파라미터로 전달합니다.</p>
+<p>SQL은 <code class="docutils literal notranslate"><span class="pre">CFF_MACH</span></code> 와 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_DTL</span></code> 을 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_ID</span></code> 로 JOIN하고 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_BRAND</span></code> 및 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_NM</span></code> 으로 머신을 제한합니다. <code class="docutils literal notranslate"><span class="pre">D.CFF_MACH_EMBED_VEC</span> <span class="pre">&lt;=&gt;</span> <span class="pre">:EMBEDDING</span></code> 값이 작은 순서로 정렬한 뒤 <code class="docutils literal notranslate"><span class="pre">LIMIT</span> <span class="pre">:LIMIT</span></code> 만큼 반환합니다. 이 연산은 cosine distance이고 SELECT의 <code class="docutils literal notranslate"><span class="pre">SIMILARITY</span></code> 는 <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">-</span> <span class="pre">distance</span></code> 입니다.</p>
+<p><code class="docutils literal notranslate"><span class="pre">CFF_MACH_PAGE_NO</span></code> 는 원본 PDF 페이지 번호, <code class="docutils literal notranslate"><span class="pre">CFF_MACH_EMBED_TXT</span></code> 는 저장한 한국어 텍스트입니다. <code class="docutils literal notranslate"><span class="pre">CFF_MACH_EMBED_VEC</span></code> 는 저장·검색에 쓰지만 현재 SELECT 결과에는 포함하지 않습니다. 반환 행에는 머신 ID, 브랜드·모델명, 페이지 번호·텍스트, <code class="docutils literal notranslate"><span class="pre">SIMILARITY</span></code> 가 있습니다. 기본 <code class="docutils literal notranslate"><span class="pre">camel_case_keys=True</span></code> 에서는 dict의 밑줄 컬럼명이 camelCase로 변환됩니다.</p>
+</section>
+<section id="embedding-pgvector">
+<h2>Embedding / pgvector<a class="headerlink" href="#embedding-pgvector" title="Link to this heading">¶</a></h2>
+<p>서비스 상수는 <code class="docutils literal notranslate"><span class="pre">EMBEDDING_MODEL</span> <span class="pre">=</span> <span class="pre">&quot;text-embedding-3-small&quot;</span></code> 과 <code class="docutils literal notranslate"><span class="pre">EMBEDDING_DIMENSION</span> <span class="pre">=</span> <span class="pre">1536</span></code> 입니다. 현재 코드는 차원 상수를 별도 검증에 사용하지 않습니다. 문서 등록은 <code class="docutils literal notranslate"><span class="pre">embed_documents()</span></code>, 검색 질문은 <code class="docutils literal notranslate"><span class="pre">embed_query()</span></code> 를 사용합니다. DB 저장 컬럼은 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_DTL.CFF_MACH_EMBED_VEC</span></code> 입니다. 현재 확인한 DB 덤프의 이 컬럼 선언은 <code class="docutils literal notranslate"><span class="pre">public.vector</span></code> 이며 1536차원 제약은 선언에 없습니다. 벡터 파라미터는 <code class="docutils literal notranslate"><span class="pre">pgvector.utils.Vector</span></code> 로 전달하고 <code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code> 가 연결에 pgvector 어댑터를 등록합니다.</p>
+</section>
+<section id="sql-mapper-connection-transaction">
+<h2>SQL Mapper와 Connection / Transaction<a class="headerlink" href="#sql-mapper-connection-transaction" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code> 의 <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">name:</span> <span class="pre">select_machine</span></code> 은 다음처럼 호출합니다. <code class="docutils literal notranslate"><span class="pre">coffee_search</span></code> 가 파일 stem(namespace)이고 <code class="docutils literal notranslate"><span class="pre">select_machine</span></code> 이 statement 이름입니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">machine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sql_session</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span>
+    <span class="s2">"coffee_search.select_machine"</span><span class="p">,</span>
+    <span class="p">{</span><span class="s2">"BRAND"</span><span class="p">:</span> <span class="n">brand</span><span class="p">,</span> <span class="s2">"MACHINE_NAME"</span><span class="p">:</span> <span class="n">machine_name</span><span class="p">},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>일반 호출은 필요한 연결을 하나 열어 실행하고 닫습니다. <code class="docutils literal notranslate"><span class="pre">transaction()</span></code> 안에서는 연결 하나를 재사용하며 정상 종료 시 COMMIT, 예외 시 ROLLBACK합니다. 등록은 머신 조회·등록과 상세 교체가 한 작업이므로 이 경로를 사용합니다. 전체 Mapper 구조와 로그 모드 예시는 <a class="reference internal" href="sql_mapper_guide.html"><span class="doc">SQL / SqlSession 사용 가이드</span></a> 에 있습니다.</p>
+</section>
+<section id="id4">
+<h2>새 기능의 변경 위치<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p>새 SQL은 해당 기능의 <code class="docutils literal notranslate"><span class="pre">.sql</span></code> 에 <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">name:</span></code> 으로 정의하고 Service에서 <code class="docutils literal notranslate"><span class="pre">SqlSession</span></code> 으로 호출합니다. Coffee Search의 업무 규칙과 임베딩 순서는 <code class="docutils literal notranslate"><span class="pre">coffee_search_service.py</span></code>, 실행 입력·출력은 <code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code> 에서 변경합니다. 여러 프로그램에 필요한 PDF 읽기는 <code class="docutils literal notranslate"><span class="pre">common/document_reader.py</span></code>, SQL 실행·연결의 공통 변경은 <code class="docutils literal notranslate"><span class="pre">common/sql_session.py</span></code> 와 <code class="docutils literal notranslate"><span class="pre">common/database_manager.py</span></code> 에서 다룹니다. 실제 파일 목록은 <a class="reference internal" href="project_structure.html"><span class="doc">프로젝트 구조</span></a> 에 있습니다.</p>
+</section>
+<section id="id5">
+<h2>현재 구현 상태와 주의사항<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>기본 실행은 검색만 수행합니다. PDF 등록 호출은 주석 처리되어 있습니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code> 의 <code class="docutils literal notranslate"><span class="pre">select_test</span></code>, <code class="docutils literal notranslate"><span class="pre">lock_machine_registration</span></code>, <code class="docutils literal notranslate"><span class="pre">select_detail_by_page</span></code> 는 현재 <code class="docutils literal notranslate"><span class="pre">CoffeeSearchService</span></code> 에서 호출하지 않습니다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">common/vector_store_manager.py</span></code> 와 PDF 청크 설정은 현재 구현된 저장 흐름이 아닙니다.</p></li>
+<li><p>구조 그림의 일부 파일·메서드 이름은 현재 소스와 다릅니다. 이 문서의 파일명과 실제 코드를 기준으로 작업하세요.</p></li>
+</ul>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="sql_mapper_guide.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">SQL / SqlSession 사용 가이드</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="getting_started.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">시작하기</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">개발 공통 가이드</a><ul>
+<li><a class="reference internal" href="#id2">전체 프로그램 구조</a></li>
+<li><a class="reference internal" href="#service-sql">실행 파일 → Service → SQL</a></li>
+<li><a class="reference internal" href="#id3">공통 영역</a></li>
+<li><a class="reference internal" href="#coffee-search-pdf">Coffee Search 영역과 PDF 등록</a></li>
+<li><a class="reference internal" href="#vector">질문 검색과 Vector 검색</a></li>
+<li><a class="reference internal" href="#embedding-pgvector">Embedding / pgvector</a></li>
+<li><a class="reference internal" href="#sql-mapper-connection-transaction">SQL Mapper와 Connection / Transaction</a></li>
+<li><a class="reference internal" href="#id4">새 기능의 변경 위치</a></li>
+<li><a class="reference internal" href="#id5">현재 구현 상태와 주의사항</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=ea29c55e"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/translations.js?v=afa94a99"></script>
+    </body>
+</html>
