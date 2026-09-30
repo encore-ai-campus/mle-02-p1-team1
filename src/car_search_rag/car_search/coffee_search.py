@@ -15,6 +15,7 @@ from pypdf import PdfReader
 
 from car_search_rag.car_search import coffee_search_service
 from car_search_rag.common.document_reader import DocumentReader
+from car_search_rag.common.storage_manager import StorageManager
 
 #=========================================================
 # 커피 머신 및 캐슐 검색 메인 프로그램
@@ -138,3 +139,35 @@ print()
 #=========================================================
 # 커피 머신 AI 검색 끝
 #=========================================================    
+
+
+
+#=========================================================
+# Supabase Storage 이미지 업로드 테스트
+#=========================================================
+
+# Supabase Storage 업로드를 담당하는 공통 클래스 생성
+storage_manager = StorageManager()
+
+# 업로드할 로컬 이미지 파일 경로
+# 이 경로는 현재 프로젝트의 data/test.jpg 파일을 가리키며,
+# Supabase Storage 내부 저장 경로와는 별도로 사용
+image_path = (
+    Path(__file__).resolve().parents[3]
+    / "data"
+    / "test.jpg"
+)
+
+# upload_car_image()가 brand, model, image_name을 조합하여
+# Storage 내부 경로 cars/hyundai/avante/front.jpg를 자동 생성
+# 로컬 파일명(test.jpg)과 Storage에 저장될 파일명(front.jpg)은 서로 달라도 됨
+image_url = storage_manager.upload_car_image(
+    image_path=image_path,
+    brand="hyundai",
+    model="sonata",
+    image_name="front.jpg"
+)
+
+# 업로드된 이미지의 Public URL 출력
+print()
+print("이미지 URL :", image_url)
