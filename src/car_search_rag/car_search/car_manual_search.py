@@ -1,7 +1,7 @@
 from pathlib import Path
 import sys
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
 
 import logging
 from car_search_rag.common.document_reader import DocumentReader
@@ -60,6 +60,14 @@ def car_manual_register(carManualSearchService,filepath):
 #=========================================================
 
 
+
+
+
+#=========================================================
+# 소나타 메뉴얼 PDF 읽기
+#=========================================================
+
+# file_path = (Path(__file__).resolve().)
 
 
 
