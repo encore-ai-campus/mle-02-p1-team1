@@ -8,21 +8,19 @@
 
 ### 개인 실험 환경 준비
 
-팀 공통 `pyproject.toml`과 `uv.lock`을 보존하기 위해 개인 패키지는 이 폴더의 `requirements.txt`로 관리합니다. 처음 실행할 때 프로젝트 루트에서 아래 두 명령을 차례로 실행합니다.
+`main`의 공통 의존성을 바꾸지 않고 개인 패키지를 설치하려면 프로젝트 루트에서 아래 명령을 실행합니다. 개인 브랜치의 기존 `.venv`를 사용 중이라면 아래 실행 예시를 그대로 사용할 수 있습니다.
 
 ```powershell
-uv venv --python 3.12 src/zzong_santafe_lag/.venv
-uv pip install --python src/zzong_santafe_lag/.venv/Scripts/python.exe -r src/zzong_santafe_lag/requirements.txt
+uv venv --python 3.12 src/car_search_rag/zzong_santafe_lag/.venv
+uv pip install --python src/car_search_rag/zzong_santafe_lag/.venv/Scripts/python.exe -r src/car_search_rag/zzong_santafe_lag/requirements.txt
 ```
 
-아래 실행 예시의 `.\.venv\Scripts\python.exe`는 기존 실험 환경입니다. 새 개인 환경을 준비했다면 `.\src\zzong_santafe_lag\.venv\Scripts\python.exe`로 바꾸어 실행합니다. VS Code 노트북에서도 이 개인 환경을 커널로 선택합니다. 원본 PDF와 모델 캐시는 별도로 준비해야 합니다.
-
-`data/zzong_santafe_lag/sung/`은 별도의 캐스퍼 참고 앱이며 자체 `pyproject.toml`과 실행 안내를 사용합니다.
+새 개인 환경에서는 아래 명령의 `.\.venv\Scripts\python.exe`를 `.\src\car_search_rag\zzong_santafe_lag\.venv\Scripts\python.exe`로 바꾸어 실행하고, 노트북에서도 이 환경을 커널로 선택합니다. 원본 PDF와 모델 캐시는 별도로 준비합니다. 새 환경 설치는 아직 확인하지 않았습니다.
 
 프로젝트 폴더 `C:\mle-02-p1-team1`의 VS Code 터미널에서 아래 명령을 실행합니다.
 
 ```powershell
-.\.venv\Scripts\python.exe .\src\zzong_santafe_lag\manual.py preview
+.\.venv\Scripts\python.exe .\src\car_search_rag\zzong_santafe_lag\manual.py preview
 ```
 
 현재 PDF 기준 예상 결과는 **779쪽, 이미지 참조 864개, 부모 원문 527개, 검색 조각 2,213개**입니다. 실제 모델 입력은 최대 128토큰입니다. 토큰은 모델이 글을 읽는 작은 단위로, 글자 수와 다릅니다.
@@ -61,7 +59,7 @@ uv pip install --python src/zzong_santafe_lag/.venv/Scripts/python.exe -r src/zz
 ## 검색 실험
 
 ```powershell
-.\.venv\Scripts\python.exe .\src\zzong_santafe_lag\manual.py search --question "엔진 오일의 용량과 추천 사양을 알려줘."
+.\.venv\Scripts\python.exe .\src\car_search_rag\zzong_santafe_lag\manual.py search --question "엔진 오일의 용량과 추천 사양을 알려줘."
 ```
 
 처음에 전체 2,213개 청크를 CPU에서 임베딩하므로 시간이 걸립니다. 진행 개수와 예상 남은 시간을 표시합니다. 모델은 이미 다운로드한 `jhgan/ko-sroberta-multitask-mrl`을 로컬에서 읽습니다. 모델 캐시가 없으면 다운로드를 시도하지 않고 오류로 중단합니다.
@@ -69,7 +67,7 @@ uv pip install --python src/zzong_santafe_lag/.venv/Scripts/python.exe -r src/zz
 같은 실행에서 여러 질문을 비교하려면 `--question`을 반복합니다. 청크 임베딩을 한 번만 계산합니다.
 
 ```powershell
-.\.venv\Scripts\python.exe .\src\zzong_santafe_lag\manual.py search --question "안전벨트 버클을 얼마나 밀어 넣어야 하나요?" --question "차단 클립을 버클에 꽂으면 경고등과 경고음은 어떻게 되나요?"
+.\.venv\Scripts\python.exe .\src\car_search_rag\zzong_santafe_lag\manual.py search --question "안전벨트 버클을 얼마나 밀어 넣어야 하나요?" --question "차단 클립을 버클에 꽂으면 경고등과 경고음은 어떻게 되나요?"
 ```
 
 표시되는 내용은 **검색 후보**입니다. 높은 점수는 정답 보장이 아닙니다. PDF 쪽수, 원문, 검토 상태를 함께 확인합니다. `--full-text`를 붙이면 연결 원문 전체를 표시합니다.
@@ -79,7 +77,7 @@ uv pip install --python src/zzong_santafe_lag/.venv/Scripts/python.exe -r src/zz
 ## 기존 실험 다시 비교하기
 
 ```powershell
-.\.venv\Scripts\python.exe .\src\zzong_santafe_lag\manual.py evaluate
+.\.venv\Scripts\python.exe .\src\car_search_rag\zzong_santafe_lag\manual.py evaluate
 ```
 
 노트북 11~12번과 같은 질문 30개를 사용합니다.
@@ -108,6 +106,17 @@ uv pip install --python src/zzong_santafe_lag/.venv/Scripts/python.exe -r src/zz
 - 현재 527개 부모 중 14개는 확인한 예제, 6개는 원본 화면을 대조한 자료, 507개는 추가 검토할 자동 초안입니다.
 - 답변 생성, 근거 부족 시 응답, Supabase 저장, 이미지 화면 출력은 다음 단계입니다.
 
-SQL Mapper Documentation의 실행 파일 / 서비스 파일 구성을 따라 개인 실행 파일과 서비스 파일을 나눴습니다. 현재 공통 Mapper는 `car_search/*.sql`만 읽으므로 개인 폴더의 SQL은 자동으로 읽히지 않습니다. DB 단계에서 개인 `manual.sql` 위치와 등록 방법을 정하고, **내 전용 테이블·Storage 경로**만 사용하도록 설계합니다. 현재 DB 연결이나 SQL 실행 코드는 없습니다.
+SQL Mapper Documentation의 실행 파일 / 서비스 파일 구성을 따라 개인 실행 파일과 서비스 파일을 나눴습니다. **현재 실제 공통 로더는 `src/car_search_rag` 아래의 `*.sql`을 재귀 검색합니다.** 폴더 이동 후 개인 SQL은 `.sql.txt` 확장자로 보관하고 `database.py`의 개인 하위 클래스에서 `mappers/`의 `.sql.txt`만 등록합니다. 개인 생성·조회 스크립트가 공통 로더에 포함되지 않도록 분리했습니다. DBeaver에서는 `.sql.txt`의 내용을 SQL 편집기에 가져와 사용합니다.
 
-작업 코드는 `src/zzong_santafe_lag/`, 기존 이미지 자료는 `data/zzong_santafe_lag/`, 원본 PDF는 `data/santafe_hev_manual.pdf`입니다. Git 브랜치는 `zzong/santafe-lag`를 사용합니다. 원본 데이터·모델·비밀키를 코드와 함께 Git에 넣지 않습니다.
+개인 스키마 `zzong_santafe_lag`의 빈 테이블 6개를 2026-10-01 사용자 승인 후 DBeaver에서 생성했습니다. 테이블·기본 색인의 실제 합계는 **192KiB(약 0.2MB)**입니다. 전체 자료 한 버전의 DB 용량은 약 **15~30MB로 추정**하며 저장 후 실측해야 합니다. **Python의 개인 연결과 읽기 전용 조회를 실행했고 여섯 테이블 모두 0행입니다. DB 자료 삽입·Storage 업로드는 아직 하지 않았습니다.** DBeaver와 Python에서 `postgres` 연결과 `public`의 pgvector 0.8.0을 확인했습니다. [테이블·DBeaver·용량 안내](./db_guide.md)와 13·14번 노트북을 참고하세요.
+
+### 개인 연결·표본 저장 형태 준비
+
+- 개인 연결 변수 `ZZONG_DB_URL`은 Git에서 제외되는 `src/car_search_rag/zzong_santafe_lag/.env`에 분리했습니다. 팀 `.env`와 `DB_URL`은 변경하지 않았습니다.
+- `database.py`의 `PersonalSqlSession(read_only=True)`는 이번 연결의 트랜잭션을 읽기 전용으로 지정합니다.
+- `db_rows.py`는 44·45쪽과 43쪽 표·각주의 문맥을 여섯 테이블의 행으로 변환합니다. 전체 저장 서비스는 아직 없습니다.
+- 실행 결과: 부모 4개·청크 11개·이미지 3개·연결 3개. 기존 필수 연결과 검토 상태를 유지합니다. 벡터 11개는 `None`이며 저장 가능한 완료 결과가 아닙니다.
+- `db_sample.py connection`은 조회만, `db_sample.py preview`는 메모리 변환만 합니다. 생성·INSERT·업로드 명령은 없습니다. `preview --full-text`로 부모 글을 읽을 수 있습니다.
+- 이번에는 로컬 임베딩 모델을 실행하지 않았습니다. 다음 단계는 같은 모델 버전으로 표본 11개를 임베딩한 뒤 저장 전 검토입니다.
+
+작업 코드는 `src/car_search_rag/zzong_santafe_lag/`, 기존 이미지 자료는 `data/zzong_santafe_lag/`, 원본 PDF는 `data/santafe_hev_manual.pdf`입니다. Git 브랜치는 `zzong/santafe-lag`를 사용합니다. 원본 데이터·모델·비밀키를 코드와 함께 Git에 넣지 않습니다.

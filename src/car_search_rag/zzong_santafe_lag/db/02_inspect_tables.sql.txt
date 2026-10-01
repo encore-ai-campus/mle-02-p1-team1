@@ -1,0 +1,40 @@
+-- [프로젝트 추가] 연결과 개인 테이블을 확인하는 읽기 전용 SQL입니다.
+-- SELECT는 읽기입니다. 아래 SQL은 자료나 구조를 변경하지 않습니다.
+
+SELECT current_database() AS database_name, current_user AS database_user;
+
+-- pgvector 확장이 있는 위치. 결과가 없으면 설치 상태부터 확인합니다.
+SELECT e.extname, e.extversion, n.nspname AS extension_schema
+FROM pg_extension e JOIN pg_namespace n ON n.oid = e.extnamespace
+WHERE e.extname = 'vector';
+
+-- 생성 전에는 개인 스키마와 테이블 결과가 0행입니다.
+SELECT schema_name FROM information_schema.schemata
+WHERE schema_name = 'zzong_santafe_lag';
+
+SELECT table_name FROM information_schema.tables
+WHERE table_schema = 'zzong_santafe_lag' AND table_type = 'BASE TABLE'
+ORDER BY table_name;
+
+-- 생성 후 컬럼 이름과 자료형 확인.
+SELECT table_name, column_name, data_type, udt_name, is_nullable
+FROM information_schema.columns
+WHERE table_schema = 'zzong_santafe_lag'
+ORDER BY table_name, ordinal_position;
+
+-- 아래 예제는 테이블 생성 후 한 문장씩 실행하세요.
+-- SELECT * FROM zzong_santafe_lag.documents;
+-- SELECT * FROM zzong_santafe_lag.processing_runs;
+-- SELECT record_id, title, pdf_page_number, verification_status
+-- FROM zzong_santafe_lag.parent_records ORDER BY pdf_page_number;
+-- 생성만 했다면 자료가 0행인 것이 정상입니다.
+
+-- [프로젝트 추가] 개인 테이블·기본 색인·TOAST의 실제 할당 용량을 확인합니다.
+-- total_bytes는 여섯 테이블의 합계입니다. DB 전체 관리 영역과 Storage 파일은 제외합니다.
+SELECT c.relname AS table_name,
+       pg_total_relation_size(c.oid) AS bytes,
+       pg_size_pretty(pg_total_relation_size(c.oid)) AS size,
+       sum(pg_total_relation_size(c.oid)) OVER () AS total_bytes
+FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE n.nspname = 'zzong_santafe_lag' AND c.relkind = 'r'
+ORDER BY c.relname;

@@ -8,3 +8,9 @@ numpy
 scikit-learn
 # VS Code에서 개인 실험 환경을 노트북 커널로 선택할 때 사용합니다.
 ipykernel>=7.4.0
+# [프로젝트 적용] 개인 DB 코드가 재사용하는 기존 공통 SQL 모듈의 패키지입니다.
+aiosql>=15.0
+psycopg[binary]>=3.3.6
+pgvector>=0.3.6
+python-dotenv>=1.2.3
+langchain-postgres>=0.0.18
