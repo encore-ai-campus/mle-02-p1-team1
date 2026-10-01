@@ -7,11 +7,18 @@ dependencies = [
     "fonttools>=4.66.0",
     "langchain-openai>=1.6.6",
     "langchain-postgres>=0.0.18",
+    "langchain-text-splitters>=1.1.2",
     "pandas>=3.0.6",
     "pgvector>=0.3.6",
+    "pillow>=12.3.0",
     "psycopg[binary]>=3.3.6",
     "pypdf>=6.19.0",
     "python-dotenv>=1.2.3",
     "sqlalchemy>=2.1.1",
     "supabase>=2.31.0",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
 ]

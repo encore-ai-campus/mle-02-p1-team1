@@ -3,14 +3,14 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="색인" href="genindex.html"><link rel="search" title="검색" href="search.html"><link rel="next" title="시작하기" href="getting_started.html">
+<link rel="index" title="색인" href="genindex.html"><link rel="search" title="검색" href="search.html"><link rel="next" title="처음 검색해 보기" href="getting_started.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>SQL Mapper Documentation</title>
+        <title>매뉴얼 검색 가이드</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=261a68a7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=215d4fb9" />
     
     
 
@@ -19,18 +19,24 @@
   body {
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
+  --color-brand-primary: #166766;
+  --color-brand-content: #166766;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #72d5c6;
+  --color-brand-content: #72d5c6;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #72d5c6;
+  --color-brand-content: #72d5c6;
   
       }
     }
@@ -162,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="#"><div class="brand">SQL Mapper Documentation</div></a>
+      <a href="#"><div class="brand">매뉴얼 검색 가이드</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -183,7 +189,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
   
-  <span class="sidebar-brand-text">SQL Mapper Documentation</span>
+  <span class="sidebar-brand-text">매뉴얼 검색 가이드</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="검색" name="q" aria-label="검색">
@@ -191,13 +197,14 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">개발 문서</span></p>
+  <p class="caption" role="heading"><span class="caption-text">사용 가이드</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">개발 공통 가이드</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL / SqlSession 사용 가이드</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_structure.html">프로젝트 구조</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">처음 검색해 보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">검색과 등록의 흐름</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">수정할 파일 찾기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL 추가하고 호출하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">자주 쓰는 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">설정과 비밀값 보호</a></li>
 </ul>
 
 </div>
@@ -232,78 +239,93 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="sql-mapper-coffee-search">
-<h1>SQL Mapper / Coffee Search 개발 문서<a class="headerlink" href="#sql-mapper-coffee-search" title="Link to this heading">¶</a></h1>
-<p>이 사이트는 현재 <code class="docutils literal notranslate"><span class="pre">src/group_project</span></code> 소스를 기준으로 공통 DB 모듈과 Coffee Search 프로그램의 구조, 실행, 확장 방법을 설명합니다. 진입점은 <code class="docutils literal notranslate"><span class="pre">car_search_rag/car_search/coffee_search.py</span></code> 이고 SQL은 같은 디렉터리의 <code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code> 에 있습니다.</p>
-<section id="id1">
-<h2>빠른 시작<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>처음 실행할 때: <a class="reference internal" href="getting_started.html"><span class="doc">시작하기</span></a> — 환경, DB 조건, 실행 명령</p></li>
-<li><p>전체 호출 흐름을 볼 때: <a class="reference internal" href="development_guide.html"><span class="doc">개발 공통 가이드</span></a> — PDF 등록과 질문 검색</p></li>
-<li><p>SQL을 추가하거나 연결을 묶을 때: <a class="reference internal" href="sql_mapper_guide.html"><span class="doc">SQL / SqlSession 사용 가이드</span></a> — Mapper, 로그, Transaction</p></li>
-<li><p>파일을 찾을 때: <a class="reference internal" href="project_structure.html"><span class="doc">프로젝트 구조</span></a> — 현재 디렉터리와 변경 위치</p></li>
-<li><p>메서드 시그니처를 볼 때: <a class="reference internal" href="api.html"><span class="doc">API Reference</span></a> — 공통 클래스와 서비스 API</p></li>
-</ul>
-</section>
+          <section id="id1">
+<h1>매뉴얼 검색, 한눈에 이해하기<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<div class="hero docutils container">
+<p><strong>PDF 매뉴얼에서 질문과 관련된 내용을 찾아주는 프로그램입니다.</strong></p>
+<p>예를 들어 “커피가 나오지 않아요”라고 질문하면, 등록된 매뉴얼에서
+관련 페이지와 설명을 찾습니다. 현재 Coffee Search 예제를 기준으로 안내합니다.</p>
+</div>
+<div class="flow docutils container">
+<p><strong>질문 입력</strong> → <strong>의미를 숫자로 변환</strong> → <strong>매뉴얼과 비교</strong> → <strong>관련 페이지 반환</strong></p>
+</div>
 <section id="id2">
-<h2>주요 구성<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">common/</span></code> 의 <code class="docutils literal notranslate"><span class="pre">SqlSession</span></code> 은 SQL Mapper 등록·실행·트랜잭션을 담당하고 <code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code> 를 통해 필요할 때 PostgreSQL 연결을 만듭니다. <code class="docutils literal notranslate"><span class="pre">DocumentReader</span></code> 는 PDF를 페이지별 문서 목록으로 바꿉니다. <code class="docutils literal notranslate"><span class="pre">CoffeeSearchService</span></code> 는 한국어 구간 필터링, OpenAI 임베딩, <code class="docutils literal notranslate"><span class="pre">CFF_MACH</span></code>/<code class="docutils literal notranslate"><span class="pre">CFF_MACH_DTL</span></code> 등록과 pgvector 유사도 검색을 조합합니다. <code class="docutils literal notranslate"><span class="pre">common/vector_store_manager.py</span></code> 는 현재 빈 파일입니다.</p>
-<div class="admonition important">
-<p class="admonition-title">중요</p>
-<p>현재 기본 실행은 <strong>검색 테스트</strong> 입니다. PDF 등록 호출은 <code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code> 에서 주석 처리되어 있습니다. 등록을 활성화하면 기존 머신 상세 데이터를 삭제·재등록하고 OpenAI 임베딩 API를 호출합니다.</p>
+<h2>어디부터 보면 될까요?<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<div class="cards docutils container">
+<div class="card docutils container">
+<p><strong>01 · 처음 실행한다면</strong></p>
+<p>준비물과 검색 예제부터 확인하세요.</p>
+<p><a class="reference internal" href="getting_started.html"><span class="doc">처음 검색해 보기</span></a></p>
+</div>
+<div class="card docutils container">
+<p><strong>02 · 동작이 궁금하다면</strong></p>
+<p>검색과 PDF 등록을 각각 네 단계로 살펴봅니다.</p>
+<p><a class="reference internal" href="development_guide.html"><span class="doc">검색과 등록의 흐름</span></a></p>
+</div>
+<div class="card docutils container">
+<p><strong>03 · 기능을 바꾼다면</strong></p>
+<p>수정할 파일을 찾고 SQL을 연결하세요.</p>
+<p><a class="reference internal" href="project_structure.html"><span class="doc">수정할 파일 찾기</span></a> · <a class="reference internal" href="sql_mapper_guide.html"><span class="doc">SQL 추가하고 호출하기</span></a></p>
+</div>
 </div>
 </section>
 <section id="id3">
-<h2>문서 목차<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<h2>먼저 알아둘 세 가지<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>검색 결과는 매뉴얼의 관련 내용입니다.</strong> 현재 서비스에는 답변 문장을 새로 생성하는 단계가 없습니다.</p></li>
+<li><p><strong>검색 전에 PDF가 DB에 등록되어 있어야 합니다.</strong> 등록과 검색은 서로 다른 작업입니다.</p></li>
+<li><p><strong>실제 키와 접속주소는 로컬에만 둡니다.</strong> 문서에는 설정 이름과 역할만 설명합니다.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">중요</p>
+<p>현재 <code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code> 는 검색 후 <strong>Supabase 이미지 업로드도 실행</strong> 합니다.
+검색만 확인하려면 <a class="reference internal" href="getting_started.html"><span class="doc">처음 검색해 보기</span></a> 의 별도 예제를 사용하세요.
+PDF 재등록은 해당 머신의 기존 상세 데이터를 교체합니다.</p>
+</div>
+</section>
+<section id="id4">
+<h2>낯선 용어, 쉽게 보기<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>용어</p></th>
+<th class="head"><p>의미</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>임베딩 / 벡터</p></td>
+<td><p>문장의 의미를 비교할 수 있도록 바꾼 숫자 목록</p></td>
+</tr>
+<tr class="row-odd"><td><p>pgvector</p></td>
+<td><p>PostgreSQL에서 벡터를 저장하고 비교하는 확장 기능</p></td>
+</tr>
+<tr class="row-even"><td><p>Service</p></td>
+<td><p>PDF 처리, 임베딩, DB 조회의 순서를 정하는 코드</p></td>
+</tr>
+<tr class="row-odd"><td><p>SQL Mapper</p></td>
+<td><p>SQL에 이름을 붙여 Python에서 호출하는 방식</p></td>
+</tr>
+<tr class="row-even"><td><p>트랜잭션</p></td>
+<td><p>여러 DB 변경을 함께 성공시키거나 함께 취소하는 작업 단위</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">개발 문서</span></p>
+<p class="caption" role="heading"><span class="caption-text">사용 가이드</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#db">환경 변수와 DB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id2">실행</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id3">등록과 검색의 차이</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#id4">정상 실행 확인</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">개발 공통 가이드</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#id2">전체 프로그램 구조</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#service-sql">실행 파일 → Service → SQL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#id3">공통 영역</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#coffee-search-pdf">Coffee Search 영역과 PDF 등록</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#vector">질문 검색과 Vector 검색</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#embedding-pgvector">Embedding / pgvector</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#sql-mapper-connection-transaction">SQL Mapper와 Connection / Transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#id4">새 기능의 변경 위치</a></li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide.html#id5">현재 구현 상태와 주의사항</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL / SqlSession 사용 가이드</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sql_mapper_guide.html#sqlsession-databasemanager-sql">SqlSession, DatabaseManager, SQL 파일</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_mapper_guide.html#mapper-sql">Mapper 이름과 SQL 추가</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_mapper_guide.html#id1">실행 메서드</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_mapper_guide.html#batch-execute-many">Batch 실행 - execute_many()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_mapper_guide.html#connection-transaction">Connection과 Transaction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_mapper_guide.html#sql">SQL과 결과 로그</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sql_mapper_guide.html#coffee-search">Coffee Search의 사용 예</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="project_structure.html">프로젝트 구조</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="project_structure.html#id2">경로 기준</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_structure.html#id3">파일별 책임</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_structure.html#id4">변경 위치를 고를 때</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api.html#sqlsession">SqlSession</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#databasemanager">DatabaseManager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#documentreader">DocumentReader</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#coffeesearchservice">CoffeeSearchService</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api.html#id1">결과 키 변환 함수</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">처음 검색해 보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">검색과 등록의 흐름</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">수정할 파일 찾기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL 추가하고 호출하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">자주 쓰는 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">설정과 비밀값 보호</a></li>
 </ul>
 </div>
-<p>문서와 코드가 다르면 현재 소스를 우선합니다. 이 사이트의 원본은 <code class="docutils literal notranslate"><span class="pre">docs/source/</span></code> 이며 <code class="docutils literal notranslate"><span class="pre">docs/build_html.bat</span></code> 로 <code class="docutils literal notranslate"><span class="pre">docs/build/html/</span></code> 을 다시 생성합니다.</p>
 </section>
 </section>
 
@@ -317,7 +339,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">시작하기</div>
+                <div class="title">처음 검색해 보기</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -352,10 +374,10 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">SQL Mapper / Coffee Search 개발 문서</a><ul>
-<li><a class="reference internal" href="#id1">빠른 시작</a></li>
-<li><a class="reference internal" href="#id2">주요 구성</a></li>
-<li><a class="reference internal" href="#id3">문서 목차</a></li>
+<li><a class="reference internal" href="#">매뉴얼 검색, 한눈에 이해하기</a><ul>
+<li><a class="reference internal" href="#id2">어디부터 보면 될까요?</a></li>
+<li><a class="reference internal" href="#id3">먼저 알아둘 세 가지</a></li>
+<li><a class="reference internal" href="#id4">낯선 용어, 쉽게 보기</a></li>
 </ul>
 </li>
 </ul>
