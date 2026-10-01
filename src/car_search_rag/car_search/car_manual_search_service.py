@@ -14,6 +14,9 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
 machine_logger = logging.getLogger("car_search_rag.car_manual")
 
+#=========================================================
+# 검색 서비스
+#=========================================================
 class CarManualSearchService:
 
     sql_session : SqlSession
