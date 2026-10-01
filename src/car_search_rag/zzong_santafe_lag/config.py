@@ -11,7 +11,8 @@ from pathlib import Path
 class ManualConfig:
     """현재 검토한 PDF와 로컬 모델의 설정을 보관합니다."""
     # [프로젝트 추가] 코드 파일 위치로 PDF 경로를 계산해 실행 폴더 차이로 생기는 파일 찾기 오류를 예방합니다.
-    project_folder: Path = field(default_factory=lambda: Path(__file__).resolve().parents[2])
+    # [프로젝트 추가] src/car_search_rag 아래로 이동한 폴더에서 세 단계 위의 프로젝트 루트를 찾습니다.
+    project_folder: Path = field(default_factory=lambda: Path(__file__).resolve().parents[3])
     # [모델 추가] 이 모델은 확인한 수업 노트북에서 찾지 못했습니다.
     # 선택 근거: 개인 02번 노트북에서 수업의 MiniLM과 같은 샘플로 비교해 우선 후보로 정했습니다.
     # 역할: PDF 글과 확인한 그림 설명을 768차원 벡터로 바꿔 비슷한 의미의 자료를 찾습니다.

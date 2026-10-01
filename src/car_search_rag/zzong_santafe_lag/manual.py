@@ -7,12 +7,12 @@ import argparse
 import sys
 from pathlib import Path
 
-# 파일을 직접 실행해도 src 폴더 안의 개인 코드를 찾을 수 있게 합니다.
+# 파일을 직접 실행해도 src 폴더의 car_search_rag 패키지를 찾을 수 있게 합니다.
 # 현재 작업 폴더에 의존하지 않으므로 notebooks에서 실행해도 PDF 경로가 달라지지 않습니다.
 if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
-from zzong_santafe_lag.manual_service import ManualService
+from car_search_rag.zzong_santafe_lag.manual_service import ManualService
 
 
 def report(message):
@@ -97,7 +97,7 @@ def main(argv=None):
             for question in args.question:
                 print_hits(engine, question, args.top_k, args.full_text)
         else:
-            from zzong_santafe_lag.evaluation import compare_search
+            from car_search_rag.zzong_santafe_lag.evaluation import compare_search
             compare_search(engine, progress=report)
         return 0
     except (FileNotFoundError, ValueError, RuntimeError, OSError) as error:

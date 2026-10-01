@@ -1,0 +1,112 @@
+-- [프로젝트 추가] 개인 테이블 전용 저장·조회 SQL Mapper입니다.
+-- :이름은 파이썬에서 전달할 값입니다. 문자열을 SQL에 직접 이어 붙이지 않습니다.
+-- 생성 SQL은 별도 db 폴더에 있어 mapper 등록만으로 테이블을 만들지 않습니다.
+
+-- name: list_tables
+SELECT table_name FROM information_schema.tables
+WHERE table_schema = 'zzong_santafe_lag' AND table_type = 'BASE TABLE'
+ORDER BY table_name;
+
+-- name: connection_info
+-- [프로젝트 추가] 주소·비밀번호 없이 연결한 DB와 읽기 전용 상태를 표시합니다.
+SELECT current_database() AS database_name, current_user AS database_user,
+       current_setting('transaction_read_only') AS read_only,
+       e.extversion AS vector_version, n.nspname AS vector_schema
+FROM pg_extension e JOIN pg_namespace n ON n.oid = e.extnamespace
+WHERE e.extname = 'vector';
+
+-- name: personal_table_counts
+-- 개인 여섯 테이블만 읽습니다. 공유 public 테이블의 자료는 조회하지 않습니다.
+SELECT 'documents' AS table_name, count(*) AS row_count FROM zzong_santafe_lag.documents
+UNION ALL SELECT 'processing_runs', count(*) FROM zzong_santafe_lag.processing_runs
+UNION ALL SELECT 'parent_records', count(*) FROM zzong_santafe_lag.parent_records
+UNION ALL SELECT 'chunks', count(*) FROM zzong_santafe_lag.chunks
+UNION ALL SELECT 'images', count(*) FROM zzong_santafe_lag.images
+UNION ALL SELECT 'record_images', count(*) FROM zzong_santafe_lag.record_images;
+
+-- name: personal_table_sizes
+-- 테이블·색인·TOAST 크기이며 Storage 파일과 DB 전체 관리 영역은 제외합니다.
+SELECT c.relname AS table_name, pg_total_relation_size(c.oid) AS bytes
+FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE n.nspname = 'zzong_santafe_lag' AND c.relkind = 'r'
+ORDER BY c.relname;
+
+-- name: insert_document!
+-- PDF 한 건 저장. 같은 파일이 있으면 오류로 알리고 덮어쓰지 않습니다.
+INSERT INTO zzong_santafe_lag.documents
+(id, file_name, file_sha256, total_pages, local_path, storage_bucket, storage_path)
+VALUES (:id, :file_name, :file_sha256, :total_pages, :local_path, :storage_bucket, :storage_path);
+
+-- name: insert_run!
+-- 설정 저장. 완료 확인 전에는 기본값 building으로 둡니다.
+INSERT INTO zzong_santafe_lag.processing_runs
+(id, document_id, pipeline_version, model_name, model_revision,
+ embedding_dimension, token_budget, normalized, settings)
+VALUES (:id, :document_id, :pipeline_version, :model_name, :model_revision,
+ :embedding_dimension, :token_budget, :normalized, :settings);
+
+-- name: insert_parent!
+-- 원문·검색 글·출처·검토 상태 보관. 표 행과 필수 문맥은 metadata에 유지합니다.
+INSERT INTO zzong_santafe_lag.parent_records
+(id, run_id, document_id, record_id, title, raw_text, content, pdf_page_number,
+ manual_page_number, source_pages, content_type, verification_status, review_flags, metadata)
+VALUES (:id, :run_id, :document_id, :record_id, :title, :raw_text, :content, :pdf_page_number,
+ :manual_page_number, :source_pages, :content_type, :verification_status, :review_flags, :metadata);
+
+-- name: insert_chunk!
+-- 제목 포함 content와 정확히 같은 입력·순서의 벡터를 전달합니다.
+INSERT INTO zzong_santafe_lag.chunks
+(id, run_id, parent_id, record_id, chunk_index, content, content_sha256,
+ token_count, parent_content_start, parent_content_end, embedding, metadata)
+VALUES (:id, :run_id, :parent_id, :record_id, :chunk_index, :content, :content_sha256,
+ :token_count, :parent_content_start, :parent_content_end, :embedding, :metadata);
+
+-- name: insert_image!
+-- 참조 정보 저장은 Storage 파일 업로드와 별개입니다.
+INSERT INTO zzong_santafe_lag.images
+(id, document_id, pdf_page_number, pdf_image_key, image_key_sha256, file_name,
+ width, height, local_path, storage_bucket, storage_path, upload_status)
+VALUES (:id, :document_id, :pdf_page_number, :pdf_image_key, :image_key_sha256, :file_name,
+ :width, :height, :local_path, :storage_bucket, :storage_path, :upload_status);
+
+-- name: insert_record_image!
+-- 그림의 설명과 연결 검토 상태는 주제별로 저장합니다.
+INSERT INTO zzong_santafe_lag.record_images
+(document_id, parent_id, image_id, description, linkage_status, metadata)
+VALUES (:document_id, :parent_id, :image_id, :description, :linkage_status, :metadata);
+
+-- name: mark_run_ready!
+-- 같은 트랜잭션에서 건수·연결·벡터 검증을 마친 후에 호출합니다.
+UPDATE zzong_santafe_lag.processing_runs SET status = 'ready'
+WHERE id = :run_id AND status = 'building';
+
+-- name: get_run
+SELECT * FROM zzong_santafe_lag.processing_runs WHERE id = :run_id;
+
+-- name: get_parent
+-- 필요한 각주와 주의사항도 같은 run_id 안의 record_id로 조회합니다.
+SELECT * FROM zzong_santafe_lag.parent_records
+WHERE run_id = :run_id AND record_id = :record_id;
+
+-- name: get_parent_images
+-- 경로가 NULL이면 아직 꺼내거나 업로드하지 않은 그림 참조입니다.
+SELECT i.*, ri.description, ri.linkage_status, ri.metadata AS linkage_metadata
+FROM zzong_santafe_lag.record_images ri
+JOIN zzong_santafe_lag.images i ON i.id = ri.image_id
+JOIN zzong_santafe_lag.parent_records p ON p.id = ri.parent_id
+WHERE p.run_id = :run_id AND p.record_id = :record_id
+ORDER BY i.pdf_page_number, i.image_key_sha256;
+
+-- name: search_chunks
+-- <=>는 코사인 거리입니다. 현재 TF-IDF·질문 목적 결합 검색의 완성 대체 기능은 아닙니다.
+-- 같은 처리 버전의 완료 자료만 검색하고, 검토 상태는 부모 컬럼에서 읽습니다.
+SELECT c.record_id AS chunk_record_id, c.content AS chunk_content,
+       p.record_id AS parent_record_id, p.title, p.pdf_page_number,
+       p.manual_page_number, p.source_pages, p.verification_status,
+       1 - (c.embedding <=> :query_embedding) AS similarity
+FROM zzong_santafe_lag.chunks c
+JOIN zzong_santafe_lag.parent_records p ON p.id = c.parent_id
+JOIN zzong_santafe_lag.processing_runs r ON r.id = c.run_id
+WHERE c.run_id = :run_id AND r.status = 'ready'
+ORDER BY c.embedding <=> :query_embedding
+LIMIT :limit;
