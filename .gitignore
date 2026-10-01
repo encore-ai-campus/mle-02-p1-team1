@@ -9,6 +9,9 @@ venv/
 # Jupyter
 .ipynb_checkpoints/
 
+# 싼타페 원본 매뉴얼 PDF는 용량이 커서 Git에 올리지 않고 로컬에서만 사용한다.
+/data/santafe_hev_manual.pdf
+
 # Streamlit secrets
 .streamlit/secrets.toml
 
