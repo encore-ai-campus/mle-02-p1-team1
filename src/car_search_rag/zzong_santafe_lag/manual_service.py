@@ -8,7 +8,7 @@ from .config import ManualConfig
 from .pdf_reader import inspect_pdf
 from .sample_records import build_confirmed_samples
 from .topics import build_auto_topics
-from .reviews import apply_paddle_review, apply_oil_review
+from .reviews import apply_paddle_review, apply_oil_review, apply_seat_image_descriptions
 from .chunking import TokenCounter, split_record
 
 
@@ -38,6 +38,9 @@ class ManualService:
         # 화면에서 대조한 표·기호만 보완합니다. 다른 초안의 검토 상태는 올리지 않습니다.
         parents = apply_paddle_review(parents, inventory)
         parents = apply_oil_review(parents, inventory)
+        # [프로젝트 추가] 기존 노트북의 74쪽 그림 설명을 청킹 전에 붙입니다.
+        # 검색 글이 바뀌므로 전체 저장에서는 새 청크·벡터·작업 버전을 준비합니다.
+        parents = apply_seat_image_descriptions(parents, inventory)
         if progress:
             progress("3/4 로컬 토크나이저로 검색 조각 나누기")
         token_counter = TokenCounter(self.config.model_name, revision=self.config.model_revision)

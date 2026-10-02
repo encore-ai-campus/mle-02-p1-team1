@@ -1,0 +1,138 @@
+{
+  "pid": 20200,
+  "started_at": "2026-10-02T11:52:03.352154+09:00",
+  "approved_manifest": "893151d66a49fab8f21060ee95e7917054ebb12753dc62eb4ead26cd52798a1b",
+  "phase": "completed",
+  "db_written": true,
+  "updated_at": "2026-10-02T11:56:32.287236+09:00",
+  "last_progress": "개인 record_images: 1157행 저장 준비 — 아직 트랜잭션 확정 전",
+  "preview": {
+    "row_counts": {
+      "documents": 1,
+      "processing_runs": 1,
+      "parent_records": 527,
+      "chunks": 2213,
+      "images": 864,
+      "record_images": 1157
+    },
+    "additional_rows_if_new_run": {
+      "documents": 0,
+      "processing_runs": 1,
+      "parent_records": 527,
+      "chunks": 2213,
+      "images": 861,
+      "record_images": 1157
+    },
+    "reuse_images": 3,
+    "db_snapshot": {
+      "documents": 1,
+      "processing_runs": 1,
+      "parent_records": 4,
+      "chunks": 11,
+      "images": 3,
+      "record_images": 3
+    },
+    "image_links_with_description": 12,
+    "image_links_without_description": 1145,
+    "input_manifest_sha256": "893151d66a49fab8f21060ee95e7917054ebb12753dc62eb4ead26cd52798a1b",
+    "pipeline_version": "full_manual_seat74_v1",
+    "summary": {
+      "pdf_pages": 779,
+      "image_references": 864,
+      "parent_records": 527,
+      "search_chunks": 2213,
+      "embedding_dimension": 768,
+      "token_budget": 128,
+      "largest_chunk_tokens": 128,
+      "verification_status": {
+        "sample_verified": 14,
+        "auto_draft_needs_review": 507,
+        "visually_reviewed_source": 6
+      }
+    },
+    "seat74_updates": [
+      {
+        "record_id": "auto_topic_65",
+        "source_pages": [
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85
+        ],
+        "verification_status": "auto_draft_needs_review",
+        "content_tail": "으로 이동하고 스위치(2)를 누르면 뒤로 이동 합니다. [경고] 뒷좌석에 사람이 타거나 내리는 도중에는 좌석 조절 스위치를 누르지 마십시오. 좌석이 갑자기 움 직여 탑승자가 다칠 수 있습니다.\n[그림 설명 · PDF 74쪽]\nPDF 74쪽 · 다리 받침대: 번호 1~4가 표시된 좌석 조절 스위치와 좌석 움직임 방향을 보여준다.\nPDF 74쪽 · 릴렉션 기능 (릴렉션 컴포트 시트): 좌석의 앞뒤 위치, 높이, 등받이 기울기 조절 방향을 보여준다."
+      }
+    ],
+    "embedding_complete": false,
+    "db_written": false,
+    "additional_storage_uploads": 0
+  },
+  "proposed_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "embedding_report": {
+    "shape": [
+      2213,
+      768
+    ],
+    "dtype": "float32",
+    "norm_min": 0.9999998211860657,
+    "norm_max": 1.0000001192092896,
+    "failed_chunks": 0,
+    "vector_bytes": 6798336,
+    "largest_chunk_tokens": 128,
+    "model_name": "jhgan/ko-sroberta-multitask-mrl",
+    "model_revision": "3ec6ac494ac7ab802fbeed415a99d546c3a0503c",
+    "elapsed_seconds": 197.102,
+    "finite": true,
+    "normalized": true,
+    "input_manifest_sha256": "893151d66a49fab8f21060ee95e7917054ebb12753dc62eb4ead26cd52798a1b",
+    "db_written": false,
+    "storage_uploaded": false
+  },
+  "save_result": {
+    "all_fields_match": true,
+    "vectors_exact_match": true,
+    "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+    "reused_existing_run": false,
+    "schema_counts": [
+      {
+        "table_name": "documents",
+        "row_count": 1
+      },
+      {
+        "table_name": "processing_runs",
+        "row_count": 2
+      },
+      {
+        "table_name": "parent_records",
+        "row_count": 531
+      },
+      {
+        "table_name": "chunks",
+        "row_count": 2224
+      },
+      {
+        "table_name": "images",
+        "row_count": 864
+      },
+      {
+        "table_name": "record_images",
+        "row_count": 1160
+      }
+    ],
+    "allocated_bytes": 16072704,
+    "additional_storage_uploads": 0
+  },
+  "sample_unchanged": true
+}

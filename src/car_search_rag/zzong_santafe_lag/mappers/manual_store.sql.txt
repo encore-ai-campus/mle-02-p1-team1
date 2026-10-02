@@ -83,6 +83,26 @@ WHERE id = :run_id AND status = 'building';
 -- name: get_run
 SELECT * FROM zzong_santafe_lag.processing_runs WHERE id = :run_id;
 
+-- name: get_document_images
+-- [프로젝트 추가] 같은 개인 PDF의 기존 그림은 읽어 재사용합니다.
+SELECT * FROM zzong_santafe_lag.images WHERE document_id = :document_id;
+
+-- name: lock_full_document
+-- [프로젝트 추가] 전체 저장의 중복 실행은 개인 PDF 한 행의 잠금으로 순서를 정합니다.
+SELECT * FROM zzong_santafe_lag.documents WHERE id = :document_id FOR UPDATE;
+
+-- name: lock_document_images
+-- [프로젝트 추가] 저장 중 재사용하는 개인 그림의 경로가 동시에 바뀌지 않게 합니다.
+SELECT * FROM zzong_santafe_lag.images WHERE document_id = :document_id FOR SHARE;
+
+-- name: find_full_run
+-- [프로젝트 추가] 같은 전체 입력의 완료 작업은 대조해 재사용합니다. 표본 작업은 대상이 아닙니다.
+SELECT * FROM zzong_santafe_lag.processing_runs
+WHERE document_id = :document_id AND pipeline_version = :pipeline_version
+  AND model_name = :model_name AND model_revision = :model_revision
+  AND settings ->> 'input_manifest_sha256' = :input_manifest_sha256
+  AND settings ->> 'scope' = 'full_manual';
+
 -- name: get_document
 SELECT * FROM zzong_santafe_lag.documents WHERE id = :document_id;
 
@@ -140,5 +160,62 @@ FROM zzong_santafe_lag.chunks c
 JOIN zzong_santafe_lag.parent_records p ON p.id = c.parent_id
 JOIN zzong_santafe_lag.processing_runs r ON r.id = c.run_id
 WHERE c.run_id = :run_id AND r.status = 'ready'
-ORDER BY c.embedding <=> :query_embedding
+ORDER BY c.embedding <=> :query_embedding, c.record_id
 LIMIT :limit;
+
+-- name: get_run_search_counts
+-- [프로젝트 추가] 전체 PDF가 아닌 현재 run_id의 자료 개수만 확인합니다.
+SELECT
+    (SELECT count(*) FROM zzong_santafe_lag.parent_records WHERE run_id = :run_id) AS parent_count,
+    (SELECT count(*) FROM zzong_santafe_lag.chunks WHERE run_id = :run_id) AS chunk_count;
+
+-- name: search_parent_chunks
+-- [프로젝트 추가] 모든 청크의 거리를 계산하고 부모마다 가장 가까운 청크 한 개를 남깁니다.
+-- DISTINCT ON은 괄호 안의 부모 번호가 같은 행 중 정렬 첫 행을 선택합니다.
+-- 부모별 대표를 다시 유사도 순으로 정렬합니다. 표본·다른 작업 벡터는 포함하지 않습니다.
+WITH representatives AS (
+    SELECT DISTINCT ON (p.id)
+           c.record_id AS chunk_record_id, c.content AS chunk_content,
+           p.record_id AS parent_record_id, p.title, p.pdf_page_number,
+           p.manual_page_number, p.source_pages, p.verification_status,
+           1 - (c.embedding <=> :query_embedding) AS similarity
+    FROM zzong_santafe_lag.chunks c
+    JOIN zzong_santafe_lag.parent_records p ON p.id = c.parent_id
+    JOIN zzong_santafe_lag.processing_runs r ON r.id = c.run_id
+    WHERE c.run_id = :run_id AND r.status = 'ready'
+    ORDER BY p.id, c.embedding <=> :query_embedding, c.record_id
+)
+SELECT * FROM representatives
+ORDER BY similarity DESC, chunk_record_id
+LIMIT :limit;
+
+-- name: get_run_image_details
+-- [프로젝트 추가] 같은 작업의 주제·그림·설명을 한 번에 읽어 검색 결과에 연결합니다.
+SELECT i.*, p.record_id AS parent_record_id,
+       ri.description, ri.linkage_status, ri.metadata AS linkage_metadata
+FROM zzong_santafe_lag.record_images ri
+JOIN zzong_santafe_lag.images i ON i.id = ri.image_id
+JOIN zzong_santafe_lag.parent_records p ON p.id = ri.parent_id
+WHERE p.run_id = :run_id
+ORDER BY p.record_id, i.pdf_page_number, i.image_key_sha256;
+
+-- name: image_update_permission
+-- [프로젝트 추가] 개인 그림의 경로 변경 권한만 조회합니다. 권한을 새로 부여하지 않습니다.
+SELECT has_table_privilege(current_user, 'zzong_santafe_lag.images', 'UPDATE') AS can_update;
+
+-- name: sample_storage_objects
+-- [프로젝트 추가] 개인 표본 경로의 파일 존재 정보만 읽습니다. Storage 시스템 테이블은 수정하지 않습니다.
+SELECT name FROM storage.objects WHERE bucket_id = :bucket_id AND name LIKE :prefix;
+
+-- name: lock_sample_image
+-- [프로젝트 적용] 경로 연결 중 같은 그림 행이 동시에 바뀌지 않도록 개인 행만 잠급니다.
+SELECT * FROM zzong_santafe_lag.images
+WHERE id = :image_id AND document_id = :document_id FOR UPDATE;
+
+-- name: mark_image_uploaded!
+-- [프로젝트 추가] 원본 다운로드 확인 뒤 보관 경로 세 항목만 변경합니다. 설명·원문·벡터는 그대로입니다.
+UPDATE zzong_santafe_lag.images
+SET storage_bucket = :storage_bucket, storage_path = :storage_path, upload_status = 'uploaded'
+WHERE id = :image_id AND document_id = :document_id AND local_path = :local_path
+  AND ((upload_status = 'local_available' AND storage_bucket IS NULL AND storage_path IS NULL)
+       OR (upload_status = 'uploaded' AND storage_bucket = :storage_bucket AND storage_path = :storage_path));

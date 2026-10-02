@@ -14,3 +14,7 @@ psycopg[binary]>=3.3.6
 pgvector>=0.3.6
 python-dotenv>=1.2.3
 langchain-postgres>=0.0.18
+# [프로젝트 적용] 소나타 공통 코드와 같은 기존 Supabase SDK로 개인 그림을 업로드합니다.
+# httpx는 SDK에도 포함되며 비밀키 없는 공개 주소의 실제 그림 조회에 사용합니다.
+supabase>=2.31.0
+httpx

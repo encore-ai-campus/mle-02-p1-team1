@@ -5,6 +5,32 @@
 
 from dataclasses import dataclass, field
 from pathlib import Path
+import re
+from uuid import UUID
+
+
+# [프로젝트 추가] 현재 DB 검색·그림 조회 대상은 승인 후 저장한 하나의 표본 작업입니다.
+# 전체 자료로 확대할 때는 저장 버전과 조회 범위를 별도로 검토합니다.
+SAMPLE_RUN_ID = UUID("dc327282-8cfd-4eb3-a2b0-1433e0b088ce")
+
+
+# [프로젝트 추가] 소나타의 쪽수·순번 파일명 형식을 개인 표본 3개에 적용합니다.
+# PDF 내부 키와 PC 파일명은 바꾸지 않고 Storage의 이름만 이 표로 결정합니다.
+SAMPLE_IMAGE_OBJECT_NAMES = {
+    (44, "I1.jpg"): "page_0044_image_01.jpg",
+    (44, "I2.jpg"): "page_0044_image_02.jpg",
+    (45, "I1.jpg"): "page_0045_image_01.jpg",
+}
+
+
+def sample_image_storage_path(file_sha256, pdf_page_number, file_name):
+    """승인한 표본 그림의 개인 Storage 경로를 만듭니다. 그 외 그림은 거부합니다."""
+    if not re.fullmatch(r"[0-9a-f]{64}", file_sha256):
+        raise ValueError("PDF 파일 식별값을 확인하세요.")
+    name = SAMPLE_IMAGE_OBJECT_NAMES.get((pdf_page_number, file_name))
+    if name is None:
+        raise ValueError("이번 업로드는 PDF 44·45쪽의 표본 그림 3개에 한정합니다.")
+    return f"cars/hyundai/santafe_hev/zzong_santafe_lag/{file_sha256}/{name}"
 
 
 @dataclass(frozen=True)

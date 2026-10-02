@@ -1,4 +1,4 @@
-"""원본 화면에서 대조한 패들 쉬프트와 오일 표의 보완을 적용합니다."""
+"""원본 화면에서 대조한 표·기호와 기존 그림 설명의 보완을 적용합니다."""
 
 # [프로젝트 추가] PDF 원본 화면을 대조한 구간에만 표·기호·그림 보완을 적용합니다.
 # 10번(패들 쉬프트)·11번(오일 표) 노트북의 확인 기록을 옮겼습니다.
@@ -6,6 +6,59 @@
 import re
 from copy import deepcopy
 from .chunking import prepare_text
+
+
+def apply_seat_image_descriptions(parents, inventory):
+    """74쪽의 기존 그림 설명을 검색 글에 반영합니다. 넓은 앞좌석 주제는 초안으로 유지합니다."""
+    # [프로젝트 추가] 01·03번 노트북의 설명을 옮깁니다. 74~75쪽 화면에서 배치를 확인했습니다.
+    # 위 그림은 다리 받침대 주의사항 앞, 아래 그림은 릴렉션 제목 아래에 있습니다.
+    descriptions = {
+        "I2.jpg": ("다리 받침대", "번호 1~4가 표시된 좌석 조절 스위치와 좌석 움직임 방향을 보여준다."),
+        "I7.jpg": ("릴렉션 기능 (릴렉션 컴포트 시트)", "좌석의 앞뒤 위치, 높이, 등받이 기울기 조절 방향을 보여준다."),
+    }
+    page_images = inventory["reader"].pages[73].images
+    by_key = {}
+    for key in page_images.keys():
+        image = page_images[key]
+        if image.name in descriptions:
+            by_key[key] = (image.name, image.image.size)
+    if {name for name, size in by_key.values()} != set(descriptions) or len(by_key) != 2:
+        raise ValueError("74쪽 그림 이름·내부 키가 달라졌습니다. 기존 설명을 다시 확인하세요.")
+    updated = deepcopy(parents)
+    matched = set()
+    for record in updated:
+        meta = record["metadata"]
+        if 74 not in meta["source_pages"]:
+            continue
+        lines = []
+        for part in record["image_parts"]:
+            if part["pdf_page_number"] != 74:
+                continue
+            key = part.get("pdf_image_key")
+            if isinstance(key, list):
+                key = tuple(key)
+            if key not in by_key:
+                raise ValueError("74쪽 주제와 그림 키를 다시 대조해야 합니다.")
+            name, size = by_key[key]
+            heading, description = descriptions[name]
+            part.update(name=name, size=size, description=description, source_heading=heading,
+                        description_source="notebooks/03_full_manual_chunk_preview.ipynb:known_image_descriptions")
+            matched.add(name)
+            lines.append(f"PDF 74쪽 · {heading}: {description}")
+        if lines:
+            marker = "[그림 설명 · PDF 74쪽]"
+            if marker in record["content"]:
+                raise ValueError("74쪽 설명이 이미 적용됐습니다. 원본 기록에서 한 번만 적용하세요.")
+            record["content"] += "\n" + marker + "\n" + "\n".join(lines)
+            # 일부 그림을 확인해도 앞좌석 70~85쪽 전체 검토가 끝난 것은 아닙니다.
+            # raw_text·원문 구간·검토 상태·페이지 수준 연결 주의 표시는 유지합니다.
+            meta["image_description_updates"] = {
+                "pdf_page_number": 74, "image_names": sorted(descriptions),
+                "layout_reviewed_pages": [74, 75], "topic_boundary_review_complete": False,
+            }
+    if matched != set(descriptions):
+        raise ValueError("74쪽 그림 설명을 연결할 부모 기록이 없습니다.")
+    return updated
 
 
 def apply_paddle_review(parents, inventory):

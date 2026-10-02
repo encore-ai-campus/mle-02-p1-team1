@@ -33,6 +33,22 @@ class LocalEmbedder:
         if self.dimension != 768:
             raise ValueError("검토한 768차원 모델과 다릅니다.")
 
+    def embed_question(self, question):
+        """같은 모델·버전으로 질문 하나만 임베딩합니다. 문서 벡터는 다시 계산하지 않습니다."""
+        if not isinstance(question, str) or not question.strip():
+            raise ValueError("검색할 질문을 입력하세요.")
+        question = question.strip()
+        if self.token_counter.count(question) > self.token_counter.budget:
+            raise ValueError("질문이 모델 입력 한도를 넘었습니다. 128토큰 이내로 줄여 주세요.")
+        # [프로젝트 적용] 저장 당시와 같은 encode·정규화를 질문에도 사용합니다.
+        vector = np.asarray(self.model.encode(question, convert_to_numpy=True,
+                            normalize_embeddings=True, show_progress_bar=False), dtype=np.float32)
+        if vector.shape != (self.dimension,) or not np.isfinite(vector).all():
+            raise ValueError("질문 벡터의 크기 또는 숫자가 올바르지 않습니다.")
+        if not np.isclose(np.linalg.norm(vector), 1.0, atol=1e-5):
+            raise ValueError("질문 벡터의 정규화를 확인하세요.")
+        return vector
+
     def embed_chunks(self, chunks, progress=print):
         """청크 순서를 유지해 임베딩하며 오류가 나면 해당 구간에서 멈춥니다."""
         if not chunks:

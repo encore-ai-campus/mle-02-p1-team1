@@ -130,6 +130,10 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
     for index, chunk in enumerate(full_search_chunks):
         indices_by_parent[chunk["metadata"]["parent_record_id"]].append(index)
 
+    # [프로젝트 추가] M7 실험에서만 사용하는 원문 표현 색인입니다. 기본 검색은 기존대로 유지합니다.
+    from .specific_terms import SpecificTermMatcher
+    specific_matcher = SpecificTermMatcher(full_parent_records)
+
     navigation_names = {
         normalize_query_text(item["name"])
         for parent in parent_lookup.values()
@@ -211,7 +215,7 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
         return False
 
 
-    def purpose_rank(question, question_vector, top_k=3, use_routing=True):
+    def purpose_rank(question, question_vector, top_k=3, use_routing=True, use_specific_terms=False):
         """작은 조각의 결합 점수로 부모를 정렬하고 질문 목적에 맞는 범위를 선택합니다."""
         if not 1 <= top_k <= len(parent_lookup):
             raise ValueError("검색 결과 수를 확인하세요.")
@@ -231,6 +235,7 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
                 best_navigation_rows[parent_id] = {"score": float(score), "row": row}
 
         all_hits = []
+        specific = specific_matcher.bonuses(question) if use_specific_terms else None
         for parent_id, indices in indices_by_parent.items():
             best_index = max(indices, key=lambda index: float(combined_scores[index]))
             score = float(combined_scores[best_index])
@@ -245,9 +250,14 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
                     score = navigation_score
                     best_index = best_semantic_index
                     matched_row = best_navigation_rows[parent_id]["row"]
+            # [프로젝트 추가] 같은 기존 점수에 구체 표현의 포함 점수만 더합니다.
+            # 정답 출처·페이지 번호·검토 완료 여부는 순위 계산에 넣지 않습니다.
+            term_match = specific["by_record_id"][parent_id] if specific else {"bonus": 0.0, "matched_terms": []}
+            score += term_match["bonus"]
             all_hits.append({
                 "score": score, "matched_chunk": full_search_chunks[best_index],
                 "parent_record": parent_lookup[parent_id], "matched_navigation_row": matched_row,
+                "specific_bonus": term_match["bonus"], "specific_terms": term_match["matched_terms"],
             })
         all_hits.sort(key=lambda hit: hit["score"], reverse=True)
 
@@ -335,9 +345,10 @@ class SearchEngine:
         """질문 목적을 판단하고 관련 원문 후보를 돌려줍니다. 답변 생성은 하지 않습니다."""
         return self._functions["search"](question, top_k=top_k)
 
-    def rank(self, question, vector, top_k=3, use_routing=True):
+    def rank(self, question, vector, top_k=3, use_routing=True, use_specific_terms=False):
         """이미 임베딩한 질문으로 검색합니다. 여러 방식 비교 때 모델 호출을 줄입니다."""
-        return self._functions["rank"](question, vector, top_k=top_k, use_routing=use_routing)
+        return self._functions["rank"](question, vector, top_k=top_k, use_routing=use_routing,
+                                       use_specific_terms=use_specific_terms)
 
     def baseline_rank(self, question, vector, top_k=3):
         """기존 부모 전체 글자 색인 방식으로 같은 질문 벡터를 비교합니다."""
