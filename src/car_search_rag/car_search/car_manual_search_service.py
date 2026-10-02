@@ -56,7 +56,7 @@ class CarManualSearchService:
         """차량 매뉴얼 PDF 처리 메인 파이프라인"""
 
         #=====================================================
-        # 2. 차량 정보 등록
+        # 1. 차량 정보 등록
         #=====================================================
         car_id = self.insert_car(
             car_brand_nm=car_brand_nm,
@@ -67,16 +67,27 @@ class CarManualSearchService:
         )
 
         machine_logger.info(f"차량 ID 생성 완료 : {car_id}")
-
-        return car_id
         
-        # 1. 텍스트 추출 및 청크 생성
+        # 2. 텍스트 추출 및 청크 생성
         chunks = self._extract_and_split_chunks(file_path)
+
+        # 3. 청크 임베딩
+        embedding_list = self._create_chunk_embeddings(chunks=chunks)
         
-        # 2. 이미지 추출 및 스토리지 업로드
-        image_list = self._extract_and_upload_images(file_path, brand, model)
-        
-        # 3. 디버깅 출력 (필요 시 별도 디버그 함수로 추출 가능)
+        # 4. 이미지 추출 및 스토리지 업로드
+        image_list = self._extract_and_upload_images(file_path=file_path,brand=car_brand_eng_nm,model=car_eng_nm)
+
+        #=====================================================
+        # 5. Chapter / Chunk / Image DB 등록
+        #=====================================================
+        self._insert_car_manual_data(
+            car_id=car_id,
+            chunks=chunks,
+            embedding_list=embedding_list,
+            image_list=image_list
+        )
+
+        # 6. 디버깅 출력 (필요 시 별도 디버그 함수로 추출 가능)
         self._print_summary(chunks, image_list)
         
         return chunks, image_list
@@ -136,6 +147,35 @@ class CarManualSearchService:
 
         return car_manual_image_list
 
+
+
+    #=========================================================
+    # 차량 매뉴얼 Chunk Embedding 생성
+    #=========================================================
+    def _create_chunk_embeddings(self, chunks):
+        """차량 매뉴얼 Chunk 텍스트 Embedding 생성"""
+
+        machine_logger.info(
+            f"Chunk Embedding 생성 시작 : {len(chunks)}개"
+        )
+
+        chunk_text_list = [
+            chunk.page_content
+            for chunk in chunks
+        ]
+
+        embedding_list = self.embedding_model.embed_documents(
+            chunk_text_list
+        )
+
+        machine_logger.info(
+            f"Chunk Embedding 생성 완료 : {len(embedding_list)}개"
+        )
+
+        return embedding_list
+
+
+
     #=========================================================
     # PDF 내 이미지 추출 및 Supabase 업로드 전담
     #=========================================================
@@ -176,6 +216,9 @@ class CarManualSearchService:
             )
             return None
 
+
+
+
     #=========================================================
     # 결과 확인 및 디버깅용 출력
     #=========================================================
@@ -197,13 +240,82 @@ class CarManualSearchService:
 
 
     #=========================================================
-    # 차량 ID 생성
+    # 차량 매뉴얼 Chapter / Chunk / Image DB 등록
     #=========================================================
-    def get_car_id(self):
-        """ 차량 ID 생성 """    
+    def _insert_car_manual_data(
+        self,
+        car_id,
+        chunks,
+        embedding_list,
+        image_list
+    ):
+        """차량 매뉴얼 Chapter / Chunk / Image DB 등록"""
 
-        result = self.sql_session.select_one("car_manual_search.select_get_car_id")
-        return result["carId"]
+        with self.sql_session.transaction():
+
+            #=====================================================
+            # 1. Chapter ID 생성
+            #=====================================================
+            car_manual_chapter_id = self.get_car_manual_chapter_id()
+
+            #=====================================================
+            # 1. Chapter 등록
+            #=====================================================
+            self.insert_car_manual_chapter(
+                car_id=car_id,
+                car_manual_chapter_id=car_manual_chapter_id,
+                car_manual_chapter_no=1,
+                car_manual_chapter_nm="전체 매뉴얼",
+                car_manual_chapter_sort_no=1
+            )
+
+            machine_logger.info(
+                f"차량 매뉴얼 Chapter 등록 완료 "
+            )
+
+
+            #=====================================================
+            # 2. Chunk 등록
+            #=====================================================
+            chunk_insert_count = self.insert_car_manual_chunks(
+                car_id=car_id,
+                car_manual_chapter_id=car_manual_chapter_id,
+                chunks=chunks,
+                embedding_list=embedding_list
+            )
+
+
+            #=====================================================
+            # 3. Image 등록
+            #=====================================================
+            image_insert_count = self.insert_car_manual_images(
+                car_id=car_id,
+                car_manual_chapter_id=car_manual_chapter_id,
+                image_list=image_list
+            )
+
+
+        machine_logger.info(
+            f"차량 매뉴얼 DB 등록 완료 : "
+            f"Chunk {chunk_insert_count}개 / "
+            f"Image {image_insert_count}개"
+        )
+
+        return chunk_insert_count, image_insert_count    
+
+
+    #=========================================================
+    # 차량 매뉴얼 Chapter ID 생성
+    #=========================================================
+    def get_car_manual_chapter_id(self):
+        """차량 매뉴얼 Chapter ID 생성"""
+
+        result = self.sql_session.select_one(
+            "car_manual_search.get_car_manual_chapter_id"
+        )
+
+        return result["carManualChapterId"]    
+
 
     #=========================================================
     # 차량 등록
@@ -234,3 +346,111 @@ class CarManualSearchService:
         machine_logger.info(f"차량 등록 완료 : {car_id}")
 
         return car_id
+
+
+    #=========================================================
+    # 차량 매뉴얼 Chapter 등록
+    #=========================================================
+    def insert_car_manual_chapter(
+        self,
+        car_id,
+        car_manual_chapter_id,  
+        car_manual_chapter_no,
+        car_manual_chapter_nm,
+        car_manual_chapter_sort_no
+    ):
+
+        self.sql_session.execute(
+            "car_manual_search.insert_car_manual_chapter",
+            {
+                "CAR_ID": car_id,
+                "CAR_MANUAL_CHAPTER_ID": car_manual_chapter_id,
+                "CAR_MANUAL_CHAPTER_NO": car_manual_chapter_no,
+                "CAR_MANUAL_CHAPTER_NM": car_manual_chapter_nm,
+                "CAR_MANUAL_CHAPTER_SORT_NO": car_manual_chapter_sort_no,
+                "USER_ID": SYSTEM_USER_ID
+            }
+        )
+
+        machine_logger.info(
+            f"차량 매뉴얼 Chapter 등록 완료 : {car_manual_chapter_id}"
+        )
+
+
+    #=========================================================
+    # 차량 매뉴얼 Chunk 등록
+    #=========================================================
+    def insert_car_manual_chunks(
+        self,
+        car_id,
+        car_manual_chapter_id,
+        chunks,
+        embedding_list
+    ):
+
+        parameters_list = []
+
+        for chunk, embedding in zip(chunks, embedding_list):
+
+            parameters_list.append(
+                {
+                    "CAR_ID": car_id,
+                    "CAR_MANUAL_CHAPTER_ID": car_manual_chapter_id,
+                    "CAR_MANUAL_CHUNK_PAGE_NO": chunk.metadata["page_no"],
+                    "CAR_MANUAL_CHUNK_NO": chunk.metadata["chunk_no"],
+                    "CAR_MANUAL_CHUNK_TXT": chunk.page_content,
+                    "CAR_MANUAL_CHUNK_EMBED_VEC": Vector(embedding),
+                    "USER_ID": SYSTEM_USER_ID
+                }
+            )
+
+        insert_count = self.sql_session.execute_many(
+            "car_manual_search.insert_car_manual_chunk",
+            parameters_list
+        )
+
+        machine_logger.info(
+            f"차량 매뉴얼 Chunk 등록 완료 : {insert_count}개"
+        )
+
+        return insert_count
+
+
+    #=========================================================
+    # 차량 매뉴얼 Image 등록
+    #=========================================================
+    def insert_car_manual_images(
+        self,
+        car_id,
+        car_manual_chapter_id,
+        image_list
+    ):
+        """차량 매뉴얼 이미지 정보 DB 등록"""
+
+        parameters_list = []
+
+        for image in image_list:
+
+            parameters_list.append(
+                {
+                    "CAR_ID": car_id,
+                    "CAR_MANUAL_CHAPTER_ID": car_manual_chapter_id,
+                    "CAR_MANUAL_IMAGE_PAGE_NO": image["page_no"],
+                    "CAR_MANUAL_IMAGE_NO": image["image_no"],
+                    "CAR_MANUAL_IMAGE_URL": image["image_url"],
+                    "CAR_MANUAL_IMAGE_DESC": None,
+                    "USER_ID": SYSTEM_USER_ID
+                }
+            )
+
+        insert_count = self.sql_session.execute_many(
+            "car_manual_search.insert_car_manual_image",
+            parameters_list
+        )
+
+        machine_logger.info(
+            f"차량 매뉴얼 Image 등록 완료 : {insert_count}개"
+        )
+
+        return insert_count
+    

@@ -57,7 +57,7 @@ RETURNING T.CAR_ID;
 
 -- name: get_car_manual_chapter_id
 -- 차량 매뉴얼 Chapter 등록 전에 사용할 ID를 생성한다.
-SELECT FN_GET_BIZ_ID('CAR_MANUAL_CHAPTER') AS ID;
+SELECT FN_GET_BIZ_ID('CAR_MANUAL_CHAPTER') AS CAR_MANUAL_CHAPTER_ID;
 
 
 --=========================================================
