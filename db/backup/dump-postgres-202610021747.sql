@@ -5,7 +5,7 @@
 -- Dumped from database version 17.6
 -- Dumped by pg_dump version 17.0
 
--- Started on 2026-10-02 15:26:05
+-- Started on 2026-10-02 17:47:00
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -1652,7 +1652,7 @@ ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON T
 ALTER DEFAULT PRIVILEGES FOR ROLE supabase_admin IN SCHEMA public GRANT ALL ON TABLES TO service_role;
 
 
--- Completed on 2026-10-02 15:26:10
+-- Completed on 2026-10-02 17:47:07
 
 --
 -- PostgreSQL database dump complete
