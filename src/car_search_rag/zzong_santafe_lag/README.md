@@ -108,7 +108,7 @@ uv pip install --python src/car_search_rag/zzong_santafe_lag/.venv/Scripts/pytho
 
 SQL Mapper Documentation의 실행 파일 / 서비스 파일 구성을 따라 개인 실행 파일과 서비스 파일을 나눴습니다. **현재 실제 공통 로더는 `src/car_search_rag` 아래의 `*.sql`을 재귀 검색합니다.** 폴더 이동 후 개인 SQL은 `.sql.txt` 확장자로 보관하고 `database.py`의 개인 하위 클래스에서 `mappers/`의 `.sql.txt`만 등록합니다. 개인 생성·조회 스크립트가 공통 로더에 포함되지 않도록 분리했습니다. DBeaver에서는 `.sql.txt`의 내용을 SQL 편집기에 가져와 사용합니다.
 
-개인 스키마 `zzong_santafe_lag`의 빈 테이블 6개를 2026-10-01 사용자 승인 후 DBeaver에서 생성했습니다. 테이블·기본 색인의 실제 합계는 **192KiB(약 0.2MB)**입니다. 전체 자료 한 버전의 DB 용량은 약 **15~30MB로 추정**하며 저장 후 실측해야 합니다. **Python의 개인 연결과 읽기 전용 조회를 실행했고 여섯 테이블 모두 0행입니다. DB 자료 삽입·Storage 업로드는 아직 하지 않았습니다.** DBeaver와 Python에서 `postgres` 연결과 `public`의 pgvector 0.8.0을 확인했습니다. [테이블·DBeaver·용량 안내](./db_guide.md)와 13·14번 노트북을 참고하세요.
+개인 스키마 `zzong_santafe_lag`의 빈 테이블 6개를 2026-10-01 생성하고, **2026-10-02 사용자 승인 후 표본 23개 행을 저장했습니다.** 원문 4개·청크 11개·이미지/연결 각각 3개와 PDF·처리 정보 각각 1개입니다. 새 읽기 전용 연결에서 원문·출처·벡터·이미지 연결을 대조했고 처리 상태 ready를 확인했습니다. 테이블·기본 색인은 **512KiB(약 0.5MB)**입니다. 전체 자료 한 버전은 약 **15~30MB로 추정**하며 전체 저장 후 실측해야 합니다. Storage 업로드와 전체 기록 저장은 아직 하지 않았습니다. [테이블·DBeaver·용량 안내](./db_guide.md)와 16번 노트북을 참고하세요.
 
 ### 개인 연결·표본 저장 형태 준비
 
@@ -116,7 +116,36 @@ SQL Mapper Documentation의 실행 파일 / 서비스 파일 구성을 따라 �
 - `database.py`의 `PersonalSqlSession(read_only=True)`는 이번 연결의 트랜잭션을 읽기 전용으로 지정합니다.
 - `db_rows.py`는 44·45쪽과 43쪽 표·각주의 문맥을 여섯 테이블의 행으로 변환합니다. 전체 저장 서비스는 아직 없습니다.
 - 실행 결과: 부모 4개·청크 11개·이미지 3개·연결 3개. 기존 필수 연결과 검토 상태를 유지합니다. 벡터 11개는 `None`이며 저장 가능한 완료 결과가 아닙니다.
-- `db_sample.py connection`은 조회만, `db_sample.py preview`는 메모리 변환만 합니다. 생성·INSERT·업로드 명령은 없습니다. `preview --full-text`로 부모 글을 읽을 수 있습니다.
+- `db_sample.py connection`은 조회만, `preview`는 변환만, `embed`는 메모리 임베딩만 합니다. 실제 표본 저장은 승인 후 `save --confirm-save`에서만 실행합니다. `inspect --run-id`는 저장한 결과를 모델 없이 읽습니다. 테이블 생성·파일 업로드 명령은 없습니다.
 - 이번에는 로컬 임베딩 모델을 실행하지 않았습니다. 다음 단계는 같은 모델 버전으로 표본 11개를 임베딩한 뒤 저장 전 검토입니다.
+
+### 표본 임베딩 실행 — 2026-10-02
+
+- `db_sample.py embed`로 PDF 43~45쪽의 부모 4개·청크 11개·이미지/연결 각각 3개를 준비하고, 청크 11개만 임베딩했습니다. DB 저장·Storage 업로드는 실행하지 않았습니다.
+- 모델은 기존 `jhgan/ko-sroberta-multitask-mrl`, 스냅샷은 `3ec6ac494ac7ab802fbeed415a99d546c3a0503c`입니다. 토크나이저와 모델을 같은 로컬 버전으로 지정했습니다. 새 모델·라이브러리는 추가하지 않았습니다.
+- 결과 `(11, 768)`, float32, 숫자 유효성 확인 완료. 벡터 길이 범위 1.0~1.0000001192로 정규화 허용 범위 안입니다. 청크 최대 128토큰, 글 식별값·부모 구간·필수 연결·그림 연결 확인 완료.
+- 모델 준비와 임베딩 구간 약 4.076초이며 PDF 조사 시간은 제외입니다. 벡터 자체의 pgvector 예상 크기는 33,880바이트(약 33.9KB)이며 전체 표본 DB 할당 용량은 실제 저장 후 측정해야 합니다.
+- 입력 기록 ID·글 식별값 목록의 SHA-256은 `a336a9c958344af7b2b21652041104764c0d67f90d51084aec3366b1f2d1f056`입니다.
+- 오늘도 개인 DB를 읽기 전용으로 조회했고 여섯 테이블은 모두 0행, 합계 192KiB입니다. 계산 결과는 실행 중 메모리에만 있었으며 파일에 저장하지 않아 실행 종료 후에는 다시 계산해야 합니다.
+- `sample_embedding.py`가 계산·확인을 담당하며 15번 노트북에서 작은 셀로 따라 할 수 있습니다. `embedding_complete=True`는 계산 완료이고 `ready_for_insert=False`는 실제 저장 전 검토·승인이 남아 있다는 뜻입니다. DB 처리 작업의 ready 상태를 변경하지 않았습니다.
+
+```powershell
+.\.venv\Scripts\python.exe src\car_search_rag\zzong_santafe_lag\db_sample.py embed
+```
+
+부모 글 전체도 읽으려면 `embed --full-text`를 사용합니다. 다음 단계는 승인 후 이 표본을 한 트랜잭션으로 저장하는 기능을 적용하고 저장된 원문·각주·그림 연결을 조회하는 것입니다. 벡터 숫자 확인은 검색 품질이나 챗봇 답변 정확도의 검증을 뜻하지 않습니다.
+
+### 표본 DB 저장·조회 — 2026-10-02
+
+- `sample_store.py`에서 승인된 모델 버전·글 식별값·표본 23개 행을 제한해 한 트랜잭션으로 저장했습니다. 저장 전과 DB의 글·출처·벡터·그림 연결이 일치하며 상태 ready입니다.
+- run_id: `dc327282-8cfd-4eb3-a2b0-1433e0b088ce`. 확정 후 새 읽기 전용 연결로 전체 필드와 float32 벡터를 대조했습니다. `inspect`로 원문·각주·그림 설명을 다시 읽는 실행도 완료했습니다.
+- 실제 테이블·기본 색인 합계 524,288바이트(512KiB). 빈 구조보다 320KiB 증가했습니다. DB 전체 관리 영역·WAL·Storage는 제외입니다.
+- 이미지는 로컬 파일 경로와 설명만 저장했습니다. PDF/그림 파일 자체는 Supabase Storage에 업로드하지 않았습니다.
+- 같은 완료 표본은 기존 값을 읽어 비교해 재사용하며 다른 기존 작업은 덮어쓰지 않고 중단하도록 작성했습니다. 중복 재실행 실험은 별도로 하지 않았습니다.
+- 16번 노트북과 `db/03_sample_readback.sql.txt`에서 데이터를 읽을 수 있습니다. 이번 상태는 표본 저장 완료이며 전체 PDF 저장·챗봇 답변·검색 품질 확인 완료는 아닙니다.
+
+```powershell
+.\.venv\Scripts\python.exe src\car_search_rag\zzong_santafe_lag\db_sample.py inspect --run-id dc327282-8cfd-4eb3-a2b0-1433e0b088ce
+```
 
 작업 코드는 `src/car_search_rag/zzong_santafe_lag/`, 기존 이미지 자료는 `data/zzong_santafe_lag/`, 원본 PDF는 `data/santafe_hev_manual.pdf`입니다. Git 브랜치는 `zzong/santafe-lag`를 사용합니다. 원본 데이터·모델·비밀키를 코드와 함께 Git에 넣지 않습니다.

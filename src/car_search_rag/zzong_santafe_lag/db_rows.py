@@ -45,6 +45,7 @@ class RowPreview:
 
     tables: dict
     selection_reasons: dict
+    embedding_report: dict | None = None
 
     def summary(self):
         """전체 벡터나 비밀번호 없이 건수·출처·그림 연결 상태를 보여줍니다."""
@@ -52,6 +53,7 @@ class RowPreview:
         chunks = self.tables["chunks"]
         images = self.tables["images"]
         pending = sum(row["embedding"] is None for row in chunks)
+        saved = bool(self.embedding_report and self.embedding_report.get("db_written"))
         return {
             "table_counts": {name: len(rows) for name, rows in self.tables.items()},
             "parents": [{
@@ -68,8 +70,14 @@ class RowPreview:
             } for row in images],
             "largest_chunk_tokens": max((row["token_count"] for row in chunks), default=0),
             "pending_embeddings": pending,
+            "embedding_report": deepcopy(self.embedding_report),
+            "embedding_complete": pending == 0 and self.embedding_report is not None,
+            "db_saved": saved,
             "ready_for_insert": False,
-            "note": "메모리 변환 미리보기입니다. 임베딩 확정·저장 전 검토가 필요하며 DB에 쓰지 않았습니다.",
+            "note": ("승인한 표본을 DB에 저장하고 새 연결에서 값·벡터를 대조했습니다."
+                     if saved else "표본 벡터 계산을 완료했습니다. 저장 전 검토·승인이 남았으며 DB에 쓰지 않았습니다."
+                     if pending == 0 and self.embedding_report is not None else
+                     "메모리 변환 미리보기입니다. 임베딩 확정·저장 전 검토가 필요하며 DB에 쓰지 않았습니다."),
         }
 
 
@@ -171,7 +179,7 @@ def build_sample_rows(service):
     tables["processing_runs"].append({
         "id": run_id, "document_id": document_id,
         "pipeline_version": "db_sample_preview_v1",
-        "model_name": config.model_name, "model_revision": local_model_revision(config.model_name),
+        "model_name": config.model_name, "model_revision": service.token_counter.model_revision,
         "embedding_dimension": 768, "token_budget": service.token_counter.budget,
         "normalized": True,
         "settings": {

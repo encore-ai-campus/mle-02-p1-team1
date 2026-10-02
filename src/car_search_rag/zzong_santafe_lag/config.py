@@ -22,6 +22,9 @@ class ManualConfig:
     # 모든 컴퓨터에서 가장 빠른 값이라는 뜻은 아닙니다.
     batch_size: int = 16
     cpu_threads: int = 4
+    # [프로젝트 추가] 저장할 표본은 모델·토크나이저를 같은 캐시 버전으로 고정합니다.
+    # None은 기존 실행 방식이며 실제 사용한 스냅샷은 TokenCounter에서 확인합니다.
+    model_revision: str | None = None
 
     @property
     def pdf_path(self):

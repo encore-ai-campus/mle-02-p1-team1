@@ -40,7 +40,7 @@ class ManualService:
         parents = apply_oil_review(parents, inventory)
         if progress:
             progress("3/4 로컬 토크나이저로 검색 조각 나누기")
-        token_counter = TokenCounter(self.config.model_name)
+        token_counter = TokenCounter(self.config.model_name, revision=self.config.model_revision)
         chunks = [chunk for parent in parents for chunk in split_record(parent, token_counter)]
         if progress:
             progress("4/4 원문 연결과 토큰 한도 확인")

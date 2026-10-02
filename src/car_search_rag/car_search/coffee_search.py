@@ -164,7 +164,7 @@ image_path = (
 image_url = storage_manager.upload_car_image(
     image_path=image_path,
     brand="hyundai",
-    model="sonata",
+    model="santafe_hev",
     image_name="front.jpg"
 )
 

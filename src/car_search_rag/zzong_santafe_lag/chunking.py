@@ -13,16 +13,21 @@ from pathlib import Path
 class TokenCounter:
     """이미 내려받은 토크나이저로 입력 한도와 실제 토큰 수를 확인합니다."""
 
-    def __init__(self, model_name):
+    def __init__(self, model_name, revision=None):
         """모델 이름에 맞는 로컬 설정과 토크나이저를 읽습니다."""
         from transformers import AutoTokenizer
         from huggingface_hub import hf_hub_download
 
         # [프로젝트 추가] 글자 수 대신 현재 모델의 실제 한도인 128토큰을 사용합니다.
         # 이미 받은 로컬 설정·토크나이저만 읽습니다. 캐시가 없으면 별도의 다운로드 단계가 필요합니다.
-        config_path = hf_hub_download(model_name, "sentence_bert_config.json", local_files_only=True)
+        config_path = hf_hub_download(model_name, "sentence_bert_config.json", revision=revision, local_files_only=True)
+        # [프로젝트 추가] 설정 파일이 실제 속한 스냅샷으로 토크나이저도 고정합니다.
+        snapshot = Path(config_path).parent
+        if snapshot.parent.name != "snapshots":
+            raise ValueError("로컬 모델 스냅샷 경로를 확인해야 합니다.")
+        self.model_name, self.model_revision = model_name, snapshot.name
         self.budget = json.loads(Path(config_path).read_text(encoding="utf-8"))["max_seq_length"]
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name, local_files_only=True)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, revision=self.model_revision, local_files_only=True)
 
     # [프로젝트 추가] 같은 글의 토큰 수를 재계산하지 않도록 최근 계산 결과를 메모리에 보관합니다.
     @lru_cache(maxsize=8192)

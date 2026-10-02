@@ -18,7 +18,13 @@ class LocalEmbedder:
         # [프로젝트 추가] 로컬 CPU와 모델 캐시로 실행하고 청킹의 토큰 한도·768차원 설정을 확인합니다.
         # 입력은 텍스트이며 그림 검색 정보에는 사람이 확인해 작성한 설명을 사용합니다.
         torch.set_num_threads(min(config.cpu_threads, os.cpu_count() or 1))
-        self.model = SentenceTransformer(config.model_name, device="cpu", local_files_only=True)
+        # [프로젝트 추가] 청킹에 사용한 토크나이저와 같은 모델 스냅샷을 사용합니다.
+        # 다운로드·외부 추론 API 없이 이미 받은 파일만 읽습니다.
+        if token_counter.model_name != config.model_name:
+            raise ValueError("토크나이저와 임베딩 모델 이름이 다릅니다.")
+        self.model_name, self.model_revision = config.model_name, token_counter.model_revision
+        self.model = SentenceTransformer(config.model_name, revision=self.model_revision,
+                                         device="cpu", local_files_only=True)
         self.batch_size = config.batch_size
         self.token_counter = token_counter
         if self.model.max_seq_length != token_counter.budget:
