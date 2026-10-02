@@ -171,3 +171,24 @@ image_url = storage_manager.upload_car_image(
 # 업로드된 이미지의 Public URL 출력
 print()
 print("이미지 URL :", image_url)
+
+
+#=========================================================
+# Supabase Storage 이미지 bytes 업로드 테스트
+#=========================================================
+
+# 기존 테스트 이미지 파일을 바이너리 모드로 읽어 bytes 생성
+with image_path.open("rb") as image_file:
+    image_bytes = image_file.read()
+
+# bytes를 로컬 파일로 저장하지 않고 Supabase Storage에 직접 업로드
+image_bytes_url = storage_manager.upload_car_image_bytes(
+    image_bytes=image_bytes,
+    brand="hyundai",
+    model="sonata",
+    image_name="bytes_test.jpg"
+)
+
+# 업로드된 이미지의 Public URL 출력
+print()
+print("Bytes 이미지 URL :", image_bytes_url)

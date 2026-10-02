@@ -81,6 +81,35 @@ class StorageManager:
         return self.get_public_url(storage_path)
 
     #=========================================================
+    # 자동차 이미지 bytes 업로드
+    #=========================================================
+    def upload_car_image_bytes(
+        self,
+        image_bytes: bytes,
+        brand: str,
+        model: str,
+        image_name: str,
+    ) -> str:
+        """
+        자동차 이미지 bytes를 Storage에 업로드하고 Public URL을 반환한다.
+        """
+        storage_path = self.build_car_image_path(brand, model, image_name)
+        content_type, _ = mimetypes.guess_type(image_name)
+        if content_type is None:
+            content_type = "application/octet-stream"
+
+        self.supabase.storage.from_(self.bucket_name).upload(
+            path=storage_path,
+            file=image_bytes,
+            file_options={
+                "content-type": content_type,
+                "upsert": "true"
+            }
+        )
+
+        return self.get_public_url(storage_path)
+
+    #=========================================================
     # Public URL 조회
     #=========================================================
     def get_public_url(self, storage_path: str) -> str:

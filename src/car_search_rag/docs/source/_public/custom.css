@@ -1,0 +1,20 @@
+/* Local fonts only: no external font or asset requests. */
+body {font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;}
+.content {width: 52rem;}
+.main .content {line-height: 1.85; word-break: keep-all; overflow-wrap: anywhere;}
+h1 {font-size: 2.25rem; letter-spacing: -.045em; line-height: 1.3;}
+h2 {margin-top: 2.3rem; font-size: 1.45rem; letter-spacing: -.025em;}
+p, li {max-width: 76ch;}
+.content .hero {padding: 1.3rem 1.5rem; border-radius: 16px; background: var(--color-background-secondary); border: 1px solid var(--color-background-border); margin: 1.5rem 0;}
+.hero p:first-child {font-size: 1.2rem;}
+.content .flow {padding: 1.1rem 1.3rem; border-left: 4px solid var(--color-brand-primary); background: var(--color-background-secondary); border-radius: 8px; margin: 1.3rem 0;}
+.cards {display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;}
+.content .card {padding: 1rem; border: 1px solid var(--color-background-border); border-radius: 12px;}
+.card p {font-size: .94rem; margin: .45rem 0;}
+.card a {font-weight: 650;}
+.highlight pre {line-height: 1.65; font-size: .85rem;}
+table.docutils td, table.docutils th {padding: .8rem; white-space: normal;}
+.admonition {border-radius: 10px;}
+a:focus-visible {outline: 3px solid var(--color-brand-primary); outline-offset: 3px;}
+@media(max-width: 700px) {.cards {grid-template-columns: 1fr;} h1 {font-size: 1.8rem;} .content .hero {padding: 1rem;} }
+@media print {.cards {display: block;} .content .card {break-inside: avoid;} }

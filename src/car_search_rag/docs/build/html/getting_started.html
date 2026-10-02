@@ -3,14 +3,14 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="색인" href="genindex.html"><link rel="search" title="검색" href="search.html"><link rel="next" title="개발 공통 가이드" href="development_guide.html"><link rel="prev" title="SQL Mapper / Coffee Search 개발 문서" href="index.html">
+<link rel="index" title="색인" href="genindex.html"><link rel="search" title="검색" href="search.html"><link rel="next" title="검색과 등록의 흐름" href="development_guide.html"><link rel="prev" title="매뉴얼 검색, 한눈에 이해하기" href="index.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>시작하기 - SQL Mapper Documentation</title>
+        <title>처음 검색해 보기 - 매뉴얼 검색 가이드</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=261a68a7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=215d4fb9" />
     
     
 
@@ -19,18 +19,24 @@
   body {
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
+  --color-brand-primary: #166766;
+  --color-brand-content: #166766;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #72d5c6;
+  --color-brand-content: #72d5c6;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #72d5c6;
+  --color-brand-content: #72d5c6;
   
       }
     }
@@ -162,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">SQL Mapper Documentation</div></a>
+      <a href="index.html"><div class="brand">매뉴얼 검색 가이드</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -183,7 +189,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
-  <span class="sidebar-brand-text">SQL Mapper Documentation</span>
+  <span class="sidebar-brand-text">매뉴얼 검색 가이드</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="검색" name="q" aria-label="검색">
@@ -191,13 +197,14 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">개발 문서</span></p>
+  <p class="caption" role="heading"><span class="caption-text">사용 가이드</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">개발 공통 가이드</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL / SqlSession 사용 가이드</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project_structure.html">프로젝트 구조</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">처음 검색해 보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">검색과 등록의 흐름</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">수정할 파일 찾기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL 추가하고 호출하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">자주 쓰는 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">설정과 비밀값 보호</a></li>
 </ul>
 
 </div>
@@ -233,28 +240,117 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="id1">
-<h1>시작하기<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<section id="db">
-<h2>환경 변수와 DB<a class="headerlink" href="#db" title="Link to this heading">¶</a></h2>
-<p>실행 환경에 <code class="docutils literal notranslate"><span class="pre">DB_URL</span></code> 과 <code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code> 를 설정합니다. <code class="docutils literal notranslate"><span class="pre">.env</span></code> 파일을 사용할 수도 있습니다. <code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code> 는 생성 시 <code class="docutils literal notranslate"><span class="pre">load_dotenv()</span></code> 를 호출하고, <code class="docutils literal notranslate"><span class="pre">connect()</span></code> 에서 <code class="docutils literal notranslate"><span class="pre">DB_URL</span></code> 로 psycopg 연결을 만듭니다. <code class="docutils literal notranslate"><span class="pre">OpenAIEmbeddings</span></code> 는 문서 등록과 질문 검색에서 API 키를 사용합니다. 키와 접속 문자열을 소스나 문서에 직접 넣지 마세요.</p>
-<p>DB에는 PostgreSQL의 pgvector 타입, <code class="docutils literal notranslate"><span class="pre">CFF_MACH</span></code> 및 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_DTL</span></code> 테이블, <code class="docutils literal notranslate"><span class="pre">FN_GEN_BIZ_ID</span></code> 함수가 필요합니다. 연결 직후 <code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code> 가 pgvector 어댑터를 등록합니다. SQL의 실제 테이블·컬럼·함수 이름은 <a class="reference internal" href="development_guide.html"><span class="doc">개발 공통 가이드</span></a> 와 <code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code> 을 참고하세요. PDF 등록에 쓰는 파일은 <code class="docutils literal notranslate"><span class="pre">src/group_project/data/에센자미니_c30.pdf</span></code> 입니다.</p>
-</section>
+<h1>처음 검색해 보기<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p><strong>목표: 등록된 매뉴얼을 검색하고, 결과 건수만 확인합니다.</strong></p>
 <section id="id2">
-<h2>실행<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p>현재 검색 테스트는 다음 명령으로 실행합니다.</p>
-<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">src</span><span class="p">/</span><span class="n">group_project</span><span class="p">/</span><span class="n">car_search_rag</span><span class="p">/</span><span class="n">car_search</span><span class="p">/</span><span class="n">coffee_search</span><span class="p">.</span><span class="n">py</span>
+<h2>1. 준비물을 확인하세요<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Python 3.12 이상과 프로젝트 의존성 설치 환경</p></li>
+<li><p>pgvector가 준비된 PostgreSQL</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CFF_MACH</span></code>, <code class="docutils literal notranslate"><span class="pre">CFF_MACH_DTL</span></code> 테이블과 <code class="docutils literal notranslate"><span class="pre">FN_GEN_BIZ_ID</span></code> 함수</p></li>
+<li><p>검색할 브랜드·모델의 매뉴얼 데이터</p></li>
+<li><p>임베딩 API를 사용할 수 있는 키</p></li>
+</ul>
+<p>저장소 루트에서 프로젝트 의존성을 설치합니다.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">uv sync</span>
 </pre></div>
 </div>
-<p>스크립트는 <code class="docutils literal notranslate"><span class="pre">sys.path</span></code> 에 <code class="docutils literal notranslate"><span class="pre">src</span></code> 와 <code class="docutils literal notranslate"><span class="pre">src/group_project</span></code> 를 추가하고 <code class="docutils literal notranslate"><span class="pre">SqlSession(result_log=True)</span></code> 및 <code class="docutils literal notranslate"><span class="pre">CoffeeSearchService</span></code> 를 생성합니다.</p>
 </section>
 <section id="id3">
-<h2>등록과 검색의 차이<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
-<p>현재 활성 코드는 <code class="docutils literal notranslate"><span class="pre">search_machine_manual()</span></code> 에 브랜드 <code class="docutils literal notranslate"><span class="pre">네스프레소</span> <span class="pre">``,</span> <span class="pre">모델</span> <span class="pre">``</span> <span class="pre">에센자</span> <span class="pre">미니</span> <span class="pre">``,</span> <span class="pre">질문</span> <span class="pre">``</span> <span class="pre">커피가</span> <span class="pre">나오지</span> <span class="pre">않을</span> <span class="pre">때</span> <span class="pre">어떻게</span> <span class="pre">해야</span> <span class="pre">하나요?</span></code>, <code class="docutils literal notranslate"><span class="pre">limit=5</span></code> 를 전달합니다. 실행 시 질문 임베딩 API와 DB 검색이 수행됩니다. 기존 매뉴얼 데이터가 없으면 검색 결과는 비어 있을 수 있습니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">coffee_machine_register()</span></code> 와 <code class="docutils literal notranslate"><span class="pre">CoffeeSearch</span></code> 의 PDF 읽기 경로는 구현되어 있지만 파일 하단의 등록 호출 예시는 <strong>주석 처리</strong> 되어 있습니다. 등록을 활성화하면 PDF 텍스트 임베딩과 DB 쓰기가 발생하고 대상 머신의 기존 <code class="docutils literal notranslate"><span class="pre">CFF_MACH_DTL</span></code> 을 삭제한 뒤 다시 넣습니다. 실행 전에 <a class="reference internal" href="development_guide.html"><span class="doc">개발 공통 가이드</span></a> 의 등록 흐름을 확인하세요.</p>
+<h2>2. 설정은 로컬에 보관하세요<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>환경변수 이름</p></th>
+<th class="head"><p>용도</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DB_URL</span></code></p></td>
+<td><p>PostgreSQL 연결 설정</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code></p></td>
+<td><p>질문과 문서를 임베딩하는 API 인증</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>실제 값은 로컬 환경변수 또는 버전 관리에서 제외한 <code class="docutils literal notranslate"><span class="pre">.env</span></code> 에 설정합니다.
+<code class="docutils literal notranslate"><span class="pre">DatabaseManager</span></code> 는 환경설정 파일을 읽습니다. 값은 터미널 출력이나 문서에 복사하지 마세요.
+파일을 쓰기 전에 <a class="reference internal" href="security.html"><span class="doc">설정과 비밀값 보호</span></a> 의 Git 제외 확인을 따라 주세요.</p>
 </section>
 <section id="id4">
-<h2>정상 실행 확인<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
-<p>기본 검색 실행에서는 터미널에 <code class="docutils literal notranslate"><span class="pre">질문</span> <span class="pre">:</span></code> 과 입력 질문이 표시됩니다. <code class="docutils literal notranslate"><span class="pre">SqlSession</span></code> 의 <code class="docutils literal notranslate"><span class="pre">QUERY</span> <span class="pre">[coffee_search.search_machine_manual]</span></code> 및 <code class="docutils literal notranslate"><span class="pre">RESULT</span></code> 로그로 실행 SQL과 결과 건수를 확인할 수 있습니다. 현재 메인 스크립트는 <code class="docutils literal notranslate"><span class="pre">search_docs</span></code> 를 변수에 받지만 검색 결과의 행 자체는 별도 <code class="docutils literal notranslate"><span class="pre">print</span></code> 로 출력하지 않습니다. 조회 행을 확인하려면 <code class="docutils literal notranslate"><span class="pre">result_log=True</span></code> 의 <code class="docutils literal notranslate"><span class="pre">RESULT</span> <span class="pre">DATA</span></code> 로그를 봅니다. 오류가 나면 DB 연결, pgvector 타입, API 키, 필요한 테이블을 먼저 확인하세요.</p>
+<h2>3. 검색 전용 예제를 실행하세요<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
+<p>다음 내용을 저장소 루트의 <code class="docutils literal notranslate"><span class="pre">search_manual_local.py</span></code> 에 저장합니다.
+이 예제는 등록과 이미지 업로드를 호출하지 않으며, 결과 건수만 출력합니다.
+질문 임베딩 API 호출에는 비용이 발생할 수 있습니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"src"</span><span class="p">))</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">car_search_rag.common.sql_session</span><span class="w"> </span><span class="kn">import</span> <span class="n">SqlSession</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">car_search_rag.car_search.coffee_search_service</span><span class="w"> </span><span class="kn">import</span> <span class="n">CoffeeSearchService</span>
+
+<span class="c1"># SQL 파라미터와 결과 원문이 INFO 로그에 나타나지 않게 설정합니다.</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"car_search_rag.sql"</span><span class="p">)</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">SqlSession</span><span class="p">(</span><span class="n">sql_log_mode</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">result_log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">service</span> <span class="o">=</span> <span class="n">CoffeeSearchService</span><span class="p">(</span><span class="n">sql_session</span><span class="o">=</span><span class="n">session</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">search_machine_manual</span><span class="p">(</span>
+    <span class="n">brand</span><span class="o">=</span><span class="s2">"네스프레소"</span><span class="p">,</span>
+    <span class="n">machine_name</span><span class="o">=</span><span class="s2">"에센자 미니"</span><span class="p">,</span>
+    <span class="n">question</span><span class="o">=</span><span class="s2">"커피가 나오지 않을 때 어떻게 해야 하나요?"</span><span class="p">,</span>
+    <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"검색 결과: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2">건"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">uv run python search_manual_local.py</span>
+</pre></div>
+</div>
+<p><strong>예상 결과:</strong> <code class="docutils literal notranslate"><span class="pre">검색</span> <span class="pre">결과:</span> <span class="pre">N건</span></code>. 위 예제에서 N은 0~5입니다.
+0건이면 해당 브랜드·모델의 등록 여부와 이름이 정확히 일치하는지 확인하세요.
+결과에는 관련 페이지 번호, 매뉴얼 텍스트, 유사도 등이 들어 있습니다.</p>
+</section>
+<section id="id5">
+<h2>막혔을 때 확인할 곳<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>증상</p></th>
+<th class="head"><p>확인할 내용</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>모듈을 찾지 못함</p></td>
+<td><p>루트에 예제를 저장했는지, <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">sync</span></code> 가 완료됐는지 확인</p></td>
+</tr>
+<tr class="row-odd"><td><p>DB 연결 실패</p></td>
+<td><p>로컬 연결 설정과 네트워크 접근 권한 확인</p></td>
+</tr>
+<tr class="row-even"><td><p>테이블·vector 타입 오류</p></td>
+<td><p>DB 스키마와 pgvector 준비 상태 확인</p></td>
+</tr>
+<tr class="row-odd"><td><p>API 인증 실패</p></td>
+<td><p>로컬 키 설정과 해당 키의 사용 권한 확인</p></td>
+</tr>
+<tr class="row-even"><td><p>결과가 0건</p></td>
+<td><p>매뉴얼 등록 여부, 브랜드명, 모델명 확인</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>오류를 공유할 때는 접속주소·인증값·개인정보를 먼저 제거하세요.
+다음으로 <a class="reference internal" href="development_guide.html"><span class="doc">검색과 등록의 흐름</span></a> 에서 검색과 등록의 차이를 살펴보세요.</p>
 </section>
 </section>
 
@@ -268,7 +364,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">개발 공통 가이드</div>
+                <div class="title">검색과 등록의 흐름</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -313,11 +409,11 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">시작하기</a><ul>
-<li><a class="reference internal" href="#db">환경 변수와 DB</a></li>
-<li><a class="reference internal" href="#id2">실행</a></li>
-<li><a class="reference internal" href="#id3">등록과 검색의 차이</a></li>
-<li><a class="reference internal" href="#id4">정상 실행 확인</a></li>
+<li><a class="reference internal" href="#">처음 검색해 보기</a><ul>
+<li><a class="reference internal" href="#id2">1. 준비물을 확인하세요</a></li>
+<li><a class="reference internal" href="#id3">2. 설정은 로컬에 보관하세요</a></li>
+<li><a class="reference internal" href="#id4">3. 검색 전용 예제를 실행하세요</a></li>
+<li><a class="reference internal" href="#id5">막혔을 때 확인할 곳</a></li>
 </ul>
 </li>
 </ul>
