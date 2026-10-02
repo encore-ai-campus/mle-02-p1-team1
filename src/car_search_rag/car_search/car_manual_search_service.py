@@ -2,7 +2,7 @@ import logging
 import re
 from pathlib import Path
 
-from langchain_openai import OpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from pgvector.utils import Vector
 from pypdf import PdfReader
 import pymupdf
@@ -28,6 +28,7 @@ class CarManualSearchService:
     sql_session : SqlSession
     embedding_model : OpenAIEmbeddings
     storage_manager: StorageManager
+    chat_model : ChatOpenAI
 
     #=========================================================
     # 생성자
@@ -38,6 +39,11 @@ class CarManualSearchService:
         self.embedding_model = OpenAIEmbeddings(
             model=EMBEDDING_MODEL
         )
+
+        self.chat_model = ChatOpenAI(
+                model="gpt-6-luna"
+            )
+
 
         self.storage_manager = StorageManager()
 
@@ -453,4 +459,124 @@ class CarManualSearchService:
         )
 
         return insert_count
-    
+
+
+
+
+    #=========================================================
+    # 커피 머신 매뉴얼 AI 검색
+    #=========================================================
+    def search_manual(
+        self,
+        car_brand_eng_nm,
+        car_eng_nm,
+        car_model_yr,
+        question,
+        limit=5
+    ):
+
+        #=====================================================
+        # 질문 임베딩
+        #=====================================================
+        query_vector = self.embedding_model.embed_query(question)
+
+
+        #=====================================================
+        # 질문과 유사한 PDF 내용 검색
+        #=====================================================
+        result = self.sql_session.select_list(
+            "car_manual_search.search_car_manual",
+            {
+                "CAR_BRAND_ENG_NM": car_brand_eng_nm,
+                "CAR_ENG_NM": car_eng_nm,
+                "CAR_MODEL_YR": car_model_yr,
+                "EMBEDDING": Vector(query_vector),
+                "LIMIT": limit
+            }
+        )
+
+        return result
+
+
+
+    #=========================================================
+    # 차량 매뉴얼 LLM 답변 생성
+    #=========================================================
+    def generate_manual_answer(
+        self,
+        question,
+        search_docs
+    ):
+        if not search_docs:
+            return "관련된 차량 매뉴얼 내용을 찾지 못했습니다."
+
+        context_list = []
+
+        for index, doc in enumerate(search_docs, start=1):
+
+            context_list.append(
+                f"""
+    [검색 문서 {index}]
+
+    페이지:
+    {doc.get("carManualChunkPageNo")}
+
+    내용:
+    {doc.get("carManualChunkTxt")}
+
+    이미지 URL:
+    {doc.get("carManualImageUrl") or "없음"}
+    """
+            )
+
+        context = "\n".join(context_list)
+
+        prompt = f"""
+    너는 차량 사용 설명서를 안내하는 AI 어시스턴트다.
+
+    아래 차량 매뉴얼 검색 결과를 기반으로 질문에 답변해라.
+
+    규칙:
+    - 매뉴얼 내용에 근거해서 답변한다.
+    - 매뉴얼에 없는 내용은 추측하지 않는다.
+    - 관련 페이지 번호를 함께 알려준다.
+    - 관련 이미지 URL이 있으면 함께 알려준다.
+
+    [질문]
+    {question}
+
+    [차량 매뉴얼]
+    {context}
+    """
+
+        response = self.chat_model.invoke(prompt)
+
+        return response.content
+
+
+    #=========================================================
+    # 차량 매뉴얼 AI 질의
+    #=========================================================
+    def ask_manual(
+        self,
+        car_brand_eng_nm,
+        car_eng_nm,
+        car_model_yr,
+        question,
+        limit=5
+    ):
+
+        search_docs = self.search_manual(
+            car_brand_eng_nm=car_brand_eng_nm,
+            car_eng_nm=car_eng_nm,
+            car_model_yr=car_model_yr,
+            question=question,
+            limit=limit
+        )
+
+        answer = self.generate_manual_answer(
+            question=question,
+            search_docs=search_docs
+        )
+
+        return answer

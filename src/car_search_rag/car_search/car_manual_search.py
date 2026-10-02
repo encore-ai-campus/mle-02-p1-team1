@@ -87,25 +87,52 @@ session = SqlSession(result_log=True)        # session 생성 db 연결
 storage_manager = StorageManager()
 
 #=========================================================
-# 차량 매뉴얼 PDF 설정
+# 차량 매뉴얼 PDF 등록 시작 
 #=========================================================
 
-file_path = (Path(__file__).resolve().parents[3] / "data" / "DN8_2026_ko_KR.pdf")       # 차량 매뉴얼 PDF 경로
+# file_path = (Path(__file__).resolve().parents[3] / "data" / "DN8_2026_ko_KR.pdf")       # 차량 매뉴얼 PDF 경로
 
-logger.info(f"차량 매뉴얼 처리 시작 : {file_path.name}")
+# logger.info(f"차량 매뉴얼 처리 시작 : {file_path.name}")
+
+# carManualSearch =        CarManualSearch(file_path=file_path)           # 메인 객체 생성
+
+# carManualSearchService = CarManualSearchService(sql_session=session)    # 서비스 객체 생성
+
+# carManualSearchService.insert_pdf_docs(file_path=file_path,             # pdf 등록
+#                                        car_brand_nm="현대",
+#                                        car_brand_eng_nm="hyundai",
+#                                        car_nm="소나타",
+#                                        car_eng_nm="sonata",
+#                                        car_model_yr=2026)
 
 #=========================================================
-# 차량 매뉴얼 Text 읽기
+# 차량 매뉴얼 PDF 등록 끝 
 #=========================================================
 
-carManualSearch =        CarManualSearch(file_path=file_path)           # 메인 객체 생성
 
-carManualSearchService = CarManualSearchService(sql_session=session)    # 서비스 객체 생성
 
-carManualSearchService.insert_pdf_docs(file_path=file_path,             # pdf 등록
-                                       car_brand_nm="현대",
-                                       car_brand_eng_nm="hyundai",
-                                       car_nm="소나타",
-                                       car_eng_nm="sonata",
-                                       car_model_yr=2026)
+#=========================================================
+# 커피 메뉴얼 AI 검색 시작
+#=========================================================
 
+question = "견인 방법에 대해서 알려줘"
+
+carManualSearchService = CarManualSearchService(sql_session=session)                      # 서비스 생성  
+
+answer = carManualSearchService.ask_manual(
+    car_brand_eng_nm="hyundai",
+    car_eng_nm="sonata",
+    car_model_yr=2026,
+    question=question,
+    limit=5
+)
+
+print()
+print("질문 :", question)
+print()
+print("답변 :")
+print(answer)
+
+#=========================================================
+# 커피 메뉴얼 AI 검색 끝
+#=========================================================    

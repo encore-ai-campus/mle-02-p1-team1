@@ -262,3 +262,87 @@ class CoffeeSearchService:
         )
 
         return search_docs
+
+
+
+    #=========================================================
+    # 차량 매뉴얼 LLM 답변 생성
+    #=========================================================
+    def generate_manual_answer(
+        self,
+        question,
+        search_docs
+    ):
+        if not search_docs:
+            return "관련된 차량 매뉴얼 내용을 찾지 못했습니다."
+
+        context_list = []
+
+        for index, doc in enumerate(search_docs, start=1):
+
+            context_list.append(
+                f"""
+                [검색 문서 {index}]
+
+                페이지:
+                {doc.get("carManualChunkPageNo")}
+
+                내용:
+                {doc.get("carManualChunkTxt")}
+
+                이미지 URL:
+                {doc.get("carManualImageUrl") or "없음"}
+                """
+            )
+
+        context = "\n".join(context_list)
+
+        prompt = f"""
+            너는 차량 사용 설명서를 안내하는 AI 어시스턴트다.
+
+            아래 차량 매뉴얼 검색 결과를 기반으로 질문에 답변해라.
+
+            규칙:
+            - 매뉴얼 내용에 근거해서 답변한다.
+            - 매뉴얼에 없는 내용은 추측하지 않는다.
+            - 관련 페이지 번호를 함께 알려준다.
+            - 관련 이미지 URL이 있으면 함께 알려준다.
+
+            [질문]
+            {question}
+
+            [차량 매뉴얼]
+            {context}
+            """
+
+        response = self.chat_model.invoke(prompt)
+
+        return response.content
+
+
+    #=========================================================
+    # 차량 매뉴얼 AI 질의
+    #=========================================================
+    def ask_manual(
+        self,
+        car_brand_eng_nm,
+        car_eng_nm,
+        car_model_yr,
+        question,
+        limit=5
+    ):
+
+        search_docs = self.search_manual(
+            car_brand_eng_nm=car_brand_eng_nm,
+            car_eng_nm=car_eng_nm,
+            car_model_yr=car_model_yr,
+            question=question,
+            limit=limit
+        )
+
+        answer = self.generate_manual_answer(
+            question=question,
+            search_docs=search_docs
+        )
+
+        return answer
