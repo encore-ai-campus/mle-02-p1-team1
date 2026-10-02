@@ -166,11 +166,12 @@ class SqlSession:                                                               
         return value
 
     def _log_batch_query(self, statement_id: str, sql: str, parameters_list: list[dict]) -> None:
-        """배치 SQL과 모든 건의 로그용 파라미터를 실행 전에 기록한다."""
+        """배치 SQL과 앞의 최대 100건 로그용 파라미터를 실행 전에 기록한다."""
         if not sql_logger.isEnabledFor(logging.INFO):
             return
 
         total = len(parameters_list)
+        log_limit = 100
         lines = [
             f"BATCH QUERY [{statement_id}]",
             SQL_LOG_DIVIDER,
@@ -178,7 +179,7 @@ class SqlSession:                                                               
             SQL_LOG_DIVIDER,
             f"BATCH PARAMS rows={total}",
         ]
-        for index, parameters in enumerate(parameters_list, start=1):
+        for index, parameters in enumerate(parameters_list[:log_limit], start=1):
             try:
                 log_parameters = repr(self._sanitize_log_value(parameters))
             except Exception as exc:
@@ -186,6 +187,10 @@ class SqlSession:                                                               
                 sql_logger.warning("배치 로그 파라미터 변환 실패 [%s] row=%d: %s", statement_id, index, type(exc).__name__)
                 log_parameters = "<PARAMS unavailable>"
             lines.extend(("", f"[{index}/{total}]", log_parameters))
+
+        omitted_count = total - log_limit
+        if omitted_count > 0:
+            lines.extend(("", "...", f"생략된 배치 파라미터: {omitted_count}건"))
 
         sql_logger.info("%s", "\n".join(lines))
 
