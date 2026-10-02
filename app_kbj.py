@@ -1,9 +1,9 @@
-import streamlit as st
 from dotenv import load_dotenv
-
+import sys
 import logging
 import streamlit as st
 from dotenv import load_dotenv
+
 
 
 from car_search_rag.car_search.car_manual_search_service import (
@@ -12,14 +12,23 @@ from car_search_rag.car_search.car_manual_search_service import (
 from car_search_rag.common.sql_session import SqlSession
 
 
-
-
-
-
 #=========================================================
 # 환경 변수 로드
 #=========================================================
 load_dotenv()
+
+
+#=========================================================
+# 실행 공통 부분 시작
+#=========================================================
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(name)s] %(message)s",
+    stream=sys.stdout,
+    force=True
+)
+
+logger = logging.getLogger("CarManual")
 
 
 #=========================================================
@@ -41,7 +50,9 @@ st.title("🚗 차량 매뉴얼 AI 챗봇")
 @st.cache_resource
 def get_service():
 
-    sql_session = SqlSession()
+    sql_session = SqlSession(
+        result_log=True
+    )
 
     return CarManualSearchService(
         sql_session=sql_session

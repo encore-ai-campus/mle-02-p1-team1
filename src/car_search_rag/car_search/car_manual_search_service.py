@@ -13,6 +13,9 @@ from car_search_rag.common.document_reader import DocumentReader
 from car_search_rag.common.storage_manager import StorageManager
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+
 
 
 SYSTEM_USER_ID = "SYSTEM"
@@ -45,20 +48,94 @@ class CarManualSearchService:
             )
 
 
+        #=====================================================
+        # 검색 질문 재작성 Chain
+        #=====================================================
+        self.rewrite_search_prompt = ChatPromptTemplate.from_messages(
+            [
+                (
+                    "system",
+                    """
+    너는 차량 매뉴얼 검색용 질문을 만드는 역할이다.
+
+    이전 대화를 참고해서 현재 질문을
+    혼자 읽어도 의미가 통하는 검색 문장으로 다시 작성해라.
+
+    차량 매뉴얼 검색에 도움이 되는 관련 용어나 동의어가 있으면 포함해라.
+
+    설명하지 말고 검색 문장 하나만 반환해라.
+    """
+                ),
+                (
+                    "human",
+                    """
+    [이전 대화]
+    {history}
+
+    [현재 질문]
+    {question}
+    """
+                )
+            ]
+        )
+
+        self.rewrite_search_chain = (
+            self.rewrite_search_prompt
+            | self.chat_model
+            | StrOutputParser()
+        )
+
+        #=====================================================
+        # 차량 매뉴얼 답변 생성 Chain
+        #=====================================================
+        self.manual_answer_prompt = ChatPromptTemplate.from_messages(
+            [
+                (
+                    "system",
+                    """
+        너는 차량 사용 설명서를 안내하는 AI 어시스턴트다.
+
+        이전 대화와 차량 매뉴얼 검색 결과를 참고해서
+        현재 사용자의 질문에 자연스럽게 답변해라.
+
+        규칙:
+        - 이전 대화의 맥락을 유지한다.
+        - 매뉴얼 내용에 근거해서 답변한다.
+        - 매뉴얼에 없는 내용은 추측하지 않는다.
+        - 관련 페이지 번호를 함께 알려준다.
+        - 관련 이미지 URL이 있으면 함께 알려준다.
+        """
+                ),
+                (
+                    "human",
+                    """
+        [이전 대화]
+        {history}
+
+        [현재 질문]
+        {question}
+
+        [차량 매뉴얼]
+        {context}
+        """
+                )
+            ]
+        )
+
+        self.manual_answer_chain = (
+            self.manual_answer_prompt
+            | self.chat_model
+            | StrOutputParser()
+        )
+
+
         self.storage_manager = StorageManager()
 
 
     #=========================================================
     # 차량 메뉴얼 PDF 처리 메인 파이프 라인
     #=========================================================
-    def insert_pdf_docs(self, 
-                        file_path, 
-                        car_brand_nm, 
-                        car_brand_eng_nm,
-                        car_nm,
-                        car_eng_nm,
-                        car_model_yr
-                        ):
+    def insert_pdf_docs(self, file_path, car_brand_nm, car_brand_eng_nm, car_nm, car_eng_nm, car_model_yr):
         """차량 매뉴얼 PDF 처리 메인 파이프라인"""
 
         #=====================================================
@@ -73,13 +150,16 @@ class CarManualSearchService:
         )
 
         machine_logger.info(f"차량 ID 생성 완료 : {car_id}")
-        
+
+        chapter_list = self._extract_pdf_chapters(file_path)
+
+
         # 2. 텍스트 추출 및 청크 생성
         chunks = self._extract_and_split_chunks(file_path)
 
         # 3. 청크 임베딩
         embedding_list = self._create_chunk_embeddings(chunks=chunks)
-        
+
         # 4. 이미지 추출 및 스토리지 업로드
         image_list = self._extract_and_upload_images(file_path=file_path,brand=car_brand_eng_nm,model=car_eng_nm)
 
@@ -88,6 +168,7 @@ class CarManualSearchService:
         #=====================================================
         self._insert_car_manual_data(
             car_id=car_id,
+            chapter_list=chapter_list,
             chunks=chunks,
             embedding_list=embedding_list,
             image_list=image_list
@@ -248,36 +329,41 @@ class CarManualSearchService:
     #=========================================================
     # 차량 매뉴얼 Chapter / Chunk / Image DB 등록
     #=========================================================
-    def _insert_car_manual_data(
-        self,
-        car_id,
-        chunks,
-        embedding_list,
-        image_list
-    ):
+    def _insert_car_manual_data(self,car_id,chapter_list,chunks,embedding_list,image_list):
         """차량 매뉴얼 Chapter / Chunk / Image DB 등록"""
 
         with self.sql_session.transaction():
 
-            #=====================================================
-            # 1. Chapter ID 생성
-            #=====================================================
-            car_manual_chapter_id = self.get_car_manual_chapter_id()
+            chapter_map = []
 
             #=====================================================
             # 1. Chapter 등록
             #=====================================================
-            self.insert_car_manual_chapter(
-                car_id=car_id,
-                car_manual_chapter_id=car_manual_chapter_id,
-                car_manual_chapter_no=1,
-                car_manual_chapter_nm="전체 매뉴얼",
-                car_manual_chapter_sort_no=1
-            )
+            for chapter_no, chapter in enumerate(chapter_list, start=1):
 
-            machine_logger.info(
-                f"차량 매뉴얼 Chapter 등록 완료 "
-            )
+                chapter_id = self.get_car_manual_chapter_id()
+
+                self.insert_car_manual_chapter(
+                    car_id=car_id,
+                    car_manual_chapter_id=chapter_id,
+                    car_manual_chapter_no=chapter_no,
+                    car_manual_chapter_nm=chapter["chapter_nm"],
+                    car_manual_chapter_sort_no=chapter_no
+                )
+
+                chapter_map.append({
+                        "chapter_id": chapter_id,
+                        "chapter_nm": chapter["chapter_nm"],
+                        "start_page": chapter["start_page"],
+                        "end_page": chapter["end_page"]
+                    })
+
+
+                machine_logger.info(
+                    f"차량 매뉴얼 Chapter 등록 완료 : "
+                    f"{chapter_no}. {chapter['chapter_nm']}"
+                )
+
 
 
             #=====================================================
@@ -285,7 +371,7 @@ class CarManualSearchService:
             #=====================================================
             chunk_insert_count = self.insert_car_manual_chunks(
                 car_id=car_id,
-                car_manual_chapter_id=car_manual_chapter_id,
+                chapter_map=chapter_map,
                 chunks=chunks,
                 embedding_list=embedding_list
             )
@@ -296,7 +382,7 @@ class CarManualSearchService:
             #=====================================================
             image_insert_count = self.insert_car_manual_images(
                 car_id=car_id,
-                car_manual_chapter_id=car_manual_chapter_id,
+                chapter_map=chapter_map,
                 image_list=image_list
             )
 
@@ -326,14 +412,7 @@ class CarManualSearchService:
     #=========================================================
     # 차량 등록
     #=========================================================
-    def insert_car(
-        self,
-        car_brand_nm,
-        car_brand_eng_nm,
-        car_nm,
-        car_eng_nm,
-        car_model_yr
-    ):
+    def insert_car(self,car_brand_nm,car_brand_eng_nm,car_nm,car_eng_nm,car_model_yr):
 
         result = self.sql_session.execute(
         "car_manual_search.merge_car",
@@ -357,14 +436,7 @@ class CarManualSearchService:
     #=========================================================
     # 차량 매뉴얼 Chapter 등록
     #=========================================================
-    def insert_car_manual_chapter(
-        self,
-        car_id,
-        car_manual_chapter_id,  
-        car_manual_chapter_no,
-        car_manual_chapter_nm,
-        car_manual_chapter_sort_no
-    ):
+    def insert_car_manual_chapter(self,car_id,car_manual_chapter_id,  car_manual_chapter_no,car_manual_chapter_nm,car_manual_chapter_sort_no):
 
         self.sql_session.execute(
             "car_manual_search.insert_car_manual_chapter",
@@ -386,22 +458,20 @@ class CarManualSearchService:
     #=========================================================
     # 차량 매뉴얼 Chunk 등록
     #=========================================================
-    def insert_car_manual_chunks(
-        self,
-        car_id,
-        car_manual_chapter_id,
-        chunks,
-        embedding_list
-    ):
+    def insert_car_manual_chunks(self,car_id,chapter_map,chunks,embedding_list):
 
         parameters_list = []
 
         for chunk, embedding in zip(chunks, embedding_list):
 
+            page_no = chunk.metadata["page_no"]    
+
+            chapter_id = self._find_chapter_id(chapter_map=chapter_map,page_no=page_no)
+
             parameters_list.append(
                 {
                     "CAR_ID": car_id,
-                    "CAR_MANUAL_CHAPTER_ID": car_manual_chapter_id,
+                    "CAR_MANUAL_CHAPTER_ID": chapter_id,
                     "CAR_MANUAL_CHUNK_PAGE_NO": chunk.metadata["page_no"],
                     "CAR_MANUAL_CHUNK_NO": chunk.metadata["chunk_no"],
                     "CAR_MANUAL_CHUNK_TXT": chunk.page_content,
@@ -425,22 +495,21 @@ class CarManualSearchService:
     #=========================================================
     # 차량 매뉴얼 Image 등록
     #=========================================================
-    def insert_car_manual_images(
-        self,
-        car_id,
-        car_manual_chapter_id,
-        image_list
-    ):
+    def insert_car_manual_images(self,car_id,chapter_map,image_list):
         """차량 매뉴얼 이미지 정보 DB 등록"""
 
         parameters_list = []
 
         for image in image_list:
 
+            page_no = image["page_no"]    
+
+            chapter_id = self._find_chapter_id(chapter_map=chapter_map,page_no=page_no)
+
             parameters_list.append(
                 {
                     "CAR_ID": car_id,
-                    "CAR_MANUAL_CHAPTER_ID": car_manual_chapter_id,
+                    "CAR_MANUAL_CHAPTER_ID": chapter_id,
                     "CAR_MANUAL_IMAGE_PAGE_NO": image["page_no"],
                     "CAR_MANUAL_IMAGE_NO": image["image_no"],
                     "CAR_MANUAL_IMAGE_URL": image["image_url"],
@@ -464,16 +533,9 @@ class CarManualSearchService:
 
 
     #=========================================================
-    # 커피 머신 매뉴얼 AI 검색
+    # 차량 매뉴얼 AI 검색
     #=========================================================
-    def search_manual(
-        self,
-        car_brand_eng_nm,
-        car_eng_nm,
-        car_model_yr,
-        question,
-        limit=5
-    ):
+    def search_manual(self,car_brand_eng_nm,car_eng_nm,car_model_yr,question,limit=5):
 
         #=====================================================
         # 질문 임베딩
@@ -502,11 +564,8 @@ class CarManualSearchService:
     #=========================================================
     # 차량 매뉴얼 LLM 답변 생성
     #=========================================================
-    def generate_manual_answer(
-        self,
-        question,
-        search_docs
-    ):
+    def generate_manual_answer(self,question,search_docs,conversation_history=None):
+        
         if not search_docs:
             return "관련된 차량 매뉴얼 내용을 찾지 못했습니다."
 
@@ -531,41 +590,41 @@ class CarManualSearchService:
 
         context = "\n".join(context_list)
 
-        prompt = f"""
-    너는 차량 사용 설명서를 안내하는 AI 어시스턴트다.
+        #=====================================================
+        # 이전 대화 문자열 생성
+        #=====================================================
+        if conversation_history:
 
-    아래 차량 매뉴얼 검색 결과를 기반으로 질문에 답변해라.
+            recent_messages = conversation_history
 
-    규칙:
-    - 매뉴얼 내용에 근거해서 답변한다.
-    - 매뉴얼에 없는 내용은 추측하지 않는다.
-    - 관련 페이지 번호를 함께 알려준다.
-    - 관련 이미지 URL이 있으면 함께 알려준다.
+            history_text = "\n".join(
+                [
+                    f"{message['role']}: {message['content']}"
+                    for message in recent_messages
+                ]
+            )
 
-    [질문]
-    {question}
+        else:
+            history_text = "없음"
 
-    [차량 매뉴얼]
-    {context}
-    """
+        #=====================================================
+        # LangChain 실행
+        #=====================================================
+        answer = self.manual_answer_chain.invoke(
+            {
+                "history": history_text,
+                "question": question,
+                "context": context
+            }
+        )
 
-        response = self.chat_model.invoke(prompt)
-
-        return response.content
+        return answer
 
 
     #=========================================================
     # 차량 매뉴얼 AI 질의
     #=========================================================
-    def ask_manual(
-        self,
-        car_brand_eng_nm,
-        car_eng_nm,
-        car_model_yr,
-        question,
-        conversation_history=None,
-        limit=5
-    ):
+    def ask_manual(self, car_brand_eng_nm, car_eng_nm, car_model_yr, question, conversation_history=None, limit=5):
 
         #=====================================================
         # 이전 대화 기반 검색 질문 재작성
@@ -593,7 +652,8 @@ class CarManualSearchService:
         #=====================================================
         answer = self.generate_manual_answer(
             question=question,
-            search_docs=search_docs
+            search_docs=search_docs,
+            conversation_history=conversation_history
         )
 
         return answer
@@ -602,11 +662,7 @@ class CarManualSearchService:
     #=========================================================
     # 이전 대화 기반 검색 질문 재작성
     #=========================================================
-    def rewrite_search_question(
-        self,
-        question,
-        conversation_history=None
-    ):
+    def rewrite_search_question(self, question, conversation_history=None ):
         """이전 대화를 참고하여 검색용 질문을 독립적인 문장으로 재작성"""
 
         # 이전 대화가 없으면 현재 질문 그대로 사용
@@ -626,25 +682,71 @@ class CarManualSearchService:
         )
 
 
-        prompt = f"""
-    너는 차량 매뉴얼 검색용 질문을 만드는 역할이다.
+        #=====================================================
+        # LangChain 실행
+        #=====================================================
+        search_question = self.rewrite_search_chain.invoke(
+            {
+                "history": history_text,
+                "question": question
+            }
+        )
 
-    이전 대화를 참고해서 현재 질문을
-    혼자 읽어도 의미가 통하는 검색 문장으로 다시 작성해라.
-
-    차량 매뉴얼 검색에 도움이 되는 관련 용어나 동의어가 있으면 포함해라.
-
-    설명하지 말고 검색 문장 하나만 반환해라.
-
-    [이전 대화]
-    {history_text}
-
-    [현재 질문]
-    {question}
-    """
+        return search_question.strip()
 
 
-        response = self.chat_model.invoke(prompt)
 
-        return response.content.strip()
+
+    #=========================================================
+    # PDF 1레벨 목차 추출
+    #=========================================================
+    def _extract_pdf_chapters(self, file_path):
+
+        chapter_list = []
+
+        with pymupdf.open(file_path) as pdf_document:
+
+            total_pages = len(pdf_document)
+
+            toc_list = [
+                (title, page_no)
+                for level, title, page_no
+                in pdf_document.get_toc(simple=True)
+                if level == 1
+            ]
+
+            for index, (title, start_page) in enumerate(toc_list):
+
+                if index + 1 < len(toc_list):
+                    end_page = toc_list[index + 1][1] - 1
+                else:
+                    end_page = total_pages
+
+                chapter_list.append({
+                    "chapter_nm": title,
+                    "start_page": start_page,
+                    "end_page": end_page
+                })
+
+        return chapter_list
+
+
+    #=========================================================
+    # 페이지 번호에 해당하는 Chapter 찾기
+    #=========================================================
+    def _find_chapter_id(self, chapter_map, page_no):
+
+        if not chapter_map:
+                return None
+
+        for chapter in chapter_map:
+
+            if chapter["start_page"] <= page_no <= chapter["end_page"]:
+                return chapter["chapter_id"]
+
+        # 첫 Chapter 시작 전 페이지는 첫 Chapter로 처리
+        if page_no < chapter_map[0]["start_page"]:
+            return chapter_map[0]["chapter_id"]
+
+        return None
 
