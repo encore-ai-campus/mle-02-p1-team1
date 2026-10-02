@@ -3,14 +3,14 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="색인" href="genindex.html"><link rel="search" title="검색" href="search.html"><link rel="next" title="API Reference" href="api.html"><link rel="prev" title="SQL / SqlSession 사용 가이드" href="sql_mapper_guide.html">
+<link rel="index" title="색인" href="genindex.html"><link rel="search" title="검색" href="search.html"><link rel="next" title="SQL 추가하고 호출하기" href="sql_mapper_guide.html"><link rel="prev" title="검색과 등록의 흐름" href="development_guide.html">
 
     <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>프로젝트 구조 - SQL Mapper Documentation</title>
+        <title>수정할 파일 찾기 - 매뉴얼 검색 가이드</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=261a68a7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=215d4fb9" />
     
     
 
@@ -19,18 +19,24 @@
   body {
     --color-code-background: #f2f2f2;
   --color-code-foreground: #1e1e1e;
+  --color-brand-primary: #166766;
+  --color-brand-content: #166766;
   
   }
   @media not print {
     body[data-theme="dark"] {
       --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #72d5c6;
+  --color-brand-content: #72d5c6;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
         --color-code-background: #202020;
   --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #72d5c6;
+  --color-brand-content: #72d5c6;
   
       }
     }
@@ -162,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">SQL Mapper Documentation</div></a>
+      <a href="index.html"><div class="brand">매뉴얼 검색 가이드</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -183,7 +189,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
-  <span class="sidebar-brand-text">SQL Mapper Documentation</span>
+  <span class="sidebar-brand-text">매뉴얼 검색 가이드</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="검색" name="q" aria-label="검색">
@@ -191,13 +197,14 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">개발 문서</span></p>
+  <p class="caption" role="heading"><span class="caption-text">사용 가이드</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide.html">개발 공통 가이드</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL / SqlSession 사용 가이드</a></li>
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">프로젝트 구조</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">처음 검색해 보기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide.html">검색과 등록의 흐름</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">수정할 파일 찾기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_mapper_guide.html">SQL 추가하고 호출하기</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">자주 쓰는 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">설정과 비밀값 보호</a></li>
 </ul>
 
 </div>
@@ -233,57 +240,71 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="id1">
-<h1>프로젝트 구조<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
-<section id="id2">
-<h2>경로 기준<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
-<p>다음 트리는 <code class="docutils literal notranslate"><span class="pre">src/group_project/</span></code> 에서 시작합니다. 저장소 루트에는 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code>, <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> 와 <code class="docutils literal notranslate"><span class="pre">.env</span></code> 가 있습니다. <code class="docutils literal notranslate"><span class="pre">__pycache__</span></code> 와 HTML 빌드 산출물은 생략했습니다.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>group_project/
-├─ AGENTS.md
-├─ common/
-│  ├─ database_manager.py
-│  ├─ document_reader.py
-│  ├─ sql_session.py
-│  └─ vector_store_manager.py
-├─ data/
-│  └─ 에센자미니_c30.pdf
-├─ car_search_rag/
-│  ├─ AGENTS.md
-│  ├─ run_car_search.bat
-│  └─ car_search/
-│     ├─ coffee_search.py
-│     ├─ coffee_search_service.py
-│     ├─ coffee_search.sql
-│     ├─ document.py / document_service.py / document.sql
-│     ├─ query_examples.py / query_examples_service.py / query_examples.sql
-│     └─ transaction_sample.py / transaction_sample_service.py / transaction_sample.sql
-└─ docs/
-   ├─ source/               (이 HTML 사이트의 원본 RST와 _static 이미지)
-   ├─ build_html.bat
-   ├─ development_guide.md
-   ├─ sql_mapper.md
-   ├─ coffee_search_structure.png
-   ├─ sql_mapper_structure.png
-   └─ sql_mapper_structure_simple.png
+<h1>수정할 파일 찾기<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<p><strong>아래 경로는 저장소 루트를 기준으로 합니다.</strong></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>src/car_search_rag/
+├── car_search/
+│   ├── coffee_search.py          # 실행 예제 + 이미지 업로드
+│   ├── coffee_search_service.py  # 검색·등록 순서
+│   ├── coffee_search.sql         # SQL 정의
+│   ├── car_manual_search.py      # 자동차 매뉴얼 관련 코드
+│   └── car_manual_search_service.py
+├── common/
+│   ├── database_manager.py       # DB 연결
+│   ├── document_reader.py        # PDF 읽기
+│   ├── sql_session.py            # SQL 실행·트랜잭션
+│   └── storage_manager.py        # 이미지 저장소 연동
+└── docs/
+    ├── source/                  # 이 문서의 원본
+    ├── build_docs.py            # 문서 검사·빌드
+    └── build/html/index.html    # 브라우저로 여는 결과
 </pre></div>
+</div>
+<section id="id2">
+<h2>무엇을 바꾸고 싶나요?<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<div class="table-wrapper colwidths-given docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>할 일</p></th>
+<th class="head"><p>수정 위치</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>질문·브랜드·모델 입력 변경</p></td>
+<td><p>검색 전용 예제 또는 <code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>검색·등록 처리 순서 변경</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">coffee_search_service.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>조회 조건·정렬 변경</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>PDF 텍스트 추출 변경</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">common/document_reader.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>DB 연결·SQL 실행 방식 변경</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">common/database_manager.py</span></code>, <code class="docutils literal notranslate"><span class="pre">common/sql_session.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>문서 내용·디자인 변경</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">docs/source/*.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">docs/source/_public/custom.css</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </section>
 <section id="id3">
-<h2>파일별 책임<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code> 는 실행 진입점과 PDF 읽기용 <code class="docutils literal notranslate"><span class="pre">CoffeeSearch</span></code> 를 정의합니다. <code class="docutils literal notranslate"><span class="pre">coffee_search_service.py</span></code> 는 등록·검색의 업무 순서와 임베딩 호출을 담당합니다. <code class="docutils literal notranslate"><span class="pre">coffee_search.sql</span></code> 은 데이터 조회·등록·삭제·유사도 검색 SQL을 담습니다. 이 세 파일이 Coffee Search 기능 세트입니다. 다른 <code class="docutils literal notranslate"><span class="pre">document</span></code>, <code class="docutils literal notranslate"><span class="pre">query_examples</span></code>, <code class="docutils literal notranslate"><span class="pre">transaction_sample</span></code> 세트도 같은 디렉터리에 있으며 별도의 실행 예제를 제공합니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">common/sql_session.py</span></code> 는 <code class="docutils literal notranslate"><span class="pre">group_project/</span></code> 아래의 모든 <code class="docutils literal notranslate"><span class="pre">*.sql</span></code> 을 재귀적으로 읽습니다. 별도의 <code class="docutils literal notranslate"><span class="pre">mapper/</span></code> 디렉터리나 <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> 를 요구하지 않습니다. <code class="docutils literal notranslate"><span class="pre">database_manager.py</span></code> 는 PostgreSQL 연결과 pgvector 타입 등록, <code class="docutils literal notranslate"><span class="pre">document_reader.py</span></code> 는 PDF 페이지 텍스트 추출을 담당합니다. <code class="docutils literal notranslate"><span class="pre">vector_store_manager.py</span></code> 는 <strong>현재 빈 파일</strong> 입니다.</p>
-<p><code class="docutils literal notranslate"><span class="pre">docs/source/</span></code> 는 이 사이트의 편집 대상이고 <code class="docutils literal notranslate"><span class="pre">docs/build/html/</span></code> 은 생성 결과입니다. 루트의 <code class="docutils literal notranslate"><span class="pre">docs/development_guide.md</span></code> 는 Markdown 참고본입니다. 사이트 내용을 바꾸려면 해당 RST도 수정하고 빌드해야 합니다. 구조 그림에는 현재 없는 예시 파일명과 메서드가 있으므로 실제 경로와 동작은 이 문서와 소스를 우선합니다.</p>
-</section>
-<section id="id4">
-<h2>변경 위치를 고를 때<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p>SQL statement: 해당 기능의 <code class="docutils literal notranslate"><span class="pre">.sql</span></code> 파일에 <code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">name:</span></code> 추가</p></li>
-<li><p>Coffee Search 업무 순서·필터·검색: <code class="docutils literal notranslate"><span class="pre">coffee_search_service.py</span></code></p></li>
-<li><p>실행 시 입력과 출력: <code class="docutils literal notranslate"><span class="pre">coffee_search.py</span></code></p></li>
-<li><p>PDF 읽기 공통 처리: <code class="docutils literal notranslate"><span class="pre">common/document_reader.py</span></code></p></li>
-<li><p>SQL 실행·트랜잭션 공통 기능: <code class="docutils literal notranslate"><span class="pre">common/sql_session.py</span></code></p></li>
-<li><p>DB 연결 설정·타입 등록: <code class="docutils literal notranslate"><span class="pre">common/database_manager.py</span></code></p></li>
-</ul>
-<p>Mapper 호출 규칙과 트랜잭션 경계는 <a class="reference internal" href="sql_mapper_guide.html"><span class="doc">SQL / SqlSession 사용 가이드</span></a>, 실제 호출 흐름은 <a class="reference internal" href="development_guide.html"><span class="doc">개발 공통 가이드</span></a> 를 참고하세요.</p>
+<h2>문서를 다시 만들 때<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<p>저장소 루트에서 실행합니다. 문서 빌드에는 애플리케이션용 환경변수나 DB 접속이 필요하지 않습니다.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">uv run --no-project --with sphinx --with furo python src/car_search_rag/docs/build_docs.py</span>
+</pre></div>
+</div>
+<p>빌드는 원본을 검사한 후 새 HTML을 만들고 결과를 다시 검사합니다.
+검사를 통과한 결과만 <code class="docutils literal notranslate"><span class="pre">build/html</span></code> 에 반영합니다.
+HTML을 직접 수정하면 다음 빌드 때 사라지므로 원본을 수정하세요.</p>
 </section>
 </section>
 
@@ -292,23 +313,23 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="api.html">
+          <a class="next-page" href="sql_mapper_guide.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">API Reference</div>
+                <div class="title">SQL 추가하고 호출하기</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="sql_mapper_guide.html">
+          <a class="prev-page" href="development_guide.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">SQL / SqlSession 사용 가이드</div>
+                <div class="title">검색과 등록의 흐름</div>
                 
               </div>
             </a>
@@ -342,10 +363,9 @@
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">프로젝트 구조</a><ul>
-<li><a class="reference internal" href="#id2">경로 기준</a></li>
-<li><a class="reference internal" href="#id3">파일별 책임</a></li>
-<li><a class="reference internal" href="#id4">변경 위치를 고를 때</a></li>
+<li><a class="reference internal" href="#">수정할 파일 찾기</a><ul>
+<li><a class="reference internal" href="#id2">무엇을 바꾸고 싶나요?</a></li>
+<li><a class="reference internal" href="#id3">문서를 다시 만들 때</a></li>
 </ul>
 </li>
 </ul>

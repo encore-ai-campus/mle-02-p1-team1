@@ -1,0 +1,16 @@
+[project]
+name = "casper-manual-demo"
+version = "0.1.0"
+description = "Casper Electric manual RAG Streamlit demo"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "streamlit==1.64.0",
+    "openai==3.19.2",
+    "python-dotenv==1.2.3",
+    "sentence-transformers==6.1.0",
+    "supabase==2.31.0",
+]
+
+[tool.uv]
+package = false
