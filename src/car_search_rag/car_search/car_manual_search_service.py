@@ -118,7 +118,7 @@ class CarManualSearchService:
             for doc in self.document_reader.doc_list
         ]
 
-        splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=80)
+        splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=150)
         chunks = splitter.split_documents(documents)
 
         for chunk_no, chunk in enumerate(chunks, start=1):
@@ -563,20 +563,88 @@ class CarManualSearchService:
         car_eng_nm,
         car_model_yr,
         question,
+        conversation_history=None,
         limit=5
     ):
 
+        #=====================================================
+        # 이전 대화 기반 검색 질문 재작성
+        #=====================================================
+        search_question = self.rewrite_search_question(
+            question=question,
+            conversation_history=conversation_history
+        )
+
+
+        #=====================================================
+        # 차량 매뉴얼 검색
+        #=====================================================
         search_docs = self.search_manual(
             car_brand_eng_nm=car_brand_eng_nm,
             car_eng_nm=car_eng_nm,
             car_model_yr=car_model_yr,
-            question=question,
+            question=search_question,
             limit=limit
         )
 
+
+        #=====================================================
+        # LLM 답변 생성
+        #=====================================================
         answer = self.generate_manual_answer(
             question=question,
             search_docs=search_docs
         )
 
         return answer
+
+
+    #=========================================================
+    # 이전 대화 기반 검색 질문 재작성
+    #=========================================================
+    def rewrite_search_question(
+        self,
+        question,
+        conversation_history=None
+    ):
+        """이전 대화를 참고하여 검색용 질문을 독립적인 문장으로 재작성"""
+
+        # 이전 대화가 없으면 현재 질문 그대로 사용
+        if not conversation_history:
+            return question
+
+
+        # 최근 6개 메시지만 사용
+        recent_messages = conversation_history
+
+
+        history_text = "\n".join(
+            [
+                f"{message['role']}: {message['content']}"
+                for message in recent_messages
+            ]
+        )
+
+
+        prompt = f"""
+    너는 차량 매뉴얼 검색용 질문을 만드는 역할이다.
+
+    이전 대화를 참고해서 현재 질문을
+    혼자 읽어도 의미가 통하는 검색 문장으로 다시 작성해라.
+
+    차량 매뉴얼 검색에 도움이 되는 관련 용어나 동의어가 있으면 포함해라.
+
+    설명하지 말고 검색 문장 하나만 반환해라.
+
+    [이전 대화]
+    {history_text}
+
+    [현재 질문]
+    {question}
+    """
+
+
+        response = self.chat_model.invoke(prompt)
+
+        return response.content.strip()
+

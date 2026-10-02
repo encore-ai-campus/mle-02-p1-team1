@@ -1,10 +1,19 @@
 import streamlit as st
 from dotenv import load_dotenv
 
+import logging
+import streamlit as st
+from dotenv import load_dotenv
+
+
 from car_search_rag.car_search.car_manual_search_service import (
     CarManualSearchService
 )
 from car_search_rag.common.sql_session import SqlSession
+
+
+
+
 
 
 #=========================================================
@@ -100,6 +109,9 @@ question = st.chat_input(
 #=========================================================
 if question:
 
+    # 현재 질문을 제외한 과거 대화 복사
+    conversation_history = st.session_state["messages"].copy()
+
     #=====================================================
     # 사용자 질문 화면 출력
     #=====================================================
@@ -107,15 +119,12 @@ if question:
         st.markdown(question)
 
 
-    #=====================================================
-    # 사용자 질문 대화 내역 저장
-    #=====================================================
     st.session_state["messages"].append(
-        {
-            "role": "user",
-            "content": question
-        }
-    )
+            {
+                "role": "user",
+                "content": question
+            }
+        )
 
 
     #=====================================================
@@ -132,6 +141,7 @@ if question:
                     car_eng_nm=car_eng_nm,
                     car_model_yr=car_model_yr,
                     question=question,
+                    conversation_history=conversation_history,
                     limit=limit
                 )
 
