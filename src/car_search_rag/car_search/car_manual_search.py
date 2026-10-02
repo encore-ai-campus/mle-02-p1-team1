@@ -7,6 +7,7 @@ import logging
 from car_search_rag.common.sql_session import SqlSession
 from car_search_rag.common.document_reader import DocumentReader
 from car_search_rag.common.storage_manager import StorageManager
+from car_search_rag.car_search.car_manual_search_service import CarManualSearchService
 
 #=========================================================
 # 커피 머신 및 캐슐 검색 메인 프로그램
@@ -26,7 +27,7 @@ class CarManualSearch:
         """
         생성시 PDF 설정
         """
-        self.document_reader = DocumentReader(file_path=file_path)      # 파일 경로 설정
+        
 
         # doc_list = self.document_reader.doc_list
         # for doc in doc_list:
@@ -97,7 +98,14 @@ logger.info(f"차량 매뉴얼 처리 시작 : {file_path.name}")
 # 차량 매뉴얼 Text 읽기
 #=========================================================
 
-carManualSearch = CarManualSearch(file_path=file_path)                                # 서비스 객체 생성
+carManualSearch =        CarManualSearch(file_path=file_path)           # 메인 객체 생성
 
+carManualSearchService = CarManualSearchService(sql_session=session)    # 서비스 객체 생성
 
+carManualSearchService.insert_pdf_docs(file_path=file_path,             # pdf 등록
+                                       car_brand_nm="현대",
+                                       car_brand_eng_nm="hyundai",
+                                       car_nm="소나타",
+                                       car_eng_nm="sonata",
+                                       car_model_yr=2026)
 
