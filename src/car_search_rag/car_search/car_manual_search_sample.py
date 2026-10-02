@@ -81,7 +81,7 @@ session = SqlSession(result_log=True)        # session 생성 db 연결
 
 
 #=========================================================
-# 소나타 메뉴얼 PDF 읽기
+# 아이오닉5 매뉴얼 PDF 읽기
 #=========================================================
 
 #=========================================================
@@ -95,7 +95,7 @@ storage_manager = StorageManager()
 # 차량 매뉴얼 PDF 설정
 #=========================================================
 
-file_path = (Path(__file__).resolve().parents[3] / "data" / "DN8_2026_ko_KR.pdf")       # 차량 매뉴얼 PDF 경로
+file_path = (Path(__file__).resolve().parents[3] / "data" / "NE1_2027_ko_KR.pdf")       # 아이오닉5 매뉴얼 PDF 경로
 
 logger.info(f"차량 매뉴얼 처리 시작 : {file_path.name}")
 
@@ -188,7 +188,7 @@ for page_index in range(len(pdf_document)):                                     
             image_url = storage_manager.upload_car_image_bytes(                           # 로컬 저장 없이 Supabase Storage에 바로 업로드
                 image_bytes=image_bytes,
                 brand="hyundai",
-                model="sonata",
+                model="ioniq5",
                 image_name=image_name
             )
 
