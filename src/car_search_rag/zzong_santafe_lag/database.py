@@ -105,6 +105,10 @@ class PersonalSqlSession(SqlSession):
         # [프로젝트 추가] 공통 로그를 바꾸지 않고 개인 인스턴스의 로그만 간단히 처리합니다.
         logging.getLogger(__name__).debug("개인 SQL 실행: %s", statement_id)
 
+    def _log_batch_query(self, statement_id, query_sql, parameters_list):
+        """일괄 저장도 이름·건수만 기록합니다. 전체 글과 벡터는 로그에 남기지 않습니다."""
+        logging.getLogger(__name__).debug("개인 일괄 SQL: %s, %d건", statement_id, len(parameters_list))
+
 
 class ManualRepository:
     """준비된 DB 행을 저장하고 개인 기록을 조회하는 작은 작업 도구입니다."""
@@ -135,20 +139,34 @@ class ManualRepository:
 
     def insert_row(self, table_name, row):
         """컬럼에 맞게 준비한 한 행을 저장합니다. 노트북 기록을 그대로 받지는 않습니다."""
+        parameters = self.row_parameters(table_name, row)
+        return self.session.execute("manual_store." + self.INSERT_NAMES[table_name], parameters)
+
+    @classmethod
+    def row_parameters(cls, table_name, row):
+        """한 행의 JSON·벡터를 DB 드라이버가 이해하는 값으로 복사합니다."""
         from psycopg.types.json import Jsonb
         from pgvector.utils import Vector
 
-        if table_name not in self.INSERT_NAMES:
+        if table_name not in cls.INSERT_NAMES:
             raise ValueError("개인 6개 테이블만 지정할 수 있습니다.")
         parameters = dict(row)
         # [프로젝트 적용] 딕셔너리·목록은 JSONB, 벡터는 pgvector 어댑터로 전달합니다.
-        # 전체 기록→DB 행 변환·연결 검증·일괄 저장 서비스는 다음 단계입니다.
+        # 전체 기록 변환·연결 검증은 full_store_service에서 먼저 수행합니다.
         for key in ("metadata", "review_flags", "settings", "pdf_image_key"):
             if key in parameters:
                 parameters[key] = Jsonb(parameters[key])
         if "embedding" in parameters:
             parameters["embedding"] = Vector(parameters["embedding"])
-        return self.session.execute("manual_store." + self.INSERT_NAMES[table_name], parameters)
+        return parameters
+
+    def insert_rows(self, table_name, rows):
+        """같은 개인 테이블의 여러 행을 SQL Mapper의 일괄 실행으로 저장합니다."""
+        # [프로젝트 적용] 기존 공통 execute_many를 재사용해 청크마다 왕복하는 시간을 줄입니다.
+        if table_name not in self.INSERT_NAMES:
+            raise ValueError("개인 6개 테이블만 지정할 수 있습니다.")
+        parameters = [self.row_parameters(table_name, row) for row in rows]
+        return self.session.execute_many("manual_store." + self.INSERT_NAMES[table_name], parameters)
 
     def get_parent(self, run_id, record_id):
         """같은 처리 버전의 부모 기록을 출처·각주 정보와 함께 읽습니다."""
@@ -162,13 +180,16 @@ class ManualRepository:
             "manual_store.get_parent_images", {"run_id": run_id, "record_id": record_id}
         )
 
-    def search_chunks(self, run_id, query_vector, *, model_name, model_revision, limit=5):
+    def search_chunks(self, run_id, query_vector, *, model_name, model_revision, limit=5, best_per_parent=False):
         """같은 모델·버전의 질문 벡터로 의미 검색합니다. 기존 결합 검색과는 별개입니다."""
         from pgvector.utils import Vector
         import numpy as np
 
-        if isinstance(limit, bool) or not isinstance(limit, int) or not 1 <= limit <= 100:
-            raise ValueError("결과 수는 1~100 사이 정수입니다.")
+        # [프로젝트 추가] 전체 검색은 부모별 대표 청크 527개를 모두 읽어 문맥 중복을 제거합니다.
+        # 상위 청크 100개만 읽으면 긴 주제 하나가 후보를 채울 수 있어 별도 SQL을 사용합니다.
+        maximum = 1000 if best_per_parent else 100
+        if isinstance(limit, bool) or not isinstance(limit, int) or not 1 <= limit <= maximum:
+            raise ValueError(f"결과 수는 1~{maximum} 사이 정수입니다.")
         run = self.session.select_one("manual_store.get_run", {"run_id": run_id})
         if run is None or run["status"] != "ready":
             raise ValueError("저장을 완료한 처리 버전만 검색할 수 있습니다.")
@@ -180,6 +201,7 @@ class ManualRepository:
         # 기존 실험의 정규화 기준을 질문에도 적용합니다.
         if not np.isclose(np.linalg.norm(vector), 1.0, atol=1e-4):
             raise ValueError("기존 모델 설정대로 질문 벡터를 정규화하세요.")
-        return self.session.select_list("manual_store.search_chunks", {
+        query_name = "search_parent_chunks" if best_per_parent else "search_chunks"
+        return self.session.select_list("manual_store." + query_name, {
             "run_id": run_id, "query_embedding": Vector(vector), "limit": limit,
         })

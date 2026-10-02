@@ -75,6 +75,15 @@ def compare_sample_bundle(preview, stored, *, require_ready=False):
                            ((item["parent_id"], item["image_id"]) if table == "record_images" else item["id"]) == key), None)
             if actual is None:
                 raise ValueError("저장한 행의 연결 번호가 다릅니다.")
+            # [프로젝트 추가] 승인 후 연결한 Storage 경로는 저장 전의 NULL과 구분합니다.
+            # 원문·벡터·그림 ID는 그대로 대조하고, 개인 표본의 정확한 경로만 허용합니다.
+            if table == "images" and actual["upload_status"] == "uploaded":
+                from .config import sample_image_storage_path
+                target_path = sample_image_storage_path(stored["documents"][0]["file_sha256"],
+                                                        row["pdf_page_number"], row["file_name"])
+                if (actual["storage_bucket"], actual["storage_path"]) != ("images", target_path):
+                    raise ValueError("기존 표본에 다른 Storage 경로가 연결돼 있습니다.")
+                row.update(storage_bucket="images", storage_path=target_path, upload_status="uploaded")
             for field, value in row.items():
                 if field == "embedding":
                     if not np.array_equal(np.asarray(value, dtype=np.float32), actual[field]):
@@ -144,7 +153,8 @@ def save_sample_rows(preview, service):
         sizes = reader.session.select_list("manual_store.personal_table_sizes")
         total_counts = reader.session.select_list("manual_store.personal_table_counts")
     preview.embedding_report["db_written"] = True
-    result.update({"reused_existing": reused, "schema": "zzong_santafe_lag", "storage_uploaded": False,
+    result.update({"reused_existing": reused, "schema": "zzong_santafe_lag",
+                   "storage_uploaded": all(row["upload_status"] == "uploaded" for row in stored["images"]),
                    "total_table_bytes": sum(row["bytes"] for row in sizes),
                    "table_sizes": sizes, "schema_counts": total_counts})
     return result
@@ -176,6 +186,9 @@ def read_sample_report(run_id):
                          "description": link["description"], "linkage_status": link["linkage_status"],
                          "pdf_page_number": images[link["image_id"]]["pdf_page_number"],
                          "pdf_image_key": images[link["image_id"]]["pdf_image_key"],
+                         "storage_bucket": images[link["image_id"]]["storage_bucket"],
+                         "storage_path": images[link["image_id"]]["storage_path"],
+                         "upload_status": images[link["image_id"]]["upload_status"],
                          "local_path": images[link["image_id"]]["local_path"]}
                         for link in tables["record_images"]],
         "total_table_bytes": sum(row["bytes"] for row in sizes),

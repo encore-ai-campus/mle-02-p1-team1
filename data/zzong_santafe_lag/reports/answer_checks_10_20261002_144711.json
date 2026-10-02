@@ -1,0 +1,2375 @@
+{
+  "phase": "completed",
+  "pid": 5096,
+  "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "started_at": "2026-10-02T14:47:11.060357+09:00",
+  "question_manifest_sha256": "62dcc2e7115c72c2c496f15e680a77ee90e41bb1f951a35948492b7acb415f9a",
+  "question_count": 10,
+  "completed_count": 10,
+  "search_method": "purpose_specific",
+  "top_k": 5,
+  "operational_error_count": 0,
+  "rules_modified": false,
+  "results": [
+    {
+      "case_id": "A01",
+      "group": "표현 바꾸기",
+      "question": "차대번호 찍힌 곳 어디야?",
+      "expected": {
+        "case_id": "A01",
+        "group": "표현 바꾸기",
+        "question": "차대번호 찍힌 곳 어디야?",
+        "expected_status": "evidence_excerpt",
+        "required_page_groups": [
+          [
+            45
+          ]
+        ],
+        "required_text_groups": [
+          [
+            "엔진"
+          ],
+          [
+            "차체 패널"
+          ]
+        ]
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "required_source_group_1": true,
+        "required_text_group_1": true,
+        "required_text_group_2": true
+      },
+      "expectation_checks_passed": true,
+      "failed_checks": [],
+      "actual_status": "evidence_excerpt",
+      "actual_source_pages": [
+        45
+      ],
+      "displayed_image_count": 1,
+      "pending_image_count": 0,
+      "answer": {
+        "question": "차대번호 찍힌 곳 어디야?",
+        "status": "evidence_excerpt",
+        "answer_mode": "pdf_excerpt",
+        "answer": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 45쪽 / 매뉴얼 40쪽 · 차대번호 (VIN)\n차대번호 (VIN) 차대번호(VIN: Vehicle Identification Number)는 차량 등록, 차량 소유권 유지 등 모든 법적 인 사항에 사용되는 차량의 고유 번호입니다. 차체에 타각된 차대번호와 차량 등록증에 기록된 차대번호는 일치해야 합니다. 엔진과 차량 실내 사이의 차체 패널에 타각되어 있습니다.\n[그림 설명] 그림의 화살표는 엔진과 차량 실내 사이 차체 패널에 있는 차대번호 타각 위치를 가리킨다.",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "vin_45",
+            "title": "차대번호 (VIN)",
+            "source_pages": [
+              45
+            ],
+            "manual_page_number": 40,
+            "verification_status": "sample_verified",
+            "quote": "차대번호 (VIN) 차대번호(VIN: Vehicle Identification Number)는 차량 등록, 차량 소유권 유지 등 모든 법적 인 사항에 사용되는 차량의 고유 번호입니다. 차체에 타각된 차대번호와 차량 등록증에 기록된 차대번호는 일치해야 합니다. 엔진과 차량 실내 사이의 차체 패널에 타각되어 있습니다.\n[그림 설명] 그림의 화살표는 엔진과 차량 실내 사이 차체 패널에 있는 차대번호 타각 위치를 가리킨다.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "차대번호 (VIN)\n2C_VINPosition\n차대번호(VIN: Vehicle Identification Number)는 차량 등록, 차량 소유권 유지 등 모든 법적\n인 사항에 사용되는 차량의 고유 번호입니다.\n차체에 타각된 차대번호와 차량 등록증에 기록된 차대번호는 일치해야 합니다.\n엔진과 차량 실내 사이의 차체 패널에 타각되어 있습니다.\n1\n40",
+            "label": "[1] PDF 45쪽 / 매뉴얼 40쪽"
+          }
+        ],
+        "images": [
+          {
+            "pdf_page_number": 45,
+            "file_name": "I1.jpg",
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": 688,
+            "height": 440,
+            "local_path": "data/zzong_santafe_lag/images/pdf_page_45/I1.jpg",
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0045_image_01.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0045_image_01.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "vin_45",
+                "description": "그림의 화살표는 엔진과 차량 실내 사이 차체 패널에 있는 차대번호 타각 위치를 가리킨다.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          }
+        ],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+        "matched_chunk_record_id": "vin_45_chunk_0",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."
+      }
+    },
+    {
+      "case_id": "A02",
+      "group": "표현 바꾸기",
+      "question": "0W-20 표에 있는 온도 눈금은 몇 도부터 몇 도까지야?",
+      "expected": {
+        "case_id": "A02",
+        "group": "표현 바꾸기",
+        "question": "0W-20 표에 있는 온도 눈금은 몇 도부터 몇 도까지야?",
+        "expected_status": "evidence_excerpt",
+        "required_page_groups": [
+          [
+            44
+          ]
+        ],
+        "required_text_groups": [
+          [
+            "0W-20"
+          ],
+          [
+            "-30"
+          ],
+          [
+            "50"
+          ]
+        ]
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "required_source_group_1": true,
+        "required_text_group_1": true,
+        "required_text_group_2": true,
+        "required_text_group_3": true
+      },
+      "expectation_checks_passed": true,
+      "failed_checks": [],
+      "actual_status": "evidence_excerpt",
+      "actual_source_pages": [
+        44
+      ],
+      "displayed_image_count": 2,
+      "pending_image_count": 0,
+      "answer": {
+        "question": "0W-20 표에 있는 온도 눈금은 몇 도부터 몇 도까지야?",
+        "status": "evidence_excerpt",
+        "answer_mode": "pdf_excerpt",
+        "answer": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 44쪽 / 매뉴얼 39쪽 · 온도에 따른 엔진 오일 SAE 점도 분류표\n온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n[그림 설명] 온도 눈금은 -30도부터 50도까지 표시되어 있다. 1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "table_44",
+            "title": "온도에 따른 엔진 오일 SAE 점도 분류표",
+            "source_pages": [
+              44
+            ],
+            "manual_page_number": 39,
+            "verification_status": "sample_verified",
+            "quote": "온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n[그림 설명] 온도 눈금은 -30도부터 50도까지 표시되어 있다. 1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n안내 및 차량 정보\n39",
+            "label": "[1] PDF 44쪽 / 매뉴얼 39쪽"
+          }
+        ],
+        "images": [
+          {
+            "pdf_page_number": 44,
+            "file_name": "I1.jpg",
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": 945,
+            "height": 71,
+            "local_path": "data/zzong_santafe_lag/images/pdf_page_44/I1.jpg",
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_01.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_01.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "table_44",
+                "description": "온도 눈금은 -30도부터 50도까지 표시되어 있다.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          },
+          {
+            "pdf_page_number": 44,
+            "file_name": "I2.jpg",
+            "pdf_image_key": "/I2",
+            "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+            "width": 945,
+            "height": 71,
+            "local_path": "data/zzong_santafe_lag/images/pdf_page_44/I2.jpg",
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_02.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_02.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "table_44",
+                "description": "1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          }
+        ],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+        "matched_chunk_record_id": "table_44_chunk_0",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."
+      }
+    },
+    {
+      "case_id": "A03",
+      "group": "표현 바꾸기",
+      "question": "안전벨트 버클은 어느 정도까지 밀어 넣어?",
+      "expected": {
+        "case_id": "A03",
+        "group": "표현 바꾸기",
+        "question": "안전벨트 버클은 어느 정도까지 밀어 넣어?",
+        "expected_status": "evidence_excerpt",
+        "required_page_groups": [
+          [
+            54,
+            110
+          ]
+        ],
+        "required_text_groups": [
+          [
+            "찰칵"
+          ]
+        ]
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "required_source_group_1": true,
+        "required_text_group_1": true
+      },
+      "expectation_checks_passed": true,
+      "failed_checks": [],
+      "actual_status": "evidence_excerpt",
+      "actual_source_pages": [
+        54
+      ],
+      "displayed_image_count": 0,
+      "pending_image_count": 1,
+      "answer": {
+        "question": "안전벨트 버클은 어느 정도까지 밀어 넣어?",
+        "status": "evidence_excerpt",
+        "answer_mode": "pdf_excerpt",
+        "answer": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 54쪽 / 매뉴얼 49쪽 · 안전벨트 착용\n안전벨트 착용 엉덩이를 좌석 가장 안쪽으로 넣고 등을 등받이에 기대어 앉으십시오. 등을 구부리거나 좌석 끝에 걸터앉지 마십시오. 안전벨트의 어깨띠가 어깨와 가슴을 지나도록 하십시오. 안전벨트가 꼬이거나 짓눌리지 않게 하십시오. 안전벨트의 골반띠가 골반을 부드럽게 지나도록 하십시오. \"찰칵\" 소리가 날 때까지 버클에 밀어 넣으십시오. 모든 좌석의 탑승자들은 가까운 거리라도 주행 전에 반드시 안전벨트를 착용하십시오. 탑승자 전원 안전벨트를 착용하십시오. 3점식 안전벨트를 착용할 수 없는 어린이의 경우 뒷좌석에 어린이용 보조 좌석을 장착해 앉히 십시오. 어린이를 무릎에 앉히고 팔로 안지 마십시오. 충돌 사고가 발생하면 어린이를 놓쳐 위험할 수 있습니다. 임산부 또는 환자는 급정차나 충돌 사고가 발생할 때 안전벨트로 인해 복부 등에 강한 힘을 받 을 수 있습니다. 안전벨트 착용 여부를 의사와 상의하십시오. 기타 주의 사항 어깨띠를 팔 밑으로 내리거나 등 뒤에 두지 말고, 목 또는 얼굴을 지나게 하지 마십시오. 두 사람 이상이 안전벨트 하나를 함께 착용하지 마십시오. 안전벨트를 착용한 채 좌석 등받이를 뒤로 젖히지 마십시오. 신체가 안전벨트에 바르게 고정되 지 않아 목이 걸리거나 부상을 입을 수 있습니다. [경고] 안전벨트의 정상적인 착용 및 사용을 방해하는 물품들은 절대로 사용하지 마십시오. 차단 클립: 차단 클립을 버클에 꽂게 되면 안전벨트를 착용한 것으로 인식하여 안전벨트 미착용 경고등 및 경고음이 작동하지 않습니다. 안전벨트 스토퍼: 스토퍼를 벨트에 장착하게 되면 벨트가 정상적으로 감기는 것을 방해하여 안 전벨트 성능이 떨어집니다. 놀이방 매트: 차량 뒷좌석에 놀이방 매트를 깔면 안전벨트 착용 및 어린이 보조 좌석 이용이 어 려워 사고가 나면 심각한 부상을 입을 수 있습니다.",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "seatbelt_54",
+            "title": "안전벨트 착용",
+            "source_pages": [
+              54
+            ],
+            "manual_page_number": 49,
+            "verification_status": "sample_verified",
+            "quote": "안전벨트 착용 엉덩이를 좌석 가장 안쪽으로 넣고 등을 등받이에 기대어 앉으십시오. 등을 구부리거나 좌석 끝에 걸터앉지 마십시오. 안전벨트의 어깨띠가 어깨와 가슴을 지나도록 하십시오. 안전벨트가 꼬이거나 짓눌리지 않게 하십시오. 안전벨트의 골반띠가 골반을 부드럽게 지나도록 하십시오. \"찰칵\" 소리가 날 때까지 버클에 밀어 넣으십시오. 모든 좌석의 탑승자들은 가까운 거리라도 주행 전에 반드시 안전벨트를 착용하십시오. 탑승자 전원 안전벨트를 착용하십시오. 3점식 안전벨트를 착용할 수 없는 어린이의 경우 뒷좌석에 어린이용 보조 좌석을 장착해 앉히 십시오. 어린이를 무릎에 앉히고 팔로 안지 마십시오. 충돌 사고가 발생하면 어린이를 놓쳐 위험할 수 있습니다. 임산부 또는 환자는 급정차나 충돌 사고가 발생할 때 안전벨트로 인해 복부 등에 강한 힘을 받 을 수 있습니다. 안전벨트 착용 여부를 의사와 상의하십시오. 기타 주의 사항 어깨띠를 팔 밑으로 내리거나 등 뒤에 두지 말고, 목 또는 얼굴을 지나게 하지 마십시오. 두 사람 이상이 안전벨트 하나를 함께 착용하지 마십시오. 안전벨트를 착용한 채 좌석 등받이를 뒤로 젖히지 마십시오. 신체가 안전벨트에 바르게 고정되 지 않아 목이 걸리거나 부상을 입을 수 있습니다. [경고] 안전벨트의 정상적인 착용 및 사용을 방해하는 물품들은 절대로 사용하지 마십시오. 차단 클립: 차단 클립을 버클에 꽂게 되면 안전벨트를 착용한 것으로 인식하여 안전벨트 미착용 경고등 및 경고음이 작동하지 않습니다. 안전벨트 스토퍼: 스토퍼를 벨트에 장착하게 되면 벨트가 정상적으로 감기는 것을 방해하여 안 전벨트 성능이 떨어집니다. 놀이방 매트: 차량 뒷좌석에 놀이방 매트를 깔면 안전벨트 착용 및 어린이 보조 좌석 이용이 어 려워 사고가 나면 심각한 부상을 입을 수 있습니다.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "안전벨트 착용\n2C_SeatBeltWearing\n엉덩이를 좌석 가장 안쪽으로 넣고 등을 등받이에 기대어 앉으십시오. 등을 구부리거나 좌석 끝에 걸터앉지 마십시오.\n안전벨트의 어깨띠가 어깨와 가슴을 지나도록 하십시오.\n안전벨트가 꼬이거나 짓눌리지 않게 하십시오.\n안전벨트의 골반띠가 골반을 부드럽게 지나도록 하십시오.\n\"찰칵\" 소리가 날 때까지 버클에 밀어 넣으십시오.\n모든 좌석의 탑승자들은 가까운 거리라도 주행 전에 반드시 안전벨트를 착용하십시오.\n탑승자 전원 안전벨트를 착용하십시오.\n3점식 안전벨트를 착용할 수 없는 어린이의 경우 뒷좌석에 어린이용 보조 좌석을 장착해 앉히\n십시오.\n어린이를 무릎에 앉히고 팔로 안지 마십시오. 충돌 사고가 발생하면 어린이를 놓쳐 위험할 수\n있습니다.\n임산부 또는 환자는 급정차나 충돌 사고가 발생할 때 안전벨트로 인해 복부 등에 강한 힘을 받\n을 수 있습니다. 안전벨트 착용 여부를 의사와 상의하십시오.\n기타 주의 사항\n어깨띠를 팔 밑으로 내리거나 등 뒤에 두지 말고, 목 또는 얼굴을 지나게 하지 마십시오.\n두 사람 이상이 안전벨트 하나를 함께 착용하지 마십시오.\n안전벨트를 착용한 채 좌석 등받이를 뒤로 젖히지 마십시오. 신체가 안전벨트에 바르게 고정되\n지 않아 목이 걸리거나 부상을 입을 수 있습니다.\n҃Ҋ \n안전벨트의 정상적인 착용 및 사용을 방해하는 물품들은 절대로 사용하지 마십시오.\n차단 클립: 차단 클립을 버클에 꽂게 되면 안전벨트를 착용한 것으로 인식하여 안전벨트 미착용\n경고등 및 경고음이 작동하지 않습니다.\n안전벨트 스토퍼: 스토퍼를 벨트에 장착하게 되면 벨트가 정상적으로 감기는 것을 방해하여 안\n전벨트 성능이 떨어집니다.\n놀이방 매트: 차량 뒷좌석에 놀이방 매트를 깔면 안전벨트 착용 및 어린이 보조 좌석 이용이 어\n려워 사고가 나면 심각한 부상을 입을 수 있습니다.\n안전 및 주의 사항\n49\n1:\n2:\n3:\n4:\n5:\n•\n•\n•\n•\n•\n•\n•\n•\n•",
+            "label": "[1] PDF 54쪽 / 매뉴얼 49쪽"
+          }
+        ],
+        "images": [],
+        "pending_image_references": [
+          {
+            "pdf_page_number": 54,
+            "file_name": "I1.jpg",
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": 685,
+            "height": 437,
+            "local_path": null,
+            "storage_bucket": null,
+            "storage_path": null,
+            "upload_status": "reference_only",
+            "public_url": null,
+            "descriptions": [
+              {
+                "parent_record_id": "seatbelt_54",
+                "description": null,
+                "linkage_status": "unreviewed_page_reference"
+              }
+            ]
+          }
+        ],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+        "matched_chunk_record_id": "seatbelt_54_chunk_0",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."
+      }
+    },
+    {
+      "case_id": "A04",
+      "group": "복합 질문",
+      "question": "엔진 오일 교체 시 주입량과 SAE 점도 표의 온도 눈금을 함께 알려줘.",
+      "expected": {
+        "case_id": "A04",
+        "group": "복합 질문",
+        "question": "엔진 오일 교체 시 주입량과 SAE 점도 표의 온도 눈금을 함께 알려줘.",
+        "expected_status": "evidence_excerpt",
+        "required_page_groups": [
+          [
+            43
+          ],
+          [
+            44
+          ]
+        ],
+        "required_text_groups": [
+          [
+            "4.8"
+          ],
+          [
+            "0W-20"
+          ],
+          [
+            "-30"
+          ],
+          [
+            "50"
+          ]
+        ]
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "required_source_group_1": false,
+        "required_source_group_2": true,
+        "required_text_group_1": false,
+        "required_text_group_2": true,
+        "required_text_group_3": true,
+        "required_text_group_4": true
+      },
+      "expectation_checks_passed": false,
+      "failed_checks": [
+        "required_source_group_1",
+        "required_text_group_1"
+      ],
+      "actual_status": "evidence_excerpt",
+      "actual_source_pages": [
+        44
+      ],
+      "displayed_image_count": 2,
+      "pending_image_count": 0,
+      "answer": {
+        "question": "엔진 오일 교체 시 주입량과 SAE 점도 표의 온도 눈금을 함께 알려줘.",
+        "status": "evidence_excerpt",
+        "answer_mode": "pdf_excerpt",
+        "answer": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 44쪽 / 매뉴얼 39쪽 · 온도에 따른 엔진 오일 SAE 점도 분류표\n온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n[그림 설명] 온도 눈금은 -30도부터 50도까지 표시되어 있다. 1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "table_44",
+            "title": "온도에 따른 엔진 오일 SAE 점도 분류표",
+            "source_pages": [
+              44
+            ],
+            "manual_page_number": 39,
+            "verification_status": "sample_verified",
+            "quote": "온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n[그림 설명] 온도 눈금은 -30도부터 50도까지 표시되어 있다. 1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n안내 및 차량 정보\n39",
+            "label": "[1] PDF 44쪽 / 매뉴얼 39쪽"
+          }
+        ],
+        "images": [
+          {
+            "pdf_page_number": 44,
+            "file_name": "I1.jpg",
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": 945,
+            "height": 71,
+            "local_path": "data/zzong_santafe_lag/images/pdf_page_44/I1.jpg",
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_01.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_01.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "table_44",
+                "description": "온도 눈금은 -30도부터 50도까지 표시되어 있다.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          },
+          {
+            "pdf_page_number": 44,
+            "file_name": "I2.jpg",
+            "pdf_image_key": "/I2",
+            "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+            "width": 945,
+            "height": 71,
+            "local_path": "data/zzong_santafe_lag/images/pdf_page_44/I2.jpg",
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_02.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_02.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "table_44",
+                "description": "1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          }
+        ],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+        "matched_chunk_record_id": "table_44_chunk_0",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."
+      }
+    },
+    {
+      "case_id": "A05",
+      "group": "복합 질문",
+      "question": "차대번호 위치와 실외 미러 접이 버튼 위치를 함께 알려줘.",
+      "expected": {
+        "case_id": "A05",
+        "group": "복합 질문",
+        "question": "차대번호 위치와 실외 미러 접이 버튼 위치를 함께 알려줘.",
+        "expected_status": "evidence_excerpt",
+        "required_page_groups": [
+          [
+            45
+          ],
+          [
+            33
+          ]
+        ],
+        "required_text_groups": [
+          [
+            "차대번호"
+          ],
+          [
+            "실외 미러 접이 버튼"
+          ]
+        ]
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "required_source_group_1": false,
+        "required_source_group_2": true,
+        "required_text_group_1": false,
+        "required_text_group_2": true
+      },
+      "expectation_checks_passed": false,
+      "failed_checks": [
+        "required_source_group_1",
+        "required_text_group_1"
+      ],
+      "actual_status": "evidence_excerpt",
+      "actual_source_pages": [
+        33,
+        34
+      ],
+      "displayed_image_count": 0,
+      "pending_image_count": 1,
+      "answer": {
+        "question": "차대번호 위치와 실외 미러 접이 버튼 위치를 함께 알려줘.",
+        "status": "evidence_excerpt",
+        "answer_mode": "pdf_excerpt",
+        "answer": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 33, 34쪽 / 매뉴얼 시작 28쪽 · 차량 내부 I\n차량 내부 I\n본 도안은 적용된 사양에 따라 실제 차량과 다를 수 있습니다.\n1: 도어 핸들(실내) — 매뉴얼 213쪽\n2: 운전석 자세 메모리 시스템 — 매뉴얼 224쪽\n3: 에르고 모션 시트 버튼 — 매뉴얼 65쪽\n4: 실외 미러 접이 버튼 — 매뉴얼 242쪽\n5: 실외 미러 조절 스위치 — 매뉴얼 242쪽\n6: 중앙 도어 잠금/잠금 해제 버튼 — 매뉴얼 214쪽\n7: 유리창 열림/닫힘 스위치 — 매뉴얼 249쪽\n8: 유리창 열림/닫힘 잠금 버튼, 전자식 차일드 락 버튼 — 매뉴얼 249쪽, 216쪽\n9: 전조등 각도 조절 장치 — 매뉴얼 300쪽\n10: 테일게이트 열림 버튼 — 매뉴얼 263쪽, 270쪽\n11: 차체 자세 제어(ESC) OFF 버튼 — 매뉴얼 419쪽\n12: 전자식 파킹 브레이크(EPB) 스위치 — 매뉴얼 410쪽\n13: 후드 열림 레버 — 매뉴얼 261쪽\n14: 스티어링 휠 위치 조절 — 매뉴얼 228쪽\n15: 스티어링 휠 — 매뉴얼 228쪽\n16: 시트 — 매뉴얼 59쪽\n17: 실내 퓨즈 — 매뉴얼 733쪽\n18: 지문 인증 시스템 — 매뉴얼 206쪽",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "overview_33",
+            "title": "차량 내부 I",
+            "source_pages": [
+              33,
+              34
+            ],
+            "manual_page_number": 28,
+            "verification_status": "sample_verified",
+            "quote": "차량 내부 I\n본 도안은 적용된 사양에 따라 실제 차량과 다를 수 있습니다.\n1: 도어 핸들(실내) — 매뉴얼 213쪽\n2: 운전석 자세 메모리 시스템 — 매뉴얼 224쪽\n3: 에르고 모션 시트 버튼 — 매뉴얼 65쪽\n4: 실외 미러 접이 버튼 — 매뉴얼 242쪽\n5: 실외 미러 조절 스위치 — 매뉴얼 242쪽\n6: 중앙 도어 잠금/잠금 해제 버튼 — 매뉴얼 214쪽\n7: 유리창 열림/닫힘 스위치 — 매뉴얼 249쪽\n8: 유리창 열림/닫힘 잠금 버튼, 전자식 차일드 락 버튼 — 매뉴얼 249쪽, 216쪽\n9: 전조등 각도 조절 장치 — 매뉴얼 300쪽\n10: 테일게이트 열림 버튼 — 매뉴얼 263쪽, 270쪽\n11: 차체 자세 제어(ESC) OFF 버튼 — 매뉴얼 419쪽\n12: 전자식 파킹 브레이크(EPB) 스위치 — 매뉴얼 410쪽\n13: 후드 열림 레버 — 매뉴얼 261쪽\n14: 스티어링 휠 위치 조절 — 매뉴얼 228쪽\n15: 스티어링 휠 — 매뉴얼 228쪽\n16: 시트 — 매뉴얼 59쪽\n17: 실내 퓨즈 — 매뉴얼 733쪽\n18: 지문 인증 시스템 — 매뉴얼 206쪽",
+            "quote_source": "stored_parent_content",
+            "raw_text": "차량 내부 I\n1C_SideInsideVehicleOverview\n본 도안은 적용된 사양에 따라 실제 차량과 다를 수 있습니다.\n도어 핸들(실내).......................................................................................................................................................... 213\n운전석 자세 메모리 시스템..........................................................................................................................................224\n에르고 모션 시트 버튼...................................................................................................................................................65\n실외 미러 접이 버튼.................................................................................................................................................... 242\n실외 미러 조절 스위치 ................................................................................................................................................242\n중앙 도어 잠금/잠금 해제 버튼................................................................................................................................... 214\n유리창 열림/닫힘 스위치.............................................................................................................................................249\n유리창 열림/닫힘 잠금 버튼, 전자식 차일드 락 버튼.......................................................................................... 249, 216\n전조등 각도 조절 장치.................................................................................................................................................300\n테일게이트 열림 버튼....................................................................................................................................... 263, 270\n차체 자세 제어(ESC) OFF 버튼................................................................................................................................419\n전자식 파킹 브레이크(EPB) 스위치.......................................................................................................................... 410\n후드 열림 레버.......................................................................................................................................................... 261\n스티어링 휠 위치 조절...............................................................................................................................................228\n스티어링 휠...............................................................................................................................................................228\n1\n28\n1:\n2:\n3:\n4:\n5:\n6:\n7:\n8:\n9:\n10:\n11:\n12:\n13:\n14:\n15:\n시트............................................................................................................................................................................ 59\n실내 퓨즈.................................................................................................................................................................. 733\n지문 인증 시스템.......................................................................................................................................................206",
+            "label": "[1] PDF 33, 34쪽 / 매뉴얼 시작 28쪽"
+          }
+        ],
+        "images": [],
+        "pending_image_references": [
+          {
+            "pdf_page_number": 33,
+            "file_name": "I1.jpg",
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": 1454,
+            "height": 1158,
+            "local_path": null,
+            "storage_bucket": null,
+            "storage_path": null,
+            "upload_status": "reference_only",
+            "public_url": null,
+            "descriptions": [
+              {
+                "parent_record_id": "overview_33",
+                "description": "차량 내부 I의 주요 부품 위치를 번호로 표시한 안내도.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          }
+        ],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+        "matched_chunk_record_id": "overview_33_chunk_1",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."
+      }
+    },
+    {
+      "case_id": "A06",
+      "group": "PDF 밖 질문",
+      "question": "지금 내 차가 리콜 대상이야?",
+      "expected": {
+        "case_id": "A06",
+        "group": "PDF 밖 질문",
+        "question": "지금 내 차가 리콜 대상이야?",
+        "expected_status": "outside_pdf_scope",
+        "no_retrieval_expected": true
+      },
+      "checks": {
+        "expected_status": false,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "no_retrieval": false,
+        "no_unverified_quote": true
+      },
+      "expectation_checks_passed": false,
+      "failed_checks": [
+        "expected_status",
+        "no_retrieval"
+      ],
+      "actual_status": "needs_review",
+      "actual_source_pages": [],
+      "displayed_image_count": 0,
+      "pending_image_count": 0,
+      "answer": {
+        "question": "지금 내 차가 리콜 대상이야?",
+        "status": "needs_review",
+        "answer_mode": "pdf_excerpt",
+        "answer": "관련 설명서 후보는 찾았지만, 원본 대조가 필요한 자료여서 확정 답변을 보류합니다.",
+        "reason": "검색된 원문 또는 이어지는 주의사항의 검토가 필요합니다.",
+        "sources": [],
+        "images": [],
+        "pending_image_references": [],
+        "review_candidates": [
+          {
+            "rank": 1,
+            "title": "PDF 1쪽 제목 미확인 구간",
+            "similarity": 0.5090393424034119,
+            "ranking_score": 0.3388709621330895,
+            "routing": {
+              "intents": [
+                "general"
+              ],
+              "reasons": [
+                "유형이 명확하지 않아 전체 자료 검색"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.07281692789999623,
+            "specific_terms": [
+              "리콜"
+            ],
+            "matched_chunk_record_id": "auto_topic_0_chunk_5",
+            "matched_chunk": "주제: PDF 1쪽 제목 미확인 구간\n한국교통안전공단 자동차안전연구원 전화: 080-357-2500 인터넷 홈페이지: 자동차 리콜센터 www.car.go.kr 사고기록장치 세부 안내문 (제30조의3제1항 관련) 이 자동차에는 사고기록장치가 장착되어 있습니다.",
+            "parent_record_id": "auto_topic_0",
+            "context_records": [
+              {
+                "record_id": "auto_topic_0",
+                "title": "PDF 1쪽 제목 미확인 구간",
+                "content": "안전 및 차량 손상 경고 본 취급설명서에는 고객 및 차량의 안전을 위해 유의해야 할 사항과 제품 사용에 대한 정확한 정보 를 알리는 안전경고 표시가 포함되어 있습니다. 지시사항을 반드시 숙지하고 준수하십시오. 경고, 주의표시 경고, 주의가 있는 문장 및 진하게 표시되어 있는 부분은 특히 유념하 십시오. [경고] 부상이나 사망의 우려가 있는 경우를 나타내는 표시입니다. [주의] 차량이 고장나거나 손상될 우려가 있는 경우를 나타내는 표시입니다. [참고] 차량 용어 설명 또는 추가 설명을 나타내는 표시입니다. 안전을 위해 반드시 지켜야 하는 사항을 나타내는 표시입니다. 선택 또는 미장착 사양표시 본 취급설명서에는 모든 트림모델 및 선택 사양을 포함하여 설명하고 있습니다. 고객님의 차량에 장착되지 않는 사양에 대한 설명이 포함될 수 있습 니다. 내용 찾기 방법 설명 내용으로 찾을 때 목차를 활용하세요. 명칭을 모를 때 그림 목차(차량 내부 I) 를 활용하세요 명칭으로 찾을 때 색인(명칭) 목차를 활용하세요. 제작결함 안내 자동차제작자 등(부품제작자 등): 현대자동차(주) 주 소: 서울특별시 서초구 헌릉로 12(양재동) 연락처: 080-600-6000 제작결함 안내 (제50조 관련) 귀하의 자동차 또는 자동차부품에 잦은 고장 등의 문제로 교통사고를 유발할 수 있는 결함이 있다고 판단되면, 자기 및 다른 사람의 안전을 위하여 즉시 현대자동차(주)와 제 작결함조사를 시행하는 한국교통안전공단 자동차안전연 구원에 연락하여 주시기 바랍니다. 한국교통안전공단 자동차안전연구원은 소비자 불만사항 등을 접수하여 분석한 후 해당 자동차 또는 자동차부품에 제작결함의 가능성이 있다고 판단되는 경우 제작결함조사 를 실시하여 해당 제작사에게 제작결함시정(recall) 등의 조치를 취할 것입니다. 한국교통안전공단 자동차안전연구원의 자동차 또는 자동 차부품 결함 등 소비자 불만 접수창구는 다음과 같습니다. 한국교통안전공단 자동차안전연구원 전화: 080-357-2500 인터넷 홈페이지: 자동차 리콜센터 www.car.go.kr 사고기록장치 세부 안내문 (제30조의3제1항 관련) 이 자동차에는 사고기록장치가 장착되어 있습니다. 사고기록장치는 자동차의 충돌 등 사고 전후 일정 시간 동 안 자동차의 운행 정보(주행속도, 제동페달, 가속페달 등 의 작동 여부)를 저장하고, 저장된 정보를 확인할 수 있는 기능을 하는 장치를 말합니다. 사고기록정보는 사고 상황을 파악하는 데 도움이 되는 정 보를 제공합니다. • • •",
+                "raw_text": "안전 및 차량 손상 경고\n본 취급설명서에는 고객 및 차량의 안전을 위해 유의해야 할 사항과 제품 사용에 대한 정확한 정보\n를 알리는 안전경고 표시가 포함되어 있습니다. 지시사항을 반드시 숙지하고 준수하십시오.\n경고, 주의표시 경고, 주의가 있는 문장 및 진하게 표시되어 있는 부분은 특히 유념하\n십시오.\n҃Ҋ \n부상이나 사망의 우려가 있는 경우를 나타내는 표시입니다.\n ઱੄ \n차량이 고장나거나 손상될 우려가 있는 경우를 나타내는 표시입니다.\nӝ \n차량 용어 설명 또는 추가 설명을 나타내는 표시입니다.\n안전을 위해 반드시 지켜야 하는 사항을 나타내는 표시입니다.\n선택 또는 미장착\n사양표시\n본 취급설명서에는 모든 트림모델 및 선택 사양을 포함하여 설명하고\n있습니다.\n고객님의 차량에 장착되지 않는 사양에 대한 설명이 포함될 수 있습\n니다.\n내용 찾기 방법 설명\n내용으로 찾을 때\n목차를 활용하세요.\n명칭을 모를 때\n그림 목차(차량 내부 I) 를 활용하세요\n명칭으로 찾을 때\n색인(명칭) 목차를 활용하세요.\n제작결함 안내 자동차제작자 등(부품제작자 등): 현대자동차(주)\n주 소: 서울특별시 서초구 헌릉로 12(양재동)\n연락처: 080-600-6000\n제작결함 안내\n(제50조 관련)\n귀하의 자동차 또는 자동차부품에 잦은 고장 등의 문제로\n교통사고를 유발할 수 있는 결함이 있다고 판단되면, 자기\n및 다른 사람의 안전을 위하여 즉시 현대자동차(주)와 제\n작결함조사를 시행하는 한국교통안전공단 자동차안전연\n구원에 연락하여 주시기 바랍니다.\n한국교통안전공단 자동차안전연구원은 소비자 불만사항\n등을 접수하여 분석한 후 해당 자동차 또는 자동차부품에\n제작결함의 가능성이 있다고 판단되는 경우 제작결함조사\n를 실시하여 해당 제작사에게 제작결함시정(recall) 등의\n조치를 취할 것입니다.\n한국교통안전공단 자동차안전연구원의 자동차 또는 자동\n차부품 결함 등 소비자 불만 접수창구는 다음과 같습니다.\n한국교통안전공단 자동차안전연구원\n전화: 080-357-2500\n인터넷 홈페이지: 자동차 리콜센터\nwww.car.go.kr\n사고기록장치 세부\n안내문\n(제30조의3제1항 관련)\n이 자동차에는 사고기록장치가 장착되어 있습니다.\n사고기록장치는 자동차의 충돌 등 사고 전후 일정 시간 동\n안 자동차의 운행 정보(주행속도, 제동페달, 가속페달 등\n의 작동 여부)를 저장하고, 저장된 정보를 확인할 수 있는\n기능을 하는 장치를 말합니다.\n사고기록정보는 사고 상황을 파악하는 데 도움이 되는 정\n보를 제공합니다.\n•\n•\n•",
+                "pdf_page_number": 1,
+                "manual_page_number": null,
+                "source_pages": [
+                  1,
+                  2,
+                  3
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "PDF 1쪽 제목 미확인 구간",
+                  "record_id": "auto_topic_0",
+                  "chapter_id": null,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "heading_not_confirmed",
+                    "footer_not_confirmed",
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    1,
+                    2,
+                    3
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 414,
+                      "start": 0,
+                      "pdf_page_number": 1
+                    },
+                    {
+                      "end": 92,
+                      "start": 0,
+                      "pdf_page_number": 2
+                    },
+                    {
+                      "end": 722,
+                      "start": 0,
+                      "pdf_page_number": 3
+                    }
+                  ],
+                  "boundary_source": "unmatched_prefix",
+                  "pdf_page_number": 1,
+                  "manual_page_number": null,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 1,
+                "file_name": null,
+                "pdf_image_key": "/I5",
+                "image_key_sha256": "d6be2e36eb8608f034ae35bc965823c1d76453b2a348d58d39f7026c69801207",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_0",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 2,
+                "file_name": null,
+                "pdf_image_key": "/I3",
+                "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_0",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 2,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_0",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 2,
+                "file_name": null,
+                "pdf_image_key": "/I2",
+                "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_0",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_0"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 2,
+            "title": "소프트웨어 업데이트 승인",
+            "similarity": 0.5102256536483765,
+            "ranking_score": 0.336675827036222,
+            "routing": {
+              "intents": [
+                "general"
+              ],
+              "reasons": [
+                "유형이 명확하지 않아 전체 자료 검색"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.07718307210000375,
+            "specific_terms": [
+              "지금"
+            ],
+            "matched_chunk_record_id": "auto_topic_192_chunk_1",
+            "matched_chunk": "주제: 소프트웨어 업데이트 승인\n시동 'OFF' 상태 기어 'P'(주차) 위치 전자식 파킹 브레이크(EPB) 체결 외장 램프 꺼짐 후드 닫힘 차량의 배터리 잔량이 충분함 업데이트 대상 제어기의 필수 기능 미작동 업데이트를 바로 시작하려면 즉시 설치 를 누르십시오. 업데이트를 취소하려면 업데이트 취소 를 누르십시오. 소프트웨어 업데이트 진행 및 완료 차량 내 인포테인먼트 화면에서 업데이트 진행률을 확인할 수 있습니다. 업데이트 결과는 차량 내 인포테인먼트 화면이나 휴대폰 알림을 통해 확인할 수 있습니다.",
+            "parent_record_id": "auto_topic_192",
+            "context_records": [
+              {
+                "record_id": "auto_topic_192",
+                "title": "소프트웨어 업데이트 승인",
+                "content": "소프트웨어 업데이트 승인 시동을 끄면 업데이트 시작을 승인할 수 있습니다. 업데이트를 시작하려면 지금 설치 를 누르십시오. 업데이트를 연기하려면 다음에 하기 를 누르십시오. 소프트웨어 업데이트 준비 소프트웨어 업데이트 승인 화면에서 시작을 누르면 차량은 업데이트를 준비합니다. 다음 조건을 모두 만족한 경우에만 업데이트를 시작할 수 있습니다. 시동 'OFF' 상태 기어 'P'(주차) 위치 전자식 파킹 브레이크(EPB) 체결 외장 램프 꺼짐 후드 닫힘 차량의 배터리 잔량이 충분함 업데이트 대상 제어기의 필수 기능 미작동 업데이트를 바로 시작하려면 즉시 설치 를 누르십시오. 업데이트를 취소하려면 업데이트 취소 를 누르십시오. 소프트웨어 업데이트 진행 및 완료 차량 내 인포테인먼트 화면에서 업데이트 진행률을 확인할 수 있습니다. 업데이트 결과는 차량 내 인포테인먼트 화면이나 휴대폰 알림을 통해 확인할 수 있습니다. [참고] 화면은 배터리 보호를 위해 꺼집니다. 꺼진 화면을 다시 켜서 진행률을 확인하려면 시동 버튼을 누 르십시오. [참고] 업데이트가 시작되면 자동으로 완료되고 시스템이 꺼지므로 차량에서 내려도 됩니다. 무선 소프트웨어 업데이트 기능은 현대 블루링크에 가입한 경우에만 사용할 수 있습니다. 차량에 설치된 소프트웨어 버전에 따라서 차량별로 업데이트 항목이 다를 수 있습니다. 홈페이지의 공지사항을 확인한 후 최신 버전의 소프트웨어로 업데이트하십시오. 업데이트가 실패하면 자동으로 복구를 시도합니다. 복구 완료 후 업데이트를 다시 진행하려면 현대고객센터로 연락해 문제를 해결하십시오. 소프트웨어 업데이트 또는 복구가 실패할 경우 현대고객센터로 문의하십시오. 안전과 관련된 문제일 경우 현대고객센터의 안내를 통해 긴급 출동 등의 서비스가 제공될 수 있습니다. 소프트웨어 업데이트 후에는 업데이트된 기능의 작동 사양이 변경될 수 있습니다. 자세한 내용 은 현대 홈페이지의 '무선 업데이트' 페이지 또는 고객센터 > 다운로드 센터 에서 취급설명서를 참고하십시오. 당사 직영 하이테크센터나 블루핸즈에서 기능 향상이나 추가를 위한 무선 업데이트 방법 외 유 선 소프트웨어 업데이트를 진행할 경우, 추가 비용이 발생할 수 있습니다. [주의] 소프트웨어 업데이트가 진행되면 다음의 제약이 발생합니다. 시동을 걸고 주행할 수 없습니다. 업데이트를 위한 충분한 시간을 확보하고, 안전한 장소에 주차한 후에 업데이트를 진행하십시오. 원격 시동을 포함한 원격 서비스를 사용할 수 없습니다. 주차 영상이 녹화되지 않습니다.(빌트인 캠 적용 차량) 후석 승객 알림 기능이 작동하지 않을 수 있습니다. 업데이트 시작 후 차량에서 내릴 때 뒷좌 석을 반드시 확인하십시오.(해당 기능 적용 차량) 업데이트 내역에 디지털 키 기능이 포함되면 디지털 키를 통한 도어 잠금/잠금 해제 기능이 작동하지 않을 수 있습니다. 공지를 확인해 디지털 키 기능이 업데이트되는 경우에는 도어를 잠그거나 잠금 해제할 때 스마트 키의 버튼을 사용하십시오. 소프트웨어 업데이트 시작 전에 시동을 켜는 등 차량의 상태를 변경하면 업데이트가 자동으로 취소됩니다. 소프트웨어 업데이트가 시작되면 업데이트를 취소할 수 없습니다. 제어기나 소프트웨어를 임의로 교체하지 마십시오. 무선 업데이트 기능을 사용할 수 없습니다. 소프트웨어 업데이트 중에 후드를 열거나 배터리를 분리하지 마십시오. 업데이트가 실패할 수 있습니다. 차량 OBD 단자에 별도 제품을 연결하면 업데이트 기능이 동작하지 않습니다. 해당 기능은 O BD 단자에 연결된 제품을 제거하고, 차량을 재시동하면 작동 가능합니다. 소프트웨어 업데이트가 정상적으로 완료되지 않으면 현대 고객센터로 연락하십시오.",
+                "raw_text": "소프트웨어 업데이트 승인\n2C_OTACirmformInfo\n시동을 끄면 업데이트 시작을 승인할 수 있습니다.\n업데이트를 시작하려면 지금 설치 를 누르십시오.\n업데이트를 연기하려면 다음에 하기 를 누르십시오.\n소프트웨어 업데이트 준비\n소프트웨어 업데이트 승인 화면에서 시작을 누르면 차량은 업데이트를 준비합니다.\n다음 조건을 모두 만족한 경우에만 업데이트를 시작할 수 있습니다.\n시동 'OFF' 상태\n기어 'P'(주차) 위치\n전자식 파킹 브레이크(EPB) 체결\n외장 램프 꺼짐\n후드 닫힘\n차량의 배터리 잔량이 충분함\n업데이트 대상 제어기의 필수 기능 미작동\n\n2C_OTACirmformProcessing\n업데이트를 바로 시작하려면 즉시 설치 를 누르십시오.\n업데이트를 취소하려면 업데이트 취소 를 누르십시오.\n소프트웨어 업데이트 진행 및 완료\n2C_OTACirmformProcessing_2\n2C_OTACirmformProcessing_3\n차량 내 인포테인먼트 화면에서 업데이트 진행률을 확인할 수 있습니다.\n업데이트 결과는 차량 내 인포테인먼트 화면이나 휴대폰 알림을 통해 확인할 수 있습니다.\nӝ \n화면은 배터리 보호를 위해 꺼집니다. 꺼진 화면을 다시 켜서 진행률을 확인하려면 시동 버튼을 누\n르십시오.\n\nӝ \n업데이트가 시작되면 자동으로 완료되고 시스템이 꺼지므로 차량에서 내려도 됩니다.\n무선 소프트웨어 업데이트 기능은 현대 블루링크에 가입한 경우에만 사용할 수 있습니다.\n차량에 설치된 소프트웨어 버전에 따라서 차량별로 업데이트 항목이 다를 수 있습니다.\n홈페이지의 공지사항을 확인한 후 최신 버전의 소프트웨어로 업데이트하십시오.\n업데이트가 실패하면 자동으로 복구를 시도합니다. 복구 완료 후 업데이트를 다시 진행하려면\n현대고객센터로 연락해 문제를 해결하십시오.\n소프트웨어 업데이트 또는 복구가 실패할 경우 현대고객센터로 문의하십시오. 안전과 관련된\n문제일 경우 현대고객센터의 안내를 통해 긴급 출동 등의 서비스가 제공될 수 있습니다.\n소프트웨어 업데이트 후에는 업데이트된 기능의 작동 사양이 변경될 수 있습니다. 자세한 내용\n은 현대 홈페이지의 '무선 업데이트' 페이지 또는 고객센터  > 다운로드 센터 에서 취급설명서를\n참고하십시오.\n당사 직영 하이테크센터나 블루핸즈에서 기능 향상이나 추가를 위한 무선 업데이트 방법 외 유\n선 소프트웨어 업데이트를 진행할 경우, 추가 비용이 발생할 수 있습니다.\n ઱੄ \n소프트웨어 업데이트가 진행되면 다음의 제약이 발생합니다.\n시동을 걸고 주행할 수 없습니다. 업데이트를 위한 충분한 시간을 확보하고, 안전한 장소에\n주차한 후에 업데이트를 진행하십시오.\n원격 시동을 포함한 원격 서비스를 사용할 수 없습니다.\n주차 영상이 녹화되지 않습니다.(빌트인 캠 적용 차량)\n후석 승객 알림 기능이 작동하지 않을 수 있습니다. 업데이트 시작 후 차량에서 내릴 때 뒷좌\n석을 반드시 확인하십시오.(해당 기능 적용 차량)\n업데이트 내역에 디지털 키 기능이 포함되면 디지털 키를 통한 도어 잠금/잠금 해제 기능이\n작동하지 않을 수 있습니다. 공지를 확인해 디지털 키 기능이 업데이트되는 경우에는 도어를\n잠그거나 잠금 해제할 때 스마트 키의 버튼을 사용하십시오.\n소프트웨어 업데이트 시작 전에 시동을 켜는 등 차량의 상태를 변경하면 업데이트가 자동으로\n취소됩니다.\n소프트웨어 업데이트가 시작되면 업데이트를 취소할 수 없습니다.\n제어기나 소프트웨어를 임의로 교체하지 마십시오. 무선 업데이트 기능을 사용할 수 없습니다.\n소프트웨어 업데이트 중에 후드를 열거나 배터리를 분리하지 마십시오. 업데이트가 실패할 수\n있습니다.\n차량 OBD 단자에 별도 제품을 연결하면 업데이트 기능이 동작하지 않습니다. 해당 기능은 O\nBD 단자에 연결된 제품을 제거하고, 차량을 재시동하면 작동 가능합니다.\n소프트웨어 업데이트가 정상적으로 완료되지 않으면 현대 고객센터로 연락하십시오.\n",
+                "pdf_page_number": 298,
+                "manual_page_number": 293,
+                "source_pages": [
+                  298,
+                  299,
+                  300
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "소프트웨어 업데이트 승인",
+                  "record_id": "auto_topic_192",
+                  "chapter_id": 5,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    298,
+                    299,
+                    300
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 537,
+                      "start": 226,
+                      "pdf_page_number": 298
+                    },
+                    {
+                      "end": 308,
+                      "start": 0,
+                      "pdf_page_number": 299
+                    },
+                    {
+                      "end": 1280,
+                      "start": 0,
+                      "pdf_page_number": 300
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 298,
+                  "manual_page_number": 293,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 298,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_192",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 299,
+                "file_name": null,
+                "pdf_image_key": "/I3",
+                "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_192",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 299,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_192",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 299,
+                "file_name": null,
+                "pdf_image_key": "/I2",
+                "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_192",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_192"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 3,
+            "title": "자동 정차 기능 (Auto Hold)",
+            "similarity": 0.5470694303512573,
+            "ranking_score": 0.28190386295318604,
+            "routing": {
+              "intents": [
+                "general"
+              ],
+              "reasons": [
+                "유형이 명확하지 않아 전체 자료 검색"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.0,
+            "specific_terms": [],
+            "matched_chunk_record_id": "auto_topic_300_chunk_8",
+            "matched_chunk": "주제: 자동 정차 기능 (Auto Hold)\n내리막길을 주행할 때 주차 등을 위해 차가 천천히 움직여야 할 때 바퀴 구동이 필요한 자동 세차기에 진입할 때 위의 사항을 지키지 않을 경우 차가 갑자기 움직여 예기치 않은 사고가 날 수 있습니다. 클러스터 표시창 경고문 주차 브레이크가 자동으로 작동되었습니다 자동 정차 기능 작동 상태에서 전자식 파킹 브레이크 체결 상태로 전환되면 이 경고문이 표시되고 경고음이 한 번 울립니다.",
+            "parent_record_id": "auto_topic_300",
+            "context_records": [
+              {
+                "record_id": "auto_topic_300",
+                "title": "자동 정차 기능 (Auto Hold)",
+                "content": "자동 정차 기능 (Auto Hold) 기어 'D'(주행), 'N'(중립), 'R'(후진) 또는 수동 변속 모드에서 브레이크 페달을 밟아 차량이 정지 한 후 브레이크 페달에서 발을 떼어도 정지 상태를 계속 유지하는 기능입니다. 기어 'D'(주행), 'R'(후진) 또는 수동 변속 모드에서 가속 페달을 밟고 출발하면 자동으로 브레이크 상태가 해제되어 차량이 출발합니다. [참고] 자동 정차 기능이 대기 또는 작동 중인 상태에서 시동 OFF 후 재시동 시 자동 정차 기능은 작동 대 기 상태를 유지합니다. 자동 정차 기능 설정 운전석 도어 및 후드를 닫으십시오. 브레이크 페달을 밟은 상태에서 AUTO HOLD 버튼을 누르십시오. 자동 정차 기능이 작동 대기 상태가 되고 클러스터에 흰색 AUTO HOLD 표시등( N)이 켜집니 다. 흰색 주행 중 브레이크 페달을 밟아 차량이 멈추면 자동 정차 기능이 작동되고 AUTO HOLD 표시등 (N)이 초록색으로 바뀝니다. 브레이크 페달에서 발을 떼어도 차량은 정지 상태를 계속 유지합니다. 전자식 파킹 브레이크가 작동 중일 때는 자동 정차 기능이 작동하지 않습니다. 자동 정차 상태에서 차량 출발 방법 가속 페달을 천천히 밟으면 브레이크 상태가 해제되면서 차량이 출발합니다. 자동 정차 기능은 다시 작동 대기 상태가 되고 AUTO HOLD 표시등( N)은 흰색으로 바뀝니다. 전방 차량과의 거리가 가깝거나 내리막길에서 정차한 후 출발할 때는 안전을 위해 수동으로 자 동 정차 기능을 해제하십시오. 수동으로 자동 정차 기능을 해제하려면 브레이크 페달을 밟은 상 태에서 AUTO HOLD 버튼을 누르십시오. 자동 정차 기능이 해제되고 AUTO HOLD 표시등 (N)이 꺼집니다. 자동 정차 기능 해제 꺼짐A:A: 자동 정차 기능을 사용하지 않으려면 차가 정지된 상태에서 브레이크 페달을 밟고 AUTO HOLD 버튼을 눌러 기능을 완전히 해제하십시오. AUTO HOLD 표시등( N)이 꺼집니다. [주의] 자동 정차 기능은 안전을 위해 다음 상황에서는 작동하지 않습니다. 전자식 파킹 브레이크가 작동 중일 경우 자동 정차 기능이 작동 중인 상태에서 다음 상황이 발생하면 안전을 위해 전자식 파킹 브레이크 가 작동합니다. AUTO HOLD 표시등( N)이 초록색에서 흰색으로 바뀌고 빨간색 브레이크 경고등이 켜집니다. 운전석 도어가 열린 경우 후드가 열린 경우 테일게이트가 열린 경우 가파른 언덕길이나 내리막길에 정차했을 경우 장시간 자동 정차 기능이 작동한 경우 차의 움직임이 여러 번 감지될 경우 안전벨트, 운전석 도어, 후드 등의 열림 또는 닫힘 신호가 고장일 때는 자동 정차 기능 및 전자 식 파킹 브레이크가 오작동할 수 있습니다. 당사 직영 하이테크센터나 블루핸즈에서 점검을 받 으십시오. AUTO HOLD 표시등( N)이 노란색으로 켜지면 자동 정차 기능이 고장 난 것입니다. 노란색 경고등이 켜지면 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오. [경고] 가속 페달을 세게 밟으면 차량이 빠르게 출발할 수 있으니 가속 페달을 천천히 밟아 출발하십시 오. 다음 상황에서는 자동 정차 기능을 해제하십시오. 내리막길을 주행할 때 주차 등을 위해 차가 천천히 움직여야 할 때 바퀴 구동이 필요한 자동 세차기에 진입할 때 위의 사항을 지키지 않을 경우 차가 갑자기 움직여 예기치 않은 사고가 날 수 있습니다. 클러스터 표시창 경고문 주차 브레이크가 자동으로 작동되었습니다 자동 정차 기능 작동 상태에서 전자식 파킹 브레이크 체결 상태로 전환되면 이 경고문이 표시되고 경고음이 한 번 울립니다. AUTO HOLD가 해제됩니다 브레이크를 밟으십시오 자동 정차 상태에서 전자식 파킹 브레이크 상태로 전환이 불가할 때 이 경고문이 표시되고 경고음 이 울립니다. 브레이크 페달을 밟으십시오. [주의] 'AUTO HOLD가 해제됩니다. 브레이크를 밟으십시오' 경고문이 표시되면 자동 정차 기능과 전자 식 파킹 브레이크가 작동되지 않을 수 있습니다. 반드시 브레이크 페달을 밟으십시오. 브레이크를 밟은 상태에서 AUTO HOLD를 해제하십시오 자동 정차 상태에서 브레이크 페달을 밟지 않고 자동 정차 기능을 해제하려고 할 때 이 경고문이 표시되고 경고음이 울립니다. 브레이크 페달을 밟은 상태에서 AUTO HOLD 버튼을 누르십시오.",
+                "raw_text": "자동 정차 기능 (Auto Hold)\n기어 'D'(주행), 'N'(중립), 'R'(후진) 또는 수동 변속 모드에서 브레이크 페달을 밟아 차량이 정지\n한 후 브레이크 페달에서 발을 떼어도 정지 상태를 계속 유지하는 기능입니다.\n기어 'D'(주행), 'R'(후진) 또는 수동 변속 모드에서 가속 페달을 밟고 출발하면 자동으로 브레이크\n상태가 해제되어 차량이 출발합니다.\nӝ \n자동 정차 기능이 대기 또는 작동 중인 상태에서 시동 OFF 후 재시동 시 자동 정차 기능은 작동 대\n기 상태를 유지합니다.\n자동 정차 기능 설정\n운전석 도어 및 후드를 닫으십시오.\n브레이크 페달을 밟은 상태에서 AUTO HOLD  버튼을 누르십시오.\n자동 정차 기능이 작동 대기 상태가 되고 클러스터에 흰색 AUTO HOLD 표시등( N)이 켜집니\n다.\n2C_AutoHoldButtonOn\n흰색\n주행 중 브레이크 페달을 밟아 차량이 멈추면 자동 정차 기능이 작동되고 AUTO HOLD 표시등\n(N)이 초록색으로 바뀝니다.\n브레이크 페달에서 발을 떼어도 차량은 정지 상태를 계속 유지합니다.\n전자식 파킹 브레이크가 작동 중일 때는 자동 정차 기능이 작동하지 않습니다.\n자동 정차 상태에서 차량 출발 방법\n가속 페달을 천천히 밟으면 브레이크 상태가 해제되면서 차량이 출발합니다.\n자동 정차 기능은 다시 작동 대기 상태가 되고 AUTO HOLD 표시등( N)은 흰색으로 바뀝니다.\n\n전방 차량과의 거리가 가깝거나 내리막길에서 정차한 후 출발할 때는 안전을 위해 수동으로 자\n동 정차 기능을 해제하십시오. 수동으로 자동 정차 기능을 해제하려면 브레이크 페달을 밟은 상\n태에서 AUTO HOLD  버튼을 누르십시오. 자동 정차 기능이 해제되고 AUTO HOLD 표시등\n(N)이 꺼집니다.\n자동 정차 기능 해제\n2C_AutoHoldButtonOff\n꺼짐A:A:\n자동 정차 기능을 사용하지 않으려면 차가 정지된 상태에서 브레이크 페달을 밟고 AUTO HOLD\n버튼을 눌러 기능을 완전히 해제하십시오. AUTO HOLD 표시등( N)이 꺼집니다.\n ઱੄ \n자동 정차 기능은 안전을 위해 다음 상황에서는 작동하지 않습니다.\n전자식 파킹 브레이크가 작동 중일 경우\n자동 정차 기능이 작동 중인 상태에서 다음 상황이 발생하면 안전을 위해 전자식 파킹 브레이크\n가 작동합니다.\nAUTO HOLD 표시등( N)이 초록색에서 흰색으로 바뀌고 빨간색 브레이크 경고등이 켜집니다.\n운전석 도어가 열린 경우\n후드가 열린 경우\n테일게이트가 열린 경우\n가파른 언덕길이나 내리막길에 정차했을 경우\n장시간 자동 정차 기능이 작동한 경우\n차의 움직임이 여러 번 감지될 경우\n안전벨트, 운전석 도어, 후드 등의 열림 또는 닫힘 신호가 고장일 때는 자동 정차 기능 및 전자\n식 파킹 브레이크가 오작동할 수 있습니다. 당사 직영 하이테크센터나 블루핸즈에서 점검을 받\n으십시오.\nAUTO HOLD 표시등( N)이 노란색으로 켜지면 자동 정차 기능이 고장 난 것입니다. 노란색\n경고등이 켜지면 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오.\n\n҃Ҋ \n가속 페달을 세게 밟으면 차량이 빠르게 출발할 수 있으니 가속 페달을 천천히 밟아 출발하십시\n오.\n다음 상황에서는 자동 정차 기능을 해제하십시오.\n내리막길을 주행할 때\n주차 등을 위해 차가 천천히 움직여야 할 때\n바퀴 구동이 필요한 자동 세차기에 진입할 때\n위의 사항을 지키지 않을 경우 차가 갑자기 움직여 예기치 않은 사고가 날 수 있습니다.\n클러스터 표시창 경고문\n주차 브레이크가 자동으로 작동되었습니다\n2C_AutoHoldAutoEngageEPBInfo\n자동 정차 기능 작동 상태에서 전자식 파킹 브레이크 체결 상태로 전환되면 이 경고문이 표시되고\n경고음이 한 번 울립니다.\nAUTO HOLD가 해제됩니다 브레이크를 밟으십시오\n2C_AutoHoldPressureBreakInfo\n자동 정차 상태에서 전자식 파킹 브레이크 상태로 전환이 불가할 때 이 경고문이 표시되고 경고음\n이 울립니다. 브레이크 페달을 밟으십시오.\n\n ઱੄ \n'AUTO HOLD가 해제됩니다. 브레이크를 밟으십시오' 경고문이 표시되면 자동 정차 기능과 전자\n식 파킹 브레이크가 작동되지 않을 수 있습니다. 반드시 브레이크 페달을 밟으십시오.\n브레이크를 밟은 상태에서 AUTO HOLD를 해제하십시오\n2C_ReleaseAutoHoldPressBreakInfo\n자동 정차 상태에서 브레이크 페달을 밟지 않고 자동 정차 기능을 해제하려고 할 때 이 경고문이\n표시되고 경고음이 울립니다.\n브레이크 페달을 밟은 상태에서 AUTO HOLD  버튼을 누르십시오.\n",
+                "pdf_page_number": 420,
+                "manual_page_number": 415,
+                "source_pages": [
+                  420,
+                  421,
+                  422,
+                  423
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "자동 정차 기능 (Auto Hold)",
+                  "record_id": "auto_topic_300",
+                  "chapter_id": 6,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "detached_number_or_letter_labels_needs_review",
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    420,
+                    421,
+                    422,
+                    423
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 788,
+                      "start": 89,
+                      "pdf_page_number": 420
+                    },
+                    {
+                      "end": 798,
+                      "start": 0,
+                      "pdf_page_number": 421
+                    },
+                    {
+                      "end": 464,
+                      "start": 0,
+                      "pdf_page_number": 422
+                    },
+                    {
+                      "end": 280,
+                      "start": 0,
+                      "pdf_page_number": 423
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 420,
+                  "manual_page_number": 415,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 420,
+                "file_name": null,
+                "pdf_image_key": "/I4",
+                "image_key_sha256": "f46431218087b4cb57241d31f1fc9e252182476a75f7c4d6fa3852466bb6054b",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_300",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 421,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_300",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 422,
+                "file_name": null,
+                "pdf_image_key": "/I3",
+                "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_300",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 422,
+                "file_name": null,
+                "pdf_image_key": "/I4",
+                "image_key_sha256": "f46431218087b4cb57241d31f1fc9e252182476a75f7c4d6fa3852466bb6054b",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_300",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 423,
+                "file_name": null,
+                "pdf_image_key": "/I3",
+                "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_300",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_300"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 4,
+            "title": "냉각수량 점검 및 보충",
+            "similarity": 0.4164254069328308,
+            "ranking_score": 0.2810296313664116,
+            "routing": {
+              "intents": [
+                "general"
+              ],
+              "reasons": [
+                "유형이 명확하지 않아 전체 자료 검색"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.07281692789999623,
+            "specific_terms": [
+              "리콜"
+            ],
+            "matched_chunk_record_id": "auto_topic_458_chunk_2",
+            "matched_chunk": "주제: 냉각수량 점검 및 보충\n엔진 작동 중에는 냉각수가 너무 뜨거워 화상을 입을 수 있습니다. 냉각수 보조 탱크 캡을 완전히 잠그십시오. 캡이 다 잠기지 않으면 주행 중 냉각수가 넘쳐 엔진 이 과열할 수 있습니다. 냉각수 혼합 비율 주위온도 (℃) 냉각수 혼합비율 부동액 물 -15 35 % 65 % -25 40 % 60 % -35 50 % 50 % -45 60 % 40 % [참고] 차량 출고 시 부동액 혼합비율은 45 % 입니다.",
+            "parent_record_id": "auto_topic_458",
+            "context_records": [
+              {
+                "record_id": "auto_topic_458",
+                "title": "냉각수량 점검 및 보충",
+                "content": "냉각수량 점검 및 보충 엔진 냉각수의 양은 매일 점검하여 필요할 때 보충하십시오. 엔진 냉각수 엔진이 식었을 때 후드를 여십시오. 냉각수 보조 탱크 옆면에 표시된 냉각수량이 최소선(MIN)과 최대선(MAX) 사이에 있는지 확 인하십시오. 냉각수량이 최소선(MIN)에 가깝다면 냉각수 혼합 비율표를 따라 부동액과 물을 섞어 냉각수를 만드십시오. 냉각수 보조 탱크 캡을 열고 최대선(MAX)까지 냉각수를 보충하십시오. 냉각수 보조 탱크 캡을 잠근 후 완전히 잠겼는지 확인하십시오. 캡 표면의 그림이 기울지 않아야 합니다. 엔진룸 전방뷰 캡의 돌기가 정상적으로 안착되어야 합니다. [경고] WL_RadiatorHotWarning 반드시 엔진이 다 식었을 때 냉각수 보조 탱크 캡을 열고, 두꺼운 헝겊으로 캡을 감싸 천천히 여 십시오. 엔진 작동 중에는 냉각수가 너무 뜨거워 화상을 입을 수 있습니다. 냉각수 보조 탱크 캡을 완전히 잠그십시오. 캡이 다 잠기지 않으면 주행 중 냉각수가 넘쳐 엔진 이 과열할 수 있습니다. 냉각수 혼합 비율 주위온도 (℃) 냉각수 혼합비율 부동액 물 -15 35 % 65 % -25 40 % 60 % -35 50 % 50 % -45 60 % 40 % [참고] 차량 출고 시 부동액 혼합비율은 45 % 입니다. [주의] 냉각수의 혼합 비율을 점검하십시오. 부동액의 농도가 35 % 미만이거나 60 % 초과이면 엔진 내부가 부식되거나 과열될 수 있습니다. 냉각수 보조 탱크 캡을 열 때 부직포나 두꺼운 헝겊 등으로 캡 주위를 감싼 뒤 천천히 여십시오. 냉각수가 흘러내리면 엔진 하부 등 다른 부품이 손상될 수 있습니다. 품질과 성능이 적합한 사계절 부동액을 사용하십시오. 부적합한 부동액 사용시 엔진 냉각계 부 품에 부식이나 침전물 생성 또는 손상으로 엔진 과열 등의 원인이 될 수 있습니다. 순정 부동액 은 품질과 성능을 당사가 보증하는 부동액 입니다. 냉각수를 보충한 후 누수가 없는지 확인하십시오. 냉각수를 보충한 뒤 며칠 후에 냉각수량을 한 번 더 점검하고 필요하면 보충하십시오. [주의] 냉각수가 없는 상태로 주행하지 마십시오. 워터 펌프가 고장 나거나 엔진 소착을 일으킬 수 있습니 다. 부동액 혼합비율이 너무 높거나 낮아도 냉각성능이 저하됩니다. 부동액이 60 % 이상 또는 35 % 이하로 포함된 냉각수는 사용하지 마십시오. 냉각 성능이 저하 될 수 있습니다. 부동액과 섞을 물로는 수돗물 또는 증류수를 사용하십시오. 짠물이나 지하수 등의 경수는 절대 사용하지 마십시오. 부동액, 방청제 및 시판되는 LLC 등의 혼용을 피하십시오. 알코올 또는 메탄올 계열의 냉각수를 그대로 또는 기준에 맞는 냉각수와 섞어서 사용하지 마십 시오. 엔진 부품은 알루미늄으로 구성되어 있어 동결과 부식을 방지하기 위해 인산염계 에틸렌- 글리콜 성분의 냉각수로 보호되어야 합니다. 보충 후 냉각수 보조 탱크와 라디에이터 캡을 확실히 닫으십시오. 보충 후에도 냉각수가 현저하게 감소하면 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으 십시오.",
+                "raw_text": "냉각수량 점검 및 보충\n엔진 냉각수의 양은 매일 점검하여 필요할 때 보충하십시오.\n엔진 냉각수\n2C_EngineCoolant\n엔진이 식었을 때 후드를 여십시오.\n냉각수 보조 탱크 옆면에 표시된 냉각수량이 최소선(MIN)과 최대선(MAX) 사이에 있는지 확\n인하십시오.\n냉각수량이 최소선(MIN)에 가깝다면 냉각수 혼합 비율표를 따라 부동액과 물을 섞어 냉각수를\n만드십시오.\n냉각수 보조 탱크 캡을 열고 최대선(MAX)까지 냉각수를 보충하십시오.\n냉각수 보조 탱크 캡을 잠근 후 완전히 잠겼는지 확인하십시오.\n캡 표면의 그림이 기울지 않아야 합니다.\n엔진룸 전방뷰\n2C_CheckCoolantCapLocked\n\n캡의 돌기가 정상적으로 안착되어야 합니다.\n2C_CheckCoolantCapLocked_2\n҃Ҋ \nWL_RadiatorHotWarning\n반드시 엔진이 다 식었을 때 냉각수 보조 탱크 캡을 열고, 두꺼운 헝겊으로 캡을 감싸 천천히 여\n십시오. 엔진 작동 중에는 냉각수가 너무 뜨거워 화상을 입을 수 있습니다.\n냉각수 보조 탱크 캡을 완전히 잠그십시오. 캡이 다 잠기지 않으면 주행 중 냉각수가 넘쳐 엔진\n이 과열할 수 있습니다.\n냉각수 혼합 비율\n주위온도 (℃)\n냉각수 혼합비율\n부동액 물\n-15 35 % 65 %\n-25 40 % 60 %\n-35 50 % 50 %\n-45 60 % 40 %\nӝ \n차량 출고 시 부동액 혼합비율은 45 % 입니다.\n\n ઱੄ \n냉각수의 혼합 비율을 점검하십시오. 부동액의 농도가 35 % 미만이거나 60 % 초과이면 엔진\n내부가 부식되거나 과열될 수 있습니다.\n냉각수 보조 탱크 캡을 열 때 부직포나 두꺼운 헝겊 등으로 캡 주위를 감싼 뒤 천천히 여십시오.\n냉각수가 흘러내리면 엔진 하부 등 다른 부품이 손상될 수 있습니다.\n품질과 성능이 적합한 사계절 부동액을 사용하십시오. 부적합한 부동액 사용시 엔진 냉각계 부\n품에 부식이나 침전물 생성 또는 손상으로 엔진 과열 등의 원인이 될 수 있습니다. 순정 부동액\n은 품질과 성능을 당사가 보증하는 부동액 입니다.\n냉각수를 보충한 후 누수가 없는지 확인하십시오.\n냉각수를 보충한 뒤 며칠 후에 냉각수량을 한 번 더 점검하고 필요하면 보충하십시오.\n ઱੄ \n냉각수가 없는 상태로 주행하지 마십시오. 워터 펌프가 고장 나거나 엔진 소착을 일으킬 수 있습니\n다.\n부동액 혼합비율이 너무 높거나 낮아도 냉각성능이 저하됩니다.\n부동액이 60 % 이상 또는 35 % 이하로 포함된 냉각수는 사용하지 마십시오. 냉각 성능이 저하\n될 수 있습니다.\n부동액과 섞을 물로는 수돗물 또는 증류수를 사용하십시오. 짠물이나 지하수 등의 경수는 절대\n사용하지 마십시오.\n부동액, 방청제 및 시판되는 LLC 등의 혼용을 피하십시오.\n알코올 또는 메탄올 계열의 냉각수를 그대로 또는 기준에 맞는 냉각수와 섞어서 사용하지 마십\n시오. 엔진 부품은 알루미늄으로 구성되어 있어 동결과 부식을 방지하기 위해 인산염계 에틸렌-\n글리콜 성분의 냉각수로 보호되어야 합니다.\n보충 후 냉각수 보조 탱크와 라디에이터 캡을 확실히 닫으십시오.\n보충 후에도 냉각수가 현저하게 감소하면 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으\n십시오.\n",
+                "pdf_page_number": 708,
+                "manual_page_number": 703,
+                "source_pages": [
+                  708,
+                  709,
+                  710
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "냉각수량 점검 및 보충",
+                  "record_id": "auto_topic_458",
+                  "chapter_id": 9,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "detached_number_or_letter_labels_needs_review",
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    708,
+                    709,
+                    710
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 347,
+                      "start": 7,
+                      "pdf_page_number": 708
+                    },
+                    {
+                      "end": 361,
+                      "start": 0,
+                      "pdf_page_number": 709
+                    },
+                    {
+                      "end": 853,
+                      "start": 0,
+                      "pdf_page_number": 710
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 708,
+                  "manual_page_number": 703,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 708,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_458",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 708,
+                "file_name": null,
+                "pdf_image_key": "/I2",
+                "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_458",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 709,
+                "file_name": null,
+                "pdf_image_key": "/I3",
+                "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_458",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 709,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_458",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_458"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 5,
+            "title": "주행 중 엔진 정지 금지",
+            "similarity": 0.34419992566108704,
+            "ranking_score": 0.2807656420567832,
+            "routing": {
+              "intents": [
+                "general"
+              ],
+              "reasons": [
+                "유형이 명확하지 않아 전체 자료 검색"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.07718307210000375,
+            "specific_terms": [
+              "지금"
+            ],
+            "matched_chunk_record_id": "auto_topic_47_chunk_0",
+            "matched_chunk": "주제: 주행 중 엔진 정지 금지\n주행 중 엔진 정지 금지 주행 중에는 시동을 끄지 마십시오. 브레이크의 성능이 저하되거나, 파워 스티어링 장치가 작동하지 않아 스티어링 휠 조작력이 많이 무거워질 수 있습니다.",
+            "parent_record_id": "auto_topic_47",
+            "context_records": [
+              {
+                "record_id": "auto_topic_47",
+                "title": "주행 중 엔진 정지 금지",
+                "content": "주행 중 엔진 정지 금지 주행 중에는 시동을 끄지 마십시오. 브레이크의 성능이 저하되거나, 파워 스티어링 장치가 작동하지 않아 스티어링 휠 조작력이 많이 무거워질 수 있습니다.",
+                "raw_text": "주행 중 엔진 정지 금지\n주행 중에는 시동을 끄지 마십시오.\n\n브레이크의 성능이 저하되거나, 파워 스티어링 장치가 작동하지 않아 스티어링 휠 조작력이 많이\n무거워질 수 있습니다.\n",
+                "pdf_page_number": 57,
+                "manual_page_number": 52,
+                "source_pages": [
+                  57,
+                  58
+                ],
+                "content_type": "instruction_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "주행 중 엔진 정지 금지",
+                  "record_id": "auto_topic_47",
+                  "chapter_id": 2,
+                  "content_type": "instruction_text",
+                  "review_flags": [],
+                  "source_pages": [
+                    57,
+                    58
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 1033,
+                      "start": 999,
+                      "pdf_page_number": 57
+                    },
+                    {
+                      "end": 65,
+                      "start": 0,
+                      "pdf_page_number": 58
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 57,
+                  "manual_page_number": 52,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [],
+            "pending_review_record_ids": [
+              "auto_topic_47"
+            ],
+            "unreviewed_continuation_record_ids": []
+          }
+        ],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true
+      }
+    },
+    {
+      "case_id": "A07",
+      "group": "PDF 밖 질문",
+      "question": "내 차 엔진 경고등이 켜졌는데 실제 고장이 난 거야?",
+      "expected": {
+        "case_id": "A07",
+        "group": "PDF 밖 질문",
+        "question": "내 차 엔진 경고등이 켜졌는데 실제 고장이 난 거야?",
+        "expected_status": "outside_pdf_scope",
+        "no_retrieval_expected": true
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "no_retrieval": true,
+        "no_unverified_quote": true
+      },
+      "expectation_checks_passed": true,
+      "failed_checks": [],
+      "actual_status": "outside_pdf_scope",
+      "actual_source_pages": [],
+      "displayed_image_count": 0,
+      "pending_image_count": 0,
+      "answer": {
+        "question": "내 차 엔진 경고등이 켜졌는데 실제 고장이 난 거야?",
+        "status": "outside_pdf_scope",
+        "answer_mode": "pdf_excerpt",
+        "answer": "제공된 설명서에서 확인할 수 없습니다. 현재 질문에 답할 근거를 확보하지 못했습니다.",
+        "reason": "사용설명서만으로 개별 차량의 실제 고장 여부를 판단할 수 없습니다.",
+        "sources": [],
+        "images": [],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": null,
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": false
+      }
+    },
+    {
+      "case_id": "A08",
+      "group": "미검토 자료",
+      "question": "스마트 테일게이트 설정 방법을 설명해줘.",
+      "expected": {
+        "case_id": "A08",
+        "group": "미검토 자료",
+        "question": "스마트 테일게이트 설정 방법을 설명해줘.",
+        "expected_status": "needs_review"
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "no_unverified_quote": true
+      },
+      "expectation_checks_passed": true,
+      "failed_checks": [],
+      "actual_status": "needs_review",
+      "actual_source_pages": [],
+      "displayed_image_count": 0,
+      "pending_image_count": 0,
+      "answer": {
+        "question": "스마트 테일게이트 설정 방법을 설명해줘.",
+        "status": "needs_review",
+        "answer_mode": "pdf_excerpt",
+        "answer": "관련 설명서 후보는 찾았지만, 원본 대조가 필요한 자료여서 확정 답변을 보류합니다.",
+        "reason": "검색된 원문 또는 이어지는 주의사항의 검토가 필요합니다.",
+        "sources": [],
+        "images": [],
+        "pending_image_references": [],
+        "review_candidates": [
+          {
+            "rank": 1,
+            "title": "스마트 테일게이트 작동 방법",
+            "similarity": 0.7641949653625488,
+            "ranking_score": 0.6351496486286707,
+            "routing": {
+              "intents": [
+                "explanation"
+              ],
+              "reasons": [
+                "사용·조작·주의·제한 질문"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.09046166225476938,
+            "specific_terms": [
+              "스마트테일게이트",
+              "설정방법"
+            ],
+            "matched_chunk_record_id": "auto_topic_172_chunk_0",
+            "matched_chunk": "주제: 스마트 테일게이트 작동 방법\n스마트 테일게이트 작동 방법 모든 도어가 닫히고 잠긴 상태에서 아래 조건을 모두 만족하면 테일게이트가 자동으로 열립니다. 모든 도어가 닫히고 잠긴 상태에서 약 15초 이후 스마트 키를 휴대하고 테일게이트 뒤쪽 감지 영역으로 약 50-100 cm 이내 접근하여 3초 이상 대기 시(감지 영역으로 접근하면 비상 경고등 및 경고음 작동) 기능 설정 시동 'ON' 상태에서 인포테인먼트 시스템의 설정 > 차량 > 도어 > 스마트 테일게이트 를 선택 하면 스마트 테일게이트 기능이 켜집니다.",
+            "parent_record_id": "auto_topic_172",
+            "context_records": [
+              {
+                "record_id": "auto_topic_172",
+                "title": "스마트 테일게이트 작동 방법",
+                "content": "스마트 테일게이트 작동 방법 모든 도어가 닫히고 잠긴 상태에서 아래 조건을 모두 만족하면 테일게이트가 자동으로 열립니다. 모든 도어가 닫히고 잠긴 상태에서 약 15초 이후 스마트 키를 휴대하고 테일게이트 뒤쪽 감지 영역으로 약 50-100 cm 이내 접근하여 3초 이상 대기 시(감지 영역으로 접근하면 비상 경고등 및 경고음 작동) 기능 설정 시동 'ON' 상태에서 인포테인먼트 시스템의 설정 > 차량 > 도어 > 스마트 테일게이트 를 선택 하면 스마트 테일게이트 기능이 켜집니다. 업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인포테인먼트 웹 매뉴얼을 참고하십시오. 감지, 경보 스마트 키를 휴대하고 테일게이트 뒤쪽 감지 영역(약 50-100 cm)으로 접근하면 비상 경고등 및 경고음이 작동합니다. [경고] 테일게이트를 열려는 의도가 아니라면 차량 뒤쪽 감지 영역에 접근하지 마십시오. 만약, 감지 영역에 의도하지 않게 접근하여 비상 경고등 및 경고음이 작동하면 감지 영역 밖으로 벗어나십 시오. 스마트 테일게이트 감지 영역 내에 불필요하게 서 있을 경우 테일게이트가 자동으로 열립 니다. 자동 열림 테일게이트 열림 준비가 끝나면 테일게이트가 서서히 열립니다. [참고] 기온이 영하로 떨어지는 경우에는 시스템의 특성상 테일게이트 자동 열림이 원활하지 않을 수 있 습니다. [경고] 주행 전에 테일게이트가 확실히 잠겼는지 확인하십시오. 테일게이트는 열릴 때 위로 올라갑니다. 테일게이트가 자동으로 열릴 때 얼굴, 머리, 차량, 벽 등에 부딪히거나 손, 발 등이 끼이지 않도록 항상 주의하십시오. 경사로에 차량 주차 후 기능을 사용하면 화물 적재 공간 안의 물건이 튀어나올 수 있으며, 이는 사용자에게 부상을 입힐 수 있습니다. 세차 시 스마트 테일게이트 기능을 중지하지 않고 스마트 키를 휴대한 채 차에 접근하면 테일게 이트가 자동으로 열릴 수 있습니다. 반드시 기능을 중지한 후에 세차하시기 바랍니다. 어린이가 스마트 키를 휴대하면 스마트 테일게이트를 작동시킬 수 있습니다. 테일게이트 주변 사람이나 물건이 있을 경우 신체 상해 또는 차량 손상을 초래할 수 있습니다. [참고] 스마트 테일게이트 기능은 모든 도어가 닫히고 잠긴 상태에서 약 15초 후에 기능이 작동합니 다. 단, 사용자가 도어를 잠근 후 약 15초 안에 운전석/동승석 도어 핸들에서 1.5 m 이내 서 있 을 경우에는 작동하지 않습니다.(웰컴미러 적용 시) 모든 도어가 닫히고 잠긴 상태에서 약 15초 안에 테일게이트 감지 영역에 스마트 키를 방치하 면 약 10분 후에 기능이 자동으로 해제됩니다. 차량 안에 스마트 키가 있으면 기능이 작동하지 않습니다. 차량에 충전 케이블이 연결되어 있거나, 차량이 충전 중일 경우에는 스마트 테일게이트 기능이 작동하지 않습니다.",
+                "raw_text": "스마트 테일게이트 작동 방법\n모든 도어가 닫히고 잠긴 상태에서 아래 조건을 모두 만족하면 테일게이트가 자동으로 열립니다.\n모든 도어가 닫히고 잠긴 상태에서 약 15초 이후\n스마트 키를 휴대하고 테일게이트 뒤쪽 감지 영역으로 약 50-100 cm 이내 접근하여 3초 이상\n대기 시(감지 영역으로 접근하면 비상 경고등 및 경고음 작동)\n기능 설정\n시동 'ON' 상태에서 인포테인먼트 시스템의 설정 > 차량 > 도어 > 스마트 테일게이트 를 선택\n하면 스마트 테일게이트 기능이 켜집니다.\n업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은\n인포테인먼트 웹 매뉴얼을 참고하십시오.\n감지, 경보\n스마트 키를 휴대하고 테일게이트 뒤쪽 감지 영역(약 50-100 cm)으로 접근하면 비상 경고등\n및 경고음이 작동합니다.\n҃Ҋ \n테일게이트를 열려는 의도가 아니라면 차량 뒤쪽 감지 영역에 접근하지 마십시오. 만약, 감지\n영역에 의도하지 않게 접근하여 비상 경고등 및 경고음이 작동하면 감지 영역 밖으로 벗어나십\n시오. 스마트 테일게이트 감지 영역 내에 불필요하게 서 있을 경우 테일게이트가 자동으로 열립\n니다.\n자동 열림\n테일게이트 열림 준비가 끝나면 테일게이트가 서서히 열립니다.\n\nӝ \n기온이 영하로 떨어지는 경우에는 시스템의 특성상 테일게이트 자동 열림이 원활하지 않을 수 있\n습니다.\n҃Ҋ \n주행 전에 테일게이트가 확실히 잠겼는지 확인하십시오.\n테일게이트는 열릴 때 위로 올라갑니다. 테일게이트가 자동으로 열릴 때 얼굴, 머리, 차량, 벽\n등에 부딪히거나 손, 발 등이 끼이지 않도록 항상 주의하십시오.\n경사로에 차량 주차 후 기능을 사용하면 화물 적재 공간 안의 물건이 튀어나올 수 있으며, 이는\n사용자에게 부상을 입힐 수 있습니다.\n세차 시 스마트 테일게이트 기능을 중지하지 않고 스마트 키를 휴대한 채 차에 접근하면 테일게\n이트가 자동으로 열릴 수 있습니다. 반드시 기능을 중지한 후에 세차하시기 바랍니다.\n어린이가 스마트 키를 휴대하면 스마트 테일게이트를 작동시킬 수 있습니다. 테일게이트 주변\n사람이나 물건이 있을 경우 신체 상해 또는 차량 손상을 초래할 수 있습니다.\nӝ \n스마트 테일게이트 기능은 모든 도어가 닫히고 잠긴 상태에서 약 15초 후에 기능이 작동합니\n다. 단, 사용자가 도어를 잠근 후 약 15초 안에 운전석/동승석 도어 핸들에서 1.5 m 이내 서 있\n을 경우에는 작동하지 않습니다.(웰컴미러 적용 시)\n모든 도어가 닫히고 잠긴 상태에서 약 15초 안에 테일게이트 감지 영역에 스마트 키를 방치하\n면 약 10분 후에 기능이 자동으로 해제됩니다.\n차량 안에 스마트 키가 있으면 기능이 작동하지 않습니다.\n차량에 충전 케이블이 연결되어 있거나, 차량이 충전 중일 경우에는 스마트 테일게이트 기능이\n작동하지 않습니다.\n",
+                "pdf_page_number": 275,
+                "manual_page_number": 270,
+                "source_pages": [
+                  275,
+                  276
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "스마트 테일게이트 작동 방법",
+                  "record_id": "auto_topic_172",
+                  "chapter_id": 5,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "ambiguous_footer_candidate_needs_review",
+                    "detached_number_or_letter_labels_needs_review",
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    275,
+                    276
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 728,
+                      "start": 108,
+                      "pdf_page_number": 275
+                    },
+                    {
+                      "end": 763,
+                      "start": 0,
+                      "pdf_page_number": 276
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 275,
+                  "manual_page_number": 270,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 275,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_172",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 276,
+                "file_name": null,
+                "pdf_image_key": "/I4",
+                "image_key_sha256": "f46431218087b4cb57241d31f1fc9e252182476a75f7c4d6fa3852466bb6054b",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_172",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_172"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 2,
+            "title": "파워 테일게이트 설정 방법",
+            "similarity": 0.6783645153045654,
+            "ranking_score": 0.6131791706222565,
+            "routing": {
+              "intents": [
+                "explanation"
+              ],
+              "reasons": [
+                "사용·조작·주의·제한 질문"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.10404523564758603,
+            "specific_terms": [
+              "테일게이트설정",
+              "설정방법"
+            ],
+            "matched_chunk_record_id": "auto_topic_168_chunk_0",
+            "matched_chunk": "주제: 파워 테일게이트 설정 방법\n파워 테일게이트 설정 방법 파워 테일게이트의 기능이 설정된 경우에만 작동합니다. 파워 테일게이트 기능을 원하지 않을 경 우에는 설정을 해제하십시오. 열림/닫힘 속도 설정하기 인포테인먼트 시스템의 설정 > 도어 > 파워 테일게이트 열림 속도 를 선택한 후 원하는 열림/닫힘 속도(보통/빠르게 )를 선택하십시오(기본 설정: 빠르게).",
+            "parent_record_id": "auto_topic_168",
+            "context_records": [
+              {
+                "record_id": "auto_topic_168",
+                "title": "파워 테일게이트 설정 방법",
+                "content": "파워 테일게이트 설정 방법 파워 테일게이트의 기능이 설정된 경우에만 작동합니다. 파워 테일게이트 기능을 원하지 않을 경 우에는 설정을 해제하십시오. 열림/닫힘 속도 설정하기 인포테인먼트 시스템의 설정 > 도어 > 파워 테일게이트 열림 속도 를 선택한 후 원하는 열림/닫힘 속도(보통/빠르게 )를 선택하십시오(기본 설정: 빠르게). 열림 높이 설정하기 인포테인먼트 시스템의 설정 > 도어 > 파워 테일게이트 열림 높이 를 선택한 후 원하는 열림 높이 (완전열림/3단계/2단계/1단계/사용자 높이 설정 )를 선택하십시오. 사용자 높이 설정하기 수동으로 파워 테일게이트를 설정하려는 높이에 위치시키십시오. 알림음이 울릴 때까지 파워 테일게이트 열림/닫힘 버튼(내부)을 길게 누르십시오. 열림 높이 설 정이 사용자 높이 설정으로 변경되며, 테일게이트를 열 때 테일게이트가 설정한 위치까지만 열 립니다. 업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인 포테인먼트 웹 매뉴얼을 참고하십시오. [참고] 사용자 높이를 설정하지 않은 상태에서 열림 높이를 사용자 높이 설정으로 선택하고 테일게이 트를 열면 테일게이트가 완전히 열립니다. 열림 높이를 완전열림, 3단계, 2단계 또는 1단계로 설정한 후 사용자 높이 설정 으로 변경하면 수동으로 저장한 높이로 열림 높이가 설정됩니다. 사용자 프로필 정보를 변경하면 프로필에 저장된 값에 따라 파워 테일게이트 속도 및 열림 높이 설정 등 사용자 설정값이 변경될 수 있습니다.",
+                "raw_text": "파워 테일게이트 설정 방법\n파워 테일게이트의 기능이 설정된 경우에만 작동합니다. 파워 테일게이트 기능을 원하지 않을 경\n우에는 설정을 해제하십시오.\n열림/닫힘 속도 설정하기\n인포테인먼트 시스템의 설정 > 도어 > 파워 테일게이트 열림 속도 를 선택한 후 원하는 열림/닫힘\n속도(보통/빠르게 )를 선택하십시오(기본 설정: 빠르게).\n열림 높이 설정하기\n인포테인먼트 시스템의 설정 > 도어 > 파워 테일게이트 열림 높이 를 선택한 후 원하는 열림 높이\n(완전열림/3단계/2단계/1단계/사용자 높이 설정 )를 선택하십시오.\n사용자 높이 설정하기\n수동으로 파워 테일게이트를 설정하려는 높이에 위치시키십시오.\n알림음이 울릴 때까지 파워 테일게이트 열림/닫힘 버튼(내부)을 길게 누르십시오. 열림 높이 설\n정이 사용자 높이 설정으로 변경되며, 테일게이트를 열 때 테일게이트가 설정한 위치까지만 열\n립니다.\n업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인\n포테인먼트 웹 매뉴얼을 참고하십시오.\nӝ \n사용자 높이를 설정하지 않은 상태에서 열림 높이를 사용자 높이 설정으로 선택하고 테일게이\n트를 열면 테일게이트가 완전히 열립니다.\n열림 높이를 완전열림, 3단계, 2단계  또는 1단계로 설정한 후 사용자 높이 설정 으로 변경하면\n수동으로 저장한 높이로 열림 높이가 설정됩니다.\n사용자 프로필 정보를 변경하면 프로필에 저장된 값에 따라 파워 테일게이트 속도 및 열림 높이\n설정 등 사용자 설정값이 변경될 수 있습니다.\n",
+                "pdf_page_number": 273,
+                "manual_page_number": 268,
+                "source_pages": [
+                  273
+                ],
+                "content_type": "instruction_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "파워 테일게이트 설정 방법",
+                  "record_id": "auto_topic_168",
+                  "chapter_id": 5,
+                  "content_type": "instruction_text",
+                  "review_flags": [
+                    "ambiguous_footer_candidate_needs_review",
+                    "detached_number_or_letter_labels_needs_review"
+                  ],
+                  "source_pages": [
+                    273
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 876,
+                      "start": 121,
+                      "pdf_page_number": 273
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 273,
+                  "manual_page_number": 268,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [],
+            "pending_review_record_ids": [
+              "auto_topic_168"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 3,
+            "title": "스마트 테일게이트",
+            "similarity": 0.7493600845336914,
+            "ranking_score": 0.5660293702941864,
+            "routing": {
+              "intents": [
+                "explanation"
+              ],
+              "reasons": [
+                "사용·조작·주의·제한 질문"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.04595476435241398,
+            "specific_terms": [
+              "스마트테일게이트"
+            ],
+            "matched_chunk_record_id": "auto_topic_171_chunk_0",
+            "matched_chunk": "주제: 스마트 테일게이트\n스마트 테일게이트 스마트 키 차량에서 간단한 설정으로 테일게이트를 자동으로 열리도록 하는 장치로, 양손에 짐을 휴대한 경우 편리하게 이용할 수 있습니다.",
+            "parent_record_id": "auto_topic_171",
+            "context_records": [
+              {
+                "record_id": "auto_topic_171",
+                "title": "스마트 테일게이트",
+                "content": "스마트 테일게이트 스마트 키 차량에서 간단한 설정으로 테일게이트를 자동으로 열리도록 하는 장치로, 양손에 짐을 휴대한 경우 편리하게 이용할 수 있습니다.",
+                "raw_text": "스마트 테일게이트\n2C_SmartTrunkOverview\n스마트 키 차량에서 간단한 설정으로 테일게이트를 자동으로 열리도록 하는 장치로, 양손에 짐을\n휴대한 경우 편리하게 이용할 수 있습니다.\n",
+                "pdf_page_number": 275,
+                "manual_page_number": 270,
+                "source_pages": [
+                  275
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "스마트 테일게이트",
+                  "record_id": "auto_topic_171",
+                  "chapter_id": 5,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "ambiguous_footer_candidate_needs_review",
+                    "detached_number_or_letter_labels_needs_review",
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    275
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 108,
+                      "start": 0,
+                      "pdf_page_number": 275
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 275,
+                  "manual_page_number": 270,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 275,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_171",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_171"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 4,
+            "title": "스마트 테일게이트 기능 중지 방법",
+            "similarity": 0.5684741735458374,
+            "ranking_score": 0.5001009409290283,
+            "routing": {
+              "intents": [
+                "explanation"
+              ],
+              "reasons": [
+                "사용·조작·주의·제한 질문"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.04595476435241398,
+            "specific_terms": [
+              "스마트테일게이트"
+            ],
+            "matched_chunk_record_id": "auto_topic_173_chunk_0",
+            "matched_chunk": "주제: 스마트 테일게이트 기능 중지 방법\n스마트 테일게이트 기능 중지 방법 A타입 B타입 감지 및 경보 중 아래 버튼을 짧게 누를 경우 스마트 테일게이트 기능이 즉시 중지됩니다. 도어 잠금 버튼 도어 잠금 해제 버튼 테일게이트 열림/닫힘 버튼 비상 경보 버튼 [참고] 감지 및 경보 상태가 아닌 경우 스마트 키의 도어 잠금 해제 버튼을 누르면 스마트 테일게이트 기능이 일시 중지합니다. 이후, 30초 안에 도어를 열지 않으면 스마트 테일게이트 기능이 다시 작동합니다.",
+            "parent_record_id": "auto_topic_173",
+            "context_records": [
+              {
+                "record_id": "auto_topic_173",
+                "title": "스마트 테일게이트 기능 중지 방법",
+                "content": "스마트 테일게이트 기능 중지 방법 A타입 B타입 감지 및 경보 중 아래 버튼을 짧게 누를 경우 스마트 테일게이트 기능이 즉시 중지됩니다. 도어 잠금 버튼 도어 잠금 해제 버튼 테일게이트 열림/닫힘 버튼 비상 경보 버튼 [참고] 감지 및 경보 상태가 아닌 경우 스마트 키의 도어 잠금 해제 버튼을 누르면 스마트 테일게이트 기능이 일시 중지합니다. 이후, 30초 안에 도어를 열지 않으면 스마트 테일게이트 기능이 다시 작동합니다. 스마트 키의 테일게이트 열림/닫힘 버튼( û)을 길게 누를 경우 테일게이트가 열립니다. 스마트 키의 비상 경보 버튼(4)을 길게 누를 경우 비상 경보(알람)가 작동됩니다. 감지 및 경보 상태가 아닌 경우 도어 잠금 버튼, 비상 경보 버튼(4) 또는 테일게이트 열림/닫힘 버튼(û)(3)을 눌러도 기능이 유지됩니다. 감지 및 경보 상태에서 스마트 키의 버튼을 눌러 기능을 중지 시킨 경우, 한 개 이상의 도어를 열 고 다시 모든 도어를 닫고 잠글 때까지 기능이 작동하지 않습니다. 감지 및 경보 상태일 경우 등록된 모든 스마트 키로 기능을 중지할 수 있습니다. [주의] 비상시에 대비하여 스마트 테일게이트 기능 중지 방법을 주지하십시오.",
+                "raw_text": "스마트 테일게이트 기능 중지 방법\nA타입\n2C_HowToStopSmartTailgateWithSmartKey\n\nB타입\n2C_HowToStopSmartTailgateWithSmartKey_2\n감지 및 경보 중 아래 버튼을 짧게 누를 경우 스마트 테일게이트 기능이 즉시 중지됩니다.\n도어 잠금 버튼\n도어 잠금 해제 버튼\n테일게이트 열림/닫힘 버튼\n비상 경보 버튼\nӝ \n감지 및 경보 상태가 아닌 경우 스마트 키의 도어 잠금 해제 버튼을 누르면 스마트 테일게이트\n기능이 일시 중지합니다. 이후, 30초 안에 도어를 열지 않으면 스마트 테일게이트 기능이 다시\n작동합니다.\n스마트 키의 테일게이트 열림/닫힘 버튼( û)을 길게 누를 경우 테일게이트가 열립니다.\n스마트 키의 비상 경보 버튼(4)을 길게 누를 경우 비상 경보(알람)가 작동됩니다.\n감지 및 경보 상태가 아닌 경우 도어 잠금 버튼, 비상 경보 버튼(4) 또는 테일게이트 열림/닫힘\n버튼(û)(3)을 눌러도 기능이 유지됩니다.\n감지 및 경보 상태에서 스마트 키의 버튼을 눌러 기능을 중지 시킨 경우, 한 개 이상의 도어를 열\n고 다시 모든 도어를 닫고 잠글 때까지 기능이 작동하지 않습니다.\n감지 및 경보 상태일 경우 등록된 모든 스마트 키로 기능을 중지할 수 있습니다.\n ઱੄ \n비상시에 대비하여 스마트 테일게이트 기능 중지 방법을 주지하십시오.\n",
+                "pdf_page_number": 276,
+                "manual_page_number": 271,
+                "source_pages": [
+                  276,
+                  277
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "스마트 테일게이트 기능 중지 방법",
+                  "record_id": "auto_topic_173",
+                  "chapter_id": 5,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "detached_number_or_letter_labels_needs_review",
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    276,
+                    277
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 824,
+                      "start": 763,
+                      "pdf_page_number": 276
+                    },
+                    {
+                      "end": 610,
+                      "start": 0,
+                      "pdf_page_number": 277
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 276,
+                  "manual_page_number": 271,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 276,
+                "file_name": null,
+                "pdf_image_key": "/I4",
+                "image_key_sha256": "f46431218087b4cb57241d31f1fc9e252182476a75f7c4d6fa3852466bb6054b",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_173",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 277,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_173",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_173"
+            ],
+            "unreviewed_continuation_record_ids": []
+          },
+          {
+            "rank": 5,
+            "title": "디지털 키 (스마트폰 )",
+            "similarity": 0.6528586149215698,
+            "ranking_score": 0.49350285576400454,
+            "routing": {
+              "intents": [
+                "explanation"
+              ],
+              "reasons": [
+                "사용·조작·주의·제한 질문"
+              ],
+              "inside_vehicle_only": false
+            },
+            "used_fallback": false,
+            "specific_bonus": 0.04595476435241398,
+            "specific_terms": [
+              "스마트테일게이트"
+            ],
+            "matched_chunk_record_id": "auto_topic_109_chunk_16",
+            "matched_chunk": "주제: 디지털 키 (스마트폰 )\n'스마트 테일게이트'가 설정된 경우 디지털 키가 등록된 스마 트폰을 휴대하고 테일게이트 뒤쪽 감지 영역에 3초 이상 머무르면 테일게이트가 자동으로 열 립니다. [경고] 테일게이트를 닫을 때 실내에 스마트폰이 있는지 확인하시기 바랍니다. 스마트폰을 차량 내에 두 고 차량 잠금 상태에서 테일게이트를 닫거나 테일게이트 잠금 버튼으로 닫을 경우, 차량 외부에서 잠금 해제를 할 수 없을 수도 있습니다.",
+            "parent_record_id": "auto_topic_109",
+            "context_records": [
+              {
+                "record_id": "auto_topic_109",
+                "title": "디지털 키 (스마트폰 )",
+                "content": "디지털 키 (스마트폰) [참고] 현대 디지털 키는 디지털 키 기능을 지원하는 스마트폰에서만 사용이 가능하며, 스마트폰의 디 지털 키 기능은 스마트폰 제조사가 제공합니다. 사용 가능한 스마트폰 모델은 현대자동차 홈페이지(www.hyundai.com) > 고객 지원 > 사용 설명서 다운로드 > 대분류(현대 디지털 키) 에서 확인할 수있습니다. 차량에서 서비스 제공 여부에 따라 일부 기능은 작동하지 않을 수 있습니다. 디지털 키 기능에 대한 안내는 현대자동차 홈페이지(www.hyundai.com) > 고객 지원 > 사 용설명서 다운로드 > 대분류(현대 디지털 키) 에서 확인할 수 있습니다. 디지털 키 제어기 업데이트 중에는 스마트 키, 지문 시동 기능이 일시적으로 동작하지 않을 수 있습니다. 이 때, 스마트 키의 도어 잠금/잠금 해제 버튼으로 작동이 가능합니다. 스마트폰 사전 설정하기 디지털 키(스마트폰)를 사용하기 위해서는 우선 마이현대 앱 설치, 회원 및 서비스 가입이 필요합 니다. [참고] 인포테인먼트 시스템은 업데이트로 변경될 수 있습니다. 자세한 내용은 인포테인먼트 시스템 웹 매뉴얼을 참고하십시오. 스마트폰 등록하기 A타입 B타입 실내 인증 패드(무선 충전 패드) 스마트 키를 이용하여 차량 전원을 'ON' 한 후 스마트 키를 차량 실내에 두십시오. 인포테인먼트 시스템에서 설정 > 차량 > 디지털 키 > 스마트폰 키 > 나의 스마트폰 키 를 선택 하여 등록 화면으로 이동하십시오. 스마트폰에서 마이현대 앱의 더보기(…) 메뉴 > 차량 디지털 키 > 등록하기 를 누른 후, 스마트 폰 화면 안내에 따라 등록하십시오. UWB 미지원 스마트폰의 경우, 실내 인증 패드(무선 충전 패드)[A]에 스마트폰의 뒷면이 아 래로 가도록 올려 놓으십시오. 삼성 스마트폰의 NFC 안테나 위치는 설정 앱 > 연결 > NFC 및 비접촉 결제 항목 에서 확 인할 수 있습니다. Apple iPhone의 NFC 안테나는 기기 후면 최상단[B], Apple Watch의 NFC 안테나는 화면 중앙[C]에 위치합니다. 스마트폰의 NFC 안테나 위치가 실내 인증 패드(무선 충전 패드)[A] 위에 접촉되도록 하십 시오. 다만, 스마트폰의 NFC 안테나 위치가 스마트폰 기종별로 상이할 수 있으므로 상세 내용은 스마트폰 제조사에 문의하십시오. UWB 지원 스마트폰의 경우, 실내 인증 패드(무선 충전 패드)[A]에 스마트폰을 두지 않아도 차량 내에서 스마트폰을 휴대하고 있으면 무선으로 디지털 키 등록이 가능합니다. 차량 화면에서 등록 버튼을 눌러 등록을 시작합니다. 등록이 완료되면 차량의 인포테인먼트 시스템 화면에 등록 완료 상태가 표시됩니다. [참고] 차량/스마트폰 차량 시스템에 등록된 디지털 키(스마트폰)가 있으면 스마트폰 키 화면에서는 전체 삭제 나의 스마트폰 키 화면에서는 삭제로 표시됩니다. 재등록을 원하는 경우 설명서 내 ' 디지털 키(스마 트폰) 삭제하기 '를 참고하여 삭제 후 등록하십시오. 아래의 경우 디지털 키를 등록하는 과정에서 취소될 수 있습니다. 실내 인증 패드에서 스마트폰을 뗄 경우 인포테인먼트 시스템 화면을 변경하는 경우 차량 전원을 끌 경우 차량 기어를 변경하는 경우 등록 시 실내에 스마트 키가 없으면 등록이 시작되지 않습니다. 일부 스마트폰의 경우, 스마트폰 내부 구조에 따라 실내 인증 패드(무선 충전 패드)[A]에서의 인식이 원활하지 않아 디지털 키 등록이 되지 않을 수 있습니다. 이 때는 스마트폰을 실내 인증 패드(무선 충전 패드)[A]의 좌/우측으로 이동하여 등록을 시도하십시오. UWB는 Ultra Wide Band의 약어로 초광대역 무선 통신 기술을 의미합니다. 스마트폰 무선충전 듀얼타입의 경우 좌측이 실내 인증 패드(무선 충전 패드)[A] 입니다. 디지털 키(스마트폰) 사용하기 터치 제어 스마트폰을 차량 도어 손잡이에 터치하여 도어 잠금/잠금 해제가 가능하며, 차량 내 실내 인증 패 드(무선 충전 패드)[A] 위에 올려놓고 시동을 걸 수 있습니다. 삼성 스마트폰 도어 핸들 인증 패드 스마트폰 뒷면에 있는 NFC 안테나(스마트폰 마다 위치 다름) 아이폰 도어 핸들 인증 패드 기기 뒷면 최상단에 있는 NFC 안테나 NFC 안테나 위치가 스마트폰 기종별로 다를 수 있습니다. 자세한 내용은 스마트폰 제조사에 문의 하십시오. 삼성 스마트폰의 NFC 안테나 위치는 설정 앱 > 연결 > NFC 및 비접촉 결제 항목 에서 확인할 수 있습니다. Apple iPhone의 NFC 안테나는 기기 뒷면 최상단[B], Apple Watch의 NFC 안테나는 화면 중앙[C]에 위치합니다. 도어 잠금/잠금 해제 UWB 미지원 스마트폰의 경우 등록된 스마트폰의 뒷면에 있는 NFC 안테나를 운전석 또는 동승석 도어 핸들 인증 패드에 2 초 이상 접촉하면 도어가 잠금 또는 잠금 해제 됩니다. 세이프티 언락(2회 눌러 전체 잠금 해제)이 설정된 경우, 디지털 키(스마트폰 또는 NFC 카 드)를 도어핸들 인증 패드에 접촉할 경우 운전석 도어만 잠금 해제됩니다. 이 상태에서 4초 이내에 한번 더 접촉하면 모든 도어가 잠금 해제됩니다. UWB 지원 스마트폰의 경우 스마트폰을 휴대하고 도어 손잡이에 있는 도어 핸들 잠금/잠금 해제 센서부(음각)을 터치하 면 도어가 잠금/잠금 해제 됩니다. 도어 잠금 후 반드시 잠금 상태를 확인하십시오. 도어 잠금 해제 후, 30초 이내에 도어를 열지 않으면 다시 잠금 상태가 됩니다. 디지털 키가 작동 안 된 경우, 스마트폰을 도어 핸들 인증 패드로부터 10 cm 이상 떨어뜨린 후 다시 접촉하십시오. [참고] 다음과 같은 경우에 스마트폰 NFC 안테나를 도어 핸들 인증 패드에 터치하여 도어 잠금을 시도하 면 경고음이 울리면서 도어 잠금이 되지 않습니다. 스마트 키를 차 안에 둔 상태 시동 'ACC' 또는 'ON' 상태 한 개 이상의 도어 또는 후드, 테일게이트가 열린 상태 차량 시동 UWB 미지원 스마트폰의 경우 스마트폰의 NFC 안테나를 실내 인증 패드(무선 충전 패드)[A] 중앙에 올린 후 브레이크 페 달을 밟고 시동 버튼을 눌러 시동을 거십시오. 시동을 건 후에는 디지털 키(스마트폰)를 실내 인증 패드(무선 충전 패드)[A]에서 분리해도 됩니다. 일부 스마트폰은 스마트폰 내부 구조에 따라 NFC 통신이 원활하지 않을 수 있습니다. 이때 스마트폰을 실내 인증 패드(무선 충전 패드)[A]의 좌측 또는 우측으로 움직여 동작하십시오. UWB 지원 스마트폰의 경우 스마트폰을 차량 실내에 휴대한 상태에서 브레이크 페달을 밟고 시동 버튼을 누르십시오. 원 격으로 시동을 걸려면 스마트폰 제조사에서 제공하는 앱을 사용하여 도어 잠금 버튼으로 차 량을 잠그고, 4초 이내에 원격 시동 버튼을 누르십시오. 시동이 걸리고 비상 경고등이 깜빡입 니다. 시동을 끄려면 원격 시동 버튼을 다시 누르십시오. 기본적인 차량 버튼 시동 방법은 6장 내 ' 시동 버튼 '의 시동 버튼 내용을 참고하십시오. 테일게이트 작동 UWB 지원 스마트폰의 경우 차량이 잠금 상태일 경우 디지털 키가 등록된 스마트폰을 휴대하고 테일게이트 열림 버튼을 누르면 테일게이트가 열립니다. '스마트 테일게이트'가 설정된 경우 디지털 키가 등록된 스마 트폰을 휴대하고 테일게이트 뒤쪽 감지 영역에 3초 이상 머무르면 테일게이트가 자동으로 열 립니다. [경고] 테일게이트를 닫을 때 실내에 스마트폰이 있는지 확인하시기 바랍니다. 스마트폰을 차량 내에 두 고 차량 잠금 상태에서 테일게이트를 닫거나 테일게이트 잠금 버튼으로 닫을 경우, 차량 외부에서 잠금 해제를 할 수 없을 수도 있습니다. [참고] 공유 사용자의 디지털 키를 처음 사용하는 경우 작동 시간이 길어질 수 있습니다. 차량의 도어 잠금/잠금 해제가 작동할 때까지 도어 핸들 인증 패드에 디지털 키(스마트폰)를 계 속 대십시오. 실내 인증 패드(무선 충전 패드)[A]에서 처음 사용하는 경우 최초 1회 시동이 실패할 수 있습니 다. 공유 사용자의 디지털 키로 처음 잠금/잠금 해제가 작동하거나 시동을 건 이후에 차량에 공유 사용자의 디지털 키가 등록됩니다. [경고] 등록된 스마트폰이 실내 인증 패드(무선 충전 패드)[A]에 올려져 있을 경우 시동을 걸 수 있습니 다. 따라서, 이러한 차량 시스템을 모르는 사람이나 어린이를 혼자 차 안에 남겨 두면 예기치 못한 사고가 일어날 수 있으므로 주의하십시오. 또한, 차량 도난의 우려가 있으므로 차를 벗어날 때는 반드시 디지털 키가 등록된 스마트폰을 휴대하십시오. UWB 지원 스마트폰 디지털 키는 차량과 스마트폰이 블루투스로 연결된 상태에서만 사용할 수 있 습니다. 블루투스 연결이 가능한 거리는 주위 환경에 따라 달라질 수 있습니다. 차량 선팅 재질에 따라 블루투스 연결 성능이 저하될 수 있습니다. 스마트폰을 뒷주머니, 가방 등에 보관하면 신체에 의해 가려져 블루투스 연결이 제한될 수 있고 도어 잠금/ 잠금 해제나 시동 시 작동이 지연될 수 있습니다. UWB 지원 스마트폰 디지털 키는 차량과 스마트폰의 배터리 최적화를 위해 일정 시간 동안만 사 용할 수 있습니다. UWB 지원 스마트폰을 휴대하고 차량 근처에서 몇 분 동안 머무를 경우 자동 잠금 해제 기능이 작 동하지 않을 수 있습니다. 스마트폰의 설정이나 스마트폰 제조사에서 제공하는 앱에서 차량과 스마트폰의 연결상태를 확인 할 수 있습니다. UWB 지원 스마트폰 디지털 키도 NFC 기능을 사용할 수 있습니다. 근접 제어 스마트폰을 휴대하고 있으면 스마트폰을 도어 손잡이에 터치하지 않고, 도어 손잡이에 있는 도 어 잠금/해제 센서부(음각)를 터치하여 도어 잠금/잠금 해제가 가능합니다. 또한, 실내 인증 패 드(무선 충전 패드)[A]에 스마트폰을 두지 않아도 시동 버튼으로 시동을 걸 수 있습니다. 스마트폰과 차량이 블루투스로 기능이 연결된 상태에서 스마트폰 제조사에서 제공하는 앱을 통 하여 원격으로 시동을 걸거나 도어 잠금/잠금 해제, 비상 경보(알람)를 작동할 수 있습니다. UWB 지원 스마트폰 디지털 키에 한해 사용이 가능하며, 해당 기능을 사용하기 위해서는 스마 트폰의 블루투스가 활성화 되어 있어야 합니다. 스마트폰과 차량이 블루투스로 연결 가능한 거리는 차량과 스마트폰 주위 환경에 따라 달라질 수 있습니다. 디지털 키(스마트폰) 삭제하기 디지털 키(스마트폰) 삭제는 전체 삭제와 나의 스마트폰 키 삭제가 있습니다. 스마트 키를 차량 실 내에 두고 차량 전원이 'ON'인 상태에서 삭제가 가능합니다. 스마트폰 키 전체 삭제하기 인포테인먼트 시스템의 설정 > 차량 > 디지털 키 > 스마트폰 키 > 전체 삭제 를 선택하십시오. 소유주 키와 공유 키 모두 삭제됩니다. 등록된 디지털 키(스마트폰)가 없으면 전체 삭제 항목을 선택할 수 없습니다. 나의 스마트폰 키 삭제하기 소유주의 스마트폰이 변경된 경우 소유주의 디지털 키(스마트폰)만 삭제 후 새로운 스마트폰으로 등록이 가능합니다. 인포테인먼트 시스템의 설정 > 차량 > 디지털 키 > 스마트폰 키 > 나의 스마 트폰 키 > 삭제를 선택하십시오. 소유주의 디지털 키(스마트폰)만 삭제됩니다. 공유 키가 차량에 등록된 경우 공유 키는 삭제되지 않습니다. 나의 스마트폰 키가 삭제된 후에 새로운 스마트폰으로 등록이 가능합니다. [참고] 차량에서 디지털 키(스마트폰)를 삭제하는 경우 스마트폰에 저장된 디지털 키도 삭제됩니다. 스마트폰에서 디지털 키를 삭제하는 경우 차량에 등록된 디지털 키(스마트폰)도 삭제됩니다. 차량에서 공유 사용자의 키를 개별 삭제하는 기능은 제공되지 않습니다. 마이현대 앱을 삭제해도 스마트폰에 저장된 디지털 키는 삭제되지 않습니다. 스마트폰 제조사에서 제공하는 디지털 키 관련 앱에서 스마트폰에 저장된 디지털 키를 관리할 수 있습니다.",
+                "raw_text": "디지털 키 (스마트폰)\nӝ \n현대 디지털 키는 디지털 키 기능을 지원하는 스마트폰에서만 사용이 가능하며, 스마트폰의 디\n지털 키 기능은 스마트폰 제조사가 제공합니다.\n사용 가능한 스마트폰 모델은 현대자동차 홈페이지(www.hyundai.com)  > 고객 지원  > 사용\n설명서 다운로드  > 대분류(현대 디지털 키) 에서 확인할 수있습니다.\n차량에서 서비스 제공 여부에 따라 일부 기능은 작동하지 않을 수 있습니다.\n디지털 키 기능에 대한 안내는 현대자동차 홈페이지(www.hyundai.com)  > 고객 지원  > 사\n용설명서 다운로드  > 대분류(현대 디지털 키) 에서 확인할 수 있습니다.\n디지털 키 제어기 업데이트 중에는 스마트 키, 지문 시동 기능이 일시적으로 동작하지 않을 수\n있습니다. 이 때, 스마트 키의 도어 잠금/잠금 해제 버튼으로 작동이 가능합니다.\n스마트폰 사전 설정하기\n디지털 키(스마트폰)를 사용하기 위해서는 우선 마이현대 앱 설치, 회원 및 서비스 가입이 필요합\n니다.\nӝ \n인포테인먼트 시스템은 업데이트로 변경될 수 있습니다. 자세한 내용은 인포테인먼트 시스템 웹\n매뉴얼을 참고하십시오.\n스마트폰 등록하기\n2C_AVNRegisterSmartPhone\n\nA타입\n2C_WirelessChargingPad\nB타입\n2C_WirelessChargingPad_2\n실내 인증 패드(무선 충전 패드)\n스마트 키를 이용하여 차량 전원을 'ON' 한 후 스마트 키를 차량 실내에 두십시오.\n인포테인먼트 시스템에서 설정 > 차량 > 디지털 키  > 스마트폰 키  > 나의 스마트폰 키 를 선택\n하여 등록 화면으로 이동하십시오.\n스마트폰에서 마이현대 앱의 더보기(…) 메뉴  > 차량 디지털 키  > 등록하기 를 누른 후, 스마트\n폰 화면 안내에 따라 등록하십시오.\nUWB 미지원 스마트폰의 경우, 실내 인증 패드(무선 충전 패드)[A]에 스마트폰의 뒷면이 아\n래로 가도록 올려 놓으십시오.\n삼성 스마트폰의 NFC 안테나 위치는 설정 앱  > 연결 > NFC 및 비접촉 결제 항목 에서 확\n인할 수 있습니다.\n\nApple iPhone의 NFC 안테나는 기기 후면 최상단[B], Apple Watch의 NFC 안테나는\n화면 중앙[C]에 위치합니다.\n2C_SmartPhoneSample\n스마트폰의 NFC 안테나 위치가 실내 인증 패드(무선 충전 패드)[A] 위에 접촉되도록 하십\n시오. 다만, 스마트폰의 NFC 안테나 위치가 스마트폰 기종별로 상이할 수 있으므로 상세\n내용은 스마트폰 제조사에 문의하십시오.\nUWB 지원 스마트폰의 경우, 실내 인증 패드(무선 충전 패드)[A]에 스마트폰을 두지 않아도\n차량 내에서 스마트폰을 휴대하고 있으면 무선으로 디지털 키 등록이 가능합니다.\n차량 화면에서 등록 버튼을 눌러 등록을 시작합니다.\n등록이 완료되면 차량의 인포테인먼트 시스템 화면에 등록 완료 상태가 표시됩니다.\nӝ \n차량/스마트폰\n차량 시스템에 등록된 디지털 키(스마트폰)가 있으면 스마트폰 키 화면에서는 전체 삭제  나의\n스마트폰 키 화면에서는 삭제로 표시됩니다. 재등록을 원하는 경우 설명서 내 ' 디지털 키(스마\n트폰) 삭제하기 '를 참고하여 삭제 후 등록하십시오.\n아래의 경우 디지털 키를 등록하는 과정에서 취소될 수 있습니다.\n실내 인증 패드에서 스마트폰을 뗄 경우\n인포테인먼트 시스템 화면을 변경하는 경우\n차량 전원을 끌 경우\n차량 기어를 변경하는 경우\n등록 시 실내에 스마트 키가 없으면 등록이 시작되지 않습니다.\n일부 스마트폰의 경우, 스마트폰 내부 구조에 따라 실내 인증 패드(무선 충전 패드)[A]에서의\n인식이 원활하지 않아 디지털 키 등록이 되지 않을 수 있습니다. 이 때는 스마트폰을 실내 인증\n패드(무선 충전 패드)[A]의 좌/우측으로 이동하여 등록을 시도하십시오.\nUWB는 Ultra Wide Band의 약어로 초광대역 무선 통신 기술을 의미합니다.\n스마트폰 무선충전 듀얼타입의 경우 좌측이 실내 인증 패드(무선 충전 패드)[A] 입니다.\n디지털 키(스마트폰) 사용하기\n터치 제어\n스마트폰을 차량 도어 손잡이에 터치하여 도어 잠금/잠금 해제가 가능하며, 차량 내 실내 인증 패\n드(무선 충전 패드)[A] 위에 올려놓고 시동을 걸 수 있습니다.\n\n삼성 스마트폰\n2C_OutsideDoorHandleTouchBySmartPhone\n도어 핸들 인증 패드\n스마트폰 뒷면에 있는 NFC 안테나(스마트폰 마다 위치 다름)\n아이폰\n2C_OutsideDoorHandleTouchByIPhone\n도어 핸들 인증 패드\n기기 뒷면 최상단에 있는 NFC 안테나\nNFC 안테나 위치가 스마트폰 기종별로 다를 수 있습니다. 자세한 내용은 스마트폰 제조사에 문의\n하십시오.\n삼성 스마트폰의 NFC 안테나 위치는 설정 앱  > 연결 > NFC 및 비접촉 결제 항목 에서 확인할\n수 있습니다.\nApple iPhone의 NFC 안테나는 기기 뒷면 최상단[B], Apple Watch의 NFC 안테나는 화면\n중앙[C]에 위치합니다.\n2C_SmartPhoneSample\n\n도어 잠금/잠금 해제\nUWB 미지원 스마트폰의 경우\n등록된 스마트폰의 뒷면에 있는 NFC 안테나를 운전석 또는 동승석 도어 핸들 인증 패드에 2\n초 이상 접촉하면 도어가 잠금 또는 잠금 해제 됩니다.\n세이프티 언락(2회 눌러 전체 잠금 해제)이 설정된 경우, 디지털 키(스마트폰 또는 NFC 카\n드)를 도어핸들 인증 패드에 접촉할 경우 운전석 도어만 잠금 해제됩니다. 이 상태에서 4초\n이내에 한번 더 접촉하면 모든 도어가 잠금 해제됩니다.\nUWB 지원 스마트폰의 경우\n스마트폰을 휴대하고 도어 손잡이에 있는 도어 핸들 잠금/잠금 해제 센서부(음각)을 터치하\n면 도어가 잠금/잠금 해제 됩니다.\n도어 잠금 후 반드시 잠금 상태를 확인하십시오. 도어 잠금 해제 후, 30초 이내에 도어를 열지\n않으면 다시 잠금 상태가 됩니다.\n디지털 키가 작동 안 된 경우, 스마트폰을 도어 핸들 인증 패드로부터 10 cm 이상 떨어뜨린 후\n다시 접촉하십시오.\nӝ \n다음과 같은 경우에 스마트폰 NFC 안테나를 도어 핸들 인증 패드에 터치하여 도어 잠금을 시도하\n면 경고음이 울리면서 도어 잠금이 되지 않습니다.\n스마트 키를 차 안에 둔 상태\n시동 'ACC' 또는 'ON' 상태\n한 개 이상의 도어 또는 후드, 테일게이트가 열린 상태\n차량 시동\nUWB 미지원 스마트폰의 경우\n스마트폰의 NFC 안테나를 실내 인증 패드(무선 충전 패드)[A] 중앙에 올린 후 브레이크 페\n달을 밟고 시동 버튼을 눌러 시동을 거십시오.\n시동을 건 후에는 디지털 키(스마트폰)를 실내 인증 패드(무선 충전 패드)[A]에서 분리해도\n됩니다.\n일부 스마트폰은 스마트폰 내부 구조에 따라 NFC 통신이 원활하지 않을 수 있습니다. 이때\n스마트폰을 실내 인증 패드(무선 충전 패드)[A]의 좌측 또는 우측으로 움직여 동작하십시오.\nUWB 지원 스마트폰의 경우\n스마트폰을 차량 실내에 휴대한 상태에서 브레이크 페달을 밟고 시동 버튼을 누르십시오. 원\n격으로 시동을 걸려면 스마트폰 제조사에서 제공하는 앱을 사용하여 도어 잠금 버튼으로 차\n량을 잠그고, 4초 이내에 원격 시동 버튼을 누르십시오. 시동이 걸리고 비상 경고등이 깜빡입\n니다. 시동을 끄려면 원격 시동 버튼을 다시 누르십시오.\n기본적인 차량 버튼 시동 방법은 6장 내 ' 시동 버튼 '의 시동 버튼 내용을 참고하십시오.\n테일게이트 작동\nUWB 지원 스마트폰의 경우\n차량이 잠금 상태일 경우 디지털 키가 등록된 스마트폰을 휴대하고 테일게이트 열림 버튼을\n누르면 테일게이트가 열립니다. '스마트 테일게이트'가 설정된 경우 디지털 키가 등록된 스마\n트폰을 휴대하고 테일게이트 뒤쪽 감지 영역에 3초 이상 머무르면 테일게이트가 자동으로 열\n립니다.\n\n҃Ҋ \n테일게이트를 닫을 때 실내에 스마트폰이 있는지 확인하시기 바랍니다. 스마트폰을 차량 내에 두\n고 차량 잠금 상태에서 테일게이트를 닫거나 테일게이트 잠금 버튼으로 닫을 경우, 차량 외부에서\n잠금 해제를 할 수 없을 수도 있습니다.\nӝ \n공유 사용자의 디지털 키를 처음 사용하는 경우 작동 시간이 길어질 수 있습니다.\n차량의 도어 잠금/잠금 해제가 작동할 때까지 도어 핸들 인증 패드에 디지털 키(스마트폰)를 계\n속 대십시오.\n실내 인증 패드(무선 충전 패드)[A]에서 처음 사용하는 경우 최초 1회 시동이 실패할 수 있습니\n다.\n공유 사용자의 디지털 키로 처음 잠금/잠금 해제가 작동하거나 시동을 건 이후에 차량에 공유\n사용자의 디지털 키가 등록됩니다.\n҃Ҋ \n등록된 스마트폰이 실내 인증 패드(무선 충전 패드)[A]에 올려져 있을 경우 시동을 걸 수 있습니\n다. 따라서, 이러한 차량 시스템을 모르는 사람이나 어린이를 혼자 차 안에 남겨 두면 예기치 못한\n사고가 일어날 수 있으므로 주의하십시오. 또한, 차량 도난의 우려가 있으므로 차를 벗어날 때는\n반드시 디지털 키가 등록된 스마트폰을 휴대하십시오.\nUWB 지원 스마트폰 디지털 키는 차량과 스마트폰이 블루투스로 연결된 상태에서만 사용할 수 있\n습니다.\n블루투스 연결이 가능한 거리는 주위 환경에 따라 달라질 수 있습니다.\n차량 선팅 재질에 따라 블루투스 연결 성능이 저하될 수 있습니다.\n스마트폰을 뒷주머니, 가방 등에 보관하면 신체에 의해 가려져 블루투스 연결이 제한될 수 있고\n도어 잠금/ 잠금 해제나 시동 시 작동이 지연될 수 있습니다.\nUWB 지원 스마트폰 디지털 키는 차량과 스마트폰의 배터리 최적화를 위해 일정 시간 동안만 사\n용할 수 있습니다.\nUWB 지원 스마트폰을 휴대하고 차량 근처에서 몇 분 동안 머무를 경우 자동 잠금 해제 기능이 작\n동하지 않을 수 있습니다.\n스마트폰의 설정이나 스마트폰 제조사에서 제공하는 앱에서 차량과 스마트폰의 연결상태를 확인\n할 수 있습니다.\nUWB 지원 스마트폰 디지털 키도 NFC 기능을 사용할 수 있습니다.\n근접 제어\n스마트폰을 휴대하고 있으면 스마트폰을 도어 손잡이에 터치하지 않고, 도어 손잡이에 있는 도\n어 잠금/해제 센서부(음각)를 터치하여 도어 잠금/잠금 해제가 가능합니다. 또한, 실내 인증 패\n드(무선 충전 패드)[A]에 스마트폰을 두지 않아도 시동 버튼으로 시동을 걸 수 있습니다.\n\n스마트폰과 차량이 블루투스로 기능이 연결된 상태에서 스마트폰 제조사에서 제공하는 앱을 통\n하여 원격으로 시동을 걸거나 도어 잠금/잠금 해제, 비상 경보(알람)를 작동할 수 있습니다.\nUWB 지원 스마트폰 디지털 키에 한해 사용이 가능하며, 해당 기능을 사용하기 위해서는 스마\n트폰의 블루투스가 활성화 되어 있어야 합니다.\n스마트폰과 차량이 블루투스로 연결 가능한 거리는 차량과 스마트폰 주위 환경에 따라 달라질\n수 있습니다.\n디지털 키(스마트폰) 삭제하기\n디지털 키(스마트폰) 삭제는 전체 삭제와 나의 스마트폰 키 삭제가 있습니다. 스마트 키를 차량 실\n내에 두고 차량 전원이 'ON'인 상태에서 삭제가 가능합니다.\n스마트폰 키 전체 삭제하기\n2C_AVNDeleteDegitalKey\n인포테인먼트 시스템의 설정 > 차량 > 디지털 키  > 스마트폰 키  > 전체 삭제 를 선택하십시오.\n소유주 키와 공유 키 모두 삭제됩니다.\n등록된 디지털 키(스마트폰)가 없으면 전체 삭제 항목을 선택할 수 없습니다.\n나의 스마트폰 키 삭제하기\n2C_AVNDeleteMySmartPhone\n소유주의 스마트폰이 변경된 경우 소유주의 디지털 키(스마트폰)만 삭제 후 새로운 스마트폰으로\n등록이 가능합니다. 인포테인먼트 시스템의 설정 > 차량 > 디지털 키  > 스마트폰 키 > 나의 스마\n트폰 키  > 삭제를 선택하십시오.\n소유주의 디지털 키(스마트폰)만 삭제됩니다.\n공유 키가 차량에 등록된 경우 공유 키는 삭제되지 않습니다.\n나의 스마트폰 키가 삭제된 후에 새로운 스마트폰으로 등록이 가능합니다.\n\nӝ \n차량에서 디지털 키(스마트폰)를 삭제하는 경우 스마트폰에 저장된 디지털 키도 삭제됩니다.\n스마트폰에서 디지털 키를 삭제하는 경우 차량에 등록된 디지털 키(스마트폰)도 삭제됩니다.\n차량에서 공유 사용자의 키를 개별 삭제하는 기능은 제공되지 않습니다.\n마이현대 앱을 삭제해도 스마트폰에 저장된 디지털 키는 삭제되지 않습니다.\n스마트폰 제조사에서 제공하는 디지털 키 관련 앱에서 스마트폰에 저장된 디지털 키를 관리할\n수 있습니다.\n",
+                "pdf_page_number": 196,
+                "manual_page_number": 191,
+                "source_pages": [
+                  196,
+                  197,
+                  198,
+                  199,
+                  200,
+                  201,
+                  202,
+                  203
+                ],
+                "content_type": "figure_with_text",
+                "verification_status": "auto_draft_needs_review",
+                "metadata": {
+                  "title": "디지털 키 (스마트폰 )",
+                  "record_id": "auto_topic_109",
+                  "chapter_id": 5,
+                  "content_type": "figure_with_text",
+                  "review_flags": [
+                    "ambiguous_footer_candidate_needs_review",
+                    "detached_number_or_letter_labels_needs_review",
+                    "long_topic_boundary_needs_review",
+                    "page_level_image_linkage_needs_review"
+                  ],
+                  "source_pages": [
+                    196,
+                    197,
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203
+                  ],
+                  "source_spans": [
+                    {
+                      "end": 704,
+                      "start": 98,
+                      "pdf_page_number": 196
+                    },
+                    {
+                      "end": 412,
+                      "start": 0,
+                      "pdf_page_number": 197
+                    },
+                    {
+                      "end": 1039,
+                      "start": 0,
+                      "pdf_page_number": 198
+                    },
+                    {
+                      "end": 386,
+                      "start": 0,
+                      "pdf_page_number": 199
+                    },
+                    {
+                      "end": 1318,
+                      "start": 0,
+                      "pdf_page_number": 200
+                    },
+                    {
+                      "end": 1181,
+                      "start": 0,
+                      "pdf_page_number": 201
+                    },
+                    {
+                      "end": 773,
+                      "start": 0,
+                      "pdf_page_number": 202
+                    },
+                    {
+                      "end": 241,
+                      "start": 0,
+                      "pdf_page_number": 203
+                    }
+                  ],
+                  "boundary_source": "toc_title_and_printed_page",
+                  "pdf_page_number": 196,
+                  "manual_page_number": 191,
+                  "verification_status": "auto_draft_needs_review"
+                }
+              }
+            ],
+            "image_parts": [
+              {
+                "pdf_page_number": 196,
+                "file_name": null,
+                "pdf_image_key": "/I4",
+                "image_key_sha256": "f46431218087b4cb57241d31f1fc9e252182476a75f7c4d6fa3852466bb6054b",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 197,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 197,
+                "file_name": null,
+                "pdf_image_key": "/I2",
+                "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 198,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 199,
+                "file_name": null,
+                "pdf_image_key": "/I3",
+                "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 199,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 199,
+                "file_name": null,
+                "pdf_image_key": "/I2",
+                "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 202,
+                "file_name": null,
+                "pdf_image_key": "/I1",
+                "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 202,
+                "file_name": null,
+                "pdf_image_key": "/I2",
+                "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 203,
+                "file_name": null,
+                "pdf_image_key": "/I3",
+                "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              },
+              {
+                "pdf_page_number": 203,
+                "file_name": null,
+                "pdf_image_key": "/I4",
+                "image_key_sha256": "f46431218087b4cb57241d31f1fc9e252182476a75f7c4d6fa3852466bb6054b",
+                "width": null,
+                "height": null,
+                "local_path": null,
+                "storage_bucket": null,
+                "storage_path": null,
+                "upload_status": "reference_only",
+                "public_url": null,
+                "descriptions": [
+                  {
+                    "parent_record_id": "auto_topic_109",
+                    "description": null,
+                    "linkage_status": "unreviewed_page_reference"
+                  }
+                ]
+              }
+            ],
+            "pending_review_record_ids": [
+              "auto_topic_109"
+            ],
+            "unreviewed_continuation_record_ids": []
+          }
+        ],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true
+      }
+    },
+    {
+      "case_id": "A09",
+      "group": "그림 요청",
+      "question": "차대번호가 새겨진 위치를 그림으로 보여줘.",
+      "expected": {
+        "case_id": "A09",
+        "group": "그림 요청",
+        "question": "차대번호가 새겨진 위치를 그림으로 보여줘.",
+        "expected_status": "evidence_excerpt",
+        "required_page_groups": [
+          [
+            45
+          ]
+        ],
+        "required_text_groups": [
+          [
+            "차대번호"
+          ]
+        ],
+        "display_image_pages": [
+          45
+        ],
+        "min_display_images": 1
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "required_source_group_1": true,
+        "required_text_group_1": true,
+        "displayed_image_reference": true
+      },
+      "expectation_checks_passed": true,
+      "failed_checks": [],
+      "actual_status": "evidence_excerpt",
+      "actual_source_pages": [
+        45
+      ],
+      "displayed_image_count": 1,
+      "pending_image_count": 0,
+      "answer": {
+        "question": "차대번호가 새겨진 위치를 그림으로 보여줘.",
+        "status": "evidence_excerpt",
+        "answer_mode": "pdf_excerpt",
+        "answer": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 45쪽 / 매뉴얼 40쪽 · 차대번호 (VIN)\n차대번호 (VIN) 차대번호(VIN: Vehicle Identification Number)는 차량 등록, 차량 소유권 유지 등 모든 법적 인 사항에 사용되는 차량의 고유 번호입니다. 차체에 타각된 차대번호와 차량 등록증에 기록된 차대번호는 일치해야 합니다. 엔진과 차량 실내 사이의 차체 패널에 타각되어 있습니다.\n[그림 설명] 그림의 화살표는 엔진과 차량 실내 사이 차체 패널에 있는 차대번호 타각 위치를 가리킨다.",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "vin_45",
+            "title": "차대번호 (VIN)",
+            "source_pages": [
+              45
+            ],
+            "manual_page_number": 40,
+            "verification_status": "sample_verified",
+            "quote": "차대번호 (VIN) 차대번호(VIN: Vehicle Identification Number)는 차량 등록, 차량 소유권 유지 등 모든 법적 인 사항에 사용되는 차량의 고유 번호입니다. 차체에 타각된 차대번호와 차량 등록증에 기록된 차대번호는 일치해야 합니다. 엔진과 차량 실내 사이의 차체 패널에 타각되어 있습니다.\n[그림 설명] 그림의 화살표는 엔진과 차량 실내 사이 차체 패널에 있는 차대번호 타각 위치를 가리킨다.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "차대번호 (VIN)\n2C_VINPosition\n차대번호(VIN: Vehicle Identification Number)는 차량 등록, 차량 소유권 유지 등 모든 법적\n인 사항에 사용되는 차량의 고유 번호입니다.\n차체에 타각된 차대번호와 차량 등록증에 기록된 차대번호는 일치해야 합니다.\n엔진과 차량 실내 사이의 차체 패널에 타각되어 있습니다.\n1\n40",
+            "label": "[1] PDF 45쪽 / 매뉴얼 40쪽"
+          }
+        ],
+        "images": [
+          {
+            "pdf_page_number": 45,
+            "file_name": "I1.jpg",
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": 688,
+            "height": 440,
+            "local_path": "data/zzong_santafe_lag/images/pdf_page_45/I1.jpg",
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0045_image_01.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0045_image_01.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "vin_45",
+                "description": "그림의 화살표는 엔진과 차량 실내 사이 차체 패널에 있는 차대번호 타각 위치를 가리킨다.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          }
+        ],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+        "matched_chunk_record_id": "vin_45_chunk_1",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."
+      }
+    },
+    {
+      "case_id": "A10",
+      "group": "그림 요청",
+      "question": "실외 미러 접이 버튼 위치를 그림으로 보여줘.",
+      "expected": {
+        "case_id": "A10",
+        "group": "그림 요청",
+        "question": "실외 미러 접이 버튼 위치를 그림으로 보여줘.",
+        "expected_status": "evidence_excerpt",
+        "required_page_groups": [
+          [
+            33
+          ]
+        ],
+        "required_text_groups": [
+          [
+            "실외 미러 접이 버튼"
+          ]
+        ],
+        "pending_image_pages": [
+          33
+        ]
+      },
+      "checks": {
+        "expected_status": true,
+        "no_db_write": true,
+        "no_storage_upload": true,
+        "no_llm_call": true,
+        "required_source_group_1": true,
+        "required_text_group_1": true,
+        "pending_image_reference": true,
+        "no_unavailable_image_display": true
+      },
+      "expectation_checks_passed": true,
+      "failed_checks": [],
+      "actual_status": "evidence_excerpt",
+      "actual_source_pages": [
+        33,
+        34
+      ],
+      "displayed_image_count": 0,
+      "pending_image_count": 1,
+      "answer": {
+        "question": "실외 미러 접이 버튼 위치를 그림으로 보여줘.",
+        "status": "evidence_excerpt",
+        "answer_mode": "pdf_excerpt",
+        "answer": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 33, 34쪽 / 매뉴얼 시작 28쪽 · 차량 내부 I\n차량 내부 I\n본 도안은 적용된 사양에 따라 실제 차량과 다를 수 있습니다.\n1: 도어 핸들(실내) — 매뉴얼 213쪽\n2: 운전석 자세 메모리 시스템 — 매뉴얼 224쪽\n3: 에르고 모션 시트 버튼 — 매뉴얼 65쪽\n4: 실외 미러 접이 버튼 — 매뉴얼 242쪽\n5: 실외 미러 조절 스위치 — 매뉴얼 242쪽\n6: 중앙 도어 잠금/잠금 해제 버튼 — 매뉴얼 214쪽\n7: 유리창 열림/닫힘 스위치 — 매뉴얼 249쪽\n8: 유리창 열림/닫힘 잠금 버튼, 전자식 차일드 락 버튼 — 매뉴얼 249쪽, 216쪽\n9: 전조등 각도 조절 장치 — 매뉴얼 300쪽\n10: 테일게이트 열림 버튼 — 매뉴얼 263쪽, 270쪽\n11: 차체 자세 제어(ESC) OFF 버튼 — 매뉴얼 419쪽\n12: 전자식 파킹 브레이크(EPB) 스위치 — 매뉴얼 410쪽\n13: 후드 열림 레버 — 매뉴얼 261쪽\n14: 스티어링 휠 위치 조절 — 매뉴얼 228쪽\n15: 스티어링 휠 — 매뉴얼 228쪽\n16: 시트 — 매뉴얼 59쪽\n17: 실내 퓨즈 — 매뉴얼 733쪽\n18: 지문 인증 시스템 — 매뉴얼 206쪽",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "overview_33",
+            "title": "차량 내부 I",
+            "source_pages": [
+              33,
+              34
+            ],
+            "manual_page_number": 28,
+            "verification_status": "sample_verified",
+            "quote": "차량 내부 I\n본 도안은 적용된 사양에 따라 실제 차량과 다를 수 있습니다.\n1: 도어 핸들(실내) — 매뉴얼 213쪽\n2: 운전석 자세 메모리 시스템 — 매뉴얼 224쪽\n3: 에르고 모션 시트 버튼 — 매뉴얼 65쪽\n4: 실외 미러 접이 버튼 — 매뉴얼 242쪽\n5: 실외 미러 조절 스위치 — 매뉴얼 242쪽\n6: 중앙 도어 잠금/잠금 해제 버튼 — 매뉴얼 214쪽\n7: 유리창 열림/닫힘 스위치 — 매뉴얼 249쪽\n8: 유리창 열림/닫힘 잠금 버튼, 전자식 차일드 락 버튼 — 매뉴얼 249쪽, 216쪽\n9: 전조등 각도 조절 장치 — 매뉴얼 300쪽\n10: 테일게이트 열림 버튼 — 매뉴얼 263쪽, 270쪽\n11: 차체 자세 제어(ESC) OFF 버튼 — 매뉴얼 419쪽\n12: 전자식 파킹 브레이크(EPB) 스위치 — 매뉴얼 410쪽\n13: 후드 열림 레버 — 매뉴얼 261쪽\n14: 스티어링 휠 위치 조절 — 매뉴얼 228쪽\n15: 스티어링 휠 — 매뉴얼 228쪽\n16: 시트 — 매뉴얼 59쪽\n17: 실내 퓨즈 — 매뉴얼 733쪽\n18: 지문 인증 시스템 — 매뉴얼 206쪽",
+            "quote_source": "stored_parent_content",
+            "raw_text": "차량 내부 I\n1C_SideInsideVehicleOverview\n본 도안은 적용된 사양에 따라 실제 차량과 다를 수 있습니다.\n도어 핸들(실내).......................................................................................................................................................... 213\n운전석 자세 메모리 시스템..........................................................................................................................................224\n에르고 모션 시트 버튼...................................................................................................................................................65\n실외 미러 접이 버튼.................................................................................................................................................... 242\n실외 미러 조절 스위치 ................................................................................................................................................242\n중앙 도어 잠금/잠금 해제 버튼................................................................................................................................... 214\n유리창 열림/닫힘 스위치.............................................................................................................................................249\n유리창 열림/닫힘 잠금 버튼, 전자식 차일드 락 버튼.......................................................................................... 249, 216\n전조등 각도 조절 장치.................................................................................................................................................300\n테일게이트 열림 버튼....................................................................................................................................... 263, 270\n차체 자세 제어(ESC) OFF 버튼................................................................................................................................419\n전자식 파킹 브레이크(EPB) 스위치.......................................................................................................................... 410\n후드 열림 레버.......................................................................................................................................................... 261\n스티어링 휠 위치 조절...............................................................................................................................................228\n스티어링 휠...............................................................................................................................................................228\n1\n28\n1:\n2:\n3:\n4:\n5:\n6:\n7:\n8:\n9:\n10:\n11:\n12:\n13:\n14:\n15:\n시트............................................................................................................................................................................ 59\n실내 퓨즈.................................................................................................................................................................. 733\n지문 인증 시스템.......................................................................................................................................................206",
+            "label": "[1] PDF 33, 34쪽 / 매뉴얼 시작 28쪽"
+          }
+        ],
+        "images": [],
+        "pending_image_references": [
+          {
+            "pdf_page_number": 33,
+            "file_name": "I1.jpg",
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": 1454,
+            "height": 1158,
+            "local_path": null,
+            "storage_bucket": null,
+            "storage_path": null,
+            "upload_status": "reference_only",
+            "public_url": null,
+            "descriptions": [
+              {
+                "parent_record_id": "overview_33",
+                "description": "차량 내부 I의 주요 부품 위치를 번호로 표시한 안내도.",
+                "linkage_status": "sample_linked"
+              }
+            ]
+          }
+        ],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+        "matched_chunk_record_id": "overview_33_chunk_1",
+        "semantic_answerability_validated": false,
+        "llm_called": false,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."
+      }
+    }
+  ],
+  "failures": [],
+  "limitations": [
+    "기존 확인 주제를 포함한 새 표현이며 독립된 전체 성능 평가가 아닙니다.",
+    "상태·출처·문구·그림 참조의 자동 조건으로 답변의 의미 정확도를 보장하지 않습니다.",
+    "그림의 공개 주소·관련 페이지 반환을 확인하며 그림 픽셀의 의미를 채점하지 않습니다."
+  ],
+  "elapsed_seconds": 110.45954490001895,
+  "expectation_match_count": 7,
+  "expectation_mismatch_count": 3,
+  "finished_at": "2026-10-02T14:49:01.534549+09:00",
+  "db_written": false,
+  "storage_uploaded": false,
+  "document_embeddings_recomputed": false,
+  "model_name": "jhgan/ko-sroberta-multitask-mrl",
+  "model_revision": "3ec6ac494ac7ab802fbeed415a99d546c3a0503c"
+}
