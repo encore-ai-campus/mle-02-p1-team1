@@ -34,7 +34,8 @@ class CarManual:
         self.service = CarManualSearchService(                 # 차량 매뉴얼 검색 서비스
             sql_session=SqlSession(result_log=True)
         )
-        self.model = init_chat_model("openai:gpt-6-luna")     # Agent에서 사용할 LLM
+        self.model = init_chat_model("openai:gpt-6-luna",
+        reasoning_effort="none")                               # Agent에서 사용할 LLM
         self.download_html = None                              # 생성된 대화 기록 HTML
 
         # =========================================================
