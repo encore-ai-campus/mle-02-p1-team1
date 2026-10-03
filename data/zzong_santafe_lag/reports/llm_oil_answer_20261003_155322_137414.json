@@ -1,0 +1,149 @@
+{
+  "question": "엔진 오일 교체 시 주입량과 추천 SAE 점도와 점도 표의 온도 눈금을 각각 알려줘.",
+  "status": "generated_answer",
+  "answer_mode": "pdf_grounded_llm",
+  "answer": "엔진 오일 교체 시 주입량은 4.8 ℓ입니다. 이는 일반적인 오일 교체 시 주입되는 용량 기준이며, 실제 교체할 때는 오일 게이지를 확인해 ‘F’ 선에 가깝게 주입하고 ‘F’ 선 이상 넣지 마십시오. [1] [2]\n\n추천 SAE 점도는 SAE 0W-20입니다. 추천 사양은 API SN PLUS/SP 또는 ILSAC GF-6이며, API SN PLUS(또는 그 이상) Full Synthetic 등급의 엔진오일 사용을 권장합니다. [1] [2]\n\n점도 표의 온도 눈금은 -30℃부터 50℃까지입니다. [3]\n\n출처:\n[1] PDF 43쪽 / 매뉴얼 38쪽 · 추천 오일 및 용량 — 각주 및 주의사항\n[2] PDF 43쪽 / 매뉴얼 38쪽 · 추천 오일 및 용량\n[3] PDF 44쪽 / 매뉴얼 39쪽 · 온도에 따른 엔진 오일 SAE 점도 분류표",
+  "sources": [
+    {
+      "citation_id": 1,
+      "record_id": "reviewed_oil_notes_43",
+      "title": "추천 오일 및 용량 — 각주 및 주의사항",
+      "source_pages": [
+        43
+      ],
+      "manual_page_number": 38,
+      "verification_status": "visually_reviewed_source",
+      "quote": "추천 오일 및 용량 — 각주 및 주의사항\n*1: 엔진 오일 용량은 일반적인 오일 교체 시 주입되는 용량 기준입니다.\n*2: API SN PLUS(또는 그 이상) Full Synthetic 등급의 엔진오일 사용을 추천해드립니다. 만약 더 낮은 등급의 엔진오일 (광유, 세미합성유, 낮은 등급의 엔진오일 등)을 사용할 경우 엔진 오일 교체 주기의 가혹 조건에 맞춰 엔진오일 교환하 십시오.\n*3: 차량의 제동 성능 및 ABS/ESC 성능을 최상으로 유지하기 위하여 브레이크액은 규격에 맞는 순정 부품을 사용하십시 오.(규격: SAE J1704 DOT-4 LV, ISO4925 CLASS-6, FMVSS 116 DOT-4)\n*4: 교체 주기와는 별도로 트랜스퍼 케이스 또는 디퍼렌셜이 물에 잠긴 경우 즉시 오일을 교체하십시오.\n[주의] 각 시스템의 원활한 작동과 수명을 위해 품질과 성능이 적합한 부품(엔진 오일, 변속기 오일 등) 을 사용하십시오. 품질이나 성능이 부적합한 부품이나 불량 연료를 사용했을 때는 차량에 치명 적인 손상을 줄 수 있습니다. 순정 부품은 품질과 성능을 당사가 보증하는 부품입니다. 점도 분류와 품질 등급을 동시에 만족시키는 오일을 사용하십시오. 표에 기재된 오일 용량은 차량 오일 탱크의 전체 용량으로 참고치입니다. 실제 오일을 점검하거 나 교체할 때는 오일 게이지를 확인하여 'F' 선에 가깝게 오일을 주입하고 'F' 선 이상 주입하지 마십시오. 엔진 오일 첨가제를 사용하지 마십시오. 엔진 오일 첨가제는 엔진 오일의 특성을 변화시켜 심각 한 엔진 고장을 유발할 수 있습니다.",
+      "quote_source": "stored_parent_content",
+      "raw_text": "엔진 오일 용량은 일반적인 오일 교체 시 주입되는 용량 기준입니다.\nAPI SN PLUS(또는 그 이상) Full Synthetic 등급의 엔진오일 사용을 추천해드립니다. 만약 더 낮은 등급의 엔진오일\n(광유, 세미합성유, 낮은 등급의 엔진오일 등)을 사용할 경우 엔진 오일 교체 주기의 가혹 조건에 맞춰 엔진오일 교환하\n십시오.\n차량의 제동 성능 및 ABS/ESC 성능을 최상으로 유지하기 위하여 브레이크액은 규격에 맞는 순정 부품을 사용하십시\n오.(규격: SAE J1704 DOT-4 LV, ISO4925 CLASS-6, FMVSS 116 DOT-4)\n교체 주기와는 별도로 트랜스퍼 케이스 또는 디퍼렌셜이 물에 잠긴 경우 즉시 오일을 교체하십시오.\n ઱੄ \n각 시스템의 원활한 작동과 수명을 위해 품질과 성능이 적합한 부품(엔진 오일, 변속기 오일 등)\n을 사용하십시오. 품질이나 성능이 부적합한 부품이나 불량 연료를 사용했을 때는 차량에 치명\n적인 손상을 줄 수 있습니다. 순정 부품은 품질과 성능을 당사가 보증하는 부품입니다.\n점도 분류와 품질 등급을 동시에 만족시키는 오일을 사용하십시오.\n표에 기재된 오일 용량은 차량 오일 탱크의 전체 용량으로 참고치입니다. 실제 오일을 점검하거\n나 교체할 때는 오일 게이지를 확인하여 'F' 선에 가깝게 오일을 주입하고 'F' 선 이상 주입하지\n마십시오.\n엔진 오일 첨가제를 사용하지 마십시오. 엔진 오일 첨가제는 엔진 오일의 특성을 변화시켜 심각\n한 엔진 고장을 유발할 수 있습니다.\n",
+      "label": "[1] PDF 43쪽 / 매뉴얼 38쪽"
+    },
+    {
+      "citation_id": 2,
+      "record_id": "auto_topic_33",
+      "title": "추천 오일 및 용량",
+      "source_pages": [
+        43
+      ],
+      "manual_page_number": 38,
+      "verification_status": "visually_reviewed_source",
+      "quote": "추천 오일 및 용량\n연료 | 용량: 67 ℓ | 추천 사양: 무연 휘발유\n엔진 오일 | 용량: 4.8 ℓ | 추천 사양: SAE 0W-20 API SN PLUS/SP 또는 ILSAC GF-6 | 각주: *1, *2\n자동 변속기 오일 | 용량: 6.0 ℓ | 추천 사양: SK ATF SP4M-1, MICHANG ATF SP4M-1, S-OIL ATF SP4M-1, Hyundai Genuine ATF SP4M-1\n엔진 냉각수 | 용량: 8.9 ℓ | 추천 사양: 알루미늄 라디에이터용 인산염계 에틸렌 글리콜 부동액과 물 혼합액\n브레이크액 | 용량: 필요량 | 추천 사양: DOT-4 | 각주: *3\n리어 디퍼런셜 오일 (HTRAC) | 용량: 0.53 ~ 0.63 ℓ | 추천 사양: 하이포이드 기어 오일 API GL-5, SAE 75W/85(SK HCT-5 기어 오일 75W/85 or 상당품) | 각주: *4\n트랜스퍼 케이스 오일 (HTRAC) | 용량: 0.62 ~ 0.68 ℓ | 추천 사양: 하이포이드 기어 오일 API GL-5, SAE 75W/85(SK HCT-5 기어 오일 75W/85 or 상당품) | 각주: *4",
+      "quote_source": "stored_parent_content",
+      "raw_text": "추천 오일 및 용량\n종류 용량 추천 사양\n연료 67 ℓ 무연 휘발유\n엔진 오일 *1 4.8 ℓ SAE 0W-20 API SN PLUS/SP 또는 ILS\nAC GF-6 *2\n자동 변속기 오일 6.0 ℓ\nSK ATF SP4M-1, MICHANG ATF SP4\nM-1, S-OIL ATF SP4M-1, Hyundai G\nenuine ATF SP4M-1\n엔진 냉각수 8.9 ℓ 알루미늄 라디에이터용 인산염계 에틸렌 글\n리콜 부동액과 물 혼합액\n브레이크액 *3 필요량 DOT-4\n리어 디퍼런셜 오일 (HTRAC) *4 0.53 ~ 0.63 ℓ 하이포이드 기어 오일 API GL-5, SAE 75W/\n85(SK HCT-5 기어 오일 75W/85 or 상당\n품)트랜스퍼 케이스 오일 (HTRAC) *4 0.62 ~ 0.68 ℓ\n",
+      "label": "[2] PDF 43쪽 / 매뉴얼 38쪽"
+    },
+    {
+      "citation_id": 3,
+      "record_id": "table_44",
+      "title": "온도에 따른 엔진 오일 SAE 점도 분류표",
+      "source_pages": [
+        44
+      ],
+      "manual_page_number": 39,
+      "verification_status": "sample_verified",
+      "quote": "온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n[그림 설명] 온도 눈금은 -30도부터 50도까지 표시되어 있다. 1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+      "quote_source": "stored_parent_content",
+      "raw_text": "온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n안내 및 차량 정보\n39",
+      "label": "[3] PDF 44쪽 / 매뉴얼 39쪽"
+    }
+  ],
+  "images": [
+    {
+      "pdf_page_number": 44,
+      "file_name": "I1.jpg",
+      "pdf_image_key": "/I1",
+      "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+      "width": 945,
+      "height": 71,
+      "local_path": "data/zzong_santafe_lag/images/pdf_page_44/I1.jpg",
+      "storage_bucket": "images",
+      "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_01.jpg",
+      "upload_status": "uploaded",
+      "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_01.jpg",
+      "descriptions": [
+        {
+          "parent_record_id": "table_44",
+          "description": "온도 눈금은 -30도부터 50도까지 표시되어 있다.",
+          "linkage_status": "sample_linked"
+        }
+      ]
+    },
+    {
+      "pdf_page_number": 44,
+      "file_name": "I2.jpg",
+      "pdf_image_key": "/I2",
+      "image_key_sha256": "8df5c5f71e76bf0b7ff129722938e939da32af2b567bb550a76fde7c2766fdd4",
+      "width": 945,
+      "height": 71,
+      "local_path": "data/zzong_santafe_lag/images/pdf_page_44/I2.jpg",
+      "storage_bucket": "images",
+      "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_02.jpg",
+      "upload_status": "uploaded",
+      "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0044_image_02.jpg",
+      "descriptions": [
+        {
+          "parent_record_id": "table_44",
+          "description": "1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+          "linkage_status": "sample_linked"
+        }
+      ]
+    }
+  ],
+  "pending_image_references": [],
+  "review_candidates": [],
+  "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "search_method": "stored_vectors_keyword_purpose_specific_terms_v1",
+  "semantic_answerability_validated": false,
+  "llm_called": true,
+  "db_written": false,
+  "storage_uploaded": false,
+  "retrieval_performed": true,
+  "limitation": "출처 번호·형식만 검사했습니다. 원문과 수치·조건·경고의 의미 대조는 필요합니다.",
+  "subquestions": [
+    "엔진 오일 교체 시 주입량",
+    "추천 SAE 점도",
+    "점도 표의 온도 눈금을  알려줘."
+  ],
+  "missing_subquestions": [],
+  "matched_chunk_record_ids": [
+    "reviewed_oil_notes_43_chunk_0",
+    "table_44_chunk_0",
+    "table_44_chunk_0"
+  ],
+  "reason": "",
+  "generation_model": "gpt-6-luna",
+  "generation_attempted": true,
+  "evidence_excerpt": "설명서에서 항목별로 확인한 내용입니다.\n\n[1] PDF 43쪽 / 매뉴얼 38쪽 · 추천 오일 및 용량 — 각주 및 주의사항\n추천 오일 및 용량 — 각주 및 주의사항\n*1: 엔진 오일 용량은 일반적인 오일 교체 시 주입되는 용량 기준입니다.\n*2: API SN PLUS(또는 그 이상) Full Synthetic 등급의 엔진오일 사용을 추천해드립니다. 만약 더 낮은 등급의 엔진오일 (광유, 세미합성유, 낮은 등급의 엔진오일 등)을 사용할 경우 엔진 오일 교체 주기의 가혹 조건에 맞춰 엔진오일 교환하 십시오.\n*3: 차량의 제동 성능 및 ABS/ESC 성능을 최상으로 유지하기 위하여 브레이크액은 규격에 맞는 순정 부품을 사용하십시 오.(규격: SAE J1704 DOT-4 LV, ISO4925 CLASS-6, FMVSS 116 DOT-4)\n*4: 교체 주기와는 별도로 트랜스퍼 케이스 또는 디퍼렌셜이 물에 잠긴 경우 즉시 오일을 교체하십시오.\n[주의] 각 시스템의 원활한 작동과 수명을 위해 품질과 성능이 적합한 부품(엔진 오일, 변속기 오일 등) 을 사용하십시오. 품질이나 성능이 부적합한 부품이나 불량 연료를 사용했을 때는 차량에 치명 적인 손상을 줄 수 있습니다. 순정 부품은 품질과 성능을 당사가 보증하는 부품입니다. 점도 분류와 품질 등급을 동시에 만족시키는 오일을 사용하십시오. 표에 기재된 오일 용량은 차량 오일 탱크의 전체 용량으로 참고치입니다. 실제 오일을 점검하거 나 교체할 때는 오일 게이지를 확인하여 'F' 선에 가깝게 오일을 주입하고 'F' 선 이상 주입하지 마십시오. 엔진 오일 첨가제를 사용하지 마십시오. 엔진 오일 첨가제는 엔진 오일의 특성을 변화시켜 심각 한 엔진 고장을 유발할 수 있습니다.\n\n[2] PDF 43쪽 / 매뉴얼 38쪽 · 추천 오일 및 용량\n추천 오일 및 용량\n연료 | 용량: 67 ℓ | 추천 사양: 무연 휘발유\n엔진 오일 | 용량: 4.8 ℓ | 추천 사양: SAE 0W-20 API SN PLUS/SP 또는 ILSAC GF-6 | 각주: *1, *2\n자동 변속기 오일 | 용량: 6.0 ℓ | 추천 사양: SK ATF SP4M-1, MICHANG ATF SP4M-1, S-OIL ATF SP4M-1, Hyundai Genuine ATF SP4M-1\n엔진 냉각수 | 용량: 8.9 ℓ | 추천 사양: 알루미늄 라디에이터용 인산염계 에틸렌 글리콜 부동액과 물 혼합액\n브레이크액 | 용량: 필요량 | 추천 사양: DOT-4 | 각주: *3\n리어 디퍼런셜 오일 (HTRAC) | 용량: 0.53 ~ 0.63 ℓ | 추천 사양: 하이포이드 기어 오일 API GL-5, SAE 75W/85(SK HCT-5 기어 오일 75W/85 or 상당품) | 각주: *4\n트랜스퍼 케이스 오일 (HTRAC) | 용량: 0.62 ~ 0.68 ℓ | 추천 사양: 하이포이드 기어 오일 API GL-5, SAE 75W/85(SK HCT-5 기어 오일 75W/85 or 상당품) | 각주: *4\n\n[3] PDF 44쪽 / 매뉴얼 39쪽 · 온도에 따른 엔진 오일 SAE 점도 분류표\n온도에 따른 엔진 오일 SAE 점도 분류표\nSAE 점도와 사용 온도 범위\n온도 (℃)\n1.6 T-GDi HEV\n[그림 설명] 온도 눈금은 -30도부터 50도까지 표시되어 있다. 1.6 T-GDi HEV 행에 0W-20이 표시되어 있다.",
+  "image_pixels_sent": false,
+  "generation_settings": {
+    "generation_model": "gpt-6-luna",
+    "temperature": 0.0,
+    "reasoning_effort": "none",
+    "api_mode": "chat_completions",
+    "max_output_tokens": 1400,
+    "max_prompt_characters": 32000,
+    "timeout_seconds": 45,
+    "automatic_retries": 0,
+    "api_key_configured": true,
+    "api_key_validated": false,
+    "image_pixels_sent": false,
+    "llm_called": false
+  },
+  "token_usage": {
+    "input_tokens": 1464,
+    "output_tokens": 185,
+    "total_tokens": 1649,
+    "input_token_details": {
+      "audio": 0,
+      "cache_read": 0,
+      "cache_creation": 1461
+    },
+    "output_token_details": {
+      "audio": 0,
+      "reasoning": 0
+    }
+  },
+  "response_model": "gpt-6-luna",
+  "generation_notice": "",
+  "citation_ids_validated": true
+}
