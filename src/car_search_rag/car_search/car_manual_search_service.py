@@ -242,11 +242,16 @@ class CarManualSearchService:
         """이전 대화를 참고하여 검색용 질문을 독립적인 문장으로 재작성"""
 
         # 이전 대화가 없으면 현재 질문 그대로 사용
+        machine_logger.info(
+            "rewrite_search_question input - question=%r, conversation_history=%r",
+            question,
+            conversation_history,
+        )
         if not conversation_history:
             return question
 
 
-        # 최근 6개 메시지만 사용
+        # 메시지 누적
         recent_messages = conversation_history
 
 

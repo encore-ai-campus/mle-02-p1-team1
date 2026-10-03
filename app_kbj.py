@@ -110,6 +110,8 @@ question = st.chat_input(
 #=========================================================
 if question:
 
+    conversation_history = st.session_state["messages"].copy()
+
     #=====================================================
     # 사용자 질문 화면 출력
     #=====================================================
@@ -139,8 +141,17 @@ if question:
                     car_eng_nm=car_eng_nm,
                     car_model_yr=car_model_yr,
                     question=question,
-                    limit=10
+                    limit=10,
+                    conversation_history=conversation_history,
                 )
+
+                if car_manual.download_html:
+                    st.download_button(
+                        label="📥 대화 기록 HTML 다운로드",
+                        data=car_manual.download_html,
+                        file_name="car_manual_history.html",
+                        mime="text/html",
+                    )
 
             except Exception as e:
 

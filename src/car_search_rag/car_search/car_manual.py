@@ -6,6 +6,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from langchain.agents import create_agent
 from langchain.chat_models import init_chat_model
+from langchain.tools import ToolRuntime
 from langchain_core.tools import tool
 
 from car_search_rag.common.sql_session import SqlSession
@@ -15,26 +16,88 @@ logger = logging.getLogger("CarManual")
 
 
 class CarManual:
+
+    download_html : str| None    
+    
     def __init__(self):
         self.service = CarManualSearchService(sql_session=SqlSession(result_log=True))
         self.model = init_chat_model("openai:gpt-6-luna")
+
+        self.download_html: str | None = None
 
         #=========================================================
         # Agent 생성
         #=========================================================
         car_manual_search_tool = tool(self.car_manual_search)
+        car_manual_history_download_tool = tool(self.car_manual_history_download)
+
+        
         self.agent = create_agent(
             model=self.model,
-            tools=[car_manual_search_tool],
+            tools=[car_manual_search_tool,car_manual_history_download_tool],
             system_prompt="""너는 자동차 차량 매뉴얼 상담 AI다.
 
 차량의 기능, 사용법, 조작법, 점검, 경고, 차량 문제 해결 등
 차량 매뉴얼의 내용이 필요한 질문에는 car_manual_search 도구를 사용한다.
+차량 메뉴얼 히스토리 다운로드 해달 라고 하면 car_manual_history_download_tool 도구를 사용 한다.
+
 차량 매뉴얼과 관계없는 질문에는 car_manual_search 도구를 사용하지 않는다.
 차량 매뉴얼과 관계없는 일반 대화는 직접 답변한다.
 실시간 정보가 필요한 질문에 사용할 수 있는 도구가 없다면
 확인할 수 없는 정보를 추측하지 않는다."""
         )
+
+    #=========================================================
+    # 차량 매뉴얼 히스토리 다운로드
+    #=========================================================
+    def car_manual_history_download(
+        self,
+        runtime: ToolRuntime,
+    ) -> str:
+        """현재 자동차 상담 대화 기록을 HTML 형태로 생성한다."""
+
+        messages = runtime.state["messages"]
+
+        html = """
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Car Manual Conversation History</title>
+        </head>
+        <body>
+            <h1>자동차 매뉴얼 상담 기록</h1>
+        """
+
+        for message in messages:
+
+            message_type = getattr(message, "type", "")
+            content = getattr(message, "content", "")
+
+            if message_type == "human":
+                html += f"""
+                <div>
+                    <strong>사용자</strong>
+                    <p>{content}</p>
+                </div>
+                """
+
+            elif message_type == "ai" and content:
+                html += f"""
+                <div>
+                    <strong>AI</strong>
+                    <p>{content}</p>
+                </div>
+                """
+
+        html += """
+        </body>
+        </html>
+        """
+
+        self.download_html = html
+
+        return "대화 기록 HTML 다운로드를 준비했습니다."
+
 
     #=========================================================
     # 차량 매뉴얼 검색 Tool
@@ -45,6 +108,7 @@ class CarManual:
         car_eng_nm: str,
         car_model_yr: int,
         question: str,
+        runtime: ToolRuntime,
         limit: int = 5,
     ) -> str:
         """차량 매뉴얼을 검색하여 질문에 답변한다."""
@@ -52,11 +116,35 @@ class CarManual:
             f"car_manual_search Tool 호출 - "
             f"{car_brand_eng_nm} {car_eng_nm} {car_model_yr} / {question}"
         )
+        messages = runtime.state.get("messages", [])
+        latest_user_index = next(
+            (
+                index
+                for index in range(len(messages) - 1, -1, -1)
+                if getattr(messages[index], "type", None) == "human"
+                or (isinstance(messages[index], dict) and messages[index].get("role") == "user")
+            ),
+            len(messages),
+        )
+        conversation_history = []
+        for message in messages[:latest_user_index]:
+            message_type = getattr(message, "type", None)
+            if isinstance(message, dict):
+                role = message.get("role")
+                content = message.get("content")
+            else:
+                role = {"human": "user", "ai": "assistant"}.get(message_type)
+                content = getattr(message, "content", None)
+            if role in {"user", "assistant"} and isinstance(content, str):
+                conversation_history.append({"role": role, "content": content})
+
+        logger.info("car_manual_search 이전 대화 전달: %s", conversation_history)
         return self.service.ask_manual(
             car_brand_eng_nm=car_brand_eng_nm,
             car_eng_nm=car_eng_nm,
             car_model_yr=car_model_yr,
             question=question,
+            conversation_history=conversation_history,
             limit=limit,
         )
 
@@ -70,6 +158,7 @@ class CarManual:
         car_model_yr: int,
         question: str,
         limit: int = 5,
+        conversation_history=None,
     ) -> str:
 
         user_message = (
@@ -81,18 +170,22 @@ class CarManual:
         )
 
 
+        messages = [
+            {"role": message["role"], "content": message["content"]}
+            for message in (conversation_history or [])
+            if message.get("role") in {"user", "assistant"}
+        ]
+        messages.append({"role": "user", "content": user_message})
+
         result = self.agent.invoke(
             {
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": user_message,
-                    }
-                ]
+                "messages": messages
             }
         )
         final_message = result["messages"][-1]
         return final_message.text
+
+
 
 
 if __name__ == "__main__":
