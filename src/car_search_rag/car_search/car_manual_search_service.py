@@ -8,7 +8,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 
-
 EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
 machine_logger = logging.getLogger("car_search_rag.car_manual")
@@ -117,6 +116,8 @@ class CarManualSearchService:
             | self.chat_model
             | StrOutputParser()
         )
+
+
 
 
 

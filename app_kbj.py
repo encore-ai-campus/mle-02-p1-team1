@@ -2,14 +2,10 @@ from dotenv import load_dotenv
 import sys
 import logging
 import streamlit as st
-from dotenv import load_dotenv
 
 
 
-from car_search_rag.car_search.car_manual_search_service import (
-    CarManualSearchService
-)
-from car_search_rag.common.sql_session import SqlSession
+from car_search_rag.car_search.car_manual import CarManual
 
 
 #=========================================================
@@ -44,22 +40,14 @@ st.title("🚗 차량 매뉴얼 AI 챗봇")
 
 
 #=========================================================
-# Service 생성
-# DB / Embedding / LLM 객체 재사용
+# 차량 매뉴얼 Agent 생성
 #=========================================================
 @st.cache_resource
-def get_car_manual_search_service():
-
-    sql_session = SqlSession(
-        result_log=True
-    )
-
-    return CarManualSearchService(
-        sql_session=sql_session
-    )
+def get_car_manual():
+    return CarManual()
 
 
-service = get_car_manual_search_service()
+car_manual = get_car_manual()
 
 
 #=========================================================
@@ -69,26 +57,28 @@ with st.sidebar:
 
     st.header("차량 정보")
 
-    car_brand_eng_nm = st.selectbox(
-        "제조사",
-        ["hyundai"]
-    )
+    cars = [
+        {
+            "car_nm": "소나타",
+            "car_brand_nm": "현대",
+            "car_brand_eng_nm": "hyundai",
+            "car_eng_nm": "sonata",
+            "car_model_yr": 2026,
+        }
+    ]
 
-    car_eng_nm = st.selectbox(
+    selected_car = st.selectbox(
         "차량",
-        ["sonata"]
+        cars,
+        format_func=lambda car: (
+            f"{car['car_nm']} ({car['car_brand_nm']} · "
+            f"{car['car_model_yr']}년)"
+        ),
     )
 
-    car_model_yr = st.selectbox(
-        "연식",
-        [2026]
-    )
-
-    limit = st.selectbox(
-        "검색 문서 수",
-        [3, 5, 10],
-        index=1
-    )
+    car_brand_eng_nm = selected_car["car_brand_eng_nm"]
+    car_eng_nm = selected_car["car_eng_nm"]
+    car_model_yr = selected_car["car_model_yr"]
 
 
 #=========================================================
@@ -120,9 +110,6 @@ question = st.chat_input(
 #=========================================================
 if question:
 
-    # 현재 질문을 제외한 과거 대화 복사
-    conversation_history = st.session_state["messages"].copy()
-
     #=====================================================
     # 사용자 질문 화면 출력
     #=====================================================
@@ -139,21 +126,20 @@ if question:
 
 
     #=====================================================
-    # 차량 매뉴얼 RAG 검색 + LLM 답변
+    # Agent 답변 생성
     #=====================================================
     with st.chat_message("assistant"):
 
-        with st.spinner("차량 매뉴얼을 검색하고 답변하는 중..."):
+        with st.spinner("답변을 생성하는 중..."):
 
             try:
 
-                answer = service.ask_manual(
+                answer = car_manual.ask(
                     car_brand_eng_nm=car_brand_eng_nm,
                     car_eng_nm=car_eng_nm,
                     car_model_yr=car_model_yr,
                     question=question,
-                    conversation_history=conversation_history,
-                    limit=limit
+                    limit=10
                 )
 
             except Exception as e:
