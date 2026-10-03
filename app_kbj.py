@@ -44,7 +44,11 @@ st.title("🚗 차량 매뉴얼 AI 챗봇")
 #=========================================================
 @st.cache_resource
 def get_car_manual():
-    return CarManual()
+    car_manual = CarManual()
+    # cache_resource 함수는 resource 최초 생성 때만 실행되므로 첫 검색 전에 최소 DB connection을 준비한다.
+    sql_session = car_manual.service.sql_session
+    sql_session.database_manager.warmup(camel_case_keys=sql_session.camel_case_keys)
+    return car_manual
 
 
 car_manual = get_car_manual()
