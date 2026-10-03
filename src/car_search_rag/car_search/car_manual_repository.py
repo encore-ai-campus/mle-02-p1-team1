@@ -11,13 +11,13 @@ class CarManualRepository:
 
     def get_car_manual_chapter_id(self):
         result = self.sql_session.select_one(
-            "car_manual_search.get_car_manual_chapter_id"
+            "car_manual.get_car_manual_chapter_id"
         )
         return result["carManualChapterId"]
 
     def insert_car(self, car_brand_nm, car_brand_eng_nm, car_nm, car_eng_nm, car_model_yr):
         result = self.sql_session.execute(
-            "car_manual_search.merge_car",
+            "car_manual.merge_car",
             {
                 "CAR_BRAND_NM": car_brand_nm,
                 "CAR_BRAND_ENG_NM": car_brand_eng_nm,
@@ -32,7 +32,7 @@ class CarManualRepository:
     def insert_car_manual_chapter(self, car_id, car_manual_chapter_id, car_manual_chapter_no,
                                   car_manual_chapter_nm, car_manual_chapter_sort_no):
         self.sql_session.execute(
-            "car_manual_search.insert_car_manual_chapter",
+            "car_manual.insert_car_manual_chapter",
             {
                 "CAR_ID": car_id,
                 "CAR_MANUAL_CHAPTER_ID": car_manual_chapter_id,
@@ -63,7 +63,7 @@ class CarManualRepository:
             )
 
         return self.sql_session.execute_many(
-            "car_manual_search.insert_car_manual_chunk",
+            "car_manual.insert_car_manual_chunk",
             parameters_list
         )
 
@@ -87,13 +87,13 @@ class CarManualRepository:
             )
 
         return self.sql_session.execute_many(
-            "car_manual_search.insert_car_manual_image",
+            "car_manual.insert_car_manual_image",
             parameters_list
         )
 
     def search_manual(self, car_brand_eng_nm, car_eng_nm, car_model_yr, embedding, limit):
         return self.sql_session.select_list(
-            "car_manual_search.search_car_manual",
+            "car_manual.search_car_manual",
             {
                 "CAR_BRAND_ENG_NM": car_brand_eng_nm,
                 "CAR_ENG_NM": car_eng_nm,

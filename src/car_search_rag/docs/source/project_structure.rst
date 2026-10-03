@@ -10,8 +10,11 @@
    │   ├── coffee_search.py          # 실행 예제 + 이미지 업로드
    │   ├── coffee_search_service.py  # 검색·등록 순서
    │   ├── coffee_search.sql         # SQL 정의
-   │   ├── car_manual_search.py      # 자동차 매뉴얼 관련 코드
-   │   └── car_manual_search_service.py
+   │   ├── car_manual.py             # 자동차 매뉴얼 실행 진입점
+   │   ├── car_manual_register_service.py
+   │   ├── car_manual_search_service.py
+   │   ├── car_manual_repository.py
+   │   └── car_manual.sql
    ├── common/
    │   ├── database_manager.py       # DB 연결
    │   ├── document_reader.py        # PDF 읽기

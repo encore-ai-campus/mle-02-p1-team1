@@ -48,7 +48,7 @@ st.title("🚗 차량 매뉴얼 AI 챗봇")
 # DB / Embedding / LLM 객체 재사용
 #=========================================================
 @st.cache_resource
-def get_service():
+def get_car_manual_search_service():
 
     sql_session = SqlSession(
         result_log=True
@@ -59,7 +59,7 @@ def get_service():
     )
 
 
-service = get_service()
+service = get_car_manual_search_service()
 
 
 #=========================================================
