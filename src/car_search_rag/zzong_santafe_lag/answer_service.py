@@ -40,10 +40,28 @@ def outside_pdf_reason(question):
     if any(word in text for word in ("최신리콜", "현재리콜", "오늘날씨", "현재가격", "오늘가격", "실시간교통")):
         return "실시간 또는 최신 정보는 제공된 PDF 한 개로 확인할 수 없습니다."
     personal = any(word in text for word in ("내차", "내차량", "지금차", "현재차"))
+    # [프로젝트 추가] 설명서의 리콜 안내와 개별 차량의 현재 리콜 대상 조회를 구별합니다.
+    # '리콜' 단어만으로 차단하지 않습니다. 차량 식별·최신 조회가 필요한 명시적 표현에 한정합니다.
+    if personal and "리콜" in text and any(word in text for word in ("대상", "해당", "적용여부")):
+        return "제공된 PDF만으로 내 차량의 현재 리콜 대상 여부를 조회할 수 없습니다."
     diagnosis = "고장" in text and any(word in text for word in ("인가", "인지", "건가", "맞", "판단", "진단", "났나", "난거"))
     if personal and diagnosis:
         return "사용설명서만으로 개별 차량의 실제 고장 여부를 판단할 수 없습니다."
     return None
+
+
+def split_question(question):
+    """'함께/각각/둘 다'와 '과/와'로 요청한 두세 항목만 나눕니다. 범용 질문 분석기는 아닙니다."""
+    # [프로젝트 추가] A04·A05에서 첫 근거만 선택된 문제를 줄이기 위한 작은 규칙입니다.
+    # 문장 속 모든 '과/와'를 나누면 '안전벨트 경고등과 경고음' 같은 한 주제를 손상시킬 수 있습니다.
+    # 명시적 묶음 요청에만 적용하며 생략된 공통 주어를 자동 복원하지는 않습니다.
+    if not any(marker in question for marker in ("함께", "각각", "둘 다", "둘다")):
+        return [question]
+    parts = re.split(r"(?<=[가-힣])(?:과|와)\s+", question)
+    if not 2 <= len(parts) <= 3:
+        return [question]
+    parts = [re.sub(r"함께|각각|둘\s*다", "", part).strip() for part in parts]
+    return parts if all(parts) else [question]
 
 
 def source_label(source):
@@ -77,8 +95,68 @@ class ManualAnswerService:
         reason = outside_pdf_reason(question)
         if reason:
             return self._empty_result(question, "outside_pdf_scope", reason)
-        result = self.search_service.search(question, top_k=top_k, progress=progress)
-        return self.from_search_result(result)
+        parts = split_question(question)
+        answers = []
+        for index, part in enumerate(parts, start=1):
+            if progress and len(parts) > 1:
+                progress(f"질문 항목 {index}/{len(parts)} 근거 검색: {part}")
+            result = self.search_service.search(part, top_k=top_k, progress=progress)
+            answers.append(self.from_search_result(result))
+        if len(parts) == 1:
+            return answers[0]
+        return self.combine_answers(question, answers)
+
+    @staticmethod
+    def combine_answers(question, answers):
+        """항목별 확인 근거를 중복 없이 모으고, 근거가 없는 항목은 별도로 안내합니다."""
+        # [프로젝트 추가] 각 항목의 필수 각주·원문은 자르지 않고 record_id로만 중복 제거합니다.
+        sources, seen = [], set()
+        for result in answers:
+            for source in result["sources"]:
+                if source["record_id"] not in seen:
+                    source = deepcopy(source)
+                    source["citation_id"] = len(sources) + 1
+                    source["label"] = source_label(source)
+                    sources.append(source)
+                    seen.add(source["record_id"])
+        missing = [{"question": row["question"], "status": row["status"], "reason": row.get("reason", "")}
+                   for row in answers if not row["sources"]]
+        # 그림의 파일명은 다른 페이지에서 중복될 수 있어 PDF 페이지와 내부 키를 함께 사용합니다.
+        images, pending_images = {}, {}
+        for row in answers:
+            for target, field in ((images, "images"), (pending_images, "pending_image_references")):
+                for image in row[field]:
+                    identity = (image["pdf_page_number"], image["pdf_image_key"])
+                    if identity not in target:
+                        target[identity] = deepcopy(image)
+                    else:
+                        for description in image["descriptions"]:
+                            if description not in target[identity]["descriptions"]:
+                                target[identity]["descriptions"].append(deepcopy(description))
+        # 다른 항목에서 확인돼 표시할 수 있는 동일 그림은 보류 목록에서 제외합니다.
+        pending_images = [image for key, image in pending_images.items() if key not in images]
+        combined = deepcopy(answers[0])
+        combined.update(question=question, sources=sources, images=list(images.values()),
+                        pending_image_references=pending_images, subquestions=[row["question"] for row in answers],
+                        missing_subquestions=missing,
+                        review_candidates=[candidate for row in answers for candidate in row["review_candidates"]],
+                        matched_chunk_record_ids=[row["matched_chunk_record_id"] for row in answers
+                                                  if "matched_chunk_record_id" in row])
+        combined.pop("matched_chunk_record_id", None)
+        if sources:
+            combined["status"] = "partial_evidence" if missing else "evidence_excerpt"
+            combined["answer"] = "설명서에서 항목별로 확인한 내용입니다.\n\n" + "\n\n".join(
+                row["label"] + " · " + row["title"] + "\n" + row["quote"] for row in sources)
+            combined["reason"] = "일부 요청 항목의 확인 근거를 확보하지 못했습니다." if missing else ""
+            if missing:
+                combined["answer"] += "\n\n확인하지 못한 항목:\n" + "\n".join(
+                    f"- {row['question']}: {row['reason']}" for row in missing)
+        else:
+            combined["status"] = "needs_review" if any(row["status"] == "needs_review" for row in answers) else "insufficient_evidence"
+            combined["answer"] = "항목별로 찾았지만 확정 답변에 사용할 근거를 확보하지 못했습니다."
+            combined["reason"] = " / ".join(row["reason"] for row in missing)
+        combined["limitation"] = "항목별 단어 일치·검토 상태를 확인했으며 질문의 모든 의미 조건 충족을 보장하지 않습니다."
+        return combined
 
     @staticmethod
     def _empty_result(question, status, reason, result=None):

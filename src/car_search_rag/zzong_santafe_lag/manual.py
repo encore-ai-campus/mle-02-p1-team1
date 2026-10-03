@@ -105,8 +105,10 @@ def print_answer(result):
     """설명서 발췌와 사용할 수 있는 그림 주소를 표시합니다. 내부 메타데이터는 JSON 옵션으로 봅니다."""
     print(f'\n질문: {result["question"]}')
     print(result["answer"])
-    if result["status"] != "evidence_excerpt":
+    if result.get("reason"):
         print("이유:", result["reason"])
+    if result.get("generation_notice"):
+        print("생성 안내:", result["generation_notice"])
     for image in result["images"]:
         print(f'\n관련 그림: PDF {image["pdf_page_number"]}쪽 · {image["file_name"]}')
         for description in image["descriptions"]:
@@ -167,6 +169,14 @@ def main(argv=None):
     answer.add_argument("--question", action="append", required=True, help="질문. 반복 입력 가능")
     answer.add_argument("--top-k", type=int, default=3, choices=range(1, 11), help="검색 후보 수 (기본 3)")
     answer.add_argument("--json", action="store_true", dest="json_output", help="발췌·출처·검토 상태를 JSON으로 표시")
+    # [프로젝트 적용] 같은 PDF 검색을 사용하되 생성 실행은 별도 옵션으로 구별합니다.
+    # 기본 명령은 근거·준비 상태를, --json은 프롬프트도 보여줍니다. --run-generation은 API 호출입니다.
+    llm_answer = commands.add_parser("answer-llm", help="LangChain·OpenAI 답변 준비 또는 명시적 생성 실행")
+    llm_answer.add_argument("--run-id", required=True, help="전체 저장 작업 번호")
+    llm_answer.add_argument("--question", required=True, help="답변할 질문 한 개")
+    llm_answer.add_argument("--top-k", type=int, default=5, choices=range(1, 11), help="항목마다 검색할 후보 수 (기본 5)")
+    llm_answer.add_argument("--run-generation", action="store_true", help="준비한 근거로 OpenAI API를 실제 호출")
+    llm_answer.add_argument("--json", action="store_true", dest="json_output", help="프롬프트 미리보기 또는 답변을 JSON으로 표시")
     full_save = commands.add_parser("full-save", help="승인 식별값의 전체 자료 임베딩 후 개인 DB에 저장")
     full_save.add_argument("--confirm-save", action="store_true", help="검토한 전체 DB 저장 실행 승인")
     full_save.add_argument("--manifest-sha256", required=True, help="full-preview에서 확인한 입력 식별값 64자리")
@@ -201,6 +211,35 @@ def main(argv=None):
         except Exception as error:
             print(f"DB 검색 평가를 멈췄습니다. 오류 종류: {type(error).__name__}", file=sys.stderr)
             print("개인 DB 연결·저장 작업·로컬 모델을 확인하세요. 비밀번호는 출력하지 않습니다.", file=sys.stderr)
+        return 1
+    if args.command == "answer-llm":
+        try:
+            from car_search_rag.zzong_santafe_lag.llm_answer_service import LlmManualAnswerService
+            llm_service = LlmManualAnswerService(args.run_id)
+            evidence = llm_service.prepare_evidence(args.question, top_k=args.top_k,
+                                                   progress=None if args.json_output else report)
+            if args.run_generation:
+                result = llm_service.generate(evidence)
+                if args.json_output:
+                    print(json.dumps(result, ensure_ascii=False, indent=2))
+                else:
+                    print_answer(result)
+                    print("생성 모델:", result["generation_model"], "| API 호출 시도:", result["llm_called"])
+            else:
+                preview = llm_service.preview(evidence)
+                if args.json_output:
+                    print(json.dumps({"settings": llm_service.settings(), "preview": preview,
+                                      "evidence": evidence}, ensure_ascii=False, indent=2))
+                else:
+                    print_answer(evidence)
+                    print("\n생성 준비 상태:", preview["ready_for_generation"])
+                    print("입력 글자 수:", preview["prompt_characters"])
+                    print(preview["reason"] or "근거를 확인한 뒤 --run-generation으로 답변 생성을 실행할 수 있습니다.")
+                    print("현재 명령은 OpenAI를 호출하지 않았습니다.")
+            return 0
+        except Exception as error:
+            print(f"LLM 답변 단계를 멈췄습니다. 오류 종류: {type(error).__name__}", file=sys.stderr)
+            print("개인 DB·로컬 모델·생성 설정을 확인하세요. 인증 정보는 출력하지 않습니다.", file=sys.stderr)
         return 1
     if args.command == "answer":
         try:
