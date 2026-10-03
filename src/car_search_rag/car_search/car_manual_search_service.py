@@ -12,34 +12,43 @@ EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
 machine_logger = logging.getLogger("car_search_rag.car_manual")
 
-#=========================================================
+# =========================================================
 # 차량 매뉴얼 검색 Service
-#=========================================================
+# =========================================================
 class CarManualSearchService:
 
-    sql_session : SqlSession
-    embedding_model : OpenAIEmbeddings
-    chat_model : ChatOpenAI
+    # =========================================================
+    # 인스턴스 변수
+    # =========================================================
 
-    #=========================================================
+    sql_session: SqlSession                         # 데이터베이스 세션
+    repository: CarManualRepository                 # 매뉴얼 문서 검색 저장소
+    embedding_model: OpenAIEmbeddings               # 검색 질의 임베딩 생성 모델
+    chat_model: ChatOpenAI                          # 검색 질의 재작성과 답변 생성 모델
+    rewrite_search_prompt: ChatPromptTemplate        # 대화 문맥 기반 검색어 재작성 프롬프트
+    rewrite_search_chain: object                     # 검색어 재작성 프롬프트와 LLM 체인
+    manual_answer_prompt: ChatPromptTemplate         # 검색 결과 기반 답변 생성 프롬프트
+    manual_answer_chain: object                      # 매뉴얼 답변 생성 프롬프트와 LLM 체인
+
+    # =========================================================
     # 생성자
-    #=========================================================
+    # =========================================================
     def __init__(self,sql_session):
-        self.sql_session = sql_session
-        self.repository = CarManualRepository(sql_session=self.sql_session)
+        self.sql_session = sql_session                              # 전달받은 데이터베이스 세션
+        self.repository = CarManualRepository(sql_session=self.sql_session)  # 문서 검색 저장소
 
-        self.embedding_model = OpenAIEmbeddings(
+        self.embedding_model = OpenAIEmbeddings(                     # 질의 임베딩 모델
             model=EMBEDDING_MODEL
         )
 
-        self.chat_model = ChatOpenAI(
+        self.chat_model = ChatOpenAI(                                 # 검색·답변 생성에 사용할 LLM
                 model="gpt-6-luna"
             )
 
 
-        #=====================================================
+        # =========================================================
         # 검색 질문 재작성 Chain
-        #=====================================================
+        # =========================================================
         self.rewrite_search_prompt = ChatPromptTemplate.from_messages(
             [
                 (
@@ -74,9 +83,9 @@ class CarManualSearchService:
             | StrOutputParser()
         )
 
-        #=====================================================
+        # =========================================================
         # 차량 매뉴얼 답변 생성 Chain
-        #=====================================================
+        # =========================================================
         self.manual_answer_prompt = ChatPromptTemplate.from_messages(
             [
                 (
@@ -122,9 +131,9 @@ class CarManualSearchService:
 
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 AI 검색
-    #=========================================================
+    # =========================================================
     def search_manual(self,car_brand_eng_nm,car_eng_nm,car_model_yr,question,limit=5):
         query_vector = self.embedding_model.embed_query(question)
         return self.repository.search_manual(
@@ -137,9 +146,9 @@ class CarManualSearchService:
 
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 LLM 답변 생성
-    #=========================================================
+    # =========================================================
     def generate_manual_answer(self,question,search_docs,conversation_history=None):
         
         if not search_docs:
@@ -166,9 +175,9 @@ class CarManualSearchService:
 
         context = "\n".join(context_list)
 
-        #=====================================================
+        # =========================================================
         # 이전 대화 문자열 생성
-        #=====================================================
+        # =========================================================
         if conversation_history:
 
             recent_messages = conversation_history
@@ -183,9 +192,9 @@ class CarManualSearchService:
         else:
             history_text = "없음"
 
-        #=====================================================
+        # =========================================================
         # LangChain 실행
-        #=====================================================
+        # =========================================================
         answer = self.manual_answer_chain.invoke(
             {
                 "history": history_text,
@@ -197,23 +206,23 @@ class CarManualSearchService:
         return answer
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 AI 질의
-    #=========================================================
+    # =========================================================
     def ask_manual(self, car_brand_eng_nm, car_eng_nm, car_model_yr, question, conversation_history=None, limit=5):
 
-        #=====================================================
+        # =========================================================
         # 이전 대화 기반 검색 질문 재작성
-        #=====================================================
+        # =========================================================
         search_question = self.rewrite_search_question(
             question=question,
             conversation_history=conversation_history
         )
 
 
-        #=====================================================
+        # =========================================================
         # 차량 매뉴얼 검색
-        #=====================================================
+        # =========================================================
         search_docs = self.search_manual(
             car_brand_eng_nm=car_brand_eng_nm,
             car_eng_nm=car_eng_nm,
@@ -223,9 +232,9 @@ class CarManualSearchService:
         )
 
 
-        #=====================================================
+        # =========================================================
         # LLM 답변 생성
-        #=====================================================
+        # =========================================================
         answer = self.generate_manual_answer(
             question=question,
             search_docs=search_docs,
@@ -235,9 +244,9 @@ class CarManualSearchService:
         return answer
 
 
-    #=========================================================
+    # =========================================================
     # 이전 대화 기반 검색 질문 재작성
-    #=========================================================
+    # =========================================================
     def rewrite_search_question(self, question, conversation_history=None ):
         """이전 대화를 참고하여 검색용 질문을 독립적인 문장으로 재작성"""
 
@@ -251,8 +260,7 @@ class CarManualSearchService:
             return question
 
 
-        # 메시지 누적
-        recent_messages = conversation_history
+        recent_messages = conversation_history              # 메시지 누적
 
 
         history_text = "\n".join(
@@ -263,9 +271,9 @@ class CarManualSearchService:
         )
 
 
-        #=====================================================
+        # =========================================================
         # LangChain 실행
-        #=====================================================
+        # =========================================================
         search_question = self.rewrite_search_chain.invoke(
             {
                 "history": history_text,

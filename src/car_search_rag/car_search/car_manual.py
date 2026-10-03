@@ -17,21 +17,34 @@ logger = logging.getLogger("CarManual")
 
 class CarManual:
 
-    download_html : str| None    
+    # =========================================================
+    # 인스턴스 변수
+    # =========================================================
+
+    service: CarManualSearchService                    # 차량 매뉴얼 검색/RAG 서비스
+    model: object                                      # Agent에서 사용하는 LLM
+    agent: object                                      # Tool 호출과 상담 흐름을 관리하는 Agent
+    download_html: str | None                          # 다운로드용 대화 기록 HTML
+
+    # =========================================================
+    # 생성자
+    # =========================================================
     
     def __init__(self):
-        self.service = CarManualSearchService(sql_session=SqlSession(result_log=True))
-        self.model = init_chat_model("openai:gpt-6-luna")
+        self.service = CarManualSearchService(                 # 차량 매뉴얼 검색 서비스
+            sql_session=SqlSession(result_log=True)
+        )
+        self.model = init_chat_model("openai:gpt-6-luna")     # Agent에서 사용할 LLM
+        self.download_html = None                              # 생성된 대화 기록 HTML
 
-        self.download_html: str | None = None
-
-        #=========================================================
+        # =========================================================
         # Agent 생성
-        #=========================================================
+        # =========================================================
+        # Agent가 검색 기능과 기록 다운로드 기능을 호출할 수 있도록 Tool로 생성
         car_manual_search_tool = tool(self.car_manual_search)
         car_manual_history_download_tool = tool(self.car_manual_history_download)
 
-        
+        # Agent가 사용자 요청에 맞는 기능을 선택하도록 두 Tool을 등록
         self.agent = create_agent(
             model=self.model,
             tools=[car_manual_search_tool,car_manual_history_download_tool],
@@ -47,16 +60,16 @@ class CarManual:
 확인할 수 없는 정보를 추측하지 않는다."""
         )
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 히스토리 다운로드
-    #=========================================================
+    # =========================================================
     def car_manual_history_download(
         self,
         runtime: ToolRuntime,
     ) -> str:
         """현재 자동차 상담 대화 기록을 HTML 형태로 생성한다."""
 
-        messages = runtime.state["messages"]
+        messages = runtime.state["messages"]                      # 현재 Agent 대화 기록, HTML 생성에 사용
 
         html = """
         <html>
@@ -70,8 +83,8 @@ class CarManual:
 
         for message in messages:
 
-            message_type = getattr(message, "type", "")
-            content = getattr(message, "content", "")
+            message_type = getattr(message, "type", "")           # 메시지 종류(human, ai 등)
+            content = getattr(message, "content", "")             # 메시지 본문
 
             if message_type == "human":
                 html += f"""
@@ -94,14 +107,15 @@ class CarManual:
         </html>
         """
 
+        # Tool 실행 결과를 호출 측에서 다운로드할 수 있도록 인스턴스에 보관
         self.download_html = html
 
         return "대화 기록 HTML 다운로드를 준비했습니다."
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 검색 Tool
-    #=========================================================
+    # =========================================================
     def car_manual_search(
         self,
         car_brand_eng_nm: str,
@@ -116,7 +130,9 @@ class CarManual:
             f"car_manual_search Tool 호출 - "
             f"{car_brand_eng_nm} {car_eng_nm} {car_model_yr} / {question}"
         )
-        messages = runtime.state.get("messages", [])
+        messages = runtime.state.get("messages", [])              # Agent의 현재 대화 상태
+
+        # 현재 질문과 구분할 수 있도록 대화 기록에서 가장 최근 사용자 메시지를 찾음
         latest_user_index = next(
             (
                 index
@@ -126,19 +142,21 @@ class CarManual:
             ),
             len(messages),
         )
+        # 현재 질문이 이전 기록에 중복되지 않도록 마지막 사용자 메시지 이전까지만 구성
         conversation_history = []
         for message in messages[:latest_user_index]:
-            message_type = getattr(message, "type", None)
+            message_type = getattr(message, "type", None)                    # 객체형 메시지의 종류
             if isinstance(message, dict):
-                role = message.get("role")
-                content = message.get("content")
+                role = message.get("role")                                    # 딕셔너리 메시지의 역할
+                content = message.get("content")                              # 딕셔너리 메시지의 본문
             else:
-                role = {"human": "user", "ai": "assistant"}.get(message_type)
-                content = getattr(message, "content", None)
+                role = {"human": "user", "ai": "assistant"}.get(message_type)  # Agent 역할명으로 변환
+                content = getattr(message, "content", None)                     # 객체형 메시지의 본문
             if role in {"user", "assistant"} and isinstance(content, str):
                 conversation_history.append({"role": role, "content": content})
 
         logger.info("car_manual_search 이전 대화 전달: %s", conversation_history)
+        # 사용자/AI의 이전 발화를 검색 서비스에 전달해 후속 질문의 문맥을 반영
         return self.service.ask_manual(
             car_brand_eng_nm=car_brand_eng_nm,
             car_eng_nm=car_eng_nm,
@@ -148,9 +166,9 @@ class CarManual:
             limit=limit,
         )
 
-    #=========================================================
+    # =========================================================
     # Agent 질문
-    #=========================================================
+    # =========================================================
     def ask(
         self,
         car_brand_eng_nm: str,
@@ -174,7 +192,7 @@ class CarManual:
             {"role": message["role"], "content": message["content"]}
             for message in (conversation_history or [])
             if message.get("role") in {"user", "assistant"}
-        ]
+        ]  # Agent에 전달할 이전 사용자/AI 대화
         messages.append({"role": "user", "content": user_message})
 
         result = self.agent.invoke(
@@ -188,6 +206,9 @@ class CarManual:
 
 
 
+# =========================================================
+# 테스트 / 실행 코드
+# =========================================================
 if __name__ == "__main__":
 
     logging.basicConfig(

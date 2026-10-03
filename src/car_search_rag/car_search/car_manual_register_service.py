@@ -17,25 +17,35 @@ machine_logger = logging.getLogger("car_search_rag.car_manual")
 
 class CarManualRegisterService:
 
-    sql_session: SqlSession
-    embedding_model: OpenAIEmbeddings
-    storage_manager: StorageManager
+    # =========================================================
+    # 인스턴스 변수
+    # =========================================================
+
+    sql_session: SqlSession                    # PDF 등록 과정에서 사용하는 데이터베이스 세션
+    repository: CarManualRepository            # 차량 및 매뉴얼 데이터를 저장하는 저장소
+    embedding_model: OpenAIEmbeddings          # 매뉴얼 청크 임베딩 생성 모델
+    storage_manager: StorageManager            # PDF에서 추출한 이미지를 저장하는 관리자
+    document_reader: DocumentReader            # PDF 페이지별 텍스트를 읽는 문서 리더
+
+    # =========================================================
+    # 생성자
+    # =========================================================
 
     def __init__(self, sql_session):
-        self.sql_session = sql_session
-        self.repository = CarManualRepository(sql_session=self.sql_session)
-        self.embedding_model = OpenAIEmbeddings(model=EMBEDDING_MODEL)
-        self.storage_manager = StorageManager()
+        self.sql_session = sql_session                         # 전달받은 데이터베이스 세션
+        self.repository = CarManualRepository(sql_session=self.sql_session)  # DB 작업 저장소
+        self.embedding_model = OpenAIEmbeddings(model=EMBEDDING_MODEL)  # 청크 임베딩 모델
+        self.storage_manager = StorageManager()                # 이미지 업로드 관리자
 
-    #=========================================================
+    # =========================================================
     # 차량 메뉴얼 PDF 처리 메인 파이프 라인
-    #=========================================================
+    # =========================================================
     def insert_pdf_docs(self, file_path, car_brand_nm, car_brand_eng_nm, car_nm, car_eng_nm, car_model_yr):
         """차량 매뉴얼 PDF 처리 메인 파이프라인"""
 
-        #=====================================================
+        # =========================================================
         # 1. 차량 정보 등록
-        #=====================================================
+        # =========================================================
         car_id = self.insert_car(
             car_brand_nm=car_brand_nm,
             car_brand_eng_nm=car_brand_eng_nm,
@@ -49,18 +59,15 @@ class CarManualRegisterService:
         chapter_list = self._extract_pdf_chapters(file_path)
 
 
-        # 2. 텍스트 추출 및 청크 생성
-        chunks = self._extract_and_split_chunks(file_path)
+        chunks = self._extract_and_split_chunks(file_path)      # 2. 텍스트 추출 및 청크 생성
 
-        # 3. 청크 임베딩
-        embedding_list = self._create_chunk_embeddings(chunks=chunks)
+        embedding_list = self._create_chunk_embeddings(chunks=chunks)  # 3. 청크 임베딩
 
-        # 4. 이미지 추출 및 스토리지 업로드
-        image_list = self._extract_and_upload_images(file_path=file_path,brand=car_brand_eng_nm,model=car_eng_nm)
+        image_list = self._extract_and_upload_images(file_path=file_path,brand=car_brand_eng_nm,model=car_eng_nm)  # 4. 이미지 추출 및 스토리지 업로드
 
-        #=====================================================
+        # =========================================================
         # 5. Chapter / Chunk / Image DB 등록
-        #=====================================================
+        # =========================================================
         self._insert_car_manual_data(
             car_id=car_id,
             chapter_list=chapter_list,
@@ -75,9 +82,9 @@ class CarManualRegisterService:
         return chunks, image_list
 
 
-    #=========================================================
+    # =========================================================
     # PDF 텍스트 추출 및 LangChain Chunk 분할 전담
-    #=========================================================
+    # =========================================================
     def _extract_and_split_chunks(self, file_path):
         """PDF 텍스트 추출 및 LangChain Chunk 분할 전담"""
         self.document_reader = DocumentReader(file_path=file_path)
@@ -104,9 +111,9 @@ class CarManualRegisterService:
         return chunks
 
 
-    #=========================================================
+    # =========================================================
     # PDF 내 이미지 추출 및 Supabase 업로드 전담
-    #=========================================================
+    # =========================================================
     def _extract_and_upload_images(self, file_path, brand, model):
         """PDF 내 이미지 추출 및 Supabase 업로드 전담"""
         car_manual_image_list = []
@@ -131,9 +138,9 @@ class CarManualRegisterService:
 
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 Chunk Embedding 생성
-    #=========================================================
+    # =========================================================
     def _create_chunk_embeddings(self, chunks):
         """차량 매뉴얼 Chunk 텍스트 Embedding 생성"""
 
@@ -158,9 +165,9 @@ class CarManualRegisterService:
 
 
 
-    #=========================================================
+    # =========================================================
     # PDF 내 이미지 추출 및 Supabase 업로드 전담
-    #=========================================================
+    # =========================================================
     def _upload_single_image(self, pdf_document, image_info, page_no, image_index, brand, model):
         """단일 이미지 추출 및 업로드 처리"""
         try:
@@ -201,9 +208,9 @@ class CarManualRegisterService:
 
 
 
-    #=========================================================
+    # =========================================================
     # 결과 확인 및 디버깅용 출력
-    #=========================================================
+    # =========================================================
     def _print_summary(self, chunks, car_manual_image_list):
         """결과 확인 및 디버깅용 출력"""
         for index, chunk in enumerate(chunks[:10]):
@@ -221,9 +228,9 @@ class CarManualRegisterService:
             print(car_manual_image)
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 Chapter / Chunk / Image DB 등록
-    #=========================================================
+    # =========================================================
     def _insert_car_manual_data(self,car_id,chapter_list,chunks,embedding_list,image_list):
         """차량 매뉴얼 Chapter / Chunk / Image DB 등록"""
 
@@ -231,9 +238,9 @@ class CarManualRegisterService:
 
             chapter_map = []
 
-            #=====================================================
+            # =========================================================
             # 1. Chapter 등록
-            #=====================================================
+            # =========================================================
             for chapter_no, chapter in enumerate(chapter_list, start=1):
 
                 chapter_id = self.repository.get_car_manual_chapter_id()
@@ -264,9 +271,9 @@ class CarManualRegisterService:
 
 
 
-            #=====================================================
+            # =========================================================
             # 2. Chunk 등록
-            #=====================================================
+            # =========================================================
             chunk_insert_count = self.repository.insert_car_manual_chunks(
                 car_id=car_id,
                 chapter_map=chapter_map,
@@ -278,9 +285,9 @@ class CarManualRegisterService:
             )
 
 
-            #=====================================================
+            # =========================================================
             # 3. Image 등록
-            #=====================================================
+            # =========================================================
             image_insert_count = self.repository.insert_car_manual_images(
                 car_id=car_id,
                 chapter_map=chapter_map,
@@ -300,17 +307,17 @@ class CarManualRegisterService:
         return chunk_insert_count, image_insert_count    
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 Chapter ID 생성
-    #=========================================================
+    # =========================================================
     def get_car_manual_chapter_id(self):
         """차량 매뉴얼 Chapter ID 생성"""
         return self.repository.get_car_manual_chapter_id()
 
 
-    #=========================================================
+    # =========================================================
     # 차량 등록
-    #=========================================================
+    # =========================================================
     def insert_car(self,car_brand_nm,car_brand_eng_nm,car_nm,car_eng_nm,car_model_yr):
         car_id = self.repository.insert_car(
             car_brand_nm=car_brand_nm,
@@ -323,9 +330,9 @@ class CarManualRegisterService:
         return car_id
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 Chapter 등록
-    #=========================================================
+    # =========================================================
     def insert_car_manual_chapter(self,car_id,car_manual_chapter_id,  car_manual_chapter_no,car_manual_chapter_nm,car_manual_chapter_sort_no):
         self.repository.insert_car_manual_chapter(
             car_id=car_id,
@@ -339,9 +346,9 @@ class CarManualRegisterService:
         )
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 Chunk 등록
-    #=========================================================
+    # =========================================================
     def insert_car_manual_chunks(self,car_id,chapter_map,chunks,embedding_list):
         insert_count = self.repository.insert_car_manual_chunks(
             car_id=car_id,
@@ -355,9 +362,9 @@ class CarManualRegisterService:
         return insert_count
 
 
-    #=========================================================
+    # =========================================================
     # 차량 매뉴얼 Image 등록
-    #=========================================================
+    # =========================================================
     def insert_car_manual_images(self,car_id,chapter_map,image_list):
         """차량 매뉴얼 이미지 정보 DB 등록"""
         insert_count = self.repository.insert_car_manual_images(
@@ -373,9 +380,9 @@ class CarManualRegisterService:
 
 
 
-    #=========================================================
+    # =========================================================
     # PDF 1레벨 목차 추출
-    #=========================================================
+    # =========================================================
     def _extract_pdf_chapters(self, file_path):
 
         chapter_list = []
