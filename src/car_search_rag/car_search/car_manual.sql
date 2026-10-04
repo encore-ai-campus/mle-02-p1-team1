@@ -148,6 +148,61 @@ INSERT INTO CAR_MANUAL_IMAGE (
 -- 차량 매뉴얼 임베딩 검색
 --=========================================================
 
+-- name: find_car_id
+SELECT C.CAR_ID
+FROM CAR C
+WHERE C.CAR_BRAND_ENG_NM = :CAR_BRAND_ENG_NM
+  AND C.CAR_ENG_NM = :CAR_ENG_NM
+  AND C.CAR_MODEL_YR = :CAR_MODEL_YR
+;
+
+-- name: search_car_manual_by_keywords
+SELECT D.CAR_ID
+     , D.CAR_MANUAL_CHAPTER_ID
+     , H.CAR_MANUAL_CHAPTER_NO
+     , H.CAR_MANUAL_CHAPTER_NM
+     , D.CAR_MANUAL_CHUNK_ID
+     , D.CAR_MANUAL_CHUNK_PAGE_NO
+     , D.CAR_MANUAL_CHUNK_NO
+     , D.CAR_MANUAL_CHUNK_TXT
+     , (
+         SELECT I.CAR_MANUAL_IMAGE_URL
+         FROM CAR_MANUAL_IMAGE I
+         WHERE I.CAR_ID = D.CAR_ID
+           AND I.CAR_MANUAL_CHAPTER_ID = D.CAR_MANUAL_CHAPTER_ID
+           AND I.CAR_MANUAL_IMAGE_PAGE_NO = D.CAR_MANUAL_CHUNK_PAGE_NO
+         ORDER BY I.CAR_MANUAL_IMAGE_NO
+         LIMIT 1
+       ) AS CAR_MANUAL_IMAGE_URL
+     , (
+         SELECT COUNT(*) * 3
+         FROM unnest(CAST(:PHRASES AS text[])) AS P(PHRASE)
+         WHERE D.CAR_MANUAL_CHUNK_TXT LIKE '%%' || P.PHRASE || '%%'
+       ) + (
+         SELECT COUNT(*)
+         FROM unnest(CAST(:TERMS AS text[])) AS T(TERM)
+         WHERE D.CAR_MANUAL_CHUNK_TXT LIKE '%%' || T.TERM || '%%'
+       ) AS KEYWORD_SCORE
+FROM CAR_MANUAL_CHUNK D
+INNER JOIN CAR_MANUAL_CHAPTER H
+  ON H.CAR_ID = D.CAR_ID
+ AND H.CAR_MANUAL_CHAPTER_ID = D.CAR_MANUAL_CHAPTER_ID
+WHERE D.CAR_ID = :CAR_ID
+  AND (
+      EXISTS (
+        SELECT 1
+        FROM unnest(CAST(:PHRASES AS text[])) AS P(PHRASE)
+        WHERE D.CAR_MANUAL_CHUNK_TXT LIKE '%%' || P.PHRASE || '%%'
+      ) OR EXISTS (
+        SELECT 1
+        FROM unnest(CAST(:TERMS AS text[])) AS T(TERM)
+        WHERE D.CAR_MANUAL_CHUNK_TXT LIKE '%%' || T.TERM || '%%'
+      )
+  )
+ORDER BY KEYWORD_SCORE DESC, D.CAR_MANUAL_CHUNK_PAGE_NO, D.CAR_MANUAL_CHUNK_NO
+LIMIT :LIMIT
+;
+
 -- name: search_car_manual
 /* 차량 매뉴얼 임베딩 유사도 검색 */
 SELECT C.CAR_ID
@@ -159,6 +214,7 @@ SELECT C.CAR_ID
      , H.CAR_MANUAL_CHAPTER_ID
      , H.CAR_MANUAL_CHAPTER_NO
      , H.CAR_MANUAL_CHAPTER_NM
+     , D.CAR_MANUAL_CHUNK_ID
      , D.CAR_MANUAL_CHUNK_PAGE_NO
      , D.CAR_MANUAL_CHUNK_NO
      , D.CAR_MANUAL_CHUNK_TXT

@@ -117,6 +117,29 @@ class CarManualRepository:
             }
         )
 
+    def find_car_id(self, car_brand_eng_nm, car_eng_nm, car_model_yr):
+        rows = self.sql_session.select_list(
+            "car_manual.find_car_id",
+            {
+                "CAR_BRAND_ENG_NM": car_brand_eng_nm,
+                "CAR_ENG_NM": car_eng_nm,
+                "CAR_MODEL_YR": car_model_yr,
+            },
+        )
+        if len(rows) != 1:
+            raise LookupError(f"Expected one matching car row, found {len(rows)}")
+        return rows[0].get("carId", rows[0].get("car_id"))
+
+    def search_manual_by_keywords(self, car_id, phrases, terms, limit):
+        phrases = list(dict.fromkeys(item.strip() for item in phrases if isinstance(item, str) and item.strip()))
+        terms = list(dict.fromkeys(item.strip() for item in terms if isinstance(item, str) and item.strip()))
+        if not phrases and not terms:
+            return []
+        return self.sql_session.select_list(
+            "car_manual.search_car_manual_by_keywords",
+            {"CAR_ID": car_id, "PHRASES": phrases, "TERMS": terms, "LIMIT": limit},
+        )
+
     def search_images_by_pages(self, car_id, page_nos):
         """Fetch image descriptions only for pages already returned by chunk search."""
         if not car_id or not page_nos:
