@@ -1,4 +1,5 @@
 import logging
+from dataclasses import dataclass
 
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 
@@ -11,6 +12,14 @@ from langchain_core.output_parsers import StrOutputParser
 EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
 machine_logger = logging.getLogger("car_search_rag.car_manual")
+
+
+@dataclass(frozen=True)
+class ManualSearchAnswer:
+    """기존 답변 텍스트와 현재 검색 호출의 원본 row를 묶는 결과 객체."""
+
+    answer: str
+    search_results: tuple
 
 # =========================================================
 # 차량 매뉴얼 검색 Service
@@ -210,6 +219,18 @@ class CarManualSearchService:
     # 차량 매뉴얼 AI 질의
     # =========================================================
     def ask_manual(self, car_brand_eng_nm, car_eng_nm, car_model_yr, question, conversation_history=None, limit=5):
+        """기존 호출부 호환을 위해 답변 문자열만 반환한다."""
+        return self.ask_manual_with_sources(
+            car_brand_eng_nm=car_brand_eng_nm,
+            car_eng_nm=car_eng_nm,
+            car_model_yr=car_model_yr,
+            question=question,
+            conversation_history=conversation_history,
+            limit=limit,
+        ).answer
+
+    def ask_manual_with_sources(self, car_brand_eng_nm, car_eng_nm, car_model_yr, question, conversation_history=None, limit=5):
+        """기존 검색/답변 경로를 실행하고 해당 호출의 검색 row를 함께 반환한다."""
 
         # =========================================================
         # 이전 대화 기반 검색 질문 재작성
@@ -231,7 +252,6 @@ class CarManualSearchService:
             limit=limit
         )
 
-
         # =========================================================
         # LLM 답변 생성
         # =========================================================
@@ -241,7 +261,10 @@ class CarManualSearchService:
             conversation_history=conversation_history
         )
 
-        return answer
+        return ManualSearchAnswer(
+            answer=answer,
+            search_results=tuple(search_docs or ()),
+        )
 
 
     # =========================================================

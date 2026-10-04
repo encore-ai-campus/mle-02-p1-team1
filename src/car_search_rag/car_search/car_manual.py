@@ -1,6 +1,7 @@
 from pathlib import Path
 import sys
 import logging
+from dataclasses import dataclass
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
@@ -13,6 +14,14 @@ from car_search_rag.common.sql_session import SqlSession
 from car_search_rag.car_search.car_manual_search_service import CarManualSearchService
 
 logger = logging.getLogger("CarManual")
+
+
+@dataclass(frozen=True)
+class CarManualAnswer:
+    """최종 답변과 이번 호출의 검색 결과를 함께 전달하는 immutable result."""
+
+    answer: str
+    search_results: tuple
 
 
 class CarManual:
@@ -42,7 +51,10 @@ class CarManual:
         # Agent 생성
         # =========================================================
         # Agent가 검색 기능과 기록 다운로드 기능을 호출할 수 있도록 Tool로 생성
-        car_manual_search_tool = tool(self.car_manual_search)
+        car_manual_search_tool = tool(
+            self.car_manual_search,
+            response_format="content_and_artifact",
+        )
         car_manual_history_download_tool = tool(self.car_manual_history_download)
 
         # Agent가 사용자 요청에 맞는 기능을 선택하도록 두 Tool을 등록
@@ -125,7 +137,7 @@ class CarManual:
         question: str,
         runtime: ToolRuntime,
         limit: int = 5,
-    ) -> str:
+    ) -> tuple[str, dict]:
         """차량 매뉴얼을 검색하여 질문에 답변한다."""
         logger.info(
             f"car_manual_search Tool 호출 - "
@@ -157,8 +169,8 @@ class CarManual:
                 conversation_history.append({"role": role, "content": content})
 
         logger.info("car_manual_search 이전 대화 전달: %s", conversation_history)
-        # 사용자/AI의 이전 발화를 검색 서비스에 전달해 후속 질문의 문맥을 반영
-        return self.service.ask_manual(
+        # 답변 텍스트는 tool content로 LLM에 전달하고, metadata는 artifact로 호출자에게 전달한다.
+        search_result = self.service.ask_manual_with_sources(
             car_brand_eng_nm=car_brand_eng_nm,
             car_eng_nm=car_eng_nm,
             car_model_yr=car_model_yr,
@@ -166,6 +178,7 @@ class CarManual:
             conversation_history=conversation_history,
             limit=limit,
         )
+        return search_result.answer, {"search_results": search_result.search_results}
 
     # =========================================================
     # Agent 질문
@@ -179,6 +192,27 @@ class CarManual:
         limit: int = 5,
         conversation_history=None,
     ) -> str:
+
+        # 기존 호출부에는 답변 문자열만 반환해 public API 호환성을 유지한다.
+        return self.ask_with_sources(
+            car_brand_eng_nm=car_brand_eng_nm,
+            car_eng_nm=car_eng_nm,
+            car_model_yr=car_model_yr,
+            question=question,
+            limit=limit,
+            conversation_history=conversation_history,
+        ).answer
+
+    def ask_with_sources(
+        self,
+        car_brand_eng_nm: str,
+        car_eng_nm: str,
+        car_model_yr: int,
+        question: str,
+        limit: int = 5,
+        conversation_history=None,
+    ) -> CarManualAnswer:
+        """기존 Agent 흐름으로 답변하고 동일 요청의 검색 결과 metadata도 반환한다."""
 
         user_message = (
             f"제조사: {car_brand_eng_nm}\n"
@@ -202,7 +236,17 @@ class CarManual:
             }
         )
         final_message = result["messages"][-1]
-        return final_message.text
+        # artifact는 현재 agent.invoke 결과에만 포함되므로 이전 호출/다른 session과 공유되지 않는다.
+        search_results = ()
+        for message in result["messages"]:
+            artifact = getattr(message, "artifact", None)
+            if isinstance(artifact, dict) and "search_results" in artifact:
+                search_results = tuple(artifact.get("search_results") or ())
+
+        return CarManualAnswer(
+            answer=final_message.text,
+            search_results=search_results,
+        )
 
 
 

@@ -1,6 +1,89 @@
 # 실험 로그
 
+## 2026-10-04 — Sonata M4 Vector DB 적재 및 실행계획 검증
+
+### 범위 및 방법
+
+대상은 Hyundai Sonata 2026, `car_id = 20261003_000014`이다. 아래 집계는 `public.car_manual_chunk`에서 해당 `car_id`만 조회했으며, 차량 식별 매핑은 `public.car`의 `hyundai / sonata / 2026` 조건으로 확인했다. 모든 DB 작업은 `SET TRANSACTION READ ONLY` 이후 SELECT 또는 `EXPLAIN (ANALYZE, BUFFERS, VERBOSE)`만 실행했다. DDL, 데이터, index 및 planner 설정은 변경하지 않았다.
+
+### 적재 상태
+
+| 확인 항목 | 실측 결과 |
+|---|---:|
+| chunk 전체 | 947 |
+| embedding 존재 | 947 |
+| embedding NULL | 0 |
+| vector dimension 최소/최대 | 1536 / 1536 |
+
+차량 검색 조건 `CAR_BRAND_ENG_NM='hyundai'`, `CAR_ENG_NM='sonata'`, `CAR_MODEL_YR=2026`은 `car_id=20261003_000014` 한 건만 반환했다. 실행계획에 사용한 query vector도 해당 Sonata chunk에 이미 저장된 실제 embedding 하나를 선택했다.
+
+### Index 및 실행계획
+
+현재 DB catalog에서 `idx_car_manual_chunk_embed_vec_hnsw`가 한 건 확인됐고 `indisvalid=true`, `indisready=true`였다. 정의는 `public.car_manual_chunk`의 `car_manual_chunk_embed_vec`에 대한 `USING hnsw (... vector_cosine_ops)`다. 운영 검색 SQL의 vector 연산자는 `<=>`이고, 해당 거리로 `ORDER BY` 한 다음 `LIMIT 10`을 적용한다.
+
+동일한 Sonata 차량 조건, JOIN, 이미지 correlated subquery, similarity 계산, `<=>` 정렬 및 `LIMIT 10`을 포함한 SELECT에 실제 저장 embedding을 넣어 `EXPLAIN (ANALYZE, BUFFERS, VERBOSE, FORMAT JSON)`을 실행했다.
+
+- HNSW 선택: **아니오**. catalog index는 유효하게 존재했지만 이번 실행계획에는 해당 index가 나타나지 않았다.
+- 주요 node: `Limit` → `Sort (top-N heapsort)` → `Nested Loop`; `car_pkey`, `car_manual_chunk_pkey`, `car_manual_image_pkey`를 이용한 `Index Scan`이 포함됐다.
+- `car_manual_chunk` 접근은 `car_manual_chunk_pkey` Index Scan이었다. vector distance 정렬은 별도의 HNSW scan이 아니라 top-N sort로 수행됐다.
+- Planning Time: **5.835 ms**
+- Execution Time: **15.178 ms**
+
+이는 HNSW가 고장났거나 검색 실패했다는 뜻은 아니다. 이 쿼리의 필터·JOIN·LIMIT 및 현재 데이터/통계 등 여러 조건을 planner가 고려해 다른 경로를 고른 결과로 기록하며, 원인을 데이터 규모 하나로 단정하지 않는다. 실행계획 시간은 이번 한 번의 관측값이다.
+
+### 판정
+
+- 문서/Chunk 구조 결정: 충족 — page metadata 및 `RecursiveCharacterTextSplitter(800, 150)` 기반 chunk 구조가 코드와 scope 문서에 기록됨.
+- metadata 설계: 충족 — `car_id`, chapter, page, chunk 순번·본문 및 검색 결과의 image metadata 구조가 확인됨.
+- 임베딩 생성: 충족 — Sonata chunk 947건 모두 1536차원 vector 보유.
+- Vector DB 적재 및 조회: 충족 — Sonata 범위 적재 건수와 검색 SQL, 실제 읽기 전용 검색 경로를 확인함.
+- HNSW 인덱스: 유효하게 존재하나 이 실행계획에서 선택되지 않음. 이는 별도 관찰 결과이며 M4 적재/검색 성공 여부와 구분함.
+
 EDA, TF-IDF, 검색 평가 과정에서 확인한 주요 측정값과 문제를 날짜순으로 누적한다. 각 기록은 실제 실행 결과만 반영한다.
+
+## 2026-10-04 — Sonata Streamlit 질문 E2E 및 warm-up pool 측정
+
+### 목적과 범위
+
+`app_kbj.py`에서 Sonata 질문이 embedding, PostgreSQL/pgvector 검색, Chat API 답변으로 이어지는지 확인했다. 대상은 Hyundai Sonata 2026, `car_id = 20261003_000014`로 제한했다. 앱 질문 경로의 검색 SQL만 실행했으며 PDF 재등록, chunk/embedding 적재, INSERT, UPDATE, DELETE는 실행하지 않았다. 사전 읽기 전용 SELECT에서 `hyundai / sonata / 2026` 조건에 일치하는 차량은 해당 `car_id` 한 건이었다.
+
+Streamlit 서버는 포트 8517에서 시작했고 health endpoint가 `ok`를 반환했다. 실행 환경에 브라우저 surface가 없어 widget 상호작용과 화면 검증은 실제 `app_kbj.py`를 Streamlit `AppTest`로 실행해 수행했다. 이 방식으로 일반 브라우저에서 직접 시연한 것은 아니다.
+
+### E2E 검색 결과
+
+질문: “엔진 오일량을 확인할 때 레벨 게이지를 다시 뽑기 전에 무엇을 해야 하나요?”
+기대 근거: PDF p.463 / chunk_no 866.
+
+- `text-embedding-3-small` embedding API 호출 성공, query embedding 길이 1536.
+- `car_manual.search_car_manual` SELECT 성공, 10행 반환. 반환된 모든 행의 `car_id`는 `20261003_000014`였다.
+- 기대 chunk 866은 3위, p.463, similarity 0.527330으로 Top-5에 포함됐다.
+- Chat API 호출과 최종 답변 출력 성공. 답변: “레벨 게이지를 뽑아 깨끗한 헝겊으로 닦은 뒤, 다시 꽂으세요. 그다음 다시 뽑아 엔진 오일량을 확인하면 됩니다.”
+- 결과 row에는 페이지와 image URL이 포함되고 prompt 문맥에도 전달됐지만, 실제 UI 답변에는 page 출처나 이미지 URL이 표시되지 않았다. app은 답변을 markdown으로 표시할 뿐 별도 source/image component를 렌더링하지 않는다.
+- 실행 상세와 Top-5 결과는 `STREAMLIT_E2E_TEST.md`에 기록했다.
+
+### USB 위치 질문으로 그림 링크 동작 확인
+
+- 추가 질문 “차량 usb 위치 알려줘”를 1회 실행했다. 이 질문은 이미지 UI 동작 확인용이며 공식 M6 평가 문항이 아니다.
+- 검색 Top-10은 Sonata `car_id=20261003_000014`만 반환했고, 7개 row에 image URL이 있었다. 주요 상위 결과는 p.236/chunk 429, p.12/chunk 22, p.243/chunk 442였다.
+- 답변은 앞좌석·뒷좌석 USB 위치를 설명하고 USB 포트 및 기능 전환 그림 링크를 포함했다. 실제 이미지 preview는 나오지 않았다. 앱은 답변을 markdown으로 표시하므로 그림 링크가 텍스트 링크로 제공되는 상태다.
+- USB 질문은 사전 정답 page/chunk를 지정하지 않아 검색 관련성 점수는 계산하지 않았다.
+
+### ConnectionPool / warm-up timing
+
+앱 resource 초기화에서 `DatabaseManager.warmup()`이 실행됐고 `DB POOL created min_size=1 max_size=5` 로그를 확인했다. 동일 질문의 3회 검색 timing은 `select_list()` 로그 기준이다.
+Pool에서 생성된 연결로 vector parameter 검색이 성공해 pgvector 어댑터 경로가 동작함을 확인했다. 다만 callback 호출 횟수를 직접 계측하지는 않았다.
+
+| 회차 | connect_ms | sql_log_ms | query_fetch_ms | total_ms |
+|---:|---:|---:|---:|---:|
+| 1 | 0.1 | 2.9 | 769.7 | 810.0 |
+| 2 | 0.1 | 3.6 | 119.7 | 162.1 |
+| 3 | 0.0 | 3.5 | 254.1 | 653.6 |
+
+비교용 과거 측정(사용자 제공, pool/warm-up 이전): `connect_ms=577.1`, `sql_log_ms=5.5`, `query_fetch_ms=115.1`, `total_ms=729.5`. connect 구간은 이번 세 회에서 낮게 기록되어 warm-up pool 대여 경로 동작을 확인했지만, query/fetch와 total은 편차가 있어 전체 성능 개선으로 일반화하지 않는다. 과거 기록과의 실행 조건 통제도 확인되지 않았다. 최초 resource/warm-up 시간은 `select_list()` timing에 포함되지 않는다.
+
+### 결론 및 한계
+
+핵심 질문 E2E의 embedding → Sonata 한정 vector 검색 → 근거 chunk 회수 → Chat 답변 흐름은 성공했다. page citation은 답변에 없었다. USB 보조 질문은 그림 링크 표기까지 반환했으나 이미지 preview와 브라우저 상호작용은 환경 제약으로 확인하지 못했다. 이번 timing은 pool의 연결 대여 경로와 로그 수집을 확인하기 위한 3회 결과이며 추가 튜닝이나 장시간 분석은 수행하지 않았다.
 
 ## 2026-10-03 — 소나타 PDF 이미지·검색 JOIN 전수검증
 
@@ -119,3 +202,65 @@ JOIN 중복은 미해결이며 이번에는 추가 SQL이나 Python 코드를 �
 
 - 상관 서브쿼리가 항상 가장 작은 `CAR_MANUAL_IMAGE_NO` 이미지 하나를 선택하는 동작은 현재 의도와 일치한다. 향후 같은 페이지의 모든 이미지를 UI에 제공할 필요가 생기면 chunk당 URL 목록을 반환하는 방식과 Repository 결과 스키마를 함께 검토한다.
 - 0.8–2.3초는 대표 질문 3개에 대한 단일 관측이므로 성능 일반화나 튜닝 판단에 사용하지 않는다.
+
+## 2026-10-04 — 검색 출처 metadata 및 이미지 preview UI
+
+### 변경 전 관찰
+
+- 사용자가 실제 Streamlit 앱 `http://localhost:8501`에서 확인한 변경 전 화면에는 page/chunk 출처 영역이 없었다.
+- USB 질문 답변에는 page_0236이 포함된 그림 링크가 있었고 클릭하면 별도 탭에서 실제 이미지가 열렸지만, 채팅 내부 image preview는 없었다.
+- 실제 사용자 브라우저 8501과 자동 검증용 별도 8517 서버는 서로 다른 인스턴스다. 이 기록의 AppTest 결과는 브라우저 수동 확인과 구분한다.
+
+### 구현 및 자동 검증
+
+- 기존 `CarManual.ask()`와 `CarManualSearchService.ask_manual()` 문자열 반환은 유지하고 metadata 반환용 `ask_with_sources()` / `ask_manual_with_sources()`를 추가했다.
+- 검색 tool의 답변 문자열은 기존처럼 LLM에 전달하고 검색 row는 LangChain `content_and_artifact`의 호출 결과 artifact로 전달한다. 전역이나 cached singleton의 공유 mutable 검색 결과는 사용하지 않는다.
+- Streamlit assistant message에 해당 요청의 source/image 표시용 데이터만 저장한다. page/chunk 최대 5개를 검색 순서대로 보여주고, image URL은 비어 있는 값과 중복을 제외해 최대 3개 preview 및 원본 링크로 표시한다.
+- 실제 DB/API AppTest 두 질문 연속 실행은 답변 성공, 예외 0건, image element 6개였다. USB Top-5는 12/22, 236/429, 237/430, 243/442, 113/218이었고 image URL 3개를 확보했다.
+- 이번 엔진오일 검색 Top-5는 488/908, 448/850, 448/845, 448/846, 141/277이었다. 기대 p.463/chunk 866은 이번 실행에 없었다. 이전 별도 E2E에서는 3위였다. 검색/rewrite 경로는 변경하지 않았으며 UI는 현재 실행에서 실제 반환한 metadata만 표시한다.
+- Mock AppTest에서 p.463/chunk 866과 USB metadata, 고유 image preview/link 렌더링 및 두 대화 turn의 metadata 분리를 확인했다. `CarManual.ask()`와 service 기존 메서드의 문자열 반환도 stub으로 검증했다.
+
+### 상태
+
+- 자동 테스트에서 검색 출처 영역과 image preview element 생성 확인.
+- 실제 브라우저에서 변경 후 최종 확인은 사용자 재검증 대기. 브라우저 최종 검증 완료로 간주하지 않는다.
+
+## 2026-10-04 — Sonata PDF 재등록 및 사후 검증
+
+### 범위와 원본
+
+- 대상: Hyundai Sonata 2026, 공식 매뉴얼의 `DN8` / `ko_KR` PDF. 공식 URL: https://ownersmanual.hyundai.com/manual/쏘나타?langCode=ko_KR&countryCode=A99&projCode=DN8&year=2026&content=pdfDownload
+- 원본: `data/DN8_2026_ko_KR.pdf`, 43,423,714 bytes, 508페이지.
+- SHA-256: `F83F44ABCF8F59C30FA4D0B0B419A8E7AACA54DA7D6F5C5FC9B3F83CAB650E23`.
+- 재등록 전 사용자가 Sonata DB 데이터와 `cars/hyundai/sonata/` Storage prefix를 수동 삭제했다. 추가 DELETE는 실행하지 않았고, 기존 Sonata 등록 경로를 사용했다.
+
+### 재등록 결과
+
+기존 car row가 없는 상태에서 기존 `merge_car`/`FN_GET_BIZ_ID('CAR')` 흐름이 새 `car_id=20261004_000015`를 발급했다. 등록을 재시도하지 않았다.
+
+| 확인 항목 | 사후 검증 결과 |
+|---|---:|
+| Hyundai / Sonata / 2026 car row | 1 (`car_id=20261004_000015`) |
+| Chapter | 10 |
+| Chunk | 947 |
+| Embedding | 947 |
+| Embedding NULL | 0 |
+| Embedding dimension | 1536 |
+| Image DB row | 955 |
+| Supabase Storage `images/cars/hyundai/sonata/` objects | 955 |
+| 중복 chunk body | 0 |
+| 중복 chunk ID | 0 |
+| 중복 image URL | 0 |
+| 동일 차종/연식 중복 car row | 0 |
+
+### 실행 중 출력 오류와 해석
+
+기존 등록 메서드는 DB/Storage 적재를 마친 뒤 `_print_summary()` 콘솔 출력 중 Windows cp949가 일부 Unicode 문자를 인코딩하지 못해 `UnicodeEncodeError`를 발생시켰다. 오류 지점은 적재 후 요약 출력 단계다. 이후 읽기 전용 사후 검증에서 위 데이터 수량과 vector dimension, Storage object 수가 정상 확인됐다. 재시도는 하지 않았으며 데이터 적재 실패로 해석하지 않는다. 이번 단계에서는 코드의 인코딩 동작을 수정하지 않았다.
+
+### 재등록 방식과 운영상 주의
+
+- PDF 입력은 `data/DN8_2026_ko_KR.pdf`다. 등록 코드 자체는 공식 사이트에서 자동 다운로드하지 않으며, DB 데이터를 자동 idempotent upsert하지 않는다.
+- 재등록은 Sonata 대상 기존 DB/Storage 데이터를 명시적으로 정리한 뒤 기존 등록 경로를 실행하는 운영 절차다. 기존 car row가 없다면 새 `car_id`가 발급된다.
+- Storage object key는 `cars/{brand}/{model}/{image_name}`이며 upload 옵션은 `upsert=true`다. 동일 object key는 overwrite된다. 경로에 `car_id` 또는 사용자 식별자가 없으므로 동일 Hyundai Sonata를 다른 사용자가 등록할 경우 같은 prefix를 공유할 수 있다. 새 처리 결과에 없는 옛 object 삭제도 자동 보장되지 않으므로 공유 환경에서 prefix 충돌/잔존 object를 주의한다. 이번에는 Storage 구조를 변경하지 않았다.
+
+이 기록은 과거 `20261003_000014`를 사용한 기존 M4/M6/E2E 실험을 소급 수정하지 않는다. 해당 ID는 실행 당시의 historical ID이며, 현재 Sonata ID는 `20261004_000015`다.
