@@ -263,4 +263,55 @@ JOIN 중복은 미해결이며 이번에는 추가 SQL이나 Python 코드를 �
 - 재등록은 Sonata 대상 기존 DB/Storage 데이터를 명시적으로 정리한 뒤 기존 등록 경로를 실행하는 운영 절차다. 기존 car row가 없다면 새 `car_id`가 발급된다.
 - Storage object key는 `cars/{brand}/{model}/{image_name}`이며 upload 옵션은 `upsert=true`다. 동일 object key는 overwrite된다. 경로에 `car_id` 또는 사용자 식별자가 없으므로 동일 Hyundai Sonata를 다른 사용자가 등록할 경우 같은 prefix를 공유할 수 있다. 새 처리 결과에 없는 옛 object 삭제도 자동 보장되지 않으므로 공유 환경에서 prefix 충돌/잔존 object를 주의한다. 이번에는 Storage 구조를 변경하지 않았다.
 
-이 기록은 과거 `20261003_000014`를 사용한 기존 M4/M6/E2E 실험을 소급 수정하지 않는다. 해당 ID는 실행 당시의 historical ID이며, 현재 Sonata ID는 `20261004_000015`다.
+이 기록은 과거 `20261003_000014`를 사용한 기존 M4/M6/E2E 실험을 소급 수정하지 않는다. 해당 ID는 실행 당시의 historical ID이며, 당시 재등록 ID는 `20261004_000015`다.
+
+## 2026-10-04 — Sonata 전체 재등록 및 규칙형 image_desc 검증
+
+### 실행 범위와 방법
+
+- 대상 PDF: `data/DN8_2026_ko_KR.pdf`; 기존 production `CarManualRegisterService.insert_pdf_docs()` 사용.
+- 재등록 직전 읽기 전용 확인: Hyundai/Sonata/2026 car 0, chapter 0, chunk 0, image DB 0, Storage `images/cars/hyundai/sonata/` object 0.
+- 추가 DELETE 없이 기존 등록 절차를 완료했다. 새 ID는 `merge_car` / `FN_GET_BIZ_ID('CAR')` 경로에서 생성됐다.
+- image_desc는 production의 bbox + 인접 text block 규칙 경로로 생성했다. Vision API와 Text LLM은 사용하지 않았다. 기존 embedding API는 chunk embedding에 사용됐다.
+- 초기 제한된 실행 환경에서는 네트워크 권한 때문에 DB 연결 전 실패했다. 데이터 작업이 시작되지 않은 것을 확인하고 네트워크 접근이 허용된 환경에서 등록을 실행했다. 등록 메서드는 정상 반환했으며 애플리케이션 수준의 등록 재시도는 하지 않았다. stdout을 UTF-8로 지정해 cp949 출력 오류도 발생하지 않았다.
+
+### 읽기 전용 사후 검증
+
+| 확인 항목 | 결과 |
+|---|---:|
+| Hyundai / Sonata / 2026 car row | 1 (`car_id=20261004_000016`) |
+| Chapter | 10 |
+| Chunk | 947 |
+| Embedding | 947 |
+| Embedding NULL | 0 |
+| Embedding dimension | 1536 (947건 모두) |
+| Image DB row | 955 |
+| Storage `images/cars/hyundai/sonata/` objects | 955 |
+| image_desc non-NULL | 9 (0.94%) |
+| image_desc NULL | 946 (99.06%) |
+| duplicate chunk body group | 0 |
+| duplicate chunk ID group | 0 |
+| duplicate image URL group | 0 |
+| Hyundai/Sonata/2026 추가 car row | 0 (해당 조건 총 1건) |
+
+### 저장된 image_desc 샘플
+
+DB에서 확인한 non-NULL 설명은 총 9건이며, 요청한 10건보다 하나 적다. 존재하지 않는 열 번째 설명을 만들어내지 않았다.
+
+| PDF page / image | 저장된 설명 |
+|---|---|
+| p.163 / i2 | 후드 2차 열림 레버 조작 |
+| p.236 / i1 | 앞좌석 USB 충전 단자 위치 |
+| p.236 / i2 | 뒷좌석 센터 콘솔의 USB 충전 단자 위치 |
+| p.454 / i1 | 냉각팬 작동 및 점검 시 부상 주의 |
+| p.463 / i1 | 엔진 오일 레벨 게이지 F-L 범위 확인 |
+| p.466 / i1 | 냉각수 보조 탱크 MIN/MAX 수위 확인 |
+| p.468 / i1 | 냉각팬 작동 및 점검 시 부상 주의 |
+| p.468 / i2 | 브레이크액 MIN/MAX 점검 및 보충 |
+| p.479 / i1 | 타이어 마모한도 표시밴드 |
+
+### 의도적 NULL 사례 및 한계
+
+- p.386/i1, p.386/i2, p.386/i3, p.387/i1은 DB에서 NULL로 확인했다. 주변 텍스트만으로 개별 이미지의 검색 의미를 안정적으로 연결하기 어려운 작은 화살표/fragment여서 description을 억지로 붙이지 않았다.
+- p.163/i1·i3, p.463/i2·i3, p.466/i2–i4 등도 확인된 샘플에서 NULL이다.
+- `image_desc`는 검색용 metadata 저장까지 완료됐으나 검색 순위나 이미지 relevance 개선 효과는 이번 재등록만으로 검증하지 않았다.

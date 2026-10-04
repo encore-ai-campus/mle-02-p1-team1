@@ -95,7 +95,7 @@ class CarManualRepository:
                     "CAR_MANUAL_IMAGE_PAGE_NO": image["page_no"],
                     "CAR_MANUAL_IMAGE_NO": image["image_no"],
                     "CAR_MANUAL_IMAGE_URL": image["image_url"],
-                    "CAR_MANUAL_IMAGE_DESC": None,
+                    "CAR_MANUAL_IMAGE_DESC": image.get("image_desc"),
                     "USER_ID": SYSTEM_USER_ID
                 }
             )
@@ -115,6 +115,15 @@ class CarManualRepository:
                 "EMBEDDING": Vector(embedding),
                 "LIMIT": limit
             }
+        )
+
+    def search_images_by_pages(self, car_id, page_nos):
+        """Fetch image descriptions only for pages already returned by chunk search."""
+        if not car_id or not page_nos:
+            return []
+        return self.sql_session.select_list(
+            "car_manual.search_car_manual_images",
+            {"CAR_ID": car_id, "PAGE_NOS": sorted({int(page) for page in page_nos})},
         )
 
     # =========================================================

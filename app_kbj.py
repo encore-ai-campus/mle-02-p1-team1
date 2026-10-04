@@ -27,13 +27,10 @@ logging.basicConfig(
 logger = logging.getLogger("CarManual")
 
 
-def _display_metadata(search_results):
-    """검색 row에서 UI 출처와 이미지 URL만 검색 순서대로 추린다."""
+def _display_metadata(search_results, question=None, image_selector=None):
+    """Keep citations in chunk order and select display images separately."""
     sources = []
     seen_sources = set()
-    images = []
-    seen_images = set()
-
     for result in search_results or ():
         page_no = result.get("carManualChunkPageNo", result.get("car_manual_chunk_page_no"))
         chunk_no = result.get("carManualChunkNo", result.get("car_manual_chunk_no"))
@@ -41,16 +38,22 @@ def _display_metadata(search_results):
         if page_no is not None and chunk_no is not None and source_key not in seen_sources:
             sources.append({"page_no": page_no, "chunk_no": chunk_no})
             seen_sources.add(source_key)
-
-        image_url = result.get("carManualImageUrl", result.get("car_manual_image_url"))
-        if isinstance(image_url, str):
-            image_url = image_url.strip()
-            if image_url and image_url not in seen_images and len(images) < 3:
-                images.append({"url": image_url, "page_no": page_no})
-                seen_images.add(image_url)
-
-        if len(sources) >= 5 and len(images) >= 3:
+        if len(sources) >= 5:
             break
+
+    if question and image_selector:
+        images = image_selector(question, search_results, limit=3)
+    else:
+        images = []
+        seen_images = set()
+        for result in search_results or ():
+            image_url = result.get("carManualImageUrl", result.get("car_manual_image_url"))
+            page_no = result.get("carManualChunkPageNo", result.get("car_manual_chunk_page_no"))
+            if isinstance(image_url, str) and image_url.strip() and image_url.strip() not in seen_images:
+                images.append({"url": image_url.strip(), "page_no": page_no})
+                seen_images.add(image_url.strip())
+            if len(images) >= 3:
+                break
 
     return sources[:5], images
 
@@ -78,8 +81,9 @@ def _render_assistant_message(message):
                         image["url"],
                         caption=(
                             f"검색 결과 이미지 · p.{image['page_no']}"
+                            + (f" · {image['description']}" if image.get("description") else "")
                             if image.get("page_no") is not None
-                            else "검색 결과 이미지"
+                            else (image.get("description") or "검색 결과 이미지")
                         ),
                         width="stretch",
                     )
@@ -213,7 +217,11 @@ if question:
                     conversation_history=conversation_history,
                 )
                 answer = answer_result.answer
-                sources, images = _display_metadata(answer_result.search_results)
+                sources, images = _display_metadata(
+                    answer_result.search_results,
+                    question=question,
+                    image_selector=car_manual.service.select_relevant_images,
+                )
 
                 if car_manual.download_html:
                     st.download_button(

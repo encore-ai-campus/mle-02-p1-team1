@@ -1,0 +1,128 @@
+{
+  "page_no": 115,
+  "image_no": 2,
+  "xref": 9252,
+  "image_bbox": [
+    235.19,
+    107.04,
+    399.58,
+    211.91
+  ],
+  "rule_candidate": "도어 잠금 해제(2)(세이프티 언락 기능 설 · 버튼 타입",
+  "rule_is_none": false,
+  "image_desc": "도어 잠금 해제(2)(세이프티 언락 기능 설",
+  "selected_title": {
+    "text": "도어 잠금 해제(2)(세이프티 언락 기능 설",
+    "raw_text": "도어 잠금 해제(2)(세이프티 언락 기능 설",
+    "bbox": [
+      235.86,
+      63.51,
+      396.53,
+      75.73
+    ],
+    "font_size": 10.0,
+    "max_font_size": 10.0,
+    "font": "HyundaiSansTextKRMedium",
+    "flags": [
+      4
+    ],
+    "bold": false,
+    "source_block_index": 7,
+    "distance_pt": 31.31,
+    "same_column": true,
+    "horizontal_overlap": 1.0,
+    "heading_like": true
+  },
+  "selected_search_range_pt": 36,
+  "above_text_candidates": [
+    {
+      "text": "버튼 타입",
+      "raw_text": "버튼 타입",
+      "bbox": [
+        235.15,
+        93.7,
+        272.3,
+        104.63
+      ],
+      "font_size": 9.0,
+      "max_font_size": 9.0,
+      "font": "HyundaiSansTextKR",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "source_block_index": 8,
+      "distance_pt": 2.41,
+      "same_column": true,
+      "horizontal_overlap": 0.999,
+      "heading_like": false
+    },
+    {
+      "text": "정 시)",
+      "raw_text": "정 시)",
+      "bbox": [
+        235.86,
+        73.5,
+        259.65,
+        85.72
+      ],
+      "font_size": 10.0,
+      "max_font_size": 10.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "source_block_index": 7,
+      "distance_pt": 21.32,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": false
+    },
+    {
+      "text": "도어 잠금 해제(2)(세이프티 언락 기능 설",
+      "raw_text": "도어 잠금 해제(2)(세이프티 언락 기능 설",
+      "bbox": [
+        235.86,
+        63.51,
+        396.53,
+        75.73
+      ],
+      "font_size": 10.0,
+      "max_font_size": 10.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "source_block_index": 7,
+      "distance_pt": 31.31,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    {
+      "text": "5",
+      "raw_text": "5",
+      "bbox": [
+        385.86,
+        16.11,
+        400.39,
+        46.77
+      ],
+      "font_size": 26.0,
+      "max_font_size": 26.0,
+      "font": "HyundaiSansHeadKR",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "source_block_index": 0,
+      "distance_pt": 60.27,
+      "same_column": true,
+      "horizontal_overlap": 0.944,
+      "heading_like": false
+    }
+  ],
+  "nearby_type_labels": []
+}

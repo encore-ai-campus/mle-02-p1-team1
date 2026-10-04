@@ -1,0 +1,794 @@
+[
+  {
+    "page_no": 69,
+    "image_no": 1,
+    "xref": 1153,
+    "image_bbox": [
+      234.95,
+      299.75,
+      399.58,
+      404.86
+    ],
+    "rule_candidate": "어린이 보조 좌석 설치 금지",
+    "rule_is_none": false,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "어린이 보조 좌석 설치 금지",
+        "raw_text": "어린이 보조 좌석 설치 금지",
+        "bbox": [
+          235.86,
+          286.11,
+          343.46,
+          298.33
+        ],
+        "font_size": 10.0,
+        "max_font_size": 10.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 13,
+        "distance_pt": 1.42,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "만지지 마십시오.",
+        "raw_text": "만지지 마십시오.",
+        "bbox": [
+          235.77,
+          256.5,
+          297.18,
+          267.43
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 11,
+        "distance_pt": 32.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "상 위험이 있으므로 작동 직후에는 내장 부품을",
+        "raw_text": "상 위험이 있으므로 작동 직후에는 내장 부품을",
+        "bbox": [
+          235.77,
+          246.5,
+          399.04,
+          257.43
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 11,
+        "distance_pt": 42.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "의 에어백 관련 부품이 고온상태가 됩니다. 화",
+        "raw_text": "의 에어백 관련 부품이 고온상태가 됩니다. 화",
+        "bbox": [
+          235.79,
+          236.51,
+          398.92,
+          247.43
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 11,
+        "distance_pt": 52.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "에어백이 작동하면 스티어링 휠 및 크래시 패드",
+        "raw_text": "에어백이 작동하면 스티어링 휠 및 크래시 패드",
+        "bbox": [
+          235.79,
+          226.51,
+          399.0,
+          237.43
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 11,
+        "distance_pt": 62.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "Ҋ",
+        "raw_text": "Ҋ",
+        "bbox": [
+          263.77,
+          210.34,
+          273.23,
+          221.6
+        ],
+        "font_size": 11.0,
+        "max_font_size": 11.0,
+        "font": "HyundaiSansTextKRMedium-",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 9,
+        "distance_pt": 78.15,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "치료하십시오.",
+        "raw_text": "치료하십시오.",
+        "bbox": [
+          235.45,
+          186.7,
+          286.66,
+          197.62
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 102.13,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": []
+  },
+  {
+    "page_no": 103,
+    "image_no": 1,
+    "xref": 9227,
+    "image_bbox": [
+      50.88,
+      87.12,
+      215.27,
+      191.99
+    ],
+    "rule_candidate": "타이어 공기압이 낮습니다",
+    "rule_is_none": false,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "A타입",
+        "raw_text": "A타입",
+        "bbox": [
+          124.66,
+          77.0,
+          141.02,
+          85.5
+        ],
+        "font_size": 7.0,
+        "max_font_size": 7.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 3,
+        "distance_pt": 1.62,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "타이어 공기압이 낮습니다",
+        "raw_text": "타이어 공기압이 낮습니다",
+        "bbox": [
+          51.61,
+          63.51,
+          154.77,
+          75.73
+        ],
+        "font_size": 10.0,
+        "max_font_size": 10.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 2,
+        "distance_pt": 11.39,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": [
+      {
+        "text": "A타입",
+        "raw_text": "A타입",
+        "bbox": [
+          124.66,
+          77.0,
+          141.02,
+          85.5
+        ],
+        "font_size": 7.0,
+        "max_font_size": 7.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 3,
+        "distance_pt": 1.62,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  },
+  {
+    "page_no": 137,
+    "image_no": 2,
+    "xref": 2659,
+    "image_bbox": [
+      235.19,
+      333.59,
+      399.58,
+      438.46
+    ],
+    "rule_candidate": "비상시 도어 잠금 방법",
+    "rule_is_none": false,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "비상시 도어 잠금 방법",
+        "raw_text": "비상시 도어 잠금 방법",
+        "bbox": [
+          235.86,
+          320.1,
+          323.24,
+          332.32
+        ],
+        "font_size": 10.0,
+        "max_font_size": 10.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 16,
+        "distance_pt": 1.27,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "를 참고하십시오.",
+        "raw_text": "를 참고하십시오.",
+        "bbox": [
+          244.16,
+          290.49,
+          305.58,
+          301.42
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 32.17,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "어의 잠금을 해제하는 방법은 5장 내 ‘도어’",
+        "raw_text": "어의 잠금을 해제하는 방법은 5장 내 ‘도어’",
+        "bbox": [
+          244.19,
+          280.49,
+          399.43,
+          291.42
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 42.17,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "을 해제 할 수 있습니다. 비상 키로 운전석 도",
+        "raw_text": "을 해제 할 수 있습니다. 비상 키로 운전석 도",
+        "bbox": [
+          244.24,
+          270.49,
+          398.84,
+          281.42
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 52.17,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "가 잠긴 경우, 비상 키로 운전석 도어의 잠금",
+        "raw_text": "가 잠긴 경우, 비상 키로 운전석 도어의 잠금",
+        "bbox": [
+          244.27,
+          260.49,
+          398.95,
+          271.42
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 62.17,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "•차 안에 어린이나 동물이 있는 상태로 도어",
+        "raw_text": "•차 안에 어린이나 동물이 있는 상태로 도어",
+        "bbox": [
+          235.16,
+          248.31,
+          398.98,
+          261.28
+        ],
+        "font_size": 9.86,
+        "max_font_size": 10.72,
+        "font": "HyundaiSansHeadKR / HyundaiSansTextKR",
+        "flags": [
+          4,
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 72.31,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "습니다.",
+        "raw_text": "습니다.",
+        "bbox": [
+          244.14,
+          235.52,
+          271.05,
+          246.45
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 87.14,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "장비를 잘못 조작하여 사고가 발생할 수 있",
+        "raw_text": "장비를 잘못 조작하여 사고가 발생할 수 있",
+        "bbox": [
+          244.17,
+          225.52,
+          398.79,
+          236.45
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 97.14,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "하십시오. 도어 잠금 버튼을 누르거나 기타",
+        "raw_text": "하십시오. 도어 잠금 버튼을 누르거나 기타",
+        "bbox": [
+          244.19,
+          215.52,
+          398.88,
+          226.45
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 14,
+        "distance_pt": 107.14,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": []
+  },
+  {
+    "page_no": 211,
+    "image_no": 5,
+    "xref": 3575,
+    "image_bbox": [
+      235.19,
+      287.03,
+      399.58,
+      391.9
+    ],
+    "rule_candidate": null,
+    "rule_is_none": true,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "풍량 조절",
+        "raw_text": "풍량 조절",
+        "bbox": [
+          235.86,
+          273.42,
+          273.8,
+          285.64
+        ],
+        "font_size": 10.0,
+        "max_font_size": 10.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 23,
+        "distance_pt": 1.39,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "다. 차 안을 환기할 때 사용하십시오.",
+        "raw_text": "다. 차 안을 환기할 때 사용하십시오. ",
+        "bbox": [
+          235.79,
+          248.64,
+          366.61,
+          259.57
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 22,
+        "distance_pt": 27.46,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "을 눌러 표시등이 꺼지면 바깥 공기가 들어옵니",
+        "raw_text": "을 눌러 표시등이 꺼지면 바깥 공기가 들어옵니",
+        "bbox": [
+          235.79,
+          238.64,
+          398.88,
+          249.57
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 22,
+        "distance_pt": 37.46,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "실내 순환 버튼의 표시등이 켜진 상태에서 버튼",
+        "raw_text": "실내 순환 버튼의 표시등이 켜진 상태에서 버튼",
+        "bbox": [
+          235.79,
+          228.64,
+          399.0,
+          239.57
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 22,
+        "distance_pt": 47.46,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "WL_AirconAirIntakeButton",
+        "raw_text": "WL_AirconAirIntakeButton",
+        "bbox": [
+          235.16,
+          220.09,
+          305.51,
+          227.37
+        ],
+        "font_size": 6.0,
+        "max_font_size": 6.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 21,
+        "distance_pt": 59.66,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": []
+  },
+  {
+    "page_no": 267,
+    "image_no": 1,
+    "xref": 9499,
+    "image_bbox": [
+      50.88,
+      77.04,
+      215.27,
+      181.91
+    ],
+    "rule_candidate": "R (Reverse): 후진",
+    "rule_is_none": false,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "R (Reverse): 후진",
+        "raw_text": "R (Reverse): 후진",
+        "bbox": [
+          50.26,
+          63.72,
+          118.99,
+          74.64
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 2,
+        "distance_pt": 2.4,
+        "same_column": true,
+        "horizontal_overlap": 0.991,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": []
+  },
+  {
+    "page_no": 329,
+    "image_no": 1,
+    "xref": 9657,
+    "image_bbox": [
+      50.88,
+      77.04,
+      215.27,
+      181.91
+    ],
+    "rule_candidate": "일정 시간 동안 스티어링 휠을 잡지 않으면 단",
+    "rule_is_none": false,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "핸즈오프 경고",
+        "raw_text": "핸즈오프 경고",
+        "bbox": [
+          50.89,
+          63.72,
+          104.01,
+          74.64
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 2,
+        "distance_pt": 2.4,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": []
+  },
+  {
+    "page_no": 451,
+    "image_no": 1,
+    "xref": 9115,
+    "image_bbox": [
+      50.88,
+      75.12,
+      399.58,
+      352.79
+    ],
+    "rule_candidate": null,
+    "rule_is_none": true,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "Smartstream G2.0 CVVL",
+        "raw_text": "Smartstream G2.0 CVVL",
+        "bbox": [
+          187.84,
+          64.01,
+          262.74,
+          72.51
+        ],
+        "font_size": 7.0,
+        "max_font_size": 7.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 2,
+        "distance_pt": 2.61,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "9",
+        "raw_text": "9",
+        "bbox": [
+          385.0,
+          16.11,
+          401.02,
+          46.77
+        ],
+        "font_size": 26.0,
+        "max_font_size": 26.0,
+        "font": "HyundaiSansHeadKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 0,
+        "distance_pt": 28.35,
+        "same_column": true,
+        "horizontal_overlap": 0.91,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": []
+  },
+  {
+    "page_no": 492,
+    "image_no": 1,
+    "xref": 8003,
+    "image_bbox": [
+      221.03,
+      84.96,
+      385.42,
+      189.83
+    ],
+    "rule_candidate": null,
+    "rule_is_none": true,
+    "image_desc": null,
+    "selected_title": null,
+    "selected_search_range_pt": null,
+    "above_text_candidates": [
+      {
+        "text": "઱੄",
+        "raw_text": "઱੄",
+        "bbox": [
+          240.31,
+          68.93,
+          259.23,
+          80.19
+        ],
+        "font_size": 11.0,
+        "max_font_size": 11.0,
+        "font": "HyundaiSansTextKRMedium-",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 6,
+        "distance_pt": 4.77,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ],
+    "nearby_type_labels": []
+  }
+]

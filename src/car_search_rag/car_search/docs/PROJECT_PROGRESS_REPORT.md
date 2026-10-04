@@ -58,9 +58,9 @@
 
 ### 3.1 데이터 구조
 
-확인한 원본은 현대자동차 공식 매뉴얼 사이트에서 직접 다운로드한 Sonata 2026 (`DN8`, `ko_KR`) 국문 정적 PDF인 `data/DN8_2026_ko_KR.pdf`이다. [공식 자료 페이지](https://ownersmanual.hyundai.com/manual/쏘나타?langCode=ko_KR&countryCode=A99&projCode=DN8&year=2026&content=pdfDownload). 데이터 수집 API는 사용하지 않는다. 2026-10-04 재등록 후 현재 분석 대상 차량은 `CAR_ID = 20261004_000015`로 확인됐다. 과거 EDA·TF-IDF·M6·E2E 및 실험 기록의 `20261003_000014`는 당시 실행 ID로 보존한다. 전처리 문서 기준 핵심 데이터는 차량, chapter, chunk, image이며 chunk에는 페이지·chunk 정보와 embedding이 연결된다.
+확인한 원본은 현대자동차 공식 매뉴얼 사이트에서 직접 다운로드한 Sonata 2026 (`DN8`, `ko_KR`) 국문 정적 PDF인 `data/DN8_2026_ko_KR.pdf`이다. [공식 자료 페이지](https://ownersmanual.hyundai.com/manual/쏘나타?langCode=ko_KR&countryCode=A99&projCode=DN8&year=2026&content=pdfDownload). 데이터 수집 API는 사용하지 않는다. 2026-10-04 최신 재등록 후 현재 분석 대상 차량은 `CAR_ID = 20261004_000016`로 확인됐다. 과거 EDA·TF-IDF·M6·E2E 및 이전 재등록 기록의 ID는 당시 실행값으로 보존한다. 전처리 문서 기준 핵심 데이터는 차량, chapter, chunk, image이며 chunk에는 페이지·chunk 정보와 embedding이 연결된다.
 
-2026-10-04 재등록 후 사후 검증에서 현재 Sonata는 car 1건, chapter 10건, chunk 947건, embedding 947건(NULL 0, 모두 1536차원), image DB 955건으로 확인됐다. Storage `images/cars/hyundai/sonata/` object도 955개다. chunk 본문·ID·image URL 중복과 동일 차종/연식 car 중복은 각각 0건이다. 원본 PDF는 43,423,714 bytes, 508페이지이며 SHA-256은 `F83F44ABCF8F59C30FA4D0B0B419A8E7AACA54DA7D6F5C5FC9B3F83CAB650E23`이다.
+2026-10-04 최신 재등록 후 사후 검증에서 현재 Sonata는 car 1건, chapter 10건, chunk 947건, embedding 947건(NULL 0, 모두 1536차원), image DB 955건으로 확인됐다. Storage `images/cars/hyundai/sonata/` object도 955개다. 규칙 기반 image_desc는 9건 생성, 946건 NULL(99.06%)이다. chunk 본문·ID·image URL 중복과 동일 차종/연식 car 중복은 각각 0건이다. 원본 PDF는 43,423,714 bytes, 508페이지이며 SHA-256은 `F83F44ABCF8F59C30FA4D0B0B419A8E7AACA54DA7D6F5C5FC9B3F83CAB650E23`이다.
 
 사용자가 추가 제공한 PostgreSQL DDL 기준 스키마는 다음과 같다.
 
@@ -83,7 +83,7 @@ ON public.car_manual_chunk USING hnsw
 
 제공 DDL과 2026-10-04 현재 DB catalog에서 `idx_car_manual_chunk_embed_vec_hnsw`가 유효한 HNSW index이며 대상 컬럼은 `public.car_manual_chunk.car_manual_chunk_embed_vec`, operator class는 `vector_cosine_ops`임을 확인했다. 이는 SQL의 `<=>` cosine distance와 대응한다. 다만 실제 production 검색 형태를 재현한 이번 실행계획에서는 HNSW가 선택되지 않았다. `car_manual_chunk_pkey` Index Scan과 top-N heapsort가 관찰됐으며, 상세 및 관측 한계는 `EXPERIMENT_LOG.md`에 기록했다.
 
-2026-10-04 재등록 후 Sonata `car_id=20261004_000015` 한정 읽기 전용 조회에서 chunk 947건, embedding 947건, NULL vector 0건, dimension 1536으로 확인했다. `hyundai / sonata / 2026` 차량 조건은 이 현재 `car_id` 한 건만 반환했다. 앞서 기록된 실행 당시 ID는 historical evidence로 유지한다.
+2026-10-04 최신 재등록 후 Sonata `car_id=20261004_000016` 한정 읽기 전용 조회에서 chunk 947건, embedding 947건, NULL vector 0건, dimension 1536으로 확인했다. `hyundai / sonata / 2026` 차량 조건은 이 현재 `car_id` 한 건만 반환했다. 앞서 기록된 실행 당시 ID는 historical evidence로 유지한다.
 
 ### 3.2 데이터 확인 과정
 
@@ -93,7 +93,7 @@ ON public.car_manual_chunk USING hnsw
 - 페이지 텍스트 길이는 평균 1,019.55자, 중앙값 944자, 최소 21자, 최대 4,180자, 표준편차 582.36자다.
 - level 1 chapter는 10개다. 텍스트가 짧았던 4, 6, 108, 500, 501페이지는 시각적으로 검토했으며, 짧다는 이유만으로 추출 오류로 분류하지 않았다.
 - DB chunk의 페이지 범위는 1~508이며, 각 페이지에 적어도 하나의 chunk가 있다고 보고되어 있다. 이는 페이지 단위 존재 여부만 뜻하며 페이지 내용의 완전성이나 시각 자료 추출의 완전성을 증명하지 않는다.
-- image 955건에서 URL 누락·중복, `page_no`/`image_no` 누락, `(page_no,image_no)` 중복 그룹은 각각 0으로 기록되어 있다. `image_desc`는 955건 모두 NULL이다.
+- 기존 EDA 시점에는 image_desc 955건 모두 NULL로 기록됐다. 2026-10-04 최신 production 재등록에서는 bbox 주변 텍스트 규칙으로 9건이 생성되고 946건은 근거 부족으로 NULL을 유지했다. 최신 재등록의 duplicate image URL group은 0건이다.
 - 저장소 URL GET 성공 955/955, 디코딩 성공 955/955로 기록되어 있으며 PNG 808건, JPEG 147건이다. 파일 크기 중앙값 38,718 bytes, 범위 435~318,762 bytes다.
 - PDF 이미지 리소스 955건, 표시 인스턴스 1,038건, 고유 xref 및 byte hash 각 727건으로 기록되어 있다. DB 다운로드 이미지 hash와 PDF 추출 바이트가 727/727 일치했다고 보고되어 있다.
 
@@ -144,7 +144,7 @@ M4 완료 기준을 Sonata 범위에서 재점검한 결과는 다음과 같다.
 | 문서/Chunk 구조 결정 | 충족 | page 단위 추출 및 `RecursiveCharacterTextSplitter(800, 150)`, `page_no`·순차 `chunk_no` 기록 |
 | metadata 설계 | 충족 | 차량/chapter/page/chunk 본문·순번 및 검색결과 image URL 구조 확인 |
 | 임베딩 생성 | 충족 | Sonata chunk 947개 모두 vector 보유, 차원 1536, NULL 0 |
-| Vector DB 적재 및 조회 | 충족 | 재등록 전 M4 기록은 당시 `car_id=20261003_000014` 범위의 실행계획/조회 결과이며, 2026-10-04 재등록 후 현재 `car_id=20261004_000015`의 chunk·embedding 적재도 사후 검증 |
+| Vector DB 적재 및 조회 | 충족 | 재등록 전 M4 기록은 당시 `car_id=20261003_000014` 범위의 실행계획/조회 결과이며, 2026-10-04 최신 재등록 후 현재 `car_id=20261004_000016`의 chunk·embedding 적재도 사후 검증 |
 
 HNSW index가 이번 plan에서 선택되지 않았다는 관찰은 별도로 남긴다. 이는 해당 기준의 적재나 조회가 실패했다는 의미가 아니다.
 
@@ -273,7 +273,7 @@ TF-IDF 비교의 실제 설정과 세 질의 결과는 3.3절에 정리했다. �
 - [ ] Sonata 매뉴얼 질의와 정답 chunk/evidence ID를 갖춘 검색 평가셋 작성
 - [ ] 고정 평가셋에서 Hit@k/MRR 및 답변 근거성 평가 수행, 설정과 결과 기록
 - [ ] OCR·문자열 정규화·dedup 적용 필요성을 결정하고 원본 PDF 대비 chunk 본문 검증 범위를 보완하기
-- [ ] `image_desc`가 전부 NULL인 현재 상태에서 이미지 설명 생성/사용 필요성 검토
+- [x] bbox 주변 텍스트 기반 규칙형 `image_desc` 생성 및 DB 적재 확인(9건); 나머지 946건은 근거 부족으로 NULL 유지. 검색 relevance 활용은 후속 검증
 - [ ] 루트 README를 프로젝트 설치·환경 설정·실행·데이터 적재 절차에 맞게 보강
 - [ ] PPT 초안의 성능 placeholder 및 E2E 상태를 이번 측정 결과로 갱신
 - [ ] GitHub 원격 저장소와 제출 브랜치/커밋 상태 확인
@@ -309,4 +309,4 @@ TF-IDF 비교의 실제 설정과 세 질의 결과는 3.3절에 정리했다. �
 
 M1은 현재 근거 기준 완료 가능으로 판정한다. 공식 Hyundai PDF URL, 원본 파일명·크기·페이지 수·SHA-256, 기존 등록 코드에 의한 재등록, 실제 DB/Storage 적재 수와 중복 점검 결과가 확보됐다. 최초 취득일과 공식 revision/edition 번호는 확인할 수 있는 근거가 없어 미기록이며, 이는 데이터 수집 API 구현의 미완료를 뜻하지 않는다. 실제 등록 종료 시 데이터 적재 후 `_print_summary()`의 콘솔 출력에서 Windows cp949 `UnicodeEncodeError`가 발생했으나, 사후 검증은 적재 정상 완료를 확인했다. 등록 재시도는 하지 않았다. 상세 결과는 `EXPERIMENT_LOG.md`에 기록했다.
 
-재등록 정책은 파일을 입력 경로 `data/DN8_2026_ko_KR.pdf`에서 읽고, DB에는 자동 idempotent upsert를 적용하지 않는 방식이다. car row가 없는 경우 `FN_GET_BIZ_ID('CAR')`로 새 `car_id`를 발급하며 이번 ID는 `20261004_000015`다. Storage는 `cars/{brand}/{model}/{image_name}` 및 `upsert=true`를 사용한다. 경로에 car_id/사용자 ID가 없어 같은 차종 등록자가 prefix를 공유할 수 있고, 같은 object key 외의 이전 object 정리는 자동으로 보장되지 않는 운영상 한계가 있다.
+재등록 정책은 파일을 입력 경로 `data/DN8_2026_ko_KR.pdf`에서 읽고, DB에는 자동 idempotent upsert를 적용하지 않는 방식이다. car row가 없는 경우 `FN_GET_BIZ_ID('CAR')`로 새 `car_id`를 발급하며 현재 ID는 `20261004_000016`이다. Storage는 `cars/{brand}/{model}/{image_name}` 및 `upsert=true`를 사용한다. 경로에 car_id/사용자 ID가 없어 같은 차종 등록자가 prefix를 공유할 수 있고, 같은 object key 외의 이전 object 정리는 자동으로 보장되지 않는 운영상 한계가 있다.

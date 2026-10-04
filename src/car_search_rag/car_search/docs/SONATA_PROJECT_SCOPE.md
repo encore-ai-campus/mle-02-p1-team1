@@ -8,7 +8,7 @@
 - project/model code: `DN8`
 - 공식 배포처: [현대자동차 공식 매뉴얼 사이트](https://ownersmanual.hyundai.com/manual/쏘나타?langCode=ko_KR&countryCode=A99&projCode=DN8&year=2026&content=pdfDownload)
 - 자료 형태/언어: 사이트에서 직접 다운로드한 정적 국문 취급설명서 PDF (`ko_KR`); 별도 데이터 수집 API 미사용
-- 현재 Sonata 식별자: `car_id = 20261004_000015`
+- 현재 Sonata 식별자: `car_id = 20261004_000016`
 - 원본 PDF: `data/DN8_2026_ko_KR.pdf`
 - PDF 페이지: 508
 - 비어 있지 않은 page text: 508페이지
@@ -32,16 +32,16 @@
 
 ## 3. 대상 DB 테이블
 
-아래 네 테이블은 `CarManualRepository`, `car_manual.sql`, 제공된 프로젝트 DDL 및 2026-10-04 재등록 후 Sonata 범위 읽기 전용 DB 확인에서 확인한 테이블이다. 건수는 현재 Sonata `car_id=20261004_000015` 조건의 결과이며 데이터베이스 전체 건수가 아니다.
+아래 네 테이블은 `CarManualRepository`, `car_manual.sql`, 제공된 프로젝트 DDL 및 2026-10-04 재등록 후 Sonata 범위 읽기 전용 DB 확인에서 확인한 테이블이다. 건수는 현재 Sonata `car_id=20261004_000016` 조건의 결과이며 데이터베이스 전체 건수가 아니다.
 
 | 테이블 | Sonata 식별 조건 | 현재 건수 | 프로젝트에서의 역할 |
 |---|---|---:|---|
-| `public.car` | `car_id = '20261004_000015'` | 1 | Sonata 브랜드·차종·연식 식별 정보 |
-| `public.car_manual_chapter` | `car_id = '20261004_000015'` | 10 | PDF 매뉴얼 장/Chapter 정보 |
-| `public.car_manual_chunk` | `car_id = '20261004_000015'` | 947 | 페이지 출처가 연결된 검색 본문 및 embedding |
-| `public.car_manual_image` | `car_id = '20261004_000015'` | 955 | 매뉴얼 페이지 이미지 URL 및 메타데이터 |
+| `public.car` | `car_id = '20261004_000016'` | 1 | Sonata 브랜드·차종·연식 식별 정보 |
+| `public.car_manual_chapter` | `car_id = '20261004_000016'` | 10 | PDF 매뉴얼 장/Chapter 정보 |
+| `public.car_manual_chunk` | `car_id = '20261004_000016'` | 947 | 페이지 출처가 연결된 검색 본문 및 embedding |
+| `public.car_manual_image` | `car_id = '20261004_000016'` | 955 | 매뉴얼 페이지 이미지 URL 및 image_desc 메타데이터 |
 
-`car_manual_chunk` 중 embedding이 있는 row는 947개이며, 기존 DB 확인에서 벡터 길이는 모두 1536으로 기록되어 있다. 이 건수는 공유 테이블 전체의 통계로 일반화하지 않는다.
+`car_manual_chunk` 중 embedding이 있는 row는 947개이며, 최신 재등록 후 벡터 길이는 모두 1536이다. `car_manual_image`의 규칙 기반 `image_desc`는 9건 non-NULL, 946건 NULL(99.06%)이다. 이 건수는 공유 테이블 전체의 통계로 일반화하지 않는다.
 
 ## 4. RAG 데이터 규격
 
@@ -89,7 +89,7 @@
 - 문서 식별: Hyundai Sonata 2026 DN8 Korean owner's manual. 공식 revision/edition 번호는 확인되지 않았다.
 - 등록 코드는 PDF를 자동 다운로드하거나 DB 적재를 idempotent upsert하지 않는다. 입력은 `data/DN8_2026_ko_KR.pdf`이며, car row가 없으면 `FN_GET_BIZ_ID('CAR')`에서 신규 ID를 만든다.
 - Storage 경로는 `cars/{brand}/{model}/{image_name}`이고 `upsert=true`다. 동일 object key는 덮어쓰지만 car_id/사용자 ID가 경로에 없어 같은 차종은 prefix를 공유할 수 있다. 이 구조는 이번에 변경하지 않았으며 운영상 주의/개선 후보로 둔다.
-- 2026-10-04 Sonata 재등록 후 새 ID `20261004_000015`와 적재 건수·중복 점검을 확인했다. 오류 및 상세 검증은 `EXPERIMENT_LOG.md`에 기록한다.
+- 2026-10-04 최신 Sonata 재등록 후 현재 ID `20261004_000016`와 적재 건수·중복 점검을 확인했다. 규칙 기반 image_desc는 9건 생성되고 946건은 근거 부족으로 NULL을 유지했다. 오류 및 상세 검증은 `EXPERIMENT_LOG.md`에 기록한다.
 
 ## 6. 검색 파이프라인
 
@@ -107,7 +107,7 @@ Streamlit app_kbj.py
 
 `search_car_manual`은 브랜드·차종·연식 조건으로 검색 범위를 제한하고 chunk vector 거리로 정렬한다. 서비스 호출 시 사용하는 모델 조건은 `hyundai / sonata / 2026`이다. 실제 검색 품질 평가에서는 이 조건이 Sonata `car_id`에 대응하는지 검색 결과를 함께 확인해야 한다.
 
-**평가 범위 주의:** 현재 SQL의 검색 조건은 `car_id` 직접 조건이 아니라 브랜드·차종·연식 조건이다. 2026-10-04 재등록 후 `hyundai / sonata / 2026` 조건은 현재 Sonata `car_id=20261004_000015` 한 건에 대응함을 확인했다. 과거 M6/E2E 실행은 당시 ID를 기록한 historical 결과이며 현재 ID로 소급 변경하지 않는다.
+**평가 범위 주의:** 현재 SQL의 검색 조건은 `car_id` 직접 조건이 아니라 브랜드·차종·연식 조건이다. 2026-10-04 최신 재등록 후 `hyundai / sonata / 2026` 조건은 현재 Sonata `car_id=20261004_000016` 한 건에 대응함을 확인했다. 과거 M6/E2E 실행은 당시 ID를 기록한 historical 결과이며 현재 ID로 소급 변경하지 않는다.
 
 ## 7. 평가 범위
 
@@ -148,7 +148,7 @@ M6/M7 평가에서는 다음 규칙을 적용한다.
 | 항목 | 기준 |
 |---|---|
 | 차량 | Hyundai Sonata 2026 |
-| `car_id` | `20261004_000015` |
+| `car_id` | `20261004_000016` |
 | 원본 PDF | `data/DN8_2026_ko_KR.pdf` |
 | PDF 페이지 | 508 |
 | 비어 있지 않은 page text | 508 |

@@ -5,6 +5,7 @@ from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 
 from car_search_rag.common.sql_session import SqlSession
 from car_search_rag.car_search.car_manual_repository import CarManualRepository
+from car_search_rag.car_search.image_relevance import select_relevant_images
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
@@ -154,6 +155,16 @@ class CarManualSearchService:
         )
 
 
+
+    def select_relevant_images(self, question, search_results, limit=3):
+        """Select display images only from pages in current chunk search results."""
+        rows = tuple(search_results or ())
+        car_ids = {row.get("carId", row.get("car_id")) for row in rows if row.get("carId", row.get("car_id"))}
+        if len(car_ids) != 1:
+            return []
+        pages = {row.get("carManualChunkPageNo", row.get("car_manual_chunk_page_no")) for row in rows if row.get("carManualChunkPageNo", row.get("car_manual_chunk_page_no")) is not None}
+        candidates = self.repository.search_images_by_pages(next(iter(car_ids)), pages)
+        return select_relevant_images(question, rows, candidates, limit=limit)
 
     # =========================================================
     # 차량 매뉴얼 LLM 답변 생성
