@@ -1,0 +1,552 @@
+{
+  "generation_by_chapter": {
+    "1": {
+      "candidate_ids": [
+        "S01-01",
+        "S01-02",
+        "S01-03",
+        "S01-04",
+        "S01-05",
+        "S01-06",
+        "S01-07"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S01-01",
+          "question": "제작 결함이 의심되는 차량 문제는 어디에 신고할 수 있나요?",
+          "question_type": "warning",
+          "grounding_quote": "제작 결함의 가능성이 있다고 판단되는 경우 제작 결함 조사를 실시하여"
+        },
+        {
+          "source_candidate_id": "S01-02",
+          "question": "취급설명서에서 ‘주의’ 표시는 어떤 상황을 의미하나요?",
+          "question_type": "warning",
+          "grounding_quote": "차량이 고장나거나 손상될 우려가 있는 경우를 나타내는 표시입니다."
+        },
+        {
+          "source_candidate_id": "S01-03",
+          "question": "차량에 문제가 생겼을 때 응급 조치 내용은 설명서의 어느 장에서 찾을 수 있나요?",
+          "question_type": "feature",
+          "grounding_quote": "9 비상시 응급 조치"
+        },
+        {
+          "source_candidate_id": "S01-04",
+          "question": "타이어 속도 등급이 V이면 최대 안전 주행 속도는 얼마인가요?",
+          "question_type": "condition",
+          "grounding_quote": "V 240 km/h(149 mph)"
+        },
+        {
+          "source_candidate_id": "S01-05",
+          "question": "엔진 번호는 차량의 어느 부위에서 확인할 수 있나요?",
+          "question_type": "feature",
+          "grounding_quote": "엔진 번호는 실린더 블록(그림의 위치)에 타각되어 있습니다."
+        },
+        {
+          "source_candidate_id": "S01-06",
+          "question": "Smartstream G1.6 T-GDI 엔진의 엔진 오일 용량은 얼마인가요?",
+          "question_type": "maintenance",
+          "grounding_quote": "Smartstream G1.6 T-GDI 4.8 ℓ"
+        },
+        {
+          "source_candidate_id": "S01-07",
+          "question": "차량 부품의 이름을 모를 때 설명서에서 어떤 방법으로 찾아야 하나요?",
+          "question_type": "feature",
+          "grounding_quote": "명칭을 모를 때 그림 목차(차량 내부 I)를 활용하세요"
+        }
+      ],
+      "input_tokens": 2892,
+      "output_tokens": 627
+    },
+    "2": {
+      "candidate_ids": [
+        "S02-01",
+        "S02-02",
+        "S02-03",
+        "S02-04",
+        "S02-05",
+        "S02-06",
+        "S02-07"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S02-01",
+          "question": "주행 중 엔진을 끄면 어떤 문제가 생길 수 있나요?",
+          "question_type": "warning",
+          "grounding_quote": "주행 중에는 시동을 끄지 마십시오. 브레이크의 성능이 저하되거나, 파워 스티어링 장치가 작동하지 않아 스티어링 휠 조작력이 많이 무거워질 수 있습니다."
+        },
+        {
+          "source_candidate_id": "S02-02",
+          "question": "주행 중 LPG 냄새가 나면 가장 먼저 어떻게 해야 하나요?",
+          "question_type": "warning",
+          "grounding_quote": "주행 중 LPG 냄새 또는 이상이 있을 때나 사고로 인하여 차체에 파손을 입었을 때는 즉시 차량을 세우고 엔진을 정지시킨 다음"
+        },
+        {
+          "source_candidate_id": "S02-03",
+          "question": "어린이나 임산부가 동승석에 앉아도 되나요?",
+          "question_type": "condition",
+          "grounding_quote": "어린이나 유아 및 임산부, 노약자는 동승석 에어백이 장착된 차량의 동승석에는 절대 앉히지 마십시오."
+        },
+        {
+          "source_candidate_id": "S02-04",
+          "question": "트렁크를 연 채로 주행해도 괜찮은가요?",
+          "question_type": "warning",
+          "grounding_quote": "트렁크를 연 상태로 주행하지 마십시오. 배기가스가 차 안으로 들어올 수 있습니다."
+        },
+        {
+          "source_candidate_id": "S02-05",
+          "question": "가죽 시트가 젖었을 때는 무엇을 주의해야 하나요?",
+          "question_type": "maintenance",
+          "grounding_quote": "수분에 의하여 천연가죽의 특성이 변할 수 있으므로 젖지 않도록 주의하십시오."
+        },
+        {
+          "source_candidate_id": "S02-06",
+          "question": "주행 중 휴대전화를 사용해도 되나요?",
+          "question_type": "warning",
+          "grounding_quote": "주행 중 휴대 전화 사용은 불법이며 매우 위험합니다. 안전한 곳에 주정차한 후 휴대 전화를 사용하십시오."
+        },
+        {
+          "source_candidate_id": "S02-07",
+          "question": "장시간 주차하면서 차 안에서 잠을 자도 되나요?",
+          "question_type": "warning",
+          "grounding_quote": "장시간 주정차 중에 창문을 닫고 차 안에 있거나 수면을 취하지 마십시오. 질식사의 위험이 있습니다."
+        }
+      ],
+      "input_tokens": 3926,
+      "output_tokens": 873
+    },
+    "3": {
+      "candidate_ids": [
+        "S03-01",
+        "S03-02",
+        "S03-03",
+        "S03-04",
+        "S03-05",
+        "S03-06",
+        "S03-07",
+        "S03-08"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S03-01",
+          "question": "앞좌석 열선 시트의 온도 단계는 어떻게 조절하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "시동을 건 상태에서 해당 좌석의 열선 버튼을 눌러 원하는 온도 단계를 선택하십시오."
+        },
+        {
+          "source_candidate_id": "S03-02",
+          "question": "릴렉션 컴포트 시트가 작동하지 않는 경우는 언제인가요?",
+          "question_type": "condition",
+          "grounding_quote": "다음과 같은 경우에는 릴렉션 컴포트 시트가 작동하지 않습니다."
+        },
+        {
+          "source_candidate_id": "S03-03",
+          "question": "열선 시트를 사용할 때 배터리 방전을 막으려면 어떤 점에 주의해야 하나요?",
+          "question_type": "warning",
+          "grounding_quote": "배터리 방전을 방지하기 위해 시동이 꺼진 상태에서는 열선 시트 사용을 자제하십시오."
+        },
+        {
+          "source_candidate_id": "S03-04",
+          "question": "스키 스루로 긴 화물을 적재하려면 어떻게 해야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "뒷좌석의 암레스트를 내리고 스키 스루 손잡이를 아래로 내리십시오."
+        },
+        {
+          "source_candidate_id": "S03-05",
+          "question": "운전석 통풍 시트가 차량 온도에 따라 자동으로 작동하도록 설정하려면 어떻게 하나요?",
+          "question_type": "setting",
+          "grounding_quote": "인포테인먼트 시스템의 전체 메뉴 화면에서 설정 > 차량 > 시트 > 열선/통풍 편의 > 공조 연동 자동 제어 > 운전석 시트 열선/통풍을 누르십시오."
+        },
+        {
+          "source_candidate_id": "S03-06",
+          "question": "동승석에 앉았을 때 PASSENGER AIR BAG OFF 표시등이 계속 켜져 있으면 어떻게 해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "PASSENGER AIR BAG OFF 표시등이 계속 켜져 있다면 에어백이 정상적으로 작동하지 않는 상태이니, 동승석 탑승자가 뒷좌석에 앉도록 하십시오."
+        },
+        {
+          "source_candidate_id": "S03-07",
+          "question": "헤드레스트를 분리할 때 어떤 순서로 진행하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "헤드레스트를 끝까지 올린 후 잠금 해제 버튼(3)을 누른 상태에서 헤드레스트를 위로 올려 분리 하십시오(4)."
+        },
+        {
+          "source_candidate_id": "S03-08",
+          "question": "에어백이 작동한 뒤에는 어떤 정비 조치가 필요한가요?",
+          "question_type": "maintenance",
+          "grounding_quote": "에어백이 한 번 작동했다면 반드시 교체해야 합니다."
+        }
+      ],
+      "input_tokens": 4403,
+      "output_tokens": 734
+    },
+    "4": {
+      "candidate_ids": [
+        "S04-01",
+        "S04-02",
+        "S04-03",
+        "S04-04",
+        "S04-05",
+        "S04-06",
+        "S04-07"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S04-01",
+          "question": "시동 후에도 ABS 경고등이 계속 켜져 있으면 어떻게 해야 하나요?",
+          "question_type": "warning",
+          "grounding_quote": "3초가 지나도 경고등이 꺼지지 않으면 ABS 장치에 이상이 있는 것이므로 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오."
+        },
+        {
+          "source_candidate_id": "S04-02",
+          "question": "등록된 디지털 키를 무선 충전기에 올려놓으라는 경고는 어떤 상황에서 나타나나요?",
+          "question_type": "condition",
+          "grounding_quote": "차 안에 스마트 키가 없거나 인식되지 않거나 무선 충전기 위에 등록된 디지털 키를 올려놓지 않으면 이 경고문이 표시됩니다."
+        },
+        {
+          "source_candidate_id": "S04-03",
+          "question": "주행 중 엔진 오일 압력 경고등이 켜지면 우선 어떤 조치를 해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "도로 옆으로 차를 안전하게 정차하고 엔진 오일량을 점검한 후 부족하면 보충하십시오."
+        },
+        {
+          "source_candidate_id": "S04-04",
+          "question": "외기 온도 표시 단위를 변경하면 공조 장치의 온도 단위도 함께 바뀌나요?",
+          "question_type": "feature",
+          "grounding_quote": "외기 온도 표시 단위와 히터 및 에어컨의 온도 단위가 동시에 변경됩니다."
+        },
+        {
+          "source_candidate_id": "S04-05",
+          "question": "인포테인먼트 시스템에서 차량 설정을 변경하려면 어떤 메뉴로 들어가야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "설정 > 차량을 차례로 선택한 후 원하는 항목의 설정을 변경하십시오."
+        },
+        {
+          "source_candidate_id": "S04-06",
+          "question": "LED 전조등 고장 경고등이 켜지거나 깜빡일 때 계속 주행해도 되나요?",
+          "question_type": "warning",
+          "grounding_quote": "표시등이 켜지거나 깜빡이는 상태로 계속 주행하면 LED 전조등의 수명이 단축될 수 있으므로 즉시 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오."
+        },
+        {
+          "source_candidate_id": "S04-07",
+          "question": "원격 시동 후 디지털 키로 도어를 열었을 때 주행이 제한되면 어떻게 해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "경고문에 따라 등록된 디지털 키를 무선 충전기 위에 올려놓으십시오. 경고문이 사라지면 시동이 유지되고, 차량을 주행할 수 있습니다."
+        }
+      ],
+      "input_tokens": 2861,
+      "output_tokens": 917
+    },
+    "5": {
+      "candidate_ids": [
+        "S05-01",
+        "S05-02",
+        "S05-03",
+        "S05-04",
+        "S05-05",
+        "S05-06",
+        "S05-07",
+        "S05-08"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S05-01",
+          "question": "하이패스 LED가 빨간색으로 계속 깜빡이고 점검 안내 음성이 나오면 어떻게 해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "하이패스 안테나가 정상 체결되지 않았거나 하이패스 시스템 이상이 있을 수 있으므로 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오."
+        },
+        {
+          "source_candidate_id": "S05-02",
+          "question": "빌트인 캠의 SD 메모리를 안전하게 제거하려면 어떤 절차를 거쳐야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "먼저 빌트인 캠 설정 > SD 메모리 메뉴의 연결 해제 버튼을 누른 후 메모리를 손톱으로 눌러 메모리 카드 단자에서 제거하십시오."
+        },
+        {
+          "source_candidate_id": "S05-03",
+          "question": "실내 인증 패드를 이용해 NFC 카드 키를 등록하려면 어떻게 해야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "차량 전원 'ON' 상태에서 등록하려는 카드 키를 실내 인증 패드(무선 충전 패드)에 올려 놓으십시오."
+        },
+        {
+          "source_candidate_id": "S05-04",
+          "question": "하이패스 시스템의 등록 정보를 음성으로 확인하려면 어떤 버튼을 조작해야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "하이패스 시스템 등록 정보를 확인하려면 잔액 확인 버튼, 전원/볼륨 버튼을 동시에 길게 누르십시오."
+        },
+        {
+          "source_candidate_id": "S05-05",
+          "question": "선루프는 어떤 상황에서 초기화해야 하나요?",
+          "question_type": "condition",
+          "grounding_quote": "다음과 같은 경우에는 선루프를 초기화하십시오. • 선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때 또는 관련 퓨즈를 교체하였을 때 • 선루프가 정상적으로 작동하지 않을 경우"
+        },
+        {
+          "source_candidate_id": "S05-06",
+          "question": "빌트인 캠으로 녹화된 영상을 확인하려면 인포테인먼트 시스템에서 무엇을 선택해야 하나요?",
+          "question_type": "feature",
+          "grounding_quote": "인포테인먼트 시스템 홈 화면에서 빌트인 캠을 선택하십시오."
+        },
+        {
+          "source_candidate_id": "S05-07",
+          "question": "휴대전화를 차량에 연결하기 전에 운전자는 어떤 조치를 해야 하나요?",
+          "question_type": "warning",
+          "grounding_quote": "반드시 안전한 곳에 차를 정차한 후 휴대 전화를 연결하십시오."
+        },
+        {
+          "source_candidate_id": "S05-08",
+          "question": "스마트 키로 시동이 꺼진 차량의 유리창을 원격으로 닫으려면 어떻게 해야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "시동이 꺼진 상태에서 스마트 키의 도어 잠금 버튼(1)을 3초 이상 길게 누르십시오."
+        }
+      ],
+      "input_tokens": 3262,
+      "output_tokens": 1252
+    },
+    "6": {
+      "candidate_ids": [
+        "S06-01",
+        "S06-02",
+        "S06-03",
+        "S06-04",
+        "S06-05",
+        "S06-06",
+        "S06-07",
+        "S06-08"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S06-01",
+          "question": "초기 약 1,500km 동안 저속에서 가속할 때 변속이 매끄럽지 않으면 이상인가요?",
+          "question_type": "condition",
+          "grounding_quote": "초기 약 1,500 km 주행 시 저속에서 가속 페달을 밟으면, 주행이 매끄럽지 못할 수 있습니다. 이 기간 동안 차량의 변속감 및 변속 성능이 최적화되므로, 이는 정상입니다."
+        },
+        {
+          "source_candidate_id": "S06-02",
+          "question": "전방 차량을 감지하기 어려울 수 있는 상황에는 어떤 경우가 있나요?",
+          "question_type": "condition",
+          "grounding_quote": "전방 차량이 갑자기 차선을 바꾸거나 갑자기 속도를 줄인 경우"
+        },
+        {
+          "source_candidate_id": "S06-03",
+          "question": "주행 중 변속 다이얼을 조작할 때 브레이크 페달을 밟아야 하는 이유는 무엇인가요?",
+          "question_type": "feature",
+          "grounding_quote": "시동이 걸린 상태에서 브레이크 페달을 밟아야만 'P'(주차) 또는 'N'(중립) 상태에서 'R'(후진), 'N'(중립), 'D'(주행)로 변속할 수 있습니다."
+        },
+        {
+          "source_candidate_id": "S06-04",
+          "question": "가로등이 없는 어두운 길을 운전할 때 어떻게 주행해야 하나요?",
+          "question_type": "warning",
+          "grounding_quote": "속도를 줄이고 차량 간격을 충분히 유지하십시오. 가로등이 없는 길에서는 시야를 확보하기가 더욱더 어려우므로 주의하십시오."
+        },
+        {
+          "source_candidate_id": "S06-05",
+          "question": "LPI 엔진은 시동 대기 표시등이 켜진 뒤 어떻게 시동을 걸어야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "클러스터의 시동 대기 표시등( )이 켜진 후 다시 꺼질 때까지 브레이크 페달을 밟고 기다리십시오."
+        },
+        {
+          "source_candidate_id": "S06-06",
+          "question": "SPORT 또는 SPORT+ 모드에서 시동을 껐다가 다시 걸면 어떤 주행 모드로 바뀌나요?",
+          "question_type": "setting",
+          "grounding_quote": "SPORT/SPORT+ 모드 작동 중에 시동을 껐다가 다시 걸면 NORMAL 모드로 변경됩니다."
+        },
+        {
+          "source_candidate_id": "S06-07",
+          "question": "배터리가 방전되어 전자식 변속 다이얼이 작동하지 않을 때 N단으로 옮기려면 어떻게 해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "배터리가 방전됐을 때 전자식 변속 다이얼은 변속이 되지 않습니다. 비상시에 ‘N’(중립)으로 변속하고자 할 때는 반드시 평지에서 다음 사항을 따르십시오."
+        },
+        {
+          "source_candidate_id": "S06-08",
+          "question": "스마트 ISG 기능이 정상적으로 작동하지 않을 수 있는 환경은 어떤 경우인가요?",
+          "question_type": "condition",
+          "grounding_quote": "폭우, 폭설, 짙은 안개 상황에서 운전하는 경우"
+        }
+      ],
+      "input_tokens": 3920,
+      "output_tokens": 1166
+    },
+    "7": {
+      "candidate_ids": [
+        "S07-01",
+        "S07-02",
+        "S07-03",
+        "S07-04",
+        "S07-05",
+        "S07-06",
+        "S07-07",
+        "S07-08"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S07-01",
+          "question": "짐칸이나 기타 장비를 사용할 때 후측방 충돌방지 보조는 어떻게 해야 하나요?",
+          "question_type": "warning",
+          "grounding_quote": "짐칸 및 기타 장비를 사용할 때는 후측방 충돌 방지 보조를 끄십시오."
+        },
+        {
+          "source_candidate_id": "S07-02",
+          "question": "차로 이탈방지 보조를 켜거나 끄려면 어떤 조작을 해야 하며, 상태는 어떻게 표시되나요?",
+          "question_type": "procedure",
+          "grounding_quote": "시동 ‘ON’ 상태에서 차로 주행 보조 버튼( )을 길게 눌러 차로 이탈 방지를 끄고 켤 수 있습니다."
+        },
+        {
+          "source_candidate_id": "S07-03",
+          "question": "크루즈 컨트롤은 어느 속도 범위에서 설정할 수 있나요?",
+          "question_type": "condition",
+          "grounding_quote": "단, 차량 속도가 30 km/h 이상, 180 km/h 이하에서만 설정할 수 있습니다."
+        },
+        {
+          "source_candidate_id": "S07-04",
+          "question": "후방 교차 충돌방지 보조가 제동 제어를 한 뒤 정차 상태는 얼마나 유지되나요?",
+          "question_type": "feature",
+          "grounding_quote": "정차는 약 2초 동안 유지되며 이후 제동 제어가 종료됩니다."
+        },
+        {
+          "source_candidate_id": "S07-05",
+          "question": "저속 주행 시 주차 거리 경고가 자동으로 켜지도록 설정하려면 어디에서 조작하나요?",
+          "question_type": "setting",
+          "grounding_quote": "시동 'ON' 상태에서 인포테인먼트 시스템의 설정 > 차량 > 운전자 보조 > 주차 안전 > 주차 거리 경고 자동 켜짐 을 차례로 선택하십시오."
+        },
+        {
+          "source_candidate_id": "S07-06",
+          "question": "차로 유지 보조에 이상이 발생했다는 경고가 표시되면 어떻게 해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "차로 유지 보조에 이상이 있으면 클러스터 표시창에 경고문이 일정시간 표시되며 통합 경고등( )이 켜집니다. 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오."
+        },
+        {
+          "source_candidate_id": "S07-07",
+          "question": "차로 안전 기능은 인포테인먼트 시스템에서 어떻게 설정하며, 설정하면 어떤 도움을 받을 수 있나요?",
+          "question_type": "setting",
+          "grounding_quote": "시동 ‘ON’ 상태에서 인포테인먼트 시스템의 설정 > 차량 > 운전자 보조 > 주행 안전을 차례로 선택하십시오. 기능의 사용 여부를 선택할 수 있습니다."
+        },
+        {
+          "source_candidate_id": "S07-08",
+          "question": "짐칸이나 기타 장비를 제거한 뒤에도 안전 하차 보조가 제대로 작동하지 않으면 어떻게 해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "차량 후방 짐칸, 기타 장비 또는 이물질을 제거해도 안전 하차 보조가 정상적으로 작동하지 않으면 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오."
+        }
+      ],
+      "input_tokens": 3994,
+      "output_tokens": 1143
+    },
+    "8": {
+      "candidate_ids": [
+        "S08-01",
+        "S08-02",
+        "S08-03",
+        "S08-04",
+        "S08-05",
+        "S08-06",
+        "S08-07"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S08-01",
+          "question": "타이어 응급 처치 키트에는 어떤 장치와 부품이 들어 있나요?",
+          "question_type": "feature",
+          "grounding_quote": "(2) 실런트(봉합제) 및 실런트 용기\n(3) 주입 호스\n(4) 다용도 소켓 연결 커넥터 및 케이블\n(6) 컴프레서\n(8) 타이어 압력 게이지"
+        },
+        {
+          "source_candidate_id": "S08-02",
+          "question": "차량을 견인할 때 가장 권장되는 방법은 무엇인가요?",
+          "question_type": "procedure",
+          "grounding_quote": "차량을 견인하는 가장 좋은 방법은 차량 전체를\n들어 올려 견인 차량에 싣는 상차 견인입니다."
+        },
+        {
+          "source_candidate_id": "S08-03",
+          "question": "더블 클러치 변속기 차량을 일반 차량으로 견인할 때 지켜야 할 거리와 속도 제한은 어떻게 되나요?",
+          "question_type": "condition",
+          "grounding_quote": "더블 클러치 변속기 장착 차량은 20 km 이\n내의 거리를 전진 방향으로만 25 km/h 이하\n의 속도로 견인하십시오."
+        },
+        {
+          "source_candidate_id": "S08-04",
+          "question": "타이어 응급 처치 키트의 컴프레서는 한 번에 얼마나 오래 작동시킬 수 있나요?",
+          "question_type": "warning",
+          "grounding_quote": "컴프레서를 10분 이상 작동하지 마십시오.\n과열되거나 손상될 수 있습니다."
+        },
+        {
+          "source_candidate_id": "S08-05",
+          "question": "일반 차량으로 견인할 때 로프는 어떻게 준비하고 차량은 어떤 상태로 두어야 하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "로프의 길이는 5 m(1) 이내로 하고 로프를\n식별할 수 있도록 중앙에 약 30 cm 너비\n의 흰색 천을 묶으십시오.\n2. 기어를 'N'(중립)으로 변속하고 시동 'ACC'\n상태로 두십시오."
+        },
+        {
+          "source_candidate_id": "S08-06",
+          "question": "차량 화재가 발생했을 때 소화기는 어떤 순서로 사용하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "1. 소화기의 안전핀을 뽑으십시오.\n2. 바람이 부는 방향을 등지고 서십시오.\n3. 레버를 움켜쥐면서 불이 난 곳을 향해 빗자\n루로 쓸듯이 방사하십시오."
+        },
+        {
+          "source_candidate_id": "S08-07",
+          "question": "탈부착 견인 후크를 장착할 때 어떤 순서로 체결하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "1. 타이어 응급 처치 키트(TMK)에서 견인 후크\n를 꺼내십시오.\n2. 범퍼의 홀 커버를 눌러 홀 커버를 분리하십\n시오.\n3. 견인 후크를 홀에 넣어 오른쪽으로 끝까지\n돌려 체결하십시오."
+        }
+      ],
+      "input_tokens": 3171,
+      "output_tokens": 833
+    },
+    "9": {
+      "candidate_ids": [
+        "S09-01",
+        "S09-02",
+        "S09-03",
+        "S09-04",
+        "S09-05",
+        "S09-06",
+        "S09-07",
+        "S09-08"
+      ],
+      "items": [
+        {
+          "source_candidate_id": "S09-01",
+          "question": "어떤 운전 환경에서는 일반 점검 주기보다 더 자주 차량을 점검해야 하나요?",
+          "question_type": "condition",
+          "grounding_quote": "위와 같은 조건에서 자주 운전했다면 정기 점검 주기보다 더 자주 점검, 교체, 보충하십시오."
+        },
+        {
+          "source_candidate_id": "S09-02",
+          "question": "공조 장치용 에어필터를 직접 교체할 때 글로브 박스는 어떻게 분리하나요?",
+          "question_type": "procedure",
+          "grounding_quote": "글로브 박스의 양옆을 안으로 누르면서 아래로 당겨 분리하십시오."
+        },
+        {
+          "source_candidate_id": "S09-03",
+          "question": "엔진 부조가 발생하면 정기 점검 항목으로 확인해야 하나요?",
+          "question_type": "troubleshooting",
+          "grounding_quote": "엔진 부조 시 점검 *3 ○"
+        },
+        {
+          "source_candidate_id": "S09-04",
+          "question": "배출가스 기준을 초과한 차량에는 어떤 불이익이 있나요?",
+          "question_type": "warning",
+          "grounding_quote": "위의 기준을 초과하는 차량은 법적인 제재를 받습니다."
+        },
+        {
+          "source_candidate_id": "S09-05",
+          "question": "원목 내장재에 오물이 묻었을 때 어떻게 닦아야 하나요?",
+          "question_type": "maintenance",
+          "grounding_quote": "오물이 묻으면 즉시 부드러운 마른 헝겊으로 닦으십시오."
+        },
+        {
+          "source_candidate_id": "S09-06",
+          "question": "배기가스 제어 관련 부품은 어떻게 관리하고 정비해야 하나요?",
+          "question_type": "maintenance",
+          "grounding_quote": "다음의 항목은 정기 점검 주기표에 따라 점검하거나 교체하십시오."
+        },
+        {
+          "source_candidate_id": "S09-07",
+          "question": "차량의 퓨즈 용량과 명칭은 어디에서 확인할 수 있나요?",
+          "question_type": "feature",
+          "grounding_quote": "퓨즈/릴레이 박스 커버 안쪽에 부착된 퓨즈 라벨을 참고하십시오."
+        },
+        {
+          "source_candidate_id": "S09-08",
+          "question": "차량 내장품을 세척할 때 사용하면 안 되는 물질은 무엇인가요?",
+          "question_type": "warning",
+          "grounding_quote": "아세톤, 벤젠, 락카용제, 에나멜 및 표백제, 휘발유 또는 신나 등의 유류물질 등을 절대로 사용하지 마십시오."
+        }
+      ],
+      "input_tokens": 3472,
+      "output_tokens": 726
+    }
+  }
+}

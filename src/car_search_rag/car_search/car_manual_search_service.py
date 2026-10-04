@@ -1,5 +1,10 @@
 import logging
+import json
+import os
+import re
+import time
 from dataclasses import dataclass
+from time import perf_counter
 
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 
@@ -12,7 +17,36 @@ from langchain_core.output_parsers import StrOutputParser
 
 EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
+RERANKER_MODEL = "gpt-5.6-luna"
+RERANKER_TIMEOUT_SECONDS = 15
+RERANKER_MAX_RETRIES = 1
+RERANKER_BACKOFF_SECONDS = 0.5
 machine_logger = logging.getLogger("car_search_rag.car_manual")
+
+RERANKER_SYSTEM_PROMPT = """You are a retrieval reranker.
+질문과 제공된 문서 청크만 비교해, 질문에 답하는 근거로 직접 관련된 순서대로 정렬하세요.
+질문에 직접 답하는 내용, 같은 부품·기능·작업에 대한 구체적인 절차·조건·경고를 우선하고, 단어만 비슷하거나 일반적인 문서는 낮게 평가하세요.
+답변을 작성하거나 후보 text를 고치거나 후보를 추가하지 마세요. 모든 후보 ID를 정확히 한 번씩 반환하세요.
+JSON object만 반환하세요. 형식: {"ranking":[{"candidate_id":"C01","relevance_score":0}]}
+점수는 0~100 정수이며 ranking은 relevance_score 내림차순입니다."""
+
+
+def _message_text(message) -> str:
+    content = getattr(message, "content", "")
+    if isinstance(content, str):
+        return content
+    if isinstance(content, list):
+        return "".join(item.get("text", "") for item in content if isinstance(item, dict))
+    return str(content)
+
+
+def _message_token_usage(message) -> tuple[int, int]:
+    usage = getattr(message, "usage_metadata", None) or {}
+    response_usage = (getattr(message, "response_metadata", None) or {}).get("token_usage", {})
+    return (
+        int(usage.get("input_tokens", response_usage.get("prompt_tokens", 0)) or 0),
+        int(usage.get("output_tokens", response_usage.get("completion_tokens", 0)) or 0),
+    )
 
 
 @dataclass(frozen=True)
@@ -47,6 +81,8 @@ class CarManualSearchService:
         self.sql_session = sql_session                              # 전달받은 데이터베이스 세션
         self.repository = CarManualRepository(sql_session=self.sql_session)  # 문서 검색 저장소
 
+        self.reranking_enabled = os.getenv("ENABLE_LLM_RERANKING", "true").strip().lower() in {"1", "true", "yes", "on"}
+
         self.embedding_model = OpenAIEmbeddings(                     # 질의 임베딩 모델
             model=EMBEDDING_MODEL
         )
@@ -54,6 +90,17 @@ class CarManualSearchService:
         self.chat_model = ChatOpenAI(                                 # 검색·답변 생성에 사용할 LLM
                 model="gpt-6-luna"
             )
+
+        self.reranker_model = (
+            ChatOpenAI(
+                model=RERANKER_MODEL,
+                max_completion_tokens=400,
+                timeout=RERANKER_TIMEOUT_SECONDS,
+                max_retries=0,
+            ).bind(response_format={"type": "json_object"})
+            if self.reranking_enabled
+            else None
+        )
 
 
         # =========================================================
@@ -145,14 +192,168 @@ class CarManualSearchService:
     # 차량 매뉴얼 AI 검색
     # =========================================================
     def search_manual(self,car_brand_eng_nm,car_eng_nm,car_model_yr,question,limit=5):
+        """Return the current vector candidates, reranked when enabled."""
+        results, _metadata = self.search_manual_with_metadata(
+            car_brand_eng_nm=car_brand_eng_nm,
+            car_eng_nm=car_eng_nm,
+            car_model_yr=car_model_yr,
+            question=question,
+            limit=limit,
+        )
+        return results
+
+    def search_manual_with_metadata(
+        self,
+        car_brand_eng_nm,
+        car_eng_nm,
+        car_model_yr,
+        question,
+        limit=5,
+        *,
+        enable_reranking=None,
+    ):
+        """Run unchanged vector retrieval, then optionally rerank its exact rows."""
         query_vector = self.embedding_model.embed_query(question)
-        return self.repository.search_manual(
+        vector_results = self.repository.search_manual(
             car_brand_eng_nm=car_brand_eng_nm,
             car_eng_nm=car_eng_nm,
             car_model_yr=car_model_yr,
             embedding=query_vector,
             limit=limit
         )
+        should_rerank = self.reranking_enabled if enable_reranking is None else bool(enable_reranking)
+        if not should_rerank:
+            metadata = {
+                "success": False,
+                "model": RERANKER_MODEL,
+                "latency_seconds": 0.0,
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "fallback_reason": "reranking disabled",
+                "candidate_count": len(vector_results or ()),
+                "request_count": 0,
+                "retry_count": 0,
+            }
+            machine_logger.info(
+                "LLM rerank disabled candidates=%d reason=%s",
+                metadata["candidate_count"], metadata["fallback_reason"],
+            )
+            return list(vector_results or ()), metadata
+
+        return self.rerank_search_results(question, vector_results)
+
+    def rerank_search_results(self, question, candidates):
+        """Rerank ten retrieved rows, returning original rows and safe metadata.
+
+        Any request, parse, or validation failure returns the original Vector
+        order. Candidate IDs sent to the model are stable C01-C10 labels and are
+        mapped back through a separate dictionary without modifying source rows.
+        """
+        vector_rows = list(candidates or ())
+        metadata = {
+            "success": False,
+            "model": RERANKER_MODEL,
+            "latency_seconds": 0.0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "fallback_reason": None,
+            "candidate_count": len(vector_rows),
+            "request_count": 0,
+            "retry_count": 0,
+        }
+
+        if len(vector_rows) != 10:
+            metadata["fallback_reason"] = f"expected 10 vector candidates; got {len(vector_rows)}"
+            machine_logger.warning(
+                "LLM rerank fallback model=%s candidates=%d reason=%s",
+                RERANKER_MODEL, len(vector_rows), metadata["fallback_reason"],
+            )
+            return vector_rows, metadata
+        if self.reranker_model is None:
+            metadata["fallback_reason"] = "reranker model unavailable"
+            machine_logger.warning("LLM rerank fallback model=%s reason=%s", RERANKER_MODEL, metadata["fallback_reason"])
+            return vector_rows, metadata
+
+        # Avoid object spread/merge here: the model label cannot be overwritten
+        # by the source page/chunk identity.
+        candidate_rows = {}
+        prompt_candidates = []
+        for index, row in enumerate(vector_rows, start=1):
+            candidate_id = f"C{index:02d}"
+            candidate_rows[candidate_id] = row
+            page_no = row.get("carManualChunkPageNo", row.get("car_manual_chunk_page_no"))
+            chunk_id = row.get("carManualChunkNo", row.get("car_manual_chunk_no"))
+            metadata.setdefault("candidate_mapping", []).append({
+                "candidate_id": candidate_id,
+                "page_no": page_no,
+                "chunk_id": chunk_id,
+            })
+            prompt_candidates.append({
+                "candidate_id": candidate_id,
+                "page_no": page_no,
+                "chunk_id": chunk_id,
+                "text": row.get("carManualChunkTxt", row.get("car_manual_chunk_txt", "")),
+            })
+
+        payload = {"question": question, "candidates": prompt_candidates}
+        expected_ids = {f"C{i:02d}" for i in range(1, 11)}
+        total_started = perf_counter()
+        last_error = None
+
+        for attempt in range(RERANKER_MAX_RETRIES + 1):
+            metadata["request_count"] += 1
+            try:
+                response = self.reranker_model.invoke([
+                    ("system", RERANKER_SYSTEM_PROMPT),
+                    ("human", json.dumps(payload, ensure_ascii=False)),
+                ])
+                input_tokens, output_tokens = _message_token_usage(response)
+                metadata["input_tokens"] += input_tokens
+                metadata["output_tokens"] += output_tokens
+                raw = _message_text(response).strip()
+                raw = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw, flags=re.IGNORECASE)
+                result = json.loads(raw)
+                ranking = result.get("ranking")
+                if not isinstance(ranking, list):
+                    raise ValueError("JSON must contain ranking array")
+                ids = [item.get("candidate_id") for item in ranking]
+                if len(ids) != 10 or set(ids) != expected_ids or len(set(ids)) != 10:
+                    raise ValueError("ranking must include C01-C10 exactly once")
+                for item in ranking:
+                    score = item.get("relevance_score")
+                    if isinstance(score, bool) or not isinstance(score, int) or not 0 <= score <= 100:
+                        raise ValueError(f"invalid relevance_score for {item['candidate_id']}")
+                scores = [item["relevance_score"] for item in ranking]
+                if any(left < right for left, right in zip(scores, scores[1:])):
+                    raise ValueError("ranking must be sorted by descending relevance_score")
+
+                reordered = [candidate_rows[item["candidate_id"]] for item in ranking]
+                metadata["success"] = True
+                metadata["latency_seconds"] = perf_counter() - total_started
+                machine_logger.info(
+                    "LLM rerank success model=%s candidates=%d latency_ms=%.1f input_tokens=%d output_tokens=%d retries=%d",
+                    RERANKER_MODEL, len(vector_rows), metadata["latency_seconds"] * 1000,
+                    metadata["input_tokens"], metadata["output_tokens"], metadata["retry_count"],
+                )
+                return reordered, metadata
+            except Exception as exc:
+                last_error = (
+                    f"{type(exc).__name__}: "
+                    f"{getattr(exc, 'code', None) or getattr(exc, 'status_code', None) or str(exc)[:240]}"
+                )
+                if attempt < RERANKER_MAX_RETRIES:
+                    metadata["retry_count"] += 1
+                    time.sleep(RERANKER_BACKOFF_SECONDS)
+
+        metadata["latency_seconds"] = perf_counter() - total_started
+        metadata["fallback_reason"] = last_error or "reranking failed"
+        machine_logger.warning(
+            "LLM rerank fallback model=%s candidates=%d latency_ms=%.1f input_tokens=%d output_tokens=%d retries=%d reason=%s",
+            RERANKER_MODEL, len(vector_rows), metadata["latency_seconds"] * 1000,
+            metadata["input_tokens"], metadata["output_tokens"], metadata["retry_count"],
+            metadata["fallback_reason"],
+        )
+        return vector_rows, metadata
 
 
 
