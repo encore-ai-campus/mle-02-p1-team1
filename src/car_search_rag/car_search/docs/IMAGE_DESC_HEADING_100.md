@@ -18,9 +18,9 @@
 - 제목 추출: 35/100; None: 65/100
 - 자동 추출 건수는 정확성 건수와 같지 않다. 정확한 제목/상위 제목/다른 section/놓친 제목 판정은 대표 샘플을 시각 검토한 뒤 확정해야 한다.
 - 개별 이미지의 위쪽 text 후보(텍스트, font size, bbox, 이미지와 vertical 거리, overlap, bold 추정)는 JSON에 포함했다.
-- 추출 성공 사례 contact sheet: `tmp/IMAGE_DESC_HEADING_CONTACT.png`
+- 추출 성공 사례 contact sheet: `src/car_search_rag/car_search/docs/tmp/IMAGE_DESC_HEADING_CONTACT.png`
 
-- None 사례를 표본 전반에서 균등 추출한 시각 점검 sheet: `tmp/IMAGE_DESC_HEADING_NONE_CONTACT.png`
+- None 사례를 표본 전반에서 균등 추출한 시각 점검 sheet: `src/car_search_rag/car_search/docs/tmp/IMAGE_DESC_HEADING_NONE_CONTACT.png`
 
 ## 제목 추출 성공 사례(표본)
 
