@@ -2,6 +2,7 @@ from pathlib import Path
 import sys
 import logging
 from dataclasses import dataclass
+from time import perf_counter
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
@@ -22,6 +23,15 @@ class CarManualAnswer:
 
     answer: str
     search_results: tuple
+
+
+@dataclass
+class CarManualAnswerStream:
+    chunks: object = None
+    answer: str = ""
+    search_results: tuple = ()
+    streamed_answer: str = ""
+    error: Exception | None = None
 
 
 class CarManual:
@@ -177,6 +187,7 @@ class CarManual:
             question=question,
             conversation_history=conversation_history,
             limit=limit,
+            stream_writer=runtime.stream_writer,
         )
         return search_result.answer, {"search_results": search_result.search_results}
 
@@ -247,6 +258,73 @@ class CarManual:
             answer=final_message.text,
             search_results=search_results,
         )
+
+    def ask_with_sources_stream(
+        self,
+        car_brand_eng_nm: str,
+        car_eng_nm: str,
+        car_model_yr: int,
+        question: str,
+        limit: int = 5,
+        conversation_history=None,
+    ) -> CarManualAnswerStream:
+        user_message = (
+            f"제조사: {car_brand_eng_nm}\n"
+            f"차량: {car_eng_nm}\n"
+            f"연식: {car_model_yr}\n"
+            f"검색 문서 수: {limit}\n\n"
+            f"질문: {question}"
+        )
+        messages = [
+            {"role": message["role"], "content": message["content"]}
+            for message in (conversation_history or [])
+            if message.get("role") in {"user", "assistant"}
+        ]
+        messages.append({"role": "user", "content": user_message})
+
+        answer_stream = CarManualAnswerStream()
+        answer_stream.chunks = self._stream_agent_answer(messages, answer_stream)
+        return answer_stream
+
+    def _stream_agent_answer(self, messages, answer_stream):
+        total_started = perf_counter()
+        try:
+            for part in self.agent.stream(
+                {"messages": messages},
+                stream_mode=["updates", "custom"],
+                version="v2",
+            ):
+                if part.get("type") == "custom":
+                    data = part.get("data") or {}
+                    if data.get("type") == "answer_token":
+                        text = data.get("text") or ""
+                        if text:
+                            answer_stream.streamed_answer += text
+                            yield text
+                elif part.get("type") == "updates":
+                    for node_name, update in (part.get("data") or {}).items():
+                        for message in update.get("messages", ()):
+                            artifact = getattr(message, "artifact", None)
+                            if isinstance(artifact, dict) and "search_results" in artifact:
+                                answer_stream.search_results = tuple(
+                                    artifact.get("search_results") or ()
+                                )
+                            if (
+                                node_name == "model"
+                                and getattr(message, "type", None) == "ai"
+                                and not getattr(message, "tool_calls", ())
+                            ):
+                                answer_stream.answer = getattr(message, "text", "") or ""
+        except Exception as error:
+            answer_stream.error = error
+            logger.exception("Streaming vehicle manual answer failed")
+            if not answer_stream.answer:
+                answer_stream.answer = answer_stream.streamed_answer
+        finally:
+            logger.info(
+                "Vehicle manual streaming completed total_ms=%.1f",
+                (perf_counter() - total_started) * 1000,
+            )
 
 
 

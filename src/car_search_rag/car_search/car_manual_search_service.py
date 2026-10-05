@@ -644,10 +644,21 @@ class CarManualSearchService:
     # =========================================================
     # 차량 매뉴얼 LLM 답변 생성
     # =========================================================
-    def generate_manual_answer(self,question,search_docs,conversation_history=None):
+    def generate_manual_answer(
+        self,
+        question,
+        search_docs,
+        conversation_history=None,
+        *,
+        stream_writer=None,
+        stream_timing=None,
+    ):
         
         if not search_docs:
-            return "관련된 차량 매뉴얼 내용을 찾지 못했습니다."
+            answer = "관련된 차량 매뉴얼 내용을 찾지 못했습니다."
+            if stream_writer is not None:
+                stream_writer({"type": "answer_token", "text": answer})
+            return answer
 
         context_list = []
 
@@ -690,15 +701,61 @@ class CarManualSearchService:
         # =========================================================
         # LangChain 실행
         # =========================================================
-        answer = self.manual_answer_chain.invoke(
-            {
-                "history": history_text,
-                "question": question,
-                "context": context
-            }
-        )
+        inputs = {
+            "history": history_text,
+            "question": question,
+            "context": context,
+        }
+        if stream_writer is not None:
+            return self._stream_manual_answer(inputs, stream_writer, stream_timing)
+
+        answer = self.manual_answer_chain.invoke(inputs)
 
         return answer
+
+    def _stream_manual_answer(self, inputs, stream_writer, stream_timing):
+        stream_timing = stream_timing or {}
+        total_started = stream_timing.get("total_started", perf_counter())
+        retrieval_rerank_ms = stream_timing.get("retrieval_rerank_ms", 0.0)
+        generation_started = perf_counter()
+        first_token_at = None
+        answer_chunks = []
+        machine_logger.info(
+            "answer_generation_start retrieval_rerank_ms=%.1f",
+            retrieval_rerank_ms,
+        )
+
+        try:
+            for chunk in self.manual_answer_chain.stream(inputs):
+                if not chunk:
+                    continue
+                text = chunk if isinstance(chunk, str) else str(chunk)
+                if first_token_at is None:
+                    first_token_at = perf_counter()
+                    machine_logger.info(
+                        "answer_first_token ttft_ms=%.1f",
+                        (first_token_at - generation_started) * 1000,
+                    )
+                answer_chunks.append(text)
+                stream_writer({"type": "answer_token", "text": text})
+        except Exception:
+            machine_logger.exception("manual answer streaming failed")
+            raise
+        finally:
+            finished = perf_counter()
+            ttft_ms = (
+                (first_token_at - generation_started) * 1000
+                if first_token_at is not None
+                else None
+            )
+            machine_logger.info(
+                "answer_generation_complete retrieval_rerank_ms=%.1f generation_ms=%.1f ttft_ms=%s total_ms=%.1f",
+                retrieval_rerank_ms,
+                (finished - generation_started) * 1000,
+                f"{ttft_ms:.1f}" if ttft_ms is not None else "unavailable",
+                (finished - total_started) * 1000,
+            )
+        return "".join(answer_chunks)
 
 
     # =========================================================
@@ -715,12 +772,22 @@ class CarManualSearchService:
             limit=limit,
         ).answer
 
-    def ask_manual_with_sources(self, car_brand_eng_nm, car_eng_nm, car_model_yr, question, conversation_history=None, limit=5):
+    def ask_manual_with_sources(
+        self,
+        car_brand_eng_nm,
+        car_eng_nm,
+        car_model_yr,
+        question,
+        conversation_history=None,
+        limit=5,
+        stream_writer=None,
+    ):
         """기존 검색/답변 경로를 실행하고 해당 호출의 검색 row를 함께 반환한다."""
 
         # =========================================================
         # 이전 대화 기반 검색 질문 재작성
         # =========================================================
+        total_started = perf_counter()
         search_question = self.rewrite_search_question(
             question=question,
             conversation_history=conversation_history
@@ -730,6 +797,7 @@ class CarManualSearchService:
         # =========================================================
         # 차량 매뉴얼 검색
         # =========================================================
+        retrieval_started = perf_counter()
         search_docs = self.search_manual(
             car_brand_eng_nm=car_brand_eng_nm,
             car_eng_nm=car_eng_nm,
@@ -741,10 +809,22 @@ class CarManualSearchService:
         # =========================================================
         # LLM 답변 생성
         # =========================================================
+        retrieval_rerank_ms = (perf_counter() - retrieval_started) * 1000
+        if stream_writer is not None:
+            machine_logger.info(
+                "retrieval_rerank_complete elapsed_ms=%.1f",
+                retrieval_rerank_ms,
+            )
+        stream_timing = {
+            "total_started": total_started,
+            "retrieval_rerank_ms": retrieval_rerank_ms,
+        }
         answer = self.generate_manual_answer(
             question=question,
             search_docs=search_docs,
-            conversation_history=conversation_history
+            conversation_history=conversation_history,
+            stream_writer=stream_writer,
+            stream_timing=stream_timing,
         )
 
         return ManualSearchAnswer(

@@ -58,9 +58,10 @@ def _display_metadata(search_results, question=None, image_selector=None):
     return sources[:5], images
 
 
-def _render_assistant_message(message):
+def _render_assistant_message(message, *, render_answer=True):
     """답변 아래에 저장된 검색 근거와 관련 검색 결과 이미지를 표시한다."""
-    st.markdown(message["content"])
+    if render_answer:
+        st.markdown(message["content"])
 
     sources = message.get("sources", [])
     if sources:
@@ -85,7 +86,7 @@ def _render_assistant_message(message):
                             if image.get("page_no") is not None
                             else (image.get("description") or "검색 결과 이미지")
                         ),
-                        width="stretch",
+                        width="content",
                     )
                 except Exception:
                     st.caption("이미지 미리보기를 불러오지 못했습니다.")
@@ -208,7 +209,7 @@ if question:
 
             try:
 
-                answer_result = car_manual.ask_with_sources(
+                answer_result = car_manual.ask_with_sources_stream(
                     car_brand_eng_nm=car_brand_eng_nm,
                     car_eng_nm=car_eng_nm,
                     car_model_yr=car_model_yr,
@@ -216,7 +217,12 @@ if question:
                     limit=10,
                     conversation_history=conversation_history,
                 )
-                answer = answer_result.answer
+                answer_placeholder = st.empty()
+                streamed_answer = answer_placeholder.write_stream(answer_result.chunks)
+                answer = answer_result.answer or streamed_answer
+                answer_placeholder.markdown(answer)
+                if answer_result.error is not None:
+                    st.error(f"답변 생성 중 오류가 발생했습니다: {answer_result.error}")
                 sources, images = _display_metadata(
                     answer_result.search_results,
                     question=question,
@@ -243,7 +249,7 @@ if question:
             "sources": sources,
             "images": images,
         }
-        _render_assistant_message(assistant_message)
+        _render_assistant_message(assistant_message, render_answer=False)
 
 
     #=====================================================
