@@ -98,25 +98,61 @@ class CarManual:
     def prepare_history_html(self, messages) -> str | None:
         """user/assistant 대화 메시지로 다운로드할 HTML을 만든다."""
         entries = []
+        export_message_count = 0
         for message in messages or ():
             if isinstance(message, dict):
                 role = message.get("role")
                 content = message.get("content")
+                images = message.get("images", ())
             else:
                 role = {"human": "user", "ai": "assistant"}.get(
                     getattr(message, "type", None)
                 )
                 content = getattr(message, "content", None)
+                images = ()
 
-            if (
-                role in {"user", "assistant"}
-                and isinstance(content, str)
-                and content
-            ):
+            if role not in {"user", "assistant"}:
+                continue
+
+            message_entries = []
+            if isinstance(content, str) and content:
                 label = "사용자" if role == "user" else "AI"
-                entries.append(
+                message_entries.append(
                     f"<div><strong>{label}</strong><p>{escape(content)}</p></div>"
                 )
+
+            if role == "assistant":
+                for image in images or ():
+                    if not isinstance(image, dict):
+                        continue
+
+                    image_url = image.get("url")
+                    if not isinstance(image_url, str) or not image_url:
+                        continue
+
+                    description = image.get("description")
+                    page_no = image.get("page_no")
+                    caption = (
+                        f"검색 결과 이미지 · p.{page_no}"
+                        + (f" · {description}" if description else "")
+                        if page_no is not None
+                        else (description or "검색 결과 이미지")
+                    )
+                    escaped_url = escape(image_url, quote=True)
+                    escaped_caption = escape(str(caption), quote=True)
+                    message_entries.append(
+                        "<figure>"
+                        f'<a href="{escaped_url}" target="_blank" '
+                        'rel="noopener noreferrer">'
+                        f'<img src="{escaped_url}" alt="{escaped_caption}">'
+                        "</a>"
+                        f"<figcaption>{escape(str(caption))}</figcaption>"
+                        "</figure>"
+                    )
+
+            if message_entries:
+                entries.append("\n".join(message_entries))
+                export_message_count += 1
 
         if not entries:
             return None
@@ -133,7 +169,10 @@ class CarManual:
 </body>
 </html>
 """
-        logger.info("Conversation history HTML created export_messages=%d", len(entries))
+        logger.info(
+            "Conversation history HTML created export_messages=%d",
+            export_message_count,
+        )
         return html
 
     def car_manual_history_download(
