@@ -25,7 +25,20 @@ logging.basicConfig(
 logger = logging.getLogger("CarManual")
 
 
-def _display_metadata(search_results, question=None, image_selector=None):
+def _is_conversation_download_request(question):
+    """대화 기록과 다운로드 의도가 함께 있는 질문을 판별한다."""
+    normalized = " ".join((question or "").casefold().split())
+    history_terms = (
+        "대화", "채팅", "기록", "내역", "히스토리", "history", "conversation", "chat"
+    )
+    download_terms = ("다운로드", "내려받", "내보내", "download", "export")
+    return (
+        any(term in normalized for term in history_terms)
+        and any(term in normalized for term in download_terms)
+    )
+
+
+def _display_metadata(search_results, question=None, image_selector=None, answer=None):
     """검색 row에서 출처와 화면에 표시할 이미지를 분리해 만든다.
 
     출처는 chunk 순서를 유지하며 최대 5개까지 모은다. image selector가 있으면
@@ -62,7 +75,7 @@ def _display_metadata(search_results, question=None, image_selector=None):
     # `question and image_selector`는 두 값이 모두 있을 때만 이 경로를 선택한다.
     # endregion
     if question and image_selector:
-        images = image_selector(question, search_results, limit=3)
+        images = image_selector(question, search_results, limit=3, answer=answer)
     else:
         # selector가 없으면 검색 row에 붙은 image URL에서 순서대로 모은다.
         images = []
@@ -291,13 +304,13 @@ question = st.chat_input(
 # 질문이 제출된 경우에만 대화와 Agent 응답 흐름을 실행한다.
 if question:
 
-    # Agent에는 이번 질문을 추가하기 전까지의 대화만 전달한다.
-    # region [Python 설명] list.copy()와 대화 snapshot
-    # `.copy()`는 messages list의 얕은 복사본을 만든다.
-    # 아래에서 새 user message를 session history에 추가해도 이 snapshot에는 추가되지 않아,
+    # Agent에는 이번 질문을 추가하기 전 대화 중 최근 6개 message만 전달한다.
+    # region [Python 설명] list slicing과 대화 snapshot
+    # `[-6:]`은 messages의 마지막 6개 message를 새 list로 만든다.
+    # 아래에서 현재 user question을 session history에 추가해도 snapshot에는 포함되지 않아,
     # 현재 질문은 별도 `question` 인자로 한 번만 전달된다.
     # endregion
-    conversation_history = st.session_state["messages"].copy()
+    conversation_history = st.session_state["messages"][-6:]
 
     # 제출한 user 질문을 chat 영역에 표시한다.
     # region [Streamlit 설명] 새 user chat message
@@ -330,62 +343,91 @@ if question:
 
             # Agent 결과, 출처, 이미지 표시 데이터를 준비한다.
             try:
+                if _is_conversation_download_request(question):
+                    # UI session에 저장된 전체 대화로 HTML을 만들고 성공 여부를 확인한다.
+                    logger.info("Conversation history download request detected")
+                    sources, images = [], []
+                    try:
+                        download_html = car_manual.prepare_history_html(
+                            st.session_state["messages"]
+                        )
+                    except Exception:
+                        logger.exception("Conversation history HTML preparation failed")
+                        download_html = None
 
-                # 이전 대화와 현재 질문을 Agent streaming 호출에 전달한다.
-                answer_result = car_manual.ask_with_sources_stream(
-                    car_brand_eng_nm=car_brand_eng_nm,
-                    car_eng_nm=car_eng_nm,
-                    car_model_yr=car_model_yr,
-                    question=question,
-                    limit=10,
-                    conversation_history=conversation_history,
-                )
+                    if download_html:
+                        try:
+                            # HTML 준비 후 버튼 렌더링까지 성공한 경우에만 완료를 알린다.
+                            st.download_button(
+                                label="📥 대화 기록 HTML 다운로드",
+                                data=download_html,
+                                file_name="car_manual_history.html",
+                                mime="text/html",
+                            )
+                        except Exception:
+                            logger.exception(
+                                "Conversation history download button rendering failed"
+                            )
+                            answer = "다운로드 버튼을 표시하지 못했습니다. 다시 시도해 주세요."
+                            st.error(answer)
+                        else:
+                            answer = "대화 기록 HTML 다운로드를 준비했습니다."
+                            st.markdown(answer)
+                            logger.info(
+                                "Conversation history download button displayed export_messages=%d",
+                                len(st.session_state["messages"]),
+                            )
+                    else:
+                        answer = "대화 기록 HTML을 만들지 못했습니다. 다시 시도해 주세요."
+                        st.error(answer)
+                else:
+                    # 일반 질문은 기존 Agent streaming 경로로 처리한다.
+                    answer_result = car_manual.ask_with_sources_stream(
+                        car_brand_eng_nm=car_brand_eng_nm,
+                        car_eng_nm=car_eng_nm,
+                        car_model_yr=car_model_yr,
+                        question=question,
+                        limit=10,
+                        conversation_history=conversation_history,
+                    )
 
-                # streaming output을 넣고 최종 Markdown으로 갱신할 placeholder를 만든다.
-                # region [Streamlit 설명] st.empty() placeholder
-                # `st.empty()`는 나중에 내용을 채우거나 바꿀 수 있는 화면 위치를 만든다.
-                # 같은 placeholder에 streaming text를 먼저 표시하고 최종 답변 Markdown을 다시 쓴다.
-                # endregion
-                answer_placeholder = st.empty()
+                    # streaming output을 넣고 최종 Markdown으로 갱신할 placeholder를 만든다.
+                    # region [Streamlit 설명] st.empty() placeholder
+                    # `st.empty()`는 나중에 내용을 채우거나 바꿀 수 있는 화면 위치를 만든다.
+                    # 같은 placeholder에 streaming text를 먼저 표시하고 최종 답변 Markdown을 다시 쓴다.
+                    # endregion
+                    answer_placeholder = st.empty()
 
-                # Agent가 보내는 답변 조각을 화면에 순서대로 출력한다.
-                # region [Streamlit 설명] st.write_stream()
-                # `write_stream()`은 iterator/generator의 값을 하나씩 화면에 출력한다.
-                # 문자열만 stream하면 완료 후 전체 문자열도 반환하므로 최종 답변 복원에 쓸 수 있다.
-                # endregion
-                streamed_answer = answer_placeholder.write_stream(answer_result.chunks)
+                    # Agent가 보내는 답변 조각을 화면에 순서대로 출력한다.
+                    # region [Streamlit 설명] st.write_stream()
+                    # `write_stream()`은 iterator/generator의 값을 하나씩 화면에 출력한다.
+                    # 문자열만 stream하면 완료 후 전체 문자열도 반환하므로 최종 답변 복원에 쓸 수 있다.
+                    # endregion
+                    streamed_answer = answer_placeholder.write_stream(answer_result.chunks)
 
-                # service가 저장한 전체 답변을 우선하고, 없으면 UI stream 반환값을 사용한다.
-                # region [Python 설명] `or` fallback
-                # 빈 문자열은 falsy이므로 `answer_result.answer`가 비어 있으면 `streamed_answer`가 선택된다.
-                # endregion
-                answer = answer_result.answer or streamed_answer
+                    # service가 저장한 전체 답변을 우선하고, 없으면 UI stream 반환값을 사용한다.
+                    # region [Python 설명] `or` fallback
+                    # 빈 문자열은 falsy이므로 `answer_result.answer`가 비어 있으면 `streamed_answer`가 선택된다.
+                    # endregion
+                    answer = answer_result.answer or streamed_answer
 
-                # placeholder에 완성 답변 전체를 Markdown으로 표시한다.
-                answer_placeholder.markdown(answer)
+                    # placeholder에 완성 답변 전체를 Markdown으로 표시한다.
+                    answer_placeholder.markdown(answer)
 
-                # streaming 중 수집된 오류가 있으면 답변과 함께 사용자에게 알린다.
-                if answer_result.error is not None:
-                    st.error(f"답변 생성 중 오류가 발생했습니다: {answer_result.error}")
+                    # streaming 중 수집된 오류가 있으면 답변과 함께 사용자에게 알린다.
+                    if answer_result.error is not None:
+                        st.error(f"답변 생성 중 오류가 발생했습니다: {answer_result.error}")
 
-                # 답변 생성이 끝난 뒤 검색 출처와 관련 이미지를 선택한다.
-                # region [Python 설명] 여러 값 unpacking과 callback 전달
-                # `_display_metadata()`는 `(sources, images)` tuple을 반환한다.
-                # 검색 service의 image selector 함수를 callback으로 전달해 질문 관련 이미지를 고른다.
-                # endregion
-                sources, images = _display_metadata(
-                    answer_result.search_results,
-                    question=question,
-                    image_selector=car_manual.service.select_relevant_images,
-                )
-
-                # Tool이 만든 HTML 대화 기록이 있을 때 다운로드 버튼을 표시한다.
-                if car_manual.download_html:
-                    st.download_button(
-                        label="📥 대화 기록 HTML 다운로드",
-                        data=car_manual.download_html,
-                        file_name="car_manual_history.html",
-                        mime="text/html",
+                    # 답변 생성이 끝난 뒤 검색 출처와 관련 이미지를 선택한다.
+                    # region [Python 설명] 여러 값 unpacking과 callback 전달
+                    # `_display_metadata()`는 `(sources, images)` tuple을 반환한다.
+                    # 검색 service의 image selector 함수를 callback으로 전달해 질문 관련 이미지를 고른다.
+                    # endregion
+                    sources, images = _display_metadata(
+                        answer_result.search_results,
+                        question=question,
+                        answer=answer,
+                        image_selector=car_manual.service.select_relevant_images,
                     )
 
             # 예외가 발생해도 assistant history에 저장할 오류 답변을 준비한다.

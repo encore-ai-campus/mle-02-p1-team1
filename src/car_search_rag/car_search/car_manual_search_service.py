@@ -19,6 +19,7 @@ from langchain_core.output_parsers import StrOutputParser
 EMBEDDING_MODEL = "text-embedding-3-small"
 EMBEDDING_DIMENSION = 1536
 RERANKER_MODEL = "gpt-5.6-luna"
+IMAGE_SELECTOR_MODEL = "gpt-6-luna"
 RERANKER_TIMEOUT_SECONDS = 15
 RERANKER_MAX_RETRIES = 1
 RERANKER_BACKOFF_SECONDS = 0.5
@@ -118,6 +119,7 @@ class CarManualSearchService:
     repository: CarManualRepository                 # 매뉴얼 문서 검색 저장소
     embedding_model: OpenAIEmbeddings               # 검색 질의 임베딩 생성 모델
     chat_model: ChatOpenAI                          # 검색 질의 재작성과 답변 생성 모델
+    image_selector_model: object                    # image_desc 기반 저비용 LLM 선택 모델
     rewrite_search_prompt: ChatPromptTemplate        # 대화 문맥 기반 검색어 재작성 프롬프트
     rewrite_search_chain: object                     # 검색어 재작성 프롬프트와 LLM 체인
     manual_answer_prompt: ChatPromptTemplate         # 검색 결과 기반 답변 생성 프롬프트
@@ -151,6 +153,12 @@ class CarManualSearchService:
             if self.reranking_enabled
             else None
         )
+        self.image_selector_model = ChatOpenAI(
+            model=IMAGE_SELECTOR_MODEL,
+            max_completion_tokens=200,
+            timeout=RERANKER_TIMEOUT_SECONDS,
+            max_retries=0,
+        ).bind(response_format={"type": "json_object"})
 
         self.rewrite_search_prompt = ChatPromptTemplate.from_messages(
             [
@@ -346,7 +354,7 @@ class CarManualSearchService:
         # 분기별 세션으로 Vector SELECT에 별도 pool connection을 사용한다.
         branch_session = SqlSession(
             database_manager=self.sql_session.database_manager,
-            sql_log_mode="none",
+            result_log=True,
         )
         repository = CarManualRepository(branch_session)
         rows = repository.search_manual(
@@ -394,7 +402,7 @@ class CarManualSearchService:
             # 해당 차량 ID를 찾고 phrase/term LIKE 검색을 실행한다.
             branch_session = SqlSession(
                 database_manager=self.sql_session.database_manager,
-                sql_log_mode="none",
+                result_log=True,
             )
             repository = CarManualRepository(branch_session)
             car_lookup_started = perf_counter()
@@ -694,7 +702,7 @@ class CarManualSearchService:
         )
         return vector_rows, metadata
 
-    def select_relevant_images(self, question, search_results, limit=3):
+    def select_relevant_images(self, question, search_results, limit=3, answer=None):
         """검색 결과의 차량과 page에 해당하는 이미지 중 관련도 높은 항목을 선택한다.
 
         검색 row에서 차량 ID와 page 번호를 모아 Repository로 이미지 후보를 조회한 뒤,
@@ -716,7 +724,14 @@ class CarManualSearchService:
         candidates = self.repository.search_images_by_pages(next(iter(car_ids)), pages)
 
         # 조회된 후보 중 질문과 관련된 이미지만 선택한다.
-        return select_relevant_images(question, rows, candidates, limit=limit)
+        return select_relevant_images(
+            question=question,
+            answer=answer,
+            search_results=rows,
+            image_candidates=candidates,
+            model=self.image_selector_model,
+            limit=limit,
+        )
 
     # =========================================================
     # 이미지 선택 및 답변 생성

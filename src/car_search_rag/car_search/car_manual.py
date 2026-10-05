@@ -1,7 +1,8 @@
-from pathlib import Path
-import sys
 import logging
 from dataclasses import dataclass
+from html import escape
+from pathlib import Path
+import sys
 from time import perf_counter
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
@@ -94,6 +95,47 @@ class CarManual:
     # =========================================================
     # Agent 도구
     # =========================================================
+    def prepare_history_html(self, messages) -> str | None:
+        """user/assistant 대화 메시지로 다운로드할 HTML을 만든다."""
+        entries = []
+        for message in messages or ():
+            if isinstance(message, dict):
+                role = message.get("role")
+                content = message.get("content")
+            else:
+                role = {"human": "user", "ai": "assistant"}.get(
+                    getattr(message, "type", None)
+                )
+                content = getattr(message, "content", None)
+
+            if (
+                role in {"user", "assistant"}
+                and isinstance(content, str)
+                and content
+            ):
+                label = "사용자" if role == "user" else "AI"
+                entries.append(
+                    f"<div><strong>{label}</strong><p>{escape(content)}</p></div>"
+                )
+
+        if not entries:
+            return None
+
+        html = f"""<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Car Manual Conversation History</title>
+</head>
+<body>
+    <h1>자동차 매뉴얼 상담 기록</h1>
+    {''.join(entries)}
+</body>
+</html>
+"""
+        logger.info("Conversation history HTML created export_messages=%d", len(entries))
+        return html
+
     def car_manual_history_download(
         self,
         runtime: ToolRuntime,
@@ -102,49 +144,9 @@ class CarManual:
 
         # Agent state에서 현재 대화 메시지 목록을 가져온다.
         messages = runtime.state["messages"]                      # 현재 Agent 대화 기록, HTML 생성에 사용
-
-        html = """
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>Car Manual Conversation History</title>
-        </head>
-        <body>
-            <h1>자동차 매뉴얼 상담 기록</h1>
-        """
-
-        # 각 메시지의 종류와 본문을 읽어 HTML에 추가한다.
-        # region [Python 설명] getattr()의 기본값
-        # `getattr(object, "name", default)`는 객체의 attribute를 읽는다.
-        # attribute가 없으면 세 번째 인자인 default를 반환한다.
-        # 이 코드는 메시지 종류와 본문이 없는 경우 빈 문자열을 사용한다.
-        # endregion
-        for message in messages:
-            message_type = getattr(message, "type", "")           # 메시지 종류(human, ai 등)
-            content = getattr(message, "content", "")             # 메시지 본문
-
-            # 사용자 메시지는 사용자 항목으로 기록한다.
-            if message_type == "human":
-                html += f"""
-                <div>
-                    <strong>사용자</strong>
-                    <p>{content}</p>
-                </div>
-                """
-
-            # 본문이 있는 AI 메시지는 AI 항목으로 기록한다.
-            elif message_type == "ai" and content:
-                html += f"""
-                <div>
-                    <strong>AI</strong>
-                    <p>{content}</p>
-                </div>
-                """
-
-        html += """
-        </body>
-        </html>
-        """
+        html = self.prepare_history_html(messages)
+        if html is None:
+            return "대화 기록이 없어 HTML을 만들지 못했습니다."
 
         # Tool 호출 측에서 다운로드할 수 있도록 HTML을 인스턴스에 보관한다.
         self.download_html = html
