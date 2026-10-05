@@ -1,0 +1,553 @@
+"""공통 차종 선택 화면 → 선택한 차종의 대화 화면."""
+from pathlib import Path
+import sys
+from uuid import uuid4
+import logging
+import base64
+import time
+from concurrent.futures import ThreadPoolExecutor
+from queue import Queue, Empty
+from html import escape
+
+import streamlit as st
+
+ROOT = Path(__file__).resolve().parents[4]
+if str(ROOT / 'src') not in sys.path:
+    sys.path.insert(0, str(ROOT / 'src'))
+from car_search_rag.anna_rag.chatbot.registry import VEHICLES, load_backend
+from car_search_rag.anna_rag.chatbot.answer_view import render_answer, format_answer
+
+BOT_AVATAR = str(Path(__file__).parent / 'assets' / 'hyundai-logo.webp')
+
+st.set_page_config(page_title='자동차 사용설명서 챗봇', page_icon='🚘', layout='wide', initial_sidebar_state='expanded')
+# 폰트를 앱에 포함해 외부 CDN 연결 없이도 동일한 글꼴을 표시합니다.
+@st.cache_data
+def pretendard_data():
+    return base64.b64encode((Path(__file__).parent / 'assets' / 'PretendardVariable.woff2').read_bytes()).decode('ascii')
+
+st.markdown(f"""<style>
+@font-face {{font-family:'Pretendard Variable';font-style:normal;font-weight:45 920;
+font-display:swap;src:url('data:font/woff2;base64,{pretendard_data()}') format('woff2');}}
+</style>""", unsafe_allow_html=True)
+
+st.markdown("""<style>
+/* Pretendard를 텍스트에만 적용하여 아이콘용 폰트는 보존합니다. */
+.stApp, .stApp p, .stApp h1, .stApp h2, .stApp h3, .stApp h4,
+.stApp h5, .stApp h6, .stApp li, .stApp button, .stApp textarea,
+.stApp input, .stApp label, .stApp summary, .stApp table,
+[data-testid="stCaptionContainer"], [data-testid="stMarkdownContainer"] {
+ font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif!important;
+}
+.stApp {background:#f6f5fa;color:#21212b;}
+.block-container {max-width:980px;padding:2.8rem 2rem 2rem;}
+[data-testid="stHeader"] {background:transparent;pointer-events:none;}
+[data-testid="stToolbar"] {display:none;}
+/* 사이드바는 고정 표시하며 접기/펼치기 컨트롤을 모든 화면에서 제거합니다. */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="stSidebarCollapsedControl"],
+[data-testid="stExpandSidebarButton"],
+[data-testid="stSidebarResizeHandle"] {display:none!important;}
+
+[data-testid="stChatMessageAvatarAssistant"] {background:#5b43e8;color:white;}
+[data-testid="stChatMessageAvatarUser"] {background:#e5dffe;color:#4d3db0;}
+h1 {font-size:2rem!important;letter-spacing:-.06em;word-break:keep-all;}
+h2,h3 {letter-spacing:-.04em;}
+[data-testid="stChatMessage"] {background:#f8f8fc;border:1px solid #eeedf6;border-radius:18px;margin-bottom:1rem;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {background:#5b43e8;border-color:#5b43e8;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stMarkdownContainer"] {color:white;}
+/* 사용자 말풍선은 텍스트만 표시합니다. 정렬용 DOM은 유지합니다. */
+[data-testid="stChatMessageAvatarUser"] {display:none;}
+[data-testid="stChatInput"] {border-radius:18px;border:1px solid #dcd8ec;background:#fff;}
+.stButton button {border-radius:12px;min-height:44px;}
+.stButton button[kind="primary"] {background:#5b43e8;border-color:#5b43e8;color:white;}
+[data-testid="stExpander"] {border-radius:12px;}
+[data-testid="stChatMessage"] p {line-height:1.85;margin-bottom:1rem;}
+[data-testid="stChatMessage"] li {line-height:1.8;margin-bottom:.65rem;}
+[data-testid="stChatMessage"] h4 {font-size:1.08rem;margin-top:0;padding-bottom:.35rem;}
+[data-testid="stChatMessage"] [data-testid="stVerticalBlockBorderWrapper"] {background:white;border-radius:12px;margin:10px 0;}
+
+.brand-mark {width:40px;height:40px;border-radius:12px;background:#5b43e8;color:white;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px;}
+.eyebrow {color:#736f85;font-size:11px;font-weight:700;letter-spacing:.16em;margin-bottom:8px;}
+.welcome {padding:24px 0 12px;font-size:34px;line-height:1.35;font-weight:750;letter-spacing:-.055em;}
+@media(max-width:640px) {.block-container {padding:3rem 1rem;} h1 {font-size:1.5rem!important;} .welcome {font-size:27px;}}
+
+/* 첫 화면은 사이드바 없이 인사말과 네 개의 차량 카드만 보여줍니다. */
+.landing-title {font-size:32px!important;line-height:1.35!important;margin:45px 0 80px!important;font-weight:750!important;}
+.st-key-vehicle_cards {margin-bottom:36px;}
+.st-key-vehicle_cards button {width:100%;aspect-ratio:1;min-height:150px;background:#f7f7fa;border:1px solid #eeedf3;border-radius:16px;color:#484356;font-size:22px;}
+.st-key-vehicle_cards button p {font-size:22px;font-weight:650;}
+.st-key-vehicle_cards button:disabled {background:#f7f7fa;border-color:#eeedf3;color:#484356;opacity:1;}
+.st-key-vehicle_cards button:hover:enabled {background:#f0edff;color:#5139d4;border-color:#5b43e8;box-shadow:0 4px 18px #5b43e815;}
+.st-key-vehicle_cards [data-testid="stCaptionContainer"] {text-align:center;}
+[data-testid="stChatInput"] {border-radius:18px;min-height:64px;background:#fff;border:1px solid #e7e4f0;box-shadow:0 3px 20px #24203906;}
+[data-testid="stChatInput"]:focus-within {border-color:#a292f5;box-shadow:0 0 0 3px #5b43e810;}
+[data-testid="stChatInputSubmitButton"] {background:#5b43e8;color:#fff;border-radius:12px;}
+[data-testid="stChatInputSubmitButton"]:disabled {background:#ece8fb;color:#aa9ecf;}
+/* 기본 카드 배경은 동일하며, 보라색은 호버/키보드 포커스에서만 사용합니다. */
+.st-key-vehicle_cards button:focus-visible {outline:3px solid #5b43e8;outline-offset:3px;}
+@media(max-width:640px) {
+ .landing-title {font-size:25px!important;margin:22px 0 38px!important;}
+ .st-key-vehicle_cards [data-testid="stHorizontalBlock"] {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+ .st-key-vehicle_cards [data-testid="stColumn"] {width:100%!important;min-width:0!important;}
+ .st-key-vehicle_cards button {min-height:120px;}
+}
+
+/* 말풍선은 내용 길이에 맞추고 양쪽을 구분합니다. */
+[data-testid="stChatMessage"] {width:fit-content;max-width:86%;background:#fff;border:1px solid #eeecf4;border-radius:6px 22px 22px 22px;padding:20px;box-shadow:0 5px 24px #28204405;}
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {margin-left:auto;max-width:72%;border-radius:22px 6px 22px 22px;flex-direction:row-reverse;padding:14px 20px;}
+[data-testid="stChatMessage"] p:last-child {margin-bottom:0;}
+/* Markdown의 기본 음수 여백이 여러 줄 본문 높이를 줄이지 않도록 합니다. */
+[data-testid="stChatMessageContent"] [data-testid="stMarkdown"],
+[data-testid="stChatMessageContent"] [data-testid="stMarkdown"] > div,
+[data-testid="stChatMessageContent"] [data-testid="stMarkdownContainer"] {margin-block:0!important;display:flow-root;}
+[data-testid="stChatMessageContent"] [data-testid="stMarkdownContainer"] > :last-child {margin-bottom:0!important;}
+/* 재실행 중 남아 있는 이전 출력은 반투명 잔상으로 표시하지 않습니다. */
+[data-testid="stChatMessage"] [data-stale="true"] {display:none!important;}
+
+[data-testid="stChatMessageContent"] {min-width:0;overflow-wrap:anywhere;}
+[data-testid="stBottomBlockContainer"] {max-width:980px;margin:0 auto;padding-left:2rem;padding-right:2rem;background:#f6f5fa;}
+[data-testid="stBottom"], [data-testid="stBottom"] > div {background:#f6f5fa!important;}
+[data-testid="stChatInput"] textarea {background:white;}
+.stButton button,[data-testid="stChatInput"] {transition:transform .2s ease,box-shadow .2s ease,background .2s ease;}
+.stButton button:hover:enabled {transform:translateY(-3px);}
+.stButton button:active:enabled {transform:scale(.97);}
+[class*="st-key-message_"] {animation:message-in .55s cubic-bezier(.16,1,.3,1) both;}
+@keyframes message-in {from {opacity:0;transform:translateY(30px);} to {opacity:1;transform:translateY(0) scale(1);}}
+.thinking {display:flex;align-items:center;gap:7px;color:#827796;font-size:13px;height:32px;padding:0;}
+.thinking i {width:6px;height:6px;background:#8d79ec;border-radius:50%;animation:thinking 1.2s infinite ease-in-out;}
+.thinking i:nth-child(2) {animation-delay:.16s;}.thinking i:nth-child(3) {animation-delay:.32s;}
+.thinking span {margin-left:8px;}
+@keyframes thinking {0%,70%,100% {transform:translateY(0);opacity:.35;} 35% {transform:translateY(-5px);opacity:1;}}
+/* 종료 요청 중에는 화면 전체를 가리고 중앙 로딩만 표시합니다. */
+.exit-loading-overlay {position:fixed;inset:0;z-index:2000000;
+ background:rgba(35,30,52,.32);backdrop-filter:blur(2px);
+ display:flex;align-items:center;justify-content:center;cursor:wait;}
+.exit-loading-spinner {width:42px;height:42px;border:4px solid rgba(255,255,255,.55);
+ border-top-color:#5b43e8;border-radius:50%;animation:exit-spin .8s linear infinite;}
+@keyframes exit-spin {to {transform:rotate(360deg);}}
+
+@media(max-width:640px) {[data-testid="stChatMessage"] {max-width:95%;padding:14px;} [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {max-width:88%;}}
+@media(prefers-reduced-motion:reduce) {*,*::before,*::after {animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+
+/* Figma의 넓은 작성 영역 + 오른쪽 아래 전송 버튼. 실제 Streamlit 입력 기능은 유지합니다. */
+[data-testid="stChatInput"] {
+ position:relative;min-height:58px;border-radius:20px!important;
+ border:1px solid #dce3f0!important;background:#fff!important;
+ box-shadow:0 8px 20px #26324d0b;padding:0!important;overflow:hidden;
+}
+[data-testid="stChatInput"] > div,
+[data-testid="stChatInput"] > div > div {background:transparent!important;border:0!important;box-shadow:none!important;}
+[data-testid="stChatInput"] textarea {
+ min-height:42px!important;max-height:140px!important;
+ padding:8px 56px 8px 14px!important;background:transparent!important;
+ color:#29354a!important;font-size:17px;line-height:1.6;resize:none;
+}
+[data-testid="stChatInput"] textarea::placeholder {color:#77839a;opacity:1;}
+[data-testid="stChatInput"]:focus-within {border-color:#aaa0f4!important;box-shadow:0 0 0 3px #5b43e80a,0 8px 20px #26324d0b;}
+[data-testid="stChatInputSubmitButton"] {
+ position:absolute!important;right:10px;bottom:9px;
+ width:38px!important;height:38px!important;min-width:38px;padding:0;
+ border-radius:999px!important;background:#5543eb!important;color:#fff!important;
+ display:flex;align-items:center;justify-content:center;gap:10px;
+ transition:transform .18s ease,background .18s ease;
+}
+[data-testid="stChatInputSubmitButton"]::before {content:none;}
+[data-testid="stChatInputSubmitButton"] svg {display:none;}
+[data-testid="stChatInputSubmitButton"]::after {
+ content:"";width:23px;height:23px;background:currentColor;
+ mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 3l18 9-18 9 4-9-4-9zm4 9h14' fill='none' stroke='black' stroke-width='1.8' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+[data-testid="stChatInputSubmitButton"]:hover:enabled {background:#4733d9!important;transform:translateY(-2px);}
+[data-testid="stChatInputSubmitButton"]:active:enabled {transform:scale(.96);}
+[data-testid="stChatInputSubmitButton"]:disabled {background:#e9e5fa!important;color:#a599cc!important;}
+[data-testid="stBottomBlockContainer"] {padding-top:12px;padding-bottom:20px;}
+/* 고정 입력창 뒤로 마지막 답변이 가려지지 않게 여백을 확보합니다. */
+.block-container {padding-bottom:125px;}
+@media(max-width:640px) {
+ [data-testid="stBottomBlockContainer"] {padding-left:12px;padding-right:12px;padding-bottom:12px;}
+ [data-testid="stChatInput"] {min-height:56px;border-radius:18px!important;}
+ [data-testid="stChatInput"] textarea {min-height:40px!important;padding:7px 52px 7px 10px!important;font-size:16px;}
+ [data-testid="stChatInputSubmitButton"] {right:8px;bottom:8px;height:36px!important;width:36px!important;min-width:36px;}
+}
+
+/* 스타일 전용 요소가 만드는 빈 행/간격을 제거합니다. */
+[data-testid="stElementContainer"]:has(style) {display:none;}
+[data-testid="stChatInput"] > div {padding:6px 10px!important;}
+/* 첫 진입은 상단부터 표시하고, 작성창은 별도 고정 영역으로 배치합니다. */
+.block-container:has(.landing-title) {padding-top:84px!important;}
+.landing-title {margin:0 0 58px!important;padding:0!important;}
+/* 준비 중인 차종도 카드 호버는 동일하게 표시하되 클릭 비활성 상태는 유지합니다. */
+.st-key-vehicle_cards [data-testid="stElementContainer"]:hover button {
+ background:#f0edff;color:#5139d4;border-color:#5b43e8;
+ box-shadow:0 4px 18px #5b43e815;transform:translateY(-4px) scale(1.025);
+}
+@media(max-width:640px) {
+ .landing-title {margin-bottom:36px!important;}
+}
+/* 제공된 현대 로고의 흰색은 유지하고 어두운 바탕을 UI 보라색과 합성합니다. */
+[data-testid="stChatMessage"] {align-items:flex-start;gap:12px;}
+[data-testid="stChatMessage"] > img {
+ width:32px;height:32px;min-width:32px;object-fit:cover;border-radius:10px;
+ background:#5b43e8;mix-blend-mode:normal;
+}
+[data-testid="stChatMessage"] [data-testid="stChatMessageContent"] {padding-top:0;margin:0!important;min-height:32px;}
+[data-testid="stChatMessage"] [data-testid="stChatMessageContent"] > div {gap:12px;}
+[data-testid="stChatMessageContent"] [data-testid="stElementContainer"]:has([data-testid="stEmpty"]) {display:none;}
+</style>""", unsafe_allow_html=True)  # 고정된 스타일만 HTML로 사용합니다.
+
+
+# 실제 차량 이미지는 카드 버튼 안에 넣어 그림을 눌러도 같은 버튼이 동작합니다.
+# AVIF는 브라우저 호환성을 위해 PNG로 변환해 로컬 자산으로 보관했습니다.
+logo_image_data = base64.b64encode(Path(BOT_AVATAR).read_bytes()).decode('ascii')
+st.markdown(f"""<style>
+/* 첫 인사는 아이콘과 문장을 같은 행의 세로 중앙에 맞춥니다. */
+.welcome-bubble {{display:flex;align-items:center;gap:12px;width:fit-content;max-width:86%;
+ box-sizing:border-box;padding:20px;background:#fff;border:1px solid #eeecf4;
+ border-radius:6px 22px 22px 22px;box-shadow:0 5px 24px #28204405;margin-bottom:16px;}}
+.welcome-logo {{display:block;flex:0 0 32px;width:32px;height:32px;border-radius:10px;
+ background:#5b43e8 url("data:image/webp;base64,{logo_image_data}") center/cover no-repeat;
+ background-blend-mode:lighten;}}
+.welcome-text {{display:block;margin:0!important;padding:0!important;font-size:16px;line-height:1.5;}}
+@media(max-width:640px) {{.welcome-bubble {{max-width:95%;padding:14px;}}}}
+/* 원본 파일은 그대로 두고 CSS 배경 합성으로 보라색 로고 타일을 만듭니다. */
+[data-testid="stChatMessage"] > img[alt="assistant avatar"] {{
+ object-position:-9999px;flex-shrink:0;margin-top:-1px;
+ background-color:#5b43e8;
+ background-image:url("data:image/webp;base64,{logo_image_data}");
+ background-size:cover;background-position:center;background-blend-mode:lighten;
+}}
+</style>""", unsafe_allow_html=True)
+
+# 각 카드에 같은 이미지/확대 스타일을 적용합니다. 연결 준비 중인 차종도 미리 볼 수 있습니다.
+for car_id in ('ioniq5', 'santafe', 'sonata', 'casper'):
+    asset = Path(__file__).parent / 'assets' / f'{car_id}.png'
+    data = base64.b64encode(asset.read_bytes()).decode('ascii')
+    # 캐스퍼 이미지는 원본 여백이 적어 다른 이미지보다 작게 배치합니다.
+    image_size = '64%' if car_id == 'casper' else '80%'
+    # 원본 투명 여백이 비대칭인 두 이미지는 시각적 중심을 보정합니다.
+    image_position = '65% center' if car_id in ('santafe', 'sonata') else '50% center'
+    st.markdown(f"""<style>
+.st-key-car_{car_id} button {{position:relative;overflow:visible;}}
+.st-key-car_{car_id}:hover, .st-key-car_{car_id}:focus-within {{position:relative;z-index:2;}}
+.st-key-car_{car_id} button::before {{content:"";position:absolute;inset:0% -25% 27%;
+ background-image:url("data:image/png;base64,{data}");
+ background-size:{image_size} auto;background-repeat:no-repeat;background-position:{image_position};
+ pointer-events:none;transform-origin:center 60%;transition:transform .45s cubic-bezier(.2,.8,.2,1);}}
+.st-key-car_{car_id}:hover button::before,
+.st-key-car_{car_id} button:focus-visible::before {{transform:scale(1.45) translateY(-3px);}}
+.st-key-car_{car_id} button p {{position:absolute;bottom:16px;left:0;right:0;margin:0;font-size:19px;}}
+</style>""", unsafe_allow_html=True)
+
+
+# 원본 설명서는 차종별로 지정합니다. 다운로드는 대화를 다시 실행하지 않습니다.
+MANUAL_FILES = {'ioniq5': 'NE1_2027_ko_KR.pdf'}
+
+@st.cache_data(show_spinner=False)
+def manual_bytes(path, modified_at):
+    # 수정 시간이 바뀌면 캐시도 갱신합니다.
+    return Path(path).read_bytes()
+
+
+@st.cache_resource
+def backend_for(vehicle_id):
+    # 모델/검색기는 재사용하지만 메시지/세션 ID는 캐시하지 않습니다.
+    return load_backend(vehicle_id)
+
+
+def init_state():
+    defaults = {'active_vehicle': None, 'conversation_id': None, 'messages': [],
+                'pending': None, 'request_error': False, 'session_notice': None}
+    for key, value in defaults.items():
+        if key not in st.session_state:
+            st.session_state[key] = value
+
+
+def leave_chat():
+    # UI에서 나가면 화면 맥락은 반드시 지웁니다. DB 종료 실패도 원문 오류를 노출하지 않습니다.
+    try:
+        if st.session_state.conversation_id:
+            backend_for(st.session_state.active_vehicle).end_session(st.session_state.conversation_id)
+    except Exception as error:
+        logging.warning('Session close failed: %s', type(error).__name__)
+    for key in ('active_vehicle', 'conversation_id', 'pending'):
+        st.session_state[key] = None
+    st.session_state.messages = []
+    st.session_state.request_error = False
+    st.session_state.pop('vehicle_choice', None)
+
+
+def show_packet(message, render_body=True):
+    packet = message['packet']
+    if render_body:
+        render_answer(packet['answer']['text'])
+    # 모델이 만든 URL 대신 DB가 반환한 문서명/페이지 정보를 사용합니다.
+    cited = set(packet['answer'].get('cited_labels', []))
+    sources = [s for s in packet.get('sources', []) if s.get('label') in cited]
+    if sources:
+        with st.expander('설명서 출처 확인'):
+            for s in sources:
+                pages = ', '.join(map(str, s.get('pdf_pages', [])))
+                st.write(f"[{s['label']}] {s['title']} · PDF {pages}페이지")
+                st.caption(s.get('source_file', ''))
+    if message.get('images'):
+        with st.expander('관련 그림 보기'):
+            st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
+            for image in message['images']:
+                st.image(image['data'], caption=f"PDF {image['pdf_page']}페이지 · {image['caption']}")
+    if message.get('image_error'):
+        st.caption('관련 그림을 불러오지 못했습니다. 답변과 출처는 확인할 수 있어요.')
+
+
+init_state()
+# 화면 전환은 대화 세션을 종료하거나 지우지 않습니다.
+st.session_state.setdefault('view', 'chat')
+st.markdown("""<style>
+.st-key-admin_nav {position:fixed;top:20px;right:28px;z-index:1000001;width:auto;}
+.st-key-admin_nav button {background:#fff;border:1px solid #e3deef;color:#625775;font-size:13px;min-height:36px;}
+.block-container:not(:has(.landing-title)) {padding-top:84px;}
+</style>""", unsafe_allow_html=True)
+with st.container(key='admin_nav'):
+    nav_label = '챗봇으로 돌아가기' if st.session_state.view == 'admin' else '관리자 모드'
+    if st.button(nav_label, key='admin_toggle', disabled=st.session_state.view != 'admin'):
+        st.session_state.view = 'chat' if st.session_state.view == 'admin' else 'admin'
+        st.rerun()
+if st.session_state.view == 'admin':
+    st.markdown('<style>[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none;}</style>', unsafe_allow_html=True)
+    from car_search_rag.anna_rag.chatbot.dashboard import render_dashboard
+    render_dashboard()
+    # 모달의 기본 배경막으로 페이지 전체를 딤드 처리하고 뒤쪽 조작을 막습니다.
+    @st.dialog('작업 진행 중', dismissible=False)
+    def admin_work_notice():
+        st.write('품질 대시보드를 준비하고 있어요.')
+        if st.button('챗봇으로 돌아가기', key='admin_work_back', use_container_width=True):
+            st.session_state.view = 'chat'
+            st.rerun()
+    admin_work_notice()
+    st.stop()
+if st.session_state.session_notice:
+    st.info(st.session_state.session_notice)
+    st.session_state.session_notice = None
+
+# 1. 공통 입구: 차종 선택 전에는 어떤 RAG도 호출하지 않습니다.
+if st.session_state.active_vehicle is None:
+    st.markdown('<style>[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none;}</style>', unsafe_allow_html=True)
+    selected_car = None
+    st.markdown('<h1 class="landing-title">안녕하세요!<br>보유하고 있는 자동차를 선택해주세요.</h1>', unsafe_allow_html=True)
+    with st.container(key='vehicle_cards'):
+        columns = st.columns(4, gap='medium')
+        for column, (choice, vehicle) in zip(columns, VEHICLES.items()):
+            with column:
+                ready = vehicle.module is not None
+                label = {'ioniq5': 'IONIQ 5', 'santafe': 'SANTA FE',
+                         'sonata': 'SONATA', 'casper': 'CASPER'}.get(choice, vehicle.label)
+                clicked = st.button(label, key=f'car_{choice}', disabled=not ready,
+                                    use_container_width=True)
+                if clicked:
+                    selected_car = choice
+    if selected_car:
+        # 연결을 기다리지 않고 화면 전환부터 실행합니다.
+        st.markdown("""<style>
+.landing-title, .st-key-vehicle_cards {
+ animation:landing-out .38s ease-in forwards;pointer-events:none;
+}
+@keyframes landing-out {to {opacity:0;translate:0 70px;}}
+</style>""", unsafe_allow_html=True)
+        time.sleep(.4)
+        st.session_state.active_vehicle = selected_car
+        st.session_state.conversation_id = None
+        st.session_state.startup_error = False
+        st.session_state.entering_chat = True
+        st.rerun()
+    st.stop()
+
+# 2. 선택한 차종을 대화가 끝날 때까지 고정합니다.
+vehicle_id = st.session_state.active_vehicle
+# 사이드바는 차량 선택 이후에만 표시합니다.
+entering_chat = st.session_state.pop('entering_chat', False)
+st.markdown("""<style>
+/* 대화 화면에서는 이전 화면의 숨김/자동 접힘 상태를 명시적으로 해제합니다. */
+[data-testid="stSidebar"] {
+ display:block!important;visibility:visible!important;opacity:1;
+ position:relative!important;transform:none!important;margin-left:0!important;
+ width:280px!important;min-width:280px!important;max-width:280px!important;
+ background:#f0eef8;border-right:1px solid #e5e1f1;
+}
+[data-testid="stSidebarContent"] {display:block!important;visibility:visible!important;}
+[data-testid="stSidebarCollapseButton"], [data-testid="stSidebarCollapsedControl"] {display:none!important;}
+@media(max-width:640px) {
+ [data-testid="stSidebar"] {width:160px!important;min-width:160px!important;max-width:160px!important;}
+ [data-testid="stSidebarUserContent"] {padding:24px 10px!important;}
+}
+[data-testid="stSidebarUserContent"] {padding-top:48px;}
+/* 보이는 것은 화살표만, 버튼 이름은 보조 기술에 그대로 제공합니다. */
+.st-key-back_to_vehicles {position:absolute;top:18px;left:18px;width:40px;z-index:2;}
+.st-key-back_to_vehicles button {width:40px;min-height:40px;padding:8px;border:0;background:transparent;color:#625775;}
+.st-key-back_to_vehicles button [data-testid="stMarkdownContainer"] {position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;}
+.st-key-back_to_vehicles button:hover {background:#e6e0f7;color:#5b43e8;}
+
+.sidebar-car {text-align:center;padding:16px 0 28px;}
+.sidebar-car img {width:100%;max-width:230px;height:135px;object-fit:contain;}
+.sidebar-car h2 {font-size:23px;font-weight:700;letter-spacing:-.03em;margin:8px 0;color:#484356;}
+.sidebar-car p {font-size:13px;color:#8b849e;margin:0;}
+</style>""", unsafe_allow_html=True)
+if entering_chat:
+    st.markdown("""<style>
+[data-testid="stSidebar"] {animation:sidebar-in .5s cubic-bezier(.2,.8,.2,1) both;}
+.sidebar-car {animation:car-up .65s cubic-bezier(.2,.8,.2,1) both;}
+.st-key-chat_welcome {animation:welcome-in .45s .25s ease-out both;}
+@keyframes sidebar-in {from {translate:-100% 0;opacity:0;} to {translate:0 0;opacity:1;}}
+@keyframes car-up {from {transform:translateY(110px) scale(1.18);opacity:0;} to {transform:translateY(0) scale(1);opacity:1;}}
+@keyframes welcome-in {from {transform:translateY(22px);opacity:0;} to {transform:translateY(0);opacity:1;}}
+</style>""", unsafe_allow_html=True)
+# 사이드바 밖에 두어 로딩 배경이 전체 뷰포트를 덮도록 합니다.
+exit_overlay = st.empty()
+with st.sidebar:
+    if st.button('차량 선택으로 돌아가기', icon=':material/arrow_back:', key='back_to_vehicles'):
+        exit_overlay.markdown('<div class="exit-loading-overlay" role="status" aria-label="차량 선택 화면으로 이동 중"><div class="exit-loading-spinner" aria-hidden="true"></div></div>', unsafe_allow_html=True)
+        # DB 종료 호출 전에 로딩 화면이 브라우저에 먼저 전달되게 합니다.
+        time.sleep(.08)
+        leave_chat()
+        st.rerun()
+    selected_label = {'ioniq5': 'IONIQ 5', 'santafe': 'SANTA FE',
+                      'sonata': 'SONATA', 'casper': 'CASPER'}.get(vehicle_id, VEHICLES[vehicle_id].label)
+    selected_image = base64.b64encode((Path(__file__).parent / 'assets' / f'{vehicle_id}.png').read_bytes()).decode('ascii')
+    st.markdown(f'<div class="sidebar-car"><img src="data:image/png;base64,{selected_image}" alt="{escape(selected_label)}"><h2>{escape(selected_label)}</h2><p>자동차 사용설명서</p></div>', unsafe_allow_html=True)
+    manual_name = MANUAL_FILES.get(vehicle_id)
+    manual_path = Path(__file__).parent / 'manuals' / manual_name if manual_name else None
+    if manual_path and manual_path.is_file():
+        st.download_button('PDF 사용설명서 다운로드',
+                           data=manual_bytes(str(manual_path), manual_path.stat().st_mtime_ns),
+                           file_name=manual_name, mime='application/pdf',
+                           use_container_width=True, on_click='ignore', key='manual_download')
+    else:
+        st.caption('다운로드할 설명서가 아직 등록되지 않았습니다.')
+
+# 사이드바와 대화 화면이 표시된 다음 연결을 시작합니다.
+if st.session_state.conversation_id is None:
+    st.chat_input('차량 사용법을 물어보세요', disabled=True, key='startup_input')
+    with st.container(key='chat_welcome'):
+        with st.chat_message('assistant', avatar=BOT_AVATAR):
+            if st.session_state.get('startup_error', False):
+                st.write('설명서를 준비하지 못했어요. 다시 시도해 주세요.')
+                if st.button('설명서 다시 연결'):
+                    st.session_state.startup_error = False
+                    st.rerun()
+                st.stop()
+            st.markdown('<div class="thinking" role="status" aria-label="답변 준비 중"><i></i><i></i><i></i></div>', unsafe_allow_html=True)
+            try:
+                sid = backend_for(vehicle_id).start_session(is_test=True)
+                st.session_state.conversation_id = sid
+            except Exception as error:
+                logging.warning('Chat startup failed: %s', type(error).__name__)
+                st.session_state.startup_error = True
+    st.rerun()
+
+backend = backend_for(vehicle_id)
+
+if not st.session_state.messages:
+    with st.container(key='chat_welcome'):
+        # 인사말은 하나의 flex 행으로 묶어 Streamlit 본문 여백의 영향을 없앱니다.
+        st.markdown('<div class="welcome-bubble"><span class="welcome-logo" role="img" aria-label="현대 로고"></span><span class="welcome-text">안녕하세요! 차량을 사용하며 궁금했던 점을 물어보세요.</span></div>', unsafe_allow_html=True)
+for index, message in enumerate(st.session_state.messages):
+    # 생성 때와 기록 재표시 때 동일한 컨테이너를 사용해 이전 답변과 섞이지 않게 합니다.
+    message.setdefault('ui_id', f'history_{index}')
+    with st.container(key=f"message_{message['ui_id']}"):
+        with st.chat_message(message['role'], avatar=BOT_AVATAR if message['role'] == 'assistant' else None):
+            if message['role'] == 'user':
+                st.markdown(message['text'])
+            else:
+                show_packet(message)
+
+# 실패한 요청은 같은 request_id로 재시도하여 중복 저장을 방지합니다.
+retry = False
+if st.session_state.pending and st.session_state.request_error:
+    st.warning('답변을 완료하지 못했어요. 다시 시도하거나 새 대화를 시작해 주세요.')
+    retry = st.button('같은 질문 다시 시도')
+question = st.chat_input('차량 사용법을 물어보세요', max_chars=1000,
+                         disabled=st.session_state.pending is not None, submit_mode='disable')
+if question:
+    # 네트워크/DB를 기다리지 않고 내 메시지를 화면에 먼저 추가합니다.
+    st.session_state.pending = {'text': question, 'id': str(uuid4())}
+    st.session_state.messages.append({'role': 'user', 'text': question,
+                                      'ui_id': st.session_state.pending['id'] + '_user'})
+    st.session_state.request_error = False
+    with st.container(key=f"message_{st.session_state.pending['id']}_user"):
+        with st.chat_message('user'):
+            st.markdown(question)
+if question or retry:
+    if question:
+        # 전송 메시지가 먼저 그려진 뒤 봇 로딩이 이어지도록 짧게 간격을 둡니다.
+        time.sleep(.15)
+    pending = st.session_state.pending
+    try:
+        # 작업 스레드는 모델/DB만 처리하고, 화면 변경은 메인 스레드에서 합니다.
+        events = Queue()
+        def on_event(kind, value):
+            events.put((kind, value))
+        with st.container(key=f"message_{pending['id']}_assistant"):
+            with st.chat_message('assistant', avatar=BOT_AVATAR):
+                loading = st.empty()
+                draft = st.empty()
+                def show_loading(label):
+                    loading.markdown('<div class="thinking" role="status" aria-label="답변 준비 중"><i></i><i></i><i></i></div>', unsafe_allow_html=True)
+                show_loading('질문을 확인하고 있어요')
+                # 종료/30분 만료 세션은 이전 문맥을 쓰지 않고 입구로 돌려보냅니다.
+                try:
+                    from datetime import datetime, timezone, timedelta
+                    session = backend.get_session(st.session_state.conversation_id)
+                    expired = (not session or session['ended_at'] is not None or
+                               (session['pending_request_id'] is None and
+                                datetime.now(timezone.utc) - session['last_activity_at'] > timedelta(minutes=30)))
+                    if expired:
+                        leave_chat()
+                        st.session_state.session_notice = '이전 대화가 종료됐어요. 차종을 선택해 새로 시작해 주세요.'
+                        st.rerun()
+                except Exception as error:
+                    logging.warning('Session check failed: %s', type(error).__name__)
+                    st.session_state.request_error = True
+                    st.rerun()
+                live_text, buffered_text = '', ''
+                with ThreadPoolExecutor(max_workers=1) as worker:
+                    future = worker.submit(backend.chat, st.session_state.conversation_id,
+                                           pending['text'], request_id=pending['id'], on_event=on_event)
+                    # 모델 생성 속도와 화면 표시 속도를 분리합니다 (약 67글자/초).
+                    while not future.done() or not events.empty() or buffered_text:
+                        while True:
+                            try:
+                                kind, value = events.get_nowait()
+                            except Empty:
+                                break
+                            if kind == 'token':
+                                buffered_text += value
+                        # 오류로 검증된 초안은 더 표시하지 않고 최종 안내로 바꿉니다.
+                        if future.done() and future.result()['answer']['status'] != 'answered':
+                            buffered_text = ''
+                            break
+                        if buffered_text:
+                            live_text += buffered_text[:3]
+                            buffered_text = buffered_text[3:]
+                            loading.empty()
+                            draft.markdown(format_answer(live_text))
+                        time.sleep(.045)
+                    packet = future.result()
+                loading.empty()
+                # 같은 출력 위치와 같은 서식으로 최종 문구만 확정합니다.
+                draft.markdown(format_answer(packet['answer']['text']))
+                message = {'role': 'assistant', 'packet': packet, 'images': [],
+                           'ui_id': pending['id'] + '_assistant'}
+                try:
+                    message['images'] = backend.get_related_images(packet)
+                except Exception as error:
+                    message['image_error'] = True
+                    logging.warning('Image fetch failed: %s', type(error).__name__)
+                show_packet(message, render_body=False)
+        st.session_state.messages.append(message)
+        st.session_state.pending = None
+        st.session_state.request_error = False
+        # 일반 전송은 재실행하지 않아 완성된 말풍선이 깜빡이지 않습니다.
+        if retry:
+            st.rerun()
+    except Exception as error:
+        logging.warning('Chat request failed: %s', type(error).__name__)
+        st.session_state.request_error = True
+        st.rerun()

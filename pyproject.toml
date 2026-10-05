@@ -18,13 +18,14 @@ dependencies = [
     "python-dotenv>=1.2.3",
     "sentence-transformers>=6.1.0",
     "sqlalchemy>=2.1.1",
-    "streamlit>=1.64.0",
+    "streamlit>=1.65.0",
     "supabase>=2.31.0",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=7.4.0",
+    "ipywidgets>=8.1.9",
 ]
 
 [build-system]
