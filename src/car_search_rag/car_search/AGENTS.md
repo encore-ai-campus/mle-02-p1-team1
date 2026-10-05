@@ -64,3 +64,52 @@
 - 추정한 건수, 결측률, 성능, 평가 결과를 사실처럼 작성하지 않는다. 확인할 수 없는 정보는 확인 필요로 표시한다.
 - 실패하거나 보류된 실험 기록도 삭제하지 않고 history로 보존한다.
 - 별도 요청이 없으면 Notion의 상태, 속성, 완료 체크박스를 변경하지 않는다.
+
+## 8. Python 주석 및 학습용 region 스타일
+
+Python 코드의 주석, docstring, `# region`, 공백은 현재 `car_manual.py`와 `app_kbj.py`에 적용된 방식을 기준으로 작성한다.
+
+### 항상 보이는 짧은 업무 주석
+
+- 업무 처리 흐름을 따라 한 줄 정도의 한국어 주석을 단계 앞에 둔다.
+- 코드가 자명하게 설명하는 내용을 반복하기보다, 지금 단계의 역할과 다음 처리로 이어지는 흐름이 보이게 쓴다.
+- 같은 연산 안에 모든 줄마다 주석을 달지 않는다.
+
+```python
+# 이전 대화를 Agent 메시지 형식으로 변환한다.
+messages = [...]
+
+# 현재 사용자 질문을 마지막 메시지로 추가한다.
+messages.append(...)
+```
+
+### Python 및 Framework 상세 설명
+
+- Python 문법이나 Framework 동작을 길게 설명할 때는 VS Code에서 접을 수 있는 `# region`에 설명만 작성한다.
+- region의 실행 코드는 넣지 않고 실제 코드는 설명 아래에 둔다.
+- 제목은 현재 코드와 같은 표기를 사용한다: `[Python 설명]`, `[LangChain 설명]`, `[LangGraph 설명]`, `[Streamlit 설명]`. DB나 동시 실행 설명이 필요한 경우에는 `[DB 설명]`, `[Thread 설명]`을 사용할 수 있다.
+- Python 초보자가 Java/C#과 다른 표현 때문에 혼동할 수 있는 부분을 우선 설명한다. 예: comprehension, `(value or [])` fallback, truthy/falsy와 `None`, `.get()`, `.append()`, `getattr()`, `isinstance()`, tuple unpacking, `zip()`, `dict.items()`, generator/iterator/`yield`, type hint, `with`, `.copy()`, `ThreadPoolExecutor`/`Future`.
+- 단순한 `if`·`for`·변수 대입까지 문법 설명을 붙이지 않는다. 모든 후보 문법에 설명을 붙이는 대신, 해당 코드의 동작이나 사용 이유가 바로 드러나지 않는 부분만 설명한다.
+
+```python
+# Agent에는 이번 질문을 추가하기 전까지의 대화만 전달한다.
+# region [Python 설명] list.copy()와 대화 snapshot
+# `.copy()`를 사용하면 현재 list 내용을 복사한 새로운 list를 만든다.
+# 이후 원본 list가 변경되어도 snapshot에는 영향을 주지 않는다.
+# endregion
+conversation_history = st.session_state["messages"].copy()
+```
+
+### Streamlit 실행 흐름 설명
+
+- Streamlit 코드는 script rerun 구조와 같은 사용자 session에서 상태가 유지되는 이유를 실제 코드 가까이 설명한다.
+- 필요하면 `st.session_state`, `st.chat_message()`, `st.chat_input()`, `st.empty()`, `write_stream()`, `st.columns()`, `st.image()`가 현재 UI 흐름에서 맡는 역할을 `[Streamlit 설명]` region으로 안내한다.
+- 대화 history에 user 메시지를 저장하는 시점, streaming 답변과 최종 답변의 차이, 답변 종료 후 source/image metadata를 렌더링하고 assistant 메시지를 저장하는 순서가 코드만 훑어도 보이게 짧은 업무 주석과 빈 줄로 구분한다.
+- 현재 이미지 표시 설정 `st.image(..., width="content")`와 기존 columns 배치를 유지한다. 설명을 추가하는 작업에서 이미지 크기, UI 배치 또는 표시 동작을 바꾸지 않는다.
+
+### Docstring, 공백, 기능 보존
+
+- 핵심 public API와 복잡한 orchestration 메서드에는 짧고 실무적인 한국어 docstring을 둔다. 목적, 주요 처리 흐름, 필요한 경우 입력·반환 데이터 형태를 설명한다. 단순 helper에 긴 docstring을 억지로 추가하지 않는다.
+- 입력 준비, 이전 데이터 변환, 현재 입력 추가, Agent/API 호출, event 판별, 결과 처리, 예외·로그, 반환처럼 논리 단계가 바뀌면 빈 줄로 구분한다. 하나의 연산 내부에는 불필요한 빈 줄을 넣지 않는다.
+- section header는 파일의 큰 기능 구분에만 사용하고 메서드마다 추가하지 않는다.
+- 주석·docstring·region·공백을 정리하면서 실행 순서와 동작을 변경하지 않는다. 검색/RAG, SQL, Agent와 streaming 호출, conversation history, 출처·이미지 선택 및 표시 로직은 별도 요청 없이는 수정하지 않는다.
