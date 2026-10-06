@@ -4,7 +4,7 @@ Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 �
 
 ## SONATA 연결
 
-`sonata_backend.py`는 팀원의 `car_search/chat_runtime.py`를 호출합니다. 개인 실행 화면 `app_kbj.py`도 같은 runtime을 호출합니다. runtime은 `CarManual` Agent와 검색·대화 다운로드 도구를 사용합니다. Agent의 최종 답변을 표시하며 검색 도구를 UI에서 강제로 호출하지 않습니다. 제조사·차종·연식은 `hyundai / sonata / 2026`이며 도구가 다른 차량을 조회하려 하면 거부합니다. 현재 차량 ID도 DB에서 확인합니다. 추가 비밀키나 재임베딩은 필요 없습니다.
+`car_search/ui_backend.py`는 팀원의 `car_search/chat_runtime.py`를 호출합니다. 개인 실행 화면 `app_kbj.py`도 같은 runtime을 호출합니다. runtime은 `CarManual` Agent와 검색·대화 다운로드 도구를 사용합니다. Agent의 최종 답변을 표시하며 검색 도구를 UI에서 강제로 호출하지 않습니다. 제조사·차종·연식은 `hyundai / sonata / 2026`이며 도구가 다른 차량을 조회하려 하면 거부합니다. 추가 비밀키나 재임베딩은 필요 없습니다.
 
 호출 경로:
 
@@ -12,7 +12,7 @@ Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 �
 app_kbj.py ────────────────────────┐
                                   ├→ car_search/chat_runtime.py → CarManual Agent → 도구
 anna_rag/chatbot/app.py            │
-  → sonata_backend.py ────────────┘
+  → car_search/ui_backend.py ────────────┘
 ```
 
 수정 위치:
@@ -23,9 +23,9 @@ anna_rag/chatbot/app.py            │
 
 `app_kbj.py`에 새로운 동작을 직접 추가하면 공통 화면에는 전파되지 않습니다. 공유할 동작은 runtime/Agent에 추가해야 합니다. 화면 파일을 통째로 실행하거나 복사하는 방식은 아닙니다.
 
-대화 이력은 첫 접속 때 생성하는 `anna_rag.sonata_chat_sessions`와 `anna_rag.sonata_chat_turns`에 저장합니다. 기존 IONIQ 5 이력과 팀원의 설명서 테이블은 변경하지 않습니다. 새 테이블은 RLS를 활성화하고 공개 API의 접근 권한을 제거합니다. 서버의 DB_URL 계정에는 테이블 생성 및 읽기·쓰기 권한이 필요합니다.
+대화 기록과 저장 정책은 차종별로 독립적입니다. IONIQ 5의 기존 DB 이력 저장은 그대로 유지합니다. SONATA는 팀원 화면처럼 현재 브라우저 접속의 메모리에 대화를 보관하며, DB 이력 저장이나 30분 만료 정책을 추가하지 않습니다. 이전 연결에서 만들었던 `anna_rag.sonata_chat_*` 테이블은 더 이상 읽거나 쓰지 않으며 기존 데이터는 삭제하지 않았습니다.
 
-같은 세션의 최근 6개 메시지(최대 3문답)를 Agent에 전달하고 검색 개수는 개인 화면과 동일한 10개로 설정합니다. 전체 대화 및 연결 이미지는 팀원의 HTML 다운로드 기능에 전달합니다. 뒤로 가기는 세션을 종료하고 다시 입장하면 새 세션을 만듭니다. 같은 요청 ID의 재시도는 저장된 답변을 반환하며, 다른 질문에 같은 ID를 재사용하면 거부합니다. runtime이 반환한 오류 상태도 답변과 구분해 기록하며, 실행 자체가 예외로 끝난 요청은 롤백합니다. 이 이력은 기존 IONIQ 전용 품질 대시보드 집계에는 아직 포함되지 않습니다.
+SONATA runtime은 같은 접속의 최근 6개 메시지를 Agent에 전달하며, 전체 접속 기록은 팀원의 HTML 다운로드 기능에 전달합니다. 차량을 나가면 메모리를 비우며 다른 차종이나 다른 접속의 기록을 가져오지 않습니다. `chat_runtime.py`는 쏘나타의 두 화면에서만 사용하는 쏘나타 전용 로직입니다.
 
 Sonata 답변은 팀원 코드처럼 페이지 번호로 출처를 안내합니다. 하단의 ‘검색에 사용한 설명서’는 검색 근거 목록이며 모든 항목이 답변에서 인용됐다는 뜻은 아닙니다. 다운로드는 저장소의 `data/DN8_2026_ko_KR.pdf`를 사용합니다.
 

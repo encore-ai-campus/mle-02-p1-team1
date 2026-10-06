@@ -249,8 +249,13 @@ def manual_bytes(path, modified_at):
 
 
 def backend_for(vehicle_id):
-    # Python이 모듈을 재사용합니다. 별도 resource 캐시는 배포 갱신 후 옛 모듈을 붙잡을 수 있습니다.
-    return load_backend(vehicle_id)
+    module = load_backend(vehicle_id)
+    if vehicle_id == 'sonata':
+        # 쏘나타 대화 메모리는 이 브라우저 접속에만 속합니다.
+        if 'sonata_backend' not in st.session_state:
+            st.session_state.sonata_backend = module.SonataBackend()
+        return st.session_state.sonata_backend
+    return module
 
 
 def init_state():
@@ -502,9 +507,10 @@ if question or retry:
                 try:
                     from datetime import datetime, timezone, timedelta
                     session = backend.get_session(st.session_state.conversation_id)
+                    expiry_minutes = session.get('expires_after_minutes', 30) if session else None
                     expired = (not session or session['ended_at'] is not None or
-                               (session['pending_request_id'] is None and
-                                datetime.now(timezone.utc) - session['last_activity_at'] > timedelta(minutes=30)))
+                               (expiry_minutes is not None and session['pending_request_id'] is None and
+                                datetime.now(timezone.utc) - session['last_activity_at'] > timedelta(minutes=expiry_minutes)))
                     if expired:
                         leave_chat()
                         st.session_state.session_notice = '이전 대화가 종료됐어요. 차종을 선택해 새로 시작해 주세요.'

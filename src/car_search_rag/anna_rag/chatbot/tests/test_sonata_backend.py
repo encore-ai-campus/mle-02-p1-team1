@@ -2,7 +2,7 @@
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
-from car_search_rag.anna_rag.chatbot import sonata_backend as backend
+from car_search_rag.car_search import ui_backend as backend
 from car_search_rag.anna_rag.chatbot.registry import VEHICLES
 
 
@@ -31,6 +31,26 @@ class SonataAdapterTests(unittest.TestCase):
         with patch.object(backend,'prepare_reply',return_value=reply):
             packet=backend.answer_question('안녕',[])
         self.assertEqual(packet['answer']['status'],'answered')
+
+    def test_history_is_per_connection_and_cleared_on_exit(self):
+        first, second = backend.SonataBackend(), backend.SonataBackend()
+        a, b = first.start_session(), second.start_session()
+        packet = {'answer': {'text': '답변'}, 'images': []}
+        with patch.object(backend, 'answer_question', return_value=packet) as answer:
+            first.chat(a, '첫 질문', request_id='one')
+            second.chat(b, '다른 접속 질문')
+            self.assertEqual(answer.call_args.args[1], [])
+            first.chat(a, '후속 질문')
+            self.assertEqual(answer.call_args.args[1][0]['content'], '첫 질문')
+            calls = answer.call_count
+            first.chat(a, '첫 질문', request_id='one')
+            self.assertEqual(answer.call_count, calls)
+        self.assertIsNone(first.get_session(a)['expires_after_minutes'])
+        first.end_session(a)
+        self.assertIsNone(first.get_session(a))
+        self.assertIsNotNone(second.get_session(b))
+        fresh = first.start_session()
+        self.assertEqual(first.get_session(fresh)['history'], [])
 
     def test_images_use_completed_runtime_output(self):
         self.assertEqual(backend.get_related_images({'vehicle_id':'ioniq5'}),[])
