@@ -1,0 +1,23 @@
+-- [프로젝트 추가] 자기 차량과 연결 자료만 읽습니다. 수정·삭제 SQL은 없습니다.
+SELECT car_id, car_nm, car_eng_nm, car_model_yr, create_user_id
+FROM public.car
+WHERE create_user_id = 'zzong_santafe_lag' AND car_eng_nm = 'santafe_hev';
+
+-- 자기 차량별 건수입니다. 조인으로 건수가 부풀지 않도록 따로 집계합니다.
+SELECT c.car_id, c.car_nm, c.car_model_yr,
+       (SELECT count(*) FROM public.car_manual_chapter x WHERE x.car_id=c.car_id) AS chapter_count,
+       (SELECT count(*) FROM public.car_manual_chunk x WHERE x.car_id=c.car_id) AS chunk_count,
+       (SELECT count(*) FROM public.car_manual_image x WHERE x.car_id=c.car_id) AS image_count
+FROM public.car c
+WHERE c.create_user_id = 'zzong_santafe_lag' AND c.car_eng_nm = 'santafe_hev';
+
+-- 각 장에 저장한 글·그림 수입니다.
+SELECT ch.car_id, ch.car_manual_chapter_no, ch.car_manual_chapter_nm,
+       (SELECT count(*) FROM public.car_manual_chunk x
+        WHERE x.car_id=ch.car_id AND x.car_manual_chapter_id=ch.car_manual_chapter_id) AS chunk_count,
+       (SELECT count(*) FROM public.car_manual_image x
+        WHERE x.car_id=ch.car_id AND x.car_manual_chapter_id=ch.car_manual_chapter_id) AS image_count
+FROM public.car_manual_chapter ch
+JOIN public.car c ON c.car_id=ch.car_id
+WHERE c.create_user_id = 'zzong_santafe_lag' AND c.car_eng_nm = 'santafe_hev'
+ORDER BY ch.car_id, ch.car_manual_chapter_sort_no;

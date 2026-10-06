@@ -1,5 +1,9 @@
 # 개인 싼타페 PDF 실험 — Python 파일로 실행하기
 
+## 팀 공통 DB 형식 저장 — 2026-10-06
+
+루트 `.env`의 `DB_URL`로 연결한 팀 DB에 검토한 싼타페 자료를 별도 차량 ID로 추가했습니다. 기존 개인 원문과 챗봇 조회 방식은 유지합니다. 저장 범위·제약·DBeaver 조회 방법은 [팀 DB 저장 안내](team_db_guide.md)를 확인하세요.
+
 ## 후속 실제 확인·원문 검토 버전 — 2026-10-06
 
 [순서별 확인 안내](./sequence_completion_guide.md)와 [31번 결과 확인 노트북](../../../notebooks/31_post_refactor_results.ipynb)을 추가했습니다. 노트북은 결과 파일만 읽습니다. [노션 추가 문안](./notion_update_draft.md)은 로컬 초안이며 노션 본문을 수정하지 않았습니다.
