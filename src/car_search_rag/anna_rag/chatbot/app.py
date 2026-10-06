@@ -284,10 +284,9 @@ def show_packet(message, render_body=True):
                 if s.get('quote'):
                     st.text(s['quote'])
     if message.get('images'):
-        with st.expander('관련 그림 보기'):
-            st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
-            for image in message['images']:
-                st.image(image['data'], caption=f"PDF {image['pdf_page']}페이지 · {image['caption']}")
+        st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
+        for image in message['images']:
+            st.image(image['data'], caption=f"PDF {image['pdf_page']}페이지 · {image['caption']}")
     if message.get('image_error'):
         st.caption('관련 그림을 불러오지 못했습니다. 답변과 출처는 확인할 수 있어요.')
     for notice in packet.get('notices', []):
