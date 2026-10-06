@@ -1,16 +1,35 @@
 # 자동차 설명서 챗봇 배포
 
-Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 있습니다. SANTA FE와 CASPER는 연결하지 않았습니다. 관리자 모드는 비활성화되어 있습니다.
+Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 있습니다. SANTA FE는 별도 설정이 필요하며 CASPER도 기존 팀원 RAG에 연결했습니다. 관리자 모드는 비활성화되어 있습니다.
 
-## SONATA 연결
+## SONATA 연결 및 팀원 수정 위치
 
-`sonata_backend.py`는 팀원의 `CarManualSearchService`를 그대로 호출합니다. 제조사·차종·연식은 `hyundai / sonata / 2026`으로 고정하며 현재 차량 ID를 DB에서 조회합니다. 기존 hybrid 검색, reranking, 답변 스트리밍, 관련 이미지 선택을 재사용합니다. 추가 비밀키나 재임베딩은 필요 없습니다.
+쏘나타는 기존 `app_kbj.py`와 `src/car_search_rag/car_search/` 폴더에서 작업합니다.
+제가 추가했던 `chat_runtime.py`, `ui_backend.py`는 제거했습니다.
 
-대화 이력은 첫 접속 때 생성하는 `anna_rag.sonata_chat_sessions`와 `anna_rag.sonata_chat_turns`에 저장합니다. 기존 IONIQ 5 이력과 팀원의 설명서 테이블은 변경하지 않습니다. 새 테이블은 RLS를 활성화하고 공개 API의 접근 권한을 제거합니다. 서버의 DB_URL 계정에는 테이블 생성 및 읽기·쓰기 권한이 필요합니다.
+```text
+공통 UI → registry → app_kbj.py의 create_backend / SonataBackend
+                          ↓
+                     prepare_reply
+                          ↓
+            car_search/car_manual.py → 검색 서비스
 
-같은 세션의 최근 6개 문답만 후속 질문에 전달합니다. 뒤로 가기는 세션을 종료하고 다시 입장하면 새 세션을 만듭니다. 같은 요청 ID의 재시도는 저장된 답변을 반환하며, 다른 질문에 같은 ID를 재사용하면 거부합니다. 실패한 답변은 저장하지 않습니다. 이 이력은 기존 IONIQ 전용 품질 대시보드 집계에는 아직 포함되지 않습니다.
+개인 실행: streamlit run app_kbj.py → main → 같은 prepare_reply
+```
 
-Sonata 답변은 팀원 코드처럼 페이지 번호로 출처를 안내합니다. 하단의 ‘검색에 사용한 설명서’는 검색 근거 목록이며 모든 항목이 답변에서 인용됐다는 뜻은 아닙니다. 다운로드는 저장소의 `data/DN8_2026_ko_KR.pdf`를 사용합니다.
+- `app_kbj.py`의 `prepare_reply`: 쏘나타 검색 개수, 전달할 대화 범위, 다운로드 분기.
+- `app_kbj.py`의 `SonataBackend`: 배포된 쏘나타의 접속별 메모리 대화 관리.
+- `app_kbj.py`의 `main`: 개인 테스트 화면. 공통 UI가 import할 때 실행되지 않습니다.
+- `car_search/car_manual.py`: 팀원의 기존 Agent 지침 및 도구.
+- `car_search/car_manual_search_service.py`: 팀원의 기존 검색·재정렬·답변 생성.
+
+UI와 동작이 뒤섞이지 않도록 기존 파일 안에 함수 경계만 두었습니다. 동작 변경은
+`prepare_reply` 또는 Agent/서비스에 작성하면 두 화면에 적용됩니다.
+`main` 안에만 추가한 동작은 개인 테스트 화면에만 적용됩니다.
+
+아이오닉의 Agent·검색 설정·DB 기록은 독립적입니다. 쏘나타는 현재 접속 기록만 메모리에
+보관하고 나가면 비웁니다. 과거 연결에서 생성된 `anna_rag.sonata_chat_*` 테이블은
+더 이상 읽거나 쓰지 않으며 기존 데이터는 삭제하지 않았습니다.
 
 ## Streamlit Community Cloud 설정
 
@@ -44,3 +63,30 @@ python -m streamlit run src/car_search_rag/anna_rag/chatbot/app.py
 4. 새 브라우저 세션에서 이전 사용자 대화가 표시되지 않는지 확인합니다.
 
 공식 배포 안내: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy
+
+
+## SANTA FE 연결
+
+기존 `zzong_santafe_lag/app.py`의 `create_backend`로 연결합니다. 아이오닉·쏘나타 로직은 호출하지 않습니다.
+개인 화면처럼 검색 후 발췌를 보여주고 별도 **답변 정리하기** 버튼으로 생성합니다.
+검색 개수 5개, 최근 질문 10개 보관, 부모 근거·각주·검토·그림 정책은 팀원 코드 기준입니다.
+
+Streamlit Secrets에 팀원이 준비해야 할 값:
+- `ZZONG_DB_URL`: 산타페 개인 DB 연결. 기존 팀 DB_URL을 바꾸지 않습니다.
+- `ZZONG_EMBEDDING_RUN_ID`: 개인 active_run.json의 embedding_run_id. 원문 run_id와 다릅니다.
+- `ZZONG_SUPABASE_URL`: 산타페 DB와 같은 프로젝트의 Storage URL.
+- 기존 `OPENAI_API_KEY`: 질문 임베딩·답변 생성용.
+
+개인 파일 active_run.json이 배포 저장소에 있으면 버전 ID 환경변수 대신 기존 파일을 사용해도 됩니다.
+없는 설정을 임의로 추정하거나 로컬 모델로 자동 전환하지 않습니다. 설정 전에는 화면에서 준비 필요 안내를 표시합니다.
+실 DB 검색·생성 확인은 설정 완료 후 필요합니다.
+
+
+## CASPER 연결
+
+`car_search_rag.casper_manual.src.rag`의 기존 `get_rag` / `ManualRAG.ask_manual`을 호출합니다.
+E5 임베딩, CASPER 전용 RPC, 팀원의 생성 프롬프트를 그대로 사용합니다.
+대화는 접속별 화면 기록으로만 유지하고 이전 질문을 모델에 전달하지 않습니다.
+기존 SUPABASE_URL, SUPABASE_SECRET_KEY, OPENAI_API_KEY 설정을 사용합니다.
+캐스퍼 최초 선택은 약 1.1GB 모델 다운로드와 로딩 때문에 시간이 걸릴 수 있습니다.
+Cloud 메모리 제한에서 모델이 유지되는지는 배포 후 별도 확인해야 합니다.

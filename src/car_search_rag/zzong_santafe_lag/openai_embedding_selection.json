@@ -1,0 +1,6 @@
+{
+  "source_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "embedding_run_id": "ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e",
+  "model": "text-embedding-3-small",
+  "dimension": 1536
+}

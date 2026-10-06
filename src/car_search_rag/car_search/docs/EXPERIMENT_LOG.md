@@ -315,3 +315,11 @@ DB에서 확인한 non-NULL 설명은 총 9건이며, 요청한 10건보다 하�
 - p.386/i1, p.386/i2, p.386/i3, p.387/i1은 DB에서 NULL로 확인했다. 주변 텍스트만으로 개별 이미지의 검색 의미를 안정적으로 연결하기 어려운 작은 화살표/fragment여서 description을 억지로 붙이지 않았다.
 - p.163/i1·i3, p.463/i2·i3, p.466/i2–i4 등도 확인된 샘플에서 NULL이다.
 - `image_desc`는 검색용 metadata 저장까지 완료됐으나 검색 순위나 이미지 relevance 개선 효과는 이번 재등록만으로 검증하지 않았다.
+
+## 2026-10-06 — 발표용 RAG 품질 대시보드 및 main 병합
+
+- `app_kbj.py`에 Golden Set 후보 11문항, Synthetic Holdout 50문항, Robustness 50문항의 Hit@1 / Hit@3 / Hit@5 그래프와 각 평가셋의 MRR@5 metric 카드를 추가했다.
+- 기존 streaming 응답, 검색 출처 Top-5, 관련 이미지, conversation history, HTML 대화 기록 다운로드 경로를 merge 결과에 유지했다. Streamlit AppTest에서 대시보드, 그래프 1개, MRR 카드 3개, 차량 선택 및 질문 입력 UI를 확인했다.
+- main 병합 중 `app_kbj.py` 충돌을 해결하고 대시보드 변경을 merge 결과에 포함했다. `pyproject.toml`에서는 양쪽에 필요한 의존성을 통합하고 중복 제약을 정리했다.
+- 기존 lock의 conflict marker를 제거하기 위해 `uv lock`으로 `uv.lock`을 재생성했으며 `uv lock --check`를 통과했다.
+- merge commit은 `7f455431ad25d82210fc159ca49491edf3c02545`이며, merge 직후 working tree clean을 확인했다.

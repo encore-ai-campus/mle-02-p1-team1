@@ -29,3 +29,6 @@ FULL_SOURCE = SourceProfile(
     page_count=779, parent_count=527, chunk_count=2213, image_count=864,
     input_manifest_sha256="893151d66a49fab8f21060ee95e7917054ebb12753dc62eb4ead26cd52798a1b",
 )
+
+# [프로젝트 추가] 검색은 PDF 재처리 모듈을 가져오지 않고 같은 버전 기준만 대조합니다.
+PIPELINE_VERSION = "full_manual_seat74_v1"

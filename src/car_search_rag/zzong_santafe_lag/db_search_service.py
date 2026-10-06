@@ -213,8 +213,8 @@ class DbFullSearchService(DbSampleSearchService):
 
     def query_rows(self, question, vector):
         """의미 검색을 기준으로 남기고, 기본값은 기존 글자·목적 검색을 저장 벡터에 적용합니다."""
-        from .review_revision import ACTIVE_FILE, load_active, combine
-        if self.method == "semantic" and not ACTIVE_FILE.exists() and not getattr(self, "review_bundle", None):
+        from .review_revision import selection_file, load_active, combine
+        if self.method == "semantic" and selection_file() is None and not getattr(self, "review_bundle", None):
             return super().query_rows(question, vector)
         # [프로젝트 적용] 같은 읽기 전용 거래에서 저장된 글·벡터·연결을 함께 가져옵니다.
         # 부모/청크를 새로 만들거나 임베딩하지 않습니다. 기존 12번 실험의 검색 규칙을 재사용합니다.
@@ -246,7 +246,7 @@ class DbFullSearchService(DbSampleSearchService):
 
     def validate_source(self, run, document, counts):
         """현재 승인한 전체 버전·개수·입력 식별값을 모두 확인한 뒤 모델을 준비합니다."""
-        from .full_store_service import PIPELINE_VERSION
+        from .source_profile import PIPELINE_VERSION
         expected_manifest = FULL_SOURCE.input_manifest_sha256
         if (document is None or run["status"] != "ready"
                 or counts != FULL_SOURCE.search_counts
@@ -268,6 +268,11 @@ class DbFullSearchService(DbSampleSearchService):
         # 파일을 다시 올리거나 임의 경로를 허용하지 않고 기존 완료 보고서의 파일별 대조 정보를 사용합니다.
         if not hasattr(self, "_uploaded_image_manifest"):
             report_path = ManualConfig().project_folder / "data/zzong_santafe_lag/reports/full_images_upload_summary_20261003.json"
+            # [프로젝트 추가] 개인 보고서가 없는 배포는 팀 DB의 864개 경로 스냅샷과 대조합니다.
+            # 파일 바이트 재검증을 뜻하지 않으며 ID·쪽수·접두어·경로 검사는 그대로 유지합니다.
+            if not report_path.exists():
+                from pathlib import Path
+                report_path = Path(__file__).with_name("image_storage_selection.json")
             report = json.loads(report_path.read_text(encoding="utf-8"))["result"]
             files = report["files"]
             if len(files) != FULL_SOURCE.image_count or len({row["image_id"] for row in files}) != FULL_SOURCE.image_count:

@@ -4,7 +4,7 @@ from time import perf_counter
 
 import streamlit as st
 
-from rag import download_model_weights, get_rag
+from rag import download_model_weights, get_rag, DEFAULT_TOP_K
 from portal_theme import apply_theme, hero, footer
 from project_portal import PAGES, render_project_page
 
@@ -27,7 +27,7 @@ def initialize_state():
         "practice_history": [],
         "practice_selected": None,
         "practice_question": "",
-        "practice_top_k": 5,
+        "practice_top_k": DEFAULT_TOP_K,
         "rag_ready": False,
     }
     for key, value in defaults.items():

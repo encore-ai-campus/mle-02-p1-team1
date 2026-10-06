@@ -14,3 +14,16 @@ sqlalchemy==2.1.1
 supabase==2.31.0
 aiosql==15.0
 pillow==12.3.0
+
+# 산타페의 기존 검색 정렬 및 모듈 import에 필요한 의존성
+scikit-learn==1.9.1
+huggingface-hub>=0.30,<2
+
+# 캐스퍼 팀원의 E5 로컬 임베딩 모델. Linux 배포에는 CUDA 패키지 없이 CPU wheel을 설치합니다.
+torch @ https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl ; sys_platform == "linux"
+torch==2.14.1; sys_platform != "linux"
+sentence-transformers==6.1.0
+transformers==5.18.0
+
+torchvision @ https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl ; sys_platform == "linux"
+torchvision==0.29.1; sys_platform != "linux"
