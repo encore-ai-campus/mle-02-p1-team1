@@ -1,0 +1,132 @@
+{
+  "category": [
+    {
+      "group": "정상 질문",
+      "category": "Positive",
+      "total": 18,
+      "outcome": "충족",
+      "count": 14,
+      "percent": 77.77777777777779,
+      "order": 0,
+      "label": "14개"
+    },
+    {
+      "group": "정상 질문",
+      "category": "Positive",
+      "total": 18,
+      "outcome": "부분 충족",
+      "count": 3,
+      "percent": 16.666666666666664,
+      "order": 1,
+      "label": "3개"
+    },
+    {
+      "group": "정상 질문",
+      "category": "Positive",
+      "total": 18,
+      "outcome": "미충족",
+      "count": 1,
+      "percent": 5.555555555555555,
+      "order": 2,
+      "label": "1개"
+    },
+    {
+      "group": "답할 수 없는 질문",
+      "category": "Negative",
+      "total": 6,
+      "outcome": "충족",
+      "count": 6,
+      "percent": 100.0,
+      "order": 0,
+      "label": "6개"
+    },
+    {
+      "group": "답할 수 없는 질문",
+      "category": "Negative",
+      "total": 6,
+      "outcome": "부분 충족",
+      "count": 0,
+      "percent": 0.0,
+      "order": 1,
+      "label": "0개"
+    },
+    {
+      "group": "답할 수 없는 질문",
+      "category": "Negative",
+      "total": 6,
+      "outcome": "미충족",
+      "count": 0,
+      "percent": 0.0,
+      "order": 2,
+      "label": "0개"
+    },
+    {
+      "group": "경계 사례",
+      "category": "Edge",
+      "total": 6,
+      "outcome": "충족",
+      "count": 4,
+      "percent": 66.66666666666666,
+      "order": 0,
+      "label": "4개"
+    },
+    {
+      "group": "경계 사례",
+      "category": "Edge",
+      "total": 6,
+      "outcome": "부분 충족",
+      "count": 2,
+      "percent": 33.33333333333333,
+      "order": 1,
+      "label": "2개"
+    },
+    {
+      "group": "경계 사례",
+      "category": "Edge",
+      "total": 6,
+      "outcome": "미충족",
+      "count": 0,
+      "percent": 0.0,
+      "order": 2,
+      "label": "0개"
+    }
+  ],
+  "retrieval": [
+    {
+      "group": "근거 확보 · 답변 충족",
+      "count": 18,
+      "percent": 78.26086956521739,
+      "color": "#168269",
+      "description": "필요한 근거를 찾고, 답변도 기준을 충족했습니다.",
+      "ids": "Q001 · Q002 · Q004 · Q006 · Q007 · Q008 · Q009 · Q010 · Q011 · Q013 · Q014 · Q015 · Q016 · Q017 · Q025 · Q026 · Q029 · Q030",
+      "label": "18개 · 78.3%"
+    },
+    {
+      "group": "근거 확보 · 답변 보완 필요",
+      "count": 2,
+      "percent": 8.695652173913043,
+      "color": "#d0932b",
+      "description": "근거는 있었지만 원문의 조건을 바꾸거나 내용을 빠뜨렸습니다.",
+      "ids": "Q003 · Q012",
+      "label": "2개 · 8.7%"
+    },
+    {
+      "group": "필수 근거 미확보",
+      "count": 3,
+      "percent": 13.043478260869565,
+      "color": "#c65a57",
+      "description": "관련 글은 검색됐지만 정답에 필요한 근거가 상위 5개에 없었습니다.",
+      "ids": "Q005 · Q018 · Q027",
+      "label": "3개 · 13.0%"
+    }
+  ],
+  "excluded": [
+    "Q019",
+    "Q020",
+    "Q021",
+    "Q022",
+    "Q023",
+    "Q024",
+    "Q028"
+  ]
+}
