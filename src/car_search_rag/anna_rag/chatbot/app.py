@@ -335,7 +335,7 @@ st.markdown("""<style>
 .st-key-vehicle_menu [data-testid="stPopoverButton"]:hover {
  color:#4932cf!important;
 }
-.st-key-vehicle_menu [data-testid="stPopoverButton"] p {
+.st-key-vehicle_menu [data-testid="stPopoverButton"] > div {
  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
  clip:rect(0,0,0,0);white-space:nowrap;
 }
@@ -343,7 +343,7 @@ st.markdown("""<style>
 .st-key-vehicle_menu [data-testid="stPopoverButton"] svg,
 .st-key-vehicle_menu [data-testid="stPopoverButton"] [data-testid="stIconMaterial"] {display:none!important;}
 .st-key-vehicle_menu [data-testid="stPopoverButton"]::before {
- content:"";display:block;width:22px;height:2px;border-radius:2px;
+ content:"";display:block;flex:0 0 22px;width:22px;height:2px;border-radius:2px;
  background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor;
 }
 .st-key-vehicle_menu [data-testid="stPopoverButton"]:focus-visible {outline:2px solid #b9aff2;outline-offset:2px;}
