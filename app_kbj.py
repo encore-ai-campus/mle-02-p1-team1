@@ -5,7 +5,9 @@ import streamlit as st
 
 
 
-from car_search_rag.car_search.car_manual import CarManual
+from car_search_rag.car_search.chat_runtime import (
+    prepare_reply, _is_conversation_download_request, _display_metadata,
+)
 
 
 # =========================================================
@@ -23,85 +25,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger("CarManual")
-
-
-def _is_conversation_download_request(question):
-    """대화 기록과 다운로드 의도가 함께 있는 질문을 판별한다."""
-    normalized = " ".join((question or "").casefold().split())
-    history_terms = (
-        "대화", "채팅", "기록", "내역", "히스토리", "history", "conversation", "chat"
-    )
-    download_terms = ("다운로드", "내려받", "내보내", "download", "export")
-    return (
-        any(term in normalized for term in history_terms)
-        and any(term in normalized for term in download_terms)
-    )
-
-
-def _display_metadata(search_results, question=None, image_selector=None, answer=None):
-    """검색 row에서 출처와 화면에 표시할 이미지를 분리해 만든다.
-
-    출처는 chunk 순서를 유지하며 최대 5개까지 모은다. image selector가 있으면
-    질문 관련도로 이미지를 고르고, 없으면 검색 row의 URL에서 최대 3개를 가져온다.
-
-    Returns:
-        `(출처 목록, 이미지 metadata 목록)` 형태의 tuple.
-    """
-    # 검색 row 순서대로 중복 없는 출처 목록을 만든다.
-    # region [Python 설명] list, set, tuple key와 dict.get()
-    # `sources`는 출처 dict를 담는 list이고 `seen_sources`는 중복 검사 set이다.
-    # row의 key는 camelCase 또는 snake_case일 수 있어 중첩 `.get()`으로 둘 다 확인한다.
-    # `(page_no, chunk_no)` tuple은 출처 한 건을 구별하는 set key로 사용한다.
-    # `search_results or ()`는 결과가 None 또는 비어 있으면 빈 tuple로 순회한다.
-    # endregion
-    sources = []
-    seen_sources = set()
-
-    for result in search_results or ():
-        page_no = result.get("carManualChunkPageNo", result.get("car_manual_chunk_page_no"))
-        chunk_no = result.get("carManualChunkNo", result.get("car_manual_chunk_no"))
-        source_key = (page_no, chunk_no)
-        if page_no is not None and chunk_no is not None and source_key not in seen_sources:
-            sources.append({"page_no": page_no, "chunk_no": chunk_no})
-            seen_sources.add(source_key)
-
-        if len(sources) >= 5:
-            break
-
-    # image selector가 있으면 질문을 전달해 관련 이미지를 선택한다.
-    # region [Python 설명] callback 함수와 truthy 검사
-    # `image_selector`는 호출자가 함수로 전달한 callback이다.
-    # 질문과 검색 row를 넘겨 실행하고 이미지 표시용 metadata 목록을 받는다.
-    # `question and image_selector`는 두 값이 모두 있을 때만 이 경로를 선택한다.
-    # endregion
-    if question and image_selector:
-        images = image_selector(question, search_results, limit=3, answer=answer)
-    else:
-        # selector가 없으면 검색 row에 붙은 image URL에서 순서대로 모은다.
-        images = []
-        seen_images = set()
-
-        # URL이 문자열이고 유효하며 이미 쓰이지 않았는지 확인한다.
-        # region [Python 설명] isinstance()와 set membership
-        # `isinstance(image_url, str)`는 URL 값이 문자열인지 확인한다.
-        # `.strip()`은 앞뒤 공백을 제거하고, set membership은 이미 본 URL을 건너뛴다.
-        # endregion
-        for result in search_results or ():
-            image_url = result.get("carManualImageUrl", result.get("car_manual_image_url"))
-            page_no = result.get("carManualChunkPageNo", result.get("car_manual_chunk_page_no"))
-            if isinstance(image_url, str) and image_url.strip() and image_url.strip() not in seen_images:
-                images.append({"url": image_url.strip(), "page_no": page_no})
-                seen_images.add(image_url.strip())
-
-            if len(images) >= 3:
-                break
-
-    # 출처와 이미지 목록을 tuple로 반환한다.
-    # region [Python 설명] 여러 값 반환
-    # `return a, b`는 `(a, b)` tuple을 반환한다.
-    # 호출 측은 `sources, images = ...`처럼 두 변수로 나누어 받을 수 있다.
-    # endregion
-    return sources[:5], images
 
 
 def _render_assistant_message(message, *, render_answer=True):
@@ -197,25 +120,6 @@ st.set_page_config(
 st.title("🚗 차량 매뉴얼 AI 챗봇")
 
 
-# 반복 실행에서도 재사용할 차량 매뉴얼 Agent를 준비한다.
-# region [Streamlit 설명] st.cache_resource
-# Streamlit은 사용자 입력 등으로 script를 위에서 아래로 다시 실행한다.
-# `st.cache_resource`는 이 함수가 반환한 Agent 같은 resource를 실행 사이에 재사용한다.
-# 따라서 매 rerun마다 LLM/DB 연결 객체를 새로 만들지 않고 기존 resource를 쓴다.
-# endregion
-@st.cache_resource
-def get_car_manual():
-    """Agent와 검색 service를 한 번 만들고 첫 검색 전 DB 연결을 준비한다."""
-    car_manual = CarManual()
-    # cache_resource 함수는 resource 최초 생성 때만 실행되므로 첫 검색 전에 최소 DB connection을 준비한다.
-    sql_session = car_manual.service.sql_session
-    sql_session.database_manager.warmup(camel_case_keys=sql_session.camel_case_keys)
-    return car_manual
-
-
-car_manual = get_car_manual()
-
-
 # =========================================================
 # 차량 선택
 # =========================================================
@@ -304,13 +208,13 @@ question = st.chat_input(
 # 질문이 제출된 경우에만 대화와 Agent 응답 흐름을 실행한다.
 if question:
 
-    # Agent에는 이번 질문을 추가하기 전 대화 중 최근 6개 message만 전달한다.
+    # 전체 이력을 전달하며, 공용 실행 모듈이 Agent용 최근 6개와 다운로드용 전체 이력을 구분한다.
     # region [Python 설명] list slicing과 대화 snapshot
-    # `[-6:]`은 messages의 마지막 6개 message를 새 list로 만든다.
+    # `.copy()`는 현재 이력의 복사본을 만들며, 최근 6개 선택은 chat_runtime에서 수행한다.
     # 아래에서 현재 user question을 session history에 추가해도 snapshot에는 포함되지 않아,
     # 현재 질문은 별도 `question` 인자로 한 번만 전달된다.
     # endregion
-    conversation_history = st.session_state["messages"][-6:]
+    conversation_history = st.session_state["messages"].copy()
 
     # 제출한 user 질문을 chat 영역에 표시한다.
     # region [Streamlit 설명] 새 user chat message
@@ -343,91 +247,22 @@ if question:
 
             # Agent 결과, 출처, 이미지 표시 데이터를 준비한다.
             try:
-                if _is_conversation_download_request(question):
-                    # UI session에 저장된 전체 대화로 HTML을 만들고 성공 여부를 확인한다.
-                    logger.info("Conversation history download request detected")
-                    sources, images = [], []
-                    try:
-                        download_html = car_manual.prepare_history_html(
-                            st.session_state["messages"]
-                        )
-                    except Exception:
-                        logger.exception("Conversation history HTML preparation failed")
-                        download_html = None
-
-                    if download_html:
-                        try:
-                            # HTML 준비 후 버튼 렌더링까지 성공한 경우에만 완료를 알린다.
-                            st.download_button(
-                                label="📥 대화 기록 HTML 다운로드",
-                                data=download_html,
-                                file_name="car_manual_history.html",
-                                mime="text/html",
-                            )
-                        except Exception:
-                            logger.exception(
-                                "Conversation history download button rendering failed"
-                            )
-                            answer = "다운로드 버튼을 표시하지 못했습니다. 다시 시도해 주세요."
-                            st.error(answer)
-                        else:
-                            answer = "대화 기록 HTML 다운로드를 준비했습니다."
-                            st.markdown(answer)
-                            logger.info(
-                                "Conversation history download button displayed export_messages=%d",
-                                len(st.session_state["messages"]),
-                            )
-                    else:
-                        answer = "대화 기록 HTML을 만들지 못했습니다. 다시 시도해 주세요."
-                        st.error(answer)
-                else:
-                    # 일반 질문은 기존 Agent streaming 경로로 처리한다.
-                    answer_result = car_manual.ask_with_sources_stream(
-                        car_brand_eng_nm=car_brand_eng_nm,
-                        car_eng_nm=car_eng_nm,
-                        car_model_yr=car_model_yr,
-                        question=question,
-                        limit=10,
-                        conversation_history=conversation_history,
-                    )
-
-                    # streaming output을 넣고 최종 Markdown으로 갱신할 placeholder를 만든다.
-                    # region [Streamlit 설명] st.empty() placeholder
-                    # `st.empty()`는 나중에 내용을 채우거나 바꿀 수 있는 화면 위치를 만든다.
-                    # 같은 placeholder에 streaming text를 먼저 표시하고 최종 답변 Markdown을 다시 쓴다.
-                    # endregion
-                    answer_placeholder = st.empty()
-
-                    # Agent가 보내는 답변 조각을 화면에 순서대로 출력한다.
-                    # region [Streamlit 설명] st.write_stream()
-                    # `write_stream()`은 iterator/generator의 값을 하나씩 화면에 출력한다.
-                    # 문자열만 stream하면 완료 후 전체 문자열도 반환하므로 최종 답변 복원에 쓸 수 있다.
-                    # endregion
-                    streamed_answer = answer_placeholder.write_stream(answer_result.chunks)
-
-                    # service가 저장한 전체 답변을 우선하고, 없으면 UI stream 반환값을 사용한다.
-                    # region [Python 설명] `or` fallback
-                    # 빈 문자열은 falsy이므로 `answer_result.answer`가 비어 있으면 `streamed_answer`가 선택된다.
-                    # endregion
-                    answer = answer_result.answer or streamed_answer
-
-                    # placeholder에 완성 답변 전체를 Markdown으로 표시한다.
-                    answer_placeholder.markdown(answer)
-
-                    # streaming 중 수집된 오류가 있으면 답변과 함께 사용자에게 알린다.
-                    if answer_result.error is not None:
-                        st.error(f"답변 생성 중 오류가 발생했습니다: {answer_result.error}")
-
-                    # 답변 생성이 끝난 뒤 검색 출처와 관련 이미지를 선택한다.
-                    # region [Python 설명] 여러 값 unpacking과 callback 전달
-                    # `_display_metadata()`는 `(sources, images)` tuple을 반환한다.
-                    # 검색 service의 image selector 함수를 callback으로 전달해 질문 관련 이미지를 고른다.
-                    # endregion
-                    sources, images = _display_metadata(
-                        answer_result.search_results,
-                        question=question,
-                        answer=answer,
-                        image_selector=car_manual.service.select_relevant_images,
+                # 공통 챗봇과 동일한 실행 흐름을 호출하고 화면만 렌더링합니다.
+                reply = prepare_reply(
+                    question, conversation_history,
+                    vehicle=(car_brand_eng_nm, car_eng_nm, car_model_yr),
+                )
+                answer_placeholder = st.empty()
+                answer_placeholder.write_stream(reply.chunks)
+                answer = reply.answer
+                sources, images = reply.sources, reply.images
+                answer_placeholder.markdown(answer)
+                if reply.error is not None:
+                    st.error('답변 생성 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                if reply.download_html:
+                    st.download_button(
+                        label='📥 대화 기록 HTML 다운로드', data=reply.download_html,
+                        file_name='car_manual_history.html', mime='text/html',
                     )
 
             # 예외가 발생해도 assistant history에 저장할 오류 답변을 준비한다.

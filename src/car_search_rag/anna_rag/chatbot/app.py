@@ -297,6 +297,10 @@ def show_packet(message, render_body=True):
                 st.image(image['data'], caption=f"PDF {image['pdf_page']}페이지 · {image['caption']}")
     if message.get('image_error'):
         st.caption('관련 그림을 불러오지 못했습니다. 답변과 출처는 확인할 수 있어요.')
+    if packet.get('download_html'):
+        st.download_button('대화 기록 HTML 다운로드', data=packet['download_html'],
+                           file_name='car_manual_history.html', mime='text/html',
+                           key=f"history_download_{message['ui_id']}", on_click='ignore')
 
 
 init_state()
