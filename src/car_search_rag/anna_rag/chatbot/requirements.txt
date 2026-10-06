@@ -14,3 +14,7 @@ sqlalchemy==2.1.1
 supabase==2.31.0
 aiosql==15.0
 pillow==12.3.0
+
+# 산타페의 기존 검색 정렬 및 모듈 import에 필요한 의존성
+scikit-learn==1.9.1
+huggingface-hub>=0.30,<2

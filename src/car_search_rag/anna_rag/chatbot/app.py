@@ -292,6 +292,8 @@ def show_packet(message, render_body=True):
                 pages = ', '.join(map(str, s.get('pdf_pages', [])))
                 st.write(f"[{s['label']}] {s['title']} · PDF {pages}페이지")
                 st.caption(s.get('source_file', ''))
+                if s.get('quote'):
+                    st.text(s['quote'])
     if message.get('images'):
         with st.expander('관련 그림 보기'):
             st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
@@ -299,6 +301,22 @@ def show_packet(message, render_body=True):
                 st.image(image['data'], caption=f"PDF {image['pdf_page']}페이지 · {image['caption']}")
     if message.get('image_error'):
         st.caption('관련 그림을 불러오지 못했습니다. 답변과 출처는 확인할 수 있어요.')
+    for notice in packet.get('notices', []):
+        st.caption(notice)
+    # 생성 여부·동작은 차종 구현이 결정하고, 화면은 전달된 버튼만 표시합니다.
+    for action in packet.get('actions', []):
+        if st.button(action['label'], key=f"action_{message['ui_id']}_{action['id']}"):
+            try:
+                selected_backend = backend_for(st.session_state.active_vehicle)
+                with st.spinner(''):
+                    updated = selected_backend.perform_action(
+                        st.session_state.conversation_id, packet, action['id'])
+                message['packet'] = updated
+                message['images'] = selected_backend.get_related_images(updated)
+                st.rerun()
+            except Exception as error:
+                logging.warning('Vehicle action failed: %s', type(error).__name__)
+                st.info('처리하지 못했어요. 최근 질문인지 확인하고 다시 질문해 주세요.')
     if packet.get('download_html'):
         st.download_button('대화 기록 HTML 다운로드', data=packet['download_html'],
                            file_name='car_manual_history.html', mime='text/html',
@@ -423,6 +441,9 @@ with st.sidebar:
     manual_path = Path(__file__).parent / 'manuals' / manual_name if manual_name else None
     if vehicle_id == 'sonata':
         manual_name = 'DN8_2026_ko_KR.pdf'
+        manual_path = ROOT / 'data' / manual_name
+    if vehicle_id == 'santafe':
+        manual_name = 'santafe_hev_manual.pdf'
         manual_path = ROOT / 'data' / manual_name
     if manual_path and manual_path.is_file():
         st.download_button('PDF 사용설명서 다운로드',

@@ -1,6 +1,7 @@
 """새 OpenAI 벡터를 검색하되 기존 부모 문맥·출처·그림 검토 규칙은 재사용합니다."""
 
 import json
+import os
 import hashlib
 from time import perf_counter
 from uuid import UUID
@@ -15,6 +16,11 @@ from .source_profile import FULL_SOURCE
 
 def active_embedding_run():
     """개인 기본 선택 파일을 읽습니다. API·DB 호출은 하지 않으며 잘못된 값은 조용히 대체하지 않습니다."""
+    # [프로젝트 추가] 배포 서버는 개인 파일 대신 같은 버전 ID를 Secrets로 지정할 수 있습니다.
+    # ID만 믿고 검색하지 않으며 prepare의 기존 모델·차원·원문·완료 상태 검사를 그대로 거칩니다.
+    configured = os.getenv("ZZONG_EMBEDDING_RUN_ID")
+    if configured:
+        return UUID(configured)
     path = OUTPUT_FOLDER / "active_run.json"
     if not path.exists():
         return None

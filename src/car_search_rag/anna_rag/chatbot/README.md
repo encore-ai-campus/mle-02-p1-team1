@@ -1,6 +1,6 @@
 # 자동차 설명서 챗봇 배포
 
-Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 있습니다. SANTA FE와 CASPER는 연결하지 않았습니다. 관리자 모드는 비활성화되어 있습니다.
+Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 있습니다. SANTA FE는 별도 설정이 필요하며 CASPER는 연결하지 않았습니다. 관리자 모드는 비활성화되어 있습니다.
 
 ## SONATA 연결 및 팀원 수정 위치
 
@@ -63,3 +63,20 @@ python -m streamlit run src/car_search_rag/anna_rag/chatbot/app.py
 4. 새 브라우저 세션에서 이전 사용자 대화가 표시되지 않는지 확인합니다.
 
 공식 배포 안내: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy
+
+
+## SANTA FE 연결
+
+기존 `zzong_santafe_lag/app.py`의 `create_backend`로 연결합니다. 아이오닉·쏘나타 로직은 호출하지 않습니다.
+개인 화면처럼 검색 후 발췌를 보여주고 별도 **답변 정리하기** 버튼으로 생성합니다.
+검색 개수 5개, 최근 질문 10개 보관, 부모 근거·각주·검토·그림 정책은 팀원 코드 기준입니다.
+
+Streamlit Secrets에 팀원이 준비해야 할 값:
+- `ZZONG_DB_URL`: 산타페 개인 DB 연결. 기존 팀 DB_URL을 바꾸지 않습니다.
+- `ZZONG_EMBEDDING_RUN_ID`: 개인 active_run.json의 embedding_run_id. 원문 run_id와 다릅니다.
+- `ZZONG_SUPABASE_URL`: 산타페 DB와 같은 프로젝트의 Storage URL.
+- 기존 `OPENAI_API_KEY`: 질문 임베딩·답변 생성용.
+
+개인 파일 active_run.json이 배포 저장소에 있으면 버전 ID 환경변수 대신 기존 파일을 사용해도 됩니다.
+없는 설정을 임의로 추정하거나 로컬 모델로 자동 전환하지 않습니다. 설정 전에는 화면에서 준비 필요 안내를 표시합니다.
+실 DB 검색·생성 확인은 설정 완료 후 필요합니다.

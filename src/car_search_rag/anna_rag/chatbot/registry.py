@@ -29,7 +29,7 @@ class Vehicle:
 # 다른 차종 이름과 모듈은 팀에서 확정한 후 여기에 등록합니다.
 VEHICLES = {
     'ioniq5': Vehicle('현대 아이오닉 5', 'car_search_rag.anna_rag.chatbot.ioniq5_backend'),
-    'santafe': Vehicle('산타페', None),
+    'santafe': Vehicle('산타페', 'car_search_rag.zzong_santafe_lag.app'),
     'sonata': Vehicle('쏘나타', 'app_kbj'),
     'casper': Vehicle('캐스퍼', None),
 }

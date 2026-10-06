@@ -10,7 +10,7 @@ class SonataAdapterTests(unittest.TestCase):
     def test_only_requested_vehicle_is_enabled(self):
         self.assertIsNotNone(VEHICLES['sonata'].module)
         self.assertIsNotNone(VEHICLES['ioniq5'].module)
-        self.assertIsNone(VEHICLES['santafe'].module)
+        self.assertIsNotNone(VEHICLES['santafe'].module)
         self.assertIsNone(VEHICLES['casper'].module)
 
     def test_adapter_delegates_to_runtime_and_preserves_final_answer(self):
