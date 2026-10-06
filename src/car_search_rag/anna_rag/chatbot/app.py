@@ -240,7 +240,7 @@ for car_id in ('ioniq5', 'santafe', 'sonata', 'casper'):
 
 
 # 원본 설명서는 차종별로 지정합니다. 다운로드는 대화를 다시 실행하지 않습니다.
-MANUAL_FILES = {'ioniq5': 'NE1_2027_ko_KR.pdf'}
+MANUAL_FILES = {'ioniq5': 'NE1_2027_ko_KR.pdf', 'casper': 'AXEV_2027_ko_KR.pdf'}
 
 @st.cache_data(show_spinner=False)
 def manual_bytes(path, modified_at):
