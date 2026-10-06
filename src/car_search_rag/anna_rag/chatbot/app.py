@@ -249,13 +249,11 @@ def manual_bytes(path, modified_at):
 
 
 def backend_for(vehicle_id):
-    module = load_backend(vehicle_id)
-    if vehicle_id == 'sonata':
-        # 쏘나타 대화 메모리는 이 브라우저 접속에만 속합니다.
-        if 'sonata_backend' not in st.session_state:
-            st.session_state.sonata_backend = module.SonataBackend()
-        return st.session_state.sonata_backend
-    return module
+    # 화면은 차종별 구현을 생성하고, 현재 접속에서 재사용하기만 합니다.
+    key = f'vehicle_backend_{vehicle_id}'
+    if key not in st.session_state:
+        st.session_state[key] = load_backend(vehicle_id)
+    return st.session_state[key]
 
 
 def init_state():
@@ -503,14 +501,9 @@ if question or retry:
                 def show_loading(label):
                     loading.markdown('<div class="thinking" role="status" aria-label="답변 준비 중"><i></i><i></i><i></i></div>', unsafe_allow_html=True)
                 show_loading('질문을 확인하고 있어요')
-                # 종료/30분 만료 세션은 이전 문맥을 쓰지 않고 입구로 돌려보냅니다.
+                # 대화가 유효한지는 선택된 차종의 로직에서 판단합니다.
                 try:
-                    from datetime import datetime, timezone, timedelta
-                    session = backend.get_session(st.session_state.conversation_id)
-                    expiry_minutes = session.get('expires_after_minutes', 30) if session else None
-                    expired = (not session or session['ended_at'] is not None or
-                               (expiry_minutes is not None and session['pending_request_id'] is None and
-                                datetime.now(timezone.utc) - session['last_activity_at'] > timedelta(minutes=expiry_minutes)))
+                    expired = not backend.is_session_active(st.session_state.conversation_id)
                     if expired:
                         leave_chat()
                         st.session_state.session_notice = '이전 대화가 종료됐어요. 차종을 선택해 새로 시작해 주세요.'

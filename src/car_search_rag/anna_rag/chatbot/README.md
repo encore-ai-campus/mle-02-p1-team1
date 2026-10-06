@@ -61,3 +61,13 @@ python -m streamlit run src/car_search_rag/anna_rag/chatbot/app.py
 4. 새 브라우저 세션에서 이전 사용자 대화가 표시되지 않는지 확인합니다.
 
 공식 배포 안내: https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy
+
+## 화면과 차종별 로직의 경계
+
+공통 화면은 차종 선택, 메시지 표시, 입력, 스트리밍 애니메이션만 담당합니다.
+대화 유효 여부도 해당 차종의 `is_session_active`에 묻고 결과만 표시합니다.
+검색 개수, Agent 지침, 대화 전달 범위, 이력 저장 정책은 공통 UI에서 지정하지 않습니다.
+`car_search/chat_runtime.py`와 `car_search/ui_backend.py`는 SONATA 전용이며 IONIQ는 import하지 않습니다.
+SONATA의 최근 6개 메시지·검색 10개는 기존 `app_kbj.py`에서 옮긴 팀원 설정입니다.
+팀원은 SONATA 폴더의 runtime/Agent/서비스에서 동작을 수정합니다. 기존 화면에 있던
+동작 일부를 분리했으므로, 이제 `app_kbj.py`에만 새 동작을 추가하면 배포 화면에는 반영되지 않습니다.

@@ -50,6 +50,10 @@ class SonataBackend:
     def get_session(self, session_id):
         return self.sessions.get(session_id)
 
+    def is_session_active(self, session_id):
+        # 쏘나타는 접속 종료 전까지 대화를 유지하며 시간 만료를 적용하지 않습니다.
+        return session_id in self.sessions
+
     def end_session(self, session_id):
         # 차량 선택 화면으로 돌아갈 때 이 접속의 대화 메모리를 비웁니다.
         self.sessions.pop(session_id, None)
@@ -79,3 +83,8 @@ class SonataBackend:
             return packet
 
     get_related_images = staticmethod(get_related_images)
+
+
+def create_backend():
+    """현재 접속에서만 사용할 쏘나타 구현을 만듭니다."""
+    return SonataBackend()
