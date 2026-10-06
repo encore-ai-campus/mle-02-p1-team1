@@ -1,6 +1,6 @@
 # 자동차 설명서 챗봇 배포
 
-Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 있습니다. SANTA FE는 별도 설정이 필요하며 CASPER는 연결하지 않았습니다. 관리자 모드는 비활성화되어 있습니다.
+Streamlit UI에서 IONIQ 5와 SONATA 2026 설명서를 선택해 대화할 수 있습니다. SANTA FE는 별도 설정이 필요하며 CASPER도 기존 팀원 RAG에 연결했습니다. 관리자 모드는 비활성화되어 있습니다.
 
 ## SONATA 연결 및 팀원 수정 위치
 
@@ -80,3 +80,13 @@ Streamlit Secrets에 팀원이 준비해야 할 값:
 개인 파일 active_run.json이 배포 저장소에 있으면 버전 ID 환경변수 대신 기존 파일을 사용해도 됩니다.
 없는 설정을 임의로 추정하거나 로컬 모델로 자동 전환하지 않습니다. 설정 전에는 화면에서 준비 필요 안내를 표시합니다.
 실 DB 검색·생성 확인은 설정 완료 후 필요합니다.
+
+
+## CASPER 연결
+
+`car_search_rag.casper_manual.src.rag`의 기존 `get_rag` / `ManualRAG.ask_manual`을 호출합니다.
+E5 임베딩, CASPER 전용 RPC, 팀원의 생성 프롬프트를 그대로 사용합니다.
+대화는 접속별 화면 기록으로만 유지하고 이전 질문을 모델에 전달하지 않습니다.
+기존 SUPABASE_URL, SUPABASE_SECRET_KEY, OPENAI_API_KEY 설정을 사용합니다.
+캐스퍼 최초 선택은 약 1.1GB 모델 다운로드와 로딩 때문에 시간이 걸릴 수 있습니다.
+Cloud 메모리 제한에서 모델이 유지되는지는 배포 후 별도 확인해야 합니다.

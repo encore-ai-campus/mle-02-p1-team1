@@ -11,7 +11,7 @@ class SonataAdapterTests(unittest.TestCase):
         self.assertIsNotNone(VEHICLES['sonata'].module)
         self.assertIsNotNone(VEHICLES['ioniq5'].module)
         self.assertIsNotNone(VEHICLES['santafe'].module)
-        self.assertIsNone(VEHICLES['casper'].module)
+        self.assertIsNotNone(VEHICLES['casper'].module)
 
     def test_adapter_delegates_to_runtime_and_preserves_final_answer(self):
         history = [{'role':'user','content':'이전 질문'}]

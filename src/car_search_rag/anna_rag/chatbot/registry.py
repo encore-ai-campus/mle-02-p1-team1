@@ -31,7 +31,7 @@ VEHICLES = {
     'ioniq5': Vehicle('현대 아이오닉 5', 'car_search_rag.anna_rag.chatbot.ioniq5_backend'),
     'santafe': Vehicle('산타페', 'car_search_rag.zzong_santafe_lag.app'),
     'sonata': Vehicle('쏘나타', 'app_kbj'),
-    'casper': Vehicle('캐스퍼', None),
+    'casper': Vehicle('캐스퍼', 'car_search_rag.casper_manual.src.rag'),
 }
 
 
