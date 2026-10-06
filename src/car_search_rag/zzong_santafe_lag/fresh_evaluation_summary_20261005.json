@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-05",
+  "dataset_sha256": "98a9e267fefe8a4967dba4d1083d1cfa08203f235f44b754ff83f5b6a3bd83e3",
+  "source_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "embedding_run_id": "ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e",
+  "details_folder": "data/zzong_santafe_lag/openai_embeddings/fresh_98a9e267fefe8a4967dba4d1083d1cfa08203f235f44b754ff83f5b6a3bd83e3",
+  "question_count": 10,
+  "candidate_occurrences": 100,
+  "unique_question_context_count": 61,
+  "human_confirmed": false,
+  "annotator": "Codex의 원문 내용 판정. 사람의 교차 검토 전 잠정값.",
+  "metrics": {
+    "local": {"Precision@5": 0.36, "Hit@5": 1.0, "MRR@5": 0.95},
+    "openai": {"Precision@5": 0.36, "Hit@5": 1.0, "MRR@5": 0.95}
+  },
+  "generation_model": "gpt-6-luna",
+  "generation_reasoning": "none",
+  "generation_attempts": 3,
+  "generated_answer_count": 1,
+  "fallback_count": 2,
+  "generation_review": [
+    {"case_id": "N01", "status": "generated_answer", "review": "엔진이 차가울 때 점검·뜨거운 캡 개방 시 분출과 화상 위험·출처가 요청과 근거에 일치함.", "human_confirmed": false},
+    {"case_id": "N05", "status": "evidence_excerpt", "error_type": "ValueError", "review": "직접 조작 지침은 2위에 있으나 위치 안내도를 선택. 발췌도 질문에 답하지 못함.", "exact_generation_failure_cause_confirmed": false},
+    {"case_id": "N08", "status": "evidence_excerpt", "error_type": "ValueError", "review": "근거와 발췌에 연료 67 ℓ·무연 휘발유가 있음. 생성 검사를 통과하지 못함. 불필요한 각주와 모든 출처 인용 조건의 영향은 진단 대상이며 미확정.", "exact_generation_failure_cause_confirmed": false}
+  ],
+  "usage": {"local_question_searches": 10, "openai_question_embedding_calls": 10, "generation_calls": 3, "input_tokens": 3666, "output_tokens": 188, "total_generation_tokens": 3854, "retrieval_seconds": 217.80329720000736, "judge_api_calls": 0},
+  "limitations": ["기존 검토 주제로 만든 소규모 합성 질문. 전체 PDF·실제 사용자 독립 평가가 아님.", "관련 판정에는 일부 요청의 직접 근거도 포함. 답변 완전성·그림 해석 점수와 다름.", "Codex 내용 판정이며 사람 교차 검토 전 잠정값. 완전한 눈가림 평가가 아님.", "이전 30문항의 정답 ID 기준 보조 Precision과 직접 비교하지 않음.", "3회 생성 완료 비율을 챗봇 전체 의미 정확도로 사용하지 않음."],
+  "production_answer_rules_changed": false,
+  "db_written": false,
+  "storage_uploaded": false,
+  "next_proposed_work": ["질문 목적과 요구 조건을 반영해 답변 근거 선택 보완", "생성 검사 실패 사유 기록·실제 필요한 출처와 각주 범위 검토", "동일 질문과 기존 보류·위치·표 질문으로 결과를 보존하며 재비교"]
+}

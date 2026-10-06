@@ -1,0 +1,30 @@
+-- [プロ젝트 추가] 기존 개인 원문·768차원 벡터를 보존하고 새 테이블 2개만 추가합니다.
+-- 프로그램이 pgvector 설치 경로를 등록한 연결의 트랜잭션 안에서 실행합니다.
+CREATE TABLE IF NOT EXISTS zzong_santafe_lag.openai_embedding_runs (
+    id uuid PRIMARY KEY,
+    source_run_id uuid NOT NULL REFERENCES zzong_santafe_lag.processing_runs(id),
+    model_name text NOT NULL CHECK (model_name = 'text-embedding-3-small'),
+    embedding_dimension integer NOT NULL CHECK (embedding_dimension = 1536),
+    recipe text NOT NULL,
+    input_manifest_sha256 text NOT NULL CHECK (input_manifest_sha256 ~ '^[0-9a-f]{64}$'),
+    chunk_count integer NOT NULL CHECK (chunk_count > 0),
+    settings jsonb NOT NULL,
+    status text NOT NULL DEFAULT 'building' CHECK (status IN ('building', 'ready')),
+    created_at timestamptz NOT NULL DEFAULT now(),
+    UNIQUE (source_run_id, input_manifest_sha256)
+);
+CREATE TABLE IF NOT EXISTS zzong_santafe_lag.openai_chunk_vectors (
+    embedding_run_id uuid NOT NULL REFERENCES zzong_santafe_lag.openai_embedding_runs(id),
+    chunk_id uuid NOT NULL REFERENCES zzong_santafe_lag.chunks(id),
+    input_sha256 text NOT NULL CHECK (input_sha256 ~ '^[0-9a-f]{64}$'),
+    token_count integer NOT NULL CHECK (token_count BETWEEN 1 AND 8191),
+    embedding vector(1536) NOT NULL,
+    PRIMARY KEY (embedding_run_id, chunk_id)
+);
+COMMENT ON TABLE zzong_santafe_lag.openai_embedding_runs IS 'OpenAI 임베딩 버전: 기존 청킹 작업을 참조하며 원문·그림은 중복하지 않음';
+COMMENT ON COLUMN zzong_santafe_lag.openai_embedding_runs.recipe IS '입력 유지·1536차원·float32 정규화 설정 버전; OpenAI 서버의 고정 모델 revision을 뜻하지 않음';
+COMMENT ON COLUMN zzong_santafe_lag.openai_embedding_runs.input_manifest_sha256 IS '모델 설정과 청크별 입력을 고정한 SHA-256';
+COMMENT ON TABLE zzong_santafe_lag.openai_chunk_vectors IS '기존 검색용 자식 청크에 연결한 OpenAI 1536차원 벡터';
+COMMENT ON COLUMN zzong_santafe_lag.openai_chunk_vectors.chunk_id IS '기존 chunks.id; 부모 문맥·쪽수·그림 연결은 기존 기록에서 조회';
+COMMENT ON COLUMN zzong_santafe_lag.openai_chunk_vectors.embedding IS 'PDF 글과 그림 설명의 벡터이며 이미지 픽셀 벡터가 아님';
+COMMENT ON COLUMN zzong_santafe_lag.openai_chunk_vectors.token_count IS 'cl100k_base로 센 입력 토큰; 기존 로컬 모델 토큰과 단위가 다름';

@@ -1,6 +1,33 @@
 # 개인 Supabase 테이블 준비와 DBeaver 사용
 
-## 현재 상태 — 2026-10-02
+## 새 OpenAI 벡터 저장 — 2026-10-05
+
+개인 스키마 `zzong_santafe_lag`에 **openai_embedding_runs**(모델·차원·버전)와 **openai_chunk_vectors**(기존 청크에 연결한 새 벡터) 두 테이블을 추가했습니다. `text-embedding-3-small`, 1536차원, 벡터 2,213개, 새 작업 `ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e`가 `ready`입니다. 기존 여섯 테이블의 원문·로컬 벡터·그림·연결 상태는 유지했습니다.
+
+DBeaver에서 `Schemas → zzong_santafe_lag → Tables`를 선택하고 **F5 새로고침**하세요. 새 두 테이블의 `Data`에서 저장 내용을 볼 수 있습니다. 벡터 숫자 목록보다 [읽기 전용 조회 SQL](./db/07_inspect_openai_vectors.sql.txt)을 실행하면 모델·차원·벡터 수·부모 제목·PDF 쪽수·실제 입력 글을 이해하기 쉽습니다.
+
+관계도에서는 `openai_chunk_vectors.chunk_id → chunks.id → parent_records`로 연결됩니다. 새 작업은 기존 `processing_runs`를 참조합니다. 원문·그림을 다시 저장하는 구조가 아니며, 다른 팀원 자료를 수정하지 않습니다. 새 테이블과 주요 컬럼에 한국어 설명을 넣었습니다.
+
+추가 DB 영역 **18.97MB**, 전체 개인 DB **35.48MB**, 기존 Storage 그림 **32.41MB**, 측정 합계 **67.89MB**입니다. 다른 팀원 자료·WAL·공통 관리 영역·요금 청구량은 제외합니다. 이전 절의 16.50MB는 전환 전 측정 기록입니다.
+
+[쉬운 전환 안내](./openai_embedding_guide.md)와 [27번 노트북](./27_openai_embedding_migration.ipynb)을 참고하세요. DB 저장까지 완료했으며, 검색·답변 생성과 미검토 자료의 보류는 별도 확인 단계입니다.
+
+## 현재 상태 — 전체 그림 업로드 완료 (2026-10-03)
+
+그림 **864개 전체를 보관·원본 확인·DB 연결 완료**했습니다. 이번에 861개를 추가하고 기존 3개의 내용과 경로를 유지했습니다. 파일 추가는 개인 `images/cars/hyundai/santafe_hev/zzong_santafe_lag/` 경로 안에서만 했고, DB는 `zzong_santafe_lag.images`의 보관 경로·상태 세 컬럼만 861행 연결했습니다.
+
+- Storage: **32,406,621바이트 = 32.41MB = 30.90MiB**.
+- 개인 DB 테이블·색인·TOAST: **16,498,688바이트 = 16.50MB = 15.73MiB**.
+- 측정 합계: **48,905,309바이트 = 48.91MB = 46.64MiB**. 다른 팀원 자료·WAL·공통 DB 관리 영역·네트워크 전송은 제외합니다.
+- 새 읽기 전용 연결에서 그림 864개 모두 `uploaded`, 정확한 개인 경로, Storage 파일 864개와 크기를 확인했습니다. 공개 파일 전체의 SHA-256을 PDF 추출 바이트와 대조했고 실패 0개입니다.
+- 개인 DB 원문·벡터·그림 설명·검토 상태·연결 번호·행 수의 내용 식별값은 전후 같습니다. 스키마 합계는 PDF 1개·처리 버전 2개·부모 531개·청크 2,224개·그림 864개·연결 1,160개입니다.
+- PDF 파일 자체는 로컬에 유지합니다. 그림 업로드가 설명·주제 연결 검토 완료나 이미지 픽셀 임베딩 완료를 뜻하지 않습니다.
+
+DBeaver의 `Schemas → zzong_santafe_lag → Tables → images → Data`를 새로고침하면 `upload_status`, `storage_bucket`, `storage_path`를 볼 수 있습니다. [개인 조회 SQL](./db/05_inspect_image_storage.sql.txt)은 상태별 그림 수·Storage/DB 용량·설명 검토 상태를 읽기만 합니다. 자동 그림 참조의 기존 이름·크기가 NULL인 경우는 보존했고 실제 추출 이름·크기는 최종 보고서에 있습니다.
+
+[쉬운 설명과 실행 순서](./full_image_storage_guide.md), [결과 확인 노트북](./full_image_storage_result.ipynb)을 참고하세요. 최종 결과는 `data/zzong_santafe_lag/reports/full_images_upload_summary_20261003.json`에 있습니다.
+
+## 이전 전체 글·벡터 저장 기록 — 2026-10-02
 
 **전체 글·벡터 저장 완료:** 개인 스키마 `zzong_santafe_lag`의 새 작업 `ca9d2721-3d48-42a8-8748-3935e78515e5`가 `ready`입니다. 부모 527개·청크 2,213개를 저장했고 저장 전후 모든 필드·벡터가 일치했습니다. 기존 표본 모든 행·벡터의 내용도 동일함을 확인했습니다.
 

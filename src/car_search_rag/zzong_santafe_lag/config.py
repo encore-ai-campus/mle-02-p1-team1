@@ -9,8 +9,8 @@ import re
 from uuid import UUID
 
 
-# [프로젝트 추가] 현재 DB 검색·그림 조회 대상은 승인 후 저장한 하나의 표본 작업입니다.
-# 전체 자료로 확대할 때는 저장 버전과 조회 범위를 별도로 검토합니다.
+# [프로젝트 추가] 초기 표본 도구의 저장 작업입니다. 전체 챗봇의 현재 검색 범위와는 구별합니다.
+# 전체 원문 작업은 source_profile.py, OpenAI 벡터 작업 선택은 active_run.json에서 관리합니다.
 SAMPLE_RUN_ID = UUID("dc327282-8cfd-4eb3-a2b0-1433e0b088ce")
 
 

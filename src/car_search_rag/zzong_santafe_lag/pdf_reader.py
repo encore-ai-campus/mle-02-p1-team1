@@ -6,6 +6,7 @@
 import re
 from collections import defaultdict
 from pypdf import PdfReader
+from .source_profile import FULL_SOURCE
 
 
 def inspect_pdf(pdf_path):
@@ -13,7 +14,7 @@ def inspect_pdf(pdf_path):
     if not pdf_path.is_file():
         raise FileNotFoundError(f"PDF를 찾을 수 없습니다: {pdf_path}")
     reader = PdfReader(str(pdf_path))
-    if len(reader.pages) != 779:
+    if len(reader.pages) != FULL_SOURCE.page_count:
         raise ValueError("검토한 779쪽 PDF와 다릅니다. 표·번호 보완 내용을 먼저 다시 확인하세요.")
     raw_pages = {number: page.extract_text() or "" for number, page in enumerate(reader.pages, start=1)}
     row_pattern = re.compile(r"^([^\n]+?)\.{3,}\s*(\d+(?:\s*,\s*\d+)*)\s*$", re.MULTILINE)

@@ -1,0 +1,43 @@
+-- [프로젝트 추가] 개인 OpenAI 벡터 전용 조회·추가입니다. 기존 6개 테이블에는 쓰지 않습니다.
+-- name: get_inputs
+SELECT id, run_id, record_id, parent_id, content, content_sha256, metadata
+FROM zzong_santafe_lag.chunks WHERE run_id = :run_id ORDER BY record_id;
+
+-- name: get_run
+SELECT * FROM zzong_santafe_lag.openai_embedding_runs WHERE id = :embedding_run_id;
+
+-- name: find_run
+SELECT * FROM zzong_santafe_lag.openai_embedding_runs
+WHERE source_run_id = :source_run_id AND input_manifest_sha256 = :manifest;
+
+-- name: insert_run!
+INSERT INTO zzong_santafe_lag.openai_embedding_runs
+(id, source_run_id, model_name, embedding_dimension, recipe, input_manifest_sha256, chunk_count, settings)
+VALUES (:id, :source_run_id, :model_name, :embedding_dimension, :recipe, :manifest, :chunk_count, :settings);
+
+-- name: insert_vector!
+-- 원본 작업이 맞는 청크만 삽입합니다. 기존 벡터를 UPDATE하지 않습니다.
+INSERT INTO zzong_santafe_lag.openai_chunk_vectors
+(embedding_run_id, chunk_id, input_sha256, token_count, embedding)
+SELECT :embedding_run_id, c.id, :input_sha256, :token_count, :embedding
+FROM zzong_santafe_lag.chunks c
+JOIN zzong_santafe_lag.openai_embedding_runs r ON r.id = :embedding_run_id
+WHERE c.id = :chunk_id AND c.run_id = r.source_run_id AND c.content_sha256 = :input_sha256;
+
+-- name: mark_ready!
+UPDATE zzong_santafe_lag.openai_embedding_runs SET status = 'ready'
+WHERE id = :embedding_run_id AND status = 'building'
+AND chunk_count = (SELECT count(*) FROM zzong_santafe_lag.openai_chunk_vectors WHERE embedding_run_id = :embedding_run_id);
+
+-- name: get_vectors
+SELECT c.id, c.record_id, c.content, c.metadata, c.content_sha256,
+       v.input_sha256, v.token_count, v.embedding
+FROM zzong_santafe_lag.openai_chunk_vectors v
+JOIN zzong_santafe_lag.openai_embedding_runs r ON r.id = v.embedding_run_id
+JOIN zzong_santafe_lag.chunks c ON c.id = v.chunk_id AND c.run_id = r.source_run_id
+WHERE r.id = :embedding_run_id ORDER BY c.record_id;
+
+-- name: sizes
+SELECT relname AS table_name, pg_total_relation_size(relid) AS bytes
+FROM pg_stat_user_tables WHERE schemaname = 'zzong_santafe_lag'
+ORDER BY relname;

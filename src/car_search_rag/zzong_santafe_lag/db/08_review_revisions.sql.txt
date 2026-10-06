@@ -1,0 +1,26 @@
+-- [프로젝트 추가] 검토한 부분만 별도 버전으로 저장합니다. 기존 원문·벡터·그림은 변경하지 않습니다.
+CREATE TABLE IF NOT EXISTS zzong_santafe_lag.review_revisions (
+    id uuid PRIMARY KEY,
+    source_run_id uuid NOT NULL REFERENCES zzong_santafe_lag.processing_runs(id),
+    payload_sha256 text NOT NULL UNIQUE CHECK (payload_sha256 ~ '^[0-9a-f]{64}$'),
+    payload jsonb NOT NULL,
+    chunk_count integer NOT NULL CHECK (chunk_count > 0),
+    status text NOT NULL DEFAULT 'building' CHECK (status IN ('building','ready')),
+    created_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE TABLE IF NOT EXISTS zzong_santafe_lag.review_revision_chunks (
+    revision_id uuid NOT NULL REFERENCES zzong_santafe_lag.review_revisions(id),
+    record_id text NOT NULL,
+    content text NOT NULL,
+    input_sha256 text NOT NULL CHECK (input_sha256 ~ '^[0-9a-f]{64}$'),
+    metadata jsonb NOT NULL,
+    local_embedding vector(768) NOT NULL,
+    openai_embedding vector(1536) NOT NULL,
+    PRIMARY KEY (revision_id, record_id)
+);
+COMMENT ON TABLE zzong_santafe_lag.review_revisions IS '원문 대조 후 보완한 일부 부모·그림 연결의 별도 버전. 원본 테이블은 유지';
+COMMENT ON COLUMN zzong_santafe_lag.review_revisions.payload IS '수정 부모, 원본 글 식별값, 기존 그림 ID 참조, 모델 버전 및 검토 범위';
+COMMENT ON COLUMN zzong_santafe_lag.review_revisions.payload_sha256 IS '수정 내용·청크 목록·모델 설정을 고정한 내용 식별값';
+COMMENT ON TABLE zzong_santafe_lag.review_revision_chunks IS '검토 버전에 속한 자식 청크와 두 모델 벡터. 검색할 때 같은 부모의 예전 청크를 대체';
+COMMENT ON COLUMN zzong_santafe_lag.review_revision_chunks.local_embedding IS '동일한 로컬 한국어 모델·버전의 768차원 정규화 벡터';
+COMMENT ON COLUMN zzong_santafe_lag.review_revision_chunks.openai_embedding IS 'text-embedding-3-small의 1536차원 정규화 벡터';

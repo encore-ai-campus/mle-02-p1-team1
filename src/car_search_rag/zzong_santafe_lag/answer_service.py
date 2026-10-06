@@ -9,6 +9,7 @@ import re
 from copy import deepcopy
 
 from .db_search_service import DbFullSearchService
+from .question_intent import evidence_intent
 
 
 REVIEWED_STATUSES = {"sample_verified", "visually_reviewed_source"}
@@ -22,7 +23,8 @@ def question_terms(question):
     ignored = {"어디", "어디서", "언제", "어떻게", "무엇", "무엇인가요", "얼마", "몇", "알려줘",
                "알려주세요", "설명", "확인", "확인하나요", "점검", "하나요", "해야", "되나요",
                "방법", "용량", "사양", "추천", "주의", "관련", "기능", "있는", "없나요", "맞나요",
-               "나요", "궁금", "것", "좀", "차량", "차", "내", "싼타페", "hev", "시스템"}
+               "나요", "궁금", "것", "좀", "차량", "차", "내", "싼타페", "hev", "시스템",
+               "번호", "그림", "도안", "내부", "위치"}
     terms = []
     for word in re.findall(r"[가-힣A-Za-z0-9]+", question.lower()):
         for ending in ("에서는", "에서", "으로", "까지", "부터", "처럼", "에는", "은", "는", "을", "를", "의", "이", "가", "과", "와", "에"):
@@ -48,6 +50,47 @@ def outside_pdf_reason(question):
     if personal and diagnosis:
         return "사용설명서만으로 개별 차량의 실제 고장 여부를 판단할 수 없습니다."
     return None
+
+
+def evidence_fit(question, candidate, terms):
+    """조작 질문의 안내도 단독 선택을 막고 주제 단어가 더 많이 일치하는 지시 자료를 우선합니다."""
+    context = candidate["context_records"]
+    primary = next((row for row in context if row["record_id"] == candidate["parent_record_id"]), context[0])
+    body = re.sub(r"\s+", "", " ".join(row["content"] for row in context).lower())
+    intent = evidence_intent(question)
+    if intent != "procedure":
+        return 0
+    # [프로젝트 추가] 안내도의 부품명·참조 쪽수는 동작 허용 여부의 직접 근거로 사용하지 않습니다.
+    # 표·그림이 있는 지시 자료는 유지합니다. 자료 유형과 지시 문장을 함께 확인하되 의미 정확도를 보증하지 않습니다.
+    if primary["content_type"] == "vehicle_overview_navigation":
+        return None
+    if not re.search(r"십시오|하세요|해야|하지\s*마|금지|조절|조작|사용|점검", " ".join(row["content"] for row in context)):
+        return None
+    return sum(term in body for term in terms)
+
+
+def citation_requirements(question, candidate):
+    """확인된 표의 명시적 항목에 각주가 없는 경우에만 연결 각주 자료의 인용을 선택 사항으로 표시합니다."""
+    context = candidate["context_records"]
+    requirements = {row["record_id"]: {"required": True, "reason": "선택한 본문 또는 필수 연결 문맥"} for row in context}
+    primary = next((row for row in context if row["record_id"] == candidate["parent_record_id"]), context[0])
+    metadata = primary.get("metadata", {})
+    table_rows = metadata.get("table_rows", [])
+    text = re.sub(r"\s+", "", question)
+    # [프로젝트 추가] 질문에 명시된 표 항목만 판정합니다. 사양·주제 추측으로 각주를 생략하지 않습니다.
+    # 표 전체·각주/주의 질문·표 정보가 없는 옛 자료·행 해석이 불명확한 경우는 기존 필수 인용을 유지합니다.
+    matched = [row for row in table_rows if re.sub(r"\s+", "", row["kind"]) in text]
+    if (primary["content_type"] != "structured_table" or metadata.get("table_structure_status") != "visually_verified"
+            or not matched or any(row.get("footnote_ids") for row in matched)
+            or any(word in text for word in ("각주", "주의", "경고", "첨가제", "가혹", "순정", "규격", "전체", "모든", "전부"))):
+        return requirements
+    for row in context:
+        # 연결 자료를 삭제하거나 줄이지 않습니다. 검토 상태도 그대로 확인합니다.
+        if (row["record_id"] != primary["record_id"] and row.get("metadata", {}).get("footnotes")
+                and row["record_id"] in metadata.get("required_context_record_ids", [])):
+            requirements[row["record_id"]] = {"required": False,
+                "reason": "명시한 검토 표 항목에 각주 번호 없음. 참고 문맥은 보존하고 인용 강제만 제외"}
+    return requirements
 
 
 def split_question(question):
@@ -119,6 +162,10 @@ class ManualAnswerService:
                     source["label"] = source_label(source)
                     sources.append(source)
                     seen.add(source["record_id"])
+                elif source.get("citation_required", True):
+                    # [프로젝트 추가] 한 요청에서는 참고이고 다른 요청에서는 필수이면 복합 답변 전체에서는 필수입니다.
+                    existing = next(row for row in sources if row["record_id"] == source["record_id"])
+                    existing.update(citation_required=True, citation_requirement_reason="복합 요청 중 필수 본문/각주로 사용")
         missing = [{"question": row["question"], "status": row["status"], "reason": row.get("reason", "")}
                    for row in answers if not row["sources"]]
         # 그림의 파일명은 다른 페이지에서 중복될 수 있어 PDF 페이지와 내부 키를 함께 사용합니다.
@@ -141,8 +188,10 @@ class ManualAnswerService:
                         missing_subquestions=missing,
                         review_candidates=[candidate for row in answers for candidate in row["review_candidates"]],
                         matched_chunk_record_ids=[row["matched_chunk_record_id"] for row in answers
-                                                  if "matched_chunk_record_id" in row])
+                                                  if "matched_chunk_record_id" in row],
+                        evidence_selections=[deepcopy(row["evidence_selection"]) for row in answers if "evidence_selection" in row])
         combined.pop("matched_chunk_record_id", None)
+        combined.pop("evidence_selection", None)
         if sources:
             combined["status"] = "partial_evidence" if missing else "evidence_excerpt"
             combined["answer"] = "설명서에서 항목별로 확인한 내용입니다.\n\n" + "\n\n".join(
@@ -167,19 +216,26 @@ class ManualAnswerService:
                 "reason": reason, "sources": [], "images": [], "pending_image_references": [],
                 "review_candidates": deepcopy(result["candidates"]) if result and status == "needs_review" else [],
                 "run_id": result["run_id"] if result else None,
+                # [프로젝트 추가] 답변 생성 여부와 질문 임베딩 API 여부를 별도로 기록합니다.
+                "embedding_model": result.get("model_name") if result else None,
+                "embedding_run_id": result.get("embedding_run_id") if result else None,
+                "review_revision_id": result.get("review_revision_id") if result else None,
+                "query_embedding_api_called": result.get("query_embedding_api_called", False) if result else False,
                 "semantic_answerability_validated": False, "llm_called": False,
                 "db_written": False, "storage_uploaded": False,
                 "retrieval_performed": result is not None}
 
     @classmethod
     def from_search_result(cls, result):
-        """검색 결과에서 관련 단어가 있는 확인 자료 한 묶음을 선택합니다. 필수 각주는 함께 보존합니다."""
+        """질문 목적에 맞는 확인 자료 한 묶음을 선택합니다. 필수 각주·검토 보류는 함께 보존합니다."""
         terms = question_terms(result["question"])
         eligible, pending = [], []
         for candidate in result["candidates"]:
             context = candidate["context_records"]
             body = re.sub(r"\s+", "", " ".join(row["content"] for row in context).lower())
             if not terms or not any(term in body for term in terms):
+                continue
+            if evidence_fit(result["question"], candidate, terms) is None:
                 continue
             if (all(row["verification_status"] in REVIEWED_STATUSES for row in context)
                     and not candidate["unreviewed_continuation_record_ids"]):
@@ -194,15 +250,18 @@ class ManualAnswerService:
             review_result = {**result, "candidates": pending} if pending else result
             return cls._empty_result(result["question"], status, reason, review_result)
 
-        # [프로젝트 추가] 여러 후보를 무조건 이어 붙이지 않고 첫 관련 근거와 필수 문맥만 사용합니다.
-        # 이 선택 규칙은 임시 보수적 기준입니다. M6의 범위 밖·복합 질문 평가로 개선해야 합니다.
-        chosen = eligible[0]
+        # [프로젝트 추가] 조작 질문은 지시 자료의 단어 일치 범위를 비교합니다. 동점은 원래 검색 순서를 유지합니다.
+        # 위치·일반 사실 질문의 기존 순서는 유지합니다. 기대 정답 ID나 평가 문장을 선택 규칙에 넣지 않습니다.
+        chosen = max(eligible, key=lambda candidate: evidence_fit(result["question"], candidate, terms))
+        requirements = citation_requirements(result["question"], chosen)
         sources = []
         for number, row in enumerate(chosen["context_records"], start=1):
             source = {"citation_id": number, "record_id": row["record_id"], "title": row["title"],
                       "source_pages": list(row["source_pages"]), "manual_page_number": row["manual_page_number"],
                       "verification_status": row["verification_status"], "quote": row["content"],
-                      "quote_source": "stored_parent_content", "raw_text": row["raw_text"]}
+                      "quote_source": "stored_parent_content", "raw_text": row["raw_text"],
+                      "citation_required": requirements[row["record_id"]]["required"],
+                      "citation_requirement_reason": requirements[row["record_id"]]["reason"]}
             source["label"] = source_label(source)
             sources.append(source)
         images, pending_images = [], []
@@ -224,7 +283,14 @@ class ManualAnswerService:
                 "answer": answer, "sources": sources, "images": images,
                 "pending_image_references": pending_images, "review_candidates": [],
                 "run_id": result["run_id"], "search_method": result["search_method"],
+                "embedding_model": result.get("model_name"),
+                "embedding_run_id": result.get("embedding_run_id"),
+                "review_revision_id": result.get("review_revision_id"),
+                "query_embedding_api_called": result.get("query_embedding_api_called", False),
                 "matched_chunk_record_id": chosen["matched_chunk_record_id"],
+                "evidence_selection": {"rule_version": "intent_directive_v1", "intent": evidence_intent(result["question"]),
+                                       "selected_parent_record_id": chosen["parent_record_id"],
+                                       "original_rank": chosen["rank"]},
                 "semantic_answerability_validated": False, "llm_called": False,
                 "db_written": False, "storage_uploaded": False, "retrieval_performed": True,
                 "limitation": "검색용 글의 발췌이며 질문의 모든 조건을 만족하는지 의미 검증하거나 LLM으로 생성한 답변은 아닙니다."}

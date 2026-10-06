@@ -16,7 +16,9 @@ if str(SRC_FOLDER) not in sys.path:
     sys.path.insert(0, str(SRC_FOLDER))
 
 # [프로젝트 적용] 이미 저장한 개인 전체 처리 작업입니다. 팀원 자료와 섞지 않습니다.
-FULL_RUN_ID = "ca9d2721-3d48-42a8-8748-3935e78515e5"
+from car_search_rag.zzong_santafe_lag.source_profile import FULL_SOURCE
+
+FULL_RUN_ID = str(FULL_SOURCE.run_id)
 MAX_HISTORY = 10
 EXAMPLE_QUESTIONS = {
     "차대번호 위치": "차대번호가 새겨진 위치를 그림으로 보여줘.",
@@ -32,9 +34,14 @@ def initialize_state():
     # session_state에 결과를 보관해 화면 조작만으로 검색·API가 반복되지 않게 합니다.
     defaults = {
         "zzong_service": None,
+        "zzong_service_backend": None,
         "zzong_history": [],
         "zzong_question": "",
         "zzong_history_selection": None,
+        # [프로젝트 추가] 저장 대조까지 끝낸 OpenAI 버전이 있을 때만 기본 모델로 선택합니다.
+        "zzong_embedding_backend": "OpenAI" if (
+            SRC_FOLDER.parent / "data/zzong_santafe_lag/openai_embeddings/active_run.json"
+        ).exists() else "기존 로컬",
     }
     for key, value in defaults.items():
         if key not in st.session_state:
@@ -58,11 +65,34 @@ def get_service():
     """첫 질문 제출 때 서비스를 만들고 같은 브라우저의 다음 질문에 재사용합니다."""
     # [프로젝트 적용] 시작 화면만 열었을 때는 DB 조회·모델 준비·OpenAI 호출을 하지 않습니다.
     # 무거운 검색 라이브러리도 첫 검색 때 불러옵니다. 키는 기존 개인 설정에서 읽습니다.
-    if st.session_state.zzong_service is None:
+    if (st.session_state.zzong_service is None
+            or st.session_state.zzong_service_backend != st.session_state.zzong_embedding_backend):
         from car_search_rag.zzong_santafe_lag.llm_answer_service import LlmManualAnswerService
+        from car_search_rag.zzong_santafe_lag.answer_service import ManualAnswerService
 
-        st.session_state.zzong_service = LlmManualAnswerService(FULL_RUN_ID)
+        evidence_service = None
+        if st.session_state.zzong_embedding_backend == "OpenAI":
+            from car_search_rag.zzong_santafe_lag.openai_search_service import (
+                OpenAIManualSearchService, active_embedding_run)
+            embedding_run_id = active_embedding_run()
+            if embedding_run_id is None:
+                raise ValueError("OpenAI 전체 벡터 저장을 먼저 완료하세요.")
+            evidence_service = ManualAnswerService(
+                FULL_RUN_ID, search_service=OpenAIManualSearchService(embedding_run_id))
+
+        # [프로젝트 추가] 이 화면에 실제 있는 탭 이름을 전달해 그림 표시 불가 안내를 예방합니다.
+        st.session_state.zzong_service = LlmManualAnswerService(
+            FULL_RUN_ID, evidence_service=evidence_service, image_display_location="관련 그림 탭")
+        st.session_state.zzong_service_backend = st.session_state.zzong_embedding_backend
     return st.session_state.zzong_service
+
+
+def change_embedding_backend():
+    """모델 변경 때 이전 서비스·화면 기록을 비워 서로 다른 검색 결과로 생성하지 않게 합니다."""
+    # [프로젝트 추가] 원문·DB 자료는 그대로 두고 현재 브라우저의 임시 기록만 초기화합니다.
+    st.session_state.zzong_service = None
+    st.session_state.zzong_service_backend = None
+    clear_history()
 
 
 def search_question(question):
@@ -236,6 +266,11 @@ def main():
     st.caption("제공된 설명서에서 근거를 찾고, 답변과 페이지·그림을 함께 확인합니다.")
 
     with st.sidebar:
+        st.radio("검색에 사용할 모델", ["OpenAI", "기존 로컬"],
+                 key="zzong_embedding_backend", on_change=change_embedding_backend)
+        if st.session_state.zzong_embedding_backend == "OpenAI":
+            st.caption("검색 버튼을 누르면 질문을 OpenAI로 전송해 임베딩합니다. 소액의 API 비용이 발생합니다.")
+        st.caption("모델을 바꾸면 현재 화면의 질문 기록을 초기화합니다.")
         st.header("예시 질문")
         for label, question in EXAMPLE_QUESTIONS.items():
             st.button(label, key=f"example_{label}", on_click=fill_question, args=(question,))

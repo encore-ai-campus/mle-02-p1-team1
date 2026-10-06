@@ -10,6 +10,13 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 
+def make_character_index(texts):
+    """같은 글자 2~4개 설정으로 TF-IDF 색인과 행렬을 만듭니다. 모델·DB 호출은 없습니다."""
+    # [프로젝트 추가] 부모·자식·안내도에서 반복하던 설정을 한곳에 모았습니다. 실험 설정은 유지합니다.
+    index = TfidfVectorizer(analyzer="char", ngram_range=(2, 4), dtype=np.float32)
+    return index, index.fit_transform(texts)
+
+
 def _make_search_functions(parents, chunks, vectors, model, token_counter):
     """같은 PDF의 색인을 한 번 준비하고 이를 사용하는 검색 함수들을 돌려줍니다."""
     full_parent_records = parents
@@ -24,8 +31,6 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
         groups[chunk["metadata"]["parent_record_id"]].append(index)
 
     # 첫 비교 방식도 남겨 두어 노트북과 같은 조건으로 결과를 비교할 수 있습니다.
-    from sklearn.feature_extraction.text import TfidfVectorizer
-
     parent_ids = list(parent_lookup)
     parent_positions = {parent_id: index for index, parent_id in enumerate(parent_ids)}
 
@@ -41,8 +46,7 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
         text = "\n".join(item["name"] for item in items) if items else parent["content"]
         lexical_texts.append(normalize_keyword(text))
     # [프로젝트 추가] TF-IDF 단위를 단어 대신 글자 2~4개로 정해 띄어쓰기 차이에 대응합니다.
-    lexical_index = TfidfVectorizer(analyzer="char", ngram_range=(2, 4), dtype=np.float32)
-    lexical_matrix = lexical_index.fit_transform(lexical_texts)
+    lexical_index, lexical_matrix = make_character_index(lexical_texts)
     # [프로젝트 추가] 의미 점수 50%와 글자 점수 50%를 합치는 고정 실험 기준입니다.
     # 이 결합 점수는 정답 확률이나 별도 재순위 모델의 출력이 아닙니다.
     semantic_weight = 0.5
@@ -105,10 +109,7 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
         return "".join(re.findall(r"[가-힣A-Za-z0-9ℓ+\-]+", text)).lower()
     assert normalize_query_text("ℓ") == "ℓ"
 
-    chunk_keyword_index = TfidfVectorizer(
-        analyzer="char", ngram_range=(2, 4), dtype=np.float32
-    )
-    chunk_keyword_matrix = chunk_keyword_index.fit_transform(
+    chunk_keyword_index, chunk_keyword_matrix = make_character_index(
         [normalize_query_text(c["content"]) for c in full_search_chunks]
     )
 
@@ -120,17 +121,15 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
                 "parent_id": parent_id, "number": item["number"], "name": item["name"],
                 "index_text": normalize_query_text(parent["metadata"]["title"] + " " + item["name"]),
             })
-    navigation_keyword_index = TfidfVectorizer(
-        analyzer="char", ngram_range=(2, 4), dtype=np.float32
-    )
-    navigation_keyword_matrix = navigation_keyword_index.fit_transform(
+    navigation_keyword_index, navigation_keyword_matrix = make_character_index(
         [row["index_text"] for row in navigation_rows]
     )
     indices_by_parent = defaultdict(list)
     for index, chunk in enumerate(full_search_chunks):
         indices_by_parent[chunk["metadata"]["parent_record_id"]].append(index)
 
-    # [프로젝트 추가] M7 실험에서만 사용하는 원문 표현 색인입니다. 기본 검색은 기존대로 유지합니다.
+    # [프로젝트 추가] M7에서 비교한 원문 표현 색인입니다. 현재 purpose_specific 방식에서 사용합니다.
+    # purpose 방식은 보너스를 사용하지 않아 이전 실험 조건도 비교할 수 있습니다.
     from .specific_terms import SpecificTermMatcher
     specific_matcher = SpecificTermMatcher(full_parent_records)
 
@@ -157,8 +156,11 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
     # 별도 분류 모델이나 LLM 호출은 없으며 새로운 표현·혼합 질문에서 범위를 잘못 좁힐 수 있습니다.
     def classify_question(question):
         """질문 표현과 자료 구조를 보고 필요한 자료 유형과 판단 이유를 돌려줍니다."""
+        from .question_intent import evidence_intent
         text = normalize_query_text(question)
-        explicit_navigation = has_any(text, ["안내도", "몇 번", "어느 항목", "번호로 표시", "번호가 표시"])
+        shared_intent = evidence_intent(question)
+        explicit_navigation = shared_intent == "location" and has_any(text, [
+            "안내도", "그림", "도안", "몇 번", "어느 항목", "번호로 표시", "번호가 표시"])
         location_words = has_any(text, ["위치", "어디", "자리"])
         operation_words = has_any(text, [
             "사용", "조작", "작동", "방법", "당기", "누르", "눌", "기능", "변속",
@@ -175,14 +177,14 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
             and not explicit_navigation
         )
         intents, reasons = [], []
-        if explicit_navigation or (location_words and known_component):
+        if shared_intent != "procedure" and (explicit_navigation or (location_words and known_component)):
             intents.append("navigation")
             reasons.append("안내도·번호 표현 또는 자료에 있는 부품의 위치 질문")
         if quantity_words or mode_function:
             intents.append("table")
             reasons.append("용량·규격·각주 표현 또는 표의 모드 기능 질문")
         # 명시적으로 위치만 묻는 경우 일반적인 '버튼' 등의 표현은 조작으로 판단하지 않습니다.
-        if operation_words and not (explicit_navigation and not has_any(text, ["방법", "사용", "조작"])):
+        if shared_intent == "procedure" or (operation_words and not explicit_navigation):
             if not mode_function or has_any(text, ["제한", "주의", "왜", "안 되는"]):
                 intents.append("explanation")
                 reasons.append("사용·조작·주의·제한 질문")

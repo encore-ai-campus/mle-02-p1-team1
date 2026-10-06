@@ -5,19 +5,16 @@
 # 표본은 의미 검색, 전체 검색은 의미 기준 또는 기존 TF-IDF·질문 목적 결합 검색을 사용합니다.
 # 높은 점수도 정답 보장이 아닙니다. 답변 생성·근거 부족 판정은 이후 단계입니다.
 
-import os
-from pathlib import Path
 from time import perf_counter
-from urllib.parse import quote, urlparse
-
-from dotenv import dotenv_values
-from psycopg.conninfo import conninfo_to_dict
+from urllib.parse import quote
 
 from .chunking import TokenCounter
 from .config import ManualConfig, SAMPLE_RUN_ID, sample_image_storage_path
-from .database import ManualRepository, PersonalDatabaseManager, PersonalSqlSession
+from .database import ManualRepository, PersonalSqlSession
 from .embedding import LocalEmbedder
 from .sample_store import APPROVED_MANIFEST, APPROVED_REVISION
+from .search_support import checked_storage_url, rank_stored_rows
+from .source_profile import FULL_SOURCE
 
 
 class DbSampleSearchService:
@@ -73,18 +70,7 @@ class DbSampleSearchService:
         if run["token_budget"] != counter.budget or run["embedding_dimension"] != embedder.dimension or not run["normalized"]:
             raise ValueError("저장한 토큰 한도·차원·정규화 설정이 모델과 다릅니다.")
         # [프로젝트 추가] 그림 공개 URL에는 비밀키가 필요 없습니다. 같은 프로젝트 주소만 읽습니다.
-        values = dict(dotenv_values(config.project_folder / ".env"))
-        values.update(dotenv_values(Path(__file__).resolve().parent / ".env"))
-        storage_url = os.environ.get("SUPABASE_URL") or values.get("SUPABASE_URL")
-        if storage_url:
-            parsed = urlparse(storage_url)
-            host = parsed.hostname or ""
-            project_ref = host.split(".")[0] if host.endswith(".supabase.co") else ""
-            info = conninfo_to_dict(PersonalDatabaseManager(read_only=True)._dsn)
-            same_project = project_ref and (info.get("host") == f"db.{project_ref}.supabase.co" or info.get("user", "").endswith("." + project_ref))
-            if parsed.scheme != "https" or not same_project:
-                raise ValueError("그림 주소와 개인 DB의 Supabase 프로젝트가 다릅니다.")
-            storage_url = f"https://{host}"
+        storage_url = checked_storage_url(config)
         self.config, self.run, self.document, self.counts = config, run, document, counts
         self.token_counter, self.embedder, self.storage_url = counter, embedder, storage_url
         self.model_prepare_seconds = perf_counter() - started
@@ -121,8 +107,7 @@ class DbSampleSearchService:
             if image_id not in parts:
                 public_url = None
                 if image["upload_status"] == "uploaded":
-                    expected_path = sample_image_storage_path(self.document["file_sha256"],
-                                                             image["pdf_page_number"], image["file_name"])
+                    expected_path = self.expected_image_path(image)
                     if image["storage_bucket"] != "images" or image["storage_path"] != expected_path:
                         raise ValueError("검색 결과의 그림이 개인 표본 Storage 경로와 다릅니다.")
                     if self.storage_url:
@@ -139,6 +124,10 @@ class DbSampleSearchService:
             parts[image_id]["descriptions"].append({"parent_record_id": image["parent_record_id"],
                 "description": image["description"], "linkage_status": image["linkage_status"]})
         return list(parts.values())
+
+    def expected_image_path(self, image):
+        """표본 검색은 승인한 세 파일의 경로를 검사합니다. 전체 검색은 이를 확장합니다."""
+        return sample_image_storage_path(self.document["file_sha256"], image["pdf_page_number"], image["file_name"])
 
     def query_rows(self, question, vector):
         """같은 작업의 검색 청크·전체 문맥·그림 연결을 읽습니다. 호출한 읽기 전용 거래 안에서 실행합니다."""
@@ -197,6 +186,8 @@ class DbSampleSearchService:
                 "query_token_count": self.token_counter.count(question), "query_vector_shape": list(vector.shape),
                 "document_embeddings_recomputed": False, "db_written": False, "storage_uploaded": False,
                 "search_method": self.search_method, "source_counts": self.counts,
+                "review_revision_id": getattr(self, "review_revision_id", None),
+                "effective_chunk_count": getattr(self, "effective_chunk_count", self.counts["chunk_count"]),
                 "excluded_heading_records": self.excluded_heading_records,
                 "model_prepare_seconds": self.model_prepare_seconds, "query_search_seconds": perf_counter() - started,
                 "candidates": candidates, "answer_generation_status": "not_implemented",
@@ -222,12 +213,9 @@ class DbFullSearchService(DbSampleSearchService):
 
     def query_rows(self, question, vector):
         """의미 검색을 기준으로 남기고, 기본값은 기존 글자·목적 검색을 저장 벡터에 적용합니다."""
-        if self.method == "semantic":
+        from .review_revision import ACTIVE_FILE, load_active, combine
+        if self.method == "semantic" and not ACTIVE_FILE.exists() and not getattr(self, "review_bundle", None):
             return super().query_rows(question, vector)
-        import re
-        import numpy as np
-        from .retrieval import SearchEngine
-
         # [프로젝트 적용] 같은 읽기 전용 거래에서 저장된 글·벡터·연결을 함께 가져옵니다.
         # 부모/청크를 새로 만들거나 임베딩하지 않습니다. 기존 12번 실험의 검색 규칙을 재사용합니다.
         run = self.repository.session.select_one("manual_store.get_run", {"run_id": self.run_id})
@@ -241,47 +229,27 @@ class DbFullSearchService(DbSampleSearchService):
         chunks = self.repository.session.select_list("manual_store.get_run_chunks", {"run_id": self.run_id})
         images = self.repository.session.select_list("manual_store.get_run_image_details", {"run_id": self.run_id})
 
+        # [프로젝트 추가] 활성 수정 버전을 별도로 대조한 뒤 같은 부모의 청크·그림 연결만 대체합니다.
+        # review_bundle 직접 지정은 저장 전 시험 도구용입니다. 화면은 활성 파일의 DB 버전만 읽습니다.
+        bundle = getattr(self, "review_bundle", None) or load_active(self.repository.session)
+        rows, chunks, images = combine(bundle, rows, chunks, images, "local")
+        self.review_revision_id = bundle["revision_id"] if bundle else None
+        self.effective_chunk_count = len(chunks)
+        self.effective_pending_count = sum(row["verification_status"] == "auto_draft_needs_review" for row in rows)
+
         # [프로젝트 추가] 본문이 제목과 완전히 같은 항목은 답변 근거 후보에서 제외합니다.
         # 저장 원문은 유지합니다. 긴 글을 짧다는 이유로 제거하거나 주의사항을 요약하지 않습니다.
-        def normalize_space(text):
-            """제목과 본문 비교에서 공백·줄바꿈 차이만 줄입니다."""
-            return re.sub(r"\s+", "", text)
-        usable = [row for row in rows if normalize_space(row["content"]) != normalize_space(row["title"])]
-        self.excluded_heading_records = len(rows) - len(usable)
-        parent_ids = {row["record_id"] for row in usable}
-        chunks = [row for row in chunks if row["metadata"]["parent_record_id"] in parent_ids]
-        parents = [{"content": row["content"], "raw_text": row["raw_text"],
-                    "metadata": row["metadata"], "image_parts": []} for row in usable]
-        records = [{"content": row["content"], "metadata": row["metadata"]} for row in chunks]
-        vectors = np.stack([row["embedding"] for row in chunks]).astype(np.float32)
-        if vectors.shape != (len(chunks), self.embedder.dimension) or not np.isfinite(vectors).all():
-            raise ValueError("저장한 벡터의 개수·차원·숫자가 올바르지 않습니다.")
-        engine = SearchEngine(parents, records, vectors, self.embedder.model, self.token_counter)
-        # 전체 순위를 받아 기존 각주 문맥 중복 제거 후 요청한 개수만 반환합니다.
-        ranked = engine.rank(question, vector, top_k=len(parents), use_specific_terms=self.method == "purpose_specific")
-        vector_by_id = {row["record_id"]: vectors[index] for index, row in enumerate(chunks)}
-        hits = []
-        for hit in ranked:
-            parent = hit["parent_record"]["metadata"]
-            chunk = hit["matched_chunk"]
-            chunk_id = chunk["metadata"]["record_id"]
-            hits.append({"title": parent["title"], "parent_record_id": parent["record_id"],
-                "chunk_record_id": chunk_id, "chunk_content": chunk["content"],
-                "similarity": float(vector_by_id[chunk_id] @ vector), "ranking_score": hit["score"],
-                "routing": hit["routing"],
-                "specific_bonus": hit["specific_bonus"], "specific_terms": hit["specific_terms"],
-                # 전체 순위의 뒤쪽 보충 후보 때문에 앞쪽 목적 일치 후보까지 보충으로 표시하지 않습니다.
-                "used_fallback": hit["used_fallback"] and (
-                    hit["preferred_candidate_count"] == len(parents)
-                    or len(hits) >= hit["preferred_candidate_count"])})
+        # [프로젝트 추가] OpenAI 검색과 같은 정렬 함수를 사용합니다. SQL 의미 검색은 위 분기를 유지합니다.
+        hits, self.excluded_heading_records = rank_stored_rows(
+            question, vector, rows, chunks, self.embedder, self.token_counter, self.method)
         return hits, rows, images
 
     def validate_source(self, run, document, counts):
         """현재 승인한 전체 버전·개수·입력 식별값을 모두 확인한 뒤 모델을 준비합니다."""
         from .full_store_service import PIPELINE_VERSION
-        expected_manifest = "893151d66a49fab8f21060ee95e7917054ebb12753dc62eb4ead26cd52798a1b"
+        expected_manifest = FULL_SOURCE.input_manifest_sha256
         if (document is None or run["status"] != "ready"
-                or counts != {"parent_count": 527, "chunk_count": 2213}
+                or counts != FULL_SOURCE.search_counts
                 or run["pipeline_version"] != PIPELINE_VERSION
                 or run["settings"].get("scope") != "full_manual"
                 or run["settings"].get("input_manifest_sha256") != expected_manifest):
@@ -289,5 +257,26 @@ class DbFullSearchService(DbSampleSearchService):
 
     def coverage_notice(self):
         """전체 글 검색과 그림 업로드·검토 범위를 구별해 안내합니다."""
-        return ("전체 부모 527개·청크 2,213개를 검색합니다. 자동 초안 507개는 원본 대조가 필요합니다. "
-                "그림은 참조를 연결하며 공개 파일은 기존 3개입니다. 답변 생성·근거 부족 판정은 아직 없습니다.")
+        return (f"전체 부모 {FULL_SOURCE.parent_count:,}개·청크 {FULL_SOURCE.chunk_count:,}개를 검색합니다. "
+                f"자동 초안 {getattr(self, 'effective_pending_count', 507)}개는 원본 대조가 필요합니다. "
+                f"전체 그림 {FULL_SOURCE.image_count:,}개가 업로드됐지만 그림 설명·관련 주제의 검토가 남은 자료는 표시를 보류합니다.")
+
+    def expected_image_path(self, image):
+        """전체 업로드 때 원본 바이트와 대조한 목록의 ID·쪽수·경로를 확인합니다."""
+        import json
+        # [프로젝트 추가] 864개 업로드 후 표본 세 파일만 허용하던 검사에서 발생한 검색 중단을 보완합니다.
+        # 파일을 다시 올리거나 임의 경로를 허용하지 않고 기존 완료 보고서의 파일별 대조 정보를 사용합니다.
+        if not hasattr(self, "_uploaded_image_manifest"):
+            report_path = ManualConfig().project_folder / "data/zzong_santafe_lag/reports/full_images_upload_summary_20261003.json"
+            report = json.loads(report_path.read_text(encoding="utf-8"))["result"]
+            files = report["files"]
+            if len(files) != FULL_SOURCE.image_count or len({row["image_id"] for row in files}) != FULL_SOURCE.image_count:
+                raise ValueError("전체 그림 업로드 완료 목록을 확인하세요.")
+            self._uploaded_image_manifest = {row["image_id"]: row for row in files}
+        record = self._uploaded_image_manifest.get(str(image["id"]))
+        prefix = f'cars/hyundai/santafe_hev/zzong_santafe_lag/{self.document["file_sha256"]}/'
+        if (record is None or record["pdf_page"] != image["pdf_page_number"]
+                or not record["path"].startswith(prefix)
+                or record["path"] != image["storage_path"]):
+            raise ValueError("그림 ID·쪽수·경로가 업로드 대조 목록과 다릅니다.")
+        return record["path"]

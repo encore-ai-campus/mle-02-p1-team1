@@ -100,9 +100,10 @@ class PersonalSqlSession(SqlSession):
             sql_log_mode="none", result_log=False,
         )
 
-    def _log_query(self, statement_id, query_sql, parameters, connection, *, force=False):
+    def _log_query(self, statement_id, query_sql, parameters, connection, *, force=False, full_vector_sql=False):
         """SQL 이름만 기록하고 원문·전체 벡터·연결 비밀번호는 출력하지 않습니다."""
         # [프로젝트 추가] 공통 로그를 바꾸지 않고 개인 인스턴스의 로그만 간단히 처리합니다.
+        # 최신 공통 세션의 full_vector_sql 인자를 받아도 개인 비밀값·벡터 전체를 출력하지 않습니다.
         logging.getLogger(__name__).debug("개인 SQL 실행: %s", statement_id)
 
     def _log_batch_query(self, statement_id, query_sql, parameters_list):
