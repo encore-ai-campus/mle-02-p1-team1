@@ -20,26 +20,23 @@ from car_search_rag.common.sql_session import SqlSession
 
 
 class PersonalDatabaseManager:
-    """개인 연결 문자열을 사용하며 팀 DB_URL과 공통 설정을 변경하지 않습니다."""
+    """팀 DB 연결을 사용하며 싼타페 전용 스키마를 유지합니다."""
 
     def __init__(self, dsn=None, *, read_only=False):
         """연결 문자열만 보관하고 실제 연결은 SQL 실행 때 엽니다."""
-        # [프로젝트 추가] ZZONG_DB_URL만 읽습니다. 팀 DB_URL로 자동 대체하지 않습니다.
-        # dotenv_values는 .env를 읽기만 하며 파일이나 환경변수를 변경하지 않습니다.
-        # [프로젝트 추가] 폴더 이동 후에도 기존 프로젝트 루트의 .env를 읽습니다.
+        # [프로젝트 적용] 팀 DB_URL을 사용하되 싼타페 전용 스키마·mapper는 유지합니다.
+        # 배포 환경변수(Secrets)가 우선이며 로컬은 루트 .env만 읽습니다.
+        # 예전 개인 .env의 ZZONG_DB_URL로 되돌아가지 않습니다.
         project_folder = Path(__file__).resolve().parents[3]
         values = dotenv_values(project_folder / ".env") if dsn is None else {}
-        # [프로젝트 추가] 개인 폴더의 .env가 우선합니다. 팀 .env의 값을 수정하지 않습니다.
-        if dsn is None:
-            values.update(dotenv_values(Path(__file__).resolve().parent / ".env"))
-        self._dsn = dsn or os.getenv("ZZONG_DB_URL") or values.get("ZZONG_DB_URL")
+        self._dsn = dsn or os.getenv("DB_URL") or values.get("DB_URL")
         self.read_only = read_only
         self.connection = None
 
     def connect(self, camel_case_keys=False):
         """Supabase에 연결하고 실제 pgvector 설치 위치를 현재 연결에 등록합니다."""
         if not self._dsn:
-            raise ValueError("ZZONG_DB_URL을 먼저 설정하세요. 비밀번호를 채팅에 붙여 넣지 마세요.")
+            raise ValueError("팀 DB_URL을 먼저 설정하세요. 비밀번호를 채팅에 붙여 넣지 마세요.")
         if camel_case_keys:
             raise ValueError("개인 기록은 snake_case 키를 사용합니다.")
         connection = psycopg.connect(

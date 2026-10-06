@@ -1,0 +1,32 @@
+-- [프로젝트 추가] DBeaver에서 수정 버전을 쉽게 확인하는 읽기 전용 SQL입니다.
+-- 연결을 선택한 뒤 SQL 편집기에 붙여넣고, 확인할 SELECT 한 개씩 실행하세요.
+
+-- 1. 저장 완료 상태: ready, 수정 청크 28개가 나와야 합니다.
+SELECT id AS "검토 버전", status AS "저장 상태", chunk_count AS "수정 청크 수",
+       jsonb_array_length(payload->'parents') AS "수정 주제 수",
+       jsonb_array_length(payload->'images') AS "그림 연결 수", created_at AS "저장 시각"
+FROM zzong_santafe_lag.review_revisions
+WHERE id = 'a8970bd7-630f-55fd-bfdd-1e5194d13a3b';
+
+-- 2. 주제별 보완 글. 원래 parent_records 값은 그대로 보관됩니다.
+SELECT parent->>'record_id' AS "주제 ID", parent->>'title' AS "주제",
+       parent->>'verification_status' AS "검토 상태",
+       parent->'metadata' AS "출처 정보", parent->>'content' AS "검색용 전체 글",
+       parent->>'raw_text' AS "보존 원문"
+FROM zzong_santafe_lag.review_revisions r,
+     LATERAL jsonb_array_elements(r.payload->'parents') parent
+WHERE r.id = 'a8970bd7-630f-55fd-bfdd-1e5194d13a3b';
+
+-- 3. 새 검색 청크와 두 모델의 차원. 벡터 전체를 표시하지 않습니다.
+SELECT record_id AS "청크 ID", metadata->>'parent_record_id' AS "부모 주제 ID",
+       content AS "검색 청크", vector_dims(local_embedding) AS "로컬 차원",
+       vector_dims(openai_embedding) AS "OpenAI 차원"
+FROM zzong_santafe_lag.review_revision_chunks
+WHERE revision_id = 'a8970bd7-630f-55fd-bfdd-1e5194d13a3b'
+ORDER BY record_id;
+
+-- 4. 개인 테이블의 색인·TOAST 포함 용량. 다른 팀원 테이블은 조회하지 않습니다.
+SELECT relname AS "개인 테이블", pg_total_relation_size(relid) AS "바이트",
+       pg_size_pretty(pg_total_relation_size(relid)) AS "용량"
+FROM pg_stat_user_tables WHERE schemaname = 'zzong_santafe_lag'
+ORDER BY relname;

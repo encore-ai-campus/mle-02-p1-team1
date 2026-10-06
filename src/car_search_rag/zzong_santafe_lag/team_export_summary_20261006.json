@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-06",
+  "connection_setting": "project_root_dotenv_DB_URL",
+  "car_id": "20261006_000018",
+  "create_user_id": "zzong_santafe_lag",
+  "vehicle": {
+    "car_brand_eng_nm": "hyundai",
+    "car_eng_nm": "santafe_hev",
+    "car_model_yr": 2024,
+    "year_basis": "사용자 확인한 2024년 이후 생산형의 기준 연도. PDF의 정확한 모델 연식 확인은 별도."
+  },
+  "schema": "public",
+  "scope": "reviewed_only",
+  "reviewed_parent_count": 25,
+  "pending_parent_count_in_personal_schema": 502,
+  "counts": {
+    "car": 1,
+    "car_manual_chapter": 4,
+    "car_manual_chunk": 72,
+    "car_manual_image": 18
+  },
+  "chapter_numbers": [1, 2, 5, 6],
+  "model": "text-embedding-3-small",
+  "dimension": 1536,
+  "embedding_api_calls": 0,
+  "storage_uploaded_files": 0,
+  "logical_column_bytes": 490607,
+  "size_scope": "TOAST 칼럼 값 포함. 행 헤더·인덱스·페이지 여유·WAL 제외.",
+  "source_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "review_revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+  "plan_sha256": "8f5952174245c6b8078488d40df1786b4ccf08454ef34d9fb397426b88d257a5",
+  "own_chunk_order_corrections": 11,
+  "commit_readback_verified": true,
+  "other_authors_unchanged": true,
+  "other_authors_counts": {
+    "car": 1,
+    "car_manual_chapter": 10,
+    "car_manual_chunk": 947,
+    "car_manual_image": 955
+  },
+  "chatbot_source": "existing_personal_schema_unchanged",
+  "final_plan_file": "data/zzong_santafe_lag/team_exports/santafe_hev_2024_8f5952174245.plan.json",
+  "final_result_file": "data/zzong_santafe_lag/team_exports/santafe_hev_2024_8f5952174245.result.json"
+}

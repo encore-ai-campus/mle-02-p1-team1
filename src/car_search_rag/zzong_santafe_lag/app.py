@@ -1,7 +1,9 @@
 """개인 싼타페 PDF 검색·답변·출처·그림을 보여주는 로컬 Streamlit 화면입니다."""
 
 import json
+import os
 import sys
+from copy import deepcopy
 from datetime import datetime
 from pathlib import Path
 from uuid import uuid4
@@ -17,6 +19,10 @@ if str(SRC_FOLDER) not in sys.path:
 
 # [프로젝트 적용] 이미 저장한 개인 전체 처리 작업입니다. 팀원 자료와 섞지 않습니다.
 from car_search_rag.zzong_santafe_lag.source_profile import FULL_SOURCE
+from car_search_rag.zzong_santafe_lag.answer_display import format_answer_for_display
+from car_search_rag.zzong_santafe_lag.question_input import prepare_question, clarification_result
+from car_search_rag.zzong_santafe_lag.source_navigation import (
+    followup_kind, pdf_locator, source_groups, candidate_notice, source_view, image_view)
 
 FULL_RUN_ID = str(FULL_SOURCE.run_id)
 MAX_HISTORY = 10
@@ -39,7 +45,7 @@ def initialize_state():
         "zzong_question": "",
         "zzong_history_selection": None,
         # [프로젝트 추가] 저장 대조까지 끝낸 OpenAI 버전이 있을 때만 기본 모델로 선택합니다.
-        "zzong_embedding_backend": "OpenAI" if (
+        "zzong_embedding_backend": "OpenAI" if os.getenv("ZZONG_EMBEDDING_RUN_ID") or (
             SRC_FOLDER.parent / "data/zzong_santafe_lag/openai_embeddings/active_run.json"
         ).exists() else "기존 로컬",
     }
@@ -61,28 +67,31 @@ def clear_history():
     st.session_state.zzong_question = ""
 
 
+def create_answer_service(embedding_backend, image_display_location="관련 그림 탭"):
+    """개인·배포 화면에서 같은 산타페 서비스를 준비합니다. 검색 규칙은 서비스가 소유합니다."""
+    from car_search_rag.zzong_santafe_lag.llm_answer_service import LlmManualAnswerService
+    from car_search_rag.zzong_santafe_lag.answer_service import ManualAnswerService
+    evidence_service = None
+    if embedding_backend == "OpenAI":
+        from car_search_rag.zzong_santafe_lag.openai_search_service import (
+            OpenAIManualSearchService, active_embedding_run)
+        embedding_run_id = active_embedding_run()
+        if embedding_run_id is None:
+            raise ValueError("OpenAI 전체 벡터 저장의 active_run.json 설정이 필요합니다.")
+        evidence_service = ManualAnswerService(
+            FULL_RUN_ID, search_service=OpenAIManualSearchService(embedding_run_id))
+    return LlmManualAnswerService(FULL_RUN_ID, evidence_service=evidence_service,
+                                 image_display_location=image_display_location)
+
+
 def get_service():
     """첫 질문 제출 때 서비스를 만들고 같은 브라우저의 다음 질문에 재사용합니다."""
     # [프로젝트 적용] 시작 화면만 열었을 때는 DB 조회·모델 준비·OpenAI 호출을 하지 않습니다.
     # 무거운 검색 라이브러리도 첫 검색 때 불러옵니다. 키는 기존 개인 설정에서 읽습니다.
     if (st.session_state.zzong_service is None
             or st.session_state.zzong_service_backend != st.session_state.zzong_embedding_backend):
-        from car_search_rag.zzong_santafe_lag.llm_answer_service import LlmManualAnswerService
-        from car_search_rag.zzong_santafe_lag.answer_service import ManualAnswerService
-
-        evidence_service = None
-        if st.session_state.zzong_embedding_backend == "OpenAI":
-            from car_search_rag.zzong_santafe_lag.openai_search_service import (
-                OpenAIManualSearchService, active_embedding_run)
-            embedding_run_id = active_embedding_run()
-            if embedding_run_id is None:
-                raise ValueError("OpenAI 전체 벡터 저장을 먼저 완료하세요.")
-            evidence_service = ManualAnswerService(
-                FULL_RUN_ID, search_service=OpenAIManualSearchService(embedding_run_id))
-
-        # [프로젝트 추가] 이 화면에 실제 있는 탭 이름을 전달해 그림 표시 불가 안내를 예방합니다.
-        st.session_state.zzong_service = LlmManualAnswerService(
-            FULL_RUN_ID, evidence_service=evidence_service, image_display_location="관련 그림 탭")
+        st.session_state.zzong_service = create_answer_service(
+            st.session_state.zzong_embedding_backend)
         st.session_state.zzong_service_backend = st.session_state.zzong_embedding_backend
     return st.session_state.zzong_service
 
@@ -95,6 +104,18 @@ def change_embedding_backend():
     clear_history()
 
 
+def prepare_entry(service, question):
+    """두 화면의 검색 진입점입니다. 기존 top_k=5와 질문별 독립 검색을 유지합니다."""
+    prepared = prepare_question(question)
+    evidence = (clarification_result(prepared) if prepared["clarification_message"]
+                else service.prepare_evidence(question.strip(), top_k=5))
+    return {"id": uuid4().hex, "question": question.strip(),
+            "created_at": datetime.now().isoformat(timespec="seconds"),
+            "evidence": evidence, "generated": None,
+            "generation_requested": False, "generation_error": None,
+            "pdf_locator": pdf_locator(service) if service is not None else None}
+
+
 def search_question(question):
     """질문만 임베딩하고 개인 DB의 확인 근거를 찾아 화면 기록에 추가합니다."""
     question = question.strip()
@@ -105,21 +126,14 @@ def search_question(question):
     st.session_state.zzong_history_selection = None
     try:
         with st.spinner("설명서에서 찾고 있습니다. 첫 검색은 준비 시간이 더 걸릴 수 있습니다."):
-            evidence = get_service().prepare_evidence(question, top_k=5)
+            # 대상 확인만 필요할 때는 DB·검색 모델 설정을 준비하지 않습니다.
+            prepared = prepare_question(question)
+            entry = prepare_entry(None if prepared["clarification_message"] else get_service(), question)
     except Exception as error:
         # 인증·연결 문자열이 오류에 들어 있을 수 있어 내용 대신 오류 종류만 표시합니다.
         st.error(f"설명서 검색을 완료하지 못했습니다. 연결 설정을 확인해 주세요. ({type(error).__name__})")
         return
 
-    entry = {
-        "id": uuid4().hex,
-        "question": question,
-        "created_at": datetime.now().isoformat(timespec="seconds"),
-        "evidence": evidence,
-        "generated": None,
-        "generation_requested": False,
-        "generation_error": None,
-    }
     st.session_state.zzong_history.append(entry)
     # [프로젝트 추가] 부모 원문도 보관하므로 화면 기록을 최근 10개로 제한합니다.
     st.session_state.zzong_history = st.session_state.zzong_history[-MAX_HISTORY:]
@@ -216,6 +230,9 @@ def show_result(entry):
     """선택한 질문의 발췌·생성 답변·출처·그림·파일 내려받기를 한곳에 배치합니다."""
     st.subheader("확인 중인 질문")
     st.write(entry["question"])
+    if entry["evidence"]["status"] == "needs_clarification":
+        st.markdown(entry["evidence"]["answer"])
+        return
     service = get_service()
     preview = service.preview(entry["evidence"])
     generate_answer(entry, service, preview)
@@ -234,7 +251,9 @@ def show_result(entry):
             st.caption("설명서에서 확인한 글을 발췌했습니다.")
         else:
             st.caption("현재 자료로 답변할 수 있는지 확인한 결과입니다.")
-        st.markdown(result["answer"])
+        # [프로젝트 추가] 화면 서식만 적용하며 내려받는 원문·생성 결과는 그대로 보존합니다.
+        # 개인 화면은 출처 탭에서 원문을 읽습니다. 공통 화면용 짧은 미리보기 옵션은 사용하지 않습니다.
+        st.markdown(format_answer_for_display(result))
         if result.get("reason"):
             st.info(result["reason"])
         usage = result.get("token_usage")
@@ -292,6 +311,210 @@ def main():
         st.info("질문을 입력하고 'PDF에서 찾기'를 눌러 주세요.")
     else:
         show_result(entry)
+
+
+# [프로젝트 추가] 공통 화면의 모양만 재사용하기 위한 접속별 연결입니다.
+# 검색/프롬프트/검토 규칙은 위 함수와 기존 산타페 서비스를 호출합니다.
+# 대화를 LLM 문맥으로 추가하지 않고, 기존처럼 최근 질문 10개의 결과만 보관합니다.
+class SantafeBackend:
+    def __init__(self, service=None):
+        self.service = service
+        self.sessions = {}
+
+    def start_session(self, is_test=False):
+        identity = uuid4().hex
+        self.sessions[identity] = []
+        return identity
+
+    def is_session_active(self, session_id):
+        return session_id in self.sessions
+
+    def end_session(self, session_id):
+        self.sessions.pop(session_id, None)
+        self.service = None
+
+    def _service(self):
+        if self.service is None:
+            # 배포 서버에는 개인 PC의 로컬 모델 캐시가 없습니다. 확인한 OpenAI 버전만 사용합니다.
+            # 버전 선택 파일이 없으면 다른 모델이나 팀 DB로 자동 대체하지 않습니다.
+            self.service = create_answer_service("OpenAI", "답변 아래 관련 그림 보기")
+        return self.service
+
+    def _packet(self, entry):
+        result = entry.get("view") or entry["generated"] or entry["evidence"]
+        # 원문 열기는 저장된 자료만 재사용합니다. 검색·생성 서비스 준비도 하지 않습니다.
+        if result["status"] == "source_view":
+            return {"answer": {"text": result["answer"], "status": "answered", "cited_labels": []},
+                    "vehicle_id": "santafe", "source_display": "retrieved", "native_status": "source_view",
+                    "native_result": result, "entry_id": entry["id"],
+                    "sources": result.get("view_sources", []), "notices": [], "actions": []}
+        # [프로젝트 추가] 대상 확인 안내에는 검색·유료 생성·출처 펼치기를 제공하지 않습니다.
+        if result["status"] == "needs_clarification":
+            return {"answer": {"text": result["answer"], "status": "answered", "cited_labels": []},
+                    "vehicle_id": "santafe", "source_display": "retrieved",
+                    "native_status": result["status"], "native_result": result,
+                    "entry_id": entry["id"], "sources": [], "notices": [], "actions": []}
+        service = self._service()
+        preview = service.preview(entry["evidence"])
+        can_generate = (preview["ready_for_generation"] and
+                        service.settings()["api_key_configured"] and
+                        not entry["generation_requested"])
+        # [프로젝트 추가] 사용자는 현재 상태와 다음 행동을 읽고, 내부 선택 사유는 원래 결과에 보존합니다.
+        guided_failure = result["status"] in {"insufficient_evidence", "needs_review"}
+        notices = [None if guided_failure else result.get("reason"), result.get("generation_notice")]
+        changes = result.get("input_processing", {}).get("term_changes", [])
+        if changes:
+            notices.append("검색할 때 용어를 정리했습니다: " + "; ".join(
+                f"‘{row['original']}’ → ‘{row['search_term']}’" for row in changes))
+        recoveries = result.get("retrieval_recoveries", [result.get("retrieval_recovery", {})])
+        if any(row.get("candidate_expansion_used") for row in recoveries):
+            notices.append("처음 검색에서 근거를 찾지 못해 관련 후보를 추가로 확인했습니다.")
+        if not preview["ready_for_generation"] and result["status"] not in {
+                "insufficient_evidence", "needs_review", "outside_pdf_scope"}:
+            notices.append(preview["reason"])
+        elif preview["ready_for_generation"] and not service.settings()["api_key_configured"]:
+            notices.append("답변 생성용 API 키 설정이 없습니다. 설명서 발췌를 표시합니다.")
+        if entry["generation_error"]:
+            notices.append("생성을 완료하지 못해 설명서 발췌를 유지합니다.")
+        pending_images = result.get("pending_image_references", [])
+        if pending_images:
+            notices.append(f"관련 그림 {len(pending_images)}개는 파일 또는 설명 연결 확인이 남아 표시를 보류했습니다.")
+        # [프로젝트 추가] 공통 화면을 수정하지 않고 싼타페가 전달하는 표시용 글만 정리합니다.
+        # 생성 가능한 최초 안내만 짧게 표시합니다. 생성 실패·키 없음·답변 보류는 기존 발췌/안내를 유지합니다.
+        display = format_answer_for_display(result, evidence_preview=can_generate)
+        source_actions = []
+        inline_sources = None
+        if result["status"] == "needs_review":
+            extra, source_actions = candidate_notice(result, entry.get("pdf_locator"))
+            groups = source_groups(result)
+            if len(groups) == 1:
+                # 단일 미검토 자료는 보존 원문만 같은 답변에 제공합니다. 생성 근거·검토 상태는 그대로입니다.
+                display = extra
+                inline_sources = source_view(result, groups[0], entry["question"],
+                                             entry.get("pdf_locator"))["view_sources"]
+            elif extra:
+                display += "\n\n" + extra
+        return {"answer": {"text": display,
+                           "status": "answered", "cited_labels": []},
+                "vehicle_id": "santafe", "source_display": "retrieved",
+                "native_status": result["status"], "native_result": result,
+                "entry_id": entry["id"],
+                # 공통 화면은 [label]을 붙이므로 번호만 전달해 PDF 쪽수·대괄호 중복을 막습니다.
+                "sources": inline_sources if inline_sources is not None else [{"label": str(row["citation_id"]), "title": row["title"] + (
+                    f" · 매뉴얼 {'시작 ' if len(row['source_pages']) > 1 else ''}{row['manual_page_number']}쪽"
+                    if row.get("manual_page_number") is not None else ""),
+                    "source_file": "santafe_hev_manual.pdf", "pdf_pages": row["source_pages"],
+                    "quote": row["quote"], "raw_text": row.get("raw_text", "")}
+                    for row in result.get("sources", [])],
+                "notices": list(dict.fromkeys(x for x in notices if x)),
+                "actions": [{"id": "generate", "label": "답변 정리하기"}] if can_generate else source_actions}
+
+    def chat(self, session_id, question, request_id=None, on_event=None):
+        if session_id not in self.sessions:
+            raise ValueError("종료된 산타페 대화입니다.")
+        if not question.strip():
+            raise ValueError("질문을 입력해 주세요.")
+        history = self.sessions[session_id]
+        for entry in history:
+            if request_id and entry.get("request_id") == request_id:
+                if entry["question"] != question.strip():
+                    raise ValueError("같은 요청 ID에 다른 질문을 사용할 수 없습니다.")
+                return self._packet(entry)
+        # [프로젝트 추가] 명시적인 본문/그림 요청만 같은 접속의 직전 결과에 연결합니다.
+        # 새 주제의 질문은 연결하지 않으며, 다른 접속이나 더 오래된 질문으로 거슬러 추측하지 않습니다.
+        kind = followup_kind(question)
+        if kind:
+            previous = history[-1] if history else None
+            entry = {"id": uuid4().hex, "question": question.strip(), "request_id": request_id,
+                     "generated": None, "generation_requested": True, "generation_error": None,
+                     "created_at": datetime.now().isoformat(timespec="seconds"),
+                     "pdf_locator": previous.get("pdf_locator") if previous else None}
+            if previous:
+                evidence = deepcopy(previous["evidence"])
+                groups = source_groups(evidence)
+                selected = previous.get("selected_source_index")
+                if kind == "image":
+                    entry.update(evidence=evidence, view=image_view(evidence, question))
+                elif type(selected) is int and 0 <= selected < len(groups):
+                    entry.update(evidence=evidence, selected_source_index=selected,
+                                 view=source_view(evidence, groups[selected], question, entry["pdf_locator"]))
+                elif len(groups) == 1:
+                    entry.update(evidence=evidence, view=source_view(evidence, groups[0], question, entry["pdf_locator"]))
+                elif groups:
+                    entry["evidence"] = evidence
+                    # 여럿이면 기존 후보 제목과 원문 버튼을 다시 제공합니다. 가장 앞 후보를 정답으로 고르지 않습니다.
+                else:
+                    previous = None
+            if not previous:
+                prepared = prepare_question(question)
+                prepared["clarification_message"] = "직전 질문에서 찾은 원문이 없거나 연결할 질문 기록이 없습니다. 어떤 부품이나 상황의 원문을 찾으시나요?"
+                entry["evidence"] = clarification_result(prepared)
+            history.append(entry)
+            del history[:-MAX_HISTORY]
+            return self._packet(entry)
+        # 설정 준비 전에 모호한 질문을 확인합니다. 접속별 최근 기록은 기존처럼 보관합니다.
+        if prepare_question(question)["clarification_message"]:
+            entry = prepare_entry(None, question)
+            entry["request_id"] = request_id
+            history.append(entry)
+            del history[:-MAX_HISTORY]
+            return self._packet(entry)
+        if self.service is None:
+            from car_search_rag.zzong_santafe_lag.database import PersonalDatabaseManager
+            from car_search_rag.zzong_santafe_lag.openai_search_service import active_embedding_run
+            missing = []
+            if not PersonalDatabaseManager(read_only=True)._dsn:
+                missing.append("산타페 DB 연결 설정")
+            if active_embedding_run() is None:
+                missing.append("산타페 임베딩 버전 설정")
+            if missing:
+                return {"answer": {"text": "아직 " + "과 ".join(missing) +
+                    "이 준비되지 않았어요. 담당자가 설정한 뒤 다시 질문해 주세요.",
+                    "status": "configuration_required", "cited_labels": []},
+                    "vehicle_id": "santafe", "sources": [], "actions": []}
+        entry = prepare_entry(self._service(), question)
+        entry["request_id"] = request_id
+        history.append(entry)
+        del history[:-MAX_HISTORY]
+        return self._packet(entry)
+
+    def perform_action(self, session_id, packet, action_id):
+        entry = next((row for row in self.sessions.get(session_id, [])
+                      if row["id"] == packet["entry_id"]), None)
+        if entry is None:
+            raise ValueError("최근 10개 질문에 없는 자료입니다. 질문을 다시 입력해 주세요.")
+        if action_id.startswith("view_source_"):
+            groups = source_groups(entry["evidence"])
+            allowed = {f"view_source_{index}": group for index, group in enumerate(groups)}
+            if action_id not in allowed or entry["evidence"]["status"] != "needs_review":
+                raise ValueError("이번 결과에 연결된 원문 후보가 아닙니다.")
+            entry["view"] = source_view(entry["evidence"], allowed[action_id], entry["question"], entry.get("pdf_locator"))
+            entry["selected_source_index"] = list(allowed).index(action_id)
+            return self._packet(entry)
+        if action_id != "generate":
+            raise ValueError("지원하지 않는 작업입니다.")
+        if not self._service().preview(entry["evidence"])["ready_for_generation"]:
+            raise ValueError("확인된 근거가 없어 답변 생성이 보류됩니다.")
+        if not entry["generation_requested"]:
+            entry["generation_requested"] = True
+            try:
+                entry["generated"] = self._service().generate(entry["evidence"])
+            except Exception as error:
+                entry["generation_error"] = type(error).__name__
+        return self._packet(entry)
+
+    @staticmethod
+    def get_related_images(packet):
+        return [{"data": row["public_url"], "pdf_page": row["pdf_page_number"],
+                 "caption": " / ".join(dict.fromkeys(d["description"]
+                     for d in row.get("descriptions", []) if d.get("description")))}
+                for row in packet.get("native_result", {}).get("images", [])
+                if row.get("public_url") and any(d.get("description") for d in row.get("descriptions", []))]
+
+
+def create_backend():
+    """접속마다 산타페 전용 기록과 서비스를 분리합니다."""
+    return SantafeBackend()
 
 
 if __name__ == "__main__":

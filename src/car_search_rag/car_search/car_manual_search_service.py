@@ -146,7 +146,7 @@ class CarManualSearchService:
         self.reranker_model = (
             ChatOpenAI(
                 model=RERANKER_MODEL,
-                max_completion_tokens=400,
+                max_completion_tokens=HYBRID_RERANK_COMPLETION_TOKENS,
                 timeout=RERANKER_TIMEOUT_SECONDS,
                 max_retries=0,
             ).bind(response_format={"type": "json_object"})
@@ -391,12 +391,14 @@ class CarManualSearchService:
             # endregion
             phrases = _clean_keyword_group(
                 parsed.get("phrases") if isinstance(parsed, dict) else None,
-                group_name="phrases", minimum=1, maximum=2, allow_phrases=True,
+                group_name="phrases", minimum=0, maximum=2, allow_phrases=True,
             )
             terms = _clean_keyword_group(
                 parsed.get("terms") if isinstance(parsed, dict) else None,
-                group_name="terms", minimum=2, maximum=4, allow_phrases=False,
+                group_name="terms", minimum=0, maximum=4, allow_phrases=False,
             )
+            if not phrases and not terms:
+                raise ValueError("Expected at least one distinct phrase or term")
             extraction_latency = perf_counter() - extraction_started
 
             # 해당 차량 ID를 찾고 phrase/term LIKE 검색을 실행한다.

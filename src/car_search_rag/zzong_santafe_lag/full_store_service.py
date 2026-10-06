@@ -22,7 +22,7 @@ from .sample_store import APPROVED_REVISION, json_value, load_sample_bundle
 from .storage_plan import image_identity
 
 
-PIPELINE_VERSION = "full_manual_seat74_v1"
+from .source_profile import PIPELINE_VERSION
 IMAGE_FIELDS = ("pdf_page_number", "pdf_image_key", "image_key_sha256", "file_name", "width", "height",
                 "local_path", "storage_bucket", "storage_path", "upload_status")
 

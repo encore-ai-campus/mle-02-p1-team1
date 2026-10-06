@@ -14,7 +14,17 @@ from .config import ManualConfig
 
 FOLDER = ManualConfig().project_folder / "data/zzong_santafe_lag/review_revisions"
 ACTIVE_FILE = FOLDER / "active.json"
+# [프로젝트 추가] Git으로 공유하는 선택 정보에는 버전 ID와 내용 식별값만 넣습니다.
+# 개인 선택 파일이 있으면 우선하며, DB에 없는 버전은 검증 오류로 중단합니다.
+SHARED_SELECTION = Path(__file__).resolve().parent / "review_revision_selection.json"
 RECORD_IDS = {"auto_topic_150", "auto_topic_171", "auto_topic_172", "auto_topic_173", "auto_topic_174"}
+
+
+def selection_file():
+    """개인 선택을 우선하고, 없으면 공유된 정확한 검토 버전 선택 파일을 반환합니다."""
+    if ACTIVE_FILE.exists():
+        return ACTIVE_FILE
+    return SHARED_SELECTION if SHARED_SELECTION.exists() else None
 
 
 def sha(value):
@@ -67,9 +77,10 @@ def validate_bundle(bundle):
 
 def load_active(session):
     """활성 선택 파일의 정확한 버전만 DB에서 읽습니다. 최신 버전을 임의로 선택하지 않습니다."""
-    if not ACTIVE_FILE.exists():
+    selected_file = selection_file()
+    if selected_file is None:
         return None
-    pointer = json.loads(ACTIVE_FILE.read_text(encoding="utf-8"))
+    pointer = json.loads(selected_file.read_text(encoding="utf-8"))
     revision_id = UUID(pointer["revision_id"])
     header = session.select_one("review_revisions.get_revision", {"revision_id": revision_id})
     if (not header or header["status"] != "ready" or str(header["source_run_id"]) != str(FULL_SOURCE.run_id)

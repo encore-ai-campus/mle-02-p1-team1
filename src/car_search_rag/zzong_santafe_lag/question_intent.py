@@ -1,11 +1,15 @@
 """검색 범위와 답변 선택이 같은 한국어 질문 목적을 사용하도록 합니다."""
 
 import re
+from .question_input import engine_symptom_kind
 
 
 def evidence_intent(question):
     """그림의 번호·위치와 동작/허용/조절 시점 질문을 구별합니다. 범용 의미 분석은 아닙니다."""
     text = re.sub(r"\s+", "", question)
+    # [프로젝트 추가] 시동 불가 뒤 계기판 상태를 알려줘도 위치 안내도 질문으로 바꾸지 않습니다.
+    if engine_symptom_kind(question):
+        return "symptom"
     # [프로젝트 추가] 조절할 시점을 물으면 '위치'라는 말이 있어도 조작 지침을 찾습니다.
     timing_action = (any(word in text for word in ("출발전", "출발하기전", "주행중", "운전중"))
                      and any(word in text for word in ("조절", "조정", "맞추", "맞춰", "조작")))

@@ -4,6 +4,8 @@ import logging
 from functools import lru_cache
 from pathlib import Path
 from threading import Lock
+from uuid import uuid4
+from time import perf_counter
 
 import streamlit as st
 
@@ -13,6 +15,7 @@ EMBEDDING_VERSION = "v1"
 LLM_MODEL = "gpt-6-luna"
 MAX_ANSWER_IMAGES = 6
 logger = logging.getLogger(__name__)
+DEFAULT_TOP_K = 5
 
 
 def download_model_weights(progress_callback=None):
@@ -243,3 +246,66 @@ def search_manual(question, top_k=5):
 
 def ask_manual(question, top_k=5):
     return get_rag().ask_manual(question, top_k)
+
+
+class CasperBackend:
+    """공통 화면 연결. 캐스퍼의 기존 RAG와 접속별 독립 질문 기록만 사용합니다."""
+
+    def __init__(self, rag=None):
+        self.rag = rag
+        self.sessions = {}
+        self.top_k = DEFAULT_TOP_K
+        self.lock = Lock()
+
+    def start_session(self, is_test=False):
+        # 개인 화면처럼 질문을 받기 전에 모델을 준비합니다. 문서는 재임베딩하지 않습니다.
+        if self.rag is None:
+            self.rag = get_rag()
+        identity = uuid4().hex
+        self.sessions[identity] = []
+        return identity
+
+    def is_session_active(self, session_id):
+        return session_id in self.sessions
+
+    def end_session(self, session_id):
+        self.sessions.pop(session_id, None)
+
+    def chat(self, session_id, question, request_id=None, on_event=None):
+        question = question.strip()
+        if not question:
+            raise ValueError("질문을 입력해 주세요.")
+        with self.lock:
+            if session_id not in self.sessions:
+                raise ValueError("종료된 캐스퍼 대화입니다.")
+            history = self.sessions[session_id]
+            for previous in history:
+                if request_id and previous['request_id'] == request_id:
+                    if previous['question'] != question:
+                        raise ValueError("같은 요청 ID에 다른 질문을 사용할 수 없습니다.")
+                    return previous['packet']
+            started = perf_counter()
+            # 이전 질문은 표시용 기록이며 모델에 전달하지 않습니다. 기존 ask_manual만 호출합니다.
+            result = self.rag.ask_manual(question, top_k=self.top_k)
+            result = {**result, 'elapsed_seconds': perf_counter() - started}
+            packet = {
+                'answer': {'text': result['answer'], 'status': 'answered', 'cited_labels': []},
+                'vehicle_id': 'casper', 'source_display': 'retrieved', 'native_result': result,
+                'sources': [{'label': str(row['citation_id']), 'title': row['source_title'],
+                    'source_file': row.get('document_name', ''),
+                    'pdf_pages': list(range(row['page_start'], row['page_end'] + 1)),
+                    'quote': row['chunk_text']}
+                    for row in result['sources']],
+            }
+            history.append({'request_id': request_id, 'question': question, 'packet': packet})
+            return packet
+
+    @staticmethod
+    def get_related_images(packet):
+        # 기존 캐스퍼 RAG는 그림을 반환하지 않습니다. 다른 차종의 그림을 보충하지 않습니다.
+        return []
+
+
+def create_backend():
+    """모델은 기존 get_rag 캐시를 쓰고, 대화 목록은 접속마다 분리합니다."""
+    return CasperBackend()

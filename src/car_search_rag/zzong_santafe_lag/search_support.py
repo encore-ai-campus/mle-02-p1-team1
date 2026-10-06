@@ -16,7 +16,9 @@ def checked_storage_url(config):
     """공개 그림 주소와 개인 DB의 프로젝트가 같은지 확인합니다. DB 연결이나 다운로드는 없습니다."""
     values = dict(dotenv_values(config.project_folder / ".env"))
     values.update(dotenv_values(Path(__file__).resolve().parent / ".env"))
-    storage_url = os.environ.get("SUPABASE_URL") or values.get("SUPABASE_URL")
+    # [프로젝트 추가] 배포에서 다른 차량의 Storage 환경을 변경하지 않고 산타페 주소만 지정합니다.
+    storage_url = (os.environ.get("ZZONG_SUPABASE_URL") or values.get("ZZONG_SUPABASE_URL")
+                   or os.environ.get("SUPABASE_URL") or values.get("SUPABASE_URL"))
     if not storage_url:
         return storage_url
     parsed = urlparse(storage_url)
