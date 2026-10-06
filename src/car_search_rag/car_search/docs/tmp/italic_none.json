@@ -1,0 +1,270 @@
+[
+  {
+    "page": 44,
+    "image": 2,
+    "candidates": [
+      {
+        "text": "등받이 각도 조절하기",
+        "raw_text": "등받이 각도 조절하기",
+        "bbox": [
+          220.97,
+          63.72,
+          300.63,
+          74.64
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 9,
+        "distance_pt": 2.4,
+        "same_column": true,
+        "horizontal_overlap": 0.999,
+        "heading_like": false
+      }
+    ]
+  },
+  {
+    "page": 263,
+    "image": 1,
+    "candidates": [
+      {
+        "text": "수동 변속(+, -) 모드",
+        "raw_text": "수동 변속(+, -) 모드",
+        "bbox": [
+          50.89,
+          63.72,
+          125.16,
+          74.64
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 2,
+        "distance_pt": 2.4,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  },
+  {
+    "page": 307,
+    "image": 1,
+    "candidates": [
+      {
+        "text": "긴급 제동",
+        "raw_text": "긴급 제동",
+        "bbox": [
+          50.89,
+          63.72,
+          88.04,
+          74.64
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 2,
+        "distance_pt": 2.4,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  },
+  {
+    "page": 329,
+    "image": 3,
+    "candidates": [
+      {
+        "text": "차선이 인식되지 않은 경우",
+        "raw_text": "차선이 인식되지 않은 경우 ",
+        "bbox": [
+          280.39,
+          154.84,
+          356.46,
+          163.34
+        ],
+        "font_size": 7.0,
+        "max_font_size": 7.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 9,
+        "distance_pt": 1.53,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "(",
+        "raw_text": "(",
+        "bbox": [
+          243.62,
+          141.55,
+          246.54,
+          152.48
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 12.39,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": ") 표시등이 표시됩니다.",
+        "raw_text": ") 표시등이 표시됩니다.",
+        "bbox": [
+          256.62,
+          141.55,
+          339.0,
+          152.48
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 12.39,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "이탈방지 보조가 작동 가능한 경우 초록색",
+        "raw_text": "이탈방지 보조가 작동 가능한 경우 초록색",
+        "bbox": [
+          244.28,
+          131.55,
+          399.02,
+          142.48
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 22.39,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "선 색상이 회색에서 흰색으로 바뀌고, 차로",
+        "raw_text": "선 색상이 회색에서 흰색으로 바뀌고, 차로",
+        "bbox": [
+          244.29,
+          121.56,
+          398.99,
+          132.48
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 32.39,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "•차선이 인식된 경우, 클러스터 표시창에 차",
+        "raw_text": "•차선이 인식된 경우, 클러스터 표시창에 차",
+        "bbox": [
+          235.16,
+          109.38,
+          398.94,
+          122.35
+        ],
+        "font_size": 9.86,
+        "max_font_size": 10.72,
+        "font": "HyundaiSansHeadKR / HyundaiSansTextKR",
+        "flags": [
+          4,
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 42.52,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "내 ‘클러스터 메뉴 설정’을 참고하십시오.",
+        "raw_text": "내 ‘클러스터 메뉴 설정’을 참고하십시오.",
+        "bbox": [
+          244.27,
+          96.57,
+          389.33,
+          107.49
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 57.38,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "•클러스터 설정과 관련된 자세한 내용은 4장",
+        "raw_text": "•클러스터 설정과 관련된 자세한 내용은 4장",
+        "bbox": [
+          235.16,
+          84.39,
+          398.92,
+          97.36
+        ],
+        "font_size": 9.86,
+        "max_font_size": 10.72,
+        "font": "HyundaiSansHeadKR / HyundaiSansTextKR",
+        "flags": [
+          4,
+          4
+        ],
+        "bold": false,
+        "source_block_index": 8,
+        "distance_pt": 67.51,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  }
+]

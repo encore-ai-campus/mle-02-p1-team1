@@ -1,0 +1,1 @@
+﻿question_id,question,expected_page_chunk,acceptable_page_chunks,vector_rank,candidate_id,page_no,chunk_id,vector_distance,vector_similarity,reranker_score,reason,rerank_rank,before_expected_rank,after_expected_rank,before_hit_at_5,after_hit_at_5,rank_change,api_attempts,retry_count,api_input_tokens,api_output_tokens,api_total_tokens,api_latency_seconds

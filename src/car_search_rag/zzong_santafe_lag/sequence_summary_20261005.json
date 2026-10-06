@@ -1,0 +1,439 @@
+{
+  "evaluation_date": "2026-10-05",
+  "summary_date": "2026-10-06",
+  "report_folder": "data\\zzong_santafe_lag\\reports\\sequence_20261005_172146",
+  "dataset_sha256": "197be476d19e94f22e9660819bab7d4c9aa9552ed0dd915bfb33adbf2638c6ec",
+  "code_version": {
+    "source_profile.py": "5abd4f3fc6032f4768d25170f19102cf318d355b3270d4cab64afba059e6673f",
+    "search_support.py": "9fd52965391eb1af3c67d9e226dc6912e8b0e93033a981328eb366e12a4ae277",
+    "retrieval.py": "9d77aea4b1207423a43534e195c056c8d10e51bc395f2835969c339d4e27986f",
+    "specific_terms.py": "06997ddb9cee2efa7f86d89907e76c094134c2346c68f1d771352eb96cc0965b",
+    "db_search_service.py": "4a5a696447a196505950b7f33049331f33327fb1af69d7fbaaf21a0f8198182c",
+    "openai_search_service.py": "9218d328379b9d10283280ec83215d5c7a7fd7bd8fc905e52de68d185dee2f8c",
+    "answer_service.py": "6b5cbc2add01f9e8495c6c919d21c97d9bfd1ee269293245ce2cd151097d15fa",
+    "llm_answer_service.py": "5164e0fbd97bdb912aaeb8e345b4188afcb07b8657956bccc9a093a75b90af4a"
+  },
+  "source_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "embedding_run_id": "ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e",
+  "ui": {
+    "cases": [
+      {
+        "name": "vin",
+        "question": "차대번호가 새겨진 위치를 그림으로 보여줘.",
+        "status": "generated_answer",
+        "checks": {
+          "status": true,
+          "sources": true,
+          "answer_phrases": true,
+          "image_references": true,
+          "generation_called": true
+        },
+        "passed": true,
+        "source_record_ids": [
+          "vin_45"
+        ],
+        "image_reference_count": 1,
+        "llm_called": true,
+        "token_usage": {
+          "input_tokens": 848,
+          "output_tokens": 57,
+          "total_tokens": 905,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        },
+        "query_embedding_calls": 1,
+        "file": "data\\zzong_santafe_lag\\reports\\sequence_ui_vin_20261005.json",
+        "file_sha256": "9d4b2da7122a0f12cf468e80387888d1c0eb11b4ef98634354f27533c09fa06a"
+      },
+      {
+        "name": "oil",
+        "question": "엔진 오일 교체 시 주입량과 추천 SAE 점도를 함께 알려줘.",
+        "status": "generated_answer",
+        "checks": {
+          "status": true,
+          "sources": true,
+          "answer_phrases": true,
+          "image_references": true,
+          "generation_called": true
+        },
+        "passed": true,
+        "source_record_ids": [
+          "reviewed_oil_notes_43",
+          "auto_topic_33",
+          "table_44"
+        ],
+        "image_reference_count": 2,
+        "llm_called": true,
+        "token_usage": {
+          "input_tokens": 1779,
+          "output_tokens": 200,
+          "total_tokens": 1979,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0,
+            "cache_creation": 1776
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        },
+        "query_embedding_calls": 2,
+        "file": "data\\zzong_santafe_lag\\reports\\sequence_ui_oil_20261005.json",
+        "file_sha256": "0ff906242b850e1e5e90772b488451f51aec4aae12470155936b2c46ac77a965"
+      },
+      {
+        "name": "prohibition",
+        "question": "좌석과 스티어링 휠과 미러는 주행 중에 조절해도 되나요?",
+        "status": "generated_answer",
+        "checks": {
+          "status": true,
+          "sources": true,
+          "answer_phrases": true,
+          "image_references": true,
+          "generation_called": true
+        },
+        "passed": true,
+        "source_record_ids": [
+          "sample_topic_4"
+        ],
+        "image_reference_count": 0,
+        "llm_called": true,
+        "token_usage": {
+          "input_tokens": 968,
+          "output_tokens": 58,
+          "total_tokens": 1026,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0,
+            "cache_creation": 0
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        },
+        "query_embedding_calls": 1,
+        "file": "data\\zzong_santafe_lag\\reports\\sequence_ui_prohibition_20261005.json",
+        "file_sha256": "90a896137f674decd0446ab9037636ffb98cb35d47579d0493f78b6acd4b1729"
+      },
+      {
+        "name": "recall",
+        "question": "지금 내 차가 리콜 대상이야?",
+        "status": "outside_pdf_scope",
+        "checks": {
+          "status": true,
+          "sources": true,
+          "answer_phrases": true,
+          "image_references": true,
+          "generation_called": true
+        },
+        "passed": true,
+        "source_record_ids": [],
+        "image_reference_count": 0,
+        "llm_called": false,
+        "token_usage": null,
+        "query_embedding_calls": 0,
+        "file": "data\\zzong_santafe_lag\\reports\\sequence_ui_recall_20261005.json",
+        "file_sha256": "111e634417c5976d87e16a1f1b9f2f1c0d3983b15f7b6ca0c3f581771f836044"
+      },
+      {
+        "name": "review",
+        "question": "스마트 테일게이트 설정 방법을 설명해줘.",
+        "status": "needs_review",
+        "checks": {
+          "status": true,
+          "sources": true,
+          "answer_phrases": true,
+          "image_references": true,
+          "generation_called": true
+        },
+        "passed": true,
+        "source_record_ids": [],
+        "image_reference_count": 0,
+        "llm_called": false,
+        "token_usage": null,
+        "query_embedding_calls": 1,
+        "file": "data\\zzong_santafe_lag\\reports\\sequence_ui_review_20261005.json",
+        "file_sha256": "2b3c3b79b7d61c34831a91eec26a705952a3e7ccb3c248a26c6d4371ff331a92"
+      }
+    ],
+    "passed": 5,
+    "total": 5,
+    "generation_calls": 3,
+    "total_generation_tokens": 3910,
+    "query_embedding_calls": 5,
+    "vin_image_visually_loaded": true,
+    "scope": "브라우저 실제 동작 5조건 및 Codex의 답변 대조. 모든 이미지·전체 답변 정확도 평가가 아님.",
+    "screenshots": [
+      "data/zzong_santafe_lag/reports/sequence_ui_vin_20261005.png",
+      "data/zzong_santafe_lag/reports/sequence_ui_prohibition_20261005.png"
+    ]
+  },
+  "search": {
+    "cases": [
+      {
+        "backend": "openai",
+        "case_id": "S01",
+        "question": "차대번호를 차체에서 찾으려면 어느 패널을 봐야 하나요?",
+        "expected_id_rank": 1,
+        "related_ranks": [
+          1
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "vin_45"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "openai",
+        "case_id": "S02",
+        "question": "설명서의 엔진 오일 점도 도표는 온도 눈금이 -30℃에서 시작하나요?",
+        "expected_id_rank": 1,
+        "related_ranks": [
+          1
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "table_44"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "openai",
+        "case_id": "S03",
+        "question": "차량 내부 I 그림에서 지문 인증 기능에 붙은 번호를 알려줘.",
+        "expected_id_rank": null,
+        "related_ranks": [],
+        "uncertain_ranks": [],
+        "first_related_rank": null,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "vin_45"
+        ],
+        "selected_has_direct_support": false
+      },
+      {
+        "backend": "openai",
+        "case_id": "S04",
+        "question": "클러스터 점검에서는 어떤 정보와 연료 상태를 확인하나요?",
+        "expected_id_rank": 1,
+        "related_ranks": [
+          1
+        ],
+        "uncertain_ranks": [
+          5
+        ],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "sample_topic_2"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "openai",
+        "case_id": "S05",
+        "question": "페달 아래로 빈 깡통이 굴러 들어가지 않게 해야 하는 이유가 뭐야?",
+        "expected_id_rank": 1,
+        "related_ranks": [
+          1
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "sample_topic_5"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "openai",
+        "case_id": "S06",
+        "question": "안전벨트를 두 사람이 하나로 같이 써도 되는지 설명서에서 찾아줘.",
+        "expected_id_rank": 2,
+        "related_ranks": [
+          1,
+          2
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "seatbelt_54"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "openai",
+        "case_id": "S07",
+        "question": "스티어링 휠과 미러 위치는 출발 전에 맞추는 건가요?",
+        "expected_id_rank": null,
+        "related_ranks": [],
+        "uncertain_ranks": [],
+        "first_related_rank": null,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "overview_33"
+        ],
+        "selected_has_direct_support": false
+      },
+      {
+        "backend": "openai",
+        "case_id": "S08",
+        "question": "오일 첨가제가 엔진에 일으킬 수 있는 문제는 무엇인가요?",
+        "expected_id_rank": 2,
+        "related_ranks": [
+          1,
+          2,
+          3
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "reviewed_oil_notes_43",
+          "auto_topic_33"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "openai",
+        "case_id": "S09",
+        "question": "타이어 공기압이 낮을 때 고속 주행하면 차량이 전복될 수도 있나요?",
+        "expected_id_rank": 5,
+        "related_ranks": [
+          5
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 5,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "sample_topic_1"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "openai",
+        "case_id": "S10",
+        "question": "올바른 운전 자세에서는 브레이크를 끝까지 밟았을 때 무릎이 어떻게 되나요?",
+        "expected_id_rank": 1,
+        "related_ranks": [
+          1
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "sample_topic_3"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "local",
+        "case_id": "S01",
+        "question": "차대번호를 차체에서 찾으려면 어느 패널을 봐야 하나요?",
+        "expected_id_rank": 1,
+        "related_ranks": [
+          1
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "vin_45"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "local",
+        "case_id": "S02",
+        "question": "설명서의 엔진 오일 점도 도표는 온도 눈금이 -30℃에서 시작하나요?",
+        "expected_id_rank": 1,
+        "related_ranks": [
+          1
+        ],
+        "uncertain_ranks": [],
+        "first_related_rank": 1,
+        "evidence_status": "evidence_excerpt",
+        "selected_record_ids": [
+          "table_44"
+        ],
+        "selected_has_direct_support": true
+      },
+      {
+        "backend": "local",
+        "case_id": "S03",
+        "question": "차량 내부 I 그림에서 지문 인증 기능에 붙은 번호를 알려줘.",
+        "expected_id_rank": null,
+        "related_ranks": [],
+        "uncertain_ranks": [],
+        "first_related_rank": null,
+        "evidence_status": "needs_review",
+        "selected_record_ids": [],
+        "selected_has_direct_support": false
+      }
+    ],
+    "metrics": {
+      "openai": {
+        "question_count": 10,
+        "candidate_occurrences": 50,
+        "relevant_occurrences": 11,
+        "uncertain_occurrences": 1,
+        "precision_at_5_lower": 0.22,
+        "precision_at_5_upper": 0.24,
+        "content_hit_at_5": 0.8,
+        "content_mrr_at_5": 0.72,
+        "expected_id_hit_at_5": 0.8,
+        "expected_id_mrr_at_5": 0.62,
+        "selected_direct_support_count": 8
+      },
+      "local": {
+        "question_count": 3,
+        "candidate_occurrences": 15,
+        "relevant_occurrences": 2,
+        "uncertain_occurrences": 0,
+        "precision_at_5_lower": 0.13333333333333333,
+        "precision_at_5_upper": 0.13333333333333333,
+        "content_hit_at_5": 0.6666666666666666,
+        "content_mrr_at_5": 0.6666666666666666,
+        "expected_id_hit_at_5": 0.6666666666666666,
+        "expected_id_mrr_at_5": 0.6666666666666666,
+        "selected_direct_support_count": 2
+      }
+    },
+    "human_confirmed": false,
+    "judge_api_calls": 0,
+    "rubric": "질문의 요구를 직접 뒷받침하는 문장이 있으면 관련. 주제만 유사한 설명·참조는 비관련. 일부 직접 근거도 관련으로 셈.",
+    "dataset_sha256": "197be476d19e94f22e9660819bab7d4c9aa9552ed0dd915bfb33adbf2638c6ec",
+    "scope": "이미 검토한 주제의 새 표현. Codex 잠정 판정. 로컬 3문항은 진단용이며 모델 우위 비교가 아님."
+  },
+  "source_review": {
+    "parent_drafts": 5,
+    "image_links": 8,
+    "removed_links": 2,
+    "applied": false,
+    "raw_text_preserved": true,
+    "human_confirmed": false
+  },
+  "query_embedding_calls": 15,
+  "generation_calls": 3,
+  "generation_tokens": 3910,
+  "retrieval_elapsed_seconds": 149.0651733999839,
+  "db_written": false,
+  "storage_uploaded": false,
+  "document_embeddings_changed": false,
+  "failure_scope": "검색 처리 예외 0건. S03/S07 직접 근거 선택은 부적절. 새 10문항의 생성 API는 미실행."
+}

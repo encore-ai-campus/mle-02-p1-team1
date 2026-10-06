@@ -1,0 +1,1352 @@
+{
+  "title": "New synthetic holdout: 50 Sonata questions",
+  "frozen_at_utc": "2026-10-04T09:48:31.082117+00:00",
+  "question_set_sha256_note": "Final pre-evaluation QA revision. The evaluation script records SHA-256 of these exact bytes; do not change this file after retrieval evaluation begins.",
+  "vehicle": "Hyundai Sonata 2026",
+  "current_car_id_at_sampling": "20261004_000017",
+  "source_population": {
+    "total_chunks": 947,
+    "chapter_count": 10,
+    "eligible_narrative_chapters": 9,
+    "index_chapter_excluded": "10",
+    "eligible_chunk_counts": {
+      "1": 11,
+      "2": 17,
+      "3": 37,
+      "4": 25,
+      "5": 179,
+      "6": 92,
+      "7": 184,
+      "8": 13,
+      "9": 44
+    }
+  },
+  "sampling": {
+    "method": "fixed-seed stratified random sample within each eligible chapter",
+    "random_seed": 20261004,
+    "allocation_by_chapter": {
+      "1": 5,
+      "2": 5,
+      "3": 6,
+      "4": 5,
+      "5": 6,
+      "6": 6,
+      "7": 6,
+      "8": 5,
+      "9": 6
+    }
+  },
+  "generation": {
+    "model": "gpt-5.6-luna",
+    "api_calls": 9,
+    "input_tokens": 31901,
+    "output_tokens": 8271,
+    "process": "one question generation call per eligible narrative chapter; retrieval not run during preparation"
+  },
+  "pre_evaluation_quality": {
+    "m6_question_count_checked": 11,
+    "frozen_question_count": 50,
+    "chapter_counts": {
+      "1": 5,
+      "2": 5,
+      "3": 6,
+      "4": 5,
+      "5": 6,
+      "6": 6,
+      "7": 6,
+      "8": 5,
+      "9": 6
+    },
+    "rejected_candidates": [
+      {
+        "source_candidate_id": "S01-03",
+        "chapter_no": "1",
+        "reason": "grounding quote does not match source text after whitespace/punctuation normalization"
+      },
+      {
+        "source_candidate_id": "S08-01",
+        "chapter_no": "8",
+        "reason": "grounding quote does not match source text after whitespace/punctuation normalization"
+      },
+      {
+        "source_candidate_id": "S08-05",
+        "chapter_no": "8",
+        "reason": "grounding quote does not match source text after whitespace/punctuation normalization"
+      }
+    ],
+    "local_checks": [
+      "grounding quote matches source with only whitespace/punctuation normalization",
+      "valid question type and natural-language question shape",
+      "M6 topic and expected-source exclusion",
+      "fuzzy duplicate check against M6 and selected questions"
+    ],
+    "retrieval_started_after_freeze": false,
+    "pre_evaluation_revisions": [
+      {
+        "question_id": "U50-030",
+        "reason": "manual source review found original question asked for the reason for a brake-pedal condition, while source states the shift-lock purpose; revised wording to ask the documented purpose."
+      },
+      {
+        "question_id": "U50-047",
+        "reason": "manual source review rejected a fragmented maintenance table row; replaced with the next pre-sampled, grounded reserve candidate S09-07 about fuse-label location."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "U50-001",
+      "chapter": {
+        "number": "1",
+        "name": "1. 안내 및 차량 정보"
+      },
+      "question": "제작 결함이 의심되는 차량 문제는 어디에 신고할 수 있나요?",
+      "expected_page": 3,
+      "expected_chunk": 3,
+      "acceptable_evidence": [
+        {
+          "page": 3,
+          "chunk": 3,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "제 작 결 함 안 내 자 동 차 제 작 자  등 (부 품 제 작 자  등 ): 현 대 자 동 차 (주 )\n주  소 : 서 울 특 별 시  서 초 구  헌 릉 로  12(양 재 동 )\n연 락 처 : 080-600-6000\n제 작 결 함 안 내\n(제50조 관 련)\n귀 하 의  자 동 차  또 는  자 동 차 부 품 에  잦 은  고 장  등 의  문 제\n로  교 통 사 고 를  유 발 할  수  있 는  결 함 이  있 다 고  판 단 되\n면 , 자 기  및  다 른  사 람 의  안 전 을  위 하 여  즉 시  현 대 자 동\n차 (주 )와  제 작 결 함 조 사 를  시 행 하 는  한 국 교 통 안 전 공 단\n자 동 차 안 전 연 구 원 에  연 락 하 여  주 시 기  바 랍 니 다 .\n한 국 교 통 안 전 공 단  자 동 차 안 전 연 구 원 은  소 비 자  불 만\n사 항  등 을  접 수 하 여  분 석 한  후  해 당  자 동 차  또 는  자 동\n차 부 품 에  제 작 결 함 의  가 능 성 이  있 다 고  판 단 되 는  경 우\n제 작 결 함 조 사 를  실 시 하 여  해 당  제 작 사 에 게  제 작 결 함\n시 정 (RECALL) 등 의  조 치 를  취 할  것 입 니 다 .\n한 국 교 통 안 전 공 단  자 동 차 안 전 연 구 원 의  자 동 차  또 는\n자 동 차 부 품  결 함  등  소 비 자  불 만  접 수 창구 는  다 음 과  같\n습 니 다 .\n• 한 국 교 통 안 전 공 단 자 동 차 안 전 연 구 원\n• 전 화: 080-357-2500",
+      "grounding_quote": "제작 결함의 가능성이 있다고 판단되는 경우 제작 결함 조사를 실시하여",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S01-01"
+    },
+    {
+      "question_id": "U50-002",
+      "chapter": {
+        "number": "1",
+        "name": "1. 안내 및 차량 정보"
+      },
+      "question": "취급설명서에서 ‘주의’ 표시는 어떤 상황을 의미하나요?",
+      "expected_page": 1,
+      "expected_chunk": 1,
+      "acceptable_evidence": [
+        {
+          "page": 1,
+          "chunk": 1,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "안 전 및 차 량 손 상 경 고\n본 취 급 설 명 서 에 는 고 객 및 차 량 의 안 전 을 위 해 유 의 해 야 할 사 항 과 제 품 사 용 에 대 한 정 확 한 정\n보 를 알 리 는 안 전 경 고 표 시 가 포 함 되 어 있 습 니 다. 지 시 사 항 을 반 드 시 숙 지 하 고 준 수 하 십 시 오.\n경 고, 주 의 표 시 경 고 , 주 의 가  있 는  문 장  및  진 하 게  표 시 되 어  있 는  부 분 은  특 히  유\n념 하 십 시 오 .\n҃Ҋ\n \n부 상 이 나  사 망 의  우 려 가  있 는  경 우 를  나 타 내 는  표 시 입 니 다 .\n ઱੄\n \n차 량 이  고 장 나 거 나  손 상 될  우 려 가  있 는  경 우 를  나 타 내 는  표 시 입\n니 다 .\nӝ\n \n차 량  용 어  설 명  또 는  추 가  설 명 을  나 타 내 는  표 시 입 니 다 .\n안 전 을  위 해  반 드 시  지 켜 야  하 는  사 항 을  나 타 내 는  표 시 입 니 다 .\n선 택 또 는 미 장 착\n사 양 표 시\n본  취 급 설 명 서 에 는  모 든  트 림 모 델  및  선 택  사 양 을  포 함 하 여  설 명\n하 고  있 습 니 다 .\n고 객 님 의  차 량 에  장 착 되 지  않 는  사 양 에  대 한  설 명 이  포 함 될  수  있\n습 니 다 .\nDN8_KO.book  Page 1",
+      "grounding_quote": "차량이 고장나거나 손상될 우려가 있는 경우를 나타내는 표시입니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S01-02"
+    },
+    {
+      "question_id": "U50-003",
+      "chapter": {
+        "number": "1",
+        "name": "1. 안내 및 차량 정보"
+      },
+      "question": "타이어 속도 등급이 V이면 최대 안전 주행 속도는 얼마인가요?",
+      "expected_page": 21,
+      "expected_chunk": 37,
+      "acceptable_evidence": [
+        {
+          "page": 21,
+          "chunk": 37,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "1\n1-15\n타이어 속도 등급\n아래 표는 승용차 및 소형 승용차에 사용되는 타이어의 속도 등급을 나타냅니다.\n속도 등급은 타이어의 최대 안전 주행 속도를 의미하며 타이어 크기 표시에 포함되어 있습니다. 속\n도 등급 확인과 관련된 자세한 내용은 9장 내 '타이어 측면 표시'를 참고하십시오.\n에어컨 시스템\n에어컨 관련 작업 시, 반드시 지정된 냉매를 사용하십시오.\n지정되지 않은 냉매를 사용하면 냉방 성능 저하 및 심각한 부품 손상을 일으킬 수 있습니다. \n속도 등급 최대 속도\nS 180 km/h(112 mph)\nT 190 km/h(118 mph)\nH 210 km/h(130 mph)\nV 240 km/h(149 mph)\nW 270 km/h(168 mph)\nY 300 km/h(186 mph)\n종류 용량 사양\n에어컨 냉매 520±25 g R-1234yf\n냉동유 100±10 g PAG\nDN8_KO.book  Page 15",
+      "grounding_quote": "V 240 km/h(149 mph)",
+      "grounding_quote_match": "exact",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S01-04"
+    },
+    {
+      "question_id": "U50-004",
+      "chapter": {
+        "number": "1",
+        "name": "1. 안내 및 차량 정보"
+      },
+      "question": "엔진 번호는 차량의 어느 부위에서 확인할 수 있나요?",
+      "expected_page": 26,
+      "expected_chunk": 43,
+      "acceptable_evidence": [
+        {
+          "page": 26,
+          "chunk": 43,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "안내 및 차량 정보\n1-20\n엔진 번호\nSmartstream G2.5 T-GDI\n2C_EngineNumberPosition\nSmartstream G1.6 T-GDI\n2C_EngineNumberPosition_2\nSmartstream G2.0 CVVL\n2C_EngineNumberPosition_3\nSmartstream L2.0\n2C_EngineNumberPosition_4\n엔진 번호는 실린더 블록(그림의 위치)에 타각\n되어 있습니다.\n오픈소스 소프트웨어 정보\n본 차량은 오픈소스 라이선스가 적용된 소프트\n웨어를 포함하고 있습니다.\n소스코드를 포함한 오픈소스 라이선스 정보는\n홈페이지 \nhttps://www.hyundai.com/worldwide/ko\n/opensource를 통해 제공 받으실 수 있습니\n다.\n차량을 구매한 후 3년 내에 이메일\nopensource@hyundai.com로 이 차량에 탑\n재된 소프트웨어의 오픈소스 코드를 요청하시\n면 저장 매체 비용, 운반비 등 제공에 필요한 최\n소한의 비용을 받고 CD-ROM 등의 저장 매체\n에 담아 보내드립니다.\nDN8_KO.book  Page 20",
+      "grounding_quote": "엔진 번호는 실린더 블록(그림의 위치)에 타각되어 있습니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "feature",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S01-05"
+    },
+    {
+      "question_id": "U50-005",
+      "chapter": {
+        "number": "1",
+        "name": "1. 안내 및 차량 정보"
+      },
+      "question": "Smartstream G1.6 T-GDI 엔진의 엔진 오일 용량은 얼마인가요?",
+      "expected_page": 23,
+      "expected_chunk": 39,
+      "acceptable_evidence": [
+        {
+          "page": 23,
+          "chunk": 39,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "1\n1-17\n추천 오일 및 용량\n가솔린/LPI 엔진\n*1:엔진 오일 용량은 일반적인 오일 교체 시 주입되는 용량 기준입니다. \n*2:API SN PLUS(또는 그 이상) FULL Synthetic 등급의 엔진오일 사용을 추천해드립니다. 만약 더 낮은 등급의 엔진오일(광유,\n세미합성유, 낮은 등급의 엔진오일 등)을 사용할 경우 가혹주행조건 점검 주기에 맞춰 엔진오일 교환이 요구됩니다.\n*3:차량의 제동 성능 및 ABS/ESC 성능을 최상으로 유지하기 위하여 브레이크액은 규격에 맞는 순정 부품을 사용하십시오.(규격\n: SAE J1704 DOT-4 LV, ISO4925 CLASS-6, FMVSS 116 DOT-4)\n종류 용량 추천 사양\n엔진 오일 *1\nSmartstream G2.0 CVVL, \nSmartstream L2.0 4.3 ℓ API SN PLUS/SP 또는 ILSAC \nGF-6*2\n(SAE 점도 분류: SAE 점도 분류표 \n참조)Smartstream G1.6 T-GDI 4.8 ℓ\nSmartstream G2.5 T-GDI 5.8 ℓ\nSAE 0W-30\nAPI SN PLUS/SP 또는 ILSAC \nGF-6*2\n자동 변속기 오일\nSmartstream G2.0 CVVL, \nSmartstream L2.0 6.7 ℓ SK ATF SP4M-1, MICHANG ATF \nSP4M-1, S-OIL ATF SP4M-1, \nHyundai Genuine ATF SP4M-1Smartstream G1.6 T-GDI 6.5 ℓ\n더블 클러치 변속\n기 오일\nSmartstream G2.5 T-GDI(냉\n각 오일)\n3.3~3.4 \nℓ",
+      "grounding_quote": "Smartstream G1.6 T-GDI 4.8 ℓ",
+      "grounding_quote_match": "exact",
+      "question_type": "maintenance",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S01-06"
+    },
+    {
+      "question_id": "U50-006",
+      "chapter": {
+        "number": "2",
+        "name": "2. 안전 및 주의 사항"
+      },
+      "question": "주행 중 엔진을 끄면 어떤 문제가 생길 수 있나요?",
+      "expected_page": 33,
+      "expected_chunk": 61,
+      "acceptable_evidence": [
+        {
+          "page": 33,
+          "chunk": 61,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "있습니다. 이는 사고로 이어져 운전자뿐만\n아니라 탑승자, 상대 차량 탑승자의 생명을\n위협할 수 있습니다.\n \n인화성·폭발성 물질 차내 방치 \n금지\n• 가연성 물질을 싣지 마십시오.\n• 여름철과 같이 차 안의 온도가 급상승하는\n경우에는 밀폐된 차 안에 가스라이터, 보조\n배터리 등 인화성·폭발성 물질을 두지 마십\n시오. 폭발할 수 있습니다.\n창문 밖으로 손 또는 얼굴 내밀\n기 금지\n창문 밖으로 손이나 얼굴 등을 내밀지 마십시\n오. 대단히 위험합니다. 특히, 어린이와 함께 탈\n경우는 항상 주의하십시오.\n도어/트렁크/유리창을 열고 \n닫을 때 조심\n• 도어 및 트렁크를 열거나 닫을 때 손이나 머\n리 등 신체 일부가 끼거나 부딪쳐 다칠 수 있\n습니다. 신체 일부가 끼거나 부딪치지 않도\n록 확인 후 도어 및 트렁크를 열거나 닫으십\n시오. \n• 트렁크를 열고 닫을 때 모서리 또는 날카로\n운 부분에 부딪혀 신체가 다치거나 물건이\n손상될 수 있으니 주의하십시오. 특히 어린\n이는 얼굴, 머리 등이 트렁크 주변부에 부딪\n혀 다칠 수 있으니 항상 주의하십시오.\n• 유리창을 닫기 전에 뒷좌석 탑승자의 손이나\n머리가 끼지 않도록 먼저 확인하십시오. 특\n히 어린이는 머리가 낄 경우 심각한 상해를\n입거나 질식할 수 있으므로 주의하십시오.\n주행 중 엔진 정지 금지\n주행 중에는 시동을 끄지 마십시오. \n브레이크의 성능이 저하되거나, 파워 스티어링\n장치가 작동하지 않아 스티어링 휠 조작력이 많\n이 무거워질 수 있습니다.\nDN8_KO.book  Page 7",
+      "grounding_quote": "주행 중에는 시동을 끄지 마십시오. 브레이크의 성능이 저하되거나, 파워 스티어링 장치가 작동하지 않아 스티어링 휠 조작력이 많이 무거워질 수 있습니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S02-01"
+    },
+    {
+      "question_id": "U50-007",
+      "chapter": {
+        "number": "2",
+        "name": "2. 안전 및 주의 사항"
+      },
+      "question": "주행 중 LPG 냄새가 나면 가장 먼저 어떻게 해야 하나요?",
+      "expected_page": 38,
+      "expected_chunk": 72,
+      "acceptable_evidence": [
+        {
+          "page": 38,
+          "chunk": 72,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "잠그십시오.\n• LPG에는 특유의 냄새를 섞어 제조하므로 차\n내에 LPG 냄새가 날 경우 반드시 환기시키\n고 기밀 점검을 하여 누출 확인 시에는 당사\n직영 하이테크센터나 블루핸즈에서 정비를\n받으십시오.\n҃Ҋ\n \n• LPI 차량 점검 시에는 화기가 없고, 환기가 잘\n되는 평평한 장소에서 하십시오.\n• LPG 누출은 우선 냄새로 항상 확인하고, 비\n눗물로 점검하십시오.\nLPG 누출량이 많은 부위는 주위의 열을 흡수\n및 기화하기 때문에 하얗게 서리 현상이 발\n생합니다. 누출이 확인되면 LPG 스위치를\n끈 후 LPG 탱크의 연료 취출 밸브(1)를 잠그\n고 정비해야 합니다.\n• LPG 탱크의 수리는 절대로 금하고 교환을 원\n칙으로 하며, 정비가 필요하면 규격 장비를\n갖춘 당사 직영 하이테크센터나 블루핸즈에\n서 정비를 받으십시오.\n• LPG가 누출되는 부위를 손으로 막지 마십시\n오. 동상에 걸릴 위험이 있습니다.\n• 주행 중 LPG 냄새 또는 이상이 있을 때나 사\n고로 인하여 차체에 파손을 입었을 때는 즉\n시 차량을 세우고 엔진을 정지시킨 다음 탑\n승자는 하차시키고 LPG 탱크의 연료 취출\n밸브(1)를 잠근 후 누출이 중단되지 않으면\n누출 부위에 화기를 없애고 안전하게 LPG가\n방출되도록 감시하면서 인근의 협조를 얻어\n경찰서나 소방서에 긴급 연락을 취하십시오.\n정비를 완료시킨 후 다시 한번 필요한 점검\n을 하고 주행하십시오.\n• 누출 부위에 불이 붙었을 경우에는 물 또는\n소화기를 사용하여 불을 끈 다음 LPG 탱크\n가 과열되지 않도록 물로 냉각시키면서 필요\n한 조치를 하십시오.",
+      "grounding_quote": "주행 중 LPG 냄새 또는 이상이 있을 때나 사고로 인하여 차체에 파손을 입었을 때는 즉시 차량을 세우고 엔진을 정지시킨 다음",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S02-02"
+    },
+    {
+      "question_id": "U50-008",
+      "chapter": {
+        "number": "2",
+        "name": "2. 안전 및 주의 사항"
+      },
+      "question": "어린이나 임산부가 동승석에 앉아도 되나요?",
+      "expected_page": 32,
+      "expected_chunk": 59,
+      "acceptable_evidence": [
+        {
+          "page": 32,
+          "chunk": 59,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 32,
+          "chunk": 58,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "하면 더욱 위험합니다. \n• 유아는 반드시 뒷좌석에 유아용 보호장치를\n장착하여 앉히십시오.\n҃Ҋ\n \n어린이나 유아 및 임산부, 노약자는 동승석 에\n어백이 장착된 차량의 동승석에는 절대 앉히지\n마십시오. 또한 유아용 보조 시트도 장착하여\n운전하지 마십시오. 사고가 나면 에어백 팽창\n충격으로 얼굴을 다치거나 사망할 수 있습니\n다. \n \nDN8_KO.book  Page 6",
+      "grounding_quote": "어린이나 유아 및 임산부, 노약자는 동승석 에어백이 장착된 차량의 동승석에는 절대 앉히지 마십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S02-03"
+    },
+    {
+      "question_id": "U50-009",
+      "chapter": {
+        "number": "2",
+        "name": "2. 안전 및 주의 사항"
+      },
+      "question": "트렁크를 연 채로 주행해도 괜찮은가요?",
+      "expected_page": 34,
+      "expected_chunk": 63,
+      "acceptable_evidence": [
+        {
+          "page": 34,
+          "chunk": 63,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "고가 발생할 경우에 매우 위험합니다.\n \n주위 안전 확인\n• 도어를 열기 전 주위를 확인하고 탑승자에게\n도 이를 환기시키십시오.\n• 차를 후진할 때는 미러 또는 모니터에만 의\n존하지 말고 직접 뒤를 확인하십시오.\n주행 중 도어, 트렁크 잠금 유\n지\n• 주행 중에는 도어가 잠긴 상태로 유지하십시\n오. 무심코 안쪽 도어 핸들을 만지다가 도어\n가 열릴 수 있습니다.\n• 트렁크를 연 상태로 주행하지 마십시오. 배\n기가스가 차 안으로 들어올 수 있습니다.\n• 차 안에 배기가스가 들어온다고 느껴지면 주\n행할 때 창문을 다 열고, 즉시 가까운 당사 직\n영 하이테크센터나 블루핸즈에서 점검을 받\n으십시오.\n주정차 시 배기 파이프 주변 화\n재 및 화상 위험\n• 배기 파이프 주변에 쉽게 연소되는 물체(마\n른 낙엽, 지푸라기, 종이, 오일, 타이어 등)가\n있으면 주정차하지 마십시오. 화재가 발생할\n수 있습니다.\n• 주정차할 때 차량 뒷면과 벽 사이에 충분한\n거리를 두십시오. 벽에 닿은 채 고속 공회전\n을 하면 배기가스 열에 의해 벽이 변색되거\n나 화재가 날 수 있습니다.\n• 엔진 작동 중에나 시동을 끈 직후 촉매 장치\n와 배기 장치에 신체가 닿지 않도록 주의하\n십시오. 고온으로 인해 화상을 입을 수 있습\n니다.\nDN8_KO.book  Page 8",
+      "grounding_quote": "트렁크를 연 상태로 주행하지 마십시오. 배기가스가 차 안으로 들어올 수 있습니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S02-04"
+    },
+    {
+      "question_id": "U50-010",
+      "chapter": {
+        "number": "2",
+        "name": "2. 안전 및 주의 사항"
+      },
+      "question": "가죽 시트가 젖었을 때는 무엇을 주의해야 하나요?",
+      "expected_page": 36,
+      "expected_chunk": 66,
+      "acceptable_evidence": [
+        {
+          "page": 36,
+          "chunk": 66,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "안전 및 주의 사항\n2-10\n차량 내 가죽 제품의 특성\n• 차량에 장착된 천연 가죽 재질은 부위별 두\n께나 밀도 특성이 다르며, 온도와 습도에 따\n라 늘어나거나 줄어들면서 주름이 생길 수\n있습니다. 이는 자연스러운 현상이며 결함에\n의한 불량이 아닙니다.\n• 시간이 지나면서 발생하는 가죽의 광택과 질\n감 변화는 자연스러운 현상이며 결함에 의한\n불량이 아닙니다.\n ઱੄\n \n• 사용에 따른 시트 원단의 자연스러운 생활\n주름이나 마모는 보증수리 대상에서 제외됩\n니다.\n• 금속성 액세서리가 붙어있는 반지, 허리띠,\n지퍼 또는 열쇠 등에 의해 가죽 원단이 손상\n될 수 있습니다.\n• 수분에 의하여 천연가죽의 특성이 변할 수\n있으므로 젖지 않도록 주의하십시오.\n• 청바지를 포함하여 탈색되는 옷은 시트 원단\n표면을 오염시킬 수 있으므로 주의하십시오.\n• 스티어링 휠을 덮고 있는 보호용 비닐을 제\n거할 때, 칼이나 송곳 등 날카로운 도구를 사\n용하지 마십시오.\n• 스티어링 휠에 보조용 핸들을 장착하지 마십\n시오. 가죽에 자국이 남거나 영구 변형이 생\n길 수 있습니다. \n \n당사 직영 하이테크센터나 블\n루핸즈 이용\n꼭 필요한 사항이 있을 때는 당사 직영 하이테\n크센터나 블루핸즈에 문의하십시오.\n위험하지 않은 간단한 점검 및 정비 이외에는\n반드시 당사 직영 하이테크센터나 블루핸즈에\n서 점검 및 정비를 받으십시오.\n자가 정비 시 주의 사항\n2C_LiftPoint\n• 차량은 'P'(주차)로 변속하고 파킹 브레이크\n를 건 상태여야 합니다.\n• 정비를 위해 리프트나 잭을 사용할 경우 반\n드시 안전이 확보된 평지에서 실시하십시오.",
+      "grounding_quote": "수분에 의하여 천연가죽의 특성이 변할 수 있으므로 젖지 않도록 주의하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "maintenance",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S02-05"
+    },
+    {
+      "question_id": "U50-011",
+      "chapter": {
+        "number": "3",
+        "name": "3. 시트 및 안전 장치"
+      },
+      "question": "앞좌석 열선 시트의 온도 단계는 어떻게 조절하나요?",
+      "expected_page": 54,
+      "expected_chunk": 98,
+      "acceptable_evidence": [
+        {
+          "page": 54,
+          "chunk": 98,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 55,
+          "chunk": 99,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "시트 및 안전 장치\n3-16\n열선 시트\n추울 때 히터와 함께 열선 시트를 사용하십시\n오.\n앞좌석 열선 시트 사용\n시동을 건 상태에서 해당 좌석의 열선 버튼을\n눌러 원하는 온도 단계를 선택하십시오.\nA타입\n2C_FrontSeatWarmerSwitchTypea\n온도를 약/중/강 3단계로 설정할 수 있습니다.\n버튼을 누를 때마다 강, 중, 약, 꺼짐 순으로 바\n뀝니다.\nB타입\n2C_FrontSeatWarmerSwitchTypeb\n열선 스위치를 누르면 강, 중, 약, 꺼짐 순으로\n바뀝니다.\n• 통풍 시트가 켜진 상태에서 열선 시트로 변\n경하려면 열선 스위치를 누르십시오.\nӝ\n \n• 저온 화상을 방지하기 위해 일정 시간이 지\n나면 열선 시트의 온도 단계가 자동으로 낮\n아집니다. 온도 단계를 다시 선택하려면 열\n선 시트 버튼을 누르십시오. 수동으로 온도\n단계를 선택한 후 일정 시간이 지나면 다시\n자동으로 변경됩니다.\n• 운전석 공조 연동 자동 제어\n운전석의 경우 차량 내부/외부 온도에 따라\n열선 시트가 자동으로 켜지거나 꺼지게 할\n수 있습니다. 인포테인먼트 시스템의 전체\n메뉴 화면에서 설정 > 차량 > 시트 > 열선/통\n풍 편의 > 공조 연동 자동 제어  > 운전석 시트\n열선/통풍을 누르십시오.\n• 열선 시트가 켜진 상태에서 시동을 껐다가\n다시 걸면 열선 시트가 꺼져 있지만 운전석\n공조 연동 자동 제어 기능이 켜진 경우 외부\n온도에 따라 열선 시트가 자동으로 켜집니\n다.\n \nDN8_KO.book  Page 16",
+      "grounding_quote": "시동을 건 상태에서 해당 좌석의 열선 버튼을 눌러 원하는 온도 단계를 선택하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S03-01"
+    },
+    {
+      "question_id": "U50-012",
+      "chapter": {
+        "number": "3",
+        "name": "3. 시트 및 안전 장치"
+      },
+      "question": "릴렉션 컴포트 시트가 작동하지 않는 경우는 언제인가요?",
+      "expected_page": 47,
+      "expected_chunk": 88,
+      "acceptable_evidence": [
+        {
+          "page": 47,
+          "chunk": 88,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "3\n3-9\n동승석이 릴렉션 기능 작동 조건을 만족하고 스\n위치(1)를 길게 누르면 다음과 같은 순서로 미\n리 저장된 릴렉션 컴포트 시트 위치로 좌석이\n움직입니다.\n• 시트 쿠션 전후 위치 자동 조절 > 시트 쿠션,\n등받이 각도 자동 조절\n2C_RelaxationComfortSeatSwitch_2\n시트 조절 스위치 (2),(3)을 이용하여 직접 조절\n할 수 있습니다. 이때 쿠션과 등받이가 함께 회\n전합니다.\n• 스위치 앞쪽을 올리면(2) 릴렉션 위치로 미\n세 조절 됩니다.\n• 스위치 앞쪽을 내리면(3) 리턴 위치로 미세\n조절 됩니다.\n다음과 같은 경우에는 릴렉션 컴포트 시트가 작\n동하지 않습니다.\n• ‘P’(주차) 위치가 아닌 경우(운전석)\n• 차량이 3 km/h 이상의 속도로 움직이고 있\n는 경우(운전석)\n• 운전석 자세 메모리 시스템 초기화가 필요한\n경우\n원하지 않는 작동(타인에 의한 작동)이 생길 경\n우 릴렉션 컴포트 시트 조절 스위치 또는 좌석\n조절 스위치를 눌러 작동을 제어할 수 있습니\n다.\n리턴 기능 사용하기\n릴렉션 컴포트 시트가 작동된 상태에서 스위치\n(1)를 길게 누르면 다음과 같이 각 좌석이 조절\n됩니다.\n• 운전석은 마지막으로 변속단이 ‘P’(주차)에\n있었을 때의 위치로 돌아옵니다. \n• 동승석으로 미리 저장된 위치로 돌아옵니다.\n다음과 같은 경우에는 리턴 기능이 작동하지 않\n습니다. \n• ‘P’(주차) 위치가 아닌 경우(운전석)\n• 차량이 3 km/h 이상의 속도로 움직이고 있\n는 경우(운전석)\n• 운전석 자세 메모리 시스템 초기화가 필요한\n경우\n҃Ҋ",
+      "grounding_quote": "다음과 같은 경우에는 릴렉션 컴포트 시트가 작동하지 않습니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S03-02"
+    },
+    {
+      "question_id": "U50-013",
+      "chapter": {
+        "number": "3",
+        "name": "3. 시트 및 안전 장치"
+      },
+      "question": "열선 시트를 사용할 때 배터리 방전을 막으려면 어떤 점에 주의해야 하나요?",
+      "expected_page": 55,
+      "expected_chunk": 100,
+      "acceptable_evidence": [
+        {
+          "page": 55,
+          "chunk": 100,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "• 열선 시트는 가급적 히터와 함께 사용하십시\n오. 히터를 끈 상태에서 열선 시트를 장시간\n사용하면 성능이 저하될 수 있습니다.\n• 열선 시트는 많은 양의 전기 동력을 필요로\n합니다. 배터리 방전을 방지하기 위해 시동\n이 꺼진 상태에서는 열선 시트 사용을 자제\n하십시오.\n• 열선 시트와 통풍 시트 간 기능을 변경하려\n면 실행 중인 기능을 끈 후 원하는 기능을 켜\n십시오. 갑작스럽게 또는 빈번하게 기능을\n변경하면 기능이 오작동하거나 성능이 저하\n될 수 있습니다. \n \nӝ\n \n저온화상\n피부가 40-50 ℃ 정도의 비교적 낮은 온도에\n장시간 노출될 때 열에 의해 입는 화상을 말합\n니다. 통증이나 열을 그다지 느끼지 못하는 사\n이에 일어나므로 주의해야 합니다.\n \nӝ\n \n• 저온 화상을 방지하기 위해 일정 시간이 지\n나면 열선 시트의 온도 단계가 자동으로 낮\n아집니다. \n• 열선 시트가 켜진 상태에서 시동을 껐다가\n다시 걸면 열선 시트가 꺼져 있습니다.\n \nDN8_KO.book  Page 17",
+      "grounding_quote": "배터리 방전을 방지하기 위해 시동이 꺼진 상태에서는 열선 시트 사용을 자제하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S03-03"
+    },
+    {
+      "question_id": "U50-014",
+      "chapter": {
+        "number": "3",
+        "name": "3. 시트 및 안전 장치"
+      },
+      "question": "스키 스루로 긴 화물을 적재하려면 어떻게 해야 하나요?",
+      "expected_page": 53,
+      "expected_chunk": 96,
+      "acceptable_evidence": [
+        {
+          "page": 53,
+          "chunk": 96,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "3\n3-15\n ઱੄\n \n뒷좌석을 사용하지 않을 때는 후방 시야를 가릴\n수 있으므로 뒷좌석 헤드레스트의 높이를 최대\n한 낮추십시오. \n \n암레스트 조절하기\n2C_RearArmrestFilp\n1. 암레스트 상단을 잡아당겨 내리십시오.\n2. 사용 후에는 위로 올려 원위치시키십시오.\n҃Ҋ\n \n사용 후에는 암레스트를 올려 원위치시킨 후 확\n실히 고정됐는지 확인하십시오. 그렇지 않으면\n급정지 시 암레스트가 떨어져 부상을 입을 수\n있습니다.\n \n ઱੄\n \n• 암레스트를 내릴 때, 중앙 쿠션부에 물건이\n있으면 파손의 위험이 있으니 주의하십시오.\n• 암레스트 상단을 무리하게 잡아당기지 마십\n시오. 고정 장치가 손상될 수 있습니다.\n• 뒷좌석 등받이를 접을 때, 좌석에 암레스트\n손잡이의 자국이 생길 수 있으나 시간이 지\n나면 원상태로 돌아옵니다.\n \n스키 스루\n2C_RearArmrestSki\n스키 스루를 통해 트렁크에 들어가지 않는 긴\n화물을 실을 수 있습니다.\n뒷좌석의 암레스트를 내리고 스키 스루 손잡이\n를 아래로 내리십시오.\n҃Ҋ\n \n• 긴 화물을 싣거나 내릴 때에는 엔진을 끄고\n주차 브레이크를 걸어 화물이 변속레버를 밀\n어서 차량이 움직이게 되는 것을 방지하십시\n오.\n• 긴 화물 적재 시에는 화물에 의해 좌석이나\n차 안이 손상되지 않도록 주의하고 운전 시\n에는 주위 탑승자가 다치거나 차가 손상되지\n않게 화물을 확실히 고정시키십시오. 급출발\n이나 급제동 시 화물이 움직여 탑승자가 다\n칠 수 있고 차가 손상될 수 있으니 주의하십\n시오.\n• 암레스트와 스키 스루 연결 판넬이 동시에\n아래로 내려져 있는 경우, 연결 판넬을 먼저",
+      "grounding_quote": "뒷좌석의 암레스트를 내리고 스키 스루 손잡이를 아래로 내리십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S03-04"
+    },
+    {
+      "question_id": "U50-015",
+      "chapter": {
+        "number": "3",
+        "name": "3. 시트 및 안전 장치"
+      },
+      "question": "운전석 통풍 시트가 차량 온도에 따라 자동으로 작동하도록 설정하려면 어떻게 하나요?",
+      "expected_page": 56,
+      "expected_chunk": 102,
+      "acceptable_evidence": [
+        {
+          "page": 56,
+          "chunk": 102,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "시간 사용하면 성능이 저하될 수 있습니다.\n• 통풍 시트는 많은 양의 전기 동력을 필요로\n합니다. 배터리 방전을 방지하기 위해 시동\n이 꺼진 상태에서는 통풍 시트 사용을 자제\n하십시오.\n \nӝ\n \n• 통풍 시트가 켜지고 3-5분 후에 온도 변화를\n느낄 수 있습니다.\n• 효과적인 통풍을 위해 통풍 시트를 에어컨과\n함께 사용하십시오.\n• 운전석 공조 연동 자동 제어\n운전석의 경우 차량 내부/외부 온도에 따라\n통풍 시트가 자동으로 켜지거나 꺼지게 할\n수 있습니다. 인포테인먼트 시스템의 전체\n메뉴 화면에서 설정 > 차량 > 시트 > 열선/통\n풍 편의 > 공조 연동 자동 제어  > 운전석 시트\n열선/통풍을 누르십시오.\n• 통풍 시트가 켜진 상태에서 시동을 껐다가\n다시 걸면 통풍 시트가 꺼져 있지만 운전석\n공조 연동 자동 제어 기능이 켜진 경우 외부\n온도에 따라 통풍 시트가 자동으로 켜집니\n다.\n• 업데이트로 인해 인포테인먼트 시스템의 상\n세 설정이 변경될 수 있습니다. 자세한 내용\n은 인포테인먼트 시스템 웹 매뉴얼을 참고하\n십시오.\nDN8_KO.book  Page 18",
+      "grounding_quote": "인포테인먼트 시스템의 전체 메뉴 화면에서 설정 > 차량 > 시트 > 열선/통풍 편의 > 공조 연동 자동 제어 > 운전석 시트 열선/통풍을 누르십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "setting",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S03-05"
+    },
+    {
+      "question_id": "U50-016",
+      "chapter": {
+        "number": "3",
+        "name": "3. 시트 및 안전 장치"
+      },
+      "question": "동승석에 앉았을 때 PASSENGER AIR BAG OFF 표시등이 계속 켜져 있으면 어떻게 해야 하나요?",
+      "expected_page": 74,
+      "expected_chunk": 134,
+      "acceptable_evidence": [
+        {
+          "page": 74,
+          "chunk": 134,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "시트 및 안전 장치\n3-36\n승객 구분 시스템의 주요 구성품\n동승석 승객 구분 센서\n2C_OCSParts\n동승석 에어백 작동 표시등\n2C_OCSIndicator\n• 동승석 쿠션에 장착된 승객 구분 센서\n• 동승석 에어백 시스템의 작동 여부를 결정하\n는 에어백 제어 장치\n• 동승석 에어백 작동 여부를 나타내는\nPASSENGER AIR BAG OFF 표시등\n승객 구분 시스템 사용방법\n2C_HowToUseOCS\n동승석 탑승자가 바른 자세를 유지한 상태에서\nPASSENGER AIR BAG OFF 표시등이 꺼지는\n지 확인하십시오.\n• PASSENGER AIR BAG OFF 표시등이 꺼지\n면 동승석 에어백이 정상적으로 작동합니다.\n• PASSENGER AIR BAG OFF 표시등이 켜져\n있다면 시동을 끄고, 동승석 탑승자의 자세\n를 올바르게 고치고, 시동을 다시 거십시오.\n• PASSENGER AIR BAG OFF 표시등이 계속\n켜져 있다면 에어백이 정상적으로 작동하지\n않는 상태이니, 동승석 탑승자가 뒷좌석에\n앉도록 하십시오.\n동승석에는 어린이 보조 좌석을 절대 설치하지\n마십시오.\n• 불가피하게 어린이 보조 좌석을 설치해야 한\n다면 앞을 보도록 설치하고, 동승석을 최대\n한 뒤로 이동하십시오.\n• 어린이 보조 좌석을 설치한 후 PASSENGER\nAIR BAG OFF 표시등이 꺼지면 에어백이 작\n동할 수 있습니다. 즉시 어린이 보조 좌석을\n뒷좌석에 설치하십시오.\n҃Ҋ\n \n다음의 상황이 발생하면 동승석 탑승자나 어린\n이 보조 좌석을 뒷좌석으로 즉시 이동하고 당사\n직영 하이테크센터나 블루핸즈에서 점검을 받\n으십시오.",
+      "grounding_quote": "PASSENGER AIR BAG OFF 표시등이 계속 켜져 있다면 에어백이 정상적으로 작동하지 않는 상태이니, 동승석 탑승자가 뒷좌석에 앉도록 하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "troubleshooting",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S03-06"
+    },
+    {
+      "question_id": "U50-017",
+      "chapter": {
+        "number": "4",
+        "name": "4. 클러스터"
+      },
+      "question": "시동 후에도 ABS 경고등이 계속 켜져 있으면 어떻게 해야 하나요?",
+      "expected_page": 92,
+      "expected_chunk": 163,
+      "acceptable_evidence": [
+        {
+          "page": 92,
+          "chunk": 163,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "1. 브레이크 페달을 밟아도 제동이 되지 않으면\n평상시보다 페달을 강하게 밟아보십시오.\n2. 엔진 브레이크를 걸어 속도를 늦추고 파킹\n브레이크를 작동시키면서 브레이크 페달을\n밟으십시오.\n주행 중 경고등이 켜진 상태에서는 급제동하지\n말고 서서히 정지하십시오.\n҃Ҋ\n \n파킹 브레이크는 천천히 조작하십시오. 파킹\n브레이크를 급하게 조작하면 뒷바퀴만 제동이\n되어 차가 옆으로 돌아갈 수 있습니다. \n \nABS 경고등\nB\nABS 경고등은 시동을 ‘ON’ 하면 켜지고 약 3초\n후 꺼집니다.\n3초가 지나도 경고등이 꺼지지 않으면 ABS 장\n치에 이상이 있는 것이므로 당사 직영 하이테크\n센터나 블루핸즈에서 점검을 받으십시오.\nDN8_KO.book  Page 8",
+      "grounding_quote": "3초가 지나도 경고등이 꺼지지 않으면 ABS 장치에 이상이 있는 것이므로 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S04-01"
+    },
+    {
+      "question_id": "U50-018",
+      "chapter": {
+        "number": "4",
+        "name": "4. 클러스터"
+      },
+      "question": "등록된 디지털 키를 무선 충전기에 올려놓으라는 경고는 어떤 상황에서 나타나나요?",
+      "expected_page": 101,
+      "expected_chunk": 181,
+      "acceptable_evidence": [
+        {
+          "page": 101,
+          "chunk": 181,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "으면 다시 시동을 걸기 어려울 수 있으니 주의\n하십시오.\n등록된 디지털 키를 무선 충전기에 올려놓\n고 시동 버튼을 누르십시오\n디지털 키가 등록되어 있는 차량에서 디지털 키\n로 출입한 후, 버튼을 눌렀을 때 차 안에 스마트\n키가 없거나 인식되지 않거나 무선 충전기 위에\n등록된 디지털 키를 올려놓지 않으면 이 경고문\n이 표시됩니다. 표시창에 이 경고문이 표시된\n후 '스마트 키로 동 버튼을 직접 누르십시오’ 경\n고문이 잠시 동안 표시됩니다.\n디지털 키가 등록되어 있습니다\n차량에 스마트폰 키 또는 NFC 카드 키가 등록\n되어 있을 때 차량 도어를 잠그고 10분 이상 경\n과한 후 다시 차량을 잠금 해제하고 차량 전원\n을 켜면 이 경고문이 4초 동안 표시됩니다. 차\n량의 도어를 다시 잠근 후 10분이 경과되기 전\n까지는 다시 표시되지 않습니다. \nDN8_KO.book  Page 17",
+      "grounding_quote": "차 안에 스마트 키가 없거나 인식되지 않거나 무선 충전기 위에 등록된 디지털 키를 올려놓지 않으면 이 경고문이 표시됩니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S04-02"
+    },
+    {
+      "question_id": "U50-019",
+      "chapter": {
+        "number": "4",
+        "name": "4. 클러스터"
+      },
+      "question": "주행 중 엔진 오일 압력 경고등이 켜지면 우선 어떤 조치를 해야 하나요?",
+      "expected_page": 94,
+      "expected_chunk": 166,
+      "acceptable_evidence": [
+        {
+          "page": 94,
+          "chunk": 166,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "클러스터\n4-10\n엔진 오일 압력 경고등\nH\n엔진 오일 압력 경고등은 엔진 오일이 부족하여\n유압이 낮아지면 켜집니다. 주행 중에 엔진 오\n일 압력 경고등이 켜지면 도로 옆으로 차를 안\n전하게 정차하고 엔진 오일량을 점검한 후 부족\n하면 보충하십시오.\n보충 후에도 경고등이 꺼지지 않으면 당사 직영\n하이테크센터나 블루핸즈에서 점검을 받으십\n시오. 엔진 오일 압력 경고등이 켜진 상태로 계\n속 주행하면 엔진이 고장 날 수 있습니다.\nӝ\n \n엔진 오일 부족 등으로 유압이 낮아지면 경고등\n이 켜집니다. 또한, 엔진 출력을 제한하는 강화\n된 엔진 보호 시스템이 작동합니다. 유압이 회\n복되면 시동을 다시 걸어야 경고등이 꺼지고 엔\n진 출력 제한이 해제됩니다. \n \n엔진 경고등\nI\n엔진 경고등은 시동을 ‘ON’ 하면 켜지고 약 3초\n후 꺼집니다.\n3초가 지나도 경고등이 꺼지지 않으면 엔진 제\n어 장치, 연료 공급 장치 등에 이상이 있는 것이\n므로 가능한 한 빨리 당사 직영 하이테크센터나\n블루핸즈에서 점검을 받으십시오.\n일부 엔진 제어 장치에 이상이 있으면 시동이\n걸리지 않을 수도 있습니다. 이때는 견인하십\n시오.\n ઱੄\n \n• 엔진 경고등이 켜지거나 깜빡이는 상태로 계\n속 주행하면 운전 성능과 연료 소비에 영향\n을 주는 배기 제어 계통이 손상될 수 있으며\n배기가스 규제와 관련된 제재를 받을 수 있\n습니다. 당사 직영 하이테크센터나 블루핸즈\n에서 점검을 받으십시오.\n• 엔진 오일 잔여량이 부족하여 강화된 엔진\n보호 시스템이 작동하면 엔진 출력이 제한됩\n니다. 반복해서 지속적으로 이 상태로 주행\n하면 엔진 경고등이 켜집니다.",
+      "grounding_quote": "도로 옆으로 차를 안전하게 정차하고 엔진 오일량을 점검한 후 부족하면 보충하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "troubleshooting",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S04-03"
+    },
+    {
+      "question_id": "U50-020",
+      "chapter": {
+        "number": "4",
+        "name": "4. 클러스터"
+      },
+      "question": "외기 온도 표시 단위를 변경하면 공조 장치의 온도 단위도 함께 바뀌나요?",
+      "expected_page": 89,
+      "expected_chunk": 158,
+      "acceptable_evidence": [
+        {
+          "page": 89,
+          "chunk": 158,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 89,
+          "chunk": 157,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "차례로 선택하십시오.\nӝ\n \n• 외기 온도 표시 단위와 히터 및 에어컨의 온\n도 단위가 동시에 변경됩니다.\n• 인포테인먼트 시스템은 업데이트로 변경될\n수 있습니다. 자세한 내용은 인포테인먼트\n시스템 웹 매뉴얼을 참고하십시오. \n \nDN8_KO.book  Page 5",
+      "grounding_quote": "외기 온도 표시 단위와 히터 및 에어컨의 온도 단위가 동시에 변경됩니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "feature",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S04-04"
+    },
+    {
+      "question_id": "U50-021",
+      "chapter": {
+        "number": "4",
+        "name": "4. 클러스터"
+      },
+      "question": "인포테인먼트 시스템에서 차량 설정을 변경하려면 어떤 메뉴로 들어가야 하나요?",
+      "expected_page": 107,
+      "expected_chunk": 188,
+      "acceptable_evidence": [
+        {
+          "page": 107,
+          "chunk": 188,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "4\n4-23\n주행 보조 정보 \n2C_ADASInfo\n수동 속도 제한 보조, 스마트 크루즈 컨트롤, 차\n로 유지 보조, 고속도로 주행 보조의 작동 상태\n가 표시됩니다. \n인포테인먼트 시스템 차량 설\n정\n인포테인먼트 시스템의 차량 설정 메뉴에서 차\n량에서 표시하거나 안내할 항목을 설정할 수 있\n습니다.\n차량에 적용된 사양에 따라 설정 가능한 항목이\n다를 수 있습니다.\n차량 설정 항목\n• 운전자 보조\n• 드라이브 모드\n• 하이패스\n• 공조\n• 시트\n• 라이트\n• 도어\n• 디지털 키\n• 편의\n҃Ҋ\n \n주행 중에는 설정을 변경하지 마십시오. 주의\n력이 떨어져 사고가 날 수 있습니다.\n \n차량 설정하기\n2C_AVNOverview\n설정 > 차량을 차례로 선택한 후 원하는 항목의\n설정을 변경하십시오.\nӝ\n \n인포테인먼트 시스템은 업데이트로 변경될 수\n있습니다. 자세한 내용은 인포테인먼트 시스템\n웹 매뉴얼을 참고하십시오.\n \nDN8_KO.book  Page 23",
+      "grounding_quote": "설정 > 차량을 차례로 선택한 후 원하는 항목의 설정을 변경하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S04-05"
+    },
+    {
+      "question_id": "U50-022",
+      "chapter": {
+        "number": "5",
+        "name": "5. 편의 장치"
+      },
+      "question": "하이패스 LED가 빨간색으로 계속 깜빡이고 점검 안내 음성이 나오면 어떻게 해야 하나요?",
+      "expected_page": 153,
+      "expected_chunk": 300,
+      "acceptable_evidence": [
+        {
+          "page": 153,
+          "chunk": 300,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 153,
+          "chunk": 299,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "가 결제되지 않습니다.\n• LED가 빨간색으로 지속 깜빡이고 \"하이패스\n시스템을 점검하세요\" 안내 음성이 나오는\n경우, 하이패스 안테나가 정상 체결되지 않\n았거나 하이패스 시스템 이상이 있을 수 있\n으므로 당사 직영 하이테크센터나 블루핸즈\n에서 점검을 받으십시오.\n \nDN8_KO.book  Page 45",
+      "grounding_quote": "하이패스 안테나가 정상 체결되지 않았거나 하이패스 시스템 이상이 있을 수 있으므로 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "troubleshooting",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S05-01"
+    },
+    {
+      "question_id": "U50-023",
+      "chapter": {
+        "number": "5",
+        "name": "5. 편의 장치"
+      },
+      "question": "빌트인 캠의 SD 메모리를 안전하게 제거하려면 어떤 절차를 거쳐야 하나요?",
+      "expected_page": 181,
+      "expected_chunk": 345,
+      "acceptable_evidence": [
+        {
+          "page": 181,
+          "chunk": 345,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "5\n5-73\nSD 메모리\n2C_BuiltInCamSDMemory\n녹화 영상 저장을 위한 SD 메모리의 수명 상태,\nSD 메모리 단자 위치를 확인할 수 있습니다. \nSD 메모리를 안전하게 제거하지 않는 경우 저\n장된 파일 또는 파일 시스템이 손상될 수 있습\n니다. 연결 해제 버튼을 누른 후 메모리를 안전\n하게 제거하십시오.\nSD 메모리를 초기화 할 경우 저장된 모든 파일\n이 삭제되니, 초기화 이전에 보관이 필요한 파\n일은 필히 백업해 주십시오.\nӝ\n \n정품 SD 메모리를 사용하지 않는 경우 SD 메모\n리의 수명 상태 정보는 표시되지 않을 수 있습\n니다. \n \n빌트인 캠 작동 \n빌트인 캠 SD 메모리 제거/삽입\n2C_BuiltInCamUSBPort\n차량이 출고될 때 SD 메모리는 메모리 카드 단\n자에 삽입되어 있습니다. SD 메모리 제거/삽입\n방법을 확인하신 후 안전하게 메모리를 제거하\n거나 삽입하십시오.\nSD 메모리 제거\nSD 메모리를 탈거하려면 먼저 빌트인 캠 설정 >\nSD 메모리 메뉴의 연결 해제 버튼을 누른 후 메\n모리를 손톱으로 눌러 메모리 카드 단자에서 제\n거하십시오. 메모리를 안전하게 제거하지 않고\n작동 중에 제거하는 경우 저장된 파일 또는 파\n일 시스템이 손상될 수 있습니다.\nDN8_KO.book  Page 73",
+      "grounding_quote": "먼저 빌트인 캠 설정 > SD 메모리 메뉴의 연결 해제 버튼을 누른 후 메모리를 손톱으로 눌러 메모리 카드 단자에서 제거하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S05-02"
+    },
+    {
+      "question_id": "U50-024",
+      "chapter": {
+        "number": "5",
+        "name": "5. 편의 장치"
+      },
+      "question": "실내 인증 패드를 이용해 NFC 카드 키를 등록하려면 어떻게 해야 하나요?",
+      "expected_page": 126,
+      "expected_chunk": 248,
+      "acceptable_evidence": [
+        {
+          "page": 126,
+          "chunk": 248,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "[A] 실내 인증 패드(무선 충전 패드)\n1. 차량에 등록된 스마트 키 2개 모두 휴대한 후\n차량에 탑승하십시오.\n2. 인포테인먼트 시스템에서 설정 > 차량 > 디\n지털 키 > NFC 카드 키에서 카드 키 사용  체\n크 박스에 체크가 되어 있는지 확인하십시\n오.\n3. 차량 전원 'ON' 상태에서 등록하려는 카드\n키를 실내 인증 패드(무선 충전 패드)에 올려\n놓으십시오.\n4. 인포테인먼트 시스템에서 설정 > 차량 > 디\n지털 키 > 카드 키 > 등록을 선택하여 카드 키\n를 등록하십시오.\nDN8_KO.book  Page 18",
+      "grounding_quote": "차량 전원 'ON' 상태에서 등록하려는 카드 키를 실내 인증 패드(무선 충전 패드)에 올려 놓으십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S05-03"
+    },
+    {
+      "question_id": "U50-025",
+      "chapter": {
+        "number": "5",
+        "name": "5. 편의 장치"
+      },
+      "question": "하이패스 시스템의 등록 정보를 음성으로 확인하려면 어떤 버튼을 조작해야 하나요?",
+      "expected_page": 155,
+      "expected_chunk": 302,
+      "acceptable_evidence": [
+        {
+          "page": 155,
+          "chunk": 302,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "5\n5-47\n하이패스 시스템 등록 정보 확인 방법\n하이패스 시스템 등록 정보를 확인하려면 잔액\n확인 버튼, 전원/볼륨 버튼을 동시에 길게 누르\n십시오. 중지하려면 다시 잔액 확인 버튼과 전\n원/볼륨 버튼을 동시에 길게 누르십시오.\n다음 정보를 들으려면 잔액 확인 버튼을 짧게\n누르십시오. 등록 정보 안내 순서는 다음과 같\n습니다.\n단말기 등록정보\nӝ\n \n• 하이패스 시스템이 장착된 차량을 타인에게\n매각 또는 양도하는 경우, 차량의 명의와 함\n께 하이패스 시스템의 명의를 함께 이전하십\n시오. 명의 변경이 불가한 경우 하이패스 시\n스템의 등록을 말소해야 합니다. \n• 하이패스 시스템이 장착된 차량을 타인에게\n매수 또는 양수받은 경우, 하이패스 시스템\n의 등록명의를 함께 이전 받아야만 하이패스\n기능을 정상적으로 사용할 수 있습니다. 차\n량과 구비서류를 준비하여 인근에 위치한 하\n이패스 영업소, 당사 직영 하이테크센터 또\n는 블루핸즈에 직접 방문하여 등록하십시오.\n• 하이패스 시스템에는(장애인, 국가유공자,\n친환경 차 등) 통행료 자동 할인 기능이 없습\n니다.\n• 전기차, 수소연료전지차 등 친환경 차에 대\n한 통행료 할인은 정부 정책에 따라 달라질\n수 있으며, 할인 혜택을 적용하기 위해서는\n자동차를 등록한 후 별도로 한국도로공사 영\n업소에 방문해 할인을 신청해야합니다.\n \n번호 항목 설명\n1 제조번호 ETCS 단말기 제조회사에\n서 부여하는 번호\n2 발행번호 ETCS 단말기를 등록할 때 \n부여하는 번호\n3 차종 ETCS 단말기 등록 시 등록\n한 차량의 차종\n4 차량번호 -\n5 발행일 ETCS 단말기 발행일자",
+      "grounding_quote": "하이패스 시스템 등록 정보를 확인하려면 잔액 확인 버튼, 전원/볼륨 버튼을 동시에 길게 누르십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S05-04"
+    },
+    {
+      "question_id": "U50-026",
+      "chapter": {
+        "number": "5",
+        "name": "5. 편의 장치"
+      },
+      "question": "선루프는 어떤 상황에서 초기화해야 하나요?",
+      "expected_page": 162,
+      "expected_chunk": 315,
+      "acceptable_evidence": [
+        {
+          "page": 162,
+          "chunk": 315,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 162,
+          "chunk": 314,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "다음과 같은 경우에는 선루프를 초기화하십시\n오.\n• 선루프 모터와 연결된 배터리 전원이 차단되\n거나 방전되었을 때 또는 관련 퓨즈를 교체\n하였을 때\n• 선루프가 정상적으로 작동하지 않을 경우\n1. 시동을 걸거나 차량 전원을 'ON' 상태로 두\n십시오.\n2. 선루프 스위치로 파워 선블라인드와 선루프\n글라스를 완전히 닫은 후 손을 떼십시오.\n3. 파워 선블라인드와 선루프 글라스가 닫힌 상\n태에서 스위치를 앞쪽으로 눌러 파워 선블라\n인드와 글라스가 살짝 한번 움직일 때까지\n계속 눌렀다 손을 떼십시오.\n4. 파워 선블라인드와 선루프 글라스가 열렸다\n가 완전히 닫힐 때까지 다시 한번 선루프 스\n위치를 앞쪽으로 계속 누르십시오.\n슬라이드 열림/닫힘 작동이 끝나기 전에는\n스위치에서 손을 떼지 마십시오. 도중에 손\n을 떼면, 처음부터 다시 초기화를 진행하십\n시오. \n ઱੄\n \n선루프를 초기화하지 않으면 선루프가 제대로\n작동하지 않을 수 있습니다.\n \nDN8_KO.book  Page 54",
+      "grounding_quote": "다음과 같은 경우에는 선루프를 초기화하십시오. • 선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때 또는 관련 퓨즈를 교체하였을 때 • 선루프가 정상적으로 작동하지 않을 경우",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S05-05"
+    },
+    {
+      "question_id": "U50-027",
+      "chapter": {
+        "number": "5",
+        "name": "5. 편의 장치"
+      },
+      "question": "빌트인 캠으로 녹화된 영상을 확인하려면 인포테인먼트 시스템에서 무엇을 선택해야 하나요?",
+      "expected_page": 184,
+      "expected_chunk": 350,
+      "acceptable_evidence": [
+        {
+          "page": 184,
+          "chunk": 350,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "편의 장치\n5-76\n빌트인 캠 영상 확인\n2C_BuiltInCamHomeAVN\n인포테인먼트 시스템 홈 화면에서 빌트인 캠을\n선택하십시오.\nӝ\n \n• 빌트인 캠 메뉴를 사용 중에는 녹화 기능이\n작동하지 않습니다.\n• 빌트인 캠 메뉴를 선택하면 녹화를 중단하고\n영상 파일을 표시하기 위한 준비 시간이 필\n요합니다. 빌트인 캠 연결이 원활하지 않은\n경우 잠시 후 다시 시도해 주십시오.\n \n빌트인 캠 화면 구성\n2C_BuiltInCamMenuAVN_2\n1. 메뉴 구성: 자동 녹화 영상, 수동 녹화 영상,\n실시간 카메라 영상, 휴대폰 연결\n2. 탭 메뉴: 녹화 영상 목록 선택\n• 자동 녹화 영상: 주행 중 상시, 주차 중 상\n시, 주행 중 이벤트, 주차 중 이벤트\n• 수동 녹화 영상: 수동 녹화, 타임랩스, 보관\n함\n3. 녹화된 영상 썸네일 목록\n• 주행 중 상시: 주행한 동안의 영상을 묶음\n으로 표시\n• 주차 중 상시: 주차한 동안의 영상을 묶음\n으로 표시\n4. 녹화된 영상의 날짜 및 시간\nDN8_KO.book  Page 76",
+      "grounding_quote": "인포테인먼트 시스템 홈 화면에서 빌트인 캠을 선택하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "feature",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S05-06"
+    },
+    {
+      "question_id": "U50-028",
+      "chapter": {
+        "number": "6",
+        "name": "6. 시동 및 주행"
+      },
+      "question": "초기 약 1,500km 동안 저속에서 가속할 때 변속이 매끄럽지 않으면 이상인가요?",
+      "expected_page": 266,
+      "expected_chunk": 494,
+      "acceptable_evidence": [
+        {
+          "page": 266,
+          "chunk": 494,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "동음 또는 미세한 진동이 느껴질 수 있으나, 이\n는 기계적 작동 구조에 따라 발생할 수 있는 더\n블 클러치 변속기의 일반적인 특성입니다.\n초기 약 1,500 km 주행 시 저속에서 가속 페달\n을 밟으면, 주행이 매끄럽지 못할 수 있습니다.\n이 기간 동안 차량의 변속감 및 변속 성능이 최\n적화되므로, 이는 정상입니다.\n ઱੄\n \n변속기에 이상이 발생하면 정상적인 차량 주행\n이 안 되며, 클러스터에 변속 단 표시등(D, R)이\n깜빡입니다. 이 때는 가까운 당사 직영 하이테\n크센터나 블루핸즈에서 점검을 받으십시오.\n \n변속 다이얼\nP (Park): 주차\n2C_PressPButton\n• 주차하거나 시동을 걸 때 사용합니다(차 바\n퀴가 고정됨).\n• 브레이크 페달을 밟은 상태에서 P 버튼을 누\n르십시오.\n• 'R'(후진), 'D'(주행), 'N'(중립) 상태에서 시동\n을 끄면 자동으로 'P'(주차)로 변속됩니다.\n҃Ҋ\n \n주정차 시 'P'(주차)로 변속했더라도 반드시 파\n킹 브레이크를 체결하십시오.\n \n ઱੄\n \n반드시 차량이 정지한 상태에서 'P'(주차)로 변\n속하십시오. 차량이 움직이는 상태에서 변속하\n면 더블 클러치 변속기가 손상될 수 있습니다.\n \nDN8_KO.book  Page 22",
+      "grounding_quote": "초기 약 1,500 km 주행 시 저속에서 가속 페달을 밟으면, 주행이 매끄럽지 못할 수 있습니다. 이 기간 동안 차량의 변속감 및 변속 성능이 최적화되므로, 이는 정상입니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S06-01"
+    },
+    {
+      "question_id": "U50-029",
+      "chapter": {
+        "number": "6",
+        "name": "6. 시동 및 주행"
+      },
+      "question": "전방 차량을 감지하기 어려울 수 있는 상황에는 어떤 경우가 있나요?",
+      "expected_page": 292,
+      "expected_chunk": 546,
+      "acceptable_evidence": [
+        {
+          "page": 292,
+          "chunk": 546,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "가 비정상적으로 위치하는 경우\n• 주변이 어둡고 전방 차량의 테일 램프가 켜\n지지 않거나 테일 램프 조명이 밝지 않은 경\n우\n• 전방 차량의 후방이 작거나 기울어지거나 차\n량 전복 또는 차량의 측면이 보이는 경우와\n같이\n 차량이 정상적으로 보이지 않는 경우\n• 전방 차량의 지상고가 낮거나 높은 경우\n• 차량, 보행자 또는 자전거가 갑자기 앞으로\n끼어든 경우\n• 전방 차량이 늦게 감지된 경우\n• 전방 차량이 갑자기 장애물에 가로막힌 경우\n• 전방 차량이 갑자기 차선을 바꾸거나 갑자기\n속도를 줄인 경우\n• 전방 차량의 형체가 훼손 되어 있을 경우\n• 전방 차량의 속도가 빠르거나 느린 경우\n• 전방 차량이 충돌을 피하기 위해 운전자의\n차량 진행 방향과 반대방향으로 조향을 조작\n할 때\n• 낮은 차속에서 차선 변경하여 전방에 차량이\n있을 때\n• 전방 차량이 눈으로 덮여 있는 경우\n• 불안정한 주행\n• 회전 교차로에서 전방 차량이 감지 되지 않\n는 경우\n• 계속해서 원을 그리며 운전하는 경우\n• 전방 차량이 특이한 모양을 가지고 있을 때\n• 전방 차량이 오르막 또는 내리막길을 주행하\n는 경우\nDN8_KO.book  Page 48",
+      "grounding_quote": "전방 차량이 갑자기 차선을 바꾸거나 갑자기 속도를 줄인 경우",
+      "grounding_quote_match": "exact",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S06-02"
+    },
+    {
+      "question_id": "U50-030",
+      "chapter": {
+        "number": "6",
+        "name": "6. 시동 및 주행"
+      },
+      "question": "변속 잠금 장치의 목적은 무엇인가요?",
+      "expected_page": 269,
+      "expected_chunk": 500,
+      "acceptable_evidence": [
+        {
+          "page": 269,
+          "chunk": 500,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "어를 열지 마십시오. 3분 이내에 운전석 도어\n가 열리면 기어가 'P'(주차)로 자동 변속되어\n차량이 손상되거나 자동 세차기가 파손될 수\n있습니다.\n• 차량이 N단 유지 모드로 설정되면 시동 ACC\n상태를 유지합니다. 시동 ACC 상태에서는\n다음 사항을 유의하십시오.\n- 장시간 ‘N’(중립)으로 방치하지 마십시오.\n배터리가 방전될 수 있습니다.\n- 시동 ACC 상태에서는 도어가 잠기지 않습\n니다. 안전 및 보안 등에 주의하십시오.\n \n‘P’(주차)단 자동 변속\n다음 조건에서는 안전을 위해 자동으로 'P’(주\n차) 상태로 변속됩니다.\n• ‘R’(후진), ‘D’(주행), ‘N’(중립) 상태에서 시\n동을 끄는 경우\n• 시동이 걸린 상태에서 ‘R’(후진), ‘D’(주행)\n또는 ‘N’(중립)단에서 운전석 도어를 여는 경\n우\n• N단 유지 모드 또는 시동 ON 상태에서 운전\n석 도어를 여는 경우\n‘P’(주차)단 자동 변속 기능은 안전을 위한 보조\n기능입니다. 'P'(주차) 상태로 변속이 되었는지\n반드시 확인하십시오. \n변속 잠금 장치(Shift Lock)\n운전자의 오조작을 방지하기 위한 기능입니다.\n시동이 걸린 상태에서 브레이크 페달을 밟아야\n만 'P'(주차) 또는 'N'(중립) 상태에서 'R'(후진),\n'N'(중립), 'D'(주행)로 변속할 수 있습니다.\nDN8_KO.book  Page 25",
+      "grounding_quote": "운전자의 오조작을 방지하기 위한 기능입니다.",
+      "grounding_quote_match": "exact",
+      "question_type": "feature",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S06-03"
+    },
+    {
+      "question_id": "U50-031",
+      "chapter": {
+        "number": "6",
+        "name": "6. 시동 및 주행"
+      },
+      "question": "가로등이 없는 어두운 길을 운전할 때 어떻게 주행해야 하나요?",
+      "expected_page": 296,
+      "expected_chunk": 557,
+      "acceptable_evidence": [
+        {
+          "page": 296,
+          "chunk": 557,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 296,
+          "chunk": 556,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "않게 됩니다. 항상 주의하십시오. \n• 속도를 줄이고 차량 간격을 충분히 유지하십\n시오. 가로등이 없는 길에서는 시야를 확보\n하기가 더욱더 어려우므로 주의하십시오.\n• 전조등은 수시로 닦아서 깨끗이 관리하고 전\n조등 각을 적절하게 조절하십시오.\nDN8_KO.book  Page 52",
+      "grounding_quote": "속도를 줄이고 차량 간격을 충분히 유지하십시오. 가로등이 없는 길에서는 시야를 확보하기가 더욱더 어려우므로 주의하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S06-04"
+    },
+    {
+      "question_id": "U50-032",
+      "chapter": {
+        "number": "6",
+        "name": "6. 시동 및 주행"
+      },
+      "question": "LPI 엔진은 시동 대기 표시등이 켜진 뒤 어떻게 시동을 걸어야 하나요?",
+      "expected_page": 248,
+      "expected_chunk": 460,
+      "acceptable_evidence": [
+        {
+          "page": 248,
+          "chunk": 460,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "키가 없으면 클러스터 표시창에 '스마트 키\n가 실내에 없습니다' 메시지가 표시됩니다.\n이후 모든 도어가 닫히면 경고음이 잠시 동\n안 울립니다. 시동을 걸기 위해서는 반드시\n스마트 키가 차 안에 있어야 합니다.\n \n가솔린 엔진 시동 및 출발 방법\n1. 브레이크 페달을 밟은 상태에서 시동 버튼을\n누르십시오.\n2. 브레이크 페달을 계속 밟고 있는 상태에서\n엔진 회전이 적정 범위(1,000 RPM 이내)에\n있는지 확인한 후에 변속 다이얼을 원하는\n위치로 돌리십시오.\n3. 파킹 브레이크를 해제한 후 브레이크 페달에\n서 발을 떼면서 차량이 서서히 움직이는 것\n을 확인하고 가속 페달을 천천히 밟아 출발\n하십시오.\nLPI 엔진 시동 및 출발 방법\n1. 브레이크 페달을 밟은 상태에서 시동 버튼을\n누르십시오.\n2. 클러스터의 시동 대기 표시등( )이 켜진 후\n다시 꺼질 때까지 브레이크 페달을 밟고 기\n다리십시오. 연료 온도와 압력에 따라서 최\n대 6초까지 소요될 수 있습니다.\n3. 시동 대기 표시등( )이 꺼지면 자동으로 시\n동이 걸립니다(버튼 조작 불필요).\n차량 전원(ON) 상태에서 브레이크 페달을\n밟고 시동을 거는 경우, 시동 대기 표시등\n( )이 꺼지고 5초 이내에 시동을 거십시오.\n시간이 지난 후 시동을 걸면 연료 압력이 낮\n아 시동이 잘 걸리지 않을 수 있습니다.\n4. 브레이크 페달을 계속 밟은 상태에서 엔진\n회전이 적정 범위(1,000 RPM 이하)에 있는\n지 확인한 후 변속하십시오.\n5. 파킹 브레이크를 푼 다음, 브레이크 페달에\n서 발을 떼면서 차량이 서서히 움직이는 것",
+      "grounding_quote": "클러스터의 시동 대기 표시등( )이 켜진 후 다시 꺼질 때까지 브레이크 페달을 밟고 기다리십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S06-05"
+    },
+    {
+      "question_id": "U50-033",
+      "chapter": {
+        "number": "6",
+        "name": "6. 시동 및 주행"
+      },
+      "question": "SPORT 또는 SPORT+ 모드에서 시동을 껐다가 다시 걸면 어떤 주행 모드로 바뀌나요?",
+      "expected_page": 293,
+      "expected_chunk": 548,
+      "acceptable_evidence": [
+        {
+          "page": 293,
+          "chunk": 548,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "능하게 합니다.\n• 가속 시의 변속 업쉬프트 시점을 늦춥니다.\n• 가속이 끝난 후 가속 페달에서 발을 떼면 일정\n시간 동안 변속 단수와 RPM을 유지합니다.\n이 때 엔진 브레이크가 다소 강해진 것처럼 느\n껴질 수 있으나, 이는 재가속을 대비하는 시\n간 동안 정상적으로 발생하는 현상입니다.\n• SPORT/SPORT+ 모드를 선택하면 클러스터\n에 표시등이 켜지고 해당 테마로 변경됩니다.\n• SPORT/SPORT+ 모드 작동 중에 시동을 껐\n다가 다시 걸면 NORMAL 모드로 변경됩니\n다.\n• SPORT+ 모드에서는 N 파워 시프트 기능이\n자동으로 활성화됩니다.\nӝ\n \nN 파워 시프트(N Power Shift)란?\n응답성에 최적화된 변속으로 가속 성능과 다이\n렉트필을 향상시킵니다. \n \n ઱੄\n \nSPORT/SPORT+(사양 적용 시) 모드에서는\n연비가 낮아질 수 있습니다.\n \nDN8_KO.book  Page 49",
+      "grounding_quote": "SPORT/SPORT+ 모드 작동 중에 시동을 껐다가 다시 걸면 NORMAL 모드로 변경됩니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "setting",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S06-06"
+    },
+    {
+      "question_id": "U50-034",
+      "chapter": {
+        "number": "7",
+        "name": "7. 운전자 보조"
+      },
+      "question": "짐칸이나 기타 장비를 사용할 때 후측방 충돌방지 보조는 어떻게 해야 하나요?",
+      "expected_page": 337,
+      "expected_chunk": 643,
+      "acceptable_evidence": [
+        {
+          "page": 337,
+          "chunk": 643,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 337,
+          "chunk": 642,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "짐칸 및 기타 장비를 사용할 때는 후측방 충돌\n방지 보조를 끄십시오. 후측방 충돌방지 보조\n를 사용하려면 짐칸 및 기타 장비를 제거하십시\n오.\n \n제한 사항\n다음과 같은 경우에는 후측방 충돌방지 보조가\n정상적으로 작동하지 않을 수 있습니다. 주의\n하여 운전하십시오.\n• 폭설 또는 폭우 같은 악천후의 경우\n• 후측방 레이더 주위 범퍼 표면이 눈, 비, 흙\n등에 의해 오염될 경우\n• 후측방 레이더 주위 온도가 높거나 낮을 경\n우\n• 차량 또는 기둥 및 벽 등으로 인식 센서 주위\n가 가려질 경우\n• 고속도로 진출입 램프구간, 톨게이트를 주행\n할 경우\n• 도로 및 주변에 비정상적으로 금속 성분이\n포함될 경우(지하철 공사구간 등)\n• 고정된 물체(방음벽, 가드레일, 이중 가드레\n일, 중앙 분리대, 진입 방지봉, 가로등, 표지\n판, 터널벽 등)가 자차에 인접할 경우(이중으\n로 되어있는 구조물 포함)\n• 나무나 풀이 무성한 좁은 도로를 주행할 경\n우\n• 주변 차량이나 구조물이 적은 지역(사막, 초\n원, 교외 등)을 주행할 경우\n• 젖은 도로 위를 주행할 경우\n• 후방 차량이 매우 근접하여 주행하거나 근접\n상태에서 추월할 경우\n• 상대 차량이 매우 빠른 속도로 추월할 경우\n• 상대 차량을 추월할 경우\n• 차로를 변경할 경우\n• 옆 차량과 동시에 출발하여 가속할 경우\n• 상대 차량이 옆 차로에서 옆옆 차로로 이동\n하거나 옆옆 차로에서 옆 차로로 이동할 경\n우\nDN8_KO.book  Page 37",
+      "grounding_quote": "짐칸 및 기타 장비를 사용할 때는 후측방 충돌 방지 보조를 끄십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S07-01"
+    },
+    {
+      "question_id": "U50-035",
+      "chapter": {
+        "number": "7",
+        "name": "7. 운전자 보조"
+      },
+      "question": "차로 이탈방지 보조를 켜거나 끄려면 어떤 조작을 해야 하며, 상태는 어떻게 표시되나요?",
+      "expected_page": 328,
+      "expected_chunk": 626,
+      "acceptable_evidence": [
+        {
+          "page": 328,
+          "chunk": 626,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "운전자 보조\n7-28\n차로 이탈방지 보조 작동\n기능 켜기 및 끄기\n2C_LKAButton\n시동 ‘ON’ 상태에서 차로 주행 보조 버튼( )\n을 길게 눌러 차로 이탈 방지를 끄고 켤 수 있습\n니다. 차로 이탈방지 보조가 켜지면 클러스터\n표시창의 ( ) 표시등이 회색 또는 초록색으로\n켜집니다.\n차로 이탈방지 보조가 꺼지면 클러스터 표시창\n의 ( ) 표시등이 황색으로 켜집니다.\nӝ\n \n• 차로 주행 보조 버튼( )을 길게 눌러 차로\n이탈방지 보조를 끄면, 차로 안전 설정이 해\n제됩니다.\n• 시동을 껐다가 걸어도 차로 이탈방지 보조\n설정은 유지됩니다. \n \n기능 경고 및 제어 \n차로 이탈방지 보조는 다음의 동작으로 경고하\n고 제어합니다.\n• 차로 이탈 경고\n• 차로 이탈방지 보조\n차로이탈 경고\n좌측\n2C_LaneDepartureWarningInfo\n우측\n2C_LaneDepartureWarningInfo_2\n클러스터 표시창에 초록색 표시등과 이탈한\n방향의 차선 깜빡임 표시, 경고음, 스터어링 휠\n을 통하여 차로 이탈 경고를 알립니다.\n차로 이탈 경고는 다음의 조건에서 작동합니\n다.\n• 자차 속도: 약 60-200 km/h\n차로 이탈방지 보조\n클러스터 표시창에 초록색( ) 표시등이 깜빡\n이고, 차로를 벗어나지 않도록 조향을 도와줍\n니다.\n차로 이탈방지 보조는 다음의 조건에서 작동합\n니다.\n• 자차 속도: 약 60-200 km/h \nDN8_KO.book  Page 28",
+      "grounding_quote": "시동 ‘ON’ 상태에서 차로 주행 보조 버튼( )을 길게 눌러 차로 이탈 방지를 끄고 켤 수 있습니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S07-02"
+    },
+    {
+      "question_id": "U50-036",
+      "chapter": {
+        "number": "7",
+        "name": "7. 운전자 보조"
+      },
+      "question": "크루즈 컨트롤은 어느 속도 범위에서 설정할 수 있나요?",
+      "expected_page": 357,
+      "expected_chunk": 673,
+      "acceptable_evidence": [
+        {
+          "page": 357,
+          "chunk": 673,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "여주기 위한 편의 기능입니다.\nӝ\n \nCC는 Cruise Control의 약자입니다.\n \n기능 켜기\n2C_SpeedControlButton\n1. 원하는 속도까지 차량을 가속한 후,  버튼\n을 누르십시오. 클러스터에 크루즈 표시등\n( )이 켜지며, 현재 클러스터의 속도로\n크루즈 컨트롤이 설정 됩니다.\n단, 차량 속도가 30 km/h 이상, 180 km/h\n이하에서만 설정할 수 있습니다.\n2. 가속 페달에서 발을 떼십시오. 가속 페달을\n밟지 않아도 설정한 속도를 유지합니다.\nDN8_KO.book  Page 57",
+      "grounding_quote": "단, 차량 속도가 30 km/h 이상, 180 km/h 이하에서만 설정할 수 있습니다.",
+      "grounding_quote_match": "exact",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S07-03"
+    },
+    {
+      "question_id": "U50-037",
+      "chapter": {
+        "number": "7",
+        "name": "7. 운전자 보조"
+      },
+      "question": "후방 교차 충돌방지 보조가 제동 제어를 한 뒤 정차 상태는 얼마나 유지되나요?",
+      "expected_page": 395,
+      "expected_chunk": 741,
+      "acceptable_evidence": [
+        {
+          "page": 395,
+          "chunk": 741,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 395,
+          "chunk": 740,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "이크 페달을 밟고 주변 상황을 확인하십시오.\n• 정차는 약 2초 동안 유지되며 이후 제동 제어\n가 종료됩니다.\n• 후방 교차 충돌방지 보조에 의한 제동 제어\n중 운전자가 충분한 힘으로 브레이크 페달을\n밟으면 제동 제어가 해제됩니다.\n҃Ҋ\n \n• 반드시 안전한 곳에 정차한 후 후방 교차 충\n돌방지 보조를 설정하십시오.\n• 다른 기능의 경고문이 표시되거나 경고음이\n울리는 동안에는 후방 교차 충돌방지 보조의\n경고문이 표시되지 않거나 경고음이 울리지\n않을 수 있습니다. \n• 차량 내부 및 외부 소리로 인해 후방 교차 충\n돌방지 보조의 경고음이 들리지 않을 수 있\n습니다. 차량 내부 음량을 적절하게 조절하\n고 항상 주의를 기울이십시오.\nDN8_KO.book  Page 95",
+      "grounding_quote": "정차는 약 2초 동안 유지되며 이후 제동 제어가 종료됩니다.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "feature",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S07-04"
+    },
+    {
+      "question_id": "U50-038",
+      "chapter": {
+        "number": "7",
+        "name": "7. 운전자 보조"
+      },
+      "question": "저속 주행 시 주차 거리 경고가 자동으로 켜지도록 설정하려면 어디에서 조작하나요?",
+      "expected_page": 405,
+      "expected_chunk": 758,
+      "acceptable_evidence": [
+        {
+          "page": 405,
+          "chunk": 758,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "7\n7-105\n주차 거리 경고 설정\n경고 방식\n2C_WarningTypeSetInfo_4\n시동 'ON' 상태에서 인포테인먼트 시스템의 설\n정 > 차량 > 운전자 보조 > 경고 방식을 차례로\n선택하십시오.\n• 경고 음량 : 경고 음량을 0-3단계로 조절할\n수 있습니다.\n경고 음량을 ‘0’으로 변경해도 경고음은 ‘1’\n로 설정했을 때의 음량으로 울립니다. \nӝ\n \n• 경고 방식을 변경하면 다른 운전자 보조 시\n스템의 경고 방식도 같이 변경될 수 있습니\n다. 고려하여 변경하십시오.\n• 시동을 껐다가 걸어도 경고 방식 설정은 유\n지됩니다.\n \n주차 거리 경고 자동 켜짐\n저속에서 주차 거리 경고가 항상 켜져 있도록\n설정할 수 있습니다. 시동 'ON' 상태에서 인포\n테인먼트 시스템의 설정 > 차량 > 운전자 보조\n> 주차 안전 > 주차 거리 경고 자동 켜짐 을 차례\n로 선택하십시오. \nӝ\n \n주차 거리 경고 자동 켜짐을 설정하면 주차 안\n전 버튼( ) 내 표시등이 켜진 상태로 유지됩니\n다.\n \n주차 거리 경고 작동\n주차 안전 버튼\n2C_ParkingSafetyButton\n주차 안전 버튼( )을 누르면 주차 거리 경고 기\n능을 켜거나 끌 수 있습니다. \n• 기능이 꺼져있는 상태(버튼 내 표시등 꺼져\n있음)에서 ‘R’(후진)로 변속하면 자동으로 기\n능이 켜집니다.\n• ‘R’(후진) 상태에서는 안전한 주차를 위해 주\n차 안전 버튼( )을 눌러도 기능이 꺼지지 않\n습니다.\n전방 주차 거리 경고 \n전방 주차 거리 경고 기능은 다음의 조건에서\n작동합니다.\n• 'D'(주행)에서 주차 안전 버튼( ) 을 눌러서\n표시등을 켬",
+      "grounding_quote": "시동 'ON' 상태에서 인포테인먼트 시스템의 설정 > 차량 > 운전자 보조 > 주차 안전 > 주차 거리 경고 자동 켜짐 을 차례로 선택하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "setting",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S07-05"
+    },
+    {
+      "question_id": "U50-039",
+      "chapter": {
+        "number": "7",
+        "name": "7. 운전자 보조"
+      },
+      "question": "차로 유지 보조에 이상이 발생했다는 경고가 표시되면 어떻게 해야 하나요?",
+      "expected_page": 379,
+      "expected_chunk": 712,
+      "acceptable_evidence": [
+        {
+          "page": 379,
+          "chunk": 712,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "7\n7-79\n• 스티어링 휠에 물체를 붙일 경우 핸즈오프\n경고문이 정상적으로 표시되지 않을 수 있습\n니다.\n \nӝ\n \n• 차로 유지 보조의 상태 표시를 보려면 클러\n스터에서 주행 보조 뷰를 선택하십시오. 주\n행 보조 뷰 선택 방법은 4장 내 ‘클러스터 메\n뉴 설정’을 참고하십시오.\n• 차선이 인식되면 클러스터 표시창에 차선 색\n상이 회색에서 흰색으로 바뀝니다.\n차선이 인식되지 않은 경우\n2C_LaneDetectionInfo\n차선이 인식된 경우\n2C_LFALaneDetectInfo_2\n• 클러스터 사양 또는 테마에 따라 클러스터\n표시창에 표시되는 이미지나 색상이 다를 수\n있습니다.\n• 차선이 인식되지 않으면 선행 차량의 유무와\n주행 상태에 따라 조향을 제한적으로 보조할\n수 있습니다.\n• 차로 유지 보조가 작동 중이어도 스티어링\n휠을 직접 조작하여 조향을 제어할 수 있습\n니다.\n• 차로 유지 보조가 조향을 보조할 때는 스티\n어링 휠이 무겁거나 가볍게 느껴질 수 있습\n니다.\n \n차로 유지 보조 이상 및 제한 사항\n기능 이상\n2C_ForwardSafetyMalfunctionInfo\n차로 유지 보조에 이상이 있으면 클러스터 표시\n창에 경고문이 일정시간 표시되며 통합 경고등\n( )이 켜집니다. 당사 직영 하이테크센터나 블\n루핸즈에서 점검을 받으십시오. \n• 경고 내용은 클러스터의 뷰 모드 중 유틸리\n티 정보 뷰의 서비스 메시지에서 확인할 수\n있습니다.\n제한 사항\n차로 유지 보조의 자세한 제한 사항은 ‘차로 이\n탈방지 보조 (LKA)’의 제한 사항을 참고하십시\n오.\n҃Ҋ\n \n차로 유지 보조의 자세한 경고 사항은 ‘차로 이",
+      "grounding_quote": "차로 유지 보조에 이상이 있으면 클러스터 표시창에 경고문이 일정시간 표시되며 통합 경고등( )이 켜집니다. 당사 직영 하이테크센터나 블루핸즈에서 점검을 받으십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "troubleshooting",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S07-06"
+    },
+    {
+      "question_id": "U50-040",
+      "chapter": {
+        "number": "8",
+        "name": "8. 비상시 응급 조치"
+      },
+      "question": "차량을 견인할 때 가장 권장되는 방법은 무엇인가요?",
+      "expected_page": 441,
+      "expected_chunk": 829,
+      "acceptable_evidence": [
+        {
+          "page": 441,
+          "chunk": 829,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "8\n8-17\n차량 견인\n견인 트럭으로 견인 시\n상차 견인\n2C_TowingGood\n타이어 구속 견인\n2C_TowingGood_2\n(1) 돌리\n견인이 필요한 경우 되도록 당사 직영 하이테크\n센터나 블루핸즈, 또는 견인 전문 업체를 이용\n하십시오. \n차량을 견인하는 가장 좋은 방법은 차량 전체를\n들어 올려 견인 차량에 싣는 상차 견인입니다.\n상차 견인을 할 수 없는 경우에는 앞바퀴 또는\n뒷바퀴를 지그에 올리고 나머지 바퀴를 지면에\n닿지 않도록 돌리를 사용하여 견인하십시오.\n상차 견인 시\n2C_TowingGood_3\n상차 견인 시 소프트 벨트로 타이어를 감싸서\n차량을 견인 차량에 확실하게 고정하십시오.\n ઱੄\n \n상차 견인 시 연결 고리를 차체 또는 샤시에 연\n결하지 마십시오. 차량이 손상될 수 있습니다.\n \n이륜구동 차량\n2C_TowingWithSideAirbag\n이륜구동 차량은 다음과 같은 방법으로 견인할\n수 있습니다.\n• 상차 견인\n• 앞바퀴를 구속한 상태에서 차량 기어를 'N'(\n중립) 상태로 두고 파킹 브레이크를 풀어 뒷\n바퀴를 땅에 대고 견인\n• 앞바퀴가 지면에 닿은 상태로는 견인하지 마\n십시오. \nDN8_KO.book  Page 17",
+      "grounding_quote": "차량을 견인하는 가장 좋은 방법은 차량 전체를 들어 올려 견인 차량에 싣는 상차 견인입니다.",
+      "grounding_quote_match": "exact",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S08-02"
+    },
+    {
+      "question_id": "U50-041",
+      "chapter": {
+        "number": "8",
+        "name": "8. 비상시 응급 조치"
+      },
+      "question": "더블 클러치 변속기 차량을 일반 차량으로 견인할 때 지켜야 할 거리와 속도 제한은 어떻게 되나요?",
+      "expected_page": 444,
+      "expected_chunk": 834,
+      "acceptable_evidence": [
+        {
+          "page": 444,
+          "chunk": 834,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "견인하십시오. 변속기 오일 누유가 있는 상태\n에서 일반 차량으로 견인하면 변속기가 파손될\n수 있습니다.\n \nӝ\n \n견인 시 유의 사항\n• 바퀴가 진흙, 모래, 도랑 등에 빠져 차량 자체\n의 힘으로 빠져나올 수 없는 상태일 때는 절\n대 임의로 견인하지 마십시오.\n• 견인하는 차량보다 피견인 차량이 무거운 경\n우 견인하지 마십시오.\n• 견인 시에는 브레이크 제동 성능이 평소보다\n나빠지므로 제동할 때 브레이크 페달을 평소\n보다 힘껏 밟으십시오.\n• 파워 스티어링 휠이 장착된 차량이라도 견인\n시에는 파워 스티어링 휠 장치가 작동하지\n않아 스티어링 휠 조작이 매우 무거워지므로\n평소보다 스티어링 휠을 강하게 조작하십시\n오.\n• 긴 내리막길을 내려올 때는 브레이크가 과열\n되어 제동 성능이 떨어질 수 있으므로 차량\n을 자주 정지시켜 브레이크를 식히십시오.\n• 자동 변속기 장착 차량을 일반 차량으로 견\n인할 때는 1.5 km 이내의 거리를 15 km/h 이\n하의 견인 속도로 견인하십시오. 이 이상의\n거리를 더 빠른 속도로 일반 차량을 이용해\n견인할 경우 변속기가 파손될 수 있습니다.\n• 더블 클러치 변속기 장착 차량은 20 km 이\n내의 거리를 전진 방향으로만 25 km/h 이하\n의 속도로 견인하십시오.\n \nDN8_KO.book  Page 20",
+      "grounding_quote": "더블 클러치 변속기 장착 차량은 20 km 이 내의 거리를 전진 방향으로만 25 km/h 이하 의 속도로 견인하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S08-03"
+    },
+    {
+      "question_id": "U50-042",
+      "chapter": {
+        "number": "8",
+        "name": "8. 비상시 응급 조치"
+      },
+      "question": "타이어 응급 처치 키트의 컴프레서는 한 번에 얼마나 오래 작동시킬 수 있나요?",
+      "expected_page": 439,
+      "expected_chunk": 826,
+      "acceptable_evidence": [
+        {
+          "page": 439,
+          "chunk": 826,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 439,
+          "chunk": 825,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "리한 후 타이어 응급 처치 키트(TMK)를 버려\n두고 떠나지 마십시오.\n• 컴프레서를 10분 이상 작동하지 마십시오.\n과열되거나 손상될 수 있습니다.\n• 주변 기온이 -40 °C 이하일 때는 사용하지\n마십시오.\n• 유효기간이 지난 실런트(봉합제)는 사용하\n지 마십시오. 새 실런트(봉합제)를 구매해 사\n용하십시오.\n• 어린이의 손이 닿지 않는 곳에 보관하십시\n오.\nDN8_KO.book  Page 15",
+      "grounding_quote": "컴프레서를 10분 이상 작동하지 마십시오. 과열되거나 손상될 수 있습니다.",
+      "grounding_quote_match": "exact",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S08-04"
+    },
+    {
+      "question_id": "U50-043",
+      "chapter": {
+        "number": "8",
+        "name": "8. 비상시 응급 조치"
+      },
+      "question": "차량 화재가 발생했을 때 소화기는 어떤 순서로 사용하나요?",
+      "expected_page": 445,
+      "expected_chunk": 836,
+      "acceptable_evidence": [
+        {
+          "page": 445,
+          "chunk": 836,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "할 수 있도록 관리 요령에 따라 정기적으로 점\n검하십시오. 소화기 관리 요령 및 주의 사항은\n소화기에 부착된 안내문을 참고하십시오.\n소화기는 화물칸 수납 정리함에 장착되어 있습\n니다.\nӝ\n \n소화기 사용법\n1. 소화기의 안전핀을 뽑으십시오.\n2. 바람이 부는 방향을 등지고 서십시오.\n3. 레버를 움켜쥐면서 불이 난 곳을 향해 빗자\n루로 쓸듯이 방사하십시오.\n \nLPI 차량 화재 시 응급조치\n1. 승객을 대피 시키고 트렁크 내에 있는 LPG\n탱크 상부 클립을 반시계 방향으로 돌려 커\n버 탈거 후 연료 취출 밸브(1)을 잠그십시오.\n2. LPG에 불이 붙었을 때는 소화기를 이용하여\n불을 끄십시오.\n• 분말 소화기\n• 탄산가스 소화기\n• 하론 소화기\n이상의 응급조치를 할 수 없는 상황인 경우, 사\n람들의 접근을 막고 경찰서나 소방서에 연락하\n여 필요한 조치를 취하십시오.\nDN8_KO.book  Page 21",
+      "grounding_quote": "1. 소화기의 안전핀을 뽑으십시오. 2. 바람이 부는 방향을 등지고 서십시오. 3. 레버를 움켜쥐면서 불이 난 곳을 향해 빗자 루로 쓸듯이 방사하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S08-06"
+    },
+    {
+      "question_id": "U50-044",
+      "chapter": {
+        "number": "8",
+        "name": "8. 비상시 응급 조치"
+      },
+      "question": "탈부착 견인 후크를 장착할 때 어떤 순서로 체결하나요?",
+      "expected_page": 442,
+      "expected_chunk": 830,
+      "acceptable_evidence": [
+        {
+          "page": 442,
+          "chunk": 830,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "비상시 응급 조치\n8-18\n측면 에어백 장착 차량\n차량 견인 시 반드시 시동을 끄십시오.\n시동 'ON' 상태에서 차량이 기울어지면 차량이\n전복된 것으로 감지하여 측면 에어백이 전개될\n수 있습니다.\n ઱੄\n \n• 앞바퀴가 지면에 닿은 상태로 차량 뒷부분을\n들어 올려 견인하지 마십시오. 변속 장치가\n손상될 수 있습니다.\n2C_TowingBad\n• 서스펜션 구속 방식으로 견인하지 마십시오.\n범퍼 및 하부 부품이 손상될 수 있습니다.\n2C_TowingBad_2\n• 견인할 때 범퍼 및 하부 부품 손상에 주의하\n십시오.\n \n탈부착 견인 후크\n되도록 당사 직영 하이테크센터나 견인 전문 업\n체의 견인 트럭을 사용해 견인하십시오.\n견인 트럭 사용이 어려운 경우, 매뉴얼의 내용\n을 준수하여 견인 후크를 사용해 견인하십시\n오. 매뉴얼 내용을 준수하지 않으면 차량 부품\n이 파손될 수 있습니다.\n앞\n2C_TowingHook\n뒤\n2C_TowingHook_2\n(1) 체결\n(2) 분리\n1. 타이어 응급 처치 키트(TMK)에서 견인 후크\n를 꺼내십시오.\n2. 범퍼의 홀 커버를 눌러 홀 커버를 분리하십\n시오.\n3. 견인 후크를 홀에 넣어 오른쪽으로 끝까지\n돌려 체결하십시오.\n분리할 때는 체결할 때의 역순으로 분리하십\n시오.\nDN8_KO.book  Page 18",
+      "grounding_quote": "1. 타이어 응급 처치 키트(TMK)에서 견인 후크 를 꺼내십시오. 2. 범퍼의 홀 커버를 눌러 홀 커버를 분리하십 시오. 3. 견인 후크를 홀에 넣어 오른쪽으로 끝까지 돌려 체결하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S08-07"
+    },
+    {
+      "question_id": "U50-045",
+      "chapter": {
+        "number": "9",
+        "name": "9. 정기 점검"
+      },
+      "question": "어떤 운전 환경에서는 일반 점검 주기보다 더 자주 차량을 점검해야 하나요?",
+      "expected_page": 456,
+      "expected_chunk": 859,
+      "acceptable_evidence": [
+        {
+          "page": 456,
+          "chunk": 859,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "정기 점검\n9-10\n정기 점검 주기\n차량을 주로 다음의 조건에서 운전했다면 가혹\n조건의 점검 주기를 따르고, 그렇지 않다면 통\n상 조건의 점검 주기를 따르십시오.\n• 짧은 거리를 반복적으로 주행\n• 모래, 먼지가 많은 지역 주행\n• 과다한 공회전 사용\n• 교통 체증이 심한 구역 주행\n• 잦은 험로(모랫길, 자갈길, 눈길, 비포장도\n로) 주행\n• 산길, 오르막길, 내리막길 주행\n• 경찰차, 택시, 상용차, 견인차 등으로 사용\n• 잦은 고속 주행 및 급가감속\n• 정지와 출발의 잦은 반복\n• 소금, 부식 물질 위 또는 한랭 지역 주행\n• 견인용, 캠핑용으로 사용 또는 지붕 위 짐칸\n탑재 주행\n• 추천하지 않는 엔진 오일 주입(광유, 세미 합\n성유, 낮은 오일 등급 외)\n위와 같은 조건에서 자주 운전했다면 정기 점검\n주기보다 더 자주 점검, 교체, 보충하십시오.\n통상 조건\n통상 조건 점검 주기는 주행 거리에 따른 주기\n를 기본으로 하였으나, 일부 부품은 주행 거리\n와 함께 시간 경과에 따라서 점검 또는 교체해\n야 하는 경우도 있습니다.\n주행 거리/시간 병기 항목은 차량의 주행 거리\n와 경과 시간 중 먼저 도래하는 시점에 해당 부\n품의 점검이나 교체를 해야 하므로 주의하십시\n오.\nӝ\n \n• 엔진 오일이 주행 중 소모되는 것은 정상이\n므로 오일의 양을 정기적으로 점검하십시오.\n• 엔진 오일의 교체 주기는 당사 추천 엔진 오\n일의 성능이 유지되는 기간을 감안하여 설정\n한 것이므로, 당사 추천 오일을 사용하지 않\n을 경우 가혹 조건 주기로 교체하십시오.\n \nDN8_KO.book  Page 10",
+      "grounding_quote": "위와 같은 조건에서 자주 운전했다면 정기 점검 주기보다 더 자주 점검, 교체, 보충하십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "condition",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S09-01"
+    },
+    {
+      "question_id": "U50-046",
+      "chapter": {
+        "number": "9",
+        "name": "9. 정기 점검"
+      },
+      "question": "공조 장치용 에어필터를 직접 교체할 때 글로브 박스는 어떻게 분리하나요?",
+      "expected_page": 472,
+      "expected_chunk": 881,
+      "acceptable_evidence": [
+        {
+          "page": 472,
+          "chunk": 881,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "정기 점검\n9-26\n공조 장치용 에어필터\n에어필터 점검\n공조 장치용 에어필터는 12개월마다 정기적으\n로 교체하십시오. 대기 오염이 심한 도시나 먼\n지가 많은 비포장도로 등을 자주 운전하면 수시\n로 점검하여 조기에 교체하십시오.\n에어필터를 직접 교체하려면 다음의 방법을 따\n르십 시오. 이때 다른 부품이 손상되지 않도록\n주의하십시오.\n에어필터 교체\n1. 글로브 박스 오른쪽의 고정 실린더(1)를 분리\n하십시오.\n2C_AirFilterReplacementProcedure\n2. 글로브 박스의 양옆을 안으로 누르면서 아래\n로 당겨 분리하십시오.\n2C_AirFilterReplacementProcedure_2\n3. 공조 장치용 에어필터 커버의 오른쪽을 누른\n상태에서 잡아 당기십시오. 커버가 분리되고\n필터가 나옵니다.\n2C_AirFilterReplacementProcedure_3\n4. 사용한 에어필터를 빼내고 새 에어필터를 넣\n으십시오.\n5. 분해의 역순으로 커버를 설치하고 고정 실린\n더를 고정 후 장착하십시오.\nDN8_KO.book  Page 26",
+      "grounding_quote": "글로브 박스의 양옆을 안으로 누르면서 아래로 당겨 분리하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "procedure",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S09-02"
+    },
+    {
+      "question_id": "U50-047",
+      "chapter": {
+        "number": "9",
+        "name": "9. 정기 점검"
+      },
+      "question": "차량의 퓨즈 용량과 명칭은 어디에서 확인할 수 있나요?",
+      "expected_page": 485,
+      "expected_chunk": 904,
+      "acceptable_evidence": [
+        {
+          "page": 485,
+          "chunk": 904,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "9\n9-39\n퓨즈/릴레이 라벨\n실내\n2C_InstrumentPanelFuseLabel\n운전석 퓨즈 박스 라벨\n1C_InstrumentPanelFuseLabel_2\nӝ\n \n퓨즈의 용량 및 명칭은 차량에 따라 다를 수 있으므로 퓨즈/릴레이 박스 커버 안쪽에 부착된 퓨즈 라벨을 참고하십시오.\n \nDN8_KO.book  Page 39",
+      "grounding_quote": "퓨즈/릴레이 박스 커버 안쪽에 부착된 퓨즈 라벨을 참고하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "feature",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S09-07"
+    },
+    {
+      "question_id": "U50-048",
+      "chapter": {
+        "number": "9",
+        "name": "9. 정기 점검"
+      },
+      "question": "배출가스 기준을 초과한 차량에는 어떤 불이익이 있나요?",
+      "expected_page": 498,
+      "expected_chunk": 926,
+      "acceptable_evidence": [
+        {
+          "page": 498,
+          "chunk": 926,
+          "reason": "primary source chunk"
+        }
+      ],
+      "source_text": "정기 점검\n9-52\nӝ\n \n• 위의 기준을 초과하는 차량은 법적인 제재를\n받습니다.\n• 과급기(터보차저, turbocharger) 및 중간냉\n각기(인터쿨러, intercooler)를 부착한 차량\n은 매연 측정 기준에 5 % 가산 적용됩니다.\n• 희박연소(lean burn) 방식을 적용한 차량은\n공기과잉률 기준이 적용되지 않습니다.\n• 위 기준은 수시 점검 및 정기 검사에 한하며,\n정밀 검사 시에는 대기환경보전법 시행규칙\n제 78조 및 별표 21의 규정이 적용됩니다.\n \nӝ\n \n자동차의 종류(운행차 기준)\n• 운행차배출허용기준의 차종 구분은 자동차\n관리법 제3조 1항 및 같은 법 시행규칙 제2조\n에 따름.\n1. 경자동차: 배기량 1000 cc 미만의 길이\n3.6 m, 너비 1.6 m, 높이 2.0 m 이하인 자\n동차\n2. 승용자동차: 10인 이하를 운송하기에 적\n합하게 제작된 자동차\n3. 승합자동차: 11인 이상을 운송하기에 적합\n하게 제작된 자동차\n4. 화물자동차: 화물을 운송하기 적합하게 제\n작된 자동차\n5. 특수자동차: 견인, 구난 등 특수한 작업을\n수행하기에 적합하게 제작된 자동차 승용\n·승합·화물 자동차가 아닌 자동차\n• 승합, 화물, 특수자동차의 소형 기준은 다음\n과 같습니다. 기준 외의 차량은 중형 또는 대\n형으로 분류합니다.\n승합자동차(소형): 승차정원이 15인 이하인\n것 으로, 길이 4.7 m, 너비 1.7 m, 높이 2.0 m\n이하\n화물자동차(소형): 최대적재량이 1톤 이하인\n것 으로, 총중량이 3.5톤 이하\n특수자동차(소형): 총중량이 3.5톤 이하\n \nӝ",
+      "grounding_quote": "위의 기준을 초과하는 차량은 법적인 제재를 받습니다.",
+      "grounding_quote_match": "exact",
+      "question_type": "warning",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S09-04"
+    },
+    {
+      "question_id": "U50-049",
+      "chapter": {
+        "number": "9",
+        "name": "9. 정기 점검"
+      },
+      "question": "원목 내장재에 오물이 묻었을 때 어떻게 닦아야 하나요?",
+      "expected_page": 495,
+      "expected_chunk": 922,
+      "acceptable_evidence": [
+        {
+          "page": 495,
+          "chunk": 922,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 495,
+          "chunk": 921,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "오물이 묻으면 즉시 부드러운 마른 헝겊으로\n닦으십시오.\n• 날카로운 물건(드라이버, 칼끝 등)이나 접착\n제, 테이프 등을 사용 시 제품이 훼손될 수 있\n습니다. \n \n ઱੄\n \n• 제품에 강한 충격이 가해지면 원목의 특성상\n파손될 수 있습니다.\n• 원목이 적용된 내장재의 경우 표면 코팅이\n벗겨졌을 경우 습기 등의 침해로 인하여 형\n질변경이나 손상이 발생할 수 있습니다.\n \nDN8_KO.book  Page 49",
+      "grounding_quote": "오물이 묻으면 즉시 부드러운 마른 헝겊으로 닦으십시오.",
+      "grounding_quote_match": "exact",
+      "question_type": "maintenance",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S09-05"
+    },
+    {
+      "question_id": "U50-050",
+      "chapter": {
+        "number": "9",
+        "name": "9. 정기 점검"
+      },
+      "question": "배기가스 제어 관련 부품은 어떻게 관리하고 정비해야 하나요?",
+      "expected_page": 498,
+      "expected_chunk": 928,
+      "acceptable_evidence": [
+        {
+          "page": 498,
+          "chunk": 928,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 498,
+          "chunk": 927,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "source_text": "걸기를 하지 마십시오.\n• 외부 기온이 높을 때 저속 엔진으로 장시간\n가동하길 삼가십시오.\n배기가스 제어 장치의 관리 및 \n정비\n배기가스 제어 관련 부품 중 다음의 항목은 정\n기 점검 주기표에 따라 점검하거나 교체하십시\n오.\nDN8_KO.book  Page 52",
+      "grounding_quote": "다음의 항목은 정기 점검 주기표에 따라 점검하거나 교체하십시오.",
+      "grounding_quote_match": "whitespace/punctuation-normalized",
+      "question_type": "maintenance",
+      "generation_method": "gpt-5.6-luna source-grounded question generation; deterministic local grounding, M6 exclusion, and duplicate checks",
+      "random_seed": 20261004,
+      "source_candidate_id": "S09-06"
+    }
+  ]
+}

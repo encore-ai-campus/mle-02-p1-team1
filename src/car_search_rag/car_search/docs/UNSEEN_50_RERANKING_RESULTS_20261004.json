@@ -1,0 +1,7078 @@
+{
+  "run_id": "20261004T095242Z",
+  "evaluation_type": "new synthetic holdout; separate from historical M6 development set",
+  "question_set_path": "D:\\Bootcamp\\vscode\\workspace\\mle-02-p1-team1\\src\\car_search_rag\\car_search\\docs\\UNSEEN_50_QUESTION_SET_20261004.json",
+  "question_set_sha256": "ee54c3ee5810cb4dab2c74461e71f5b03fa225459dd7d3f1e0e201801ea8c2b9",
+  "question_set_frozen_at_utc": "2026-10-04T09:48:31.082117+00:00",
+  "vehicle": "Hyundai Sonata 2026",
+  "question_count": 50,
+  "vector_candidates": 10,
+  "model": "gpt-5.6-luna",
+  "before_metrics": {
+    "hit@1": {
+      "hits": 23,
+      "total": 50,
+      "rate": 0.46
+    },
+    "hit@3": {
+      "hits": 37,
+      "total": 50,
+      "rate": 0.74
+    },
+    "hit@5": {
+      "hits": 43,
+      "total": 50,
+      "rate": 0.86
+    },
+    "hit@10": {
+      "hits": 44,
+      "total": 50,
+      "rate": 0.88
+    },
+    "mrr@5": 0.619,
+    "mrr@10": 0.6218571428571429
+  },
+  "after_metrics": {
+    "hit@1": {
+      "hits": 38,
+      "total": 50,
+      "rate": 0.76
+    },
+    "hit@3": {
+      "hits": 44,
+      "total": 50,
+      "rate": 0.88
+    },
+    "hit@5": {
+      "hits": 44,
+      "total": 50,
+      "rate": 0.88
+    },
+    "hit@10": {
+      "hits": 44,
+      "total": 50,
+      "rate": 0.88
+    },
+    "mrr@5": 0.82,
+    "mrr@10": 0.82
+  },
+  "chapter_metrics": {
+    "1": {
+      "question_count": 5,
+      "vector_hit@5": {
+        "hits": 3,
+        "total": 5,
+        "rate": 0.6
+      },
+      "vector_mrr@5": 0.36666666666666664,
+      "rerank_hit@5": {
+        "hits": 4,
+        "total": 5,
+        "rate": 0.8
+      },
+      "rerank_mrr@5": 0.7
+    },
+    "2": {
+      "question_count": 5,
+      "vector_hit@5": {
+        "hits": 2,
+        "total": 5,
+        "rate": 0.4
+      },
+      "vector_mrr@5": 0.4,
+      "rerank_hit@5": {
+        "hits": 2,
+        "total": 5,
+        "rate": 0.4
+      },
+      "rerank_mrr@5": 0.4
+    },
+    "3": {
+      "question_count": 6,
+      "vector_hit@5": {
+        "hits": 6,
+        "total": 6,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 0.5555555555555556,
+      "rerank_hit@5": {
+        "hits": 6,
+        "total": 6,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 1.0
+    },
+    "4": {
+      "question_count": 5,
+      "vector_hit@5": {
+        "hits": 5,
+        "total": 5,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 0.7066666666666667,
+      "rerank_hit@5": {
+        "hits": 5,
+        "total": 5,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 0.9
+    },
+    "5": {
+      "question_count": 6,
+      "vector_hit@5": {
+        "hits": 6,
+        "total": 6,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 1.0,
+      "rerank_hit@5": {
+        "hits": 6,
+        "total": 6,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 1.0
+    },
+    "6": {
+      "question_count": 6,
+      "vector_hit@5": {
+        "hits": 5,
+        "total": 6,
+        "rate": 0.8333333333333334
+      },
+      "vector_mrr@5": 0.4583333333333333,
+      "rerank_hit@5": {
+        "hits": 5,
+        "total": 6,
+        "rate": 0.8333333333333334
+      },
+      "rerank_mrr@5": 0.75
+    },
+    "7": {
+      "question_count": 6,
+      "vector_hit@5": {
+        "hits": 5,
+        "total": 6,
+        "rate": 0.8333333333333334
+      },
+      "vector_mrr@5": 0.5416666666666666,
+      "rerank_hit@5": {
+        "hits": 5,
+        "total": 6,
+        "rate": 0.8333333333333334
+      },
+      "rerank_mrr@5": 0.75
+    },
+    "8": {
+      "question_count": 5,
+      "vector_hit@5": {
+        "hits": 5,
+        "total": 5,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 0.75,
+      "rerank_hit@5": {
+        "hits": 5,
+        "total": 5,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 1.0
+    },
+    "9": {
+      "question_count": 6,
+      "vector_hit@5": {
+        "hits": 6,
+        "total": 6,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 0.75,
+      "rerank_hit@5": {
+        "hits": 6,
+        "total": 6,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 0.8333333333333334
+    }
+  },
+  "question_type_metrics": {
+    "condition": {
+      "question_count": 10,
+      "vector_hit@5": {
+        "hits": 9,
+        "total": 10,
+        "rate": 0.9
+      },
+      "vector_mrr@5": 0.85,
+      "rerank_hit@5": {
+        "hits": 9,
+        "total": 10,
+        "rate": 0.9
+      },
+      "rerank_mrr@5": 0.85
+    },
+    "feature": {
+      "question_count": 6,
+      "vector_hit@5": {
+        "hits": 4,
+        "total": 6,
+        "rate": 0.6666666666666666
+      },
+      "vector_mrr@5": 0.5833333333333334,
+      "rerank_hit@5": {
+        "hits": 4,
+        "total": 6,
+        "rate": 0.6666666666666666
+      },
+      "rerank_mrr@5": 0.5833333333333334
+    },
+    "maintenance": {
+      "question_count": 4,
+      "vector_hit@5": {
+        "hits": 3,
+        "total": 4,
+        "rate": 0.75
+      },
+      "vector_mrr@5": 0.4583333333333333,
+      "rerank_hit@5": {
+        "hits": 3,
+        "total": 4,
+        "rate": 0.75
+      },
+      "rerank_mrr@5": 0.75
+    },
+    "procedure": {
+      "question_count": 12,
+      "vector_hit@5": {
+        "hits": 12,
+        "total": 12,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 0.6736111111111112,
+      "rerank_hit@5": {
+        "hits": 12,
+        "total": 12,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 1.0
+    },
+    "setting": {
+      "question_count": 3,
+      "vector_hit@5": {
+        "hits": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 0.3611111111111111,
+      "rerank_hit@5": {
+        "hits": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 0.8333333333333334
+    },
+    "troubleshooting": {
+      "question_count": 4,
+      "vector_hit@5": {
+        "hits": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "vector_mrr@5": 0.75,
+      "rerank_hit@5": {
+        "hits": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "rerank_mrr@5": 1.0
+    },
+    "warning": {
+      "question_count": 11,
+      "vector_hit@5": {
+        "hits": 8,
+        "total": 11,
+        "rate": 0.7272727272727273
+      },
+      "vector_mrr@5": 0.45,
+      "rerank_hit@5": {
+        "hits": 9,
+        "total": 11,
+        "rate": 0.8181818181818182
+      },
+      "rerank_mrr@5": 0.6818181818181818
+    }
+  },
+  "candidate_miss_count": 6,
+  "ranking_failure_count": 0,
+  "reranked_success_count": 44,
+  "candidate_sets_identical_all": true,
+  "request_count": 51,
+  "input_tokens_total": 201207,
+  "output_tokens_total": 12877,
+  "total_tokens": 214084,
+  "mean_input_tokens": 4024.14,
+  "mean_output_tokens": 257.54,
+  "mean_rerank_latency_seconds": 3.4043946039909496,
+  "min_rerank_latency_seconds": 2.2089053001254797,
+  "max_rerank_latency_seconds": 9.344903300050646,
+  "mean_total_search_latency_seconds": 3.807103911996819,
+  "total_run_seconds": 190.36343639995903,
+  "retry_count": 1,
+  "rerank_error_attempt_count": 1,
+  "fallback_count": 0,
+  "records": [
+    {
+      "question_id": "U50-001",
+      "chapter_no": "1",
+      "chapter_name": "1. 안내 및 차량 정보",
+      "question_type": "warning",
+      "question": "제작 결함이 의심되는 차량 문제는 어디에 신고할 수 있나요?",
+      "expected_page": 3,
+      "expected_chunk": 3,
+      "acceptable_evidence": [
+        {
+          "page": 3,
+          "chunk": 3,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 2,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 109,
+          "chunk_id": 192
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 3,
+          "chunk_id": 3
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 343,
+          "chunk_id": 652
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 295,
+          "chunk_id": 553
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 3,
+          "chunk_id": 4
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 434,
+          "chunk_id": 816
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 397,
+          "chunk_id": 745
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 194,
+          "chunk_id": 368
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 413,
+          "chunk_id": 775
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 109,
+          "chunk_id": 193
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 3,
+          "chunk": 4
+        },
+        {
+          "rank": 2,
+          "page": 3,
+          "chunk": 3
+        },
+        {
+          "rank": 3,
+          "page": 194,
+          "chunk": 368
+        },
+        {
+          "rank": 4,
+          "page": 295,
+          "chunk": 553
+        },
+        {
+          "rank": 5,
+          "page": 434,
+          "chunk": 816
+        },
+        {
+          "rank": 6,
+          "page": 413,
+          "chunk": 775
+        },
+        {
+          "rank": 7,
+          "page": 343,
+          "chunk": 652
+        },
+        {
+          "rank": 8,
+          "page": 397,
+          "chunk": 745
+        },
+        {
+          "rank": 9,
+          "page": 109,
+          "chunk": 192
+        },
+        {
+          "rank": 10,
+          "page": 109,
+          "chunk": 193
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.822155699832365,
+      "total_search_latency_seconds": 7.4271490999963135,
+      "input_tokens": 3785,
+      "output_tokens": 222
+    },
+    {
+      "question_id": "U50-002",
+      "chapter_no": "1",
+      "chapter_name": "1. 안내 및 차량 정보",
+      "question_type": "warning",
+      "question": "취급설명서에서 ‘주의’ 표시는 어떤 상황을 의미하나요?",
+      "expected_page": 1,
+      "expected_chunk": 1,
+      "acceptable_evidence": [
+        {
+          "page": 1,
+          "chunk": 1,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 7,
+      "after_rank": 1,
+      "rank_delta": 6,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 427,
+          "chunk_id": 805
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 352,
+          "chunk_id": 666
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 36,
+          "chunk_id": 66
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 456,
+          "chunk_id": 859
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 109,
+          "chunk_id": 192
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 97,
+          "chunk_id": 172
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 1,
+          "chunk_id": 1
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 453,
+          "chunk_id": 855
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 27,
+          "chunk_id": 46
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 223,
+          "chunk_id": 407
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 1,
+          "chunk": 1
+        },
+        {
+          "rank": 2,
+          "page": 453,
+          "chunk": 855
+        },
+        {
+          "rank": 3,
+          "page": 36,
+          "chunk": 66
+        },
+        {
+          "rank": 4,
+          "page": 456,
+          "chunk": 859
+        },
+        {
+          "rank": 5,
+          "page": 352,
+          "chunk": 666
+        },
+        {
+          "rank": 6,
+          "page": 27,
+          "chunk": 46
+        },
+        {
+          "rank": 7,
+          "page": 223,
+          "chunk": 407
+        },
+        {
+          "rank": 8,
+          "page": 97,
+          "chunk": 172
+        },
+        {
+          "rank": 9,
+          "page": 427,
+          "chunk": 805
+        },
+        {
+          "rank": 10,
+          "page": 109,
+          "chunk": 192
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 4.555603299988434,
+      "total_search_latency_seconds": 4.902141799917445,
+      "input_tokens": 4372,
+      "output_tokens": 372
+    },
+    {
+      "question_id": "U50-003",
+      "chapter_no": "1",
+      "chapter_name": "1. 안내 및 차량 정보",
+      "question_type": "condition",
+      "question": "타이어 속도 등급이 V이면 최대 안전 주행 속도는 얼마인가요?",
+      "expected_page": 21,
+      "expected_chunk": 37,
+      "acceptable_evidence": [
+        {
+          "page": 21,
+          "chunk": 37,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 21,
+          "chunk_id": 37
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 480,
+          "chunk_id": 896
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 297,
+          "chunk_id": 558
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 295,
+          "chunk_id": 553
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 372,
+          "chunk_id": 700
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 317,
+          "chunk_id": 608
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 96,
+          "chunk_id": 171
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 349,
+          "chunk_id": 660
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 384,
+          "chunk_id": 719
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 347,
+          "chunk_id": 657
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 21,
+          "chunk": 37
+        },
+        {
+          "rank": 2,
+          "page": 480,
+          "chunk": 896
+        },
+        {
+          "rank": 3,
+          "page": 297,
+          "chunk": 558
+        },
+        {
+          "rank": 4,
+          "page": 295,
+          "chunk": 553
+        },
+        {
+          "rank": 5,
+          "page": 347,
+          "chunk": 657
+        },
+        {
+          "rank": 6,
+          "page": 96,
+          "chunk": 171
+        },
+        {
+          "rank": 7,
+          "page": 349,
+          "chunk": 660
+        },
+        {
+          "rank": 8,
+          "page": 372,
+          "chunk": 700
+        },
+        {
+          "rank": 9,
+          "page": 384,
+          "chunk": 719
+        },
+        {
+          "rank": 10,
+          "page": 317,
+          "chunk": 608
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 4.088671799981967,
+      "total_search_latency_seconds": 5.243793899891898,
+      "input_tokens": 4364,
+      "output_tokens": 325
+    },
+    {
+      "question_id": "U50-004",
+      "chapter_no": "1",
+      "chapter_name": "1. 안내 및 차량 정보",
+      "question_type": "feature",
+      "question": "엔진 번호는 차량의 어느 부위에서 확인할 수 있나요?",
+      "expected_page": 26,
+      "expected_chunk": 43,
+      "acceptable_evidence": [
+        {
+          "page": 26,
+          "chunk": 43,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": null,
+      "after_rank": null,
+      "rank_delta": null,
+      "candidate_miss": true,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 29,
+          "chunk_id": 52
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 7,
+          "chunk_id": 8
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 27,
+          "chunk_id": 47
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 7,
+          "chunk_id": 10
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 18,
+          "chunk_id": 33
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 25,
+          "chunk_id": 42
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 7,
+          "chunk_id": 11
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 343,
+          "chunk_id": 652
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 273,
+          "chunk_id": 506
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 86,
+          "chunk_id": 154
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 7,
+          "chunk": 10
+        },
+        {
+          "rank": 2,
+          "page": 7,
+          "chunk": 11
+        },
+        {
+          "rank": 3,
+          "page": 7,
+          "chunk": 8
+        },
+        {
+          "rank": 4,
+          "page": 18,
+          "chunk": 33
+        },
+        {
+          "rank": 5,
+          "page": 25,
+          "chunk": 42
+        },
+        {
+          "rank": 6,
+          "page": 29,
+          "chunk": 52
+        },
+        {
+          "rank": 7,
+          "page": 27,
+          "chunk": 47
+        },
+        {
+          "rank": 8,
+          "page": 273,
+          "chunk": 506
+        },
+        {
+          "rank": 9,
+          "page": 86,
+          "chunk": 154
+        },
+        {
+          "rank": 10,
+          "page": 343,
+          "chunk": 652
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.344481100095436,
+      "total_search_latency_seconds": 3.625458399998024,
+      "input_tokens": 2370,
+      "output_tokens": 193
+    },
+    {
+      "question_id": "U50-005",
+      "chapter_no": "1",
+      "chapter_name": "1. 안내 및 차량 정보",
+      "question_type": "maintenance",
+      "question": "Smartstream G1.6 T-GDI 엔진의 엔진 오일 용량은 얼마인가요?",
+      "expected_page": 23,
+      "expected_chunk": 39,
+      "acceptable_evidence": [
+        {
+          "page": 23,
+          "chunk": 39,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 3,
+      "after_rank": 1,
+      "rank_delta": 2,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 16,
+          "chunk_id": 29
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 23,
+          "chunk_id": 40
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 23,
+          "chunk_id": 39
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 463,
+          "chunk_id": 867
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 449,
+          "chunk_id": 851
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 24,
+          "chunk_id": 41
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 450,
+          "chunk_id": 852
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 464,
+          "chunk_id": 868
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 15,
+          "chunk_id": 27
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 26,
+          "chunk_id": 43
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 23,
+          "chunk": 39
+        },
+        {
+          "rank": 2,
+          "page": 24,
+          "chunk": 41
+        },
+        {
+          "rank": 3,
+          "page": 463,
+          "chunk": 867
+        },
+        {
+          "rank": 4,
+          "page": 464,
+          "chunk": 868
+        },
+        {
+          "rank": 5,
+          "page": 16,
+          "chunk": 29
+        },
+        {
+          "rank": 6,
+          "page": 450,
+          "chunk": 852
+        },
+        {
+          "rank": 7,
+          "page": 23,
+          "chunk": 40
+        },
+        {
+          "rank": 8,
+          "page": 449,
+          "chunk": 851
+        },
+        {
+          "rank": 9,
+          "page": 15,
+          "chunk": 27
+        },
+        {
+          "rank": 10,
+          "page": 26,
+          "chunk": 43
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.3088955997955054,
+      "total_search_latency_seconds": 2.579137000022456,
+      "input_tokens": 3012,
+      "output_tokens": 176
+    },
+    {
+      "question_id": "U50-006",
+      "chapter_no": "2",
+      "chapter_name": "2. 안전 및 주의 사항",
+      "question_type": "warning",
+      "question": "주행 중 엔진을 끄면 어떤 문제가 생길 수 있나요?",
+      "expected_page": 33,
+      "expected_chunk": 61,
+      "acceptable_evidence": [
+        {
+          "page": 33,
+          "chunk": 61,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": null,
+      "after_rank": null,
+      "rank_delta": null,
+      "candidate_miss": true,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 27,
+          "chunk_id": 47
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 425,
+          "chunk_id": 797
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 263,
+          "chunk_id": 487
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 465,
+          "chunk_id": 870
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 430,
+          "chunk_id": 809
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 81,
+          "chunk_id": 145
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 274,
+          "chunk_id": 508
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 499,
+          "chunk_id": 930
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 81,
+          "chunk_id": 146
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 282,
+          "chunk_id": 525
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 499,
+          "chunk": 930
+        },
+        {
+          "rank": 2,
+          "page": 27,
+          "chunk": 47
+        },
+        {
+          "rank": 3,
+          "page": 425,
+          "chunk": 797
+        },
+        {
+          "rank": 4,
+          "page": 274,
+          "chunk": 508
+        },
+        {
+          "rank": 5,
+          "page": 263,
+          "chunk": 487
+        },
+        {
+          "rank": 6,
+          "page": 430,
+          "chunk": 809
+        },
+        {
+          "rank": 7,
+          "page": 465,
+          "chunk": 870
+        },
+        {
+          "rank": 8,
+          "page": 282,
+          "chunk": 525
+        },
+        {
+          "rank": 9,
+          "page": 81,
+          "chunk": 145
+        },
+        {
+          "rank": 10,
+          "page": 81,
+          "chunk": 146
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.10252849990502,
+      "total_search_latency_seconds": 3.4431019998155534,
+      "input_tokens": 4104,
+      "output_tokens": 246
+    },
+    {
+      "question_id": "U50-007",
+      "chapter_no": "2",
+      "chapter_name": "2. 안전 및 주의 사항",
+      "question_type": "warning",
+      "question": "주행 중 LPG 냄새가 나면 가장 먼저 어떻게 해야 하나요?",
+      "expected_page": 38,
+      "expected_chunk": 72,
+      "acceptable_evidence": [
+        {
+          "page": 38,
+          "chunk": 72,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 38,
+          "chunk_id": 72
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 38,
+          "chunk_id": 71
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 175,
+          "chunk_id": 336
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 445,
+          "chunk_id": 836
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 34,
+          "chunk_id": 63
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 453,
+          "chunk_id": 856
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 28,
+          "chunk_id": 50
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 459,
+          "chunk_id": 862
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 28,
+          "chunk_id": 51
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 93,
+          "chunk_id": 165
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 38,
+          "chunk": 72
+        },
+        {
+          "rank": 2,
+          "page": 38,
+          "chunk": 71
+        },
+        {
+          "rank": 3,
+          "page": 445,
+          "chunk": 836
+        },
+        {
+          "rank": 4,
+          "page": 459,
+          "chunk": 862
+        },
+        {
+          "rank": 5,
+          "page": 175,
+          "chunk": 336
+        },
+        {
+          "rank": 6,
+          "page": 93,
+          "chunk": 165
+        },
+        {
+          "rank": 7,
+          "page": 453,
+          "chunk": 856
+        },
+        {
+          "rank": 8,
+          "page": 34,
+          "chunk": 63
+        },
+        {
+          "rank": 9,
+          "page": 28,
+          "chunk": 50
+        },
+        {
+          "rank": 10,
+          "page": 28,
+          "chunk": 51
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.45534750004299,
+      "total_search_latency_seconds": 3.766378400148824,
+      "input_tokens": 3863,
+      "output_tokens": 295
+    },
+    {
+      "question_id": "U50-008",
+      "chapter_no": "2",
+      "chapter_name": "2. 안전 및 주의 사항",
+      "question_type": "condition",
+      "question": "어린이나 임산부가 동승석에 앉아도 되나요?",
+      "expected_page": 32,
+      "expected_chunk": 59,
+      "acceptable_evidence": [
+        {
+          "page": 32,
+          "chunk": 59,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 32,
+          "chunk": 58,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 32,
+          "chunk_id": 59
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 74,
+          "chunk_id": 135
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 32,
+          "chunk_id": 58
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 63,
+          "chunk_id": 115
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 75,
+          "chunk_id": 137
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 62,
+          "chunk_id": 113
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 66,
+          "chunk_id": 121
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 84,
+          "chunk_id": 151
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 43,
+          "chunk_id": 84
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 75,
+          "chunk_id": 136
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 32,
+          "chunk": 59
+        },
+        {
+          "rank": 2,
+          "page": 32,
+          "chunk": 58
+        },
+        {
+          "rank": 3,
+          "page": 75,
+          "chunk": 136
+        },
+        {
+          "rank": 4,
+          "page": 74,
+          "chunk": 135
+        },
+        {
+          "rank": 5,
+          "page": 84,
+          "chunk": 151
+        },
+        {
+          "rank": 6,
+          "page": 75,
+          "chunk": 137
+        },
+        {
+          "rank": 7,
+          "page": 62,
+          "chunk": 113
+        },
+        {
+          "rank": 8,
+          "page": 63,
+          "chunk": 115
+        },
+        {
+          "rank": 9,
+          "page": 66,
+          "chunk": 121
+        },
+        {
+          "rank": 10,
+          "page": 43,
+          "chunk": 84
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.612864699913189,
+      "total_search_latency_seconds": 3.935198900057003,
+      "input_tokens": 3762,
+      "output_tokens": 294
+    },
+    {
+      "question_id": "U50-009",
+      "chapter_no": "2",
+      "chapter_name": "2. 안전 및 주의 사항",
+      "question_type": "warning",
+      "question": "트렁크를 연 채로 주행해도 괜찮은가요?",
+      "expected_page": 34,
+      "expected_chunk": 63,
+      "acceptable_evidence": [
+        {
+          "page": 34,
+          "chunk": 63,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": null,
+      "after_rank": null,
+      "rank_delta": null,
+      "candidate_miss": true,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 165,
+          "chunk_id": 320
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 170,
+          "chunk_id": 327
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 164,
+          "chunk_id": 318
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 408,
+          "chunk_id": 766
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 170,
+          "chunk_id": 328
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 166,
+          "chunk_id": 322
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 171,
+          "chunk_id": 329
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 172,
+          "chunk_id": 330
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 110,
+          "chunk_id": 202
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 168,
+          "chunk_id": 325
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 165,
+          "chunk": 320
+        },
+        {
+          "rank": 2,
+          "page": 408,
+          "chunk": 766
+        },
+        {
+          "rank": 3,
+          "page": 170,
+          "chunk": 328
+        },
+        {
+          "rank": 4,
+          "page": 164,
+          "chunk": 318
+        },
+        {
+          "rank": 5,
+          "page": 170,
+          "chunk": 327
+        },
+        {
+          "rank": 6,
+          "page": 166,
+          "chunk": 322
+        },
+        {
+          "rank": 7,
+          "page": 171,
+          "chunk": 329
+        },
+        {
+          "rank": 8,
+          "page": 172,
+          "chunk": 330
+        },
+        {
+          "rank": 9,
+          "page": 168,
+          "chunk": 325
+        },
+        {
+          "rank": 10,
+          "page": 110,
+          "chunk": 202
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.1438849000260234,
+      "total_search_latency_seconds": 3.447122900048271,
+      "input_tokens": 3913,
+      "output_tokens": 254
+    },
+    {
+      "question_id": "U50-010",
+      "chapter_no": "2",
+      "chapter_name": "2. 안전 및 주의 사항",
+      "question_type": "maintenance",
+      "question": "가죽 시트가 젖었을 때는 무엇을 주의해야 하나요?",
+      "expected_page": 36,
+      "expected_chunk": 66,
+      "acceptable_evidence": [
+        {
+          "page": 36,
+          "chunk": 66,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": null,
+      "after_rank": null,
+      "rank_delta": null,
+      "candidate_miss": true,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 495,
+          "chunk_id": 920
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 494,
+          "chunk_id": 919
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 494,
+          "chunk_id": 918
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 495,
+          "chunk_id": 921
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 496,
+          "chunk_id": 923
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 58,
+          "chunk_id": 105
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 76,
+          "chunk_id": 138
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 62,
+          "chunk_id": 114
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 468,
+          "chunk_id": 875
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 62,
+          "chunk_id": 113
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 495,
+          "chunk": 920
+        },
+        {
+          "rank": 2,
+          "page": 494,
+          "chunk": 919
+        },
+        {
+          "rank": 3,
+          "page": 76,
+          "chunk": 138
+        },
+        {
+          "rank": 4,
+          "page": 495,
+          "chunk": 921
+        },
+        {
+          "rank": 5,
+          "page": 496,
+          "chunk": 923
+        },
+        {
+          "rank": 6,
+          "page": 494,
+          "chunk": 918
+        },
+        {
+          "rank": 7,
+          "page": 58,
+          "chunk": 105
+        },
+        {
+          "rank": 8,
+          "page": 62,
+          "chunk": 114
+        },
+        {
+          "rank": 9,
+          "page": 62,
+          "chunk": 113
+        },
+        {
+          "rank": 10,
+          "page": 468,
+          "chunk": 875
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.128278100164607,
+      "total_search_latency_seconds": 3.445438399910927,
+      "input_tokens": 5234,
+      "output_tokens": 241
+    },
+    {
+      "question_id": "U50-011",
+      "chapter_no": "3",
+      "chapter_name": "3. 시트 및 안전 장치",
+      "question_type": "procedure",
+      "question": "앞좌석 열선 시트의 온도 단계는 어떻게 조절하나요?",
+      "expected_page": 54,
+      "expected_chunk": 98,
+      "acceptable_evidence": [
+        {
+          "page": 54,
+          "chunk": 98,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 55,
+          "chunk": 99,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 54,
+          "chunk_id": 98
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 55,
+          "chunk_id": 99
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 40,
+          "chunk_id": 80
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 41,
+          "chunk_id": 81
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 44,
+          "chunk_id": 85
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 56,
+          "chunk_id": 101
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 220,
+          "chunk_id": 403
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 39,
+          "chunk_id": 75
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 39,
+          "chunk_id": 74
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 217,
+          "chunk_id": 400
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 54,
+          "chunk": 98
+        },
+        {
+          "rank": 2,
+          "page": 55,
+          "chunk": 99
+        },
+        {
+          "rank": 3,
+          "page": 56,
+          "chunk": 101
+        },
+        {
+          "rank": 4,
+          "page": 39,
+          "chunk": 74
+        },
+        {
+          "rank": 5,
+          "page": 39,
+          "chunk": 75
+        },
+        {
+          "rank": 6,
+          "page": 40,
+          "chunk": 80
+        },
+        {
+          "rank": 7,
+          "page": 41,
+          "chunk": 81
+        },
+        {
+          "rank": 8,
+          "page": 44,
+          "chunk": 85
+        },
+        {
+          "rank": 9,
+          "page": 217,
+          "chunk": 400
+        },
+        {
+          "rank": 10,
+          "page": 220,
+          "chunk": 403
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.821393399965018,
+      "total_search_latency_seconds": 3.126477299956605,
+      "input_tokens": 3755,
+      "output_tokens": 212
+    },
+    {
+      "question_id": "U50-012",
+      "chapter_no": "3",
+      "chapter_name": "3. 시트 및 안전 장치",
+      "question_type": "condition",
+      "question": "릴렉션 컴포트 시트가 작동하지 않는 경우는 언제인가요?",
+      "expected_page": 47,
+      "expected_chunk": 88,
+      "acceptable_evidence": [
+        {
+          "page": 47,
+          "chunk": 88,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 1,
+      "rank_delta": 1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 166,
+          "chunk_id": 321
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 47,
+          "chunk_id": 88
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 168,
+          "chunk_id": 325
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 47,
+          "chunk_id": 89
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 76,
+          "chunk_id": 138
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 56,
+          "chunk_id": 101
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 56,
+          "chunk_id": 102
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 110,
+          "chunk_id": 202
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 46,
+          "chunk_id": 87
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 142,
+          "chunk_id": 279
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 47,
+          "chunk": 88
+        },
+        {
+          "rank": 2,
+          "page": 47,
+          "chunk": 89
+        },
+        {
+          "rank": 3,
+          "page": 46,
+          "chunk": 87
+        },
+        {
+          "rank": 4,
+          "page": 76,
+          "chunk": 138
+        },
+        {
+          "rank": 5,
+          "page": 166,
+          "chunk": 321
+        },
+        {
+          "rank": 6,
+          "page": 168,
+          "chunk": 325
+        },
+        {
+          "rank": 7,
+          "page": 56,
+          "chunk": 101
+        },
+        {
+          "rank": 8,
+          "page": 56,
+          "chunk": 102
+        },
+        {
+          "rank": 9,
+          "page": 110,
+          "chunk": 202
+        },
+        {
+          "rank": 10,
+          "page": 142,
+          "chunk": 279
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.5006167001556605,
+      "total_search_latency_seconds": 3.846780200023204,
+      "input_tokens": 4611,
+      "output_tokens": 277
+    },
+    {
+      "question_id": "U50-013",
+      "chapter_no": "3",
+      "chapter_name": "3. 시트 및 안전 장치",
+      "question_type": "warning",
+      "question": "열선 시트를 사용할 때 배터리 방전을 막으려면 어떤 점에 주의해야 하나요?",
+      "expected_page": 55,
+      "expected_chunk": 100,
+      "acceptable_evidence": [
+        {
+          "page": 55,
+          "chunk": 100,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 1,
+      "rank_delta": 1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 475,
+          "chunk_id": 885
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 55,
+          "chunk_id": 100
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 429,
+          "chunk_id": 807
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 429,
+          "chunk_id": 808
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 477,
+          "chunk_id": 888
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 39,
+          "chunk_id": 75
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 475,
+          "chunk_id": 886
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 56,
+          "chunk_id": 102
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 297,
+          "chunk_id": 559
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 55,
+          "chunk_id": 99
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 55,
+          "chunk": 100
+        },
+        {
+          "rank": 2,
+          "page": 55,
+          "chunk": 99
+        },
+        {
+          "rank": 3,
+          "page": 475,
+          "chunk": 886
+        },
+        {
+          "rank": 4,
+          "page": 475,
+          "chunk": 885
+        },
+        {
+          "rank": 5,
+          "page": 429,
+          "chunk": 807
+        },
+        {
+          "rank": 6,
+          "page": 429,
+          "chunk": 808
+        },
+        {
+          "rank": 7,
+          "page": 56,
+          "chunk": 102
+        },
+        {
+          "rank": 8,
+          "page": 39,
+          "chunk": 75
+        },
+        {
+          "rank": 9,
+          "page": 477,
+          "chunk": 888
+        },
+        {
+          "rank": 10,
+          "page": 297,
+          "chunk": 559
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.0499124999623746,
+      "total_search_latency_seconds": 3.4040226999204606,
+      "input_tokens": 4448,
+      "output_tokens": 229
+    },
+    {
+      "question_id": "U50-014",
+      "chapter_no": "3",
+      "chapter_name": "3. 시트 및 안전 장치",
+      "question_type": "procedure",
+      "question": "스키 스루로 긴 화물을 적재하려면 어떻게 해야 하나요?",
+      "expected_page": 53,
+      "expected_chunk": 96,
+      "acceptable_evidence": [
+        {
+          "page": 53,
+          "chunk": 96,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 1,
+      "rank_delta": 1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 53,
+          "chunk_id": 97
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 53,
+          "chunk_id": 96
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 445,
+          "chunk_id": 836
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 491,
+          "chunk_id": 913
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 118,
+          "chunk_id": 230
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 439,
+          "chunk_id": 825
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 491,
+          "chunk_id": 912
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 161,
+          "chunk_id": 313
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 174,
+          "chunk_id": 334
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 442,
+          "chunk_id": 830
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 53,
+          "chunk": 96
+        },
+        {
+          "rank": 2,
+          "page": 53,
+          "chunk": 97
+        },
+        {
+          "rank": 3,
+          "page": 442,
+          "chunk": 830
+        },
+        {
+          "rank": 4,
+          "page": 439,
+          "chunk": 825
+        },
+        {
+          "rank": 5,
+          "page": 445,
+          "chunk": 836
+        },
+        {
+          "rank": 6,
+          "page": 491,
+          "chunk": 913
+        },
+        {
+          "rank": 7,
+          "page": 118,
+          "chunk": 230
+        },
+        {
+          "rank": 8,
+          "page": 491,
+          "chunk": 912
+        },
+        {
+          "rank": 9,
+          "page": 161,
+          "chunk": 313
+        },
+        {
+          "rank": 10,
+          "page": 174,
+          "chunk": 334
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.7210546999704093,
+      "total_search_latency_seconds": 3.026710700010881,
+      "input_tokens": 4191,
+      "output_tokens": 190
+    },
+    {
+      "question_id": "U50-015",
+      "chapter_no": "3",
+      "chapter_name": "3. 시트 및 안전 장치",
+      "question_type": "setting",
+      "question": "운전석 통풍 시트가 차량 온도에 따라 자동으로 작동하도록 설정하려면 어떻게 하나요?",
+      "expected_page": 56,
+      "expected_chunk": 102,
+      "acceptable_evidence": [
+        {
+          "page": 56,
+          "chunk": 102,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 3,
+      "after_rank": 1,
+      "rank_delta": 2,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 54,
+          "chunk_id": 98
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 56,
+          "chunk_id": 101
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 56,
+          "chunk_id": 102
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 217,
+          "chunk_id": 400
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 210,
+          "chunk_id": 390
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 216,
+          "chunk_id": 398
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 220,
+          "chunk_id": 403
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 168,
+          "chunk_id": 324
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 216,
+          "chunk_id": 399
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 222,
+          "chunk_id": 406
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 56,
+          "chunk": 102
+        },
+        {
+          "rank": 2,
+          "page": 54,
+          "chunk": 98
+        },
+        {
+          "rank": 3,
+          "page": 56,
+          "chunk": 101
+        },
+        {
+          "rank": 4,
+          "page": 217,
+          "chunk": 400
+        },
+        {
+          "rank": 5,
+          "page": 216,
+          "chunk": 398
+        },
+        {
+          "rank": 6,
+          "page": 216,
+          "chunk": 399
+        },
+        {
+          "rank": 7,
+          "page": 220,
+          "chunk": 403
+        },
+        {
+          "rank": 8,
+          "page": 210,
+          "chunk": 390
+        },
+        {
+          "rank": 9,
+          "page": 222,
+          "chunk": 406
+        },
+        {
+          "rank": 10,
+          "page": 168,
+          "chunk": 324
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.920168799813837,
+      "total_search_latency_seconds": 4.237958499928936,
+      "input_tokens": 4284,
+      "output_tokens": 244
+    },
+    {
+      "question_id": "U50-016",
+      "chapter_no": "3",
+      "chapter_name": "3. 시트 및 안전 장치",
+      "question_type": "troubleshooting",
+      "question": "동승석에 앉았을 때 PASSENGER AIR BAG OFF 표시등이 계속 켜져 있으면 어떻게 해야 하나요?",
+      "expected_page": 74,
+      "expected_chunk": 134,
+      "acceptable_evidence": [
+        {
+          "page": 74,
+          "chunk": 134,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 1,
+      "rank_delta": 1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 74,
+          "chunk_id": 135
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 74,
+          "chunk_id": 134
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 76,
+          "chunk_id": 138
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 75,
+          "chunk_id": 136
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 72,
+          "chunk_id": 131
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 73,
+          "chunk_id": 133
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 69,
+          "chunk_id": 125
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 84,
+          "chunk_id": 151
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 68,
+          "chunk_id": 123
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 79,
+          "chunk_id": 143
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 74,
+          "chunk": 134
+        },
+        {
+          "rank": 2,
+          "page": 74,
+          "chunk": 135
+        },
+        {
+          "rank": 3,
+          "page": 75,
+          "chunk": 136
+        },
+        {
+          "rank": 4,
+          "page": 76,
+          "chunk": 138
+        },
+        {
+          "rank": 5,
+          "page": 73,
+          "chunk": 133
+        },
+        {
+          "rank": 6,
+          "page": 69,
+          "chunk": 125
+        },
+        {
+          "rank": 7,
+          "page": 84,
+          "chunk": 151
+        },
+        {
+          "rank": 8,
+          "page": 72,
+          "chunk": 131
+        },
+        {
+          "rank": 9,
+          "page": 68,
+          "chunk": 123
+        },
+        {
+          "rank": 10,
+          "page": 79,
+          "chunk": 143
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.034100200049579,
+      "total_search_latency_seconds": 3.343606899958104,
+      "input_tokens": 4122,
+      "output_tokens": 241
+    },
+    {
+      "question_id": "U50-017",
+      "chapter_no": "4",
+      "chapter_name": "4. 클러스터",
+      "question_type": "warning",
+      "question": "시동 후에도 ABS 경고등이 계속 켜져 있으면 어떻게 해야 하나요?",
+      "expected_page": 92,
+      "expected_chunk": 163,
+      "acceptable_evidence": [
+        {
+          "page": 92,
+          "chunk": 163,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 5,
+      "after_rank": 2,
+      "rank_delta": 3,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 282,
+          "chunk_id": 524
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 93,
+          "chunk_id": 164
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 282,
+          "chunk_id": 525
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 282,
+          "chunk_id": 523
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 92,
+          "chunk_id": 163
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 413,
+          "chunk_id": 775
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 426,
+          "chunk_id": 802
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 286,
+          "chunk_id": 534
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 336,
+          "chunk_id": 640
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 393,
+          "chunk_id": 738
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 93,
+          "chunk": 164
+        },
+        {
+          "rank": 2,
+          "page": 92,
+          "chunk": 163
+        },
+        {
+          "rank": 3,
+          "page": 282,
+          "chunk": 524
+        },
+        {
+          "rank": 4,
+          "page": 282,
+          "chunk": 525
+        },
+        {
+          "rank": 5,
+          "page": 426,
+          "chunk": 802
+        },
+        {
+          "rank": 6,
+          "page": 282,
+          "chunk": 523
+        },
+        {
+          "rank": 7,
+          "page": 286,
+          "chunk": 534
+        },
+        {
+          "rank": 8,
+          "page": 413,
+          "chunk": 775
+        },
+        {
+          "rank": 9,
+          "page": 336,
+          "chunk": 640
+        },
+        {
+          "rank": 10,
+          "page": 393,
+          "chunk": 738
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.8710272000171244,
+      "total_search_latency_seconds": 3.382100900169462,
+      "input_tokens": 5058,
+      "output_tokens": 241
+    },
+    {
+      "question_id": "U50-018",
+      "chapter_no": "4",
+      "chapter_name": "4. 클러스터",
+      "question_type": "condition",
+      "question": "등록된 디지털 키를 무선 충전기에 올려놓으라는 경고는 어떤 상황에서 나타나나요?",
+      "expected_page": 101,
+      "expected_chunk": 181,
+      "acceptable_evidence": [
+        {
+          "page": 101,
+          "chunk": 181,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 101,
+          "chunk_id": 181
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 101,
+          "chunk_id": 180
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 135,
+          "chunk_id": 265
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 131,
+          "chunk_id": 256
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 238,
+          "chunk_id": 433
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 100,
+          "chunk_id": 177
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 127,
+          "chunk_id": 250
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 127,
+          "chunk_id": 249
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 141,
+          "chunk_id": 277
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 120,
+          "chunk_id": 235
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 101,
+          "chunk": 181
+        },
+        {
+          "rank": 2,
+          "page": 101,
+          "chunk": 180
+        },
+        {
+          "rank": 3,
+          "page": 100,
+          "chunk": 177
+        },
+        {
+          "rank": 4,
+          "page": 127,
+          "chunk": 250
+        },
+        {
+          "rank": 5,
+          "page": 127,
+          "chunk": 249
+        },
+        {
+          "rank": 6,
+          "page": 131,
+          "chunk": 256
+        },
+        {
+          "rank": 7,
+          "page": 238,
+          "chunk": 433
+        },
+        {
+          "rank": 8,
+          "page": 135,
+          "chunk": 265
+        },
+        {
+          "rank": 9,
+          "page": 120,
+          "chunk": 235
+        },
+        {
+          "rank": 10,
+          "page": 141,
+          "chunk": 277
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 4.373259600019082,
+      "total_search_latency_seconds": 4.683900299947709,
+      "input_tokens": 4036,
+      "output_tokens": 348
+    },
+    {
+      "question_id": "U50-019",
+      "chapter_no": "4",
+      "chapter_name": "4. 클러스터",
+      "question_type": "troubleshooting",
+      "question": "주행 중 엔진 오일 압력 경고등이 켜지면 우선 어떤 조치를 해야 하나요?",
+      "expected_page": 94,
+      "expected_chunk": 166,
+      "acceptable_evidence": [
+        {
+          "page": 94,
+          "chunk": 166,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 94,
+          "chunk_id": 166
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 27,
+          "chunk_id": 47
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 465,
+          "chunk_id": 870
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 94,
+          "chunk_id": 167
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 425,
+          "chunk_id": 797
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 93,
+          "chunk_id": 164
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 425,
+          "chunk_id": 796
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 426,
+          "chunk_id": 802
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 463,
+          "chunk_id": 866
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 101,
+          "chunk_id": 180
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 94,
+          "chunk": 166
+        },
+        {
+          "rank": 2,
+          "page": 465,
+          "chunk": 870
+        },
+        {
+          "rank": 3,
+          "page": 463,
+          "chunk": 866
+        },
+        {
+          "rank": 4,
+          "page": 426,
+          "chunk": 802
+        },
+        {
+          "rank": 5,
+          "page": 94,
+          "chunk": 167
+        },
+        {
+          "rank": 6,
+          "page": 93,
+          "chunk": 164
+        },
+        {
+          "rank": 7,
+          "page": 27,
+          "chunk": 47
+        },
+        {
+          "rank": 8,
+          "page": 425,
+          "chunk": 797
+        },
+        {
+          "rank": 9,
+          "page": 425,
+          "chunk": 796
+        },
+        {
+          "rank": 10,
+          "page": 101,
+          "chunk": 180
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.636148300021887,
+      "total_search_latency_seconds": 3.959846599958837,
+      "input_tokens": 4133,
+      "output_tokens": 284
+    },
+    {
+      "question_id": "U50-020",
+      "chapter_no": "4",
+      "chapter_name": "4. 클러스터",
+      "question_type": "feature",
+      "question": "외기 온도 표시 단위를 변경하면 공조 장치의 온도 단위도 함께 바뀌나요?",
+      "expected_page": 89,
+      "expected_chunk": 158,
+      "acceptable_evidence": [
+        {
+          "page": 89,
+          "chunk": 158,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 89,
+          "chunk": 157,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 89,
+          "chunk_id": 158
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 89,
+          "chunk_id": 157
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 112,
+          "chunk_id": 214
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 222,
+          "chunk_id": 406
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 219,
+          "chunk_id": 402
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 220,
+          "chunk_id": 403
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 211,
+          "chunk_id": 391
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 223,
+          "chunk_id": 407
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 56,
+          "chunk_id": 102
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 217,
+          "chunk_id": 400
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 89,
+          "chunk": 157
+        },
+        {
+          "rank": 2,
+          "page": 89,
+          "chunk": 158
+        },
+        {
+          "rank": 3,
+          "page": 219,
+          "chunk": 402
+        },
+        {
+          "rank": 4,
+          "page": 217,
+          "chunk": 400
+        },
+        {
+          "rank": 5,
+          "page": 220,
+          "chunk": 403
+        },
+        {
+          "rank": 6,
+          "page": 211,
+          "chunk": 391
+        },
+        {
+          "rank": 7,
+          "page": 112,
+          "chunk": 214
+        },
+        {
+          "rank": 8,
+          "page": 222,
+          "chunk": 406
+        },
+        {
+          "rank": 9,
+          "page": 223,
+          "chunk": 407
+        },
+        {
+          "rank": 10,
+          "page": 56,
+          "chunk": 102
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 4.510212500113994,
+      "total_search_latency_seconds": 4.84851979999803,
+      "input_tokens": 4069,
+      "output_tokens": 350
+    },
+    {
+      "question_id": "U50-021",
+      "chapter_no": "4",
+      "chapter_name": "4. 클러스터",
+      "question_type": "procedure",
+      "question": "인포테인먼트 시스템에서 차량 설정을 변경하려면 어떤 메뉴로 들어가야 하나요?",
+      "expected_page": 107,
+      "expected_chunk": 188,
+      "acceptable_evidence": [
+        {
+          "page": 107,
+          "chunk": 188,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 3,
+      "after_rank": 1,
+      "rank_delta": 2,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 42,
+          "chunk_id": 82
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 130,
+          "chunk_id": 255
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 107,
+          "chunk_id": 188
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 294,
+          "chunk_id": 551
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 85,
+          "chunk_id": 153
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 505,
+          "chunk_id": 940
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 87,
+          "chunk_id": 155
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 132,
+          "chunk_id": 258
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 242,
+          "chunk_id": 440
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 133,
+          "chunk_id": 260
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 107,
+          "chunk": 188
+        },
+        {
+          "rank": 2,
+          "page": 85,
+          "chunk": 153
+        },
+        {
+          "rank": 3,
+          "page": 130,
+          "chunk": 255
+        },
+        {
+          "rank": 4,
+          "page": 42,
+          "chunk": 82
+        },
+        {
+          "rank": 5,
+          "page": 294,
+          "chunk": 551
+        },
+        {
+          "rank": 6,
+          "page": 87,
+          "chunk": 155
+        },
+        {
+          "rank": 7,
+          "page": 505,
+          "chunk": 940
+        },
+        {
+          "rank": 8,
+          "page": 132,
+          "chunk": 258
+        },
+        {
+          "rank": 9,
+          "page": 133,
+          "chunk": 260
+        },
+        {
+          "rank": 10,
+          "page": 242,
+          "chunk": 440
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.945591599913314,
+      "total_search_latency_seconds": 4.257196000078693,
+      "input_tokens": 4182,
+      "output_tokens": 352
+    },
+    {
+      "question_id": "U50-022",
+      "chapter_no": "5",
+      "chapter_name": "5. 편의 장치",
+      "question_type": "troubleshooting",
+      "question": "하이패스 LED가 빨간색으로 계속 깜빡이고 점검 안내 음성이 나오면 어떻게 해야 하나요?",
+      "expected_page": 153,
+      "expected_chunk": 300,
+      "acceptable_evidence": [
+        {
+          "page": 153,
+          "chunk": 300,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 153,
+          "chunk": 299,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 153,
+          "chunk_id": 300
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 153,
+          "chunk_id": 299
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 387,
+          "chunk_id": 726
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 97,
+          "chunk_id": 172
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 392,
+          "chunk_id": 736
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 97,
+          "chunk_id": 173
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 92,
+          "chunk_id": 162
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 408,
+          "chunk_id": 766
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 387,
+          "chunk_id": 725
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 418,
+          "chunk_id": 784
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 153,
+          "chunk": 300
+        },
+        {
+          "rank": 2,
+          "page": 153,
+          "chunk": 299
+        },
+        {
+          "rank": 3,
+          "page": 387,
+          "chunk": 726
+        },
+        {
+          "rank": 4,
+          "page": 387,
+          "chunk": 725
+        },
+        {
+          "rank": 5,
+          "page": 97,
+          "chunk": 173
+        },
+        {
+          "rank": 6,
+          "page": 418,
+          "chunk": 784
+        },
+        {
+          "rank": 7,
+          "page": 97,
+          "chunk": 172
+        },
+        {
+          "rank": 8,
+          "page": 392,
+          "chunk": 736
+        },
+        {
+          "rank": 9,
+          "page": 92,
+          "chunk": 162
+        },
+        {
+          "rank": 10,
+          "page": 408,
+          "chunk": 766
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.157381400000304,
+      "total_search_latency_seconds": 3.474659299943596,
+      "input_tokens": 4135,
+      "output_tokens": 258
+    },
+    {
+      "question_id": "U50-023",
+      "chapter_no": "5",
+      "chapter_name": "5. 편의 장치",
+      "question_type": "procedure",
+      "question": "빌트인 캠의 SD 메모리를 안전하게 제거하려면 어떤 절차를 거쳐야 하나요?",
+      "expected_page": 181,
+      "expected_chunk": 345,
+      "acceptable_evidence": [
+        {
+          "page": 181,
+          "chunk": 345,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 181,
+          "chunk_id": 345
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 183,
+          "chunk_id": 349
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 188,
+          "chunk_id": 357
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 111,
+          "chunk_id": 206
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 182,
+          "chunk_id": 346
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 164,
+          "chunk_id": 317
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 61,
+          "chunk_id": 112
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 423,
+          "chunk_id": 793
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 170,
+          "chunk_id": 327
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 166,
+          "chunk_id": 322
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 181,
+          "chunk": 345
+        },
+        {
+          "rank": 2,
+          "page": 182,
+          "chunk": 346
+        },
+        {
+          "rank": 3,
+          "page": 183,
+          "chunk": 349
+        },
+        {
+          "rank": 4,
+          "page": 188,
+          "chunk": 357
+        },
+        {
+          "rank": 5,
+          "page": 111,
+          "chunk": 206
+        },
+        {
+          "rank": 6,
+          "page": 164,
+          "chunk": 317
+        },
+        {
+          "rank": 7,
+          "page": 61,
+          "chunk": 112
+        },
+        {
+          "rank": 8,
+          "page": 423,
+          "chunk": 793
+        },
+        {
+          "rank": 9,
+          "page": 170,
+          "chunk": 327
+        },
+        {
+          "rank": 10,
+          "page": 166,
+          "chunk": 322
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.4175239000469446,
+      "total_search_latency_seconds": 2.714486700017005,
+      "input_tokens": 4448,
+      "output_tokens": 201
+    },
+    {
+      "question_id": "U50-024",
+      "chapter_no": "5",
+      "chapter_name": "5. 편의 장치",
+      "question_type": "procedure",
+      "question": "실내 인증 패드를 이용해 NFC 카드 키를 등록하려면 어떻게 해야 하나요?",
+      "expected_page": 126,
+      "expected_chunk": 248,
+      "acceptable_evidence": [
+        {
+          "page": 126,
+          "chunk": 248,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 126,
+          "chunk_id": 248
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 131,
+          "chunk_id": 257
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 122,
+          "chunk_id": 238
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 128,
+          "chunk_id": 251
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 126,
+          "chunk_id": 247
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 127,
+          "chunk_id": 249
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 127,
+          "chunk_id": 250
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 121,
+          "chunk_id": 237
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 123,
+          "chunk_id": 240
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 123,
+          "chunk_id": 241
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 126,
+          "chunk": 248
+        },
+        {
+          "rank": 2,
+          "page": 126,
+          "chunk": 247
+        },
+        {
+          "rank": 3,
+          "page": 127,
+          "chunk": 249
+        },
+        {
+          "rank": 4,
+          "page": 128,
+          "chunk": 251
+        },
+        {
+          "rank": 5,
+          "page": 127,
+          "chunk": 250
+        },
+        {
+          "rank": 6,
+          "page": 122,
+          "chunk": 238
+        },
+        {
+          "rank": 7,
+          "page": 131,
+          "chunk": 257
+        },
+        {
+          "rank": 8,
+          "page": 121,
+          "chunk": 237
+        },
+        {
+          "rank": 9,
+          "page": 123,
+          "chunk": 240
+        },
+        {
+          "rank": 10,
+          "page": 123,
+          "chunk": 241
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.214078800054267,
+      "total_search_latency_seconds": 3.5730266999453306,
+      "input_tokens": 4241,
+      "output_tokens": 267
+    },
+    {
+      "question_id": "U50-025",
+      "chapter_no": "5",
+      "chapter_name": "5. 편의 장치",
+      "question_type": "procedure",
+      "question": "하이패스 시스템의 등록 정보를 음성으로 확인하려면 어떤 버튼을 조작해야 하나요?",
+      "expected_page": 155,
+      "expected_chunk": 302,
+      "acceptable_evidence": [
+        {
+          "page": 155,
+          "chunk": 302,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 155,
+          "chunk_id": 302
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 152,
+          "chunk_id": 296
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 154,
+          "chunk_id": 301
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 14,
+          "chunk_id": 26
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 152,
+          "chunk_id": 297
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 153,
+          "chunk_id": 300
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 143,
+          "chunk_id": 281
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 111,
+          "chunk_id": 209
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 102,
+          "chunk_id": 182
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 126,
+          "chunk_id": 248
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 155,
+          "chunk": 302
+        },
+        {
+          "rank": 2,
+          "page": 154,
+          "chunk": 301
+        },
+        {
+          "rank": 3,
+          "page": 152,
+          "chunk": 296
+        },
+        {
+          "rank": 4,
+          "page": 152,
+          "chunk": 297
+        },
+        {
+          "rank": 5,
+          "page": 153,
+          "chunk": 300
+        },
+        {
+          "rank": 6,
+          "page": 14,
+          "chunk": 26
+        },
+        {
+          "rank": 7,
+          "page": 143,
+          "chunk": 281
+        },
+        {
+          "rank": 8,
+          "page": 111,
+          "chunk": 209
+        },
+        {
+          "rank": 9,
+          "page": 102,
+          "chunk": 182
+        },
+        {
+          "rank": 10,
+          "page": 126,
+          "chunk": 248
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.2358023999258876,
+      "total_search_latency_seconds": 3.4922952000051737,
+      "input_tokens": 3144,
+      "output_tokens": 250
+    },
+    {
+      "question_id": "U50-026",
+      "chapter_no": "5",
+      "chapter_name": "5. 편의 장치",
+      "question_type": "condition",
+      "question": "선루프는 어떤 상황에서 초기화해야 하나요?",
+      "expected_page": 162,
+      "expected_chunk": 315,
+      "acceptable_evidence": [
+        {
+          "page": 162,
+          "chunk": 315,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 162,
+          "chunk": 314,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 162,
+          "chunk_id": 315
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 162,
+          "chunk_id": 314
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 110,
+          "chunk_id": 200
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 160,
+          "chunk_id": 310
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 144,
+          "chunk_id": 283
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 487,
+          "chunk_id": 907
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 163,
+          "chunk_id": 316
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 161,
+          "chunk_id": 313
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 8,
+          "chunk_id": 13
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 477,
+          "chunk_id": 889
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 162,
+          "chunk": 315
+        },
+        {
+          "rank": 2,
+          "page": 162,
+          "chunk": 314
+        },
+        {
+          "rank": 3,
+          "page": 477,
+          "chunk": 889
+        },
+        {
+          "rank": 4,
+          "page": 110,
+          "chunk": 200
+        },
+        {
+          "rank": 5,
+          "page": 160,
+          "chunk": 310
+        },
+        {
+          "rank": 6,
+          "page": 163,
+          "chunk": 316
+        },
+        {
+          "rank": 7,
+          "page": 161,
+          "chunk": 313
+        },
+        {
+          "rank": 8,
+          "page": 8,
+          "chunk": 13
+        },
+        {
+          "rank": 9,
+          "page": 144,
+          "chunk": 283
+        },
+        {
+          "rank": 10,
+          "page": 487,
+          "chunk": 907
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 4.487830499885604,
+      "total_search_latency_seconds": 4.811750299995765,
+      "input_tokens": 3815,
+      "output_tokens": 387
+    },
+    {
+      "question_id": "U50-027",
+      "chapter_no": "5",
+      "chapter_name": "5. 편의 장치",
+      "question_type": "feature",
+      "question": "빌트인 캠으로 녹화된 영상을 확인하려면 인포테인먼트 시스템에서 무엇을 선택해야 하나요?",
+      "expected_page": 184,
+      "expected_chunk": 350,
+      "acceptable_evidence": [
+        {
+          "page": 184,
+          "chunk": 350,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 184,
+          "chunk_id": 350
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 178,
+          "chunk_id": 340
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 111,
+          "chunk_id": 205
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 111,
+          "chunk_id": 206
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 188,
+          "chunk_id": 357
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 186,
+          "chunk_id": 353
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 177,
+          "chunk_id": 339
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 185,
+          "chunk_id": 351
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 183,
+          "chunk_id": 348
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 177,
+          "chunk_id": 338
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 184,
+          "chunk": 350
+        },
+        {
+          "rank": 2,
+          "page": 178,
+          "chunk": 340
+        },
+        {
+          "rank": 3,
+          "page": 185,
+          "chunk": 351
+        },
+        {
+          "rank": 4,
+          "page": 183,
+          "chunk": 348
+        },
+        {
+          "rank": 5,
+          "page": 111,
+          "chunk": 206
+        },
+        {
+          "rank": 6,
+          "page": 111,
+          "chunk": 205
+        },
+        {
+          "rank": 7,
+          "page": 177,
+          "chunk": 339
+        },
+        {
+          "rank": 8,
+          "page": 177,
+          "chunk": 338
+        },
+        {
+          "rank": 9,
+          "page": 186,
+          "chunk": 353
+        },
+        {
+          "rank": 10,
+          "page": 188,
+          "chunk": 357
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.8665096000768244,
+      "total_search_latency_seconds": 3.1805569999851286,
+      "input_tokens": 4036,
+      "output_tokens": 217
+    },
+    {
+      "question_id": "U50-028",
+      "chapter_no": "6",
+      "chapter_name": "6. 시동 및 주행",
+      "question_type": "condition",
+      "question": "초기 약 1,500km 동안 저속에서 가속할 때 변속이 매끄럽지 않으면 이상인가요?",
+      "expected_page": 266,
+      "expected_chunk": 494,
+      "acceptable_evidence": [
+        {
+          "page": 266,
+          "chunk": 494,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 266,
+          "chunk_id": 494
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 266,
+          "chunk_id": 493
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 258,
+          "chunk_id": 478
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 259,
+          "chunk_id": 481
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 264,
+          "chunk_id": 490
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 444,
+          "chunk_id": 834
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 273,
+          "chunk_id": 506
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 293,
+          "chunk_id": 548
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 263,
+          "chunk_id": 486
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 263,
+          "chunk_id": 487
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 266,
+          "chunk": 494
+        },
+        {
+          "rank": 2,
+          "page": 266,
+          "chunk": 493
+        },
+        {
+          "rank": 3,
+          "page": 264,
+          "chunk": 490
+        },
+        {
+          "rank": 4,
+          "page": 273,
+          "chunk": 506
+        },
+        {
+          "rank": 5,
+          "page": 263,
+          "chunk": 487
+        },
+        {
+          "rank": 6,
+          "page": 263,
+          "chunk": 486
+        },
+        {
+          "rank": 7,
+          "page": 259,
+          "chunk": 481
+        },
+        {
+          "rank": 8,
+          "page": 258,
+          "chunk": 478
+        },
+        {
+          "rank": 9,
+          "page": 293,
+          "chunk": 548
+        },
+        {
+          "rank": 10,
+          "page": 444,
+          "chunk": 834
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.228921700036153,
+      "total_search_latency_seconds": 3.5424397999886423,
+      "input_tokens": 4242,
+      "output_tokens": 227
+    },
+    {
+      "question_id": "U50-029",
+      "chapter_no": "6",
+      "chapter_name": "6. 시동 및 주행",
+      "question_type": "condition",
+      "question": "전방 차량을 감지하기 어려울 수 있는 상황에는 어떤 경우가 있나요?",
+      "expected_page": 292,
+      "expected_chunk": 546,
+      "acceptable_evidence": [
+        {
+          "page": 292,
+          "chunk": 546,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 2,
+      "rank_delta": -1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 292,
+          "chunk_id": 546
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 369,
+          "chunk_id": 695
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 309,
+          "chunk_id": 595
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 325,
+          "chunk_id": 621
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 355,
+          "chunk_id": 670
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 312,
+          "chunk_id": 599
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 309,
+          "chunk_id": 594
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 295,
+          "chunk_id": 553
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 322,
+          "chunk_id": 617
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 413,
+          "chunk_id": 774
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 309,
+          "chunk": 594
+        },
+        {
+          "rank": 2,
+          "page": 292,
+          "chunk": 546
+        },
+        {
+          "rank": 3,
+          "page": 309,
+          "chunk": 595
+        },
+        {
+          "rank": 4,
+          "page": 369,
+          "chunk": 695
+        },
+        {
+          "rank": 5,
+          "page": 322,
+          "chunk": 617
+        },
+        {
+          "rank": 6,
+          "page": 312,
+          "chunk": 599
+        },
+        {
+          "rank": 7,
+          "page": 325,
+          "chunk": 621
+        },
+        {
+          "rank": 8,
+          "page": 355,
+          "chunk": 670
+        },
+        {
+          "rank": 9,
+          "page": 295,
+          "chunk": 553
+        },
+        {
+          "rank": 10,
+          "page": 413,
+          "chunk": 774
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.855491900118068,
+      "total_search_latency_seconds": 4.1515500000678,
+      "input_tokens": 4540,
+      "output_tokens": 305
+    },
+    {
+      "question_id": "U50-030",
+      "chapter_no": "6",
+      "chapter_name": "6. 시동 및 주행",
+      "question_type": "feature",
+      "question": "변속 잠금 장치의 목적은 무엇인가요?",
+      "expected_page": 269,
+      "expected_chunk": 500,
+      "acceptable_evidence": [
+        {
+          "page": 269,
+          "chunk": 500,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": null,
+      "after_rank": null,
+      "rank_delta": null,
+      "candidate_miss": true,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 138,
+          "chunk_id": 270
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 109,
+          "chunk_id": 194
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 136,
+          "chunk_id": 266
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 116,
+          "chunk_id": 225
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 148,
+          "chunk_id": 289
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 148,
+          "chunk_id": 290
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 142,
+          "chunk_id": 278
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 115,
+          "chunk_id": 224
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 115,
+          "chunk_id": 223
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 240,
+          "chunk_id": 436
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 138,
+          "chunk": 270
+        },
+        {
+          "rank": 2,
+          "page": 240,
+          "chunk": 436
+        },
+        {
+          "rank": 3,
+          "page": 115,
+          "chunk": 223
+        },
+        {
+          "rank": 4,
+          "page": 109,
+          "chunk": 194
+        },
+        {
+          "rank": 5,
+          "page": 136,
+          "chunk": 266
+        },
+        {
+          "rank": 6,
+          "page": 116,
+          "chunk": 225
+        },
+        {
+          "rank": 7,
+          "page": 115,
+          "chunk": 224
+        },
+        {
+          "rank": 8,
+          "page": 142,
+          "chunk": 278
+        },
+        {
+          "rank": 9,
+          "page": 148,
+          "chunk": 289
+        },
+        {
+          "rank": 10,
+          "page": 148,
+          "chunk": 290
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 4.509225499816239,
+      "total_search_latency_seconds": 4.833332800073549,
+      "input_tokens": 4586,
+      "output_tokens": 375
+    },
+    {
+      "question_id": "U50-031",
+      "chapter_no": "6",
+      "chapter_name": "6. 시동 및 주행",
+      "question_type": "warning",
+      "question": "가로등이 없는 어두운 길을 운전할 때 어떻게 주행해야 하나요?",
+      "expected_page": 296,
+      "expected_chunk": 557,
+      "acceptable_evidence": [
+        {
+          "page": 296,
+          "chunk": 557,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 296,
+          "chunk": 556,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 4,
+      "after_rank": 1,
+      "rank_delta": 3,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 375,
+          "chunk_id": 705
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 323,
+          "chunk_id": 619
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 384,
+          "chunk_id": 720
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 296,
+          "chunk_id": 557
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 350,
+          "chunk_id": 663
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 310,
+          "chunk_id": 597
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 325,
+          "chunk_id": 621
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 383,
+          "chunk_id": 718
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 295,
+          "chunk_id": 553
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 339,
+          "chunk_id": 646
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 296,
+          "chunk": 557
+        },
+        {
+          "rank": 2,
+          "page": 350,
+          "chunk": 663
+        },
+        {
+          "rank": 3,
+          "page": 295,
+          "chunk": 553
+        },
+        {
+          "rank": 4,
+          "page": 323,
+          "chunk": 619
+        },
+        {
+          "rank": 5,
+          "page": 310,
+          "chunk": 597
+        },
+        {
+          "rank": 6,
+          "page": 325,
+          "chunk": 621
+        },
+        {
+          "rank": 7,
+          "page": 339,
+          "chunk": 646
+        },
+        {
+          "rank": 8,
+          "page": 384,
+          "chunk": 720
+        },
+        {
+          "rank": 9,
+          "page": 383,
+          "chunk": 718
+        },
+        {
+          "rank": 10,
+          "page": 375,
+          "chunk": 705
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.3932922000531107,
+      "total_search_latency_seconds": 3.6982411998324096,
+      "input_tokens": 4288,
+      "output_tokens": 224
+    },
+    {
+      "question_id": "U50-032",
+      "chapter_no": "6",
+      "chapter_name": "6. 시동 및 주행",
+      "question_type": "procedure",
+      "question": "LPI 엔진은 시동 대기 표시등이 켜진 뒤 어떻게 시동을 걸어야 하나요?",
+      "expected_page": 248,
+      "expected_chunk": 460,
+      "acceptable_evidence": [
+        {
+          "page": 248,
+          "chunk": 460,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 4,
+      "after_rank": 1,
+      "rank_delta": 3,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 425,
+          "chunk_id": 798
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 7,
+          "chunk_id": 10
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 175,
+          "chunk_id": 336
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 248,
+          "chunk_id": 460
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 248,
+          "chunk_id": 461
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 425,
+          "chunk_id": 797
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 290,
+          "chunk_id": 541
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 100,
+          "chunk_id": 178
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 28,
+          "chunk_id": 51
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 465,
+          "chunk_id": 870
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 248,
+          "chunk": 460
+        },
+        {
+          "rank": 2,
+          "page": 248,
+          "chunk": 461
+        },
+        {
+          "rank": 3,
+          "page": 100,
+          "chunk": 178
+        },
+        {
+          "rank": 4,
+          "page": 175,
+          "chunk": 336
+        },
+        {
+          "rank": 5,
+          "page": 7,
+          "chunk": 10
+        },
+        {
+          "rank": 6,
+          "page": 28,
+          "chunk": 51
+        },
+        {
+          "rank": 7,
+          "page": 425,
+          "chunk": 798
+        },
+        {
+          "rank": 8,
+          "page": 425,
+          "chunk": 797
+        },
+        {
+          "rank": 9,
+          "page": 290,
+          "chunk": 541
+        },
+        {
+          "rank": 10,
+          "page": 465,
+          "chunk": 870
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.859671900048852,
+      "total_search_latency_seconds": 3.1115093000698835,
+      "input_tokens": 2955,
+      "output_tokens": 231
+    },
+    {
+      "question_id": "U50-033",
+      "chapter_no": "6",
+      "chapter_name": "6. 시동 및 주행",
+      "question_type": "setting",
+      "question": "SPORT 또는 SPORT+ 모드에서 시동을 껐다가 다시 걸면 어떤 주행 모드로 바뀌나요?",
+      "expected_page": 293,
+      "expected_chunk": 548,
+      "acceptable_evidence": [
+        {
+          "page": 293,
+          "chunk": 548,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 4,
+      "after_rank": 1,
+      "rank_delta": 3,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 293,
+          "chunk_id": 547
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 294,
+          "chunk_id": 549
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 391,
+          "chunk_id": 734
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 293,
+          "chunk_id": 548
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 294,
+          "chunk_id": 550
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 246,
+          "chunk_id": 454
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 391,
+          "chunk_id": 733
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 268,
+          "chunk_id": 497
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 252,
+          "chunk_id": 468
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 254,
+          "chunk_id": 471
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 293,
+          "chunk": 548
+        },
+        {
+          "rank": 2,
+          "page": 293,
+          "chunk": 547
+        },
+        {
+          "rank": 3,
+          "page": 294,
+          "chunk": 549
+        },
+        {
+          "rank": 4,
+          "page": 294,
+          "chunk": 550
+        },
+        {
+          "rank": 5,
+          "page": 252,
+          "chunk": 468
+        },
+        {
+          "rank": 6,
+          "page": 254,
+          "chunk": 471
+        },
+        {
+          "rank": 7,
+          "page": 268,
+          "chunk": 497
+        },
+        {
+          "rank": 8,
+          "page": 246,
+          "chunk": 454
+        },
+        {
+          "rank": 9,
+          "page": 391,
+          "chunk": 734
+        },
+        {
+          "rank": 10,
+          "page": 391,
+          "chunk": 733
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.51531199994497,
+      "total_search_latency_seconds": 2.8221155998762697,
+      "input_tokens": 4240,
+      "output_tokens": 201
+    },
+    {
+      "question_id": "U50-034",
+      "chapter_no": "7",
+      "chapter_name": "7. 운전자 보조",
+      "question_type": "warning",
+      "question": "짐칸이나 기타 장비를 사용할 때 후측방 충돌방지 보조는 어떻게 해야 하나요?",
+      "expected_page": 337,
+      "expected_chunk": 643,
+      "acceptable_evidence": [
+        {
+          "page": 337,
+          "chunk": 643,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 337,
+          "chunk": 642,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 337,
+          "chunk_id": 643
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 397,
+          "chunk_id": 745
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 81,
+          "chunk_id": 146
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 335,
+          "chunk_id": 639
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 333,
+          "chunk_id": 635
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 338,
+          "chunk_id": 644
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 337,
+          "chunk_id": 642
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 301,
+          "chunk_id": 570
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 43,
+          "chunk_id": 84
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 413,
+          "chunk_id": 775
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 337,
+          "chunk": 642
+        },
+        {
+          "rank": 2,
+          "page": 337,
+          "chunk": 643
+        },
+        {
+          "rank": 3,
+          "page": 338,
+          "chunk": 644
+        },
+        {
+          "rank": 4,
+          "page": 397,
+          "chunk": 745
+        },
+        {
+          "rank": 5,
+          "page": 333,
+          "chunk": 635
+        },
+        {
+          "rank": 6,
+          "page": 335,
+          "chunk": 639
+        },
+        {
+          "rank": 7,
+          "page": 301,
+          "chunk": 570
+        },
+        {
+          "rank": 8,
+          "page": 413,
+          "chunk": 775
+        },
+        {
+          "rank": 9,
+          "page": 81,
+          "chunk": 146
+        },
+        {
+          "rank": 10,
+          "page": 43,
+          "chunk": 84
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.3690255000256,
+      "total_search_latency_seconds": 3.673282500123605,
+      "input_tokens": 4064,
+      "output_tokens": 238
+    },
+    {
+      "question_id": "U50-035",
+      "chapter_no": "7",
+      "chapter_name": "7. 운전자 보조",
+      "question_type": "procedure",
+      "question": "차로 이탈방지 보조를 켜거나 끄려면 어떤 조작을 해야 하며, 상태는 어떻게 표시되나요?",
+      "expected_page": 328,
+      "expected_chunk": 626,
+      "acceptable_evidence": [
+        {
+          "page": 328,
+          "chunk": 626,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 4,
+      "after_rank": 1,
+      "rank_delta": 3,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 330,
+          "chunk_id": 630
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 331,
+          "chunk_id": 632
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 301,
+          "chunk_id": 570
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 328,
+          "chunk_id": 626
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 301,
+          "chunk_id": 569
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 330,
+          "chunk_id": 629
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 329,
+          "chunk_id": 628
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 331,
+          "chunk_id": 631
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 397,
+          "chunk_id": 745
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 327,
+          "chunk_id": 624
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 328,
+          "chunk": 626
+        },
+        {
+          "rank": 2,
+          "page": 327,
+          "chunk": 624
+        },
+        {
+          "rank": 3,
+          "page": 330,
+          "chunk": 629
+        },
+        {
+          "rank": 4,
+          "page": 331,
+          "chunk": 632
+        },
+        {
+          "rank": 5,
+          "page": 330,
+          "chunk": 630
+        },
+        {
+          "rank": 6,
+          "page": 331,
+          "chunk": 631
+        },
+        {
+          "rank": 7,
+          "page": 329,
+          "chunk": 628
+        },
+        {
+          "rank": 8,
+          "page": 301,
+          "chunk": 569
+        },
+        {
+          "rank": 9,
+          "page": 301,
+          "chunk": 570
+        },
+        {
+          "rank": 10,
+          "page": 397,
+          "chunk": 745
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.7486314000561833,
+      "total_search_latency_seconds": 3.089613900054246,
+      "input_tokens": 3829,
+      "output_tokens": 235
+    },
+    {
+      "question_id": "U50-036",
+      "chapter_no": "7",
+      "chapter_name": "7. 운전자 보조",
+      "question_type": "condition",
+      "question": "크루즈 컨트롤은 어느 속도 범위에서 설정할 수 있나요?",
+      "expected_page": 357,
+      "expected_chunk": 673,
+      "acceptable_evidence": [
+        {
+          "page": 357,
+          "chunk": 673,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": null,
+      "after_rank": null,
+      "rank_delta": null,
+      "candidate_miss": true,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 376,
+          "chunk_id": 708
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 359,
+          "chunk_id": 676
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 363,
+          "chunk_id": 683
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 359,
+          "chunk_id": 675
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 358,
+          "chunk_id": 674
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 365,
+          "chunk_id": 685
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 367,
+          "chunk_id": 690
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 364,
+          "chunk_id": 684
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 357,
+          "chunk_id": 672
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 376,
+          "chunk_id": 707
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 358,
+          "chunk": 674
+        },
+        {
+          "rank": 2,
+          "page": 357,
+          "chunk": 672
+        },
+        {
+          "rank": 3,
+          "page": 363,
+          "chunk": 683
+        },
+        {
+          "rank": 4,
+          "page": 359,
+          "chunk": 675
+        },
+        {
+          "rank": 5,
+          "page": 359,
+          "chunk": 676
+        },
+        {
+          "rank": 6,
+          "page": 364,
+          "chunk": 684
+        },
+        {
+          "rank": 7,
+          "page": 376,
+          "chunk": 708
+        },
+        {
+          "rank": 8,
+          "page": 376,
+          "chunk": 707
+        },
+        {
+          "rank": 9,
+          "page": 365,
+          "chunk": 685
+        },
+        {
+          "rank": 10,
+          "page": 367,
+          "chunk": 690
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.0467107999138534,
+      "total_search_latency_seconds": 3.355494299903512,
+      "input_tokens": 4486,
+      "output_tokens": 267
+    },
+    {
+      "question_id": "U50-037",
+      "chapter_no": "7",
+      "chapter_name": "7. 운전자 보조",
+      "question_type": "feature",
+      "question": "후방 교차 충돌방지 보조가 제동 제어를 한 뒤 정차 상태는 얼마나 유지되나요?",
+      "expected_page": 395,
+      "expected_chunk": 741,
+      "acceptable_evidence": [
+        {
+          "page": 395,
+          "chunk": 741,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 395,
+          "chunk": 740,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 395,
+          "chunk_id": 741
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 301,
+          "chunk_id": 570
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 303,
+          "chunk_id": 580
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 413,
+          "chunk_id": 776
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 301,
+          "chunk_id": 569
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 318,
+          "chunk_id": 609
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 338,
+          "chunk_id": 644
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 320,
+          "chunk_id": 612
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 398,
+          "chunk_id": 746
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 334,
+          "chunk_id": 636
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 395,
+          "chunk": 741
+        },
+        {
+          "rank": 2,
+          "page": 303,
+          "chunk": 580
+        },
+        {
+          "rank": 3,
+          "page": 398,
+          "chunk": 746
+        },
+        {
+          "rank": 4,
+          "page": 318,
+          "chunk": 609
+        },
+        {
+          "rank": 5,
+          "page": 413,
+          "chunk": 776
+        },
+        {
+          "rank": 6,
+          "page": 334,
+          "chunk": 636
+        },
+        {
+          "rank": 7,
+          "page": 338,
+          "chunk": 644
+        },
+        {
+          "rank": 8,
+          "page": 320,
+          "chunk": 612
+        },
+        {
+          "rank": 9,
+          "page": 301,
+          "chunk": 570
+        },
+        {
+          "rank": 10,
+          "page": 301,
+          "chunk": 569
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.84949199995026,
+      "total_search_latency_seconds": 3.142679600045085,
+      "input_tokens": 3830,
+      "output_tokens": 243
+    },
+    {
+      "question_id": "U50-038",
+      "chapter_no": "7",
+      "chapter_name": "7. 운전자 보조",
+      "question_type": "setting",
+      "question": "저속 주행 시 주차 거리 경고가 자동으로 켜지도록 설정하려면 어디에서 조작하나요?",
+      "expected_page": 405,
+      "expected_chunk": 758,
+      "acceptable_evidence": [
+        {
+          "page": 405,
+          "chunk": 758,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 2,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 401,
+          "chunk_id": 750
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 405,
+          "chunk_id": 758
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 405,
+          "chunk_id": 759
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 303,
+          "chunk_id": 581
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 315,
+          "chunk_id": 605
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 408,
+          "chunk_id": 766
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 97,
+          "chunk_id": 173
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 374,
+          "chunk_id": 703
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 401,
+          "chunk_id": 751
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 409,
+          "chunk_id": 767
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 401,
+          "chunk": 750
+        },
+        {
+          "rank": 2,
+          "page": 405,
+          "chunk": 758
+        },
+        {
+          "rank": 3,
+          "page": 401,
+          "chunk": 751
+        },
+        {
+          "rank": 4,
+          "page": 405,
+          "chunk": 759
+        },
+        {
+          "rank": 5,
+          "page": 303,
+          "chunk": 581
+        },
+        {
+          "rank": 6,
+          "page": 409,
+          "chunk": 767
+        },
+        {
+          "rank": 7,
+          "page": 408,
+          "chunk": 766
+        },
+        {
+          "rank": 8,
+          "page": 97,
+          "chunk": 173
+        },
+        {
+          "rank": 9,
+          "page": 315,
+          "chunk": 605
+        },
+        {
+          "rank": 10,
+          "page": 374,
+          "chunk": 703
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.3694126999471337,
+      "total_search_latency_seconds": 3.6596858000848442,
+      "input_tokens": 3260,
+      "output_tokens": 273
+    },
+    {
+      "question_id": "U50-039",
+      "chapter_no": "7",
+      "chapter_name": "7. 운전자 보조",
+      "question_type": "troubleshooting",
+      "question": "차로 유지 보조에 이상이 발생했다는 경고가 표시되면 어떻게 해야 하나요?",
+      "expected_page": 379,
+      "expected_chunk": 712,
+      "acceptable_evidence": [
+        {
+          "page": 379,
+          "chunk": 712,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 1,
+      "rank_delta": 1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 379,
+          "chunk_id": 713
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 379,
+          "chunk_id": 712
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 330,
+          "chunk_id": 629
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 342,
+          "chunk_id": 649
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 315,
+          "chunk_id": 605
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 330,
+          "chunk_id": 630
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 343,
+          "chunk_id": 652
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 94,
+          "chunk_id": 166
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 97,
+          "chunk_id": 173
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 93,
+          "chunk_id": 165
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 379,
+          "chunk": 712
+        },
+        {
+          "rank": 2,
+          "page": 330,
+          "chunk": 629
+        },
+        {
+          "rank": 3,
+          "page": 379,
+          "chunk": 713
+        },
+        {
+          "rank": 4,
+          "page": 330,
+          "chunk": 630
+        },
+        {
+          "rank": 5,
+          "page": 343,
+          "chunk": 652
+        },
+        {
+          "rank": 6,
+          "page": 94,
+          "chunk": 166
+        },
+        {
+          "rank": 7,
+          "page": 97,
+          "chunk": 173
+        },
+        {
+          "rank": 8,
+          "page": 93,
+          "chunk": 165
+        },
+        {
+          "rank": 9,
+          "page": 342,
+          "chunk": 649
+        },
+        {
+          "rank": 10,
+          "page": 315,
+          "chunk": 605
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 4.23364740004763,
+      "total_search_latency_seconds": 4.542848700191826,
+      "input_tokens": 3912,
+      "output_tokens": 333
+    },
+    {
+      "question_id": "U50-040",
+      "chapter_no": "8",
+      "chapter_name": "8. 비상시 응급 조치",
+      "question_type": "procedure",
+      "question": "차량을 견인할 때 가장 권장되는 방법은 무엇인가요?",
+      "expected_page": 441,
+      "expected_chunk": 829,
+      "acceptable_evidence": [
+        {
+          "page": 441,
+          "chunk": 829,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 441,
+          "chunk_id": 829
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 444,
+          "chunk_id": 833
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 27,
+          "chunk_id": 48
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 444,
+          "chunk_id": 834
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 442,
+          "chunk_id": 830
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 425,
+          "chunk_id": 800
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 295,
+          "chunk_id": 553
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 443,
+          "chunk_id": 832
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 331,
+          "chunk_id": 632
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 343,
+          "chunk_id": 652
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 441,
+          "chunk": 829
+        },
+        {
+          "rank": 2,
+          "page": 442,
+          "chunk": 830
+        },
+        {
+          "rank": 3,
+          "page": 444,
+          "chunk": 833
+        },
+        {
+          "rank": 4,
+          "page": 444,
+          "chunk": 834
+        },
+        {
+          "rank": 5,
+          "page": 443,
+          "chunk": 832
+        },
+        {
+          "rank": 6,
+          "page": 425,
+          "chunk": 800
+        },
+        {
+          "rank": 7,
+          "page": 27,
+          "chunk": 48
+        },
+        {
+          "rank": 8,
+          "page": 295,
+          "chunk": 553
+        },
+        {
+          "rank": 9,
+          "page": 331,
+          "chunk": 632
+        },
+        {
+          "rank": 10,
+          "page": 343,
+          "chunk": 652
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.6614087000489235,
+      "total_search_latency_seconds": 3.9809496998786926,
+      "input_tokens": 3716,
+      "output_tokens": 284
+    },
+    {
+      "question_id": "U50-041",
+      "chapter_no": "8",
+      "chapter_name": "8. 비상시 응급 조치",
+      "question_type": "condition",
+      "question": "더블 클러치 변속기 차량을 일반 차량으로 견인할 때 지켜야 할 거리와 속도 제한은 어떻게 되나요?",
+      "expected_page": 444,
+      "expected_chunk": 834,
+      "acceptable_evidence": [
+        {
+          "page": 444,
+          "chunk": 834,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 444,
+          "chunk_id": 834
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 266,
+          "chunk_id": 493
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 325,
+          "chunk_id": 621
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 370,
+          "chunk_id": 696
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 441,
+          "chunk_id": 829
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 443,
+          "chunk_id": 831
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 266,
+          "chunk_id": 494
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 371,
+          "chunk_id": 698
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 312,
+          "chunk_id": 599
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 263,
+          "chunk_id": 487
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 444,
+          "chunk": 834
+        },
+        {
+          "rank": 2,
+          "page": 443,
+          "chunk": 831
+        },
+        {
+          "rank": 3,
+          "page": 441,
+          "chunk": 829
+        },
+        {
+          "rank": 4,
+          "page": 266,
+          "chunk": 493
+        },
+        {
+          "rank": 5,
+          "page": 266,
+          "chunk": 494
+        },
+        {
+          "rank": 6,
+          "page": 263,
+          "chunk": 487
+        },
+        {
+          "rank": 7,
+          "page": 325,
+          "chunk": 621
+        },
+        {
+          "rank": 8,
+          "page": 370,
+          "chunk": 696
+        },
+        {
+          "rank": 9,
+          "page": 371,
+          "chunk": 698
+        },
+        {
+          "rank": 10,
+          "page": 312,
+          "chunk": 599
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.473784799920395,
+      "total_search_latency_seconds": 2.774608900072053,
+      "input_tokens": 5092,
+      "output_tokens": 188
+    },
+    {
+      "question_id": "U50-042",
+      "chapter_no": "8",
+      "chapter_name": "8. 비상시 응급 조치",
+      "question_type": "warning",
+      "question": "타이어 응급 처치 키트의 컴프레서는 한 번에 얼마나 오래 작동시킬 수 있나요?",
+      "expected_page": 439,
+      "expected_chunk": 826,
+      "acceptable_evidence": [
+        {
+          "page": 439,
+          "chunk": 826,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 439,
+          "chunk": 825,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 439,
+          "chunk_id": 826
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 439,
+          "chunk_id": 825
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 425,
+          "chunk_id": 800
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 436,
+          "chunk_id": 820
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 437,
+          "chunk_id": 821
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 438,
+          "chunk_id": 822
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 435,
+          "chunk_id": 818
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 448,
+          "chunk_id": 846
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 119,
+          "chunk_id": 232
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 117,
+          "chunk_id": 227
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 439,
+          "chunk": 826
+        },
+        {
+          "rank": 2,
+          "page": 439,
+          "chunk": 825
+        },
+        {
+          "rank": 3,
+          "page": 438,
+          "chunk": 822
+        },
+        {
+          "rank": 4,
+          "page": 437,
+          "chunk": 821
+        },
+        {
+          "rank": 5,
+          "page": 435,
+          "chunk": 818
+        },
+        {
+          "rank": 6,
+          "page": 436,
+          "chunk": 820
+        },
+        {
+          "rank": 7,
+          "page": 425,
+          "chunk": 800
+        },
+        {
+          "rank": 8,
+          "page": 448,
+          "chunk": 846
+        },
+        {
+          "rank": 9,
+          "page": 119,
+          "chunk": 232
+        },
+        {
+          "rank": 10,
+          "page": 117,
+          "chunk": 227
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.0966765000484884,
+      "total_search_latency_seconds": 3.3997257000301033,
+      "input_tokens": 3973,
+      "output_tokens": 252
+    },
+    {
+      "question_id": "U50-043",
+      "chapter_no": "8",
+      "chapter_name": "8. 비상시 응급 조치",
+      "question_type": "procedure",
+      "question": "차량 화재가 발생했을 때 소화기는 어떤 순서로 사용하나요?",
+      "expected_page": 445,
+      "expected_chunk": 836,
+      "acceptable_evidence": [
+        {
+          "page": 445,
+          "chunk": 836,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 1,
+      "rank_delta": 1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 445,
+          "chunk_id": 835
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 445,
+          "chunk_id": 836
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 425,
+          "chunk_id": 801
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 499,
+          "chunk_id": 930
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 173,
+          "chunk_id": 333
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 499,
+          "chunk_id": 931
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 33,
+          "chunk_id": 60
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 35,
+          "chunk_id": 64
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 497,
+          "chunk_id": 925
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 37,
+          "chunk_id": 69
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 445,
+          "chunk": 836
+        },
+        {
+          "rank": 2,
+          "page": 445,
+          "chunk": 835
+        },
+        {
+          "rank": 3,
+          "page": 425,
+          "chunk": 801
+        },
+        {
+          "rank": 4,
+          "page": 499,
+          "chunk": 930
+        },
+        {
+          "rank": 5,
+          "page": 33,
+          "chunk": 60
+        },
+        {
+          "rank": 6,
+          "page": 35,
+          "chunk": 64
+        },
+        {
+          "rank": 7,
+          "page": 173,
+          "chunk": 333
+        },
+        {
+          "rank": 8,
+          "page": 499,
+          "chunk": 931
+        },
+        {
+          "rank": 9,
+          "page": 37,
+          "chunk": 69
+        },
+        {
+          "rank": 10,
+          "page": 497,
+          "chunk": 925
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.2089053001254797,
+      "total_search_latency_seconds": 2.519010400166735,
+      "input_tokens": 4241,
+      "output_tokens": 171
+    },
+    {
+      "question_id": "U50-044",
+      "chapter_no": "8",
+      "chapter_name": "8. 비상시 응급 조치",
+      "question_type": "procedure",
+      "question": "탈부착 견인 후크를 장착할 때 어떤 순서로 체결하나요?",
+      "expected_page": 442,
+      "expected_chunk": 830,
+      "acceptable_evidence": [
+        {
+          "page": 442,
+          "chunk": 830,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 4,
+      "after_rank": 1,
+      "rank_delta": 3,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 443,
+          "chunk_id": 831
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 239,
+          "chunk_id": 435
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 39,
+          "chunk_id": 75
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 442,
+          "chunk_id": 830
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 65,
+          "chunk_id": 118
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 78,
+          "chunk_id": 141
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 425,
+          "chunk_id": 800
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 110,
+          "chunk_id": 199
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 60,
+          "chunk_id": 109
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 170,
+          "chunk_id": 328
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 442,
+          "chunk": 830
+        },
+        {
+          "rank": 2,
+          "page": 443,
+          "chunk": 831
+        },
+        {
+          "rank": 3,
+          "page": 425,
+          "chunk": 800
+        },
+        {
+          "rank": 4,
+          "page": 65,
+          "chunk": 118
+        },
+        {
+          "rank": 5,
+          "page": 239,
+          "chunk": 435
+        },
+        {
+          "rank": 6,
+          "page": 39,
+          "chunk": 75
+        },
+        {
+          "rank": 7,
+          "page": 78,
+          "chunk": 141
+        },
+        {
+          "rank": 8,
+          "page": 110,
+          "chunk": 199
+        },
+        {
+          "rank": 9,
+          "page": 60,
+          "chunk": 109
+        },
+        {
+          "rank": 10,
+          "page": 170,
+          "chunk": 328
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.4343570000492036,
+      "total_search_latency_seconds": 2.741579899797216,
+      "input_tokens": 3744,
+      "output_tokens": 177
+    },
+    {
+      "question_id": "U50-045",
+      "chapter_no": "9",
+      "chapter_name": "9. 정기 점검",
+      "question_type": "condition",
+      "question": "어떤 운전 환경에서는 일반 점검 주기보다 더 자주 차량을 점검해야 하나요?",
+      "expected_page": 456,
+      "expected_chunk": 859,
+      "acceptable_evidence": [
+        {
+          "page": 456,
+          "chunk": 859,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 456,
+          "chunk_id": 859
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 27,
+          "chunk_id": 44
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 29,
+          "chunk_id": 52
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 470,
+          "chunk_id": 878
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 453,
+          "chunk_id": 855
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 455,
+          "chunk_id": 858
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 458,
+          "chunk_id": 861
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 463,
+          "chunk_id": 866
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 462,
+          "chunk_id": 865
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 460,
+          "chunk_id": 863
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 456,
+          "chunk": 859
+        },
+        {
+          "rank": 2,
+          "page": 463,
+          "chunk": 866
+        },
+        {
+          "rank": 3,
+          "page": 462,
+          "chunk": 865
+        },
+        {
+          "rank": 4,
+          "page": 470,
+          "chunk": 878
+        },
+        {
+          "rank": 5,
+          "page": 460,
+          "chunk": 863
+        },
+        {
+          "rank": 6,
+          "page": 29,
+          "chunk": 52
+        },
+        {
+          "rank": 7,
+          "page": 455,
+          "chunk": 858
+        },
+        {
+          "rank": 8,
+          "page": 453,
+          "chunk": 855
+        },
+        {
+          "rank": 9,
+          "page": 27,
+          "chunk": 44
+        },
+        {
+          "rank": 10,
+          "page": 458,
+          "chunk": 861
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.386346299899742,
+      "total_search_latency_seconds": 3.7520272999536246,
+      "input_tokens": 4905,
+      "output_tokens": 245
+    },
+    {
+      "question_id": "U50-046",
+      "chapter_no": "9",
+      "chapter_name": "9. 정기 점검",
+      "question_type": "procedure",
+      "question": "공조 장치용 에어필터를 직접 교체할 때 글로브 박스는 어떻게 분리하나요?",
+      "expected_page": 472,
+      "expected_chunk": 881,
+      "acceptable_evidence": [
+        {
+          "page": 472,
+          "chunk": 881,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 472,
+          "chunk_id": 881
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 112,
+          "chunk_id": 213
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 112,
+          "chunk_id": 214
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 13,
+          "chunk_id": 24
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 83,
+          "chunk_id": 149
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 224,
+          "chunk_id": 409
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 447,
+          "chunk_id": 843
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 447,
+          "chunk_id": 842
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 213,
+          "chunk_id": 394
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 471,
+          "chunk_id": 879
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 472,
+          "chunk": 881
+        },
+        {
+          "rank": 2,
+          "page": 447,
+          "chunk": 843
+        },
+        {
+          "rank": 3,
+          "page": 447,
+          "chunk": 842
+        },
+        {
+          "rank": 4,
+          "page": 224,
+          "chunk": 409
+        },
+        {
+          "rank": 5,
+          "page": 213,
+          "chunk": 394
+        },
+        {
+          "rank": 6,
+          "page": 112,
+          "chunk": 213
+        },
+        {
+          "rank": 7,
+          "page": 112,
+          "chunk": 214
+        },
+        {
+          "rank": 8,
+          "page": 13,
+          "chunk": 24
+        },
+        {
+          "rank": 9,
+          "page": 471,
+          "chunk": 879
+        },
+        {
+          "rank": 10,
+          "page": 83,
+          "chunk": 149
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 2,
+      "retry_count": 1,
+      "rerank_latency_seconds": 9.344903300050646,
+      "total_search_latency_seconds": 9.625380200101063,
+      "input_tokens": 3094,
+      "output_tokens": 369
+    },
+    {
+      "question_id": "U50-047",
+      "chapter_no": "9",
+      "chapter_name": "9. 정기 점검",
+      "question_type": "feature",
+      "question": "차량의 퓨즈 용량과 명칭은 어디에서 확인할 수 있나요?",
+      "expected_page": 485,
+      "expected_chunk": 904,
+      "acceptable_evidence": [
+        {
+          "page": 485,
+          "chunk": 904,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 2,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 486,
+          "chunk_id": 905
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 485,
+          "chunk_id": 904
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 482,
+          "chunk_id": 900
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 483,
+          "chunk_id": 901
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 483,
+          "chunk_id": 902
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 448,
+          "chunk_id": 846
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 8,
+          "chunk_id": 12
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 441,
+          "chunk_id": 829
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 22,
+          "chunk_id": 38
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 12,
+          "chunk_id": 20
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 486,
+          "chunk": 905
+        },
+        {
+          "rank": 2,
+          "page": 485,
+          "chunk": 904
+        },
+        {
+          "rank": 3,
+          "page": 483,
+          "chunk": 901
+        },
+        {
+          "rank": 4,
+          "page": 482,
+          "chunk": 900
+        },
+        {
+          "rank": 5,
+          "page": 448,
+          "chunk": 846
+        },
+        {
+          "rank": 6,
+          "page": 483,
+          "chunk": 902
+        },
+        {
+          "rank": 7,
+          "page": 22,
+          "chunk": 38
+        },
+        {
+          "rank": 8,
+          "page": 8,
+          "chunk": 12
+        },
+        {
+          "rank": 9,
+          "page": 12,
+          "chunk": 20
+        },
+        {
+          "rank": 10,
+          "page": 441,
+          "chunk": 829
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.823319499846548,
+      "total_search_latency_seconds": 3.386093199951574,
+      "input_tokens": 2936,
+      "output_tokens": 203
+    },
+    {
+      "question_id": "U50-048",
+      "chapter_no": "9",
+      "chapter_name": "9. 정기 점검",
+      "question_type": "warning",
+      "question": "배출가스 기준을 초과한 차량에는 어떤 불이익이 있나요?",
+      "expected_page": 498,
+      "expected_chunk": 926,
+      "acceptable_evidence": [
+        {
+          "page": 498,
+          "chunk": 926,
+          "reason": "primary source chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 2,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 448,
+          "chunk_id": 849
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 498,
+          "chunk_id": 926
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 35,
+          "chunk_id": 64
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 497,
+          "chunk_id": 925
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 499,
+          "chunk_id": 930
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 498,
+          "chunk_id": 927
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 499,
+          "chunk_id": 931
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 19,
+          "chunk_id": 35
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 37,
+          "chunk_id": 69
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 175,
+          "chunk_id": 336
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 497,
+          "chunk": 925
+        },
+        {
+          "rank": 2,
+          "page": 498,
+          "chunk": 926
+        },
+        {
+          "rank": 3,
+          "page": 448,
+          "chunk": 849
+        },
+        {
+          "rank": 4,
+          "page": 498,
+          "chunk": 927
+        },
+        {
+          "rank": 5,
+          "page": 499,
+          "chunk": 930
+        },
+        {
+          "rank": 6,
+          "page": 499,
+          "chunk": 931
+        },
+        {
+          "rank": 7,
+          "page": 35,
+          "chunk": 64
+        },
+        {
+          "rank": 8,
+          "page": 19,
+          "chunk": 35
+        },
+        {
+          "rank": 9,
+          "page": 37,
+          "chunk": 69
+        },
+        {
+          "rank": 10,
+          "page": 175,
+          "chunk": 336
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.6631907001137733,
+      "total_search_latency_seconds": 2.989700600039214,
+      "input_tokens": 4446,
+      "output_tokens": 186
+    },
+    {
+      "question_id": "U50-049",
+      "chapter_no": "9",
+      "chapter_name": "9. 정기 점검",
+      "question_type": "maintenance",
+      "question": "원목 내장재에 오물이 묻었을 때 어떻게 닦아야 하나요?",
+      "expected_page": 495,
+      "expected_chunk": 922,
+      "acceptable_evidence": [
+        {
+          "page": 495,
+          "chunk": 922,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 495,
+          "chunk": 921,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 1,
+      "after_rank": 1,
+      "rank_delta": 0,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 495,
+          "chunk_id": 922
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 495,
+          "chunk_id": 921
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 496,
+          "chunk_id": 923
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 494,
+          "chunk_id": 918
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 496,
+          "chunk_id": 924
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 493,
+          "chunk_id": 917
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 79,
+          "chunk_id": 143
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 234,
+          "chunk_id": 426
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 468,
+          "chunk_id": 875
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 157,
+          "chunk_id": 306
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 495,
+          "chunk": 922
+        },
+        {
+          "rank": 2,
+          "page": 495,
+          "chunk": 921
+        },
+        {
+          "rank": 3,
+          "page": 494,
+          "chunk": 918
+        },
+        {
+          "rank": 4,
+          "page": 496,
+          "chunk": 923
+        },
+        {
+          "rank": 5,
+          "page": 493,
+          "chunk": 917
+        },
+        {
+          "rank": 6,
+          "page": 496,
+          "chunk": 924
+        },
+        {
+          "rank": 7,
+          "page": 234,
+          "chunk": 426
+        },
+        {
+          "rank": 8,
+          "page": 468,
+          "chunk": 875
+        },
+        {
+          "rank": 9,
+          "page": 157,
+          "chunk": 306
+        },
+        {
+          "rank": 10,
+          "page": 79,
+          "chunk": 143
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 3.0433486998081207,
+      "total_search_latency_seconds": 3.3336225000675768,
+      "input_tokens": 4295,
+      "output_tokens": 264
+    },
+    {
+      "question_id": "U50-050",
+      "chapter_no": "9",
+      "chapter_name": "9. 정기 점검",
+      "question_type": "maintenance",
+      "question": "배기가스 제어 관련 부품은 어떻게 관리하고 정비해야 하나요?",
+      "expected_page": 498,
+      "expected_chunk": 928,
+      "acceptable_evidence": [
+        {
+          "page": 498,
+          "chunk": 928,
+          "reason": "primary source chunk"
+        },
+        {
+          "page": 498,
+          "chunk": 927,
+          "reason": "same grounding quote repeats in adjacent overlapping chunk"
+        }
+      ],
+      "before_rank": 2,
+      "after_rank": 1,
+      "rank_delta": 1,
+      "candidate_miss": false,
+      "ranking_failure": false,
+      "rerank_success": true,
+      "rerank_fallback_reason": null,
+      "vector_candidates": [
+        {
+          "candidate_id": "C01",
+          "page_no": 448,
+          "chunk_id": 849
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 498,
+          "chunk_id": 928
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 457,
+          "chunk_id": 860
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 445,
+          "chunk_id": 836
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 472,
+          "chunk_id": 881
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 38,
+          "chunk_id": 73
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 470,
+          "chunk_id": 878
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 233,
+          "chunk_id": 425
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 448,
+          "chunk_id": 845
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 428,
+          "chunk_id": 806
+        }
+      ],
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page": 498,
+          "chunk": 928
+        },
+        {
+          "rank": 2,
+          "page": 457,
+          "chunk": 860
+        },
+        {
+          "rank": 3,
+          "page": 448,
+          "chunk": 849
+        },
+        {
+          "rank": 4,
+          "page": 470,
+          "chunk": 878
+        },
+        {
+          "rank": 5,
+          "page": 38,
+          "chunk": 73
+        },
+        {
+          "rank": 6,
+          "page": 472,
+          "chunk": 881
+        },
+        {
+          "rank": 7,
+          "page": 445,
+          "chunk": 836
+        },
+        {
+          "rank": 8,
+          "page": 448,
+          "chunk": 845
+        },
+        {
+          "rank": 9,
+          "page": 428,
+          "chunk": 806
+        },
+        {
+          "rank": 10,
+          "page": 233,
+          "chunk": 425
+        }
+      ],
+      "candidate_set_identical": true,
+      "request_count": 1,
+      "retry_count": 0,
+      "rerank_latency_seconds": 2.779331099940464,
+      "total_search_latency_seconds": 3.050887799821794,
+      "input_tokens": 3046,
+      "output_tokens": 220
+    }
+  ]
+}

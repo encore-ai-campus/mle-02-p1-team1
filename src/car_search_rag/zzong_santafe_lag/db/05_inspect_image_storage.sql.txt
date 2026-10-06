@@ -1,0 +1,41 @@
+-- [프로젝트 추가] DBeaver에서 개인 그림 업로드와 용량을 확인하는 조회 전용 SQL입니다.
+-- 이 파일은 생성·수정·삭제를 실행하지 않습니다. 한 문장씩 선택해 실행하세요.
+
+-- 1. 그림 파일 보관 상태: 업로드 완료 864개인지 확인합니다.
+SELECT upload_status AS "파일 보관 상태", count(*) AS "그림 수"
+FROM zzong_santafe_lag.images
+GROUP BY upload_status ORDER BY upload_status;
+
+-- 2. 내 Storage 경로에 있는 실제 그림 파일의 바이트 합계입니다.
+-- 1MB=1,000,000바이트, 1MiB=1,048,576바이트입니다. 다른 팀원 경로는 집계하지 않습니다.
+SELECT count(*) AS "개인 파일 수",
+       sum((metadata ->> 'size')::bigint) AS "그림 바이트",
+       round(sum((metadata ->> 'size')::bigint) / 1000000.0, 2) AS "그림 MB",
+       round(sum((metadata ->> 'size')::bigint) / 1048576.0, 2) AS "그림 MiB"
+FROM storage.objects
+WHERE bucket_id = 'images'
+  AND left(name, length('cars/hyundai/santafe_hev/zzong_santafe_lag/'))
+      = 'cars/hyundai/santafe_hev/zzong_santafe_lag/';
+
+-- 3. 개인 DB의 테이블·색인·TOAST 할당 용량입니다. WAL·공통 관리 영역은 제외됩니다.
+SELECT c.relname AS "테이블", pg_total_relation_size(c.oid) AS "할당 바이트",
+       round(pg_total_relation_size(c.oid) / 1000000.0, 2) AS "할당 MB"
+FROM pg_class c JOIN pg_namespace n ON n.oid = c.relnamespace
+WHERE n.nspname = 'zzong_santafe_lag' AND c.relkind = 'r'
+ORDER BY c.relname;
+
+-- 4. 그림의 원본 쪽수·내부 키·저장 경로를 함께 봅니다.
+-- 자동 참조의 file_name·width·height NULL은 예전 참조 정보이며 실제 파일 업로드 여부와 별개입니다.
+SELECT pdf_page_number AS "PDF 쪽", pdf_image_key AS "PDF 내부 그림 키",
+       file_name AS "기존 참조 이름", upload_status AS "업로드 상태",
+       storage_bucket AS "버킷", storage_path AS "개인 파일 경로"
+FROM zzong_santafe_lag.images
+ORDER BY pdf_page_number, image_key_sha256;
+
+-- 5. 설명·그림 연결 검토 상태는 업로드 완료와 따로 확인합니다.
+SELECT ri.linkage_status AS "그림 연결 검토 상태", count(*) AS "연결 수",
+       count(*) FILTER (WHERE nullif(trim(ri.description), '') IS NOT NULL) AS "설명이 있는 연결 수"
+FROM zzong_santafe_lag.record_images ri
+JOIN zzong_santafe_lag.parent_records p ON p.id = ri.parent_id
+WHERE p.run_id = 'ca9d2721-3d48-42a8-8748-3935e78515e5'
+GROUP BY ri.linkage_status ORDER BY ri.linkage_status;

@@ -1,0 +1,18 @@
+-- name: get_revision
+SELECT * FROM zzong_santafe_lag.review_revisions WHERE id = :revision_id;
+-- name: get_chunks
+SELECT * FROM zzong_santafe_lag.review_revision_chunks WHERE revision_id = :revision_id ORDER BY record_id;
+-- name: insert_revision!
+INSERT INTO zzong_santafe_lag.review_revisions(id,source_run_id,payload_sha256,payload,chunk_count)
+VALUES (:id,:source_run_id,:payload_sha256,:payload,:chunk_count);
+-- name: insert_chunk!
+INSERT INTO zzong_santafe_lag.review_revision_chunks
+(revision_id,record_id,content,input_sha256,metadata,local_embedding,openai_embedding)
+VALUES (:revision_id,:record_id,:content,:input_sha256,:metadata,:local_embedding,:openai_embedding);
+-- name: ready!
+UPDATE zzong_santafe_lag.review_revisions SET status='ready'
+WHERE id=:revision_id AND status='building'
+AND chunk_count=(SELECT count(*) FROM zzong_santafe_lag.review_revision_chunks WHERE revision_id=:revision_id);
+-- name: sizes
+SELECT relname AS table_name,pg_total_relation_size(relid) AS bytes
+FROM pg_stat_user_tables WHERE schemaname='zzong_santafe_lag' ORDER BY relname;

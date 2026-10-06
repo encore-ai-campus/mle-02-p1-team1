@@ -1,0 +1,1076 @@
+[
+  {
+    "page": 224,
+    "image": 1,
+    "image_bbox": [
+      221.03,
+      149.99,
+      385.42,
+      254.87
+    ],
+    "candidate": "에어컨 냉매 및 압축기 윤활유량 점",
+    "title": {
+      "text": "에어컨 냉매 및 압축기 윤활유량 점",
+      "raw_text": "에어컨 냉매 및 압축기 윤활유량 점",
+      "bbox": [
+        221.83,
+        63.2,
+        384.55,
+        77.86
+      ],
+      "font_size": 12.0,
+      "max_font_size": 12.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 72.13,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "으십시오.",
+        "raw_text": "으십시오.",
+        "bbox": [
+          221.52,
+          136.7,
+          256.53,
+          147.62
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 2.37,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "직영 하이테크센터나 블루핸즈에서 점검을 받",
+        "raw_text": "직영 하이테크센터나 블루핸즈에서 점검을 받",
+        "bbox": [
+          221.56,
+          126.7,
+          384.67,
+          137.62
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 12.37,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "좋지 않은 영향을 주므로 이상이 발견되면 당사",
+        "raw_text": "좋지 않은 영향을 주므로 이상이 발견되면 당사",
+        "bbox": [
+          221.56,
+          116.7,
+          384.77,
+          127.63
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 22.36,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "다. 또한 충전을 지나치게 하는 것도 에어컨에",
+        "raw_text": "다. 또한 충전을 지나치게 하는 것도 에어컨에",
+        "bbox": [
+          221.58,
+          106.7,
+          384.65,
+          117.63
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 32.36,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "냉매량이 부족하면 에어컨의 성능이 저하됩니",
+        "raw_text": "냉매량이 부족하면 에어컨의 성능이 저하됩니",
+        "bbox": [
+          221.62,
+          96.7,
+          384.67,
+          107.63
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 42.36,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "검",
+        "raw_text": "검",
+        "bbox": [
+          221.82,
+          78.19,
+          232.14,
+          92.85
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 57.14,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "에어컨 냉매 및 압축기 윤활유량 점",
+        "raw_text": "에어컨 냉매 및 압축기 윤활유량 점",
+        "bbox": [
+          221.83,
+          63.2,
+          384.55,
+          77.86
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 72.13,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      }
+    ]
+  },
+  {
+    "page": 230,
+    "image": 1,
+    "image_bbox": [
+      36.72,
+      255.83,
+      201.11,
+      360.7
+    ],
+    "candidate": "오토 디포그 (자동 김 서림 제거 기",
+    "title": {
+      "text": "오토 디포그 (자동 김 서림 제거 기",
+      "raw_text": "오토 디포그 (자동 김 서림 제거 기",
+      "bbox": [
+        37.58,
+        210.84,
+        197.4,
+        225.51
+      ],
+      "font_size": 12.0,
+      "max_font_size": 12.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 30.32,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "능)",
+        "raw_text": "능)",
+        "bbox": [
+          37.58,
+          225.84,
+          52.66,
+          240.5
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 15.33,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "오토 디포그 (자동 김 서림 제거 기",
+        "raw_text": "오토 디포그 (자동 김 서림 제거 기",
+        "bbox": [
+          37.58,
+          210.84,
+          197.4,
+          225.51
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 30.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      },
+      {
+        "text": "뉴에서 기능을 설정하십시오.",
+        "raw_text": "뉴에서 기능을 설정하십시오.",
+        "bbox": [
+          45.78,
+          176.54,
+          149.81,
+          187.46
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 68.37,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "않으시려면 인포테인먼트 시스템의 설정 메",
+        "raw_text": "않으시려면 인포테인먼트 시스템의 설정 메",
+        "bbox": [
+          45.81,
+          166.54,
+          200.43,
+          177.46
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 78.37,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "이 활성화되어 있습니다. 기능을 사용하지",
+        "raw_text": "이 활성화되어 있습니다. 기능을 사용하지",
+        "bbox": [
+          45.83,
+          156.54,
+          200.4,
+          167.47
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 88.36,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "•에어컨 자동 건조 기능은 초기 출고 시 기능",
+        "raw_text": "•에어컨 자동 건조 기능은 초기 출고 시 기능",
+        "bbox": [
+          36.73,
+          144.36,
+          200.53,
+          157.33
+        ],
+        "font_size": 9.86,
+        "max_font_size": 10.72,
+        "font": "HyundaiSansHeadKR / HyundaiSansTextKR",
+        "flags": [
+          4,
+          4
+        ],
+        "bold": false,
+        "distance_pt": 98.5,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  },
+  {
+    "page": 304,
+    "image": 1,
+    "image_bbox": [
+      36.72,
+      218.15,
+      201.11,
+      323.03
+    ],
+    "candidate": "방 카메라 단독)",
+    "title": {
+      "text": "방 카메라 단독)",
+      "raw_text": "방 카메라 단독)",
+      "bbox": [
+        37.72,
+        170.86,
+        124.53,
+        187.97
+      ],
+      "font_size": 14.0,
+      "max_font_size": 14.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 30.18,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "기본 기능",
+        "raw_text": "기본 기능",
+        "bbox": [
+          37.36,
+          205.01,
+          71.59,
+          215.62
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansHeadKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 2.53,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "방 카메라 단독)",
+        "raw_text": "방 카메라 단독)",
+        "bbox": [
+          37.72,
+          170.86,
+          124.53,
+          187.97
+        ],
+        "font_size": 14.0,
+        "max_font_size": 14.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 30.18,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      },
+      {
+        "text": "전방 충돌방지 보조 (FCA) (전",
+        "raw_text": "전방 충돌방지 보조 (FCA) (전",
+        "bbox": [
+          37.72,
+          151.87,
+          200.17,
+          168.97
+        ],
+        "font_size": 14.0,
+        "max_font_size": 14.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 49.18,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      },
+      {
+        "text": "시스템 웹 매뉴얼을 참고하십시오.",
+        "raw_text": "시스템 웹 매뉴얼을 참고하십시오.",
+        "bbox": [
+          37.31,
+          113.7,
+          159.63,
+          124.63
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 93.52,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "서와 다를 수 있습니다. 이 경우 인포테인먼트",
+        "raw_text": "서와 다를 수 있습니다. 이 경우 인포테인먼트",
+        "bbox": [
+          37.33,
+          103.71,
+          200.52,
+          114.63
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 103.52,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  },
+  {
+    "page": 308,
+    "image": 1,
+    "image_bbox": [
+      220.79,
+      121.91,
+      385.42,
+      227.03
+    ],
+    "candidate": "전방 충돌방지 보조 이상 및 제한 사",
+    "title": {
+      "text": "전방 충돌방지 보조 이상 및 제한 사",
+      "raw_text": "전방 충돌방지 보조 이상 및 제한 사",
+      "bbox": [
+        221.83,
+        63.2,
+        384.57,
+        77.86
+      ],
+      "font_size": 12.0,
+      "max_font_size": 12.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 44.05,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "기능 이상",
+        "raw_text": "기능 이상",
+        "bbox": [
+          221.69,
+          108.49,
+          259.63,
+          120.71
+        ],
+        "font_size": 10.0,
+        "max_font_size": 10.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 1.2,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "항",
+        "raw_text": "항",
+        "bbox": [
+          221.84,
+          78.19,
+          232.16,
+          92.85
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 29.06,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "전방 충돌방지 보조 이상 및 제한 사",
+        "raw_text": "전방 충돌방지 보조 이상 및 제한 사",
+        "bbox": [
+          221.83,
+          63.2,
+          384.57,
+          77.86
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 44.05,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      }
+    ]
+  },
+  {
+    "page": 343,
+    "image": 1,
+    "image_bbox": [
+      50.88,
+      107.04,
+      215.51,
+      212.15
+    ],
+    "candidate": "안전 하차 보조 이상 및 제한 사항",
+    "title": {
+      "text": "안전 하차 보조 이상 및 제한 사항",
+      "raw_text": "안전 하차 보조 이상 및 제한 사항",
+      "bbox": [
+        51.75,
+        63.2,
+        207.65,
+        77.86
+      ],
+      "font_size": 12.0,
+      "max_font_size": 12.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 29.18,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "기능 이상",
+        "raw_text": "기능 이상",
+        "bbox": [
+          51.61,
+          93.5,
+          89.55,
+          105.72
+        ],
+        "font_size": 10.0,
+        "max_font_size": 10.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 1.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "안전 하차 보조 이상 및 제한 사항",
+        "raw_text": "안전 하차 보조 이상 및 제한 사항",
+        "bbox": [
+          51.75,
+          63.2,
+          207.65,
+          77.86
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 29.18,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      }
+    ]
+  },
+  {
+    "page": 344,
+    "image": 1,
+    "image_bbox": [
+      221.03,
+      84.0,
+      385.42,
+      188.87
+    ],
+    "candidate": "수동 속도 제한 보조 (MSLA)",
+    "title": {
+      "text": "수동 속도 제한 보조 (MSLA)",
+      "raw_text": "수동 속도 제한 보조 (MSLA)",
+      "bbox": [
+        221.97,
+        62.89,
+        381.01,
+        80.0
+      ],
+      "font_size": 14.0,
+      "max_font_size": 14.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 4.0,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "수동 속도 제한 보조 (MSLA)",
+        "raw_text": "수동 속도 제한 보조 (MSLA)",
+        "bbox": [
+          221.97,
+          62.89,
+          381.01,
+          80.0
+        ],
+        "font_size": 14.0,
+        "max_font_size": 14.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 4.0,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      }
+    ]
+  },
+  {
+    "page": 358,
+    "image": 3,
+    "image_bbox": [
+      221.03,
+      295.67,
+      385.42,
+      400.54
+    ],
+    "candidate": "일시 해제하기",
+    "title": {
+      "text": "일시 해제하기",
+      "raw_text": "일시 해제하기",
+      "bbox": [
+        221.83,
+        228.84,
+        288.81,
+        243.5
+      ],
+      "font_size": 12.0,
+      "max_font_size": 12.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 52.17,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "수동",
+        "raw_text": "수동",
+        "bbox": [
+          221.69,
+          282.13,
+          239.29,
+          294.35
+        ],
+        "font_size": 10.0,
+        "max_font_size": 10.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 1.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "습니다.",
+        "raw_text": "습니다. ",
+        "bbox": [
+          221.62,
+          257.35,
+          250.46,
+          268.27
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 27.4,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "크루즈 컨트롤 작동을 일시적으로 해제할 수 있",
+        "raw_text": "크루즈 컨트롤 작동을 일시적으로 해제할 수 있",
+        "bbox": [
+          221.62,
+          247.35,
+          384.77,
+          258.27
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 37.4,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "일시 해제하기",
+        "raw_text": "일시 해제하기",
+        "bbox": [
+          221.83,
+          228.84,
+          288.81,
+          243.5
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 52.17,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      },
+      {
+        "text": "스터의 속도로 설정됩니다.",
+        "raw_text": "스터의 속도로 설정됩니다.",
+        "bbox": [
+          221.57,
+          194.53,
+          317.49,
+          205.46
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 90.21,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "내리면 크루즈 컨트롤의 설정속도가 현재 클러",
+        "raw_text": "내리면 크루즈 컨트롤의 설정속도가 현재 클러",
+        "bbox": [
+          221.6,
+          184.53,
+          384.78,
+          195.46
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 100.21,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "+ 스위치를 위로 올리거나 – 스위치를 아래로",
+        "raw_text": "+ 스위치를 위로 올리거나 – 스위치를 아래로",
+        "bbox": [
+          220.98,
+          174.54,
+          384.87,
+          185.46
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansHeadKR / HyundaiSansTextKR",
+        "flags": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "bold": false,
+        "distance_pt": 110.21,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  },
+  {
+    "page": 359,
+    "image": 2,
+    "image_bbox": [
+      50.88,
+      335.75,
+      215.27,
+      440.62
+    ],
+    "candidate": "일시 해제 후 다시 켜기",
+    "title": {
+      "text": "일시 해제 후 다시 켜기",
+      "raw_text": "일시 해제 후 다시 켜기",
+      "bbox": [
+        51.75,
+        316.8,
+        159.13,
+        331.47
+      ],
+      "font_size": 12.0,
+      "max_font_size": 12.0,
+      "font": "HyundaiSansTextKRMedium",
+      "flags": [
+        4
+      ],
+      "bold": false,
+      "distance_pt": 4.28,
+      "same_column": true,
+      "horizontal_overlap": 1.0,
+      "heading_like": true
+    },
+    "above": [
+      {
+        "text": "일시 해제 후 다시 켜기",
+        "raw_text": "일시 해제 후 다시 켜기",
+        "bbox": [
+          51.75,
+          316.8,
+          159.13,
+          331.47
+        ],
+        "font_size": 12.0,
+        "max_font_size": 12.0,
+        "font": "HyundaiSansTextKRMedium",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 4.28,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": true
+      },
+      {
+        "text": "블루핸즈에서 점검을 받으십시오.",
+        "raw_text": "블루핸즈에서 점검을 받으십시오.",
+        "bbox": [
+          51.52,
+          282.5,
+          171.74,
+          293.42
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 42.33,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "시 해제된 경우에는 당사 직영 하이테크센터나",
+        "raw_text": "시 해제된 경우에는 당사 직영 하이테크센터나",
+        "bbox": [
+          51.54,
+          272.5,
+          214.54,
+          283.43
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 52.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "위의 상황 이외에 크루즈 컨트롤이 자동으로 일",
+        "raw_text": "위의 상황 이외에 크루즈 컨트롤이 자동으로 일",
+        "bbox": [
+          51.54,
+          262.5,
+          214.69,
+          273.43
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 62.32,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "઱੄",
+        "raw_text": "઱੄",
+        "bbox": [
+          70.23,
+          246.87,
+          89.15,
+          258.12
+        ],
+        "font_size": 11.0,
+        "max_font_size": 11.0,
+        "font": "HyundaiSansTextKRMedium-",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 77.63,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": "크루즈 표시등(",
+        "raw_text": "크루즈 표시등(",
+        "bbox": [
+          51.45,
+          222.65,
+          104.97,
+          233.58
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 102.17,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      },
+      {
+        "text": ")은 계속 켜져 있습니다.",
+        "raw_text": ")은 계속 켜져 있습니다.",
+        "bbox": [
+          131.84,
+          222.65,
+          215.21,
+          233.58
+        ],
+        "font_size": 9.0,
+        "max_font_size": 9.0,
+        "font": "HyundaiSansTextKR",
+        "flags": [
+          4
+        ],
+        "bold": false,
+        "distance_pt": 102.17,
+        "same_column": true,
+        "horizontal_overlap": 1.0,
+        "heading_like": false
+      }
+    ]
+  }
+]

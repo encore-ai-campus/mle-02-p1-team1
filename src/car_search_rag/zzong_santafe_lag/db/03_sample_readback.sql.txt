@@ -1,0 +1,30 @@
+-- [프로젝트 추가] 저장 완료한 표본을 DBeaver에서 읽는 SQL입니다.
+-- 각 SELECT를 한 문장씩 실행합니다. 테이블 생성·INSERT·UPDATE·DELETE는 없습니다.
+
+-- 1. ready는 저장 값과 연결을 확인한 처리 작업입니다.
+SELECT id, pipeline_version, model_name, model_revision, status, created_at
+FROM zzong_santafe_lag.processing_runs
+WHERE id = 'dc327282-8cfd-4eb3-a2b0-1433e0b088ce'::uuid;
+
+-- 2. 원문 4개와 PDF 출처, 각주 연결을 봅니다. raw_text는 보존 원문입니다.
+SELECT record_id, title, pdf_page_number, manual_page_number, source_pages,
+       content, raw_text, metadata -> 'required_context_record_ids' AS required_context
+FROM zzong_santafe_lag.parent_records
+WHERE run_id = 'dc327282-8cfd-4eb3-a2b0-1433e0b088ce'::uuid
+ORDER BY pdf_page_number, record_id;
+
+-- 3. 검색 청크 11개입니다. 벡터 전체 대신 실제 입력 글과 토큰 수를 읽습니다.
+SELECT record_id, chunk_index, token_count, content, content_sha256
+FROM zzong_santafe_lag.chunks
+WHERE run_id = 'dc327282-8cfd-4eb3-a2b0-1433e0b088ce'::uuid
+ORDER BY record_id;
+
+-- 4. 표·본문과 그림의 연결입니다. local_path는 현재 PC의 프로젝트 상대 경로입니다.
+-- Storage에 업로드한 파일 주소가 아니므로 다른 PC에서는 파일을 별도로 준비해야 합니다.
+SELECT p.record_id, p.title, i.pdf_page_number, i.pdf_image_key, i.file_name,
+       i.local_path, i.upload_status, ri.description, ri.linkage_status
+FROM zzong_santafe_lag.record_images ri
+JOIN zzong_santafe_lag.parent_records p ON p.id = ri.parent_id
+JOIN zzong_santafe_lag.images i ON i.id = ri.image_id
+WHERE p.run_id = 'dc327282-8cfd-4eb3-a2b0-1433e0b088ce'::uuid
+ORDER BY i.pdf_page_number, i.file_name;

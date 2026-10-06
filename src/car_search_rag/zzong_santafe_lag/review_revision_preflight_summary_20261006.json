@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-06",
+  "revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+  "payload_sha256": "72dfad3b3ad3221f62fb222f4b2e6f5119a75f5d21f305c60e8ec19591ae10c3",
+  "parent_count": 5,
+  "chunk_count": 28,
+  "image_link_count": 8,
+  "document_embedding_inputs": 28,
+  "document_openai_tokens": 5533,
+  "document_openai_batches": 1,
+  "preflight_v1": {"passed": 17, "total": 18, "local_passed": 3, "generation_calls": 2, "generation_tokens": 2196},
+  "preflight_v2": {"passed": 18, "total": 18, "local_passed": 3, "generation_calls": 0, "generated_results_reused": 2},
+  "query_embedding_batches": 1,
+  "query_embedding_inputs": 17,
+  "db_saved": false,
+  "storage_uploaded": false,
+  "human_confirmed": false,
+  "scope": "같은 질문의 조건 회귀 확인과 추가 주제 확인. 전체 매뉴얼 성능·독립 평가·사람 교차 판정으로 표시하지 않음.",
+  "reports": "data/zzong_santafe_lag/review_revisions/"
+}

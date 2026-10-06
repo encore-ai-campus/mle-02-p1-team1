@@ -1,0 +1,1738 @@
+{
+  "run_id": "20261004T085145Z",
+  "validation": "production CarManualSearchService.search_manual_with_metadata; retrieval only, no answer generation",
+  "model": "gpt-5.6-luna",
+  "reranking_enabled": true,
+  "question_count": 11,
+  "vector_candidates_per_question": 10,
+  "vector_candidate_set_matches_baseline_all_questions": true,
+  "before_metrics": {
+    "hit@1": {
+      "hits": 4,
+      "total": 11,
+      "rate": 0.36363636363636365
+    },
+    "hit@3": {
+      "hits": 8,
+      "total": 11,
+      "rate": 0.7272727272727273
+    },
+    "hit@5": {
+      "hits": 9,
+      "total": 11,
+      "rate": 0.8181818181818182
+    },
+    "hit@10": {
+      "hits": 11,
+      "total": 11,
+      "rate": 1.0
+    },
+    "mrr@5": 0.5333333333333333,
+    "mrr@10": 0.5575757575757575
+  },
+  "after_metrics": {
+    "hit@1": {
+      "hits": 9,
+      "total": 11,
+      "rate": 0.8181818181818182
+    },
+    "hit@3": {
+      "hits": 11,
+      "total": 11,
+      "rate": 1.0
+    },
+    "hit@5": {
+      "hits": 11,
+      "total": 11,
+      "rate": 1.0
+    },
+    "hit@10": {
+      "hits": 11,
+      "total": 11,
+      "rate": 1.0
+    },
+    "mrr@5": 0.9090909090909091,
+    "mrr@10": 0.9090909090909091
+  },
+  "mean_rerank_latency_seconds": 3.29114522727799,
+  "mean_total_search_latency_seconds": 3.765344745479524,
+  "total_search_latency_seconds_all_questions": 41.418792200274765,
+  "mean_input_tokens": 4172.818181818182,
+  "mean_output_tokens": 237.9090909090909,
+  "input_tokens_total": 45901,
+  "output_tokens_total": 2617,
+  "api_request_count": 11,
+  "api_retry_count": 0,
+  "fallback_count": 0,
+  "total_run_latency_seconds": 41.419612100115046,
+  "records": [
+    {
+      "question_id": "M6-01",
+      "question": "안전벨트의 골반띠와 어깨띠는 각각 어디에 착용해야 하나요?",
+      "expected": "p31/c56",
+      "acceptable": [
+        "p31/c56"
+      ],
+      "baseline_top10": [
+        "p31/c56",
+        "p60/c109",
+        "p31/c57",
+        "p62/c113",
+        "p57/c103",
+        "p57/c104",
+        "p39/c76",
+        "p62/c114",
+        "p61/c112",
+        "p63/c116"
+      ],
+      "baseline_expected_rank": 1,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 31,
+          "chunk_id": 56
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 60,
+          "chunk_id": 109
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 31,
+          "chunk_id": 57
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 62,
+          "chunk_id": 113
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 57,
+          "chunk_id": 103
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 57,
+          "chunk_id": 104
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 39,
+          "chunk_id": 76
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 62,
+          "chunk_id": 114
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 61,
+          "chunk_id": 112
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 63,
+          "chunk_id": 116
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 3.4024449000135064,
+      "input_tokens": 4573,
+      "output_tokens": 250,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 1,
+      "after_expected_rank": 2,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "하락",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 57,
+          "chunk_id": 103,
+          "similarity": 0.528362921906399
+        },
+        {
+          "rank": 2,
+          "page_no": 31,
+          "chunk_id": 56,
+          "similarity": 0.572416397567057
+        },
+        {
+          "rank": 3,
+          "page_no": 57,
+          "chunk_id": 104,
+          "similarity": 0.512295161855852
+        },
+        {
+          "rank": 4,
+          "page_no": 62,
+          "chunk_id": 113,
+          "similarity": 0.534357417749955
+        },
+        {
+          "rank": 5,
+          "page_no": 61,
+          "chunk_id": 112,
+          "similarity": 0.482616247420658
+        },
+        {
+          "rank": 6,
+          "page_no": 60,
+          "chunk_id": 109,
+          "similarity": 0.546959358231473
+        },
+        {
+          "rank": 7,
+          "page_no": 63,
+          "chunk_id": 116,
+          "similarity": 0.472581890345732
+        },
+        {
+          "rank": 8,
+          "page_no": 62,
+          "chunk_id": 114,
+          "similarity": 0.495672845189141
+        },
+        {
+          "rank": 9,
+          "page_no": 31,
+          "chunk_id": 57,
+          "similarity": 0.542314980516889
+        },
+        {
+          "rank": 10,
+          "page_no": 39,
+          "chunk_id": 76,
+          "similarity": 0.509634369500238
+        }
+      ],
+      "total_search_latency_seconds": 5.171326800016686
+    },
+    {
+      "question_id": "M6-02",
+      "question": "Sonata의 후드는 어떤 순서로 여나요?",
+      "expected": "p163/c316",
+      "acceptable": [
+        "p163/c316"
+      ],
+      "baseline_top10": [
+        "p112/c210",
+        "p51/c94",
+        "p163/c316",
+        "p49/c91",
+        "p201/c379",
+        "p54/c98",
+        "p112/c211",
+        "p160/c310",
+        "p41/c81",
+        "p11/c19"
+      ],
+      "baseline_expected_rank": 3,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 112,
+          "chunk_id": 210
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 51,
+          "chunk_id": 94
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 163,
+          "chunk_id": 316
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 49,
+          "chunk_id": 91
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 201,
+          "chunk_id": 379
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 54,
+          "chunk_id": 98
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 112,
+          "chunk_id": 211
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 160,
+          "chunk_id": 310
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 41,
+          "chunk_id": 81
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 11,
+          "chunk_id": 19
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 3.128769899951294,
+      "input_tokens": 3335,
+      "output_tokens": 219,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 3,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "상승",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 163,
+          "chunk_id": 316,
+          "similarity": 0.358989326756223
+        },
+        {
+          "rank": 2,
+          "page_no": 160,
+          "chunk_id": 310,
+          "similarity": 0.327154985039274
+        },
+        {
+          "rank": 3,
+          "page_no": 112,
+          "chunk_id": 210,
+          "similarity": 0.372545144436507
+        },
+        {
+          "rank": 4,
+          "page_no": 112,
+          "chunk_id": 211,
+          "similarity": 0.329941609146926
+        },
+        {
+          "rank": 5,
+          "page_no": 51,
+          "chunk_id": 94,
+          "similarity": 0.362886773394563
+        },
+        {
+          "rank": 6,
+          "page_no": 49,
+          "chunk_id": 91,
+          "similarity": 0.344827399219631
+        },
+        {
+          "rank": 7,
+          "page_no": 201,
+          "chunk_id": 379,
+          "similarity": 0.335191333565364
+        },
+        {
+          "rank": 8,
+          "page_no": 54,
+          "chunk_id": 98,
+          "similarity": 0.330385368417921
+        },
+        {
+          "rank": 9,
+          "page_no": 41,
+          "chunk_id": 81,
+          "similarity": 0.325278134635128
+        },
+        {
+          "rank": 10,
+          "page_no": 11,
+          "chunk_id": 19,
+          "similarity": 0.324994314663697
+        }
+      ],
+      "total_search_latency_seconds": 3.5764820999465883
+    },
+    {
+      "question_id": "M6-03",
+      "question": "비상 경고등 버튼을 누르면 어떤 표시가 작동하나요?",
+      "expected": "p99/c176",
+      "acceptable": [
+        "p99/c176"
+      ],
+      "baseline_top10": [
+        "p99/c176",
+        "p117/c228",
+        "p308/c592",
+        "p91/c161",
+        "p141/c276",
+        "p426/c802",
+        "p142/c279",
+        "p394/c739",
+        "p281/c522",
+        "p336/c640"
+      ],
+      "baseline_expected_rank": 1,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 99,
+          "chunk_id": 176
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 117,
+          "chunk_id": 228
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 308,
+          "chunk_id": 592
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 91,
+          "chunk_id": 161
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 141,
+          "chunk_id": 276
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 426,
+          "chunk_id": 802
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 142,
+          "chunk_id": 279
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 394,
+          "chunk_id": 739
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 281,
+          "chunk_id": 522
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 336,
+          "chunk_id": 640
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 3.0926475999876857,
+      "input_tokens": 5096,
+      "output_tokens": 220,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 1,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "유지",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 99,
+          "chunk_id": 176,
+          "similarity": 0.585427632325972
+        },
+        {
+          "rank": 2,
+          "page_no": 426,
+          "chunk_id": 802,
+          "similarity": 0.527888219148613
+        },
+        {
+          "rank": 3,
+          "page_no": 117,
+          "chunk_id": 228,
+          "similarity": 0.573071010850588
+        },
+        {
+          "rank": 4,
+          "page_no": 141,
+          "chunk_id": 276,
+          "similarity": 0.529245756332549
+        },
+        {
+          "rank": 5,
+          "page_no": 142,
+          "chunk_id": 279,
+          "similarity": 0.526529170992011
+        },
+        {
+          "rank": 6,
+          "page_no": 308,
+          "chunk_id": 592,
+          "similarity": 0.566328195532888
+        },
+        {
+          "rank": 7,
+          "page_no": 91,
+          "chunk_id": 161,
+          "similarity": 0.545274936124136
+        },
+        {
+          "rank": 8,
+          "page_no": 394,
+          "chunk_id": 739,
+          "similarity": 0.525712852426118
+        },
+        {
+          "rank": 9,
+          "page_no": 281,
+          "chunk_id": 522,
+          "similarity": 0.524313697045113
+        },
+        {
+          "rank": 10,
+          "page_no": 336,
+          "chunk_id": 640,
+          "similarity": 0.523540160202409
+        }
+      ],
+      "total_search_latency_seconds": 3.4156890001613647
+    },
+    {
+      "question_id": "M6-04",
+      "question": "스마트 키로 도어를 잠근 뒤 잠금 상태를 어떻게 확인하나요?",
+      "expected": "p114/c222",
+      "acceptable": [
+        "p114/c222",
+        "p115/c223"
+      ],
+      "baseline_top10": [
+        "p142/c278",
+        "p115/c224",
+        "p141/c277",
+        "p135/c264",
+        "p114/c222",
+        "p115/c223",
+        "p117/c227",
+        "p197/c373",
+        "p116/c225",
+        "p142/c279"
+      ],
+      "baseline_expected_rank": 5,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 142,
+          "chunk_id": 278
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 115,
+          "chunk_id": 224
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 141,
+          "chunk_id": 277
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 135,
+          "chunk_id": 264
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 114,
+          "chunk_id": 222
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 115,
+          "chunk_id": 223
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 117,
+          "chunk_id": 227
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 197,
+          "chunk_id": 373
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 116,
+          "chunk_id": 225
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 142,
+          "chunk_id": 279
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 4.269919600104913,
+      "input_tokens": 4653,
+      "output_tokens": 253,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 5,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "상승",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 114,
+          "chunk_id": 222,
+          "similarity": 0.591058829963852
+        },
+        {
+          "rank": 2,
+          "page_no": 115,
+          "chunk_id": 223,
+          "similarity": 0.584867507665616
+        },
+        {
+          "rank": 3,
+          "page_no": 141,
+          "chunk_id": 277,
+          "similarity": 0.611840870429855
+        },
+        {
+          "rank": 4,
+          "page_no": 142,
+          "chunk_id": 278,
+          "similarity": 0.640712508601994
+        },
+        {
+          "rank": 5,
+          "page_no": 117,
+          "chunk_id": 227,
+          "similarity": 0.583445083682029
+        },
+        {
+          "rank": 6,
+          "page_no": 116,
+          "chunk_id": 225,
+          "similarity": 0.555272973814424
+        },
+        {
+          "rank": 7,
+          "page_no": 115,
+          "chunk_id": 224,
+          "similarity": 0.634393538938758
+        },
+        {
+          "rank": 8,
+          "page_no": 142,
+          "chunk_id": 279,
+          "similarity": 0.536296330527954
+        },
+        {
+          "rank": 9,
+          "page_no": 135,
+          "chunk_id": 264,
+          "similarity": 0.597843377927136
+        },
+        {
+          "rank": 10,
+          "page_no": 197,
+          "chunk_id": 373,
+          "similarity": 0.569400802954518
+        }
+      ],
+      "total_search_latency_seconds": 4.590219100005925
+    },
+    {
+      "question_id": "M6-05",
+      "question": "와이퍼 블레이드는 어떤 상태일 때 교체해야 하나요?",
+      "expected": "p297/c558",
+      "acceptable": [
+        "p297/c558"
+      ],
+      "baseline_top10": [
+        "p474/c884",
+        "p473/c883",
+        "p473/c882",
+        "p447/c843",
+        "p479/c893",
+        "p297/c558",
+        "p469/c877",
+        "p203/c381",
+        "p484/c903",
+        "p468/c875"
+      ],
+      "baseline_expected_rank": 6,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 474,
+          "chunk_id": 884
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 473,
+          "chunk_id": 883
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 473,
+          "chunk_id": 882
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 447,
+          "chunk_id": 843
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 479,
+          "chunk_id": 893
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 297,
+          "chunk_id": 558
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 469,
+          "chunk_id": 877
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 203,
+          "chunk_id": 381
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 484,
+          "chunk_id": 903
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 468,
+          "chunk_id": 875
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 2.9271333999931812,
+      "input_tokens": 4283,
+      "output_tokens": 232,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 6,
+      "after_expected_rank": 2,
+      "before_hit_at_5": false,
+      "after_hit_at_5": true,
+      "rank_change": "상승",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 473,
+          "chunk_id": 883,
+          "similarity": 0.451424171516493
+        },
+        {
+          "rank": 2,
+          "page_no": 297,
+          "chunk_id": 558,
+          "similarity": 0.365270689778448
+        },
+        {
+          "rank": 3,
+          "page_no": 473,
+          "chunk_id": 882,
+          "similarity": 0.402453998070462
+        },
+        {
+          "rank": 4,
+          "page_no": 474,
+          "chunk_id": 884,
+          "similarity": 0.49207535563318
+        },
+        {
+          "rank": 5,
+          "page_no": 447,
+          "chunk_id": 843,
+          "similarity": 0.379721127199524
+        },
+        {
+          "rank": 6,
+          "page_no": 203,
+          "chunk_id": 381,
+          "similarity": 0.35257602445967
+        },
+        {
+          "rank": 7,
+          "page_no": 469,
+          "chunk_id": 877,
+          "similarity": 0.359715598763816
+        },
+        {
+          "rank": 8,
+          "page_no": 479,
+          "chunk_id": 893,
+          "similarity": 0.377507820168044
+        },
+        {
+          "rank": 9,
+          "page_no": 484,
+          "chunk_id": 903,
+          "similarity": 0.352482924029237
+        },
+        {
+          "rank": 10,
+          "page_no": 468,
+          "chunk_id": 875,
+          "similarity": 0.346896462645793
+        }
+      ],
+      "total_search_latency_seconds": 3.246406099991873
+    },
+    {
+      "question_id": "M6-06",
+      "question": "엔진 오일량을 확인할 때 레벨 게이지를 다시 뽑기 전에 무엇을 해야 하나요?",
+      "expected": "p463/c866",
+      "acceptable": [
+        "p463/c866",
+        "p463/c867"
+      ],
+      "baseline_top10": [
+        "p464/c868",
+        "p463/c867",
+        "p463/c866",
+        "p465/c870",
+        "p447/c840",
+        "p465/c869",
+        "p447/c839",
+        "p430/c810",
+        "p7/c10",
+        "p29/c52"
+      ],
+      "baseline_expected_rank": 2,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 464,
+          "chunk_id": 868
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 463,
+          "chunk_id": 867
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 463,
+          "chunk_id": 866
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 465,
+          "chunk_id": 870
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 447,
+          "chunk_id": 840
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 465,
+          "chunk_id": 869
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 447,
+          "chunk_id": 839
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 430,
+          "chunk_id": 810
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 7,
+          "chunk_id": 10
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 29,
+          "chunk_id": 52
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 3.2643448000308126,
+      "input_tokens": 3556,
+      "output_tokens": 204,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 2,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "상승",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 463,
+          "chunk_id": 867,
+          "similarity": 0.542926296711879
+        },
+        {
+          "rank": 2,
+          "page_no": 463,
+          "chunk_id": 866,
+          "similarity": 0.527329947336148
+        },
+        {
+          "rank": 3,
+          "page_no": 464,
+          "chunk_id": 868,
+          "similarity": 0.548548425812291
+        },
+        {
+          "rank": 4,
+          "page_no": 465,
+          "chunk_id": 869,
+          "similarity": 0.486186109911771
+        },
+        {
+          "rank": 5,
+          "page_no": 465,
+          "chunk_id": 870,
+          "similarity": 0.502377329753201
+        },
+        {
+          "rank": 6,
+          "page_no": 29,
+          "chunk_id": 52,
+          "similarity": 0.446109932199561
+        },
+        {
+          "rank": 7,
+          "page_no": 447,
+          "chunk_id": 840,
+          "similarity": 0.49112916210826
+        },
+        {
+          "rank": 8,
+          "page_no": 447,
+          "chunk_id": 839,
+          "similarity": 0.460448097454699
+        },
+        {
+          "rank": 9,
+          "page_no": 7,
+          "chunk_id": 10,
+          "similarity": 0.449184359470447
+        },
+        {
+          "rank": 10,
+          "page_no": 430,
+          "chunk_id": 810,
+          "similarity": 0.456522818717986
+        }
+      ],
+      "total_search_latency_seconds": 3.6137176000047475
+    },
+    {
+      "question_id": "M6-07",
+      "question": "냉각수는 언제 확인하고 보조 탱크의 어느 범위까지 보충하나요?",
+      "expected": "p466/c871",
+      "acceptable": [
+        "p466/c871"
+      ],
+      "baseline_top10": [
+        "p430/c810",
+        "p466/c871",
+        "p467/c872",
+        "p447/c840",
+        "p225/c411",
+        "p469/c877",
+        "p209/c389",
+        "p467/c873",
+        "p468/c874",
+        "p213/c394"
+      ],
+      "baseline_expected_rank": 2,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 430,
+          "chunk_id": 810
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 466,
+          "chunk_id": 871
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 467,
+          "chunk_id": 872
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 447,
+          "chunk_id": 840
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 225,
+          "chunk_id": 411
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 469,
+          "chunk_id": 877
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 209,
+          "chunk_id": 389
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 467,
+          "chunk_id": 873
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 468,
+          "chunk_id": 874
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 213,
+          "chunk_id": 394
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 2.610587599920109,
+      "input_tokens": 4174,
+      "output_tokens": 179,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 2,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "상승",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 466,
+          "chunk_id": 871,
+          "similarity": 0.428814430326666
+        },
+        {
+          "rank": 2,
+          "page_no": 467,
+          "chunk_id": 872,
+          "similarity": 0.395180903455621
+        },
+        {
+          "rank": 3,
+          "page_no": 430,
+          "chunk_id": 810,
+          "similarity": 0.432486260676389
+        },
+        {
+          "rank": 4,
+          "page_no": 467,
+          "chunk_id": 873,
+          "similarity": 0.351208747985798
+        },
+        {
+          "rank": 5,
+          "page_no": 447,
+          "chunk_id": 840,
+          "similarity": 0.371774382875311
+        },
+        {
+          "rank": 6,
+          "page_no": 468,
+          "chunk_id": 874,
+          "similarity": 0.342364181289832
+        },
+        {
+          "rank": 7,
+          "page_no": 469,
+          "chunk_id": 877,
+          "similarity": 0.356809358259415
+        },
+        {
+          "rank": 8,
+          "page_no": 225,
+          "chunk_id": 411,
+          "similarity": 0.364825975609576
+        },
+        {
+          "rank": 9,
+          "page_no": 213,
+          "chunk_id": 394,
+          "similarity": 0.336589712202078
+        },
+        {
+          "rank": 10,
+          "page_no": 209,
+          "chunk_id": 389,
+          "similarity": 0.351927632855893
+        }
+      ],
+      "total_search_latency_seconds": 2.932831099955365
+    },
+    {
+      "question_id": "M6-08",
+      "question": "타이어 공기압 점검에서 ‘차가운 타이어’는 어떤 상태를 뜻하나요?",
+      "expected": "p478/c890",
+      "acceptable": [
+        "p478/c890"
+      ],
+      "baseline_top10": [
+        "p29/c53",
+        "p478/c891",
+        "p478/c890",
+        "p433/c814",
+        "p439/c824",
+        "p440/c827",
+        "p434/c817",
+        "p434/c816",
+        "p425/c799",
+        "p29/c52"
+      ],
+      "baseline_expected_rank": 3,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 29,
+          "chunk_id": 53
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 478,
+          "chunk_id": 891
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 478,
+          "chunk_id": 890
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 433,
+          "chunk_id": 814
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 439,
+          "chunk_id": 824
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 440,
+          "chunk_id": 827
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 434,
+          "chunk_id": 817
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 434,
+          "chunk_id": 816
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 425,
+          "chunk_id": 799
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 29,
+          "chunk_id": 52
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 3.606237499974668,
+      "input_tokens": 4245,
+      "output_tokens": 275,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 3,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "상승",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 478,
+          "chunk_id": 890,
+          "similarity": 0.579487663845385
+        },
+        {
+          "rank": 2,
+          "page_no": 478,
+          "chunk_id": 891,
+          "similarity": 0.634089827780493
+        },
+        {
+          "rank": 3,
+          "page_no": 29,
+          "chunk_id": 53,
+          "similarity": 0.637446997863566
+        },
+        {
+          "rank": 4,
+          "page_no": 29,
+          "chunk_id": 52,
+          "similarity": 0.529251406655397
+        },
+        {
+          "rank": 5,
+          "page_no": 439,
+          "chunk_id": 824,
+          "similarity": 0.568210412612885
+        },
+        {
+          "rank": 6,
+          "page_no": 440,
+          "chunk_id": 827,
+          "similarity": 0.562776879925513
+        },
+        {
+          "rank": 7,
+          "page_no": 433,
+          "chunk_id": 814,
+          "similarity": 0.569000679356406
+        },
+        {
+          "rank": 8,
+          "page_no": 434,
+          "chunk_id": 817,
+          "similarity": 0.559888279169876
+        },
+        {
+          "rank": 9,
+          "page_no": 434,
+          "chunk_id": 816,
+          "similarity": 0.547939829555763
+        },
+        {
+          "rank": 10,
+          "page_no": 425,
+          "chunk_id": 799,
+          "similarity": 0.544681192806102
+        }
+      ],
+      "total_search_latency_seconds": 3.922101000091061
+    },
+    {
+      "question_id": "M6-09",
+      "question": "타이어는 마모 표시밴드가 보일 때와 잔여 홈이 어느 수준일 때 교체하나요?",
+      "expected": "p479/c892",
+      "acceptable": [
+        "p479/c892",
+        "p479/c893"
+      ],
+      "baseline_top10": [
+        "p479/c892",
+        "p479/c893",
+        "p448/c846",
+        "p420/c789",
+        "p295/c554",
+        "p481/c897",
+        "p478/c891",
+        "p112/c210",
+        "p480/c895",
+        "p299/c566"
+      ],
+      "baseline_expected_rank": 1,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 479,
+          "chunk_id": 892
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 479,
+          "chunk_id": 893
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 448,
+          "chunk_id": 846
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 420,
+          "chunk_id": 789
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 295,
+          "chunk_id": 554
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 481,
+          "chunk_id": 897
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 478,
+          "chunk_id": 891
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 112,
+          "chunk_id": 210
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 480,
+          "chunk_id": 895
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 299,
+          "chunk_id": 566
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 2.9592337999492884,
+      "input_tokens": 3553,
+      "output_tokens": 224,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 1,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "유지",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 479,
+          "chunk_id": 892,
+          "similarity": 0.470808734871
+        },
+        {
+          "rank": 2,
+          "page_no": 479,
+          "chunk_id": 893,
+          "similarity": 0.448492325232403
+        },
+        {
+          "rank": 3,
+          "page_no": 481,
+          "chunk_id": 897,
+          "similarity": 0.4175554915618
+        },
+        {
+          "rank": 4,
+          "page_no": 478,
+          "chunk_id": 891,
+          "similarity": 0.416895884922107
+        },
+        {
+          "rank": 5,
+          "page_no": 480,
+          "chunk_id": 895,
+          "similarity": 0.405034378165893
+        },
+        {
+          "rank": 6,
+          "page_no": 448,
+          "chunk_id": 846,
+          "similarity": 0.440768567091476
+        },
+        {
+          "rank": 7,
+          "page_no": 420,
+          "chunk_id": 789,
+          "similarity": 0.420305480731321
+        },
+        {
+          "rank": 8,
+          "page_no": 295,
+          "chunk_id": 554,
+          "similarity": 0.419020587035119
+        },
+        {
+          "rank": 9,
+          "page_no": 299,
+          "chunk_id": 566,
+          "similarity": 0.402358421062861
+        },
+        {
+          "rank": 10,
+          "page_no": 112,
+          "chunk_id": 210,
+          "similarity": 0.415549642688901
+        }
+      ],
+      "total_search_latency_seconds": 3.3336134001147
+    },
+    {
+      "question_id": "M6-10",
+      "question": "배터리 단자를 분리·장착할 때 순서는 어떻게 되며, 단자 관리는 어떻게 하나요?",
+      "expected": "p475/c885",
+      "acceptable": [
+        "p475/c885"
+      ],
+      "baseline_top10": [
+        "p475/c885",
+        "p255/c474",
+        "p448/c844",
+        "p255/c473",
+        "p270/c501",
+        "p477/c888",
+        "p112/c215",
+        "p498/c927",
+        "p233/c425",
+        "p264/c489"
+      ],
+      "baseline_expected_rank": 1,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 475,
+          "chunk_id": 885
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 255,
+          "chunk_id": 474
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 448,
+          "chunk_id": 844
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 255,
+          "chunk_id": 473
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 270,
+          "chunk_id": 501
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 477,
+          "chunk_id": 888
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 112,
+          "chunk_id": 215
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 498,
+          "chunk_id": 927
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 233,
+          "chunk_id": 425
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 264,
+          "chunk_id": 489
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 2.8504526000469923,
+      "input_tokens": 4422,
+      "output_tokens": 214,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 1,
+      "after_expected_rank": 1,
+      "before_hit_at_5": true,
+      "after_hit_at_5": true,
+      "rank_change": "유지",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 475,
+          "chunk_id": 885,
+          "similarity": 0.472604211418635
+        },
+        {
+          "rank": 2,
+          "page_no": 477,
+          "chunk_id": 888,
+          "similarity": 0.395715252624942
+        },
+        {
+          "rank": 3,
+          "page_no": 448,
+          "chunk_id": 844,
+          "similarity": 0.421032111468514
+        },
+        {
+          "rank": 4,
+          "page_no": 255,
+          "chunk_id": 474,
+          "similarity": 0.430273165889575
+        },
+        {
+          "rank": 5,
+          "page_no": 255,
+          "chunk_id": 473,
+          "similarity": 0.413111626292783
+        },
+        {
+          "rank": 6,
+          "page_no": 270,
+          "chunk_id": 501,
+          "similarity": 0.396759247181849
+        },
+        {
+          "rank": 7,
+          "page_no": 264,
+          "chunk_id": 489,
+          "similarity": 0.381389679300085
+        },
+        {
+          "rank": 8,
+          "page_no": 233,
+          "chunk_id": 425,
+          "similarity": 0.38187558787908
+        },
+        {
+          "rank": 9,
+          "page_no": 112,
+          "chunk_id": 215,
+          "similarity": 0.392554605692419
+        },
+        {
+          "rank": 10,
+          "page_no": 498,
+          "chunk_id": 927,
+          "similarity": 0.391780038655059
+        }
+      ],
+      "total_search_latency_seconds": 3.1776360999792814
+    },
+    {
+      "question_id": "M6-11",
+      "question": "브레이크액이 MIN 이하라면 어떻게 해야 하나요?",
+      "expected": "p468/c874",
+      "acceptable": [
+        "p468/c874"
+      ],
+      "baseline_top10": [
+        "p447/c841",
+        "p468/c875",
+        "p274/c508",
+        "p245/c449",
+        "p275/c510",
+        "p469/c876",
+        "p275/c511",
+        "p92/c163",
+        "p92/c162",
+        "p468/c874"
+      ],
+      "baseline_expected_rank": 10,
+      "vector_candidate_count": 10,
+      "vector_candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 447,
+          "chunk_id": 841
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 468,
+          "chunk_id": 875
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 274,
+          "chunk_id": 508
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 245,
+          "chunk_id": 449
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 275,
+          "chunk_id": 510
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 469,
+          "chunk_id": 876
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 275,
+          "chunk_id": 511
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 92,
+          "chunk_id": 163
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 92,
+          "chunk_id": 162
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 468,
+          "chunk_id": 874
+        }
+      ],
+      "baseline_vector_candidate_set_matches": true,
+      "rerank_success": true,
+      "reranker_model": "gpt-5.6-luna",
+      "rerank_latency_seconds": 4.09082580008544,
+      "input_tokens": 4011,
+      "output_tokens": 347,
+      "request_count": 1,
+      "retry_count": 0,
+      "fallback_reason": null,
+      "before_expected_rank": 10,
+      "after_expected_rank": 1,
+      "before_hit_at_5": false,
+      "after_hit_at_5": true,
+      "rank_change": "상승",
+      "reranked_top10": [
+        {
+          "rank": 1,
+          "page_no": 468,
+          "chunk_id": 874,
+          "similarity": 0.361144256806648
+        },
+        {
+          "rank": 2,
+          "page_no": 92,
+          "chunk_id": 162,
+          "similarity": 0.366041857197366
+        },
+        {
+          "rank": 3,
+          "page_no": 468,
+          "chunk_id": 875,
+          "similarity": 0.405787047078632
+        },
+        {
+          "rank": 4,
+          "page_no": 469,
+          "chunk_id": 876,
+          "similarity": 0.383526095291468
+        },
+        {
+          "rank": 5,
+          "page_no": 447,
+          "chunk_id": 841,
+          "similarity": 0.420284113369807
+        },
+        {
+          "rank": 6,
+          "page_no": 92,
+          "chunk_id": 163,
+          "similarity": 0.36992716809152
+        },
+        {
+          "rank": 7,
+          "page_no": 274,
+          "chunk_id": 508,
+          "similarity": 0.400119453512392
+        },
+        {
+          "rank": 8,
+          "page_no": 275,
+          "chunk_id": 510,
+          "similarity": 0.391320272731057
+        },
+        {
+          "rank": 9,
+          "page_no": 275,
+          "chunk_id": 511,
+          "similarity": 0.373148534174316
+        },
+        {
+          "rank": 10,
+          "page_no": 245,
+          "chunk_id": 449,
+          "similarity": 0.394577798599572
+        }
+      ],
+      "total_search_latency_seconds": 4.438769900007173
+    }
+  ],
+  "runtime": {
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

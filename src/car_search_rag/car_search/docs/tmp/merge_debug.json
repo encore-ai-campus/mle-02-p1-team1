@@ -1,0 +1,79 @@
+[
+  {
+    "text": "도어 잠금 해제(2)(세이프티 언락 기능 설",
+    "raw_text": "도어 잠금 해제(2)(세이프티 언락 기능 설",
+    "bbox": [
+      235.86,
+      63.51,
+      396.53,
+      75.73
+    ],
+    "font_size": 10.0,
+    "max_font_size": 10.0,
+    "font": "HyundaiSansTextKRMedium",
+    "flags": [
+      4
+    ],
+    "bold": false,
+    "source_block_index": 7
+  },
+  {
+    "text": "정 시)",
+    "raw_text": "정 시)",
+    "bbox": [
+      235.86,
+      73.5,
+      259.65,
+      85.72
+    ],
+    "font_size": 10.0,
+    "max_font_size": 10.0,
+    "font": "HyundaiSansTextKRMedium",
+    "flags": [
+      4
+    ],
+    "bold": false,
+    "source_block_index": 7
+  },
+  {
+    "text": "스마트 키의 도어 잠금 해제 버튼을 누르십",
+    "raw_text": "스마트 키의 도어 잠금 해제 버튼을 누르십",
+    "bbox": [
+      244.21,
+      252.07,
+      398.95,
+      263.0
+    ],
+    "font_size": 9.0,
+    "max_font_size": 9.0,
+    "font": "HyundaiSansTextKR",
+    "flags": [
+      4
+    ],
+    "bold": false,
+    "source_block_index": 9
+  },
+  {
+    "text": "의 > 웰컴 미러/라이트 > 도어 잠금 해제 시를",
+    "raw_text": "의 > 웰컴 미러/라이트 > 도어 잠금 해제 시를",
+    "bbox": [
+      60.03,
+      359.88,
+      214.73,
+      370.81
+    ],
+    "font_size": 8.93,
+    "max_font_size": 9.0,
+    "font": "HyundaiSansTextKR",
+    "flags": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "bold": false,
+    "source_block_index": 5
+  }
+]

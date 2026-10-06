@@ -1,0 +1,4 @@
+# 임베딩 배열·환경별 DB 버전 선택·임시 체크포인트는 Git에 올리지 않습니다.
+*
+!.gitignore
+!comparison_summary.json

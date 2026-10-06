@@ -166,11 +166,12 @@ class SqlSession:                                                               
         return value
 
     def _log_batch_query(self, statement_id: str, sql: str, parameters_list: list[dict]) -> None:
-        """배치 SQL과 모든 건의 로그용 파라미터를 실행 전에 기록한다."""
+        """배치 SQL과 앞의 최대 100건 로그용 파라미터를 실행 전에 기록한다."""
         if not sql_logger.isEnabledFor(logging.INFO):
             return
 
         total = len(parameters_list)
+        log_limit = 100
         lines = [
             f"BATCH QUERY [{statement_id}]",
             SQL_LOG_DIVIDER,
@@ -178,7 +179,7 @@ class SqlSession:                                                               
             SQL_LOG_DIVIDER,
             f"BATCH PARAMS rows={total}",
         ]
-        for index, parameters in enumerate(parameters_list, start=1):
+        for index, parameters in enumerate(parameters_list[:log_limit], start=1):
             try:
                 log_parameters = repr(self._sanitize_log_value(parameters))
             except Exception as exc:
@@ -187,9 +188,13 @@ class SqlSession:                                                               
                 log_parameters = "<PARAMS unavailable>"
             lines.extend(("", f"[{index}/{total}]", log_parameters))
 
+        omitted_count = total - log_limit
+        if omitted_count > 0:
+            lines.extend(("", "...", f"생략된 배치 파라미터: {omitted_count}건"))
+
         sql_logger.info("%s", "\n".join(lines))
 
-    def _log_query(self, statement_id: str, sql: str, parameters, connection: psycopg.Connection, *, force: bool = False) -> None:
+    def _log_query(self, statement_id: str, sql: str, parameters, connection: psycopg.Connection, *, force: bool = False, full_vector_sql: bool = False) -> None:
         """실행과 별개로 SQL 상세 로그를 출력한다."""
         # execute()는 none 모드에서도 QUERY를 combined 형식으로 표시한다.
         log_mode = "combined" if force and self.sql_log_mode == "none" else self.sql_log_mode
@@ -205,9 +210,12 @@ class SqlSession:                                                               
 
         if log_mode == "combined":
             try:
-                # 로그 표시용 파라미터에만 psycopg의 quoting/escaping을 사용한다.
+                # select_list()만 full_vector_sql=True로 호출해 실제 embedding 전체를 QUERY에 남긴다.
+                # 복사 가능한 SQL로 EXPLAIN 등을 확인하기 위함이며 PARAMS는 기존 sanitize 미리보기를 유지한다.
+                # execute()/execute_many()는 이 옵션을 쓰지 않아 변경/배치 SQL 로그에 영향이 없다.
+                render_parameters = parameters if full_vector_sql else log_parameters
                 with psycopg.ClientCursor(connection) as cursor:
-                    rendered_sql = cursor.mogrify(sql, log_parameters or None)
+                    rendered_sql = cursor.mogrify(sql, render_parameters or None)
             except Exception as exc:
                 # 로그 렌더링만 실패해도 실행에는 영향을 주지 않고 SQL 원문으로 되돌린다.
                 sql_logger.warning("SQL 로그 렌더링 실패 [%s]: %s", statement_id, type(exc).__name__)
@@ -304,12 +312,15 @@ class SqlSession:                                                               
     #=========================================================
     # 트랜잭션 중이면 기존 연결, 아니면 새 연결 제공
     #=========================================================
+    # _connection()은 SQL 실행부의 단일 진입점이다.
+    # 트랜잭션 중이면 이미 빌린 연결을 내주고, 그 외에는 DatabaseManager.connect()를 통해 pool에서 대여한다.
+    # 후자의 with 블록 종료는 physical connection close가 아니라 pool 반환이다.
     @contextmanager                                                                                                           # with 블록 안의 연결 사용 방식을 공통 처리
     def _connection(self) -> Generator[psycopg.Connection]:                                                                   # 트랜잭션 연결 또는 독립 연결 제공
-        if self._active_connection is not None:                                                                               # 활성 트랜잭션이 있으면
+        if self._active_connection is not None:                                                                               # 활성 트랜잭션이면 그 연결을 그대로 공유
             yield self._active_connection                                                                                     # 같은 연결을 재사용하고 여기서 닫지 않음
         else:                                                                                                                 # 트랜잭션 밖에서는
-            with self.database_manager.connect(camel_case_keys=self.camel_case_keys) as connection:                                                               # 기존처럼 호출마다 독립 연결 생성
+            with self.database_manager.connect(camel_case_keys=self.camel_case_keys) as connection:  # pool 대여 후 블록 종료 시 반환
                 yield connection                                                                                              # 사용 후 연결 컨텍스트가 정리
 
     # 사용법: car_search/transaction_sample.sql의 쿼리를 같은 작업으로 묶는다.
@@ -326,9 +337,9 @@ class SqlSession:                                                               
     def transaction(self) -> Generator[Self]:                                                                                 # 여러 SQL을 하나의 연결과 작업 단위로 실행
         """여러 mapper 호출을 하나의 PostgreSQL 트랜잭션으로 묶는다.
 
-        블록에 들어갈 때 연결을 새로 만들고 ``select_list()``, ``select_one()``,
-        ``execute()`` 가 그 연결을 공유한다. 정상 종료하면 commit하고, 블록 밖으로
-        예외가 전파되면 rollback한다. 두 경우 모두 연결을 닫는다.
+        블록 진입 때 pool에서 연결 하나를 대여하고 블록 안의 ``select_list()``,
+        ``select_one()``, ``execute()``가 같은 연결을 공유한다. 정상 종료는 commit,
+        예외는 rollback하며, 마지막에는 physical connection을 닫지 않고 pool에 반환한다.
 
         Yields:
             현재 ``SqlSession`` 인스턴스.
@@ -355,21 +366,24 @@ class SqlSession:                                                               
         """
         if self._active_connection is not None:                                                                               # 중첩 트랜잭션은 지원하지 않음
             raise RuntimeError("이미 Transaction이 실행 중입니다.")                                                               # 중첩 사용을 명확히 알림
-        connection = self.database_manager.connect(camel_case_keys=self.camel_case_keys)                                                                          # 트랜잭션 전용 연결 생성
-        self._active_connection = connection                                                                                  # 블록 안의 모든 SQL이 이 연결을 재사용
-        try:
+        # transaction 전체가 하나의 pool lease 안에 있어 중간에 connection이 바뀌지 않는다.
+        # 이 context 종료가 pool 반환을 담당하므로 여기서 connection.close()를 직접 호출하지 않는다.
+        with self.database_manager.connect(camel_case_keys=self.camel_case_keys) as connection:
+            self._active_connection = connection
             try:
-                yield self                                                                                                    # 호출자가 select_list/execute 등을 실행
-            except BaseException:
-                connection.rollback()                                                                                         # 오류가 나면 모든 SQL 변경을 되돌림
-                sql_logger.info("TRANSACTION ROLLBACK")
-                raise
-            else:
-                connection.commit()                                                                                           # 모두 성공하면 한 번에 확정
-                sql_logger.info("TRANSACTION COMMIT")
-        finally:
-            self._active_connection = None                                                                                    # 활성 트랜잭션 상태 해제
-            connection.close()                                                                                                # 트랜잭션 연결 종료
+                try:
+                    yield self
+                except BaseException:
+                    # 실패한 작업은 되돌리고 예외는 호출자에게 전파한 뒤 pool context가 연결을 반환한다.
+                    connection.rollback()
+                    sql_logger.info("TRANSACTION ROLLBACK")
+                    raise
+                else:
+                    # 모든 SQL이 성공한 경우에만 확정하고, 다음으로 바깥 pool context가 연결을 반환한다.
+                    connection.commit()
+                    sql_logger.info("TRANSACTION COMMIT")
+            finally:
+                self._active_connection = None
 
     #=========================================================
     # 반환 데이터 상세 로그 출력
@@ -463,47 +477,40 @@ class SqlSession:                                                               
     # SELECT 결과를 리스트로 반환
     #=========================================================
     def select_list(self, statement_id: str, parameters=None) -> list[dict]:                                                   
-        """mapper 조회 SQL을 실행하고 모든 결과 행을 dict 목록으로 반환한다.
+        """mapper SELECT를 실행하고 모든 결과 행을 dict 목록으로 반환한다.
 
-        결과를 연결이 열려 있는 동안 모두 읽는다. 트랜잭션 밖에서는 호출마다
-        연결을 만들고, 트랜잭션 안에서는 활성 연결을 재사용한다.
+        트랜잭션 밖에서는 DatabaseManager pool에서 연결을 빌려 전체 fetch 후 반환한다.
+        트랜잭션 안에서는 이미 대여한 연결을 재사용한다. 성능 로그는 연결 대여,
+        SQL 로그 렌더링, 실제 실행 및 fetch, 전체 시간을 구분한다.
 
-        ``result_log=True`` 이면 최대 ``result_log_limit`` 행의 데이터를 INFO 표로 출력한다.
-
-        Args:
-            statement_id: ``namespace.statement`` 형식의 mapper ID.
-                예: ``"cff_caps.select_by_brand"``.
-            parameters: SQL의 이름 있는 파라미터에 전달할 매핑. ``None`` 이면
-                빈 매핑을 전달한다. 예: ``{"brand": "NESPRESSO"}``.
-
-        Returns:
-            조회된 모든 행의 dict 목록. ``camel_case_keys=True`` 이면 결과
-            컬럼명 ``cff_caps_id`` 가 ``cffCapsId`` 키가 된다. ``False`` 이면
-            psycopg의 ``dict_row`` 가 원래 컬럼명을 키로 사용한다.
-
-        Raises:
-            ValueError: statement ID가 ``namespace.statement`` 형식이 아닌 경우.
-            LookupError: 해당 namespace나 statement가 등록되지 않은 경우.
-            Exception: 연결 또는 SQL 실행 중 발생한 예외를 전파한다.
-
-        Example:
-            .. code-block:: python
-
-                rows = session.select_list(
-                    "cff_caps.select_by_brand", {"brand": "NESPRESSO"}
-                )
-
-        Note:
-            SQL의 별칭이 있으면 실제 결과 컬럼명인 별칭을 변환한다.
+        full_vector_sql=True는 이 SELECT 로그에만 적용되어 QUERY 본문에 원본
+        embedding 전체를 렌더링하고, PARAMS에는 기존 축약 미리보기를 남긴다.
+        변경 SQL과 배치 SQL의 로그 방식은 그대로 유지한다.
         """
         query = self._query(statement_id)                                                                                     # 실행할 쿼리 매핑 함수 조회
-        started = perf_counter()                                                                                              # DB 연결과 조회에 걸린 시간 측정 시작
-        with self._connection() as connection:                                                                                # 트랜잭션 안에서는 같은 연결 재사용
-            self._log_query(statement_id, query.sql, parameters, connection)                                                      # 로그 렌더링과 실제 바인딩 실행은 분리
+        started = perf_counter()  # select_list 진입부터 결과 로깅까지의 기존 전체 시간
+        with self._connection() as connection:  # transaction 연결 또는 pool 대여 연결
+            connected = perf_counter()
+            # pool warm-up 이후에는 대개 준비된 연결을 빌리는 시간이며, SQL 로그/조회는 아직 포함하지 않는다.
+            connect_ms = (connected - started) * 1000
+            sql_log_started = connected
+            # 조회 본문에만 원본 embedding을 렌더링해 전체 벡터를 남긴다.
+            # PARAMS는 기존 sanitize 미리보기이며, 변경/배치 SQL의 로깅 동작에는 적용하지 않는다.
+            self._log_query(statement_id, query.sql, parameters, connection, full_vector_sql=True)                                # 조회 QUERY는 원본 바인딩으로 렌더링
+            # SQL과 파라미터의 로그용 렌더링(mogrify 포함) 시간만 측정한다.
+            sql_log_ms = (perf_counter() - sql_log_started) * 1000
             # 커넥션이 열려 있는 상태에서 지연 조회(Iterator) 결과를 list로 완전히 평가(eval)하여 객체로 확정
+            query_fetch_started = perf_counter()
+            # 서버 실행, 왕복/전송, psycopg decode, aiosql 처리와 모든 결과 fetch를 포함한다.
             rows = list(query(connection, **(parameters or {})))                                                              # 연결이 닫히기 전에 결과를 모두 읽음
+            query_fetch_ms = (perf_counter() - query_fetch_started) * 1000
         self._log_result_data(statement_id, rows)  # 설정된 경우 조회 결과를 표로 출력
-        sql_logger.info("RESULT [%s] rows=%d elapsed_ms=%.1f", statement_id, len(rows), (perf_counter() - started) * 1000)    # 건수와 소요 시간
+        # result_log 출력도 포함해 select_list의 기존 elapsed_ms 의미를 유지한다.
+        total_ms = (perf_counter() - started) * 1000
+        sql_logger.info(
+            "RESULT [%s] rows=%d connect_ms=%.1f sql_log_ms=%.1f query_fetch_ms=%.1f total_ms=%.1f",
+            statement_id, len(rows), connect_ms, sql_log_ms, query_fetch_ms, total_ms,
+        )
         return rows                                                                                                           # 조회 결과 반환
 
     

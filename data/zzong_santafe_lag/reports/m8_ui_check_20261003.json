@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-03",
+  "branch": "zzong/santafe-lag",
+  "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "scope": "Streamlit AppTest와 실제 브라우저의 발췌·출처·그림·보류·기록 선택·JSON 다운로드 확인",
+  "runtime": {"url": "http://localhost:8502", "file_watcher": "none"},
+  "initial_issue": {
+    "screen_error": "ImportError",
+    "log_observation": "Streamlit 파일 감시가 Transformers의 선택 이미지 모듈을 불러오며 torchvision 미설치 등의 오류 로그를 발생시켰다.",
+    "action": "사용자 승인 후 실행 파일과 README에 --server.fileWatcherType=none 추가",
+    "limit": "최초 오류는 제한된 서버 실행에서 발생했고 재확인은 제한 밖에서 감시를 끈 서버로 수행했다. 감시만이 최초 ImportError의 유일한 원인임을 분리 검증하지 않았다."
+  },
+  "checks": [
+    {"name": "AppTest 시작", "result": "pass", "exception_count": 0},
+    {"name": "AppTest 차대번호 검색", "result": "pass", "exception_count": 0, "screen_errors": [], "status": "evidence_excerpt", "pdf_pages": [45], "available_images": 1, "generation_requested": false},
+    {"name": "브라우저 시작·예시 입력", "result": "pass", "observation": "예시는 입력칸만 채웠으며 검색은 제출 버튼으로 실행했다."},
+    {"name": "브라우저 차대번호 발췌", "result": "pass", "pdf_pages": [45], "manual_pages": [40]},
+    {"name": "출처와 보존 원문 펼치기", "result": "pass", "raw_text_image_marker_retained": true},
+    {"name": "차대번호 실제 그림 표시", "result": "pass", "visible_images": 1, "pdf_page": 45},
+    {"name": "미러 안내도 그림 보류", "result": "pass", "pending_images": 1, "pending_pdf_page": 33},
+    {"name": "현재 리콜 질문 보류", "result": "pass", "observation": "설명서에서 확인 불가 안내와 개인 차량 리콜을 PDF로 조회할 수 없다는 이유 표시", "generation_button_enabled": false},
+    {"name": "최근 질문 선택", "result": "pass", "observation": "리콜 결과에서 기존 차대번호 결과로 전환해 발췌가 복원됐다."},
+    {"name": "JSON 다운로드·파일 읽기", "result": "pass", "file": "C:/Users/Playdata/Downloads/santafe_answer_d9c2b470e05c.json", "status": "evidence_excerpt", "pdf_pages": [45], "raw_text_retained": true, "available_images": 1, "llm_called": false}
+  ],
+  "openai_calls": 0,
+  "db_writes": 0,
+  "storage_uploads": 0,
+  "not_checked": ["이번 화면에서 실제 유료 생성", "생성 버튼 중복 호출 차단의 실제 API 실행 확인", "전체 질문 의미 정확도", "모든 그림 검토·업로드·표시", "기록 10개 상한·브라우저별 분리의 별도 부하 검사"]
+}

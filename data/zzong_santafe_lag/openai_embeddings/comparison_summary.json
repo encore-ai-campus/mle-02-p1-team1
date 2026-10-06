@@ -1,0 +1,30 @@
+{
+  "source_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "embedding_run_id": "ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e",
+  "dataset_sha256": "f57629974dc8e4e0092d902256144d4d4f3723ee00c0de66192c26d51b3e2fda",
+  "question_count": 30,
+  "search_rule": "purpose_specific; same chunks, same TF-IDF/purpose/specific term rules",
+  "metrics": {
+    "local": {
+      "Hit@5": 1.0,
+      "MRR@5": 0.9555555555555556,
+      "Precision@5_expected_ids": 0.2
+    },
+    "openai": {
+      "Hit@5": 1.0,
+      "MRR@5": 0.9388888888888889,
+      "Precision@5_expected_ids": 0.2
+    }
+  },
+  "elapsed_seconds": 541.1745308000245,
+  "openai_query_embedding_calls": 30,
+  "generation_api_calls": 0,
+  "db_written": false,
+  "images_uploaded": false,
+  "limitations": [
+    "검색 개선에 재사용한 30문항이며 새 질문에 대한 독립 평가가 아닙니다.",
+    "Precision@5_expected_ids는 기존 정답 ID 목록 기준의 보조값입니다. 전체 관련성 검토 Precision@5는 미완료입니다.",
+    "한 후보는 부모 원문과 필수 각주 묶음이며, 그 안에 기대 ID가 있으면 일치로 셉니다.",
+    "높은 검색 점수는 답변 정확도·미검토 원문의 승인·그림 픽셀 이해를 보장하지 않습니다."
+  ]
+}

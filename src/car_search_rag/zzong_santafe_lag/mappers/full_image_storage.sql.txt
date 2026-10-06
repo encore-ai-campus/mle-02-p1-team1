@@ -1,0 +1,55 @@
+-- [프로젝트 추가] 전체 그림 업로드 전후의 개인 자료 확인과 경로 연결입니다.
+-- Storage 시스템 테이블은 SELECT로만 읽습니다. 팀 테이블에는 변경 SQL이 없습니다.
+
+-- name: protected_state
+-- [프로젝트 추가] 행별 내용 식별값을 모아 원문·벡터·설명·검토 상태 보존을 확인합니다.
+-- images에서는 이번에 바꿀 Storage 경로·업로드 상태 세 항목만 비교에서 제외합니다.
+SELECT 'documents' AS table_name, count(*) AS row_count,
+       md5(coalesce(string_agg(md5(to_jsonb(t)::text), '' ORDER BY id), '')) AS content_digest
+FROM zzong_santafe_lag.documents t
+UNION ALL
+SELECT 'processing_runs', count(*), md5(coalesce(string_agg(md5(to_jsonb(t)::text), '' ORDER BY id), ''))
+FROM zzong_santafe_lag.processing_runs t
+UNION ALL
+SELECT 'parent_records', count(*), md5(coalesce(string_agg(md5(to_jsonb(t)::text), '' ORDER BY id), ''))
+FROM zzong_santafe_lag.parent_records t
+UNION ALL
+SELECT 'chunks', count(*), md5(coalesce(string_agg(md5(to_jsonb(t)::text), '' ORDER BY id), ''))
+FROM zzong_santafe_lag.chunks t
+UNION ALL
+SELECT 'images', count(*), md5(coalesce(string_agg(
+    md5((to_jsonb(t) - 'storage_bucket' - 'storage_path' - 'upload_status')::text), '' ORDER BY id), ''))
+FROM zzong_santafe_lag.images t
+UNION ALL
+SELECT 'record_images', count(*), md5(coalesce(string_agg(
+    md5(to_jsonb(t)::text), '' ORDER BY parent_id, image_id), ''))
+FROM zzong_santafe_lag.record_images t;
+
+-- name: storage_objects
+-- [프로젝트 추가] LIKE의 밑줄 와일드카드를 사용하지 않고 개인 경로를 정확히 제한합니다.
+SELECT name, metadata, created_at, updated_at FROM storage.objects
+WHERE bucket_id = :bucket_id AND left(name, length(:prefix)) = :prefix
+ORDER BY name;
+
+-- name: lock_document_images
+SELECT * FROM zzong_santafe_lag.images
+WHERE document_id = :document_id ORDER BY id FOR UPDATE;
+
+-- name: mark_uploaded!
+-- [프로젝트 추가] PDF·그림 ID·이전 경로·이전 상태까지 같을 때 세 컬럼만 바꿉니다.
+-- NULL인 로컬 경로는 그대로 둡니다. 설명·검토 상태·원문·벡터는 수정하지 않습니다.
+UPDATE zzong_santafe_lag.images
+SET storage_bucket = :storage_bucket, storage_path = :storage_path, upload_status = 'uploaded'
+WHERE id = :image_id AND document_id = :document_id
+  AND local_path IS NOT DISTINCT FROM :local_path
+  AND upload_status = :before_status
+  AND storage_bucket IS NOT DISTINCT FROM :before_bucket
+  AND storage_path IS NOT DISTINCT FROM :before_path;
+
+-- name: description_counts
+SELECT linkage_status, count(*) AS link_count,
+       count(*) FILTER (WHERE nullif(trim(description), '') IS NOT NULL) AS with_description
+FROM zzong_santafe_lag.record_images ri
+JOIN zzong_santafe_lag.parent_records p ON p.id = ri.parent_id
+WHERE p.run_id = :run_id
+GROUP BY linkage_status ORDER BY linkage_status;

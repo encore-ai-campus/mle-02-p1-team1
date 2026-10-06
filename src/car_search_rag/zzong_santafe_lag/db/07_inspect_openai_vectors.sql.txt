@@ -1,0 +1,22 @@
+-- [프로젝트 적용] DBeaver에서 읽기만 하는 SQL입니다. 개인 스키마의 새 저장 작업을 확인합니다.
+SELECT r.id AS "임베딩 작업 ID", r.source_run_id AS "원문 작업 ID",
+       r.model_name AS "임베딩 모델", r.embedding_dimension AS "차원",
+       r.status AS "준비 상태", r.chunk_count AS "예정 청크 수", count(v.chunk_id) AS "저장 벡터 수"
+FROM zzong_santafe_lag.openai_embedding_runs r
+LEFT JOIN zzong_santafe_lag.openai_chunk_vectors v ON v.embedding_run_id = r.id
+WHERE r.id = 'ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e'
+GROUP BY r.id;
+
+-- 부모 제목·PDF 쪽수·실제 임베딩 입력 글을 함께 확인합니다. 숫자 벡터 전체는 출력하지 않습니다.
+SELECT p.title AS "주제", p.source_pages AS "PDF 쪽수", c.record_id AS "자식 청크 ID",
+       c.content AS "모델에 넣은 검색 글", v.token_count AS "OpenAI 입력 토큰 수"
+FROM zzong_santafe_lag.openai_chunk_vectors v
+JOIN zzong_santafe_lag.chunks c ON c.id = v.chunk_id
+JOIN zzong_santafe_lag.parent_records p ON p.id = c.parent_id
+WHERE v.embedding_run_id = 'ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e'
+ORDER BY p.pdf_page_number, c.chunk_index
+LIMIT 20;
+
+-- 개인 여덟 테이블·색인·TOAST의 용량입니다. 다른 팀원 자료는 조회하지 않습니다.
+SELECT relname AS "개인 테이블", pg_size_pretty(pg_total_relation_size(relid)) AS "DB 사용 용량"
+FROM pg_stat_user_tables WHERE schemaname = 'zzong_santafe_lag' ORDER BY relname;

@@ -1,0 +1,28 @@
+# [프로젝트 추가] 개인 실험용 환경에 설치하며 팀 공통 pyproject.toml과 uv.lock은 수정하지 않습니다.
+# PDF 글자·그림 추출과 글꼴 확인에 사용하는 기존 실험 패키지입니다.
+pypdf[image]>=6.19.0
+fonttools>=4.66.1
+# 로컬 임베딩 모델과 의미·글자 검색에 사용하는 기존 실험 패키지입니다.
+sentence-transformers>=6.1.0
+numpy
+scikit-learn
+# VS Code에서 개인 실험 환경을 노트북 커널로 선택할 때 사용합니다.
+ipykernel>=7.4.0
+# [프로젝트 적용] 개인 DB 코드가 재사용하는 기존 공통 SQL 모듈의 패키지입니다.
+aiosql>=15.0
+psycopg[binary]>=3.3.6
+pgvector>=0.3.6
+python-dotenv>=1.2.3
+langchain-postgres>=0.0.18
+# [프로젝트 적용] 소나타 공통 코드와 같은 기존 Supabase SDK로 개인 그림을 업로드합니다.
+# httpx는 SDK에도 포함되며 비밀키 없는 공개 주소의 실제 그림 조회에 사용합니다.
+supabase>=2.31.0
+httpx
+# [수업 개념/프로젝트 적용] ChatOpenAI와 LangChain 프롬프트로 확인한 PDF 근거를 답변으로 정리합니다.
+# 팀 환경에 이미 있는 패키지입니다. 이번 연결 준비에서는 재설치·공통 의존성 변경을 하지 않습니다.
+langchain-openai>=1.6.6
+# [모델 추가] OpenAI 임베딩 입력 토큰 계산에 사용합니다. 현재 환경에는 이미 설치돼 있습니다.
+tiktoken
+# [프로젝트 추가] M8 개인 로컬 화면입니다. 이번 설치에서 기존 패키지 버전을 고정해 추가했습니다.
+# RAG 수업 사용 모델·도구로 단정하지 않으며 팀 pyproject.toml·uv.lock은 바꾸지 않습니다.
+streamlit==1.65.0

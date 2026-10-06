@@ -1,0 +1,12 @@
+ID,Question,Expected,BeforeRank,AfterRank,Change,HitAt5,RR,UIObservedSources,UIAnswer,UIImages,UINotes
+M6-01,"안전벨트의 골반띠와 어깨띠는 각각 어디에 착용해야 하나요?","p31/c56",1,1,동일,1,1.0000,"p31/c56;p60/c109;p31/c57;p62/c113;p57/c103","맞음","p57 belt path; p31 belt use; p60 pretensioner","relevant images shown"
+M6-02,"Sonata의 후드는 어떤 순서로 여나요?","p163/c316",3,3,동일,1,0.3333,"p31/c56;p60/c109;p59/c107;p62/c113;p59/c108","보류: 관련 문서 근거 없음","없음","official retrieval had expected source in Top-5; UI run differed"
+M6-03,"비상 경고등 버튼을 누르면 어떤 표시가 작동하나요?","p99/c176",1,1,동일,1,1.0000,"p308/c592;p99/c176;p91/c161;p405/c759;p401/c751","맞음: 방향지시등 동시 점멸, p426 인용","p405/401 parking warning; p426 hazard warning","answer cited p426 outside displayed Top-5"
+M6-04,"스마트 키로 도어를 잠근 뒤 잠금 상태를 어떻게 확인하나요?","p114/c222",5,5,동일,1,0.2000,"p141/c277;p115/c224;p142/c278;p116/c225;p114/c222","맞음","p114 door lock; p136 handle; p197 weak relevance","no prior-turn mix observed"
+M6-05,"와이퍼 블레이드는 어떤 상태일 때 교체해야 하나요?","p297/c558",6,6,동일,0,0,"p473/c883;p474/c884;p473/c882;p204/c382;p479/c893","조건 설명 적절; 점검 안내","p474 blade install; p203 wiper; p479 tire","irrelevant tire image among previews"
+M6-06,"엔진 오일량을 확인할 때 레벨 게이지를 다시 뽑기 전에 무엇을 해야 하나요?","p463/c866; acceptable p463/c867",3,3,동일,1,0.5000,"p464/c868;p463/c867;p463/c866;p447/c840;p465/c869","맞음","p465 oil pressure warning","image not specific to dipstick procedure"
+M6-07,"냉각수는 언제 확인하고 보조 탱크의 어느 범위까지 보충하나요?","p466/c871",2,2,동일,1,0.5000,"p430/c810;p466/c871;p467/c872;p29/c52;p447/c840","맞음","p466 coolant; p29 coolant safety; p468 coolant replacement","mostly relevant"
+M6-08,"타이어 공기압 점검에서 ‘차가운 타이어’는 어떤 상태를 뜻하나요?","p478/c890",3,3,동일,1,0.3333,"p478/c890;p29/c52;p433/c814;p433/c813;p298/c561","맞음","p433 TPMS; p103 low tire pressure; p478 rotation","rotation image weak relevance"
+M6-09,"타이어는 마모 표시밴드가 보일 때와 잔여 홈이 어느 수준일 때 교체하나요?","p479/c892",1,1,동일,1,1.0000,"p479/c892;p420/c789;p479/c893;p481/c897;p478/c891","맞음","p480 sidewall; p479 replacement; p478 rotation","rotation image weak relevance"
+M6-10,"배터리 단자를 분리·장착할 때 순서는 어떻게 되며, 단자 관리는 어떻게 하나요?","p475/c885",1,1,동일,1,1.0000,"p477/c888;p475/c885;p429/c808;p454/c857;p429/c807","맞음","p454 battery safety; p475 battery management","relevant"
+M6-11,"브레이크액이 MIN 이하라면 어떻게 해야 하나요?","p468/c874",10,10,동일,0,0,"p447/c840;p447/c841;p464/c868;p469/c876;p460/c863","맞음: 점검 의뢰","p468 brake fluid check","relevant image despite expected evidence outside Top-5"

@@ -1,0 +1,64 @@
+{
+  "parent": {
+    "page_content": "비상시 충전 커넥터 분리하기\n2C_EmergencyChargingCable\n배터리가 방전이나 전기 배선 이상 등으로 인해 잠금 해제 버튼이 작동하지 않는 경우, 화물칸을 열고 비상 해제\n케이블을 가볍게 당겨 충전 인렛 잠금 장치의 잠금을 해제하십시오.\n비상 해제 케이블을 당긴 후에도 잠금 해제 버튼이 작동하지 않는 경우 당사 직영 하이테크센터나 블루핸즈\n에서 차량을 점검하십시오.\n[경고] \n일반적인 방법으로 충전 케이블을 분리할 수 없는 경우에만 비상 해제 케이블을 사용하십시오. 계속 사용할\n경우 비상 해제 케이블 또는 충전 장비가 손상될 수 있습니다.\n충전 케이블을 충전 포트에서 제거하려고 하면서 동시에 비상 해제 케이블을 당기지 마십시오. 충전 케이블\n을 제거하기 전에 비상 해제 케이블을 먼저 당기십시오. 이 지침을 따르지 않으면 감전 또는 중상을 입을 수\n있습니다.\n차량이 충전 중이거나 주황색 고전압 배선이 노출된 상태에서는 이 절차를 수행하지 마십시오. 이 지침을 따\n르지 않으면 감전, 중상 또는 차량 손상이 발생할 수 있습니다. 이 절차를 안전하게 수행하는 방법이 확실하\n지 않으면, 당사 직영 하이테크센터나 블루핸즈에 문의하십시오.\n[주의] \n충전 커넥터를 강제로 분리하지 마십시오. 충전 커넥터 및 차량의 충전 인렛이 파손될 수 있습니다.",
+    "metadata": {
+      "source": "NE1_2027_ko_KR.pdf",
+      "source_id": "NE1_2027_ko_KR",
+      "vehicle_id": "ioniq5",
+      "pdf_page": 18,
+      "printed_page": "10",
+      "title": "비상시 충전 커넥터 분리하기",
+      "parent_id": "emergency_connector_p18"
+    }
+  },
+  "chunks": [
+    {
+      "page_content": "비상시 충전 커넥터 분리하기\n2C_EmergencyChargingCable\n배터리가 방전이나 전기 배선 이상 등으로 인해 잠금 해제 버튼이 작동하지 않는 경우, 화물칸을 열고 비상 해제\n케이블을 가볍게 당겨 충전 인렛 잠금 장치의 잠금을 해제하십시오.\n비상 해제 케이블을 당긴 후에도 잠금 해제 버튼이 작동하지 않는 경우 당사 직영 하이테크센터나 블루핸즈\n에서 차량을 점검하십시오.\n[경고] \n일반적인 방법으로 충전 케이블을 분리할 수 없는 경우에만 비상 해제 케이블을 사용하십시오. 계속 사용할\n경우 비상 해제 케이블 또는 충전 장비가 손상될 수 있습니다.\n충전 케이블을 충전 포트에서 제거하려고 하면서 동시에 비상 해제 케이블을 당기지 마십시오. 충전 케이블",
+      "metadata": {
+        "source": "NE1_2027_ko_KR.pdf",
+        "source_id": "NE1_2027_ko_KR",
+        "vehicle_id": "ioniq5",
+        "pdf_page": 18,
+        "printed_page": "10",
+        "title": "비상시 충전 커넥터 분리하기",
+        "parent_id": "emergency_connector_p18",
+        "chunk_no": 1,
+        "chunk_type": "text",
+        "chunk_id": "NE1_2027_ko_KR_emergency_connector_p18_text_01"
+      }
+    },
+    {
+      "page_content": "충전 케이블을 충전 포트에서 제거하려고 하면서 동시에 비상 해제 케이블을 당기지 마십시오. 충전 케이블\n을 제거하기 전에 비상 해제 케이블을 먼저 당기십시오. 이 지침을 따르지 않으면 감전 또는 중상을 입을 수\n있습니다.\n차량이 충전 중이거나 주황색 고전압 배선이 노출된 상태에서는 이 절차를 수행하지 마십시오. 이 지침을 따\n르지 않으면 감전, 중상 또는 차량 손상이 발생할 수 있습니다. 이 절차를 안전하게 수행하는 방법이 확실하\n지 않으면, 당사 직영 하이테크센터나 블루핸즈에 문의하십시오.\n[주의] \n충전 커넥터를 강제로 분리하지 마십시오. 충전 커넥터 및 차량의 충전 인렛이 파손될 수 있습니다.",
+      "metadata": {
+        "source": "NE1_2027_ko_KR.pdf",
+        "source_id": "NE1_2027_ko_KR",
+        "vehicle_id": "ioniq5",
+        "pdf_page": 18,
+        "printed_page": "10",
+        "title": "비상시 충전 커넥터 분리하기",
+        "parent_id": "emergency_connector_p18",
+        "chunk_no": 2,
+        "chunk_type": "text",
+        "chunk_id": "NE1_2027_ko_KR_emergency_connector_p18_text_02"
+      }
+    },
+    {
+      "page_content": "소제목: 비상시 충전 커넥터 분리하기\n이미지 설명: 화물칸의 충전 커넥터 비상 해제 케이블을 확대해 보여주는 그림",
+      "metadata": {
+        "source": "NE1_2027_ko_KR.pdf",
+        "source_id": "NE1_2027_ko_KR",
+        "vehicle_id": "ioniq5",
+        "pdf_page": 18,
+        "printed_page": "10",
+        "title": "비상시 충전 커넥터 분리하기",
+        "parent_id": "emergency_connector_p18",
+        "chunk_id": "NE1_2027_ko_KR_emergency_connector_p18_image_01",
+        "chunk_type": "image",
+        "image_no": 1,
+        "image_path": "emergency_connector_p18/NE1_2027_ko_KR_emergency_connector_p18_image_01.png",
+        "original_image_path": "emergency_connector_p18/NE1_2027_ko_KR_emergency_connector_p18_image_01_original.jpg",
+        "caption_source": "manual"
+      }
+    }
+  ]
+}
