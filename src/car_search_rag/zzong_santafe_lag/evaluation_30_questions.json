@@ -1,0 +1,532 @@
+{
+  "name": "추가 30문항 주제·구체 질문·복합 맥락",
+  "cases": [
+    {
+      "case_id": "A01",
+      "group": "A",
+      "question": "스마트 키",
+      "reference_pages": [
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194
+      ],
+      "expected": "스마트 키 사용·버튼·주의·건전지 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A02",
+      "group": "A",
+      "question": "파워 테일게이트",
+      "reference_pages": [
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274
+      ],
+      "expected": "파워 테일게이트 작동·설정·초기화·주의 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A03",
+      "group": "A",
+      "question": "실외 미러",
+      "reference_pages": [
+        246,
+        247,
+        248,
+        249
+      ],
+      "expected": "실외 미러 조절·접힘·자동 조절 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A04",
+      "group": "A",
+      "question": "운전석 자세 메모리 시스템",
+      "reference_pages": [
+        229,
+        230,
+        231,
+        232
+      ],
+      "expected": "기억·재생·초기화·승하차 기능 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A05",
+      "group": "A",
+      "question": "선루프",
+      "reference_pages": [
+        259,
+        260,
+        261,
+        262,
+        263,
+        264
+      ],
+      "expected": "선루프 작동·선블라인드·끼임·초기화 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A06",
+      "group": "A",
+      "question": "안전벨트",
+      "reference_pages": [
+        54,
+        55,
+        56,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114
+      ],
+      "expected": "안전벨트 착용·조절·경고·프리텐셔너 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A07",
+      "group": "A",
+      "question": "회생 제동",
+      "reference_pages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405
+      ],
+      "expected": "회생 제동 원리·단계·게이지·제한 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A08",
+      "group": "A",
+      "question": "자동 정차 기능",
+      "reference_pages": [
+        420,
+        421,
+        422,
+        423
+      ],
+      "expected": "Auto Hold 설정·해제·주의·경고 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A09",
+      "group": "A",
+      "question": "타이어",
+      "reference_pages": [
+        40,
+        41,
+        42,
+        47,
+        669,
+        670,
+        671,
+        672,
+        673,
+        674,
+        675,
+        676,
+        677,
+        678,
+        679,
+        680,
+        681,
+        682,
+        731,
+        732,
+        733,
+        734,
+        735,
+        736
+      ],
+      "expected": "타이어 규격·공기압·관리·응급 처치 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "A10",
+      "group": "A",
+      "question": "스마트폰 무선 충전",
+      "reference_pages": [
+        360,
+        361,
+        362,
+        363
+      ],
+      "expected": "무선 충전 사용·설정·이상 표시·주의 등 관련 문서",
+      "semantic_contexts": [
+        "주제 키워드"
+      ],
+      "reference_scope": "주제 관련 페이지 예시; 전부가 아님"
+    },
+    {
+      "case_id": "B01",
+      "group": "B",
+      "question": "스마트 키 건전지의 규격과 필요한 개수는 뭐야?",
+      "reference_pages": [
+        193,
+        194
+      ],
+      "expected": "CR2450 1개를 직접 확인할 수 있는 근거",
+      "semantic_contexts": [
+        "같은 기능: 스마트 키",
+        "건전지",
+        "규격"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B02",
+      "group": "B",
+      "question": "파워 테일게이트가 열리는 높이는 어떻게 설정해?",
+      "reference_pages": [
+        273
+      ],
+      "expected": "열림 높이 설정 경로 또는 사용자 높이 저장 절차",
+      "semantic_contexts": [
+        "같은 기능: 테일게이트",
+        "열림 높이",
+        "설정"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B03",
+      "group": "B",
+      "question": "도어를 잠글 때 실외 미러가 자동으로 접히도록 설정하려면?",
+      "reference_pages": [
+        247,
+        248
+      ],
+      "expected": "웰컴 미러/라이트의 도어 잠금 해제 시 설정과 잠금 시 접힘",
+      "semantic_contexts": [
+        "같은 기능: 미러",
+        "자동 접힘",
+        "설정"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B04",
+      "group": "B",
+      "question": "운전석 자세를 메모리 1번 버튼에 저장하려면 어떻게 해?",
+      "reference_pages": [
+        230
+      ],
+      "expected": "P단·ON·자세 조절 후 1번 버튼 길게 눌러 저장",
+      "semantic_contexts": [
+        "같은 기능: 메모리",
+        "저장",
+        "버튼"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B05",
+      "group": "B",
+      "question": "선루프를 자동으로 닫다가 중간에서 멈추려면 스위치를 어떻게 조작해?",
+      "reference_pages": [
+        261,
+        262
+      ],
+      "expected": "자동 작동 중 스위치를 어느 방향으로든 살짝 눌러 중지",
+      "semantic_contexts": [
+        "같은 기능: 선루프",
+        "자동 닫힘",
+        "중지"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B06",
+      "group": "B",
+      "question": "앞좌석 안전벨트의 어깨 높이는 어떻게 조절해?",
+      "reference_pages": [
+        111
+      ],
+      "expected": "올리기와 잠금 버튼을 누르며 내리는 조절 방법",
+      "semantic_contexts": [
+        "같은 기능: 안전벨트",
+        "높이",
+        "조절"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B07",
+      "group": "B",
+      "question": "회생 제동 단계를 높이려면 어느 쪽 패들 쉬프트를 당겨?",
+      "reference_pages": [
+        400,
+        401,
+        402
+      ],
+      "expected": "ECO에서 왼쪽 패들로 단계 증가; 주행 모드 조건 보존",
+      "semantic_contexts": [
+        "같은 기능: 회생 제동",
+        "단계",
+        "패들"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B08",
+      "group": "B",
+      "question": "AUTO HOLD가 작동 중일 때 출발하려면 어떻게 해?",
+      "reference_pages": [
+        420,
+        421
+      ],
+      "expected": "가속 페달을 천천히 밟아 출발; 조건별 수동 해제 주의",
+      "semantic_contexts": [
+        "같은 기능: Auto Hold",
+        "해제",
+        "출발"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B09",
+      "group": "B",
+      "question": "타이어 공기압은 차가운 상태에서 확인해야 해?",
+      "reference_pages": [
+        731
+      ],
+      "expected": "차가운 상태에서 점검; 주행 직후 공기압 조정 금지",
+      "semantic_contexts": [
+        "같은 기능: 타이어",
+        "공기압",
+        "점검 조건"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "B10",
+      "group": "B",
+      "question": "무선 충전 표시등이 주황색으로 깜빡이면 어떻게 해야 해?",
+      "reference_pages": [
+        362
+      ],
+      "expected": "충전 이상 시 주황색 10초 점멸; 다시 놓거나 충전 상태 확인",
+      "semantic_contexts": [
+        "같은 기능: 무선 충전",
+        "표시등",
+        "대응"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C01",
+      "group": "C",
+      "question": "스마트 키 건전지가 방전돼 차 안에서 시동을 못 걸 때, 키를 어디에 대고 눌러야 해?",
+      "reference_pages": [
+        193,
+        385
+      ],
+      "expected": "스마트 키로 시동 버튼을 직접 누르는 비상 시동 근거",
+      "semantic_contexts": [
+        "키 건전지 방전",
+        "실내 시동 불가",
+        "키를 대는 조작"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C02",
+      "group": "C",
+      "question": "천장이 낮은 차고에서 트렁크 문이 천장에 닿지 않게 열리는 높이를 줄이려면?",
+      "reference_pages": [
+        273
+      ],
+      "expected": "파워 테일게이트 열림 높이 설정·사용자 높이 저장",
+      "semantic_contexts": [
+        "낮은 차고",
+        "테일게이트와 천장 간섭",
+        "높이 제한 목적"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C03",
+      "group": "C",
+      "question": "후진 주차할 때 옆 주차선을 잘 보려고 양쪽 거울을 자동으로 아래로 향하게 하려면?",
+      "reference_pages": [
+        248,
+        249
+      ],
+      "expected": "R단 및 미러 선택 스위치 L/R로 후진 자동 하향 작동",
+      "semantic_contexts": [
+        "후진 주차",
+        "주차선 시야",
+        "양쪽 미러 하향 조작"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C04",
+      "group": "C",
+      "question": "가족이 운전한 뒤 내 좌석과 거울 위치로 한 번에 돌리려면 저장해 둔 버튼을 어떻게 써?",
+      "reference_pages": [
+        229,
+        230
+      ],
+      "expected": "P단에서 저장된 1/2번 기억 재생; 좌석·미러 위치 복원",
+      "semantic_contexts": [
+        "운전자 교대",
+        "좌석과 미러 위치 변화",
+        "저장 자세 복원"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C05",
+      "group": "C",
+      "question": "루프바에 캠핑 짐을 실은 상태에서 지붕 유리를 열어 환기해도 돼?",
+      "reference_pages": [
+        259
+      ],
+      "expected": "루프바 설치 또는 적재 상태에서 선루프 작동 금지",
+      "semantic_contexts": [
+        "캠핑 적재",
+        "지붕 루프바",
+        "선루프 환기 조작"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C06",
+      "group": "C",
+      "question": "운전석에 앉으면 벨트가 목에 닿는데, 어깨 높이를 낮추려면 어느 버튼을 눌러?",
+      "reference_pages": [
+        111
+      ],
+      "expected": "앞좌석 어깨띠 고정 장치의 잠금 버튼을 누르며 아래로 조절",
+      "semantic_contexts": [
+        "운전석 착석",
+        "목 접촉 위치",
+        "높이 낮추기 조작"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C07",
+      "group": "C",
+      "question": "내리막을 내려가는데 배터리가 충분히 충전돼 회생 제동이 제한된다고 떠. 감속은 어떻게 해야 해?",
+      "reference_pages": [
+        401,
+        402,
+        403
+      ],
+      "expected": "충전량 높으면 회생 제한; 브레이크 페달로 직접 감속",
+      "semantic_contexts": [
+        "내리막 주행",
+        "높은 배터리 충전량",
+        "회생 제한 경고와 감속 목적"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C08",
+      "group": "C",
+      "question": "자동 세차장 컨베이어가 바퀴를 굴리는 곳에 들어갈 때 AUTO HOLD는 어떻게 해둬야 해?",
+      "reference_pages": [
+        422
+      ],
+      "expected": "바퀴 구동 자동 세차기 진입 시 Auto Hold 해제",
+      "semantic_contexts": [
+        "컨베이어 세차 상황",
+        "바퀴 구동",
+        "자동 정차 기능 처리"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C09",
+      "group": "C",
+      "question": "고속도로를 오래 달린 직후 공기압이 높게 보이는데, 지금 공기를 빼서 권장값에 맞춰도 돼?",
+      "reference_pages": [
+        731
+      ],
+      "expected": "주행 직후 높아진 공기압을 낮추지 말고 식은 상태 점검",
+      "semantic_contexts": [
+        "장시간 고속 주행",
+        "뜨거운 타이어 공기압 상승",
+        "공기 빼기 판단"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    },
+    {
+      "case_id": "C10",
+      "group": "C",
+      "question": "센터 콘솔 충전 패드에 금속 케이스를 씌운 휴대폰을 놓았더니 뜨겁고 충전도 멈춰. 뭘 확인해야 해?",
+      "reference_pages": [
+        361,
+        362,
+        363
+      ],
+      "expected": "금속 이물·커버·온도 및 패드 밀착 확인; 단일 고장 원인 단정 금지",
+      "semantic_contexts": [
+        "실내 콘솔 위치",
+        "금속 휴대폰 케이스",
+        "발열과 무선 충전 중단"
+      ],
+      "reference_scope": "직접 근거 페이지 후보"
+    }
+  ],
+  "rubric": {
+    "A": "상위 주제와 관련된 문서를 허용. 단일 정답 문서로 제한하지 않음. 주제 확인 질문도 적절한 대응으로 구분.",
+    "B": "명확한 기능 목적에 직접 답할 근거와 조건을 확인.",
+    "C": "서로 다른 의미 맥락을 함께 해석해 하나의 목적에 답하는 근거 또는 구체 확인 질문 평가.",
+    "retrieval": "검색 상위 후보의 관련성은 Codex 잠정 판정. 사용자 확정 골든셋과 구분.",
+    "response": "검색 후보 적절성과 초기 화면·생성 답변을 분리. 미검토 보류는 임의 생성하지 않음."
+  }
+}

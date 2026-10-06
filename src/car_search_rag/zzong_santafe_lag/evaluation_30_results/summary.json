@@ -1,0 +1,49 @@
+{
+  "completed": 30,
+  "counts": {
+    "실패": 20,
+    "통과": 9,
+    "부분": 1
+  },
+  "groups": {
+    "A": {
+      "실패": 1,
+      "통과": 8,
+      "부분": 1
+    },
+    "B": {
+      "실패": 9,
+      "통과": 1
+    },
+    "C": {
+      "실패": 10
+    }
+  },
+  "search_calls": 30,
+  "generation_attempts": 14,
+  "generated_answers": 5,
+  "generation_fallbacks": 9,
+  "failure_count": 0,
+  "provisional_search_metrics": {
+    "A": {
+      "n": 10,
+      "hit5": 1.0,
+      "mrr5": 1.0
+    },
+    "B": {
+      "n": 10,
+      "hit5": 1.0,
+      "mrr5": 0.875
+    },
+    "C": {
+      "n": 10,
+      "hit5": 0.9,
+      "mrr5": 0.72
+    }
+  },
+  "elapsed_seconds": 350.1,
+  "human_confirmed": false,
+  "db_written": false,
+  "rubric_note": "A는 관련 주제 문서·위치·원문 선택지를 허용. B/C는 목적에 대한 답변이 필요. 미검토 보류는 검색 성공과 응답 실패로 분리.",
+  "metrics_note": "상위 5개 부모 후보를 원본과 대조한 Codex 잠정 관련성. A는 여러 관련 문서를 허용. 사용자 확정 골든셋 점수가 아님."
+}
