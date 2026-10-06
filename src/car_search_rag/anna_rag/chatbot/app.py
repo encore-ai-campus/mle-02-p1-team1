@@ -14,8 +14,11 @@ import streamlit as st
 ROOT = Path(__file__).resolve().parents[4]
 if str(ROOT / 'src') not in sys.path:
     sys.path.insert(0, str(ROOT / 'src'))
+
 from car_search_rag.anna_rag.chatbot.registry import VEHICLES, load_backend
-from car_search_rag.anna_rag.chatbot.navigation import detach_chat, EXIT_OVERLAY
+from car_search_rag.anna_rag.chatbot.navigation import (
+    detach_chat, request_chat_exit, EXIT_TRANSITION, RETURN_TRANSITION,
+)
 from car_search_rag.anna_rag.chatbot.answer_view import (
     render_answer, format_answer, verified_answer_images,
 )
@@ -289,9 +292,30 @@ def _merge_packet_images(selected_images, verified_images):
 
 
 def return_to_vehicles():
-    # 클릭 콜백에서 먼저 초기화하여 대화 화면을 다시 그리는 왕복을 없앱니다.
-    st.session_state.returning_to_vehicles = True
+    request_chat_exit(st.session_state)
+
+
+@st.dialog('차량 선택으로 돌아갈까요?', dismissible=False)
+def confirm_chat_exit():
+    st.write('돌아가면 현재 대화가 화면에서 사라지고, 차량을 다시 선택하면 새 대화가 시작됩니다.')
+    st.caption('답변을 생성 중이라면 진행 중인 답변도 이 화면에서 이어서 볼 수 없어요.')
+    stay, leave = st.columns(2)
+    if stay.button('대화 계속하기', use_container_width=True, key='keep_chat'):
+        st.session_state.confirm_chat_exit = False
+        st.rerun()
+    if leave.button('돌아가기', type='primary', use_container_width=True, key='confirm_leave_chat'):
+        st.session_state.confirm_chat_exit = False
+        st.session_state.exiting_chat = True
+        st.rerun()
+
+
+def animate_chat_exit():
+    # 현재 사이드바를 닫는 모션을 보여 준 다음, 대화 종료 작업은 백그라운드로 넘깁니다.
+    st.markdown(EXIT_TRANSITION, unsafe_allow_html=True)
+    time.sleep(.42)
     leave_chat()
+    st.session_state.returning_to_vehicles = True
+    st.rerun()
 
 
 def show_packet(message, render_body=True):
@@ -353,9 +377,7 @@ def show_packet(message, render_body=True):
 
 
 init_state()
-return_overlay = st.empty()
-if st.session_state.pop('returning_to_vehicles', False):
-    return_overlay.markdown(EXIT_OVERLAY, unsafe_allow_html=True)
+returning_to_vehicles = st.session_state.pop('returning_to_vehicles', False)
 # 대시보드 상태는 Sonata 화면에만 적용합니다.
 if st.session_state.active_vehicle == 'sonata':
     st.session_state.setdefault('sonata_active_view', 'chat')
@@ -407,6 +429,8 @@ if st.session_state.session_notice:
 
 # 1. 공통 입구: 차종 선택 전에는 어떤 RAG도 호출하지 않습니다.
 if st.session_state.active_vehicle is None:
+    if returning_to_vehicles:
+        st.markdown(RETURN_TRANSITION, unsafe_allow_html=True)
     st.markdown('<style>[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none;}</style>', unsafe_allow_html=True)
     selected_car = None
     st.markdown('<h1 class="landing-title">안녕하세요!<br>보유하고 있는 자동차를 선택해주세요.</h1>', unsafe_allow_html=True)
@@ -435,7 +459,6 @@ if st.session_state.active_vehicle is None:
         st.session_state.startup_error = False
         st.session_state.entering_chat = True
         st.rerun()
-    return_overlay.empty()
     st.stop()
 
 # 2. 선택한 차종을 대화가 끝날 때까지 고정합니다.
@@ -514,6 +537,8 @@ if vehicle_id == 'sonata' and st.session_state.sonata_active_view == 'dashboard'
 
 # 사이드바와 대화 화면이 표시된 다음 연결을 시작합니다.
 if st.session_state.conversation_id is None:
+    if st.session_state.get('exiting_chat'):
+        animate_chat_exit()
     st.chat_input('차량 사용법을 물어보세요', disabled=True, key='startup_input')
     with st.container(key='chat_welcome'):
         with st.chat_message('assistant', avatar=BOT_AVATAR):
@@ -551,11 +576,19 @@ with history_container:
                 else:
                     show_packet(message)
 
+if st.session_state.get('exiting_chat'):
+    animate_chat_exit()
+if st.session_state.get('confirm_chat_exit'):
+    confirm_chat_exit()
+    st.chat_input('차량 사용법을 물어보세요', disabled=True, key='exit_confirmation_input')
+    st.stop()
+
 # 실패한 요청은 같은 request_id로 재시도하여 중복 저장을 방지합니다.
 retry = False
 if st.session_state.pending and st.session_state.request_error:
     st.warning('답변을 완료하지 못했어요. 다시 시도하거나 새 대화를 시작해 주세요.')
     retry = st.button('같은 질문 다시 시도')
+resume_pending_reply = st.session_state.pending is not None
 question = st.chat_input('차량 사용법을 물어보세요', max_chars=1000,
                          disabled=st.session_state.pending is not None, submit_mode='disable')
 if question:
@@ -569,16 +602,13 @@ if question:
         with st.container(key=f"message_{st.session_state.pending['id']}_user"):
             with st.chat_message('user'):
                 st.markdown(question)
-if question or retry:
+if st.session_state.pending and (not st.session_state.request_error or retry):
     if question:
         # 전송 메시지가 먼저 그려진 뒤 봇 로딩이 이어지도록 짧게 간격을 둡니다.
         time.sleep(.15)
     pending = st.session_state.pending
     try:
         # 작업 스레드는 모델/DB만 처리하고, 화면 변경은 메인 스레드에서 합니다.
-        events = Queue()
-        def on_event(kind, value):
-            events.put((kind, value))
         with pending_slot.container():
             with st.container(key=f"message_{pending['id']}_assistant"):
                 with st.chat_message('assistant', avatar=BOT_AVATAR):
@@ -600,30 +630,44 @@ if question or retry:
                         logging.warning('Session check failed: %s', type(error).__name__)
                         st.session_state.request_error = True
                         st.rerun()
-                    live_text, buffered_text = '', ''
-                    with ThreadPoolExecutor(max_workers=1) as worker:
+                    job = st.session_state.get('chat_job')
+                    if job is None or job['id'] != pending['id']:
+                        events = Queue()
+                        def on_event(kind, value):
+                            events.put((kind, value))
+                        worker = ThreadPoolExecutor(max_workers=1)
                         future = worker.submit(backend.chat, st.session_state.conversation_id,
                                                pending['text'], request_id=pending['id'], on_event=on_event)
-                        # 모델 생성 속도와 화면 표시 속도를 분리합니다 (약 67글자/초).
-                        while not future.done() or not events.empty() or buffered_text:
-                            while True:
-                                try:
-                                    kind, value = events.get_nowait()
-                                except Empty:
-                                    break
-                                if kind == 'token':
-                                    buffered_text += value
-                            # 오류로 검증된 초안은 더 표시하지 않고 최종 안내로 바꿉니다.
-                            if future.done() and future.result()['answer']['status'] != 'answered':
-                                buffered_text = ''
+                        # 재실행/확인창이 답변 완료를 기다리며 막히지 않도록 합니다.
+                        worker.shutdown(wait=False)
+                        job = {'id': pending['id'], 'future': future, 'events': events,
+                               'text': '', 'buffer': ''}
+                        st.session_state.chat_job = job
+                    future, events = job['future'], job['events']
+                    if job['text']:
+                        loading.empty()
+                        draft.markdown(format_answer(job['text']))
+                    while not future.done() or not events.empty() or job['buffer']:
+                        # Streamlit가 뒤로가기 클릭을 처리할 수 있는 재실행 지점을 둡니다.
+                        if st.session_state.pending is None:
+                            st.stop()
+                        while True:
+                            try:
+                                kind, value = events.get_nowait()
+                            except Empty:
                                 break
-                            if buffered_text:
-                                live_text += buffered_text[:3]
-                                buffered_text = buffered_text[3:]
-                                loading.empty()
-                                draft.markdown(format_answer(live_text))
-                            time.sleep(.045)
-                        packet = future.result()
+                            if kind == 'token':
+                                job['buffer'] += value
+                        if future.done() and future.result()['answer']['status'] != 'answered':
+                            job['buffer'] = ''
+                            break
+                        if job['buffer']:
+                            job['text'] += job['buffer'][:3]
+                            job['buffer'] = job['buffer'][3:]
+                            loading.empty()
+                            draft.markdown(format_answer(job['text']))
+                        time.sleep(.045)
+                    packet = future.result()
                     loading.empty()
                     # 같은 출력 위치와 같은 서식으로 최종 문구만 확정합니다.
                     verified_images = verified_answer_images(
@@ -640,12 +684,14 @@ if question or retry:
                     with details.container():
                         show_packet(message, render_body=False)
         st.session_state.messages.append(message)
+        st.session_state.pop('chat_job', None)
         st.session_state.pending = None
         st.session_state.request_error = False
         # 일반 전송은 재실행하지 않아 완성된 말풍선이 깜빡이지 않습니다.
-        if retry:
+        if retry or resume_pending_reply:
             st.rerun()
     except Exception as error:
+        st.session_state.pop('chat_job', None)
         logging.warning('Chat request failed: %s', type(error).__name__)
         st.session_state.request_error = True
         st.rerun()

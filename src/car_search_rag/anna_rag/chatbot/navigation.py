@@ -24,33 +24,54 @@ def detach_chat(state):
     state['request_error'] = False
     state.pop('vehicle_choice', None)
     state.pop('entering_chat', None)
+    state.pop('confirm_chat_exit', None)
+    state.pop('exiting_chat', None)
+    # 실행 중인 답변은 예전 대화에 남겨 두고, 새 화면에서 다시 붙이지 않습니다.
+    job = state.pop('chat_job', None)
+    if job:
+        job['future'].cancel()
     if backend is not None and session_id:
         return _close_workers.submit(_finish_session, backend, session_id)
     return None
 
 
-# body의 가상 요소를 사용해 Streamlit의 애니메이션/불투명도 레이어 밖에 표시합니다.
-EXIT_OVERLAY = '''<span id="chat-exit-marker" role="status" aria-label="차량 선택 화면으로 이동 중"></span>
+def request_chat_exit(state):
+    """대화가 있으면 먼저 확인하고, 빈 대화는 바로 복귀 애니메이션을 시작합니다."""
+    if state.get('messages') or state.get('pending'):
+        state['confirm_chat_exit'] = True
+    else:
+        state['exiting_chat'] = True
+
+
+EXIT_TRANSITION = """<span id="chat-exit-marker" aria-hidden="true"></span>
 <style>
-body:has(#chat-exit-marker)::before {
- content:"";position:fixed;inset:0;z-index:2147483646;
- background:rgba(35,30,52,.32);backdrop-filter:blur(2px);cursor:wait;
+body:has(#chat-exit-marker) {pointer-events:none;}
+body:has(#chat-exit-marker) [data-testid="stSidebar"] {
+ animation:sidebar-out .4s cubic-bezier(.4,0,.8,.2) forwards!important;
 }
-body:has(#chat-exit-marker)::after {
- content:"";position:fixed;left:50%;top:50%;width:54px;height:32px;
- transform:translate(-50%,-50%);z-index:2147483647;pointer-events:none;
- background-image:radial-gradient(circle,#8d79ec 3px,transparent 3.5px),
- radial-gradient(circle,#8d79ec 3px,transparent 3.5px),
- radial-gradient(circle,#8d79ec 3px,transparent 3.5px);
- background-size:12px 12px;background-repeat:no-repeat;
- background-position:8px 14px,21px 14px,34px 14px;
- animation:exit-dots 1.2s infinite ease-in-out;
+body:has(#chat-exit-marker) .sidebar-car {
+ animation:car-down .4s ease-in forwards!important;
 }
-@keyframes exit-dots {
- 0%,70%,100% {background-position:8px 14px,21px 14px,34px 14px;}
- 25% {background-position:8px 9px,21px 14px,34px 14px;}
- 40% {background-position:8px 14px,21px 9px,34px 14px;}
- 55% {background-position:8px 14px,21px 14px,34px 9px;}
+body:has(#chat-exit-marker) .st-key-chat_history,
+body:has(#chat-exit-marker) [data-testid="stChatMessage"],
+body:has(#chat-exit-marker) .welcome-bubble,
+body:has(#chat-exit-marker) [data-testid="stBottom"],
+body:has(#chat-exit-marker) .st-key-vehicle_menu {
+ animation:chat-out .3s ease-in forwards!important;
 }
-@media(prefers-reduced-motion:reduce) {body:has(#chat-exit-marker)::after {animation:none;}}
-</style>'''
+@keyframes sidebar-out {to {translate:-100% 0;opacity:0;}}
+@keyframes car-down {to {transform:translateY(55px) scale(.9);opacity:0;}}
+@keyframes chat-out {to {opacity:0;translate:0 22px;}}
+@media(prefers-reduced-motion:reduce) {
+ body:has(#chat-exit-marker) * {animation:none!important;}
+}
+</style>"""
+
+RETURN_TRANSITION = """<style>
+.landing-title {animation:landing-return .45s cubic-bezier(.16,1,.3,1) both;}
+.st-key-vehicle_cards {animation:landing-return .55s .06s cubic-bezier(.16,1,.3,1) both;}
+@keyframes landing-return {from {opacity:0;translate:0 65px;} to {opacity:1;translate:0 0;}}
+@media(prefers-reduced-motion:reduce) {
+ .landing-title, .st-key-vehicle_cards {animation:none!important;}
+}
+</style>"""
