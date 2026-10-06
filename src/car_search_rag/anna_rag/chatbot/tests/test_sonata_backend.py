@@ -2,7 +2,7 @@
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
-from car_search_rag.car_search import ui_backend as backend
+import app_kbj as backend
 from car_search_rag.anna_rag.chatbot.registry import VEHICLES
 
 

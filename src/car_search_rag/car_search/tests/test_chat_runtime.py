@@ -2,7 +2,7 @@
 import unittest
 from types import SimpleNamespace
 from unittest.mock import Mock
-from car_search_rag.car_search.chat_runtime import prepare_reply, _pin_vehicle
+from app_kbj import prepare_reply, _pin_vehicle
 
 
 class FakeService:

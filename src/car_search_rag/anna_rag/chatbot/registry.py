@@ -1,6 +1,13 @@
 """공통 UI와 차종별 에이전트 사이의 연결 목록입니다."""
 from dataclasses import dataclass
 from importlib import import_module
+from pathlib import Path
+import sys
+
+# 저장소 루트의 팀원 진입 파일도 화면 없이 import할 수 있도록 합니다.
+ROOT = Path(__file__).resolve().parents[4]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 from typing import Protocol
 
 
@@ -23,7 +30,7 @@ class Vehicle:
 VEHICLES = {
     'ioniq5': Vehicle('현대 아이오닉 5', 'car_search_rag.anna_rag.chatbot.ioniq5_backend'),
     'santafe': Vehicle('산타페', None),
-    'sonata': Vehicle('쏘나타', 'car_search_rag.car_search.ui_backend'),
+    'sonata': Vehicle('쏘나타', 'app_kbj'),
     'casper': Vehicle('캐스퍼', None),
 }
 
