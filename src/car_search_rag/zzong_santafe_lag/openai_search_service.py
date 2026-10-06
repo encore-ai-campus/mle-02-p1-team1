@@ -5,6 +5,7 @@ import os
 import hashlib
 from time import perf_counter
 from uuid import UUID
+from pathlib import Path
 
 from .config import ManualConfig
 from .db_search_service import DbFullSearchService
@@ -22,6 +23,9 @@ def active_embedding_run():
     if configured:
         return UUID(configured)
     path = OUTPUT_FOLDER / "active_run.json"
+    # [프로젝트 추가] 로컬 선택 파일이 없는 배포에서는 검증한 팀 DB 버전을 사용합니다.
+    if not path.exists():
+        path = Path(__file__).with_name("openai_embedding_selection.json")
     if not path.exists():
         return None
     value = json.loads(path.read_text(encoding="utf-8"))

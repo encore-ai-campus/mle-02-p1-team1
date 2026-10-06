@@ -1,5 +1,12 @@
 # 수업 기반과 프로젝트 추가 적용 기록
 
+## 팀 DB 연결 전환 — 2026-10-06
+
+[프로젝트 적용] 챗봇은 환경변수 또는 루트 `.env`의 `DB_URL`을 사용합니다. 과거 문단의 `ZZONG_DB_URL` 안내는 이전 설정입니다. 전용 `zzong_santafe_lag` 스키마와 기존 검색·생성·메모리 정책은 유지합니다.
+
+[프로젝트 추가] 배포에 개인 active_run.json이 없으면 `openai_embedding_selection.json`의 검증된 버전을 사용합니다. 명시한 `ZZONG_EMBEDDING_RUN_ID`와 개인 선택 파일은 기존처럼 우선하며, 모델·차원·원문·완료 상태 검사는 유지합니다. 인증 정보는 저장하지 않습니다. `image_storage_selection.json`은 팀 DB에서 읽은 864개 그림의 ID·쪽수·경로 대조 목록입니다. 기존 개인 업로드 보고서가 없을 때 사용하며, Storage 파일 바이트를 새로 검증했다는 뜻은 아닙니다. 관련 확인 노트북: `notebooks/31_post_refactor_results.ipynb`.
+
+
 ## 팀 공통 DB 형식 추가 저장 — 2026-10-06
 
 - `[프로젝트 적용]` 루트 `.env`의 `DB_URL`에 직접 연결해 팀의 `car → car_manual_chapter → car_manual_chunk / car_manual_image` 구조에 싼타페 자료를 추가합니다. 팀원 파일과 공통 테이블 정의는 수정하지 않습니다.

@@ -268,6 +268,11 @@ class DbFullSearchService(DbSampleSearchService):
         # 파일을 다시 올리거나 임의 경로를 허용하지 않고 기존 완료 보고서의 파일별 대조 정보를 사용합니다.
         if not hasattr(self, "_uploaded_image_manifest"):
             report_path = ManualConfig().project_folder / "data/zzong_santafe_lag/reports/full_images_upload_summary_20261003.json"
+            # [프로젝트 추가] 개인 보고서가 없는 배포는 팀 DB의 864개 경로 스냅샷과 대조합니다.
+            # 파일 바이트 재검증을 뜻하지 않으며 ID·쪽수·접두어·경로 검사는 그대로 유지합니다.
+            if not report_path.exists():
+                from pathlib import Path
+                report_path = Path(__file__).with_name("image_storage_selection.json")
             report = json.loads(report_path.read_text(encoding="utf-8"))["result"]
             files = report["files"]
             if len(files) != FULL_SOURCE.image_count or len({row["image_id"] for row in files}) != FULL_SOURCE.image_count:
