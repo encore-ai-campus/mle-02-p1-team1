@@ -450,3 +450,13 @@
 - 관련 실행 화면은 `app.py`이며 이번 작업에서 학습 노트북의 기존 셀/출력은 변경하지 않았습니다.
 
 [프로젝트 추가] DB 조회 시 버전 상수 때문에 PDF 처리 모듈(pypdf)을 불러오던 의존성을 제거했습니다. `PIPELINE_VERSION` 값을 `source_profile.py`에서 저장·검색 코드가 함께 사용하며 값과 검증 조건은 동일합니다.
+
+## 2026-10-06 원본 PDF 보관 도구 [프로젝트 추가]
+
+- `pdf_storage.py`를 준비했습니다. 원본 파일은 기존 `images` 버킷의 싼타페 개인 경로에 저장하고, `zzong_santafe_lag.documents`의 `storage_bucket`·`storage_path` 두 칼럼에 연결합니다.
+- 루트 `.env`의 `DB_URL`과 기존 개인 DB, Storage가 같은 프로젝트인지 확인합니다. 현재 PDF의 SHA-256을 기존 임베딩 원본과 대조하며, 같은 이름의 다른 파일은 덮어쓰지 않습니다.
+- 원격 파일을 다시 읽어 크기·SHA-256이 같은 경우에만 해당 문서 한 행을 연결합니다. 중단 후 재실행하면 같은 파일을 대조해 재사용합니다. Storage와 SQL은 하나의 트랜잭션이 아니므로 원격 저장 후 DB 연결 실패 가능성이 있습니다.
+- 실행: 프로젝트 루트에서 `PYTHONPATH`를 `src`로 설정한 뒤 `python -m car_search_rag.zzong_santafe_lag.pdf_storage check` 또는 `upload`를 실행합니다. `check`는 조회만 수행합니다.
+- 현재 상태: 최초 실행은 네트워크 제한 해제 승인 거절로 중단됐으나, 사용자 재요청 후 2026-10-06 원본 업로드와 문서 한 행의 경로 연결을 완료했습니다. 원격 파일의 크기 34,541,652바이트와 SHA-256이 원본과 일치하며, DB 연결도 새 읽기 전용 연결에서 확인했습니다. 새 모델·청킹·임베딩·학습 노트북 변경은 없습니다.
+- 결과: `data/zzong_santafe_lag/reports/original_pdf_storage_result.json`. 파일은 `images` 버킷의 `cars/hyundai/santafe_hev/zzong_santafe_lag/<PDF SHA-256>/santafe_hev_manual.pdf`에 저장했습니다. 다른 팀원의 자료나 공통 차량 테이블은 변경하지 않았습니다.
+- 사이드바의 PDF 다운로드는 현재 로컬 파일을 읽습니다. 이번 업로드만으로 화면의 파일 읽기 방식이 원격 다운로드로 바뀌지는 않습니다.

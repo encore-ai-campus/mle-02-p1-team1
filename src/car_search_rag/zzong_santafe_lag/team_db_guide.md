@@ -53,6 +53,20 @@ $env:PYTHONPATH = "$PWD\src"
 
 ## DBeaver에서 확인
 
+### 원본 PDF 보관 (2026-10-06 추가)
+
+원본 PDF 779쪽, 34,541,652바이트를 `images` 버킷의 싼타페 개인 경로에 별도로 업로드했습니다. 공통 청크 내보내기 때 그림 재업로드 없이 저장한 작업과는 별도입니다. 실제 원격 파일의 크기·SHA-256과 DB 경로를 확인했습니다.
+
+`zzong_santafe_lag.documents`에는 원본 파일 자체 대신 `storage_bucket`과 `storage_path`가 기록됩니다. 이 두 값으로 Storage 파일을 찾습니다. 공통 `public.car`에는 PDF 경로 칼럼이 없어 구조를 변경하지 않았습니다. 결과는 `data/zzong_santafe_lag/reports/original_pdf_storage_result.json`에 있습니다.
+
+```sql
+SELECT file_name, total_pages, storage_bucket, storage_path
+FROM zzong_santafe_lag.documents
+WHERE file_name = 'santafe_hev_manual.pdf';
+```
+
+현재 공통 화면의 사이드바 PDF 다운로드는 계속 로컬 파일을 읽습니다. 이번 보관 작업은 화면 코드를 변경하지 않았습니다.
+
 팀 연결 → `Schemas` → `public` → `Tables`에서 네 테이블을 확인합니다.
 
 ```sql
