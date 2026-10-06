@@ -327,26 +327,26 @@ init_state()
 # 차량 선택 이후에만 표시하는 공통 메뉴입니다. 아직 페이지 이동은 연결하지 않습니다.
 st.markdown("""<style>
 .st-key-vehicle_menu {position:fixed;top:20px;right:28px;z-index:1000;width:44px;}
-.st-key-vehicle_menu [data-testid="stPopover"] button {
+.st-key-vehicle_menu [data-testid="stPopoverButton"] {
  width:44px;height:44px;min-height:44px;padding:0;border:0!important;
  background:transparent!important;color:#5b43e8!important;box-shadow:none!important;
  display:flex;align-items:center;justify-content:center;gap:0;
 }
-.st-key-vehicle_menu [data-testid="stPopover"] button:hover {
+.st-key-vehicle_menu [data-testid="stPopoverButton"]:hover {
  color:#4932cf!important;
 }
-.st-key-vehicle_menu [data-testid="stPopover"] button p {
+.st-key-vehicle_menu [data-testid="stPopoverButton"] p {
  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
  clip:rect(0,0,0,0);white-space:nowrap;
 }
 /* 기본 메뉴·펼침 아이콘 대신 동일한 굵기의 보라색 세 줄만 표시합니다. */
-.st-key-vehicle_menu [data-testid="stPopover"] button svg,
-.st-key-vehicle_menu [data-testid="stPopover"] button [data-testid="stIconMaterial"] {display:none!important;}
-.st-key-vehicle_menu [data-testid="stPopover"] button::before {
+.st-key-vehicle_menu [data-testid="stPopoverButton"] svg,
+.st-key-vehicle_menu [data-testid="stPopoverButton"] [data-testid="stIconMaterial"] {display:none!important;}
+.st-key-vehicle_menu [data-testid="stPopoverButton"]::before {
  content:"";display:block;width:22px;height:2px;border-radius:2px;
  background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor;
 }
-.st-key-vehicle_menu [data-testid="stPopover"] button:focus-visible {outline:2px solid #b9aff2;outline-offset:2px;}
+.st-key-vehicle_menu [data-testid="stPopoverButton"]:focus-visible {outline:2px solid #b9aff2;outline-offset:2px;}
 .block-container:not(:has(.landing-title)) {padding-top:84px;}
 @media(max-width:640px) {.st-key-vehicle_menu {top:16px;right:16px;}}
 </style>""", unsafe_allow_html=True)
