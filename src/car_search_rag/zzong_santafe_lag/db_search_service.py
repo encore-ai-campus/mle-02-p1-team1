@@ -246,7 +246,7 @@ class DbFullSearchService(DbSampleSearchService):
 
     def validate_source(self, run, document, counts):
         """현재 승인한 전체 버전·개수·입력 식별값을 모두 확인한 뒤 모델을 준비합니다."""
-        from .full_store_service import PIPELINE_VERSION
+        from .source_profile import PIPELINE_VERSION
         expected_manifest = FULL_SOURCE.input_manifest_sha256
         if (document is None or run["status"] != "ready"
                 or counts != FULL_SOURCE.search_counts
