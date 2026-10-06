@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 import sys
 import logging
+import pandas
 import streamlit as st
 
 
@@ -23,6 +24,49 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger("CarManual")
+
+
+def _render_quality_dashboard():
+    """평가셋별 검색 품질 지표와 발표용 안내를 표시한다."""
+    # 평가 데이터는 검색 로직과 분리된 발표용 고정 지표다.
+    # region [Python 설명] pandas.DataFrame
+    # 각 평가셋을 한 행으로 두고 Hit@k와 MRR@5를 열로 구성한다.
+    # endregion
+    quality_data = pandas.DataFrame(
+        {
+            "평가셋": ["Golden Set 후보 11문항", "Synthetic Holdout 50문항", "Robustness 50문항"],
+            "Hit@1": [72.7, 72, 60],
+            "Hit@3": [100, 90, 90],
+            "Hit@5": [100, 92, 90],
+            "MRR@5": [0.8636, 0.8083, 0.7433],
+        }
+    ).set_index("평가셋")
+
+    st.markdown("**Hit@1 / Hit@3 / Hit@5 비교**")
+    # region [Streamlit 설명] st.bar_chart()
+    # DataFrame의 Hit 열을 평가셋별 막대 그래프로 비교한다.
+    # endregion
+    st.bar_chart(
+        quality_data[["Hit@1", "Hit@3", "Hit@5"]],
+        y_label="정답 근거 포함률 (%)",
+        stack=False,
+    )
+
+    # MRR@5는 각 평가셋별 지표를 카드 형태로 나누어 표시한다.
+    # region [Streamlit 설명] st.columns()와 st.metric()
+    # columns 세 영역에 평가셋 이름과 MRR@5 값을 각각 표시한다.
+    # endregion
+    metric_columns = st.columns(3)
+    for column, (dataset_name, mrr_value) in zip(metric_columns, quality_data["MRR@5"].items()):
+        with column:
+            st.metric(f"{dataset_name} · MRR@5", f"{mrr_value:.4f}")
+
+    st.caption(
+        "Golden Set 후보 11문항은 M6 기준 평가셋입니다. "
+        "사람이 원문 정답 근거를 최종 검수한 뒤 발표에서 Golden Set으로 확정합니다. "
+        "Synthetic 50은 추가 holdout 평가이며, "
+        "Robustness 50은 같은 Gold 근거에서 질문 표현을 바꾼 강건성 평가입니다."
+    )
 
 
 def _is_conversation_download_request(question):
@@ -195,6 +239,9 @@ st.set_page_config(
 )
 
 st.title("🚗 차량 매뉴얼 AI 챗봇")
+
+with st.expander("📊 품질 대시보드", expanded=True):
+    _render_quality_dashboard()
 
 
 # 반복 실행에서도 재사용할 차량 매뉴얼 Agent를 준비한다.
