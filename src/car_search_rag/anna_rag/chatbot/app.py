@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[4]
 if str(ROOT / 'src') not in sys.path:
     sys.path.insert(0, str(ROOT / 'src'))
 from car_search_rag.anna_rag.chatbot.registry import VEHICLES, load_backend
+from car_search_rag.anna_rag.chatbot.navigation import detach_chat, EXIT_OVERLAY
 from car_search_rag.anna_rag.chatbot.answer_view import render_answer, format_answer
 
 BOT_AVATAR = str(Path(__file__).parent / 'assets' / 'hyundai-logo.webp')
@@ -118,14 +119,6 @@ h2,h3 {letter-spacing:-.04em;}
 .thinking i:nth-child(2) {animation-delay:.16s;}.thinking i:nth-child(3) {animation-delay:.32s;}
 .thinking span {margin-left:8px;}
 @keyframes thinking {0%,70%,100% {transform:translateY(0);opacity:.35;} 35% {transform:translateY(-5px);opacity:1;}}
-/* 종료 요청 중에는 화면 전체를 가리고 중앙 로딩만 표시합니다. */
-.exit-loading-overlay {position:fixed;inset:0;z-index:2000000;
- background:rgba(35,30,52,.32);backdrop-filter:blur(2px);
- display:flex;align-items:center;justify-content:center;cursor:wait;}
-.exit-loading-spinner {width:42px;height:42px;border:4px solid rgba(255,255,255,.55);
- border-top-color:#5b43e8;border-radius:50%;animation:exit-spin .8s linear infinite;}
-@keyframes exit-spin {to {transform:rotate(360deg);}}
-
 @media(max-width:640px) {[data-testid="stChatMessage"] {max-width:95%;padding:14px;} [data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {max-width:88%;}}
 @media(prefers-reduced-motion:reduce) {*,*::before,*::after {animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
 
@@ -265,17 +258,13 @@ def init_state():
 
 
 def leave_chat():
-    # UI에서 나가면 화면 맥락은 반드시 지웁니다. DB 종료 실패도 원문 오류를 노출하지 않습니다.
-    try:
-        if st.session_state.conversation_id:
-            backend_for(st.session_state.active_vehicle).end_session(st.session_state.conversation_id)
-    except Exception as error:
-        logging.warning('Session close failed: %s', type(error).__name__)
-    for key in ('active_vehicle', 'conversation_id', 'pending'):
-        st.session_state[key] = None
-    st.session_state.messages = []
-    st.session_state.request_error = False
-    st.session_state.pop('vehicle_choice', None)
+    detach_chat(st.session_state)
+
+
+def return_to_vehicles():
+    # 클릭 콜백에서 먼저 초기화하여 대화 화면을 다시 그리는 왕복을 없앱니다.
+    st.session_state.returning_to_vehicles = True
+    leave_chat()
 
 
 def show_packet(message, render_body=True):
@@ -324,6 +313,9 @@ def show_packet(message, render_body=True):
 
 
 init_state()
+return_overlay = st.empty()
+if st.session_state.pop('returning_to_vehicles', False):
+    return_overlay.markdown(EXIT_OVERLAY, unsafe_allow_html=True)
 # 차량 선택 이후에만 표시하는 공통 메뉴입니다. 아직 페이지 이동은 연결하지 않습니다.
 st.markdown("""<style>
 .st-key-vehicle_menu {position:fixed;top:20px;right:28px;z-index:1000;width:44px;}
@@ -389,6 +381,7 @@ if st.session_state.active_vehicle is None:
         st.session_state.startup_error = False
         st.session_state.entering_chat = True
         st.rerun()
+    return_overlay.empty()
     st.stop()
 
 # 2. 선택한 차종을 대화가 끝날 때까지 고정합니다.
@@ -430,15 +423,9 @@ if entering_chat:
 @keyframes car-up {from {transform:translateY(110px) scale(1.18);opacity:0;} to {transform:translateY(0) scale(1);opacity:1;}}
 @keyframes welcome-in {from {transform:translateY(22px);opacity:0;} to {transform:translateY(0);opacity:1;}}
 </style>""", unsafe_allow_html=True)
-# 사이드바 밖에 두어 로딩 배경이 전체 뷰포트를 덮도록 합니다.
-exit_overlay = st.empty()
 with st.sidebar:
-    if st.button('차량 선택으로 돌아가기', icon=':material/arrow_back:', key='back_to_vehicles'):
-        exit_overlay.markdown('<div class="exit-loading-overlay" role="status" aria-label="차량 선택 화면으로 이동 중"><div class="exit-loading-spinner" aria-hidden="true"></div></div>', unsafe_allow_html=True)
-        # DB 종료 호출 전에 로딩 화면이 브라우저에 먼저 전달되게 합니다.
-        time.sleep(.08)
-        leave_chat()
-        st.rerun()
+    st.button('차량 선택으로 돌아가기', icon=':material/arrow_back:',
+              key='back_to_vehicles', on_click=return_to_vehicles)
     selected_label = {'ioniq5': 'IONIQ 5', 'santafe': 'SANTA FE',
                       'sonata': 'SONATA', 'casper': 'CASPER'}.get(vehicle_id, VEHICLES[vehicle_id].label)
     selected_image = base64.b64encode((Path(__file__).parent / 'assets' / f'{vehicle_id}.png').read_bytes()).decode('ascii')
