@@ -1,0 +1,23 @@
+{
+  "record_type": "conversation_based_migration_record",
+  "documented_date": "2026-10-02",
+  "purpose": "개인 DB의 매뉴얼 청크와 임베딩을 팀 DB로 이관",
+  "source_tables": [
+    "public.manual_chunks",
+    "public.manual_embeddings"
+  ],
+  "target_tables": [
+    "public.casper_manual_chunks",
+    "public.casper_manual_embeddings"
+  ],
+  "method": "pg_dump --data-only; adjust COPY table destinations; psql --single-transaction --set=ON_ERROR_STOP=1",
+  "restore_status": "User reported restore completed and checks correct in this conversation",
+  "reported_checks": {
+    "chunk_rows": 1874,
+    "embedding_rows": 1874,
+    "unmatched_chunk_ids": 0,
+    "vector_dimension": 768
+  },
+  "application_connection": "User reported changing Streamlit Secrets and creating the team search function",
+  "evidence_limits": "No terminal COPY output or Cloud success log supplied. Completion is user-reported, not newly observed. The offline dump audit is recorded separately."
+}

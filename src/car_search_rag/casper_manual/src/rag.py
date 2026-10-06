@@ -97,15 +97,20 @@ def get_rag():
     from supabase import create_client
 
     env_path = Path(__file__).resolve().parent.parent / ".env"
-    config = {**dotenv_values(env_path), **os.environ}
+    config = {**dotenv_values(env_path), **dotenv_values(Path(__file__).resolve().parent / ".env")}
+    try:
+        config.update(dict(st.secrets))
+    except FileNotFoundError:
+        pass
+    config.update(os.environ)
     required = ["SUPABASE_URL", "SUPABASE_SECRET_KEY", "OPENAI_API_KEY"]
     missing = [key for key in required if not config.get(key)]
     if missing:
-        raise ValueError(f"{env_path}에 다음 항목을 설정하세요: {', '.join(missing)}")
+        raise ValueError(f"환경변수 또는 Streamlit Secrets에 다음 항목을 설정하세요: {', '.join(missing)}")
     return ManualRAG(
         SentenceTransformer(MODEL_NAME),
-        create_client(st.secrets["SUPABASE_URL"], st.secrets["SUPABASE_SECRET_KEY"]),
-        OpenAI(api_key=st.secrets["OPENAI_API_KEY"], timeout=60.0, max_retries=1),
+        create_client(config["SUPABASE_URL"], config["SUPABASE_SECRET_KEY"]),
+        OpenAI(api_key=config["OPENAI_API_KEY"], timeout=60.0, max_retries=1),
         llm_model=config.get("OPENAI_MODEL") or LLM_MODEL,
     )
 

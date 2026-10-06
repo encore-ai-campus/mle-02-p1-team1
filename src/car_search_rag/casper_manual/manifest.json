@@ -1,0 +1,139 @@
+{
+  "record_date": "2026-10-02",
+  "local_project_applied": false,
+  "application_run_verified": false,
+  "syntax_parsed": true,
+  "notes": "프로젝트 쓰기 권한이 허용되지 않아 교체 패키지로 제공. 앱 실행과 실제 검색 재시험은 수행하지 않음.",
+  "files": [
+    {
+      "path": "읽어주세요.md",
+      "sha256": "0ca80cb1c6735adac04a850a57100ee3680f19f8011adbbb0db7c872918b9c22",
+      "bytes": 2210
+    },
+    {
+      "path": ".streamlit/config.toml",
+      "sha256": "d0e571f2ef66170cc46531223b3a8ed8ac3e8aecb742860aa25d662c9f010116",
+      "bytes": 155
+    },
+    {
+      "path": "src/chatbot_project/app2.py",
+      "sha256": "2caec405d522470d3d8ee1604ae2afa532f156210892f44ffc1f53174a6f548c",
+      "bytes": 8827
+    },
+    {
+      "path": "src/chatbot_project/portal_charts.py",
+      "sha256": "bc9485383e1118f8b6802d4b9b0613ce59d56ff33a2f958d0505b979aa94dcf7",
+      "bytes": 6292
+    },
+    {
+      "path": "src/chatbot_project/portal_theme.py",
+      "sha256": "00f57c7ea73670097f0efd72cbb18c4074d24c50ef1a5aeabf56afc46d77526b",
+      "bytes": 3361
+    },
+    {
+      "path": "src/chatbot_project/project_portal.py",
+      "sha256": "72fc4b7e6fb3e7a32a6356354ef264304d350b61ebf877547b199b0e14f5ed32",
+      "bytes": 22842
+    },
+    {
+      "path": "src/chatbot_project/rag.py",
+      "sha256": "93743d30aea4cf5e418116dc6b210f089625e4d100a392d60f7575115d2acc09",
+      "bytes": 5157
+    },
+    {
+      "path": "src/chatbot_project/project_assets/dataset_profile.json",
+      "sha256": "414a82c9c3e365abdfe99f601f28eb2b976a7c8dbdf149bfa4de4b3f8f0fb2bd",
+      "bytes": 8731
+    },
+    {
+      "path": "src/chatbot_project/project_assets/evaluation_dataset.json",
+      "sha256": "b7a705ffbfb027c24a181744a3e80d0793bb38a1144f31681a45773a5df727a3",
+      "bytes": 73473
+    },
+    {
+      "path": "src/chatbot_project/project_assets/evaluation_results.json",
+      "sha256": "6f3f7d92688a9c0decae79e4d296498ec2dacf40bc9da2140b54a5ae249426b9",
+      "bytes": 407743
+    },
+    {
+      "path": "src/chatbot_project/project_assets/analysis/chapter_statistics.csv",
+      "sha256": "41bb03914fb550ee665d287e939b049925917e9c843f6386c0cbf9d5c01d51f6",
+      "bytes": 1253
+    },
+    {
+      "path": "src/chatbot_project/project_assets/analysis/statistical_tests.csv",
+      "sha256": "5c0a1e6bb51b67d728b3f69bbfc1e68dbca57606ba01e8a9603e65e1e604be09",
+      "bytes": 316
+    },
+    {
+      "path": "src/chatbot_project/project_assets/analysis/tfidf_chapter_keywords.csv",
+      "sha256": "c938e47bb3fb250974d80dc25fae790a2b64dfd4bd84f33638980e6470accc1f",
+      "bytes": 6813
+    },
+    {
+      "path": "src/chatbot_project/project_assets/charts/01_category_results.png",
+      "sha256": "be7cb50fa829a3c49657c261c30dca13443c5d6fdb3ebe8ac9be19f6c3b82615",
+      "bytes": 40146
+    },
+    {
+      "path": "src/chatbot_project/project_assets/charts/01_category_results.svg",
+      "sha256": "70dc0d1b5439c4dd1e6843fc8c93b6dc381266c7963c4b2385899580c3ff711a",
+      "bytes": 2524
+    },
+    {
+      "path": "src/chatbot_project/project_assets/charts/02_retrieval_answer.png",
+      "sha256": "e6554f2cf9ac7ff93aab38ba148504e13697bd068f3242416d22baa7f15584ad",
+      "bytes": 44798
+    },
+    {
+      "path": "src/chatbot_project/project_assets/charts/02_retrieval_answer.svg",
+      "sha256": "981aa57c04d4f741660f9f5f2a11dca52786b1253550fbfed61df0725f4bd05c",
+      "bytes": 1763
+    },
+    {
+      "path": "src/chatbot_project/project_assets/charts/chart_data.json",
+      "sha256": "185eb6ce7b22ecad4e40a61cb44106bb512b6028a910c38c2b0772f39706fba0",
+      "bytes": 3269
+    },
+    {
+      "path": "src/chatbot_project/project_assets/charts/evaluation_charts.html",
+      "sha256": "30786f8a53e4751ed4d6504c5416ef3afb36278cb71260e805c5f0f7949c4816",
+      "bytes": 8545
+    },
+    {
+      "path": "src/chatbot_project/project_assets/code/match_manual_chunks.sql",
+      "sha256": "1c28be651574b2dfc5e99797846f995bc4e9ecf9ca57a44e59694f2710f2adef",
+      "bytes": 1007
+    },
+    {
+      "path": "src/chatbot_project/project_assets/downloads/stage1_data_preprocessing.zip",
+      "sha256": "cc60b14bd2f254e2b7135ca55bb79d62086c28f96d4554e0656f0f9db6b6eccd",
+      "bytes": 722775
+    },
+    {
+      "path": "src/chatbot_project/project_assets/downloads/stage2_analysis.zip",
+      "sha256": "f5c74fb8d0f8369c69f0fb257e2dfe3701206091d5ab3e0c1787a15ddf0d908e",
+      "bytes": 1139723
+    },
+    {
+      "path": "src/chatbot_project/project_assets/downloads/stage3_code_logs.zip",
+      "sha256": "5cb7207a4141b6936736a7d7adde1e1664d0dbf85ef4c745cdb457639dd82c67",
+      "bytes": 19310
+    },
+    {
+      "path": "src/chatbot_project/project_assets/downloads/stage4_evaluation.zip",
+      "sha256": "7dc449bf07f3dee02e1eeccd90859658fc6b2b5afb42deadc245697aac000161",
+      "bytes": 462141
+    },
+    {
+      "path": "src/chatbot_project/project_assets/logs/dump_audit.json",
+      "sha256": "17ca587b110291a4151baa4296215b228b7a493b0d027140661f6a5175ce1c5d",
+      "bytes": 1083
+    },
+    {
+      "path": "src/chatbot_project/project_assets/logs/team_migration.json",
+      "sha256": "b8b66fd8110e926f3306d1a36c8b50aba9ff251dd447804d8323502afa183ed8",
+      "bytes": 1012
+    }
+  ]
+}
