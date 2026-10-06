@@ -80,7 +80,7 @@ embedding_model = 'text-embedding-3-small'
 
 embedding_dimension = 1536
 
-chat_model = 'openai:gpt-5.6-luna'
+chat_model = 'openai:gpt-6-luna'
 
 top_k = 5
 
