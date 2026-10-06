@@ -7,6 +7,7 @@ main: 개인 테스트 화면. import할 때는 화면을 실행하지 않습니
 from pathlib import Path
 import sys
 import logging
+import re
 import pandas
 from datetime import datetime, timezone
 from threading import Lock
@@ -20,6 +21,36 @@ if str(ROOT / 'src') not in sys.path:
     sys.path.insert(0, str(ROOT / 'src'))
 
 logger = logging.getLogger("CarManual")
+
+
+class _SonataSQLFilter(logging.Filter):
+    """SONATA mapper statement만 SQL 로그 handler에 전달합니다."""
+
+    _statement_id = re.compile(r"(?<![A-Za-z0-9_])car_manual\.[A-Za-z_][A-Za-z0-9_]*")
+
+    def filter(self, record):
+        try:
+            return self._statement_id.search(record.getMessage()) is not None
+        except Exception:
+            return False
+
+
+def _configure_sonata_sql_logging():
+    """통합 앱의 SONATA SQL 로그를 터미널에 한 번만 연결합니다."""
+    sql_logger = logging.getLogger("car_search_rag.sql")
+    sql_logger.setLevel(logging.INFO)
+    sql_logger.disabled = False
+
+    if not any(getattr(handler, "_sonata_sql_handler", False) for handler in sql_logger.handlers):
+        handler = logging.StreamHandler(sys.stdout)
+        handler.setLevel(logging.INFO)
+        handler.setFormatter(logging.Formatter("[%(name)s] %(message)s"))
+        handler.addFilter(_SonataSQLFilter())
+        handler._sonata_sql_handler = True
+        sql_logger.addHandler(handler)
+
+    # SQL logger의 별도 handler가 출력하므로 root handler를 통한 중복 전파를 막습니다.
+    sql_logger.propagate = False
 
 # =========================================================
 # 쏘나타 챗봇 동작 — 두 화면 모두 아래 함수를 사용합니다.
@@ -307,6 +338,7 @@ class SonataBackend:
 
 def create_backend():
     """현재 접속에서만 사용할 쏘나타 구현을 만듭니다."""
+    _configure_sonata_sql_logging()
     return SonataBackend()
 
 
