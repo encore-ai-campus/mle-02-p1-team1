@@ -159,8 +159,11 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
         from .question_intent import evidence_intent
         text = normalize_query_text(question)
         shared_intent = evidence_intent(question)
+        # [프로젝트 추가] 그림 요청은 안내도뿐 아니라 설명 그림도 포함합니다.
+        # '그림' 하나만으로 안내도 5개를 앞세우면 일반 부품 설명 그림을 놓치므로,
+        # 명시적인 안내도/번호 표현 또는 실제 안내도 부품 이름으로만 범위를 좁힙니다.
         explicit_navigation = shared_intent == "location" and has_any(text, [
-            "안내도", "그림", "도안", "몇 번", "어느 항목", "번호로 표시", "번호가 표시"])
+            "안내도", "도안", "몇 번", "어느 항목", "번호로 표시", "번호가 표시"])
         location_words = has_any(text, ["위치", "어디", "자리"])
         operation_words = has_any(text, [
             "사용", "조작", "작동", "방법", "당기", "누르", "눌", "기능", "변속",

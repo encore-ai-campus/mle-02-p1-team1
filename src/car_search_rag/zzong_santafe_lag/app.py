@@ -18,6 +18,7 @@ if str(SRC_FOLDER) not in sys.path:
 
 # [프로젝트 적용] 이미 저장한 개인 전체 처리 작업입니다. 팀원 자료와 섞지 않습니다.
 from car_search_rag.zzong_santafe_lag.source_profile import FULL_SOURCE
+from car_search_rag.zzong_santafe_lag.answer_display import format_answer_for_display
 
 FULL_RUN_ID = str(FULL_SOURCE.run_id)
 MAX_HISTORY = 10
@@ -238,7 +239,9 @@ def show_result(entry):
             st.caption("설명서에서 확인한 글을 발췌했습니다.")
         else:
             st.caption("현재 자료로 답변할 수 있는지 확인한 결과입니다.")
-        st.markdown(result["answer"])
+        # [프로젝트 추가] 화면 서식만 적용하며 내려받는 원문·생성 결과는 그대로 보존합니다.
+        # 개인 화면은 출처 탭에서 원문을 읽습니다. 공통 화면용 짧은 미리보기 옵션은 사용하지 않습니다.
+        st.markdown(format_answer_for_display(result))
         if result.get("reason"):
             st.info(result["reason"])
         usage = result.get("token_usage")
@@ -339,11 +342,20 @@ class SantafeBackend:
             notices.append("답변 생성용 API 키 설정이 없습니다. 설명서 발췌를 표시합니다.")
         if entry["generation_error"]:
             notices.append("생성을 완료하지 못해 설명서 발췌를 유지합니다.")
-        return {"answer": {"text": result["answer"], "status": "answered", "cited_labels": []},
+        pending_images = result.get("pending_image_references", [])
+        if pending_images:
+            notices.append(f"관련 그림 {len(pending_images)}개는 파일 또는 설명 연결 확인이 남아 표시를 보류했습니다.")
+        # [프로젝트 추가] 공통 화면을 수정하지 않고 싼타페가 전달하는 표시용 글만 정리합니다.
+        # 생성 가능한 최초 안내만 짧게 표시합니다. 생성 실패·키 없음·답변 보류는 기존 발췌/안내를 유지합니다.
+        return {"answer": {"text": format_answer_for_display(result, evidence_preview=can_generate),
+                           "status": "answered", "cited_labels": []},
                 "vehicle_id": "santafe", "source_display": "retrieved",
                 "native_status": result["status"], "native_result": result,
                 "entry_id": entry["id"],
-                "sources": [{"label": str(row["label"]), "title": row["title"],
+                # 공통 화면은 [label]을 붙이므로 번호만 전달해 PDF 쪽수·대괄호 중복을 막습니다.
+                "sources": [{"label": str(row["citation_id"]), "title": row["title"] + (
+                    f" · 매뉴얼 {'시작 ' if len(row['source_pages']) > 1 else ''}{row['manual_page_number']}쪽"
+                    if row.get("manual_page_number") is not None else ""),
                     "source_file": "santafe_hev_manual.pdf", "pdf_pages": row["source_pages"],
                     "quote": row["quote"], "raw_text": row.get("raw_text", "")}
                     for row in result.get("sources", [])],
