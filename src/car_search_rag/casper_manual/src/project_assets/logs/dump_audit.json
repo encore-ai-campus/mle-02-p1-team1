@@ -1,0 +1,29 @@
+{
+  "record_type": "offline_dump_audit",
+  "recorded_date": "2026-10-02",
+  "csv_sha256": "79c702fa13a65964e5be4103e36fb62d5e7fe450b6fef5c7b8df67c71ef0ffa4",
+  "personal_dump_sha256": "eb487f136d8d467401b303d79ab70eddaba0894a0f5c391cbff3786844293442",
+  "team_dump_sha256": "46b55bbb50d646c5ce3c3a0345361250adf2b8e1111297cf0016357e4d7dfc51",
+  "chunk_rows": 1874,
+  "unique_chunk_ids": 1874,
+  "embedding_rows": 1874,
+  "unique_embedding_chunk_ids": 1874,
+  "embeddings_without_chunk": 0,
+  "chunks_without_embedding": 0,
+  "actual_vector_dimensions": [
+    768
+  ],
+  "model_groups": [
+    {
+      "model": "intfloat/multilingual-e5-base",
+      "version": "v1",
+      "declared_dimension": "768",
+      "rows": 1874
+    }
+  ],
+  "personal_team_chunk_payload_identical": true,
+  "personal_team_embedding_payload_identical": true,
+  "csv_dump_chunk_id_sets_equal": true,
+  "csv_dump_body_mismatch_rows": 0,
+  "limitation": "No database connection performed. Original upload timestamps were not inferred. Vector generation from final CSV was not re-run."
+}

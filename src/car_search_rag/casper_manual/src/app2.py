@@ -4,11 +4,13 @@ from time import perf_counter
 
 import streamlit as st
 
-from rag import download_model_weights, get_rag
+from rag import download_model_weights, get_rag, DEFAULT_TOP_K
+from portal_theme import apply_theme, hero, footer
+from project_portal import PAGES, render_project_page
 
 
 st.set_page_config(
-    page_title="CASPER | 매뉴얼 도우미",
+    page_title="CASPER | 매뉴얼과 프로젝트",
     page_icon="🚙",
     layout="wide",
 )
@@ -25,7 +27,7 @@ def initialize_state():
         "practice_history": [],
         "practice_selected": None,
         "practice_question": "",
-        "practice_top_k": 5,
+        "practice_top_k": DEFAULT_TOP_K,
         "rag_ready": False,
     }
     for key, value in defaults.items():
@@ -86,34 +88,11 @@ def ensure_rag_ready():
 
 
 def render_header():
-    st.markdown(
-        """
-        <style>
-        .block-container { max-width: 1200px; padding-top: 2rem; }
-        .casper-header {
-            background: linear-gradient(120deg, #142d38, #285951);
-            padding: 30px; border-radius: 20px; margin-bottom: 28px;
-        }
-        .casper-header .brand { color: #a0ead0; letter-spacing: 3px; font-size: 12px; font-weight: bold; }
-        .casper-header h1 { color: #ffffff; font-size: 32px; }
-        .casper-header p { color: #d6e8e3; margin-bottom: 0; }
-        </style>
-        <section class="casper-header">
-            <div class="brand">CASPER ELECTRIC</div>
-            <h1>내 차가 궁금할 때, 매뉴얼 도우미</h1>
-            <p>질문하고, 답변을 읽고, 매뉴얼 근거를 확인하세요.</p>
-        </section>
-        """,
-        unsafe_allow_html=True,
-    )
+    hero("CASPER ELECTRIC / MANUAL SEARCH", "내 차가 궁금할 때, 매뉴얼에서 찾아보세요", "질문에 가까운 설명을 찾아 답합니다. 답변을 읽고 같은 번호의 매뉴얼 근거를 함께 확인하세요.")
 
 
 def render_sidebar():
     with st.sidebar:
-        st.header("🚙 CASPER")
-        st.caption("캐스퍼 일렉트릭 매뉴얼 도우미")
-        st.divider()
-
         st.subheader("검색 설정")
         st.slider(
             "검색할 매뉴얼 조각 수",
@@ -239,15 +218,27 @@ def render_result():
 
 
 def main():
-    initialize_state()
-    ensure_rag_ready()
-    render_sidebar()
-    render_header()
-    question_column, result_column = st.columns([4, 6], gap="large")
-    with question_column:
-        render_question_form()
-    with result_column:
-        render_result()
+    apply_theme()
+
+    pages = [page for page in PAGES if page != "매뉴얼 질문하기"]
+
+    # 이전에 선택한 질문 페이지가 세션에 남아 있으면 초기화
+    if st.session_state.get("project_page") not in pages:
+        st.session_state["project_page"] = pages[0]
+
+    with st.sidebar:
+        st.header("CASPER")
+        st.caption("매뉴얼 데이터부터 검색 품질 평가까지, 만든 과정을 살펴보세요.")
+        page = st.radio(
+            "화면 선택",
+            pages,
+            key="project_page",
+            label_visibility="collapsed",
+        )
+        st.divider()
+
+    render_project_page(page)
+    footer()
 
 
 if __name__ == "__main__":

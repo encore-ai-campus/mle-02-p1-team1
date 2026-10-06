@@ -1,0 +1,249 @@
+{
+  "completed_at": "2026-10-06T09:50:24.289912+09:00",
+  "scope": "개인 싼타페 코드·노트북·zzong_santafe_lag 스키마",
+  "code_commit_pushed_before_db": "bb6d37a",
+  "git_branch": "main",
+  "revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+  "payload_sha256": "72dfad3b3ad3221f62fb222f4b2e6f5119a75f5d21f305c60e8ec19591ae10c3",
+  "storage": {
+    "revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+    "payload_sha256": "72dfad3b3ad3221f62fb222f4b2e6f5119a75f5d21f305c60e8ec19591ae10c3",
+    "parents": 5,
+    "chunks": 28,
+    "image_links": 8,
+    "replaced_base_chunks": 25,
+    "effective_chunk_count": 2216,
+    "legacy_tables_unchanged": true,
+    "vector_readback_equal": true,
+    "new_table_bytes": 540672,
+    "personal_db_bytes": 36036608,
+    "table_sizes": [
+      {
+        "table_name": "chunks",
+        "bytes": 13090816
+      },
+      {
+        "table_name": "documents",
+        "bytes": 49152
+      },
+      {
+        "table_name": "images",
+        "bytes": 843776
+      },
+      {
+        "table_name": "openai_chunk_vectors",
+        "bytes": 18939904
+      },
+      {
+        "table_name": "openai_embedding_runs",
+        "bytes": 49152
+      },
+      {
+        "table_name": "parent_records",
+        "bytes": 1884160
+      },
+      {
+        "table_name": "processing_runs",
+        "bytes": 49152
+      },
+      {
+        "table_name": "record_images",
+        "bytes": 589824
+      },
+      {
+        "table_name": "review_revision_chunks",
+        "bytes": 434176
+      },
+      {
+        "table_name": "review_revisions",
+        "bytes": 106496
+      }
+    ],
+    "db_written": true,
+    "storage_uploaded": false
+  },
+  "active_selection": {
+    "revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+    "payload_sha256": "72dfad3b3ad3221f62fb222f4b2e6f5119a75f5d21f305c60e8ec19591ae10c3"
+  },
+  "shared_selection_without_personal_file_verified": true,
+  "effective_source": {
+    "parent_count": 527,
+    "chunk_count": 2216,
+    "visually_reviewed_parents": 25,
+    "auto_draft_needs_review": 502,
+    "image_file_count": 864,
+    "human_cross_review_complete": false
+  },
+  "embedding": {
+    "local_model": "jhgan/ko-sroberta-multitask-mrl",
+    "local_dimension": 768,
+    "openai_model": "text-embedding-3-small",
+    "openai_dimension": 1536,
+    "new_document_inputs": 28,
+    "document_api_batches": 1,
+    "document_input_tokens": 5533,
+    "image_pixels_embedded": false
+  },
+  "preflight": {
+    "v1_passed": 17,
+    "v1_total": 18,
+    "v2_passed": 18,
+    "v2_total": 18,
+    "local_v2_passed": 3,
+    "local_v2_total": 3,
+    "all_passed": true,
+    "scope": "같은 질문의 회귀 확인; 전체 PDF 정확도·독립 평가 아님",
+    "v1_generation_calls": 2,
+    "v1_generation_tokens": 2196,
+    "v2_new_generation_calls": 0,
+    "v2_new_question_batches": 0,
+    "v2_reused_generation_count": 2
+  },
+  "db_readback": {
+    "passed": 3,
+    "total": 3,
+    "checks": [
+      {
+        "case_id": "S03",
+        "status": "evidence_excerpt",
+        "source_record_ids": [
+          "overview_33"
+        ],
+        "image_count": 1,
+        "passed": true
+      },
+      {
+        "case_id": "R01",
+        "status": "evidence_excerpt",
+        "source_record_ids": [
+          "auto_topic_172",
+          "auto_topic_173",
+          "auto_topic_174"
+        ],
+        "image_count": 3,
+        "passed": true
+      },
+      {
+        "case_id": "R03",
+        "status": "evidence_excerpt",
+        "source_record_ids": [
+          "auto_topic_173"
+        ],
+        "image_count": 2,
+        "passed": true
+      }
+    ],
+    "question_embedding_calls": 3
+  },
+  "ui_and_prompt_compare": {
+    "question": "스마트 테일게이트 설정 방법을 설명해줘.",
+    "before_status": "evidence_excerpt",
+    "before_validation_code": "missing_required_citation",
+    "before_missing_citation_ids": [
+      3
+    ],
+    "before_generation_tokens": 2798,
+    "same_evidence_retry_status": "generated_answer",
+    "same_evidence_retry_tokens": 3390,
+    "final_browser_status": "generated_answer",
+    "final_browser_tokens": 3112,
+    "final_citations": [
+      1,
+      2,
+      3
+    ],
+    "final_image_count": 3,
+    "actual_images_loaded": true,
+    "generation_calls": 3,
+    "generation_tokens": 9300,
+    "citation_checks_relaxed": false,
+    "formatting_saved_response_checks": 4,
+    "formatting_only_api_calls": 0
+  },
+  "sizes": {
+    "new_db_table_bytes": 540672,
+    "personal_db_total_bytes": 36036608,
+    "existing_storage_image_bytes": 32406621,
+    "measured_personal_combined_bytes": 68443229,
+    "unit": "MB = 1,000,000바이트",
+    "storage_measurement_source": "2026-10-03 전체 업로드 확인; 이번 Storage 재측정 없음",
+    "excludes": "WAL·공통 영역·다른 팀원 자료·서비스 청구량"
+  },
+  "dbeaver_read_only_queries": {
+    "passed": 4,
+    "row_counts": [
+      1,
+      5,
+      28,
+      10
+    ]
+  },
+  "proof_files": {
+    "db_report": "data/zzong_santafe_lag/review_revisions/db_saved_20261006.json",
+    "readback": "data/zzong_santafe_lag/review_revisions/readback_search_20261006.json",
+    "final_ui": "data/zzong_santafe_lag/reports/review_revision_ui_final_20261006.json",
+    "answer_screenshot": "data/zzong_santafe_lag/reports/review_revision_ui_answer_20261006.png",
+    "image_screenshot": "data/zzong_santafe_lag/reports/review_revision_ui_images_20261006.png"
+  },
+  "runtime_code_sha256": {
+    "answer_checks.py": "0c8e63af24071d6e65cb312366339bf246fcd7d2e63e828236899ba363f8c5b2",
+    "answer_fix_check.py": "a7c87a177570340d325cc59649e9144a590b77087e02979f9354e96878e62400",
+    "answer_service.py": "532fbd70420f88b21734bf3590d8aff7c2965198170cdef1b4fc009133a205ad",
+    "app.py": "7aacc482f910d18746f9048f705a7388139bec9048d36f71b320576ba1c43bb7",
+    "chunking.py": "e2d29a493ef836db0d0881c040ec1a11ad8a837da4f0bb135674d7eba1b25a02",
+    "config.py": "8543d5632709cd254271bdbc5b8742c5a0439e2ad49844d451edb8d5c0a86cae",
+    "database.py": "e4235ad8c2476b2a301efdee945a87b259ec40a2a3c64331e269611f31c96278",
+    "db_evaluation_service.py": "dc654700eb5855b42b6284e596a4f726609d2d4573cdc96bd52b7361ec9c1b28",
+    "db_rows.py": "1cf9120b28e475477c43ba49239aeda370744b23d39461061d0f172426b7fcfd",
+    "db_sample.py": "cc0527d52a804ae4ab5dda03b9d01e929c83719db28fe5be76cc1fc222c2f54c",
+    "db_search_service.py": "11a2b27a915a3d66a9689aff3e91064ff8b9c6bb68e71b9bdfb00c6044ec504e",
+    "embedding.py": "f52c265a25a695f33659561bd031c818a355dec44ab47e3e8d1ad2a7c5a699b4",
+    "evaluation.py": "99be5ccd08c445061de809a2b94bd8c1a0aa03a6c168730e1e88ddae735d4f58",
+    "fresh_evaluation.py": "50dde9e73de47a89580721c2dd48341bfe50487e2b41c74373e20049dfd16516",
+    "full_image_storage.py": "b1852857e31de3e67a9a436d0956cfbb0c6bb093ec7164b4cc1167aaafa61e4c",
+    "full_image_storage_service.py": "3164495d3b7cf8754e39c780b4b631d136c8d9697e42fd9c7abc8a5df612fbf0",
+    "full_store_service.py": "8e49228d1cc2ad85a641d7ad1c809c5b927fb2de44c0a422786802ea1c4470f4",
+    "image_storage.py": "af0f52fe68c9ccc79f6ec7c1b0c5f802c96ec58ab756ab649148082ff3e92945",
+    "image_storage_service.py": "71836b344e77eb61212005eca35acdffe4606efc634178d23de4293a15836943",
+    "llm_answer_service.py": "49f788ab190fc73717f0ca748460d4256e09018683baf40cdede9c8872e24aac",
+    "m7_search_experiment.py": "198d22a3e641328203cc8597cc518bf7641f1ea10aa349a854b970ce5f13b806",
+    "manual.py": "bab24b4c16973961fe80e7ec47b02993ac60a1de52cc0d72b5e0de271163bc90",
+    "manual_service.py": "a32b3ae278cf39386d80d812a9a00872b2c8905d3b9959f75b36da7e43a82995",
+    "openai_comparison.py": "d40b572ae2bf4485af0311447aa99bd3e6f6089ee77a129c49e633a9c3812c77",
+    "openai_embedding.py": "eb325761718a959936bcb8bfc0bc6c0f05d88d1fb2b4357af4a39c6890b4538d",
+    "openai_migration.py": "ca1f4b72d8097fc9952397bd0013b9546b093c3aae847471c52e1158feeba3b3",
+    "openai_search_service.py": "c390bd354cbbcbdf23d7e68607ef96355a75853d6cedfcdadd21b70d11790a82",
+    "pdf_reader.py": "847e5c05162ba9d0fc9ca96e0fdd472aaf869b2e08f3608b1ee4a5c9ba60ea90",
+    "post_refactor_checks.py": "21dade6c475ccb41d258563404cbb7bf8b5bae2772322f645f15b7c5479132f4",
+    "question_intent.py": "1f9448949d9fa2fe39d73a300dbdf7173c73f20e77e57be66f468ea53957b4af",
+    "retrieval.py": "c42bd7f44821c8b14191dc8245f6118f24b72ef7e86f631100c6f9bfe6a6571f",
+    "reviews.py": "e75e28c389fc92e8726e7ff923d00879babe748afe37d3ca0f456bc6629c8947",
+    "review_revision.py": "18d6dd78aed5ff9fb3e58c7f941b9268236d3eff55361bc00f396862f936885f",
+    "review_revision_check.py": "81d3f1a4536d39935556a337575bb024d32c9dbba1f70a038284faed352575eb",
+    "review_revision_store.py": "9ab77ceba582be10257ff0c26ab8605e18952258897c14267b14150ed201e423",
+    "review_topic_drafts.py": "2c914098a00ec28303412b18268051a24f8402d069e059a852127f4f306766bc",
+    "sample_embedding.py": "54f0a301b465ad79b3f80a2f12a89d2689d5bc4951d4c33ba0a39d5885d156c1",
+    "sample_records.py": "01c902f07404a4f432ac75ed0aabcc97e448adc9283cfc4fac9c32fdbcff9c43",
+    "sample_store.py": "c7417c2bd850405b59b58ed9362d5fc89f39e3b4e67ac0c38078217114039f1c",
+    "search_support.py": "97c157a84876cb3fd7c9f8b6620253d9b7c187a1c5ffd47f7eea041b20c1a4a6",
+    "sequence_report.py": "ce32eca5f23e8a51f53353b9af0cfec612a3ad73d6ecd9048f3c935d42277fe0",
+    "source_profile.py": "db9581ed8fc43e2e74bc90f93b7b9030382e9226a31ef52ad30de793e1324375",
+    "specific_terms.py": "7b6827fa93f96a3af714320f1ef99b0c5cf6f978cebf761aa4efb19a1e55add6",
+    "storage_plan.py": "e60c441d3ed6b44ea41bef8d42615919cb6ad781e202987fc0c7e00d5311fb8b",
+    "topics.py": "f98cb46a62439944bc6393adccdc74464789b75ce4ca7151dc8830481709b1d4",
+    "__init__.py": "1d1d701b93341aa9f77ef1bf3500a78397b77f35329c3beea8cc3467e687991c",
+    "__main__.py": "e159ed65b0f3b7e59be84952de9cc9fd3f4bd13f687a975b2f3823ade0939e65"
+  },
+  "limitations": [
+    "사람 교차 검토가 남아 있음",
+    "Precision의 새 독립 평가를 수행한 결과가 아님",
+    "생성 완료·출처 검사 통과가 모든 문장의 의미 정확도를 보장하지 않음",
+    "팀원 DB 접근 권한·개인 연결 설정은 Git에 포함하지 않음"
+  ],
+  "next_steps": [
+    "사람의 후보 관련성 교차 판정",
+    "보완에 사용하지 않은 질문으로 독립 평가",
+    "미검토 주제 원본 대조 확대"
+  ]
+}

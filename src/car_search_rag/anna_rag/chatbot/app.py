@@ -240,7 +240,7 @@ for car_id in ('ioniq5', 'santafe', 'sonata', 'casper'):
 
 
 # 원본 설명서는 차종별로 지정합니다. 다운로드는 대화를 다시 실행하지 않습니다.
-MANUAL_FILES = {'ioniq5': 'NE1_2027_ko_KR.pdf'}
+MANUAL_FILES = {'ioniq5': 'NE1_2027_ko_KR.pdf', 'casper': 'AXEV_2027_ko_KR.pdf'}
 
 @st.cache_data(show_spinner=False)
 def manual_bytes(path, modified_at):
@@ -248,10 +248,12 @@ def manual_bytes(path, modified_at):
     return Path(path).read_bytes()
 
 
-@st.cache_resource
 def backend_for(vehicle_id):
-    # 모델/검색기는 재사용하지만 메시지/세션 ID는 캐시하지 않습니다.
-    return load_backend(vehicle_id)
+    # 화면은 차종별 구현을 생성하고, 현재 접속에서 재사용하기만 합니다.
+    key = f'vehicle_backend_{vehicle_id}'
+    if key not in st.session_state:
+        st.session_state[key] = load_backend(vehicle_id)
+    return st.session_state[key]
 
 
 def init_state():
@@ -290,6 +292,8 @@ def show_packet(message, render_body=True):
                 pages = ', '.join(map(str, s.get('pdf_pages', [])))
                 st.write(f"[{s['label']}] {s['title']} · PDF {pages}페이지")
                 st.caption(s.get('source_file', ''))
+                if s.get('quote'):
+                    st.text(s['quote'])
     if message.get('images'):
         with st.expander('관련 그림 보기'):
             st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
@@ -297,34 +301,60 @@ def show_packet(message, render_body=True):
                 st.image(image['data'], caption=f"PDF {image['pdf_page']}페이지 · {image['caption']}")
     if message.get('image_error'):
         st.caption('관련 그림을 불러오지 못했습니다. 답변과 출처는 확인할 수 있어요.')
+    for notice in packet.get('notices', []):
+        st.caption(notice)
+    # 생성 여부·동작은 차종 구현이 결정하고, 화면은 전달된 버튼만 표시합니다.
+    for action in packet.get('actions', []):
+        if st.button(action['label'], key=f"action_{message['ui_id']}_{action['id']}"):
+            try:
+                selected_backend = backend_for(st.session_state.active_vehicle)
+                with st.spinner(''):
+                    updated = selected_backend.perform_action(
+                        st.session_state.conversation_id, packet, action['id'])
+                message['packet'] = updated
+                message['images'] = selected_backend.get_related_images(updated)
+                st.rerun()
+            except Exception as error:
+                logging.warning('Vehicle action failed: %s', type(error).__name__)
+                st.info('처리하지 못했어요. 최근 질문인지 확인하고 다시 질문해 주세요.')
+    if packet.get('download_html'):
+        st.download_button('대화 기록 HTML 다운로드', data=packet['download_html'],
+                           file_name='car_manual_history.html', mime='text/html',
+                           key=f"history_download_{message['ui_id']}", on_click='ignore')
 
 
 init_state()
-# 화면 전환은 대화 세션을 종료하거나 지우지 않습니다.
-st.session_state.setdefault('view', 'chat')
+# 차량 선택 이후에만 표시하는 공통 메뉴입니다. 아직 페이지 이동은 연결하지 않습니다.
 st.markdown("""<style>
-.st-key-admin_nav {position:fixed;top:20px;right:28px;z-index:1000001;width:auto;}
-.st-key-admin_nav button {background:#fff;border:1px solid #e3deef;color:#625775;font-size:13px;min-height:36px;}
+.st-key-vehicle_menu {position:fixed;top:20px;right:28px;z-index:1000;width:44px;}
+.st-key-vehicle_menu [data-testid="stPopover"] button {
+ width:44px;height:44px;min-height:44px;padding:0;border:0!important;
+ background:transparent!important;color:#5b43e8!important;box-shadow:none!important;
+ display:flex;align-items:center;justify-content:center;gap:0;
+}
+.st-key-vehicle_menu [data-testid="stPopover"] button:hover {
+ color:#4932cf!important;
+}
+.st-key-vehicle_menu [data-testid="stPopover"] button p {
+ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+ clip:rect(0,0,0,0);white-space:nowrap;
+}
+/* 기본 메뉴·펼침 아이콘 대신 동일한 굵기의 보라색 세 줄만 표시합니다. */
+.st-key-vehicle_menu [data-testid="stPopover"] button svg,
+.st-key-vehicle_menu [data-testid="stPopover"] button [data-testid="stIconMaterial"] {display:none!important;}
+.st-key-vehicle_menu [data-testid="stPopover"] button::before {
+ content:"";display:block;width:22px;height:2px;border-radius:2px;
+ background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor;
+}
+.st-key-vehicle_menu [data-testid="stPopover"] button:focus-visible {outline:2px solid #b9aff2;outline-offset:2px;}
 .block-container:not(:has(.landing-title)) {padding-top:84px;}
+@media(max-width:640px) {.st-key-vehicle_menu {top:16px;right:16px;}}
 </style>""", unsafe_allow_html=True)
-with st.container(key='admin_nav'):
-    nav_label = '챗봇으로 돌아가기' if st.session_state.view == 'admin' else '관리자 모드'
-    if st.button(nav_label, key='admin_toggle', disabled=st.session_state.view != 'admin'):
-        st.session_state.view = 'chat' if st.session_state.view == 'admin' else 'admin'
-        st.rerun()
-if st.session_state.view == 'admin':
-    st.markdown('<style>[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none;}</style>', unsafe_allow_html=True)
-    from car_search_rag.anna_rag.chatbot.dashboard import render_dashboard
-    render_dashboard()
-    # 모달의 기본 배경막으로 페이지 전체를 딤드 처리하고 뒤쪽 조작을 막습니다.
-    @st.dialog('작업 진행 중', dismissible=False)
-    def admin_work_notice():
-        st.write('품질 대시보드를 준비하고 있어요.')
-        if st.button('챗봇으로 돌아가기', key='admin_work_back', use_container_width=True):
-            st.session_state.view = 'chat'
-            st.rerun()
-    admin_work_notice()
-    st.stop()
+if st.session_state.active_vehicle is not None:
+    with st.container(key='vehicle_menu'):
+        with st.popover('메뉴', icon=':material/menu:', key='vehicle_menu_popover'):
+            st.button('데이터 대시보드', key='menu_data_dashboard', use_container_width=True)
+            st.button('작업 Document', key='menu_work_document', use_container_width=True)
 if st.session_state.session_notice:
     st.info(st.session_state.session_notice)
     st.session_state.session_notice = None
@@ -418,6 +448,9 @@ with st.sidebar:
     if vehicle_id == 'sonata':
         manual_name = 'DN8_2026_ko_KR.pdf'
         manual_path = ROOT / 'data' / manual_name
+    if vehicle_id == 'santafe':
+        manual_name = 'santafe_hev_manual.pdf'
+        manual_path = ROOT / 'data' / manual_name
     if manual_path and manual_path.is_file():
         st.download_button('PDF 사용설명서 다운로드',
                            data=manual_bytes(str(manual_path), manual_path.stat().st_mtime_ns),
@@ -495,13 +528,9 @@ if question or retry:
                 def show_loading(label):
                     loading.markdown('<div class="thinking" role="status" aria-label="답변 준비 중"><i></i><i></i><i></i></div>', unsafe_allow_html=True)
                 show_loading('질문을 확인하고 있어요')
-                # 종료/30분 만료 세션은 이전 문맥을 쓰지 않고 입구로 돌려보냅니다.
+                # 대화가 유효한지는 선택된 차종의 로직에서 판단합니다.
                 try:
-                    from datetime import datetime, timezone, timedelta
-                    session = backend.get_session(st.session_state.conversation_id)
-                    expired = (not session or session['ended_at'] is not None or
-                               (session['pending_request_id'] is None and
-                                datetime.now(timezone.utc) - session['last_activity_at'] > timedelta(minutes=30)))
+                    expired = not backend.is_session_active(st.session_state.conversation_id)
                     if expired:
                         leave_chat()
                         st.session_state.session_notice = '이전 대화가 종료됐어요. 차종을 선택해 새로 시작해 주세요.'

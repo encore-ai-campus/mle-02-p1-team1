@@ -721,3 +721,18 @@ def get_related_images(packet):
         images.append({'data': content, 'caption': row.get('caption', ''),
                        'pdf_page': row['pdf_page']})
     return images
+
+
+def is_session_active(session_id):
+    """아이오닉 전용 대화 만료 정책입니다."""
+    from datetime import datetime, timezone
+    session = get_session(session_id)
+    return bool(session and session['ended_at'] is None and
+                (session['pending_request_id'] is not None or
+                 datetime.now(timezone.utc) - session['last_activity_at'] <=
+                 timedelta(minutes=session_idle_minutes)))
+
+
+def create_backend():
+    # 아이오닉은 기존 DB 세션 구현을 사용합니다.
+    return sys.modules[__name__]
