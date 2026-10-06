@@ -23,6 +23,7 @@ from car_search_rag.anna_rag.chatbot.answer_view import (
     render_answer, format_answer, verified_answer_images,
 )
 from car_search_rag.anna_rag.chatbot.casper_image_view import render_casper_images
+from car_search_rag.anna_rag.chatbot.exit_confirmation import exit_confirmation
 
 BOT_AVATAR = str(Path(__file__).parent / 'assets' / 'hyundai-logo.webp')
 
@@ -108,8 +109,8 @@ h2,h3 {letter-spacing:-.04em;}
 [data-testid="stChatMessageContent"] [data-testid="stMarkdown"] > div,
 [data-testid="stChatMessageContent"] [data-testid="stMarkdownContainer"] {margin-block:0!important;display:flow-root;}
 [data-testid="stChatMessageContent"] [data-testid="stMarkdownContainer"] > :last-child {margin-bottom:0!important;}
-/* 재실행 중 남아 있는 이전 출력은 반투명 잔상으로 표시하지 않습니다. */
-[data-testid="stChatMessage"] [data-stale="true"] {display:none!important;}
+/* 고정된 대화 슬롯은 재실행 중에도 높이와 내용을 유지합니다. */
+.st-key-chat_history [data-stale="true"] {opacity:1!important;}
 
 [data-testid="stChatMessageContent"] {min-width:0;overflow-wrap:anywhere;}
 [data-testid="stBottomBlockContainer"] {max-width:980px;margin:0 auto;padding-left:2rem;padding-right:2rem;background:#f6f5fa;}
@@ -295,18 +296,22 @@ def return_to_vehicles():
     request_chat_exit(st.session_state)
 
 
-@st.dialog('차량 선택으로 돌아갈까요?', dismissible=False)
+@st.dialog('챗봇을 종료하시겠어요?', dismissible=False)
 def confirm_chat_exit():
-    st.write('돌아가면 현재 대화가 화면에서 사라지고, 차량을 다시 선택하면 새 대화가 시작됩니다.')
-    st.caption('답변을 생성 중이라면 진행 중인 답변도 이 화면에서 이어서 볼 수 없어요.')
+    st.write('챗봇을 종료하면 기존 대화가 삭제되요.')
     stay, leave = st.columns(2)
-    if stay.button('대화 계속하기', use_container_width=True, key='keep_chat'):
+    if stay.button('취소', use_container_width=True, key='keep_chat'):
         st.session_state.confirm_chat_exit = False
         st.rerun()
-    if leave.button('돌아가기', type='primary', use_container_width=True, key='confirm_leave_chat'):
+    if leave.button('종료', type='primary', use_container_width=True, key='confirm_leave_chat'):
         st.session_state.confirm_chat_exit = False
         st.session_state.exiting_chat = True
         st.rerun()
+
+
+def confirm_exit_from_browser():
+    st.session_state.confirm_chat_exit = False
+    st.session_state.exiting_chat = True
 
 
 def animate_chat_exit():
@@ -500,6 +505,10 @@ if entering_chat:
 @keyframes car-up {from {transform:translateY(110px) scale(1.18);opacity:0;} to {transform:translateY(0) scale(1);opacity:1;}}
 @keyframes welcome-in {from {transform:translateY(22px);opacity:0;} to {transform:translateY(0);opacity:1;}}
 </style>""", unsafe_allow_html=True)
+exit_confirmation(
+    data={'hasConversation': bool(st.session_state.messages or st.session_state.pending)},
+    key='exit_confirmation', on_confirmed_change=confirm_exit_from_browser,
+)
 with st.sidebar:
     st.button('차량 선택으로 돌아가기', icon=':material/arrow_back:',
               key='back_to_vehicles', on_click=return_to_vehicles)
@@ -559,13 +568,26 @@ if st.session_state.conversation_id is None:
 
 backend = backend_for(vehicle_id)
 
-# 인사말·완료된 대화·생성 중 답변은 매번 같은 위치에 만듭니다.
-# 조건에 따라 인사말 블록을 없애면 다음 메시지들이 이전 답변의 자리를 재사용합니다.
+# 입력은 고정된 하단에, 메시지는 하나의 고정된 타임라인에 그립니다.
+# 완료된 답변도 생성 중 답변과 같은 자리/구조를 사용해 다음 전송 때 이동하지 않습니다.
+retry = False
+if st.session_state.pending and st.session_state.request_error:
+    st.warning('답변을 완료하지 못했어요. 다시 시도하거나 새 대화를 시작해 주세요.')
+    retry = st.button('같은 질문 다시 시도')
+resume_pending_reply = st.session_state.pending is not None
+question = st.chat_input('차량 사용법을 물어보세요', max_chars=1000,
+                         key='chat_composer',
+                         disabled=st.session_state.pending is not None, submit_mode='disable')
+if question:
+    st.session_state.pending = {'text': question, 'id': str(uuid4())}
+    st.session_state.messages.append({'role': 'user', 'text': question,
+                                      'ui_id': st.session_state.pending['id'] + '_user'})
+    st.session_state.request_error = False
+
 welcome_slot = st.empty()
 history_container = st.container(key='chat_history')
-pending_slot = st.empty()
-if not st.session_state.messages:
-    welcome_slot.markdown('<div class="welcome-bubble"><span class="welcome-logo" role="img" aria-label="현대 로고"></span><span class="welcome-text">안녕하세요! 차량을 사용하며 궁금했던 점을 물어보세요.</span></div>', unsafe_allow_html=True)
+# 첫 안내도 대화의 일부로 남겨 첫 전송 때 화면 높이가 줄지 않게 합니다.
+welcome_slot.markdown('<div class="welcome-bubble"><span class="welcome-logo" role="img" aria-label="현대 로고"></span><span class="welcome-text">안녕하세요! 차량을 사용하며 궁금했던 점을 물어보세요.</span></div>', unsafe_allow_html=True)
 with history_container:
     for index, message in enumerate(st.session_state.messages):
         message.setdefault('ui_id', f'history_{index}')
@@ -574,34 +596,21 @@ with history_container:
                 if message['role'] == 'user':
                     st.markdown(message['text'])
                 else:
-                    show_packet(message)
+                    st.empty()  # 생성 중 로딩과 같은 자리
+                    with st.empty():
+                        answer_text = message['packet']['answer']['text']
+                        render_answer(answer_text, verified_images=verified_answer_images(
+                            answer_text, message['packet'].get('verified_images', [])))
+                    with st.empty().container():
+                        show_packet(message, render_body=False)
 
 if st.session_state.get('exiting_chat'):
     animate_chat_exit()
 if st.session_state.get('confirm_chat_exit'):
+    # JS를 실행할 수 없는 클라이언트에만 사용하는 대체 확인창입니다.
     confirm_chat_exit()
-    st.chat_input('차량 사용법을 물어보세요', disabled=True, key='exit_confirmation_input')
     st.stop()
 
-# 실패한 요청은 같은 request_id로 재시도하여 중복 저장을 방지합니다.
-retry = False
-if st.session_state.pending and st.session_state.request_error:
-    st.warning('답변을 완료하지 못했어요. 다시 시도하거나 새 대화를 시작해 주세요.')
-    retry = st.button('같은 질문 다시 시도')
-resume_pending_reply = st.session_state.pending is not None
-question = st.chat_input('차량 사용법을 물어보세요', max_chars=1000,
-                         disabled=st.session_state.pending is not None, submit_mode='disable')
-if question:
-    # 네트워크/DB를 기다리지 않고 내 메시지를 화면에 먼저 추가합니다.
-    st.session_state.pending = {'text': question, 'id': str(uuid4())}
-    st.session_state.messages.append({'role': 'user', 'text': question,
-                                      'ui_id': st.session_state.pending['id'] + '_user'})
-    st.session_state.request_error = False
-    welcome_slot.empty()
-    with history_container:
-        with st.container(key=f"message_{st.session_state.pending['id']}_user"):
-            with st.chat_message('user'):
-                st.markdown(question)
 if st.session_state.pending and (not st.session_state.request_error or retry):
     if question:
         # 전송 메시지가 먼저 그려진 뒤 봇 로딩이 이어지도록 짧게 간격을 둡니다.
@@ -609,7 +618,7 @@ if st.session_state.pending and (not st.session_state.request_error or retry):
     pending = st.session_state.pending
     try:
         # 작업 스레드는 모델/DB만 처리하고, 화면 변경은 메인 스레드에서 합니다.
-        with pending_slot.container():
+        with history_container:
             with st.container(key=f"message_{pending['id']}_assistant"):
                 with st.chat_message('assistant', avatar=BOT_AVATAR):
                     loading = st.empty()

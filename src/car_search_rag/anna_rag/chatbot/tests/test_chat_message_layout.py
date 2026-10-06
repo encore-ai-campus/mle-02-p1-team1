@@ -25,8 +25,13 @@ class MessageLayoutTests(unittest.TestCase):
         for number, question in enumerate(('첫 질문', '이미지 보여줘', '다음 질문'), 1):
             app.chat_input[0].set_value(question).run()
             self.assertEqual(len(app.exception), 0)
+            self.assertTrue(any('welcome-bubble' in m.value and '안녕하세요!' in m.value
+                                for m in app.markdown))
             self.assertEqual(len(app.chat_message), number * 2)
             self.assertEqual(len(app.expander), number)
+            timeline = next(block for block in app.get('flex_container')
+                            if getattr(block, 'key', None) == 'chat_history')
+            self.assertEqual(len(timeline.get('chat_message')), number * 2)
             for index, message in enumerate(app.chat_message):
                 if index % 2 == 0:
                     self.assertEqual(len(message.get('expander')), 0)
