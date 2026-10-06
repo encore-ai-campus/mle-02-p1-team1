@@ -316,7 +316,11 @@ init_state()
 return_overlay = st.empty()
 if st.session_state.pop('returning_to_vehicles', False):
     return_overlay.markdown(EXIT_OVERLAY, unsafe_allow_html=True)
-# 차량 선택 이후에만 표시하는 공통 메뉴입니다. 아직 페이지 이동은 연결하지 않습니다.
+# 대시보드 상태는 Sonata 화면에만 적용합니다.
+if st.session_state.active_vehicle == 'sonata':
+    st.session_state.setdefault('sonata_active_view', 'chat')
+
+# 차량 선택 이후에 표시하는 공통 메뉴입니다.
 st.markdown("""<style>
 .st-key-vehicle_menu {position:fixed;top:20px;right:28px;z-index:1000;width:44px;}
 .st-key-vehicle_menu [data-testid="stPopoverButton"] {
@@ -345,8 +349,18 @@ st.markdown("""<style>
 if st.session_state.active_vehicle is not None:
     with st.container(key='vehicle_menu'):
         with st.popover('메뉴', icon=':material/menu:', key='vehicle_menu_popover'):
-            st.button('데이터 대시보드', key='menu_data_dashboard', use_container_width=True)
-            st.button('작업 Document', key='menu_work_document', use_container_width=True)
+            if st.session_state.active_vehicle == 'sonata':
+                if st.button('데이터 대시보드', key='menu_data_dashboard', use_container_width=True):
+                    st.session_state.sonata_active_view = 'dashboard'
+                    st.rerun()
+                st.link_button(
+                    '작업 Document',
+                    'https://app.notion.com/p/3dec53ef970481b49d25c56dcae99f16?pvs=204',
+                    use_container_width=True,
+                )
+            else:
+                st.button('데이터 대시보드', key='menu_data_dashboard', use_container_width=True)
+                st.button('작업 Document', key='menu_work_document', use_container_width=True)
 if st.session_state.session_notice:
     st.info(st.session_state.session_notice)
     st.session_state.session_notice = None
@@ -445,6 +459,18 @@ with st.sidebar:
                            use_container_width=True, on_click='ignore', key='manual_download')
     else:
         st.caption('다운로드할 설명서가 아직 등록되지 않았습니다.')
+
+# Sonata 대시보드는 공통 사이드바를 그린 뒤 채팅 시작/질문 처리 전에 표시합니다.
+# 기존 conversation/session/backend 상태는 건드리지 않고 현재 화면만 전환합니다.
+if vehicle_id == 'sonata' and st.session_state.sonata_active_view == 'dashboard':
+    from app_kbj import _render_quality_dashboard
+
+    st.title('📊 데이터 대시보드')
+    _render_quality_dashboard()
+    if st.button('← 챗봇으로 돌아가기', key='sonata_dashboard_back'):
+        st.session_state.sonata_active_view = 'chat'
+        st.rerun()
+    st.stop()
 
 # 사이드바와 대화 화면이 표시된 다음 연결을 시작합니다.
 if st.session_state.conversation_id is None:
