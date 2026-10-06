@@ -23,7 +23,7 @@ class Vehicle:
 VEHICLES = {
     'ioniq5': Vehicle('현대 아이오닉 5', 'car_search_rag.anna_rag.chatbot.ioniq5_backend'),
     'santafe': Vehicle('산타페', None),
-    'sonata': Vehicle('쏘나타', None),
+    'sonata': Vehicle('쏘나타', 'car_search_rag.anna_rag.chatbot.sonata_backend'),
     'casper': Vehicle('캐스퍼', None),
 }
 

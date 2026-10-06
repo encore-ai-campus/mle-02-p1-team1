@@ -282,9 +282,10 @@ def show_packet(message, render_body=True):
         render_answer(packet['answer']['text'])
     # 모델이 만든 URL 대신 DB가 반환한 문서명/페이지 정보를 사용합니다.
     cited = set(packet['answer'].get('cited_labels', []))
-    sources = [s for s in packet.get('sources', []) if s.get('label') in cited]
+    retrieved = packet.get('source_display') == 'retrieved'
+    sources = [s for s in packet.get('sources', []) if retrieved or s.get('label') in cited]
     if sources:
-        with st.expander('설명서 출처 확인'):
+        with st.expander('검색에 사용한 설명서' if retrieved else '설명서 출처 확인'):
             for s in sources:
                 pages = ', '.join(map(str, s.get('pdf_pages', [])))
                 st.write(f"[{s['label']}] {s['title']} · PDF {pages}페이지")
@@ -414,6 +415,9 @@ with st.sidebar:
     st.markdown(f'<div class="sidebar-car"><img src="data:image/png;base64,{selected_image}" alt="{escape(selected_label)}"><h2>{escape(selected_label)}</h2><p>자동차 사용설명서</p></div>', unsafe_allow_html=True)
     manual_name = MANUAL_FILES.get(vehicle_id)
     manual_path = Path(__file__).parent / 'manuals' / manual_name if manual_name else None
+    if vehicle_id == 'sonata':
+        manual_name = 'DN8_2026_ko_KR.pdf'
+        manual_path = ROOT / 'data' / manual_name
     if manual_path and manual_path.is_file():
         st.download_button('PDF 사용설명서 다운로드',
                            data=manual_bytes(str(manual_path), manual_path.stat().st_mtime_ns),
