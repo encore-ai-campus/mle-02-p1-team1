@@ -534,19 +534,22 @@ if st.session_state.conversation_id is None:
 
 backend = backend_for(vehicle_id)
 
+# 인사말·완료된 대화·생성 중 답변은 매번 같은 위치에 만듭니다.
+# 조건에 따라 인사말 블록을 없애면 다음 메시지들이 이전 답변의 자리를 재사용합니다.
+welcome_slot = st.empty()
+history_container = st.container(key='chat_history')
+pending_slot = st.empty()
 if not st.session_state.messages:
-    with st.container(key='chat_welcome'):
-        # 인사말은 하나의 flex 행으로 묶어 Streamlit 본문 여백의 영향을 없앱니다.
-        st.markdown('<div class="welcome-bubble"><span class="welcome-logo" role="img" aria-label="현대 로고"></span><span class="welcome-text">안녕하세요! 차량을 사용하며 궁금했던 점을 물어보세요.</span></div>', unsafe_allow_html=True)
-for index, message in enumerate(st.session_state.messages):
-    # 생성 때와 기록 재표시 때 동일한 컨테이너를 사용해 이전 답변과 섞이지 않게 합니다.
-    message.setdefault('ui_id', f'history_{index}')
-    with st.container(key=f"message_{message['ui_id']}"):
-        with st.chat_message(message['role'], avatar=BOT_AVATAR if message['role'] == 'assistant' else None):
-            if message['role'] == 'user':
-                st.markdown(message['text'])
-            else:
-                show_packet(message)
+    welcome_slot.markdown('<div class="welcome-bubble"><span class="welcome-logo" role="img" aria-label="현대 로고"></span><span class="welcome-text">안녕하세요! 차량을 사용하며 궁금했던 점을 물어보세요.</span></div>', unsafe_allow_html=True)
+with history_container:
+    for index, message in enumerate(st.session_state.messages):
+        message.setdefault('ui_id', f'history_{index}')
+        with st.container(key=f"message_{message['ui_id']}"):
+            with st.chat_message(message['role'], avatar=BOT_AVATAR if message['role'] == 'assistant' else None):
+                if message['role'] == 'user':
+                    st.markdown(message['text'])
+                else:
+                    show_packet(message)
 
 # 실패한 요청은 같은 request_id로 재시도하여 중복 저장을 방지합니다.
 retry = False
@@ -561,9 +564,11 @@ if question:
     st.session_state.messages.append({'role': 'user', 'text': question,
                                       'ui_id': st.session_state.pending['id'] + '_user'})
     st.session_state.request_error = False
-    with st.container(key=f"message_{st.session_state.pending['id']}_user"):
-        with st.chat_message('user'):
-            st.markdown(question)
+    welcome_slot.empty()
+    with history_container:
+        with st.container(key=f"message_{st.session_state.pending['id']}_user"):
+            with st.chat_message('user'):
+                st.markdown(question)
 if question or retry:
     if question:
         # 전송 메시지가 먼저 그려진 뒤 봇 로딩이 이어지도록 짧게 간격을 둡니다.
@@ -574,62 +579,66 @@ if question or retry:
         events = Queue()
         def on_event(kind, value):
             events.put((kind, value))
-        with st.container(key=f"message_{pending['id']}_assistant"):
-            with st.chat_message('assistant', avatar=BOT_AVATAR):
-                loading = st.empty()
-                draft = st.empty()
-                def show_loading(label):
-                    loading.markdown('<div class="thinking" role="status" aria-label="답변 준비 중"><i></i><i></i><i></i></div>', unsafe_allow_html=True)
-                show_loading('질문을 확인하고 있어요')
-                # 대화가 유효한지는 선택된 차종의 로직에서 판단합니다.
-                try:
-                    expired = not backend.is_session_active(st.session_state.conversation_id)
-                    if expired:
-                        leave_chat()
-                        st.session_state.session_notice = '이전 대화가 종료됐어요. 차종을 선택해 새로 시작해 주세요.'
+        with pending_slot.container():
+            with st.container(key=f"message_{pending['id']}_assistant"):
+                with st.chat_message('assistant', avatar=BOT_AVATAR):
+                    loading = st.empty()
+                    draft = st.empty()
+                    # 이전 답변의 이미지·출처를 새 답변을 기다리는 동안 남겨 두지 않습니다.
+                    details = st.empty()
+                    def show_loading(label):
+                        loading.markdown('<div class="thinking" role="status" aria-label="답변 준비 중"><i></i><i></i><i></i></div>', unsafe_allow_html=True)
+                    show_loading('질문을 확인하고 있어요')
+                    # 대화가 유효한지는 선택된 차종의 로직에서 판단합니다.
+                    try:
+                        expired = not backend.is_session_active(st.session_state.conversation_id)
+                        if expired:
+                            leave_chat()
+                            st.session_state.session_notice = '이전 대화가 종료됐어요. 차종을 선택해 새로 시작해 주세요.'
+                            st.rerun()
+                    except Exception as error:
+                        logging.warning('Session check failed: %s', type(error).__name__)
+                        st.session_state.request_error = True
                         st.rerun()
-                except Exception as error:
-                    logging.warning('Session check failed: %s', type(error).__name__)
-                    st.session_state.request_error = True
-                    st.rerun()
-                live_text, buffered_text = '', ''
-                with ThreadPoolExecutor(max_workers=1) as worker:
-                    future = worker.submit(backend.chat, st.session_state.conversation_id,
-                                           pending['text'], request_id=pending['id'], on_event=on_event)
-                    # 모델 생성 속도와 화면 표시 속도를 분리합니다 (약 67글자/초).
-                    while not future.done() or not events.empty() or buffered_text:
-                        while True:
-                            try:
-                                kind, value = events.get_nowait()
-                            except Empty:
+                    live_text, buffered_text = '', ''
+                    with ThreadPoolExecutor(max_workers=1) as worker:
+                        future = worker.submit(backend.chat, st.session_state.conversation_id,
+                                               pending['text'], request_id=pending['id'], on_event=on_event)
+                        # 모델 생성 속도와 화면 표시 속도를 분리합니다 (약 67글자/초).
+                        while not future.done() or not events.empty() or buffered_text:
+                            while True:
+                                try:
+                                    kind, value = events.get_nowait()
+                                except Empty:
+                                    break
+                                if kind == 'token':
+                                    buffered_text += value
+                            # 오류로 검증된 초안은 더 표시하지 않고 최종 안내로 바꿉니다.
+                            if future.done() and future.result()['answer']['status'] != 'answered':
+                                buffered_text = ''
                                 break
-                            if kind == 'token':
-                                buffered_text += value
-                        # 오류로 검증된 초안은 더 표시하지 않고 최종 안내로 바꿉니다.
-                        if future.done() and future.result()['answer']['status'] != 'answered':
-                            buffered_text = ''
-                            break
-                        if buffered_text:
-                            live_text += buffered_text[:3]
-                            buffered_text = buffered_text[3:]
-                            loading.empty()
-                            draft.markdown(format_answer(live_text))
-                        time.sleep(.045)
-                    packet = future.result()
-                loading.empty()
-                # 같은 출력 위치와 같은 서식으로 최종 문구만 확정합니다.
-                verified_images = verified_answer_images(
-                    packet['answer']['text'], packet.get('verified_images', []))
-                draft.markdown(format_answer(
-                    packet['answer']['text'], verified_images=verified_images))
-                message = {'role': 'assistant', 'packet': packet, 'images': [],
-                           'ui_id': pending['id'] + '_assistant'}
-                try:
-                    message['images'] = backend.get_related_images(packet)
-                except Exception as error:
-                    message['image_error'] = True
-                    logging.warning('Image fetch failed: %s', type(error).__name__)
-                show_packet(message, render_body=False)
+                            if buffered_text:
+                                live_text += buffered_text[:3]
+                                buffered_text = buffered_text[3:]
+                                loading.empty()
+                                draft.markdown(format_answer(live_text))
+                            time.sleep(.045)
+                        packet = future.result()
+                    loading.empty()
+                    # 같은 출력 위치와 같은 서식으로 최종 문구만 확정합니다.
+                    verified_images = verified_answer_images(
+                        packet['answer']['text'], packet.get('verified_images', []))
+                    draft.markdown(format_answer(
+                        packet['answer']['text'], verified_images=verified_images))
+                    message = {'role': 'assistant', 'packet': packet, 'images': [],
+                               'ui_id': pending['id'] + '_assistant'}
+                    try:
+                        message['images'] = backend.get_related_images(packet)
+                    except Exception as error:
+                        message['image_error'] = True
+                        logging.warning('Image fetch failed: %s', type(error).__name__)
+                    with details.container():
+                        show_packet(message, render_body=False)
         st.session_state.messages.append(message)
         st.session_state.pending = None
         st.session_state.request_error = False
