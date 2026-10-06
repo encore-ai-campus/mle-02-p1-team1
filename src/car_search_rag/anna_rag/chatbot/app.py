@@ -19,6 +19,7 @@ from car_search_rag.anna_rag.chatbot.navigation import detach_chat, EXIT_OVERLAY
 from car_search_rag.anna_rag.chatbot.answer_view import (
     render_answer, format_answer, verified_answer_images,
 )
+from car_search_rag.anna_rag.chatbot.casper_image_view import render_casper_images
 
 BOT_AVATAR = str(Path(__file__).parent / 'assets' / 'hyundai-logo.webp')
 
@@ -300,16 +301,20 @@ def show_packet(message, render_body=True):
     if render_body:
         render_answer(answer_text, verified_images=verified_images)
 
-    # backend가 선택한 이미지와 답변의 검증된 링크 이미지를 URL 기준으로 합칩니다.
-    display_images = _merge_packet_images(message.get('images'), verified_images)
-    if display_images:
-        st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
-        for image in display_images:
-            page_caption = f"PDF {image['pdf_page']}페이지" if image.get('pdf_page') is not None else ''
-            description = image.get('caption', '')
-            caption = ' · '.join(part for part in (page_caption, description) if part)
-            st.image(image['data'], caption=caption or None,
-                     alt=description or '차량 사용설명서 이미지')
+    if packet.get('vehicle_id') == 'casper':
+        # 캐스퍼 원본 응답의 그림 번호를 유지하고 image_id로 중복을 제거합니다.
+        render_casper_images(packet)
+    else:
+        # backend가 선택한 이미지와 답변의 검증된 링크 이미지를 URL 기준으로 합칩니다.
+        display_images = _merge_packet_images(message.get('images'), verified_images)
+        if display_images:
+            st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
+            for image in display_images:
+                page_caption = f"PDF {image['pdf_page']}페이지" if image.get('pdf_page') is not None else ''
+                description = image.get('caption', '')
+                caption = ' · '.join(part for part in (page_caption, description) if part)
+                st.image(image['data'], caption=caption or None,
+                         alt=description or '차량 사용설명서 이미지')
 
     # 모델이 만든 URL 대신 DB가 반환한 문서명/페이지 정보를 사용합니다.
     cited = set(packet['answer'].get('cited_labels', []))
