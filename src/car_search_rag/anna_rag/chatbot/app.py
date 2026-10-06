@@ -248,9 +248,8 @@ def manual_bytes(path, modified_at):
     return Path(path).read_bytes()
 
 
-@st.cache_resource
 def backend_for(vehicle_id):
-    # 모델/검색기는 재사용하지만 메시지/세션 ID는 캐시하지 않습니다.
+    # Python이 모듈을 재사용합니다. 별도 resource 캐시는 배포 갱신 후 옛 모듈을 붙잡을 수 있습니다.
     return load_backend(vehicle_id)
 
 
