@@ -112,10 +112,15 @@ def render_distribution_dashboard():
 
 
 def render_dashboard():
-    """개인 싼타페 화면 안에서 분석·자료 분포·50문항 평가 탭을 표시합니다."""
+    """개인 화면에 M0~M9 요약과 기존 분석·평가를 함께 표시합니다."""
     from .evaluation_dashboard import render_evaluation_dashboard
     from .evaluation_30_dashboard import render_additional_evaluation
-    analysis,distribution,evaluation,additional=st.tabs(["설명서 분석","자료 분포·목록","50문항 평가","추가 30문항 평가"])
+    from .work_document import render_milestones, render_saved_comparisons
+    overview,analysis,distribution,evaluation,additional=st.tabs(["M0~M9 진행","설명서 분석","자료 분포·목록","50문항 평가","추가 30문항 평가"])
+    with overview:
+        # 저장된 설계·실험 기록만 읽어 검색과 답변 품질의 평가 범위를 설명합니다.
+        render_milestones()
+        render_saved_comparisons()
     with analysis:
         render_data_dashboard()
     with distribution:

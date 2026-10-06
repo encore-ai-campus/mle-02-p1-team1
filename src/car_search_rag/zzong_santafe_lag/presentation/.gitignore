@@ -1,0 +1,6 @@
+# 다시 만들 수 있는 초안·PNG·검증 중간 파일은 GitHub에 올리지 않습니다.
+build/*
+!build/*.py
+!build/*.mjs
+output/*
+!output/santafe_presentation_final.pptx

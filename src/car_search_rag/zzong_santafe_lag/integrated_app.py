@@ -19,7 +19,7 @@ ROOT = Path(__file__).resolve().parents[3]
 if str(ROOT / 'src') not in sys.path:
     sys.path.insert(0, str(ROOT / 'src'))
 from car_search_rag.anna_rag.chatbot.registry import VEHICLES, load_backend
-from car_search_rag.anna_rag.chatbot.navigation import detach_chat, EXIT_OVERLAY
+from car_search_rag.anna_rag.chatbot.navigation import detach_chat, RETURN_TRANSITION
 from car_search_rag.anna_rag.chatbot.answer_view import (
     render_answer, format_answer, verified_answer_images,
 )
@@ -354,7 +354,8 @@ def show_packet(message, render_body=True):
 init_state()
 return_overlay = st.empty()
 if st.session_state.pop('returning_to_vehicles', False):
-    return_overlay.markdown(EXIT_OVERLAY, unsafe_allow_html=True)
+    # 현재 공통 코드의 복귀 효과 이름을 사용해 개인 사본의 import 오류를 예방합니다.
+    return_overlay.markdown(RETURN_TRANSITION, unsafe_allow_html=True)
 # 대시보드 상태는 Sonata 화면에만 적용합니다.
 if st.session_state.active_vehicle == 'sonata':
     st.session_state.setdefault('sonata_active_view', 'chat')
@@ -393,6 +394,9 @@ if st.session_state.active_vehicle is not None:
             if st.session_state.active_vehicle == 'santafe':
                 if st.button('데이터 대시보드', key='santafe_menu_dashboard', use_container_width=True):
                     st.session_state.santafe_active_view = 'dashboard'
+                    st.rerun()
+                if st.button('작업 Document', key='santafe_menu_document', use_container_width=True):
+                    st.session_state.santafe_active_view = 'document'
                     st.rerun()
                 if st.button('챗봇', key='santafe_menu_chat', use_container_width=True):
                     st.session_state.santafe_active_view = 'chat'
@@ -509,6 +513,14 @@ with st.sidebar:
         st.caption('다운로드할 설명서가 아직 등록되지 않았습니다.')
 
 # 개인 사본의 싼타페 선택 화면에만 연결합니다. 대화 기록·다른 차종의 상태를 변경하지 않습니다.
+if vehicle_id == 'santafe' and st.session_state.santafe_active_view == 'document':
+    from car_search_rag.zzong_santafe_lag.work_document import render_work_document
+    render_work_document()
+    if st.button('← 챗봇으로 돌아가기', key='santafe_document_back'):
+        st.session_state.santafe_active_view = 'chat'
+        st.rerun()
+    st.stop()
+
 if vehicle_id == 'santafe' and st.session_state.santafe_active_view == 'dashboard':
     from car_search_rag.zzong_santafe_lag.data_dashboard import render_dashboard
     render_dashboard()

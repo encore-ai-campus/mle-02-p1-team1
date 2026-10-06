@@ -1,5 +1,14 @@
 # 개인 싼타페 PDF 실험 — Python 파일로 실행하기
 
+## M0~M9 발표와 작업 Document 2026-10-07
+
+- 다른 데스크톱에서 이어서 실행하거나 별도 개인 앱을 배포할 때는 [실행·배포 안내](deployment_guide.md)를 확인합니다. 새 `run_integrated_app.bat`는 발표 메뉴가 있는 개인 통합 화면을 엽니다. 기존 `run_app.bat`의 개인 기본 화면과 구분합니다.
+
+- 개인 `integrated_app.py`의 싼타페 메뉴에서 **데이터 대시보드**와 **작업 Document**를 엽니다. 대시보드에는 M0~M9 진행과 기존 30문항 비교를 추가했고 기존 분석·50문항·추가 30문항 탭은 유지합니다.
+- 작업 Document에는 수업 셀 근거, 현재·초기 모델의 역할과 선택 이유, 추가 설계, 16장 발표 대본, 시연 순서와 예상 질문을 연결합니다. 팀 공통 `anna_rag/chatbot/app.py`에는 이번 메뉴를 추가하지 않았습니다.
+- [발표 PPT](presentation/output/santafe_presentation_final.pptx), [발표 대본과 근거](presentation/storyline.md), [수업 셀 근거](presentation/lesson_evidence.json), [학습 확인 노트북](presentation/presentation_learning.ipynb)을 참고합니다. 수업 근거의 PC 경로는 다른 컴퓨터에서 달라질 수 있습니다.
+- 분석·평가는 저장 당시 버전을 표시합니다. 기존 30문항 검색 점수, 50문항 초기 응답, 사용자 캡처 판정, 추가 30문항 응답 판정을 서로 다른 조건으로 설명합니다. 발표자료 작성만으로 기존 실패 사례가 해결됐다고 표시하지 않습니다.
+
 ## 작업 정리 — 개인 대시보드·50문항 및 추가 30문항 평가 (2026-10-06)
 
 - 개인 앱 `integrated_app.py`에 설명서 분석, 자료 분포·목록, 50문항 평가, 추가 30문항 평가를 연결했습니다. 공통 차종 선택 화면과 팀원 원본 파일은 수정하지 않았습니다.

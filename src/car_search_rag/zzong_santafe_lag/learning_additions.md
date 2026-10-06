@@ -386,6 +386,17 @@
 
 `프로젝트 추가`는 그 개념을 수업에서 전혀 배우지 않았다는 뜻이 아닙니다. 수업 자료와 동일하지 않은 **이 프로젝트의 구체적인 처리**를 표시합니다. 수업 자료가 추가되면 근거를 다시 확인해 기록을 갱신합니다.
 
+## M0~M9 발표와 수업 근거 정리 2026-10-07
+
+- `[프로젝트 적용]` GitHub에서 개인 화면을 다시 실행할 수 있도록 발표 원본 JSON·수업 근거·대본·최종 PPT를 포함하고 생성 중간 파일은 제외합니다. `requirements.txt`에 현재 사용 중인 pandas 3.0.6·Altair 6.3.0을 명시합니다. 새 라이브러리 설치나 검색 모델 변경은 하지 않습니다.
+- `[프로젝트 추가]` 개인 `run_integrated_app.bat`와 `deployment_guide.md`에 데스크톱 실행·개인 배포 진입점을 기록합니다. 공통 앱의 배포 설정을 변경하지 않습니다. 배포 서버의 실제 URL·로그 확인과 로컬/커밋 파일의 실행 확인을 구분합니다.
+
+- `[수업 개념]` 현재 수업의 TF-IDF, SentenceTransformer, `text-embedding-3-small`, RecursiveCharacterTextSplitter, ChatPromptTemplate/ChatOpenAI/StrOutputParser, pgvector, 기술 통계·분포·상관분석 셀을 다시 대조했습니다. 파일별 SHA-256과 1부터 세는 셀 순번은 `presentation/lesson_evidence.json`에 보관합니다. 노트북은 실행하지 않았습니다.
+- `[모델 추가]` 현재 NLP·LLM·RAG·DB 수업 노트북 33개에서 jhgan과 gpt-6-luna 사용을 찾지 못했습니다. 초기 jhgan의 표본 비교 선택과 사용자 요청에 따른 OpenAI·생성 모델 전환 이유를 분리했습니다. OpenAI 임베딩은 수업에서 확인한 모델의 프로젝트 적용입니다. 아래 2026-10-01 모델 표는 당시 상태를 보존하며 현재 기본 모델은 OpenAI입니다.
+- `[프로젝트 추가]` 개인 `work_document.py`와 `presentation/content.json`으로 M0~M9, 추가 코드의 이유·목적, 수업 근거, 16장 대본·시연·Q&A를 연결했습니다. `data_dashboard.py`는 기존 네 탭을 유지하고 진행·비교 요약을 추가합니다. 메뉴는 개인 `integrated_app.py`에만 연결합니다. Streamlit 자체나 Hit@5/MRR 실습을 수업 완료로 단정하지 않습니다.
+- `[프로젝트 추가]` 글자 2~4그램 TF-IDF, 0.5 결합 가중치, 부모·자식·필수 각주, 검토·출처 검사, 버전·Storage 대조는 수업 개념을 구체화한 프로젝트 설계로 설명합니다. 기술 통계는 저장 스냅샷, 검색 지표는 재사용한 기대 ID 평가, 신규 응답 판정은 Codex 잠정 평가로 구분합니다.
+- 관련 개인 노트북: `presentation/presentation_learning.ipynb`. 새 모델·DB 변경·Storage 업로드·실제 검색·생성 API 호출 없이 발표와 자료 화면만 추가합니다. 기존 수업 파일·공통 코드·팀원 파일·이전 평가 결과는 변경하지 않습니다.
+
 ## 1. 수업 자료에서 확인한 모델
 
 | 모델 | 확인한 수업 | 이 프로젝트의 현재 사용 |
