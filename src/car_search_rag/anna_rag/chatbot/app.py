@@ -324,31 +324,29 @@ def show_packet(message, render_body=True):
 
 
 init_state()
-# 화면 전환은 대화 세션을 종료하거나 지우지 않습니다.
-st.session_state.setdefault('view', 'chat')
+# 차량 선택 이후에만 표시하는 공통 메뉴입니다. 아직 페이지 이동은 연결하지 않습니다.
 st.markdown("""<style>
-.st-key-admin_nav {position:fixed;top:20px;right:28px;z-index:1000001;width:auto;}
-.st-key-admin_nav button {background:#fff;border:1px solid #e3deef;color:#625775;font-size:13px;min-height:36px;}
+.st-key-vehicle_menu {position:fixed;top:20px;right:28px;z-index:1000;width:44px;}
+.st-key-vehicle_menu [data-testid="stPopover"] button {
+ width:44px;height:44px;min-height:44px;padding:0;border:1px solid #e3deef;
+ border-radius:14px;background:#fff;color:#514766;box-shadow:0 4px 16px #30254508;
+}
+.st-key-vehicle_menu [data-testid="stPopover"] button:hover {
+ border-color:#b9aff2;background:#f1edff;color:#5b43e8;
+}
+.st-key-vehicle_menu [data-testid="stPopover"] button p {
+ position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+ clip:rect(0,0,0,0);white-space:nowrap;
+}
+.st-key-vehicle_menu [data-testid="stPopover"] button svg {display:none;}
 .block-container:not(:has(.landing-title)) {padding-top:84px;}
+@media(max-width:640px) {.st-key-vehicle_menu {top:16px;right:16px;}}
 </style>""", unsafe_allow_html=True)
-with st.container(key='admin_nav'):
-    nav_label = '챗봇으로 돌아가기' if st.session_state.view == 'admin' else '관리자 모드'
-    if st.button(nav_label, key='admin_toggle', disabled=st.session_state.view != 'admin'):
-        st.session_state.view = 'chat' if st.session_state.view == 'admin' else 'admin'
-        st.rerun()
-if st.session_state.view == 'admin':
-    st.markdown('<style>[data-testid="stSidebar"], [data-testid="stSidebarCollapsedControl"] {display:none;}</style>', unsafe_allow_html=True)
-    from car_search_rag.anna_rag.chatbot.dashboard import render_dashboard
-    render_dashboard()
-    # 모달의 기본 배경막으로 페이지 전체를 딤드 처리하고 뒤쪽 조작을 막습니다.
-    @st.dialog('작업 진행 중', dismissible=False)
-    def admin_work_notice():
-        st.write('품질 대시보드를 준비하고 있어요.')
-        if st.button('챗봇으로 돌아가기', key='admin_work_back', use_container_width=True):
-            st.session_state.view = 'chat'
-            st.rerun()
-    admin_work_notice()
-    st.stop()
+if st.session_state.active_vehicle is not None:
+    with st.container(key='vehicle_menu'):
+        with st.popover('메뉴', icon=':material/menu:', key='vehicle_menu_popover'):
+            st.button('데이터 대시보드', key='menu_data_dashboard', use_container_width=True)
+            st.button('작업 Document', key='menu_work_document', use_container_width=True)
 if st.session_state.session_notice:
     st.info(st.session_state.session_notice)
     st.session_state.session_notice = None
