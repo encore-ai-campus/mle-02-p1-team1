@@ -3,6 +3,7 @@
 import json
 import os
 import sys
+from copy import deepcopy
 from datetime import datetime
 from pathlib import Path
 from uuid import uuid4
@@ -19,6 +20,9 @@ if str(SRC_FOLDER) not in sys.path:
 # [프로젝트 적용] 이미 저장한 개인 전체 처리 작업입니다. 팀원 자료와 섞지 않습니다.
 from car_search_rag.zzong_santafe_lag.source_profile import FULL_SOURCE
 from car_search_rag.zzong_santafe_lag.answer_display import format_answer_for_display
+from car_search_rag.zzong_santafe_lag.question_input import prepare_question, clarification_result
+from car_search_rag.zzong_santafe_lag.source_navigation import (
+    followup_kind, pdf_locator, source_groups, candidate_notice, source_view, image_view)
 
 FULL_RUN_ID = str(FULL_SOURCE.run_id)
 MAX_HISTORY = 10
@@ -102,11 +106,14 @@ def change_embedding_backend():
 
 def prepare_entry(service, question):
     """두 화면의 검색 진입점입니다. 기존 top_k=5와 질문별 독립 검색을 유지합니다."""
-    evidence = service.prepare_evidence(question.strip(), top_k=5)
+    prepared = prepare_question(question)
+    evidence = (clarification_result(prepared) if prepared["clarification_message"]
+                else service.prepare_evidence(question.strip(), top_k=5))
     return {"id": uuid4().hex, "question": question.strip(),
             "created_at": datetime.now().isoformat(timespec="seconds"),
             "evidence": evidence, "generated": None,
-            "generation_requested": False, "generation_error": None}
+            "generation_requested": False, "generation_error": None,
+            "pdf_locator": pdf_locator(service) if service is not None else None}
 
 
 def search_question(question):
@@ -119,7 +126,9 @@ def search_question(question):
     st.session_state.zzong_history_selection = None
     try:
         with st.spinner("설명서에서 찾고 있습니다. 첫 검색은 준비 시간이 더 걸릴 수 있습니다."):
-            entry = prepare_entry(get_service(), question)
+            # 대상 확인만 필요할 때는 DB·검색 모델 설정을 준비하지 않습니다.
+            prepared = prepare_question(question)
+            entry = prepare_entry(None if prepared["clarification_message"] else get_service(), question)
     except Exception as error:
         # 인증·연결 문자열이 오류에 들어 있을 수 있어 내용 대신 오류 종류만 표시합니다.
         st.error(f"설명서 검색을 완료하지 못했습니다. 연결 설정을 확인해 주세요. ({type(error).__name__})")
@@ -221,6 +230,9 @@ def show_result(entry):
     """선택한 질문의 발췌·생성 답변·출처·그림·파일 내려받기를 한곳에 배치합니다."""
     st.subheader("확인 중인 질문")
     st.write(entry["question"])
+    if entry["evidence"]["status"] == "needs_clarification":
+        st.markdown(entry["evidence"]["answer"])
+        return
     service = get_service()
     preview = service.preview(entry["evidence"])
     generate_answer(entry, service, preview)
@@ -329,16 +341,38 @@ class SantafeBackend:
         return self.service
 
     def _packet(self, entry):
-        result = entry["generated"] or entry["evidence"]
+        result = entry.get("view") or entry["generated"] or entry["evidence"]
+        # 원문 열기는 저장된 자료만 재사용합니다. 검색·생성 서비스 준비도 하지 않습니다.
+        if result["status"] == "source_view":
+            return {"answer": {"text": result["answer"], "status": "answered", "cited_labels": []},
+                    "vehicle_id": "santafe", "source_display": "retrieved", "native_status": "source_view",
+                    "native_result": result, "entry_id": entry["id"],
+                    "sources": result.get("view_sources", []), "notices": [], "actions": []}
+        # [프로젝트 추가] 대상 확인 안내에는 검색·유료 생성·출처 펼치기를 제공하지 않습니다.
+        if result["status"] == "needs_clarification":
+            return {"answer": {"text": result["answer"], "status": "answered", "cited_labels": []},
+                    "vehicle_id": "santafe", "source_display": "retrieved",
+                    "native_status": result["status"], "native_result": result,
+                    "entry_id": entry["id"], "sources": [], "notices": [], "actions": []}
         service = self._service()
         preview = service.preview(entry["evidence"])
         can_generate = (preview["ready_for_generation"] and
                         service.settings()["api_key_configured"] and
                         not entry["generation_requested"])
-        notices = [result.get("reason"), result.get("generation_notice")]
-        if not preview["ready_for_generation"]:
+        # [프로젝트 추가] 사용자는 현재 상태와 다음 행동을 읽고, 내부 선택 사유는 원래 결과에 보존합니다.
+        guided_failure = result["status"] in {"insufficient_evidence", "needs_review"}
+        notices = [None if guided_failure else result.get("reason"), result.get("generation_notice")]
+        changes = result.get("input_processing", {}).get("term_changes", [])
+        if changes:
+            notices.append("검색할 때 용어를 정리했습니다: " + "; ".join(
+                f"‘{row['original']}’ → ‘{row['search_term']}’" for row in changes))
+        recoveries = result.get("retrieval_recoveries", [result.get("retrieval_recovery", {})])
+        if any(row.get("candidate_expansion_used") for row in recoveries):
+            notices.append("처음 검색에서 근거를 찾지 못해 관련 후보를 추가로 확인했습니다.")
+        if not preview["ready_for_generation"] and result["status"] not in {
+                "insufficient_evidence", "needs_review", "outside_pdf_scope"}:
             notices.append(preview["reason"])
-        elif not service.settings()["api_key_configured"]:
+        elif preview["ready_for_generation"] and not service.settings()["api_key_configured"]:
             notices.append("답변 생성용 API 키 설정이 없습니다. 설명서 발췌를 표시합니다.")
         if entry["generation_error"]:
             notices.append("생성을 완료하지 못해 설명서 발췌를 유지합니다.")
@@ -347,20 +381,33 @@ class SantafeBackend:
             notices.append(f"관련 그림 {len(pending_images)}개는 파일 또는 설명 연결 확인이 남아 표시를 보류했습니다.")
         # [프로젝트 추가] 공통 화면을 수정하지 않고 싼타페가 전달하는 표시용 글만 정리합니다.
         # 생성 가능한 최초 안내만 짧게 표시합니다. 생성 실패·키 없음·답변 보류는 기존 발췌/안내를 유지합니다.
-        return {"answer": {"text": format_answer_for_display(result, evidence_preview=can_generate),
+        display = format_answer_for_display(result, evidence_preview=can_generate)
+        source_actions = []
+        inline_sources = None
+        if result["status"] == "needs_review":
+            extra, source_actions = candidate_notice(result, entry.get("pdf_locator"))
+            groups = source_groups(result)
+            if len(groups) == 1:
+                # 단일 미검토 자료는 보존 원문만 같은 답변에 제공합니다. 생성 근거·검토 상태는 그대로입니다.
+                display = extra
+                inline_sources = source_view(result, groups[0], entry["question"],
+                                             entry.get("pdf_locator"))["view_sources"]
+            elif extra:
+                display += "\n\n" + extra
+        return {"answer": {"text": display,
                            "status": "answered", "cited_labels": []},
                 "vehicle_id": "santafe", "source_display": "retrieved",
                 "native_status": result["status"], "native_result": result,
                 "entry_id": entry["id"],
                 # 공통 화면은 [label]을 붙이므로 번호만 전달해 PDF 쪽수·대괄호 중복을 막습니다.
-                "sources": [{"label": str(row["citation_id"]), "title": row["title"] + (
+                "sources": inline_sources if inline_sources is not None else [{"label": str(row["citation_id"]), "title": row["title"] + (
                     f" · 매뉴얼 {'시작 ' if len(row['source_pages']) > 1 else ''}{row['manual_page_number']}쪽"
                     if row.get("manual_page_number") is not None else ""),
                     "source_file": "santafe_hev_manual.pdf", "pdf_pages": row["source_pages"],
                     "quote": row["quote"], "raw_text": row.get("raw_text", "")}
                     for row in result.get("sources", [])],
                 "notices": list(dict.fromkeys(x for x in notices if x)),
-                "actions": [{"id": "generate", "label": "답변 정리하기"}] if can_generate else []}
+                "actions": [{"id": "generate", "label": "답변 정리하기"}] if can_generate else source_actions}
 
     def chat(self, session_id, question, request_id=None, on_event=None):
         if session_id not in self.sessions:
@@ -373,6 +420,45 @@ class SantafeBackend:
                 if entry["question"] != question.strip():
                     raise ValueError("같은 요청 ID에 다른 질문을 사용할 수 없습니다.")
                 return self._packet(entry)
+        # [프로젝트 추가] 명시적인 본문/그림 요청만 같은 접속의 직전 결과에 연결합니다.
+        # 새 주제의 질문은 연결하지 않으며, 다른 접속이나 더 오래된 질문으로 거슬러 추측하지 않습니다.
+        kind = followup_kind(question)
+        if kind:
+            previous = history[-1] if history else None
+            entry = {"id": uuid4().hex, "question": question.strip(), "request_id": request_id,
+                     "generated": None, "generation_requested": True, "generation_error": None,
+                     "created_at": datetime.now().isoformat(timespec="seconds"),
+                     "pdf_locator": previous.get("pdf_locator") if previous else None}
+            if previous:
+                evidence = deepcopy(previous["evidence"])
+                groups = source_groups(evidence)
+                selected = previous.get("selected_source_index")
+                if kind == "image":
+                    entry.update(evidence=evidence, view=image_view(evidence, question))
+                elif type(selected) is int and 0 <= selected < len(groups):
+                    entry.update(evidence=evidence, selected_source_index=selected,
+                                 view=source_view(evidence, groups[selected], question, entry["pdf_locator"]))
+                elif len(groups) == 1:
+                    entry.update(evidence=evidence, view=source_view(evidence, groups[0], question, entry["pdf_locator"]))
+                elif groups:
+                    entry["evidence"] = evidence
+                    # 여럿이면 기존 후보 제목과 원문 버튼을 다시 제공합니다. 가장 앞 후보를 정답으로 고르지 않습니다.
+                else:
+                    previous = None
+            if not previous:
+                prepared = prepare_question(question)
+                prepared["clarification_message"] = "직전 질문에서 찾은 원문이 없거나 연결할 질문 기록이 없습니다. 어떤 부품이나 상황의 원문을 찾으시나요?"
+                entry["evidence"] = clarification_result(prepared)
+            history.append(entry)
+            del history[:-MAX_HISTORY]
+            return self._packet(entry)
+        # 설정 준비 전에 모호한 질문을 확인합니다. 접속별 최근 기록은 기존처럼 보관합니다.
+        if prepare_question(question)["clarification_message"]:
+            entry = prepare_entry(None, question)
+            entry["request_id"] = request_id
+            history.append(entry)
+            del history[:-MAX_HISTORY]
+            return self._packet(entry)
         if self.service is None:
             from car_search_rag.zzong_santafe_lag.database import PersonalDatabaseManager
             from car_search_rag.zzong_santafe_lag.openai_search_service import active_embedding_run
@@ -393,12 +479,22 @@ class SantafeBackend:
         return self._packet(entry)
 
     def perform_action(self, session_id, packet, action_id):
-        if action_id != "generate":
-            raise ValueError("지원하지 않는 작업입니다.")
         entry = next((row for row in self.sessions.get(session_id, [])
                       if row["id"] == packet["entry_id"]), None)
         if entry is None:
             raise ValueError("최근 10개 질문에 없는 자료입니다. 질문을 다시 입력해 주세요.")
+        if action_id.startswith("view_source_"):
+            groups = source_groups(entry["evidence"])
+            allowed = {f"view_source_{index}": group for index, group in enumerate(groups)}
+            if action_id not in allowed or entry["evidence"]["status"] != "needs_review":
+                raise ValueError("이번 결과에 연결된 원문 후보가 아닙니다.")
+            entry["view"] = source_view(entry["evidence"], allowed[action_id], entry["question"], entry.get("pdf_locator"))
+            entry["selected_source_index"] = list(allowed).index(action_id)
+            return self._packet(entry)
+        if action_id != "generate":
+            raise ValueError("지원하지 않는 작업입니다.")
+        if not self._service().preview(entry["evidence"])["ready_for_generation"]:
+            raise ValueError("확인된 근거가 없어 답변 생성이 보류됩니다.")
         if not entry["generation_requested"]:
             entry["generation_requested"] = True
             try:

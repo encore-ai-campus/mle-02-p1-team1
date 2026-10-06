@@ -10,6 +10,7 @@ from copy import deepcopy
 
 from .db_search_service import DbFullSearchService
 from .question_intent import evidence_intent
+from .question_input import prepare_question, clarification_result, symptom_candidate_fits
 
 
 REVIEWED_STATUSES = {"sample_verified", "visually_reviewed_source"}
@@ -58,6 +59,14 @@ def evidence_fit(question, candidate, terms):
     primary = next((row for row in context if row["record_id"] == candidate["parent_record_id"]), context[0])
     body = re.sub(r"\s+", "", " ".join(row["content"] for row in context).lower())
     intent = evidence_intent(question)
+    if intent == "symptom":
+        # 계기판·시동 버튼이 안내도에 나온다는 사실은 시동 불가 증상의 직접 근거가 아닙니다.
+        # 제목에 시동 주제가 있는 설명 자료로 제한합니다. 실제 고장 원인은 판정하지 않습니다.
+        if primary["content_type"] == "vehicle_overview_navigation" or "시동" not in primary["title"]:
+            return None
+        if not symptom_candidate_fits(question, primary["title"]):
+            return None
+        return sum(term in body for term in terms)
     if intent != "procedure":
         return 0
     # [프로젝트 추가] 안내도의 부품명·참조 쪽수는 동작 허용 여부의 직접 근거로 사용하지 않습니다.
@@ -135,19 +144,50 @@ class ManualAnswerService:
         if isinstance(top_k, bool) or not isinstance(top_k, int) or not 1 <= top_k <= 10:
             raise ValueError("검색 후보 수는 1~10 사이로 입력하세요.")
         question = question.strip()
+        prepared = prepare_question(question)
+        if prepared["clarification_message"]:
+            return clarification_result(prepared)
         reason = outside_pdf_reason(question)
         if reason:
             return self._empty_result(question, "outside_pdf_scope", reason)
-        parts = split_question(question)
+        # [프로젝트 추가] 검색과 근거 선택에는 명확한 용어를 사용하고 생성 질문은 원문을 보존합니다.
+        # 같은 검색을 한 번 수행합니다. 보완 검색·대화 문맥 복원은 이번 단계에 넣지 않습니다.
+        parts = split_question(prepared["search_question"])
         answers = []
         for index, part in enumerate(parts, start=1):
             if progress and len(parts) > 1:
                 progress(f"질문 항목 {index}/{len(parts)} 근거 검색: {part}")
-            result = self.search_service.search(part, top_k=top_k, progress=progress)
-            answers.append(self.from_search_result(result))
+            # [프로젝트 추가] 이미 전체 후보를 정렬하므로 최대 10개를 한 번 읽습니다.
+            # 첫 top_k개가 근거 부족일 때만 나머지를 대조합니다. 질문 임베딩·DB 조회를 반복하지 않습니다.
+            result = self.search_service.search(part, top_k=10, progress=progress)
+            answers.append(self.select_with_recovery(result, top_k=top_k, progress=progress))
         if len(parts) == 1:
-            return answers[0]
-        return self.combine_answers(question, answers)
+            answer = answers[0]
+        else:
+            answer = self.combine_answers(question, answers)
+        answer.update(question=question, input_processing=prepared)
+        return answer
+
+    @classmethod
+    def select_with_recovery(cls, result, top_k, progress=None):
+        """처음 후보에서 근거가 없을 때만 같은 검색의 나머지 후보를 한 번 대조합니다."""
+        candidates = result["candidates"]
+        initial = cls.from_search_result({**result, "candidates": candidates[:top_k]})
+        answer = initial
+        expanded = initial["status"] == "insufficient_evidence" and len(candidates) > top_k
+        if expanded:
+            if progress:
+                progress("처음 후보에서 확인 근거를 찾지 못해 같은 검색의 후보 범위를 한 번 넓힙니다.")
+            # 미검토·부분 근거·정상 답변의 기준을 우회하지 않습니다. 같은 선택 규칙을 그대로 씁니다.
+            answer = cls.from_search_result(result)
+        answer["retrieval_recovery"] = {
+            "rule_version": "bounded_candidate_expansion_v1",
+            "initial_status": initial["status"], "candidate_expansion_used": expanded,
+            "initial_candidate_count": min(top_k, len(candidates)),
+            "checked_candidate_count": len(candidates) if expanded else min(top_k, len(candidates)),
+            "additional_query_embedding_calls": 0, "additional_database_search_calls": 0,
+        }
+        return answer
 
     @staticmethod
     def combine_answers(question, answers):
@@ -190,6 +230,8 @@ class ManualAnswerService:
                         matched_chunk_record_ids=[row["matched_chunk_record_id"] for row in answers
                                                   if "matched_chunk_record_id" in row],
                         evidence_selections=[deepcopy(row["evidence_selection"]) for row in answers if "evidence_selection" in row])
+        combined["retrieval_recoveries"] = [deepcopy(row["retrieval_recovery"])
+                                             for row in answers if "retrieval_recovery" in row]
         combined.pop("matched_chunk_record_id", None)
         combined.pop("evidence_selection", None)
         if sources:

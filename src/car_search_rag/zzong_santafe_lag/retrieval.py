@@ -180,14 +180,14 @@ def _make_search_functions(parents, chunks, vectors, model, token_counter):
             and not explicit_navigation
         )
         intents, reasons = [], []
-        if shared_intent != "procedure" and (explicit_navigation or (location_words and known_component)):
+        if shared_intent not in {"procedure", "symptom"} and (explicit_navigation or (location_words and known_component)):
             intents.append("navigation")
             reasons.append("안내도·번호 표현 또는 자료에 있는 부품의 위치 질문")
         if quantity_words or mode_function:
             intents.append("table")
             reasons.append("용량·규격·각주 표현 또는 표의 모드 기능 질문")
         # 명시적으로 위치만 묻는 경우 일반적인 '버튼' 등의 표현은 조작으로 판단하지 않습니다.
-        if shared_intent == "procedure" or (operation_words and not explicit_navigation):
+        if shared_intent in {"procedure", "symptom"} or (operation_words and not explicit_navigation):
             if not mode_function or has_any(text, ["제한", "주의", "왜", "안 되는"]):
                 intents.append("explanation")
                 reasons.append("사용·조작·주의·제한 질문")

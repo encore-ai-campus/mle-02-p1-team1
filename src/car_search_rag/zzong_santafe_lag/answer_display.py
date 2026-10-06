@@ -52,6 +52,21 @@ def format_answer_for_display(result, *, evidence_preview=False):
     # [프로젝트 추가] 답변 보류나 오류 안내는 기존 문구 그대로 표시합니다.
     status = result.get("status")
     original = result.get("answer", "")
+    # [프로젝트 추가] 검색 실패를 '설명서 전체에 자료가 없음'으로 단정하지 않습니다.
+    # 사용자에게 다음 입력 방법을 안내하며, 원래 상태·진단·후보는 결과 데이터에 보존합니다.
+    if status == "insufficient_evidence":
+        return (
+            "현재 검색 결과에서 질문에 답할 근거를 찾지 못했습니다.\n\n"
+            "부품 이름과 궁금한 내용을 함께 적어 다시 질문해주세요.\n\n"
+            "- 예: ‘실외 미러 접는 방법을 알려줘.’\n"
+            "- 이름을 모르시면 위치나 모양을 설명해주세요.\n\n"
+            "설명서에 없는 내용은 추측해서 답하지 않습니다."
+        )
+    if status == "needs_review":
+        return (
+            "관련 자료는 찾았지만, 원본 설명서와의 확인이 남아 있어 답변을 보류합니다.\n\n"
+            "자료 검토가 완료된 후 답변할 수 있습니다. 지금은 원본 PDF에서 해당 내용을 확인해주세요."
+        )
     if evidence_preview and status == "evidence_excerpt" and result.get("sources"):
         return format_evidence_preview(result)
     if status not in {"evidence_excerpt", "partial_evidence", "generated_answer"}:
