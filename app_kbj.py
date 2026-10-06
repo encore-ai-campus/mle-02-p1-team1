@@ -184,6 +184,19 @@ def _display_metadata(search_results, question=None, image_selector=None, answer
     return sources[:5], images
 
 
+def _verified_search_images(search_results):
+    """검색 row에 실제로 포함된 DB 이미지 URL과 page만 전달합니다."""
+    images = []
+    seen_urls = set()
+    for result in search_results or ():
+        url = result.get("carManualImageUrl", result.get("car_manual_image_url"))
+        page_no = result.get("carManualChunkPageNo", result.get("car_manual_chunk_page_no"))
+        if isinstance(url, str) and url.strip() and url.strip() not in seen_urls:
+            images.append({"url": url.strip(), "page_no": page_no})
+            seen_urls.add(url.strip())
+    return images
+
+
 @dataclass
 class ChatReply:
     """스트림을 모두 소비한 후 최종 답변과 표시 자료를 읽습니다."""
@@ -191,6 +204,7 @@ class ChatReply:
     answer: str = ''
     sources: list = field(default_factory=list)
     images: list = field(default_factory=list)
+    verified_images: list = field(default_factory=list)
     download_html: str | None = None
     error: Exception | None = None
 
@@ -241,6 +255,7 @@ def prepare_reply(question, history, vehicle=('hyundai', 'sonata', 2026), *, man
             reply.error = result.error
             # Agent가 다운로드 도구를 선택했을 때의 산출물도 UI에 전달합니다.
             reply.download_html = manual.download_html
+            reply.verified_images = _verified_search_images(result.search_results)
             reply.sources, reply.images = _display_metadata(
                 result.search_results, question=question, answer=reply.answer,
                 image_selector=manual.service.select_relevant_images,
@@ -272,7 +287,8 @@ def answer_question(question, history, on_event=None):
     return dict(
         answer=dict(text=reply.answer, status='error' if reply.error else 'answered', cited_labels=[]),
         sources=sources, source_display='retrieved', vehicle_id='sonata',
-        images=reply.images, download_html=reply.download_html,
+        images=reply.images, verified_images=reply.verified_images,
+        download_html=reply.download_html,
     )
 
 

@@ -3,6 +3,9 @@ import re
 import streamlit as st
 
 
+_MARKDOWN_LINK = re.compile(r'(?<!!)\[([^\]]+)\]\((https?://[^)\s]+)\)')
+
+
 def heading_icon(title):
     if '경고등' in title:
         return '🚨'
@@ -36,8 +39,35 @@ def answer_sections(text):
     return sections
 
 
-def format_answer(text):
+def verified_answer_images(text, verified_images=None):
+    """답변 Markdown 링크 중 검색 결과에서 검증된 이미지 URL만 반환합니다."""
+    images_by_url = {
+        image['url']: image
+        for image in verified_images or ()
+        if isinstance(image, dict) and isinstance(image.get('url'), str)
+    }
+    matches = []
+    seen_urls = set()
+    for match in _MARKDOWN_LINK.finditer(text or ''):
+        url = match.group(2)
+        if url in images_by_url and url not in seen_urls:
+            matches.append(images_by_url[url])
+            seen_urls.add(url)
+    return matches
+
+
+def format_answer(text, verified_images=None):
     """스트리밍/완료/대화 기록에 동일한 서식을 사용해 완료 시 레이아웃이 바뀌지 않습니다."""
+    verified_urls = {
+        image['url'] for image in verified_images or ()
+        if isinstance(image, dict) and image.get('url')
+    }
+    if verified_urls:
+        text = _MARKDOWN_LINK.sub(
+            lambda match: match.group(1) if match.group(2) in verified_urls else match.group(0),
+            text,
+        )
+
     def heading(match):
         title = re.sub(r'^[✅📋⚠️🚨🔧🔌]+\s*', '', match.group(1)).strip()
         return f'#### {heading_icon(title)} {title}'
@@ -45,5 +75,5 @@ def format_answer(text):
     return re.sub(r'^#{1,6} +([^\n]+)(?=\n)', heading, text, flags=re.MULTILINE)
 
 
-def render_answer(text):
-    st.markdown(format_answer(text))
+def render_answer(text, verified_images=None):
+    st.markdown(format_answer(text, verified_images=verified_images))

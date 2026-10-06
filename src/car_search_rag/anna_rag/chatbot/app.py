@@ -16,7 +16,9 @@ if str(ROOT / 'src') not in sys.path:
     sys.path.insert(0, str(ROOT / 'src'))
 from car_search_rag.anna_rag.chatbot.registry import VEHICLES, load_backend
 from car_search_rag.anna_rag.chatbot.navigation import detach_chat, EXIT_OVERLAY
-from car_search_rag.anna_rag.chatbot.answer_view import render_answer, format_answer
+from car_search_rag.anna_rag.chatbot.answer_view import (
+    render_answer, format_answer, verified_answer_images,
+)
 
 BOT_AVATAR = str(Path(__file__).parent / 'assets' / 'hyundai-logo.webp')
 
@@ -261,6 +263,30 @@ def leave_chat():
     detach_chat(st.session_state)
 
 
+def _merge_packet_images(selected_images, verified_images):
+    """선택 이미지와 답변 링크 이미지를 합치고 URL 중복을 제거합니다."""
+    display_images = []
+    seen_image_urls = set()
+    for image in selected_images or ():
+        image_url = image.get('data')
+        if isinstance(image_url, str):
+            if image_url in seen_image_urls:
+                continue
+            seen_image_urls.add(image_url)
+        display_images.append(image)
+    for image in verified_images or ():
+        image_url = image['url']
+        if image_url in seen_image_urls:
+            continue
+        seen_image_urls.add(image_url)
+        display_images.append({
+            'data': image_url,
+            'pdf_page': image.get('page_no'),
+            'caption': image.get('caption', ''),
+        })
+    return display_images
+
+
 def return_to_vehicles():
     # 클릭 콜백에서 먼저 초기화하여 대화 화면을 다시 그리는 왕복을 없앱니다.
     st.session_state.returning_to_vehicles = True
@@ -269,8 +295,22 @@ def return_to_vehicles():
 
 def show_packet(message, render_body=True):
     packet = message['packet']
+    answer_text = packet['answer']['text']
+    verified_images = verified_answer_images(answer_text, packet.get('verified_images', []))
     if render_body:
-        render_answer(packet['answer']['text'])
+        render_answer(answer_text, verified_images=verified_images)
+
+    # backend가 선택한 이미지와 답변의 검증된 링크 이미지를 URL 기준으로 합칩니다.
+    display_images = _merge_packet_images(message.get('images'), verified_images)
+    if display_images:
+        st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
+        for image in display_images:
+            page_caption = f"PDF {image['pdf_page']}페이지" if image.get('pdf_page') is not None else ''
+            description = image.get('caption', '')
+            caption = ' · '.join(part for part in (page_caption, description) if part)
+            st.image(image['data'], caption=caption or None,
+                     alt=description or '차량 사용설명서 이미지')
+
     # 모델이 만든 URL 대신 DB가 반환한 문서명/페이지 정보를 사용합니다.
     cited = set(packet['answer'].get('cited_labels', []))
     retrieved = packet.get('source_display') == 'retrieved'
@@ -283,10 +323,6 @@ def show_packet(message, render_body=True):
                 st.caption(s.get('source_file', ''))
                 if s.get('quote'):
                     st.text(s['quote'])
-    if message.get('images'):
-        st.caption('설명서의 연결된 그림입니다. 답변과 함께 원문을 확인하세요.')
-        for image in message['images']:
-            st.image(image['data'], caption=f"PDF {image['pdf_page']}페이지 · {image['caption']}")
     if message.get('image_error'):
         st.caption('관련 그림을 불러오지 못했습니다. 답변과 출처는 확인할 수 있어요.')
     for notice in packet.get('notices', []):
@@ -577,7 +613,10 @@ if question or retry:
                     packet = future.result()
                 loading.empty()
                 # 같은 출력 위치와 같은 서식으로 최종 문구만 확정합니다.
-                draft.markdown(format_answer(packet['answer']['text']))
+                verified_images = verified_answer_images(
+                    packet['answer']['text'], packet.get('verified_images', []))
+                draft.markdown(format_answer(
+                    packet['answer']['text'], verified_images=verified_images))
                 message = {'role': 'assistant', 'packet': packet, 'images': [],
                            'ui_id': pending['id'] + '_assistant'}
                 try:
