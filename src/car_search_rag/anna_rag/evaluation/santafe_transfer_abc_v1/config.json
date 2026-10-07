@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-10-07T03:03:41.143138+00:00",
+  "question_count": 30,
+  "dataset_sha256": "a1525105f6ee19038715fd2ac538110cea3720f8692c5540007093a41b23fa4d",
+  "corpus_sha256": "9d2fe6a3ed73283b43ddcec701b0c8e883e151ea5a982dd3e742dbd098e59d0b",
+  "parents_sha256": "284589b99e07991f64b24fd41a0c97a85f359fa5fd141ab3e7807f7a0338fd43",
+  "query_vectors_sha256": "97d2791b35f3e89e6fde7347aef8e2ebbfe3004519259a0cae94fa4182d12324",
+  "corpus_chunks": 2338,
+  "parents": 552,
+  "source_sha256": "a372a7b9c8c9f0365c5c8c2e1125e97cc48d51640d1db5964b13cb12df4166f9",
+  "specific_terms_sha256": "7b6827fa93f96a3af714320f1ef99b0c5cf6f978cebf761aa4efb19a1e55add6",
+  "settings": {
+    "semantic_weight": 0.5,
+    "keyword_weight": 0.5,
+    "char_ngram_range": [
+      2,
+      4
+    ],
+    "specific_bonus_max": 0.15,
+    "top_k": 5,
+    "use_routing": false,
+    "normalization": "float32 unit vectors; Santafe same text normalization",
+    "ties": "stable chunk_id order; stable section_id order for parent results"
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.1"
+  },
+  "limits": [
+    "싼타페 전체 운영 파이프라인의 완전 이식이 아닌 검색 점수·부모 선택 규칙 비교.",
+    "아이오닉에 안내도 번호·표 자료 유형 메타데이터가 없어 유형 우선/안내도 이름 검색 제외.",
+    "싼타페의 검색 전 용어 치환·복합 질문 분리, 검색 후 근거 검증·후보 회복·답변 생성 제외.",
+    "설명서 2338청크를 그대로 유지. 부모 본문==제목 필터는 추가하지 않음.",
+    "부모 일치는 같은 소제목의 다른 청크도 맞다고 보는 완화 지표이며 기존 청크 정답 채점을 대체하지 않음.",
+    "과거 코사인/RRF/LLM 리랭크 결과를 같은 질문·코퍼스로 비교. LLM 방식은 이번에 재실행하지 않음.",
+    "저장된 질문 임베딩 재사용. API 호출·DB 쓰기·운영 코드 변경 없음.",
+    "시간은 메모리 내 검색만 측정하며 DB·임베딩·답변 생성·전체 응답 시간은 제외.",
+    "동일 개발용 A/B/C 30문항 1회 실험. 결과를 보고 가중치나 정답을 조정하지 않음.",
+    "A는 넓은 목차 관련성, B/C는 구체적 정답 근거를 판정하므로 A가 구조적으로 유리할 수 있다.",
+    "B/C 분류는 의미 맥락에 대한 정성적 분류이며 단어 독립성을 수치로 입증한 것은 아니다.",
+    "주제·질문 길이·정답 개수를 완전히 맞춘 대조 실험이 아니므로 C 점수의 원인을 단어 독립성만으로 단정할 수 없다.",
+    "기존 20문항은 질문·정답 라벨과 사람 검수 이력을 보존. A10과 새 분류는 사람이 아직 검수하지 않았다.",
+    "기존 결과에 노출된 개발용 정답지다. 기존 24문항 점수와 새 30문항 점수는 서로 다른 시험지 점수다.",
+    "A는 검색기를 직접 호출하는 주제 검색 진단. 실제 챗봇의 되묻기 판단과 답변 품질은 평가하지 않는다."
+  ]
+}
