@@ -1,0 +1,4 @@
+{
+  "valid_for_comparison": false,
+  "reason": "Experiment harness passed max_retries to invoke instead of model constructor; keyword branch failed. Excluded; no production change."
+}

@@ -1,9 +1,24 @@
 """답변을 내용 삭제 없이 주제별 블록으로 표시합니다."""
 import re
+from math import ceil
 import streamlit as st
 
 
 _MARKDOWN_LINK = re.compile(r'(?<!!)\[([^\]]+)\]\((https?://[^)\s]+)\)')
+
+
+def take_stream_chunk(job, *, complete=False):
+    """짧은 답변은 부드럽게, 밀린 답변은 조금씩 따라잡으며 표시합니다.
+
+    생성이 끝나면 남은 글을 최대 12번에 나눠 보여 줍니다(45ms 간격 기준 약
+    0.54초 + 화면 처리 시간). 문장을 자르거나 버리지 않고 표시 속도만 조절합니다.
+    """
+    if complete:
+        job.setdefault('finish_step', max(3, ceil(len(job['buffer']) / 12)))
+    step = job.get('finish_step', max(3, ceil(len(job['buffer']) / 30)))
+    piece, job['buffer'] = job['buffer'][:step], job['buffer'][step:]
+    job['text'] += piece
+    return job['text']
 
 
 def heading_icon(title):

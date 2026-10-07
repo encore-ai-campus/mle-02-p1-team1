@@ -1,0 +1,187 @@
+{
+  "experiment": "abc30_cosine_tfidf_hybrid_v1",
+  "status": "complete",
+  "question_count": 30,
+  "started_at": "2026-10-06T12:17:03.865282+00:00",
+  "evaluated_at": "2026-10-06T12:17:15.778315+00:00",
+  "dataset_version": "ioniq5-golden-abc-v1",
+  "dataset_sha256": "a1525105f6ee19038715fd2ac538110cea3720f8692c5540007093a41b23fa4d",
+  "corpus_sha256": "9d2fe6a3ed73283b43ddcec701b0c8e883e151ea5a982dd3e742dbd098e59d0b",
+  "corpus_chunks": 2338,
+  "query_vectors_sha256": "97d2791b35f3e89e6fde7347aef8e2ebbfe3004519259a0cae94fa4182d12324",
+  "query_vectors_source": "20 existing cached + 10 new topic queries",
+  "experiment_sha256": "2f88fcc8162b9be5f5afc23aafcf588f744ee21800e2874767bb680ab30f8602",
+  "packages": {
+    "kiwipiepy": "0.23.2",
+    "kiwipiepy_model": "0.23.0",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.3"
+  },
+  "settings": {
+    "k": 5,
+    "branch_k": 50,
+    "rrf_constant": 60,
+    "weights": [
+      1,
+      1
+    ],
+    "tokenizer": "Kiwi: tag startswith N and len(form)>1",
+    "lowercase": true,
+    "tfidf_norm": "l2",
+    "smooth_idf": true,
+    "sublinear_tf": false,
+    "fitted_field": "page_content",
+    "vocabulary_size": 2578,
+    "lexical_positive_only": true,
+    "lexical_and_rrf_tie_break": "chunk_id ascending"
+  },
+  "scores": {
+    "cosine": {
+      "hits": 23,
+      "hit_at_5": 0.7666666666666667,
+      "mrr_at_5": 0.6277777777777778,
+      "gained": [],
+      "lost": []
+    },
+    "tfidf": {
+      "hits": 25,
+      "hit_at_5": 0.8333333333333334,
+      "mrr_at_5": 0.6566666666666666,
+      "gained": [
+        "B09",
+        "C01",
+        "C02",
+        "C08"
+      ],
+      "lost": [
+        "B06",
+        "C09"
+      ]
+    },
+    "hybrid": {
+      "hits": 26,
+      "hit_at_5": 0.8666666666666667,
+      "mrr_at_5": 0.67,
+      "gained": [
+        "B09",
+        "C01",
+        "C02"
+      ],
+      "lost": []
+    }
+  },
+  "section_scores": {
+    "A": {
+      "cosine": {
+        "count": 10,
+        "hits": 10,
+        "hit_at_5": 1.0,
+        "mrr_at_5": 1.0
+      },
+      "tfidf": {
+        "count": 10,
+        "hits": 10,
+        "hit_at_5": 1.0,
+        "mrr_at_5": 1.0
+      },
+      "hybrid": {
+        "count": 10,
+        "hits": 10,
+        "hit_at_5": 1.0,
+        "mrr_at_5": 1.0
+      }
+    },
+    "B": {
+      "cosine": {
+        "count": 10,
+        "hits": 7,
+        "hit_at_5": 0.7,
+        "mrr_at_5": 0.5
+      },
+      "tfidf": {
+        "count": 10,
+        "hits": 7,
+        "hit_at_5": 0.7,
+        "mrr_at_5": 0.5166666666666667
+      },
+      "hybrid": {
+        "count": 10,
+        "hits": 8,
+        "hit_at_5": 0.8,
+        "mrr_at_5": 0.495
+      }
+    },
+    "C": {
+      "cosine": {
+        "count": 10,
+        "hits": 6,
+        "hit_at_5": 0.6,
+        "mrr_at_5": 0.38333333333333336
+      },
+      "tfidf": {
+        "count": 10,
+        "hits": 8,
+        "hit_at_5": 0.8,
+        "mrr_at_5": 0.4533333333333333
+      },
+      "hybrid": {
+        "count": 10,
+        "hits": 8,
+        "hit_at_5": 0.8,
+        "mrr_at_5": 0.515
+      }
+    },
+    "BC": {
+      "cosine": {
+        "count": 20,
+        "hits": 13,
+        "hit_at_5": 0.65,
+        "mrr_at_5": 0.4416666666666667
+      },
+      "tfidf": {
+        "count": 20,
+        "hits": 15,
+        "hit_at_5": 0.75,
+        "mrr_at_5": 0.485
+      },
+      "hybrid": {
+        "count": 20,
+        "hits": 16,
+        "hit_at_5": 0.8,
+        "mrr_at_5": 0.505
+      }
+    }
+  },
+  "section_macro_mean": {
+    "cosine": {
+      "hit_at_5": 0.7666666666666666,
+      "mrr_at_5": 0.6277777777777778
+    },
+    "tfidf": {
+      "hit_at_5": 0.8333333333333334,
+      "mrr_at_5": 0.6566666666666666
+    },
+    "hybrid": {
+      "hit_at_5": 0.8666666666666667,
+      "mrr_at_5": 0.6699999999999999
+    }
+  },
+  "candidate_hits": {
+    "cosine": 27,
+    "tfidf": 28
+  },
+  "union_candidate_hits": 28,
+  "notes": [
+    "A는 넓은 목차 관련성, B/C는 구체적 정답 근거를 판정하므로 A가 구조적으로 유리할 수 있다.",
+    "B/C 분류는 의미 맥락에 대한 정성적 분류이며 단어 독립성을 수치로 입증한 것은 아니다.",
+    "주제·질문 길이·정답 개수를 완전히 맞춘 대조 실험이 아니므로 C 점수의 원인을 단어 독립성만으로 단정할 수 없다.",
+    "기존 20문항은 질문·정답 라벨과 사람 검수 이력을 보존. A10과 새 분류는 사람이 아직 검수하지 않았다.",
+    "기존 결과에 노출된 개발용 정답지다. 기존 24문항 점수와 새 30문항 점수는 서로 다른 시험지 점수다.",
+    "A는 검색기를 직접 호출하는 주제 검색 진단. 실제 챗봇의 되묻기 판단과 답변 품질은 평가하지 않는다.",
+    "설정은 이전 24문항 비교와 동일: k=5, branch_k=50, RRF 60, 동등 가중.",
+    "새 A10 임베딩만 생성. 기존 B/C20은 이전 질문 벡터와 코사인 후보 재사용.",
+    "A 목차 관련성 라벨은 검색 전 고정. B/C 사람 검수 라벨과 새 분류/신규 라벨의 검수 상태를 구분.",
+    "같은 청크 ID로 Hit@5, MRR@5를 계산. 각 섹션 10문항이므로 섹션 평균과 전체 30문항 평균이 같음.",
+    "되묻기·질문 재작성·부모 확장·MMR·리랭크·답변 생성 제외. 운영 미변경."
+  ]
+}

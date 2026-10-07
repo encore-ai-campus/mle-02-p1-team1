@@ -1,0 +1,16 @@
+{
+  "dataset_version": "ioniq5-pilot-v1",
+  "question_count": 24,
+  "evaluated_at": "2026-10-06T00:30:50.668837+00:00",
+  "label_status": "assistant_draft_needs_team_review",
+  "scope": "Raw standalone-question retrieval only; excludes parent expansion, intent checks and answer generation.",
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dimension": 1536,
+  "corpus_chunks": 2338,
+  "dataset_sha256": "85274398929d3ec3ec1cb29a2995d1878bdc985e0795f07323f77162eea5f35a",
+  "corpus_sha256": "9d2fe6a3ed73283b43ddcec701b0c8e883e151ea5a982dd3e742dbd098e59d0b",
+  "evaluator_sha256": "960f7c4421400cd4637fb93e80255c4d22014c823849e8a674e6180f98263fa9",
+  "hit_at_5": 0.625,
+  "mrr_at_5": 0.4305555555555556,
+  "mrr_full": 0.4570802214674754
+}

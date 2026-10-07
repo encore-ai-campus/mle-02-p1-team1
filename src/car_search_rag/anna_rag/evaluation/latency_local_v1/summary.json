@@ -1,0 +1,110 @@
+{
+  "scope": "로컬 아이오닉 · DB 읽기 전용 · 질문 임베딩은 저장된 G03 벡터 사용",
+  "before_and_pool_only": {
+    "index_warmup_s": 4.726867584045976,
+    "samples": [
+      {
+        "mode": "before",
+        "vector_s": 1.517081625002902,
+        "hybrid_s": 1.521665500011295,
+        "retrieval_total_s": 3.11627800000133,
+        "tfidf_fusion_s": 0.004583875008393079,
+        "context_s": 1.5946124999900348
+      },
+      {
+        "mode": "before",
+        "vector_s": 0.4595498330309056,
+        "hybrid_s": 0.46322974999202415,
+        "retrieval_total_s": 2.105037291010376,
+        "tfidf_fusion_s": 0.003679916961118579,
+        "context_s": 1.641807541018352
+      },
+      {
+        "mode": "pooled",
+        "vector_s": 0.47619541600579396,
+        "hybrid_s": 0.47872700000880286,
+        "retrieval_total_s": 1.0801548329764046,
+        "tfidf_fusion_s": 0.002531584003008902,
+        "context_s": 0.6014278329676017
+      },
+      {
+        "mode": "pooled",
+        "vector_s": 0.24078820797149092,
+        "hybrid_s": 0.2440747079672292,
+        "retrieval_total_s": 0.9582693749689497,
+        "tfidf_fusion_s": 0.003286499995738268,
+        "context_s": 0.7141946670017205
+      }
+    ],
+    "live_pooled_pipeline": {
+      "intent_s": 3.6410403749905527,
+      "retrieval_with_embedding_s": 1.7190567080397159,
+      "total_s": 9.10822791600367,
+      "first_token_s": 8.026760375010781,
+      "answer_characters": 192,
+      "status": "answered"
+    }
+  },
+  "pool_and_batch_queries": {
+    "optimized_retrieval_s": [
+      0.7184802919509821,
+      0.4748327090055682,
+      0.41848062502685934
+    ],
+    "entire_packet_unchanged": true
+  },
+  "context_regression": [
+    {
+      "id": "G03",
+      "same_top5": true,
+      "same_parents_and_budget": true,
+      "same_images_and_labels": true,
+      "image_count": 1
+    },
+    {
+      "id": "G06",
+      "same_top5": true,
+      "same_parents_and_budget": true,
+      "same_images_and_labels": true,
+      "image_count": 1
+    },
+    {
+      "id": "G07",
+      "same_top5": true,
+      "same_parents_and_budget": true,
+      "same_images_and_labels": true,
+      "image_count": 2
+    },
+    {
+      "id": "G09",
+      "same_top5": true,
+      "same_parents_and_budget": true,
+      "same_images_and_labels": true,
+      "image_count": 1
+    },
+    {
+      "id": "G17",
+      "same_top5": true,
+      "same_parents_and_budget": true,
+      "same_images_and_labels": true,
+      "image_count": 2
+    },
+    {
+      "id": "G21",
+      "same_top5": true,
+      "same_parents_and_budget": true,
+      "same_images_and_labels": true,
+      "image_count": 4
+    }
+  ],
+  "limitations": [
+    "시간은 소수의 순차 측정이며 네트워크 편차가 있음",
+    "검색 시간에는 임베딩 API 및 답변 생성이 포함되지 않음",
+    "live_pooled_pipeline은 묶음 조회 변경 전 연결 풀만 재사용한 실제 API 1회 측정",
+    "전체 사용자 대기 시간에는 대화 기록 처리 및 화면 표시 시간이 추가됨"
+  ],
+  "unit_and_ui_tests": {
+    "tests": 12,
+    "status": "passed"
+  }
+}

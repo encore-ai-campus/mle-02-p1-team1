@@ -1,0 +1,16 @@
+{
+  "status": "draft_not_team_approved",
+  "files": {
+    "golden_dataset.json": "d92b5b1650a7075cfea23f6a832a93e4fb6e9567826e44c6fbb7d9a4ea2ca08c",
+    "retrieval_dataset.json": "0c975240ef7adee1d437b3c7dc43d5513f66761782bd86364e5e8a80d9ab75ce",
+    "golden_review.html": "f685aa45621309fb8751705f6106d90eada7fe311ca6dfc1e36a3e16964adc13"
+  },
+  "validation": {
+    "questions": 48,
+    "retrieval": 24,
+    "behavior": 24,
+    "pdf_evidence_matches": 24,
+    "all_gold_chunk_ids_exist": true,
+    "live_evaluation_run": false
+  }
+}

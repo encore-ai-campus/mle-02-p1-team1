@@ -1,0 +1,88 @@
+{
+  "experiment": "cosine_tfidf_hybrid_v1",
+  "status": "complete",
+  "question_count": 24,
+  "started_at": "2026-10-06T12:00:45.056874+00:00",
+  "evaluated_at": "2026-10-06T12:00:50.965838+00:00",
+  "dataset_version": "ioniq5-retrieval-baseline-v1-human-reviewed",
+  "dataset_sha256": "9deb30ea1d75e043fa9bcf34c0a4d2d863d5b9b157de741789ca9f1851ba3094",
+  "corpus_sha256": "9d2fe6a3ed73283b43ddcec701b0c8e883e151ea5a982dd3e742dbd098e59d0b",
+  "corpus_chunks": 2338,
+  "query_vectors_sha256": "7ff022140a5e18609f553af59b27d3cf2129dfa93aff5a61613e1fa4bc9d8e99",
+  "query_vectors_source": "m7_mmr_v1/query_vectors.json",
+  "experiment_sha256": "aacae26398dd536b4b79d2ba299b3ab20c175ec883f49065126c3862bf59812f",
+  "packages": {
+    "kiwipiepy": "0.23.2",
+    "kiwipiepy_model": "0.23.0",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.3"
+  },
+  "settings": {
+    "k": 5,
+    "branch_k": 50,
+    "rrf_constant": 60,
+    "weights": [
+      1,
+      1
+    ],
+    "tokenizer": "Kiwi: tag startswith N and len(form)>1",
+    "lowercase": true,
+    "tfidf_norm": "l2",
+    "smooth_idf": true,
+    "sublinear_tf": false,
+    "fitted_field": "page_content",
+    "vocabulary_size": 2578,
+    "lexical_positive_only": true,
+    "lexical_and_rrf_tie_break": "chunk_id ascending"
+  },
+  "scores": {
+    "cosine": {
+      "hits": 14,
+      "hit_at_5": 0.5833333333333334,
+      "mrr_at_5": 0.3888888888888889,
+      "gained": [],
+      "lost": []
+    },
+    "tfidf": {
+      "hits": 16,
+      "hit_at_5": 0.6666666666666666,
+      "mrr_at_5": 0.41805555555555557,
+      "gained": [
+        "G03",
+        "G06",
+        "G17",
+        "G20",
+        "G21"
+      ],
+      "lost": [
+        "G10",
+        "G18",
+        "G22"
+      ]
+    },
+    "hybrid": {
+      "hits": 17,
+      "hit_at_5": 0.7083333333333334,
+      "mrr_at_5": 0.44166666666666665,
+      "gained": [
+        "G03",
+        "G06",
+        "G20"
+      ],
+      "lost": []
+    }
+  },
+  "candidate_hits": {
+    "cosine": 20,
+    "tfidf": 22
+  },
+  "union_candidate_hits": 22,
+  "notes": [
+    "AI 초안 후 사람이 정답 근거를 검수한 고정 24문항. 독립 홀드아웃 아님.",
+    "M6와 코퍼스·정답지 해시 동일. 기존 질문 임베딩 재사용. 새 API 호출 없음.",
+    "코사인 순위는 기존 PGVector 반환 결과이며 현재 DB 벡터의 NumPy 계산으로 검증. 같은 점수의 문서는 기존 반환 순서를 유지. 수치 허용 오차 1e-6.",
+    "수업의 명사 TF-IDF를 사용. RRF 결합은 수업 방식의 프로젝트 응용.",
+    "정답은 채점에만 사용. 질문 변환·동의어·리랭크·MMR·부모 확장 미사용.",
+    "설정을 결과 확인 전에 고정. 챗봇 검색/DB/배포 미변경."
+  ]
+}

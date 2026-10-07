@@ -1,0 +1,34 @@
+{
+  "verified_at": "2026-10-06T12:35:32.514869+00:00",
+  "intent_action": "search",
+  "answer_status": "answered",
+  "answer": "충전 중단은 차 안의 버튼만 한 번 누르는 방식이 아니에요. **도어 잠금 또는 잠금 해제 버튼을 누른 뒤, 15초 안에 충전 도어를 열고 ‘즉시 충전’ 버튼을 2초 이상 눌러주세요.** [S3]\n\n### 사용 방법\n1. 차량 도어의 잠금 또는 잠금 해제 버튼을 눌러주세요.\n2. 15초 이내에 충전 도어를 열어주세요.\n3. ‘즉시 충전’ 버튼을 2초 이상 눌러주세요. [S3]",
+  "retrieval": {
+    "method": "cosine_tfidf_rrf",
+    "top_k": 5,
+    "candidate_k": 50,
+    "rrf_constant": 60,
+    "weights": [
+      1,
+      1
+    ],
+    "tokenizer": "Kiwi noun len>1",
+    "lowercase": true,
+    "tfidf_norm": "l2",
+    "smooth_idf": true,
+    "sublinear_tf": false,
+    "lexical_positive_only": true,
+    "tie_break": "chunk_id ascending",
+    "tfidf_chunks": 2338,
+    "tfidf_corpus_sha256": "fdc9c28a6de6f22cf1c682e4c609a981e7c15fb1f0837557131c4b67f7bba1aa"
+  },
+  "source_count": 10,
+  "cited_labels": [
+    "S3"
+  ],
+  "tool_statuses": [
+    "ready"
+  ],
+  "db_read_only": true,
+  "chat_sessions_written": false
+}

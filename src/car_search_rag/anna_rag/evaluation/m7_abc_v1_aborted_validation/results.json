@@ -1,0 +1,4354 @@
+[
+  {
+    "id": "A01",
+    "section": "A",
+    "origin_ids": [
+      "G01",
+      "G02",
+      "G03"
+    ],
+    "question": "전기차 충전 방식",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_p013_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_011",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_012",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_013",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_04",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_05",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_06",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_07",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_08",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_04",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_p020_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_04",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_05",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0024_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0025_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0025_p024_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p029_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p030_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p030_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_text_002"
+    ],
+    "query_nouns": [
+      "전기",
+      "충전",
+      "방식"
+    ],
+    "query_vocabulary_terms": [
+      "방식",
+      "전기",
+      "충전"
+    ],
+    "tfidf_positive_documents": 415,
+    "metrics": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "top5": {
+      "cosine": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+          "rank": 1,
+          "section_id": "s0020_p018",
+          "chunk_type": "text",
+          "pdf_pages": [
+            19
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 완속 충전기 사용하기\n본문:\n1.\t충전 커넥터(차량 측)\n2.\t충전 플러그(충전기 측)\n\n완속 충전기로 충전하기\n1\t브레이크 페달을 밟은 상태로 주차 브레이크를 체결하십시오.\n2\t각종 전원 스위치를 끄고, 변속 다이얼의 P 버튼을 눌러 'P'(주차)로 변속한 후 시동을 끄십시오.\n3\t차량 도어의 잠금이 해제된 상태에서 충전 도어의 열림 표시부를 눌러 충전 도어를 여십시오.\n4\t충전 인렛 커버를 열고 충전 커넥터와 충전 인렛에 먼지 등 이물질이 있는지 확인하십시오.\n•\t이물질이 있는 경우 에어건을 사용해 제거하십시오.\n\n[경고]\n충전 케이블의 충전 커넥터나 차량의 충전 인렛을 손으로 만지지 마십시오.",
+          "cosine_similarity": 0.6655967043858912,
+          "tfidf_similarity": 0.4514829085337685,
+          "rrf_score": 0.028298204527712725,
+          "dense_rank": 1,
+          "tfidf_rank": 24,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3900963606634057
+            },
+            {
+              "term": "전기",
+              "contribution": 0.061386547870362816
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+          "rank": 2,
+          "section_id": "s0020_p018",
+          "chunk_type": "image",
+          "pdf_pages": [
+            19
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 완속 충전기 사용하기\n이미지 설명: 완속 충전기 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n확인하십시오.\n•\t충전 시 냄새나 연기 등 이상 증상이 발생하는 경우 즉시 충전을 중지하십시오.\n1.\t충전 커넥터(차량 측)\n2.\t충전 플러그(충전기 측)\n완속 충전기로 충전하기",
+          "cosine_similarity": 0.6610174221684733,
+          "tfidf_similarity": 0.4103177524077896,
+          "rrf_score": 0.02603002235707442,
+          "dense_rank": 2,
+          "tfidf_rank": 41,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3120939645189948
+            },
+            {
+              "term": "전기",
+              "contribution": 0.09822378788879484
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+          "rank": 3,
+          "section_id": "s0017_p011",
+          "chunk_type": "text",
+          "pdf_pages": [
+            11
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기\n본문:\n전기차 충전하기\n전기차의 충전과 관련된 상세 정보를 확인하고 차량을 충전하십시오.\n공공 충전소에서 완속 또는 급속 충전 케이블을 사용해 차량을 충전할 수 있습니다.\n•\t비상시 공공 충전소까지 차량을 이동할 수 없는 경우에는 휴대용 충전기를 사용해 일반 전원(AC 220 V)으\n로도 차량을 충전할 수 있습니다.\n•\t주변의 충전소 위치를 검색하려면 '충전소 검색 기능 사용하기'를 참고하십시오.",
+          "cosine_similarity": 0.6575655976246504,
+          "tfidf_similarity": 0.41195938151532274,
+          "rrf_score": 0.025873015873015874,
+          "dense_rank": 3,
+          "tfidf_rank": 40,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.26758799235830816
+            },
+            {
+              "term": "전기",
+              "contribution": 0.14437138915701456
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+          "rank": 4,
+          "section_id": "s0023_p024",
+          "chunk_type": "text",
+          "pdf_pages": [
+            24
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 예약 충전 기능 활용하기\n본문:\n예약 충전 기능 활용하기\n예약 충전 기능을 활용하면 저렴한 심야 전력을 이용해 다음 출발 시간까지 차량을 충전할 수 있습니다.\n[알아두기]\n예약 충전 기능은 완속 충전기 또는 휴대용 충전기로 충전하는 경우에만 사용할 수 있습니다. 자세한 설명은 '완\n속 충전기 사용하기'와 '휴대용 충전기(ICCB) 사용하기'를 참고하십시오.",
+          "cosine_similarity": 0.6554005045969764,
+          "tfidf_similarity": 0.32950255351209506,
+          "rrf_score": 0.015625,
+          "dense_rank": 4,
+          "tfidf_rank": 84,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.2594989846510211
+            },
+            {
+              "term": "전기",
+              "contribution": 0.07000356886107395
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+          "rank": 5,
+          "section_id": "s0019_p014",
+          "chunk_type": "text",
+          "pdf_pages": [
+            17
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n번호\t이름\t설명\n\n(1)\t고압 전기 경고 표시\t감전의 위험이 있는 장치를 표시합니다.\n\n주의해서 조작하지 않으면 인명피해,\n(2)\t경고/주의 기호\t부상 및 재산 손실이 발생할 위험이 있\n는 장치를 표시합니다.\n\n입력 전류의 유형(~, AC), 완속 충전\n(3)\t정격 전압 및 최대 충전 전류\t시 정격 전압 범위(V), 충전 전류(A)를\n표시합니다.\n\n충전 커넥터 잠금 모드 설정하기\n완속 충전 중 의도치 않게 충전 커넥터가 분리되는 것을 방지하려면, 인포테인먼트 시스템 홈 화면에서 Electri\nc Vehicle > Ĥ (EV 충전 설정) > 완속 충전 설정을 누른 후 상세 기능을 선택하십시오.\n•\t상시 잠금: 충전 커넥터가 차량에 정상 연결되면 항상 자동으로 잠깁니다.",
+          "cosine_similarity": 0.6545619872895367,
+          "tfidf_similarity": 0.4567820924599524,
+          "rrf_score": 0.027579737335834898,
+          "dense_rank": 5,
+          "tfidf_rank": 22,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.34003551687311917
+            },
+            {
+              "term": "전기",
+              "contribution": 0.11674657558683317
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "tfidf": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_02",
+          "rank": 1,
+          "section_id": "s0019_p014",
+          "chunk_type": "image",
+          "pdf_pages": [
+            16
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n이미지 설명: 전기차 충전 정보 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n충전 표시등\t충전량\n0–24 %\n25–49 %\n50–74 %\n75–100 %",
+          "cosine_similarity": 0.6116071481159188,
+          "tfidf_similarity": 0.6166874470017942,
+          "rrf_score": 0.027031740495291244,
+          "dense_rank": 34,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.35132077360063946
+            },
+            {
+              "term": "전기",
+              "contribution": 0.2653666734011547
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_03",
+          "rank": 2,
+          "section_id": "s0019_p014",
+          "chunk_type": "image",
+          "pdf_pages": [
+            16
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n이미지 설명: 전기차 충전 정보 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n충전 표시등\t충전량\n0–24 %\n25–49 %\n50–74 %\n75–100 %",
+          "cosine_similarity": 0.6116071481159188,
+          "tfidf_similarity": 0.6166874470017942,
+          "rrf_score": 0.026881720430107527,
+          "dense_rank": 33,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.35132077360063946
+            },
+            {
+              "term": "전기",
+              "contribution": 0.2653666734011547
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_01",
+          "rank": 3,
+          "section_id": "s0019_p014",
+          "chunk_type": "image",
+          "pdf_pages": [
+            16
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n이미지 설명: 전기차 충전 정보 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n•\t0-100 %까지의 충전 상태가 4단계로 표시됩니다.\n충전 표시등\t충전량\n0–24 %\n25–49 %\n50–74 %",
+          "cosine_similarity": 0.6012217328601813,
+          "tfidf_similarity": 0.6119467718170668,
+          "rrf_score": 0.025306978137166813,
+          "dense_rank": 46,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3755541660954689
+            },
+            {
+              "term": "전기",
+              "contribution": 0.23639260572159798
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+          "rank": 4,
+          "section_id": "s0019_p014",
+          "chunk_type": "text",
+          "pdf_pages": [
+            14
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n전기차 충전 정보 확인하기\n차량을 충전하기 전에 반드시 알아야 하는 정보를 확인하고 숙지하십시오.\n\n충전 방식과 소요 시간\n전기차의 충전 방식은 다음과 같습니다.\n•\t완속 충전: 공공 충전소의 완속 충전기를 이용해 충전하십시오. 완속 충전 케이블(별매품)이 필요할 수 있습\n니다.\n•\t급속 충전: 공공 충전소의 급속 충전기를 이용해 충전하십시오. 급속 충전기의 사용 방법은 각 급속 충전기\n설치 회사에서 제공하는 별도 사용설명서를 참고하십시오.\n•\t휴대용 충전: 배터리 충전량이 적어 공공 충전소까지 이동하기 어려운 경우, 220 V 휴대용 충전기(별매품)\n를 이용해 가정용 전기로 차량을 충전할 수 있습니다.\n\n[주의]",
+          "cosine_similarity": 0.6481054880773427,
+          "tfidf_similarity": 0.5798072972337927,
+          "rrf_score": 0.030330882352941176,
+          "dense_rank": 8,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3739681078406838
+            },
+            {
+              "term": "전기",
+              "contribution": 0.12462049122438908
+            },
+            {
+              "term": "방식",
+              "contribution": 0.08121869816871978
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_07",
+          "rank": 5,
+          "section_id": "s0019_p014",
+          "chunk_type": "image",
+          "pdf_pages": [
+            16
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n이미지 설명: 전기차 충전 정보 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n1\t전면 범퍼 중앙의 충전 표시등을 참고해 충전 상태를 확인하십시오.\n•\t0-100 %까지의 충전 상태가 5단계로 표시됩니다.\n충전 표시등\t충전량\n0–24 %\n25–49 %",
+          "cosine_similarity": 0.5970710762099805,
+          "tfidf_similarity": 0.5786176534596235,
+          "rrf_score": 0.024643874643874644,
+          "dense_rank": 48,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3930592612877693
+            },
+            {
+              "term": "전기",
+              "contribution": 0.18555839217185413
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "hybrid": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+          "rank": 1,
+          "section_id": "s0019_p014",
+          "chunk_type": "text",
+          "pdf_pages": [
+            14
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n전기차 충전 정보 확인하기\n차량을 충전하기 전에 반드시 알아야 하는 정보를 확인하고 숙지하십시오.\n\n충전 방식과 소요 시간\n전기차의 충전 방식은 다음과 같습니다.\n•\t완속 충전: 공공 충전소의 완속 충전기를 이용해 충전하십시오. 완속 충전 케이블(별매품)이 필요할 수 있습\n니다.\n•\t급속 충전: 공공 충전소의 급속 충전기를 이용해 충전하십시오. 급속 충전기의 사용 방법은 각 급속 충전기\n설치 회사에서 제공하는 별도 사용설명서를 참고하십시오.\n•\t휴대용 충전: 배터리 충전량이 적어 공공 충전소까지 이동하기 어려운 경우, 220 V 휴대용 충전기(별매품)\n를 이용해 가정용 전기로 차량을 충전할 수 있습니다.\n\n[주의]",
+          "cosine_similarity": 0.6481054880773427,
+          "tfidf_similarity": 0.5798072972337927,
+          "rrf_score": 0.030330882352941176,
+          "dense_rank": 8,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3739681078406838
+            },
+            {
+              "term": "전기",
+              "contribution": 0.12462049122438908
+            },
+            {
+              "term": "방식",
+              "contribution": 0.08121869816871978
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+          "rank": 2,
+          "section_id": "s0019_p014",
+          "chunk_type": "text",
+          "pdf_pages": [
+            18
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n[주의]\n\n충전 커넥터를 강제로 분리하지 마십시오. 충전 커넥터 및 차량의 충전 인렛이 파손될 수 있습니다.",
+          "cosine_similarity": 0.6475408565956641,
+          "tfidf_similarity": 0.558989171487202,
+          "rrf_score": 0.02919863597612958,
+          "dense_rank": 9,
+          "tfidf_rank": 8,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3568384019269829
+            },
+            {
+              "term": "전기",
+              "contribution": 0.20215076956021902
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+          "rank": 3,
+          "section_id": "s0020_p018",
+          "chunk_type": "text",
+          "pdf_pages": [
+            19
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 완속 충전기 사용하기\n본문:\n1.\t충전 커넥터(차량 측)\n2.\t충전 플러그(충전기 측)\n\n완속 충전기로 충전하기\n1\t브레이크 페달을 밟은 상태로 주차 브레이크를 체결하십시오.\n2\t각종 전원 스위치를 끄고, 변속 다이얼의 P 버튼을 눌러 'P'(주차)로 변속한 후 시동을 끄십시오.\n3\t차량 도어의 잠금이 해제된 상태에서 충전 도어의 열림 표시부를 눌러 충전 도어를 여십시오.\n4\t충전 인렛 커버를 열고 충전 커넥터와 충전 인렛에 먼지 등 이물질이 있는지 확인하십시오.\n•\t이물질이 있는 경우 에어건을 사용해 제거하십시오.\n\n[경고]\n충전 케이블의 충전 커넥터나 차량의 충전 인렛을 손으로 만지지 마십시오.",
+          "cosine_similarity": 0.6655967043858912,
+          "tfidf_similarity": 0.4514829085337685,
+          "rrf_score": 0.028298204527712725,
+          "dense_rank": 1,
+          "tfidf_rank": 24,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.3900963606634057
+            },
+            {
+              "term": "전기",
+              "contribution": 0.061386547870362816
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+          "rank": 4,
+          "section_id": "s0019_p014",
+          "chunk_type": "text",
+          "pdf_pages": [
+            17
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n번호\t이름\t설명\n\n(1)\t고압 전기 경고 표시\t감전의 위험이 있는 장치를 표시합니다.\n\n주의해서 조작하지 않으면 인명피해,\n(2)\t경고/주의 기호\t부상 및 재산 손실이 발생할 위험이 있\n는 장치를 표시합니다.\n\n입력 전류의 유형(~, AC), 완속 충전\n(3)\t정격 전압 및 최대 충전 전류\t시 정격 전압 범위(V), 충전 전류(A)를\n표시합니다.\n\n충전 커넥터 잠금 모드 설정하기\n완속 충전 중 의도치 않게 충전 커넥터가 분리되는 것을 방지하려면, 인포테인먼트 시스템 홈 화면에서 Electri\nc Vehicle > Ĥ (EV 충전 설정) > 완속 충전 설정을 누른 후 상세 기능을 선택하십시오.\n•\t상시 잠금: 충전 커넥터가 차량에 정상 연결되면 항상 자동으로 잠깁니다.",
+          "cosine_similarity": 0.6545619872895367,
+          "tfidf_similarity": 0.4567820924599524,
+          "rrf_score": 0.027579737335834898,
+          "dense_rank": 5,
+          "tfidf_rank": 22,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.34003551687311917
+            },
+            {
+              "term": "전기",
+              "contribution": 0.11674657558683317
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_02",
+          "rank": 5,
+          "section_id": "s0019_p014",
+          "chunk_type": "image",
+          "pdf_pages": [
+            16
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n이미지 설명: 전기차 충전 정보 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n충전 표시등\t충전량\n0–24 %\n25–49 %\n50–74 %\n75–100 %",
+          "cosine_similarity": 0.6116071481159188,
+          "tfidf_similarity": 0.6166874470017942,
+          "rrf_score": 0.027031740495291244,
+          "dense_rank": 34,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "충전",
+              "contribution": 0.35132077360063946
+            },
+            {
+              "term": "전기",
+              "contribution": 0.2653666734011547
+            }
+          ],
+          "relevant": true
+        }
+      ]
+    },
+    "candidate_hit": {
+      "cosine": 1,
+      "tfidf": 1
+    },
+    "union_candidate_hit": 1,
+    "gold_ranks": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+        "cosine": 3,
+        "tfidf": 40,
+        "hybrid": 11
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_p013_image_01",
+        "cosine": 72,
+        "tfidf": 63,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_001",
+        "cosine": 92,
+        "tfidf": 46,
+        "hybrid": 61
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_002",
+        "cosine": 58,
+        "tfidf": 51,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_003",
+        "cosine": 67,
+        "tfidf": 29,
+        "hybrid": 50
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_004",
+        "cosine": 31,
+        "tfidf": 36,
+        "hybrid": 34
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_005",
+        "cosine": 45,
+        "tfidf": 37,
+        "hybrid": 36
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_006",
+        "cosine": 88,
+        "tfidf": 94,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_007",
+        "cosine": 66,
+        "tfidf": 60,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_008",
+        "cosine": 105,
+        "tfidf": 19,
+        "hybrid": 42
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+        "cosine": 107,
+        "tfidf": 142,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_010",
+        "cosine": 75,
+        "tfidf": 50,
+        "hybrid": 63
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_011",
+        "cosine": 65,
+        "tfidf": 14,
+        "hybrid": 39
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_012",
+        "cosine": 95,
+        "tfidf": 81,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_013",
+        "cosine": 85,
+        "tfidf": 124,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_01",
+        "cosine": 46,
+        "tfidf": 3,
+        "hybrid": 14
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_02",
+        "cosine": 34,
+        "tfidf": 1,
+        "hybrid": 5
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_03",
+        "cosine": 33,
+        "tfidf": 2,
+        "hybrid": 6
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_04",
+        "cosine": 17,
+        "tfidf": 13,
+        "hybrid": 8
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_05",
+        "cosine": 22,
+        "tfidf": 15,
+        "hybrid": 12
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_06",
+        "cosine": 44,
+        "tfidf": 7,
+        "hybrid": 18
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_07",
+        "cosine": 48,
+        "tfidf": 5,
+        "hybrid": 16
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_08",
+        "cosine": 47,
+        "tfidf": 6,
+        "hybrid": 20
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_01",
+        "cosine": 39,
+        "tfidf": 9,
+        "hybrid": 17
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_02",
+        "cosine": 38,
+        "tfidf": 10,
+        "hybrid": 22
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_03",
+        "cosine": 37,
+        "tfidf": 11,
+        "hybrid": 24
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_04",
+        "cosine": 53,
+        "tfidf": 35,
+        "hybrid": 55
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+        "cosine": 49,
+        "tfidf": 18,
+        "hybrid": 30
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+        "cosine": 8,
+        "tfidf": 4,
+        "hybrid": 1
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_002",
+        "cosine": 42,
+        "tfidf": 17,
+        "hybrid": 27
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_003",
+        "cosine": 20,
+        "tfidf": 38,
+        "hybrid": 28
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_004",
+        "cosine": 77,
+        "tfidf": 21,
+        "hybrid": 44
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_005",
+        "cosine": 29,
+        "tfidf": 16,
+        "hybrid": 23
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+        "cosine": 5,
+        "tfidf": 22,
+        "hybrid": 4
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_007",
+        "cosine": 18,
+        "tfidf": 27,
+        "hybrid": 25
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+        "cosine": 21,
+        "tfidf": 68,
+        "hybrid": 45
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+        "cosine": 55,
+        "tfidf": 102,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+        "cosine": 9,
+        "tfidf": 8,
+        "hybrid": 2
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+        "cosine": 2,
+        "tfidf": 41,
+        "hybrid": 10
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+        "cosine": 6,
+        "tfidf": 47,
+        "hybrid": 21
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+        "cosine": 32,
+        "tfidf": 87,
+        "hybrid": 51
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+        "cosine": 1,
+        "tfidf": 24,
+        "hybrid": 3
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_004",
+        "cosine": 52,
+        "tfidf": 34,
+        "hybrid": 54
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_005",
+        "cosine": 12,
+        "tfidf": 66,
+        "hybrid": 38
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_006",
+        "cosine": 26,
+        "tfidf": 39,
+        "hybrid": 32
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_007",
+        "cosine": 7,
+        "tfidf": 25,
+        "hybrid": 7
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0021_p020_p020_image_01",
+        "cosine": 43,
+        "tfidf": 64,
+        "hybrid": 59
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_001",
+        "cosine": 25,
+        "tfidf": 43,
+        "hybrid": 33
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002",
+        "cosine": 10,
+        "tfidf": 23,
+        "hybrid": 9
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_003",
+        "cosine": 36,
+        "tfidf": 26,
+        "hybrid": 29
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_004",
+        "cosine": 16,
+        "tfidf": 53,
+        "hybrid": 41
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_01",
+        "cosine": 61,
+        "tfidf": 55,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_02",
+        "cosine": 74,
+        "tfidf": 70,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_03",
+        "cosine": 60,
+        "tfidf": 80,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_04",
+        "cosine": 80,
+        "tfidf": 180,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_05",
+        "cosine": 79,
+        "tfidf": 62,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_001",
+        "cosine": 70,
+        "tfidf": 74,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_002",
+        "cosine": 104,
+        "tfidf": 128,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_003",
+        "cosine": 59,
+        "tfidf": 49,
+        "hybrid": 62
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_004",
+        "cosine": 41,
+        "tfidf": 92,
+        "hybrid": 57
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_005",
+        "cosine": 69,
+        "tfidf": 138,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_006",
+        "cosine": 64,
+        "tfidf": 113,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_007",
+        "cosine": 68,
+        "tfidf": 83,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_008",
+        "cosine": 51,
+        "tfidf": 59,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_009",
+        "cosine": 30,
+        "tfidf": 44,
+        "hybrid": 35
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_010",
+        "cosine": 11,
+        "tfidf": 28,
+        "hybrid": 13
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+        "cosine": 4,
+        "tfidf": 84,
+        "hybrid": 37
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_002",
+        "cosine": 19,
+        "tfidf": 48,
+        "hybrid": 31
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_003",
+        "cosine": 14,
+        "tfidf": 31,
+        "hybrid": 19
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0024_p024_text_001",
+        "cosine": 13,
+        "tfidf": 30,
+        "hybrid": 15
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0025_p024_text_001",
+        "cosine": 54,
+        "tfidf": 42,
+        "hybrid": 58
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0025_p024_text_002",
+        "cosine": 50,
+        "tfidf": 78,
+        "hybrid": 64
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p029_image_02",
+        "cosine": 27,
+        "tfidf": 65,
+        "hybrid": 48
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p030_image_01",
+        "cosine": 23,
+        "tfidf": 56,
+        "hybrid": 46
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p030_image_02",
+        "cosine": 24,
+        "tfidf": 57,
+        "hybrid": 47
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0030_p029_text_001",
+        "cosine": 35,
+        "tfidf": 54,
+        "hybrid": 56
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0030_p029_text_002",
+        "cosine": 15,
+        "tfidf": 61,
+        "hybrid": 40
+      }
+    ]
+  },
+  {
+    "id": "A02",
+    "section": "A",
+    "origin_ids": [
+      "G09",
+      "G10"
+    ],
+    "question": "스마트 키",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0170_p157_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0172_p158_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0173_p158_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0175_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0176_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_p160_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0179_p161_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0179_p161_text_002"
+    ],
+    "query_nouns": [
+      "스마트"
+    ],
+    "query_vocabulary_terms": [
+      "스마트"
+    ],
+    "tfidf_positive_documents": 342,
+    "metrics": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "top5": {
+      "cosine": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+          "rank": 1,
+          "section_id": "s0169_p157",
+          "chunk_type": "image",
+          "pdf_pages": [
+            157
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기\n이미지 설명: 스마트 키 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n스마트 키 사용하기\n스마트 키를 이용해 보다 편리하게 차량 기능을 활용할 수 있습니다.\n1.\tƗ 비상 경보\n2.\tď 도어 잠금 해제\n3.\tĎ 도어 잠금",
+          "cosine_similarity": 0.5511847079405354,
+          "tfidf_similarity": 0.5765420301066995,
+          "rrf_score": 0.031544957774465976,
+          "dense_rank": 1,
+          "tfidf_rank": 6,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.5765420301066995
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+          "rank": 2,
+          "section_id": "s0169_p157",
+          "chunk_type": "text",
+          "pdf_pages": [
+            157
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기\n본문:\n스마트 키 사용하기\n스마트 키를 이용해 보다 편리하게 차량 기능을 활용할 수 있습니다.\n\n1.\tƗ 비상 경보\n2.\tď 도어 잠금 해제\n3.\tĎ 도어 잠금\n4.\tƙ 원격 시동\n5.\tû 테일게이트 잠금 해제/열림\n6.\tĒ / ē 원격 전후진(사양 적용 시)",
+          "cosine_similarity": 0.5404904088269585,
+          "tfidf_similarity": 0.38621933829784444,
+          "rrf_score": 0.025388291517323774,
+          "dense_rank": 2,
+          "tfidf_rank": 48,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.38621933829784444
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+          "rank": 3,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n•\t스마트 키에 열쇠 고리 등 임의의 액세서리를 연결한 상태로 주머니, 가방 등에 보관하는 경우 의도치 않게\n스마트 키 버튼이 눌릴 수 있으므로 주의하십시오.\n•\t다음과 같은 경우 전파 방해로 인해 스마트 키 기능이 작동하지 않거나 작동 거리가 짧아질 수 있습니다.\n-\t경찰서, 관공서, 방송국, 군부대, 송신탑, 공항, 항구 등 시설 근처에서 스마트 키를 사용하는 경우\n-\t스마트 키를 무전기, 스마트폰, 휴대용 충전기를 포함하는 이동 송수신 시스템과 함께 휴대하거나 전열 장\n치 옆에서 사용하는 경우\n-\t근처의 다른 차량에서 스마트 키를 사용하고 있는 경우\n-\t스마트 키를 다용도 소켓에 연결된 외부 기기 근처에 둔 경우",
+          "cosine_similarity": 0.5155351400881035,
+          "tfidf_similarity": 0.5246872473898371,
+          "rrf_score": 0.029957522915269395,
+          "dense_rank": 3,
+          "tfidf_rank": 11,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.5246872473898371
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+          "rank": 4,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n-\t근처의 다른 차량에서 스마트 키를 사용하고 있는 경우\n-\t스마트 키를 다용도 소켓에 연결된 외부 기기 근처에 둔 경우\n•\t스마트 키가 작동하지 않는 경우 비상 키를 사용해 도어를 잠그거나 잠금을 해제하십시오.\n•\t스마트 키를 휴대하거나 차 안에 둔 상태로 시동을 걸 수 없는 경우, 스마트 키로 시동 버튼을 직접 누르십시\n오.\n•\t스마트 키로 시동 버튼을 눌러도 시동이 켜지지 않는 경우 당사 직영 하이테크센터나 블루핸즈에 문의해 차\n량을 점검 및 정비하십시오.\n•\t차량 유리창에 선팅 필름을 부착하는 경우, 주파수 수신율이 낮아져 스마트 키 작동 거리가 줄어들 수 있으며,\n금속성 선팅 필름을 부착하는 경우에는 주파수 수신율이 더욱 낮아질 수 있습니다.",
+          "cosine_similarity": 0.5153352345535193,
+          "tfidf_similarity": 0.5499075243704369,
+          "rrf_score": 0.030117753623188408,
+          "dense_rank": 4,
+          "tfidf_rank": 9,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.5499075243704369
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+          "rank": 5,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n스마트 키 사용 시 주의사항\n•\t스마트 키를 항시 휴대하십시오.\n-\t스마트 키를 차량 근처에 두면 차량의 배터리가 방전될 수 있으므로 주의하십시오.\n-\t스마트 키가 없으면 차량의 시동을 걸 수 없습니다. 스마트 키를 분실한 경우, 당사 직영 하이테크센터나\n블루핸즈로 차량을 견인한 후 조치하십시오.\n•\t스마트 키는 완전 방수가 되지 않기 때문에 내부에 습기가 차거나 음료수 등의 액체가 유입되지 않도록 하십\n시오. 또한 가열하는 등 부적절한 취급을 삼가십시오. 내부 회로가 손상되어 스마트 키가 오작동할 수 있으며,\n이 경우에는 보증수리를 받을 수 없습니다.\n•\t스마트 키에 열쇠 고리 등 임의의 액세서리를 연결한 상태로 주머니, 가방 등에 보관하는 경우 의도치 않게",
+          "cosine_similarity": 0.5107085225542474,
+          "tfidf_similarity": 0.6459095824851097,
+          "rrf_score": 0.03125763125763126,
+          "dense_rank": 5,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6459095824851097
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "tfidf": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_004",
+          "rank": 1,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n금속성 선팅 필름을 부착하는 경우에는 주파수 수신율이 더욱 낮아질 수 있습니다.\n•\t차량 내 일부 영역에서 스마트 키가 인식되지 않을 수 있습니다. 이런 경우, 스마트 키를 다른 위치로 이동한\n후 시동을 걸거나 스마트 키로 시동 버튼을 직접 눌러 시동을 거십시오.\n•\t일정 시간 동안 스마트 키의 움직임이 감지되지 않는 경우 스마트 키 작동을 위한 차량의 감지 기능이 일시\n중지될 수 있습니다. 이런 경우, 스마트 키를 들면 감지 기능이 다시 작동합니다.\n•\t스마트 키에 문제가 발생한 경우, 비상 키로 도어를 열고 스마트 키로 시동 버튼을 직접 눌러 시동을 걸고, 가\n급적 빨리 당사 직영 하이테크센터나 블루핸즈에서 차량을 점검하십시오.",
+          "cosine_similarity": 0.4613306679289488,
+          "tfidf_similarity": 0.6856387983502945,
+          "rrf_score": 0.03028233151183971,
+          "dense_rank": 12,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6856387983502945
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005",
+          "rank": 2,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            161
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n•\t한 대의 차량에는 최대 2개의 스마트 키를 등록할 수 있습니다. 스마트 키를 분실한 경우, 도난 및 무단 침입\n등의 사고를 방지하려면 가급적 빨리 다른 키를 이용해 가까운 당사 직영 하이테크센터나 블루핸즈를 방문\n한 후 새 스마트 키를 등록하십시오.\n•\t반드시 스마트 키의 배터리는 극성에 맞게 삽입한 상태로 사용해 주십시오. 그렇지 않으면 스마트 키 고장의\n원인이 되거나 스마트 키 배터리가 조기 방전될 수 있습니다.",
+          "cosine_similarity": 0.48087783241287135,
+          "tfidf_similarity": 0.6667537099182428,
+          "rrf_score": 0.0304147465437788,
+          "dense_rank": 10,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6667537099182428
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+          "rank": 3,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n스마트 키 사용 시 주의사항\n•\t스마트 키를 항시 휴대하십시오.\n-\t스마트 키를 차량 근처에 두면 차량의 배터리가 방전될 수 있으므로 주의하십시오.\n-\t스마트 키가 없으면 차량의 시동을 걸 수 없습니다. 스마트 키를 분실한 경우, 당사 직영 하이테크센터나\n블루핸즈로 차량을 견인한 후 조치하십시오.\n•\t스마트 키는 완전 방수가 되지 않기 때문에 내부에 습기가 차거나 음료수 등의 액체가 유입되지 않도록 하십\n시오. 또한 가열하는 등 부적절한 취급을 삼가십시오. 내부 회로가 손상되어 스마트 키가 오작동할 수 있으며,\n이 경우에는 보증수리를 받을 수 없습니다.\n•\t스마트 키에 열쇠 고리 등 임의의 액세서리를 연결한 상태로 주머니, 가방 등에 보관하는 경우 의도치 않게",
+          "cosine_similarity": 0.5107085225542474,
+          "tfidf_similarity": 0.6459095824851097,
+          "rrf_score": 0.03125763125763126,
+          "dense_rank": 5,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6459095824851097
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+          "rank": 4,
+          "section_id": "s0177_p159",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 배터리 교체하기\n본문:\n1\t스마트 키 옆면의 홈(1)에 부드러운 천을 대고 일자 드라이버(-)를 이용해 스마트 키 커버를 분리하십시오(2\n).\n2\t사용한 배터리를 제거하고 극성(+/-)에 주의하며 새 배터리를 삽입하십시오. 극성이 맞지 않게 삽입하면 배\n터리가 방전되어 스마트 키를 사용할 수 없습니다.\n3\t스마트 키 커버를 닫고 가장자리를 눌러 완전히 결합하십시오.\n4\t스마트 키가 정상적으로 작동하는지 확인하십시오.",
+          "cosine_similarity": 0.49676348161490574,
+          "tfidf_similarity": 0.6055013911624083,
+          "rrf_score": 0.03055037313432836,
+          "dense_rank": 7,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6055013911624083
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0239_p233_text_003",
+          "rank": 5,
+          "section_id": "s0239_p233",
+          "chunk_type": "text",
+          "pdf_pages": [
+            233
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 테일게이트 사용하기 > 스마트 테일게이트 작동하기\n본문:\n게이트 기능이 자동으로 해제됩니다.\n•\t차량 안에 스마트 키가 있는 동안에는 스마트 테일게이트 기능이 작동하지 않습니다.",
+          "cosine_similarity": 0.3709271366674149,
+          "tfidf_similarity": 0.5833228971387305,
+          "rrf_score": 0.015384615384615385,
+          "dense_rank": 82,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.5833228971387305
+            }
+          ],
+          "relevant": false
+        }
+      ],
+      "hybrid": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+          "rank": 1,
+          "section_id": "s0169_p157",
+          "chunk_type": "image",
+          "pdf_pages": [
+            157
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기\n이미지 설명: 스마트 키 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n스마트 키 사용하기\n스마트 키를 이용해 보다 편리하게 차량 기능을 활용할 수 있습니다.\n1.\tƗ 비상 경보\n2.\tď 도어 잠금 해제\n3.\tĎ 도어 잠금",
+          "cosine_similarity": 0.5511847079405354,
+          "tfidf_similarity": 0.5765420301066995,
+          "rrf_score": 0.031544957774465976,
+          "dense_rank": 1,
+          "tfidf_rank": 6,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.5765420301066995
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+          "rank": 2,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n스마트 키 사용 시 주의사항\n•\t스마트 키를 항시 휴대하십시오.\n-\t스마트 키를 차량 근처에 두면 차량의 배터리가 방전될 수 있으므로 주의하십시오.\n-\t스마트 키가 없으면 차량의 시동을 걸 수 없습니다. 스마트 키를 분실한 경우, 당사 직영 하이테크센터나\n블루핸즈로 차량을 견인한 후 조치하십시오.\n•\t스마트 키는 완전 방수가 되지 않기 때문에 내부에 습기가 차거나 음료수 등의 액체가 유입되지 않도록 하십\n시오. 또한 가열하는 등 부적절한 취급을 삼가십시오. 내부 회로가 손상되어 스마트 키가 오작동할 수 있으며,\n이 경우에는 보증수리를 받을 수 없습니다.\n•\t스마트 키에 열쇠 고리 등 임의의 액세서리를 연결한 상태로 주머니, 가방 등에 보관하는 경우 의도치 않게",
+          "cosine_similarity": 0.5107085225542474,
+          "tfidf_similarity": 0.6459095824851097,
+          "rrf_score": 0.03125763125763126,
+          "dense_rank": 5,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6459095824851097
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+          "rank": 3,
+          "section_id": "s0177_p159",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 배터리 교체하기\n본문:\n1\t스마트 키 옆면의 홈(1)에 부드러운 천을 대고 일자 드라이버(-)를 이용해 스마트 키 커버를 분리하십시오(2\n).\n2\t사용한 배터리를 제거하고 극성(+/-)에 주의하며 새 배터리를 삽입하십시오. 극성이 맞지 않게 삽입하면 배\n터리가 방전되어 스마트 키를 사용할 수 없습니다.\n3\t스마트 키 커버를 닫고 가장자리를 눌러 완전히 결합하십시오.\n4\t스마트 키가 정상적으로 작동하는지 확인하십시오.",
+          "cosine_similarity": 0.49676348161490574,
+          "tfidf_similarity": 0.6055013911624083,
+          "rrf_score": 0.03055037313432836,
+          "dense_rank": 7,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6055013911624083
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005",
+          "rank": 4,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            161
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n•\t한 대의 차량에는 최대 2개의 스마트 키를 등록할 수 있습니다. 스마트 키를 분실한 경우, 도난 및 무단 침입\n등의 사고를 방지하려면 가급적 빨리 다른 키를 이용해 가까운 당사 직영 하이테크센터나 블루핸즈를 방문\n한 후 새 스마트 키를 등록하십시오.\n•\t반드시 스마트 키의 배터리는 극성에 맞게 삽입한 상태로 사용해 주십시오. 그렇지 않으면 스마트 키 고장의\n원인이 되거나 스마트 키 배터리가 조기 방전될 수 있습니다.",
+          "cosine_similarity": 0.48087783241287135,
+          "tfidf_similarity": 0.6667537099182428,
+          "rrf_score": 0.0304147465437788,
+          "dense_rank": 10,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6667537099182428
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_004",
+          "rank": 5,
+          "section_id": "s0178_p160",
+          "chunk_type": "text",
+          "pdf_pages": [
+            160
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n금속성 선팅 필름을 부착하는 경우에는 주파수 수신율이 더욱 낮아질 수 있습니다.\n•\t차량 내 일부 영역에서 스마트 키가 인식되지 않을 수 있습니다. 이런 경우, 스마트 키를 다른 위치로 이동한\n후 시동을 걸거나 스마트 키로 시동 버튼을 직접 눌러 시동을 거십시오.\n•\t일정 시간 동안 스마트 키의 움직임이 감지되지 않는 경우 스마트 키 작동을 위한 차량의 감지 기능이 일시\n중지될 수 있습니다. 이런 경우, 스마트 키를 들면 감지 기능이 다시 작동합니다.\n•\t스마트 키에 문제가 발생한 경우, 비상 키로 도어를 열고 스마트 키로 시동 버튼을 직접 눌러 시동을 걸고, 가\n급적 빨리 당사 직영 하이테크센터나 블루핸즈에서 차량을 점검하십시오.",
+          "cosine_similarity": 0.4613306679289488,
+          "tfidf_similarity": 0.6856387983502945,
+          "rrf_score": 0.03028233151183971,
+          "dense_rank": 12,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "스마트",
+              "contribution": 0.6856387983502945
+            }
+          ],
+          "relevant": true
+        }
+      ]
+    },
+    "candidate_hit": {
+      "cosine": 1,
+      "tfidf": 1
+    },
+    "union_candidate_hit": 1,
+    "gold_ranks": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+        "cosine": 1,
+        "tfidf": 6,
+        "hybrid": 1
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+        "cosine": 2,
+        "tfidf": 48,
+        "hybrid": 12
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_002",
+        "cosine": 16,
+        "tfidf": 65,
+        "hybrid": 25
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0170_p157_text_001",
+        "cosine": 20,
+        "tfidf": 103,
+        "hybrid": 31
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_001",
+        "cosine": 18,
+        "tfidf": 210,
+        "hybrid": 28
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_002",
+        "cosine": 26,
+        "tfidf": 263,
+        "hybrid": 40
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_003",
+        "cosine": 48,
+        "tfidf": 270,
+        "hybrid": 79
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0172_p158_text_001",
+        "cosine": 32,
+        "tfidf": 205,
+        "hybrid": 49
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0173_p158_text_001",
+        "cosine": 19,
+        "tfidf": 216,
+        "hybrid": 30
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_001",
+        "cosine": 33,
+        "tfidf": 208,
+        "hybrid": 51
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_002",
+        "cosine": 21,
+        "tfidf": 91,
+        "hybrid": 32
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0175_p159_text_001",
+        "cosine": 39,
+        "tfidf": 58,
+        "hybrid": 63
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0176_p159_text_001",
+        "cosine": 6,
+        "tfidf": 92,
+        "hybrid": 20
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_p160_image_01",
+        "cosine": 8,
+        "tfidf": 7,
+        "hybrid": 8
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+        "cosine": 9,
+        "tfidf": 59,
+        "hybrid": 22
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_002",
+        "cosine": 17,
+        "tfidf": 172,
+        "hybrid": 26
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+        "cosine": 7,
+        "tfidf": 4,
+        "hybrid": 3
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+        "cosine": 5,
+        "tfidf": 3,
+        "hybrid": 2
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+        "cosine": 3,
+        "tfidf": 11,
+        "hybrid": 7
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+        "cosine": 4,
+        "tfidf": 9,
+        "hybrid": 6
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_004",
+        "cosine": 12,
+        "tfidf": 1,
+        "hybrid": 5
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005",
+        "cosine": 10,
+        "tfidf": 2,
+        "hybrid": 4
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0179_p161_text_001",
+        "cosine": 22,
+        "tfidf": 280,
+        "hybrid": 34
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0179_p161_text_002",
+        "cosine": 13,
+        "tfidf": 291,
+        "hybrid": 23
+      }
+    ]
+  },
+  {
+    "id": "A03",
+    "section": "A",
+    "origin_ids": [
+      "G13",
+      "G14",
+      "G15"
+    ],
+    "question": "파워 테일게이트",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p228_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p228_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p229_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0233_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0233_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0236_p231_p231_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0236_p231_text_001"
+    ],
+    "query_nouns": [
+      "파워",
+      "테일게이트"
+    ],
+    "query_vocabulary_terms": [
+      "테일게이트",
+      "파워"
+    ],
+    "tfidf_positive_documents": 118,
+    "metrics": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "top5": {
+      "cosine": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+          "rank": 1,
+          "section_id": "s0231_p225",
+          "chunk_type": "image",
+          "pdf_pages": [
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n이미지 설명: 파워 테일게이트 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n•\t테일게이트를 안전하게 열거나 닫을 수 있도록 차량 주변에 최소 여유 공간을 확보하십시오. 최소 공간이 확\n보되지 않은 상태로 테일게이트를 작동하면 테일게이트가 주변의 벽, 천장, 차랑 등에 부딪혀 손상될 수 있으\n며, 주변 사람에게 부상을 입힐 수도 있습니다.\n•\t파워 테일게이트가 정상적으로 작동하지 않아 수동으로 작동해야 하는 경우 무리한 힘을 가하지 마십시오.\n파워 테일게이트가 손상될 수 있습니다.",
+          "cosine_similarity": 0.5445562523868231,
+          "tfidf_similarity": 0.7335463670009728,
+          "rrf_score": 0.03028233151183971,
+          "dense_rank": 1,
+          "tfidf_rank": 12,
+          "matched_terms": [
+            {
+              "term": "테일게이트",
+              "contribution": 0.41205298150149583
+            },
+            {
+              "term": "파워",
+              "contribution": 0.321493385499477
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+          "rank": 2,
+          "section_id": "s0234_p229",
+          "chunk_type": "text",
+          "pdf_pages": [
+            229
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 설정하기\n본문:\n파워 테일게이트 설정하기\n파워 테일게이트는 해당 기능이 설정된 경우에만 작동합니다. 파워 테일게이트 기능을 원하지 않을 경우에는 설\n정을 해제하십시오.\n\n열림/닫힘 속도 설정하기\n인포테인먼트 시스템의 설정 > 차량 > 도어 > 파워 테일게이트 열림 속도에서 열림/닫힘 속도를 선택하십시\n오.\n선택할 수 있는 옵션은 다음과 같습니다.\n•\t보통/ 빠르게(기본설정)\n\n열림 높이 설정하기\n인포테인먼트 시스템의 설정 > 차량 > 도어 > 파워 테일게이트 열림 높이에서 열림 높이를 선택하십시오.\n•\t완전 열림/ 3단계/ 2단계/ 1단계/ 사용자 높이 설정",
+          "cosine_similarity": 0.5344293091784924,
+          "tfidf_similarity": 0.752166756426595,
+          "rrf_score": 0.030621785881252923,
+          "dense_rank": 2,
+          "tfidf_rank": 9,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.4055996538503062
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.34656710257628875
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+          "rank": 3,
+          "section_id": "s0231_p225",
+          "chunk_type": "image",
+          "pdf_pages": [
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n이미지 설명: 파워 테일게이트 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n다.\n•\t테일게이트를 지지하는 부품을 잡지 마십시오. 부품이 변형되어 차량이 파손되거나 안전사고가 발생할 수\n있습니다.\n•\t파워 테일게이트와 관련된 부품을 임의로 개조하거나 수리하지 마십시오. 문제가 발생한 경우 당사 직영 하\n이테크센터나 블루핸즈에서 파워 테일게이트를 점검하십시오.",
+          "cosine_similarity": 0.5221053708520625,
+          "tfidf_similarity": 0.7576393195123523,
+          "rrf_score": 0.03057889822595705,
+          "dense_rank": 3,
+          "tfidf_rank": 8,
+          "matched_terms": [
+            {
+              "term": "테일게이트",
+              "contribution": 0.3912884372925435
+            },
+            {
+              "term": "파워",
+              "contribution": 0.36635088221980877
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+          "rank": 4,
+          "section_id": "s0234_p229",
+          "chunk_type": "text",
+          "pdf_pages": [
+            230
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 설정하기\n본문:\n[알아두기]\n•\t인포테인먼트 시스템에서 파워 테일게이트의 열림 높이를 사용자 높이 설정으로 선택하고, 사용자 높이를\n설정하지 않은 상태로 수동으로 테일게이트를 열면 테일게이트가 완전히 열립니다.\n•\t자세한 설명은 다음 '사용자 높이 설정하기'를 참고하십시오.",
+          "cosine_similarity": 0.5202582080697808,
+          "tfidf_similarity": 0.6537866765730699,
+          "rrf_score": 0.028283227848101264,
+          "dense_rank": 4,
+          "tfidf_rank": 19,
+          "matched_terms": [
+            {
+              "term": "테일게이트",
+              "contribution": 0.38408310617286573
+            },
+            {
+              "term": "파워",
+              "contribution": 0.2697035704002042
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+          "rank": 5,
+          "section_id": "s0232_p227",
+          "chunk_type": "image",
+          "pdf_pages": [
+            227
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 열고 닫기\n이미지 설명: 파워 테일게이트 열고 닫기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n파워 테일게이트 열고 닫기\n스마트 키, 운전석 테일게이트 버튼\nA타입\nB타입",
+          "cosine_similarity": 0.5188298451019429,
+          "tfidf_similarity": 0.6716032625739488,
+          "rrf_score": 0.028371628371628373,
+          "dense_rank": 5,
+          "tfidf_rank": 17,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.4705647847558127
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.20103847781813608
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "tfidf": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_003",
+          "rank": 1,
+          "section_id": "s0231_p225",
+          "chunk_type": "text",
+          "pdf_pages": [
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n본문:\n•\t파워 테일게이트가 정상적으로 작동하지 않아 수동으로 작동해야 하는 경우 무리한 힘을 가하지 마십시오.\n파워 테일게이트가 손상될 수 있습니다.\n•\t시동이 꺼진 상태에서 파워 테일게이트를 10회 이상 작동하면 배터리가 방전될 수 있습니다. 파워 테일게이\n트를 반복해서 작동해야 하는 경우 차량의 시동을 건 상태로 유지하십시오.\n•\t파워 테일게이트를 장시간 열어 둔 경우 파워 테일게이트가 작동하지 않을 수 있습니다. 파워 테일게이트가\n작동하지 않는 경우 수동으로 천천히 내린 후 완전히 닫으십시오.\n•\t파워 테일게이트가 작동할 때 테일게이트에 무리한 힘을 가하지 마십시오. 테일게이트가 손상될 수 있습니\n다.\n•\t테일게이트를 지지하는 부품을 잡지 마십시오. 부품이 변형되어 차량이 파손되거나 안전사고가 발생할 수",
+          "cosine_similarity": 0.4791730515269441,
+          "tfidf_similarity": 0.8956846343287593,
+          "rrf_score": 0.02921395544346364,
+          "dense_rank": 18,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "테일게이트",
+              "contribution": 0.4575546181759003
+            },
+            {
+              "term": "파워",
+              "contribution": 0.43813001615285896
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+          "rank": 2,
+          "section_id": "s0231_p225",
+          "chunk_type": "text",
+          "pdf_pages": [
+            225,
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n본문:\n파워 테일게이트 사용하기\n차량의 시동이 'ON'이고 변속기 위치가 'P'(주차)일 때, 또는 시동 'OFF' 상태에서 파워 테일게이트를 작동할 수\n있습니다.\n•\t변속기 위치가 'P'(주차)일 때 파워 테일게이트를 작동하십시오.\n•\t차량이 3 km/h 이상의 속도로 이동하는 중에는 파워 테일게이트를 열 수 없습니다.\n\n[주의]",
+          "cosine_similarity": 0.516764143919502,
+          "tfidf_similarity": 0.8822033936874756,
+          "rrf_score": 0.031054405392392875,
+          "dense_rank": 7,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.4757208265958851
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.4064825670915904
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p229_image_01",
+          "rank": 3,
+          "section_id": "s0232_p227",
+          "chunk_type": "image",
+          "pdf_pages": [
+            229
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 열고 닫기\n이미지 설명: 파워 테일게이트 열고 닫기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n파워 테일게이트 내부 버튼\n파워 테일게이트 버튼을 누르면 경고음과 함께 테일게이트가 열리거나 닫힙니다.",
+          "cosine_similarity": 0.49857592698270264,
+          "tfidf_similarity": 0.8797985074289691,
+          "rrf_score": 0.029571646010002173,
+          "dense_rank": 13,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.5225806938395618
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.3572178135894073
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0233_p229_text_002",
+          "rank": 4,
+          "section_id": "s0233_p229",
+          "chunk_type": "text",
+          "pdf_pages": [
+            229
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 물체 끼임 인식 기능\n본문:\n[알아두기]\n파워 테일게이트가 1회 작동하는 동안 연속적으로 물체의 끼임이 감지되면 작동이 멈출 수 있습니다. 이런 경\n우, 수동으로 테일게이트를 열거나 닫고, 30초 후에 파워 테일게이트를 작동해 이상 없이 작동하는지 확인하십\n시오.",
+          "cosine_similarity": 0.44905306547599044,
+          "tfidf_similarity": 0.8089954129285499,
+          "rrf_score": 0.027529761904761904,
+          "dense_rank": 24,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "테일게이트",
+              "contribution": 0.4308320242303092
+            },
+            {
+              "term": "파워",
+              "contribution": 0.3781633886982407
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_005",
+          "rank": 5,
+          "section_id": "s0231_p225",
+          "chunk_type": "text",
+          "pdf_pages": [
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n본문:\n•\t파워 테일게이트와 관련된 부품을 임의로 개조하거나 수리하지 마십시오. 문제가 발생한 경우 당사 직영 하\n이테크센터나 블루핸즈에서 파워 테일게이트를 점검하십시오.\n•\t다음과 같은 경우 파워 테일게이트를 작동하지 마십시오. 파워 테일게이트가 정상적으로 작동하지 않을 수\n있습니다.\n-\t타이어를 교체하거나 차량을 점검할 때 잭을 사용해 차량의 한쪽 바퀴를 들어 올린 경우\n-\t경사지, 보도 블록 등 고르지 않은 길에 차량을 기울게 주차한 경우\n•\t자동 세차장 이용 시 테일게이트를 완전히 닫은 후 중앙 도어 잠금 버튼을 눌러 모든 도어를 잠그십시오.\n•\t고압 세차 시 수압으로 인해 파워 테일게이트 열림/닫힘 버튼이 눌리지 않도록 주의하십시오.",
+          "cosine_similarity": 0.4893724903957441,
+          "tfidf_similarity": 0.7977854002845303,
+          "rrf_score": 0.0288981288981289,
+          "dense_rank": 14,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.3995188536483883
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.3982665466361419
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "hybrid": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+          "rank": 1,
+          "section_id": "s0231_p225",
+          "chunk_type": "text",
+          "pdf_pages": [
+            225,
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n본문:\n파워 테일게이트 사용하기\n차량의 시동이 'ON'이고 변속기 위치가 'P'(주차)일 때, 또는 시동 'OFF' 상태에서 파워 테일게이트를 작동할 수\n있습니다.\n•\t변속기 위치가 'P'(주차)일 때 파워 테일게이트를 작동하십시오.\n•\t차량이 3 km/h 이상의 속도로 이동하는 중에는 파워 테일게이트를 열 수 없습니다.\n\n[주의]",
+          "cosine_similarity": 0.516764143919502,
+          "tfidf_similarity": 0.8822033936874756,
+          "rrf_score": 0.031054405392392875,
+          "dense_rank": 7,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.4757208265958851
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.4064825670915904
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+          "rank": 2,
+          "section_id": "s0234_p229",
+          "chunk_type": "text",
+          "pdf_pages": [
+            229
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 설정하기\n본문:\n파워 테일게이트 설정하기\n파워 테일게이트는 해당 기능이 설정된 경우에만 작동합니다. 파워 테일게이트 기능을 원하지 않을 경우에는 설\n정을 해제하십시오.\n\n열림/닫힘 속도 설정하기\n인포테인먼트 시스템의 설정 > 차량 > 도어 > 파워 테일게이트 열림 속도에서 열림/닫힘 속도를 선택하십시\n오.\n선택할 수 있는 옵션은 다음과 같습니다.\n•\t보통/ 빠르게(기본설정)\n\n열림 높이 설정하기\n인포테인먼트 시스템의 설정 > 차량 > 도어 > 파워 테일게이트 열림 높이에서 열림 높이를 선택하십시오.\n•\t완전 열림/ 3단계/ 2단계/ 1단계/ 사용자 높이 설정",
+          "cosine_similarity": 0.5344293091784924,
+          "tfidf_similarity": 0.752166756426595,
+          "rrf_score": 0.030621785881252923,
+          "dense_rank": 2,
+          "tfidf_rank": 9,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.4055996538503062
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.34656710257628875
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+          "rank": 3,
+          "section_id": "s0231_p225",
+          "chunk_type": "image",
+          "pdf_pages": [
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n이미지 설명: 파워 테일게이트 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n다.\n•\t테일게이트를 지지하는 부품을 잡지 마십시오. 부품이 변형되어 차량이 파손되거나 안전사고가 발생할 수\n있습니다.\n•\t파워 테일게이트와 관련된 부품을 임의로 개조하거나 수리하지 마십시오. 문제가 발생한 경우 당사 직영 하\n이테크센터나 블루핸즈에서 파워 테일게이트를 점검하십시오.",
+          "cosine_similarity": 0.5221053708520625,
+          "tfidf_similarity": 0.7576393195123523,
+          "rrf_score": 0.03057889822595705,
+          "dense_rank": 3,
+          "tfidf_rank": 8,
+          "matched_terms": [
+            {
+              "term": "테일게이트",
+              "contribution": 0.3912884372925435
+            },
+            {
+              "term": "파워",
+              "contribution": 0.36635088221980877
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+          "rank": 4,
+          "section_id": "s0231_p225",
+          "chunk_type": "image",
+          "pdf_pages": [
+            226
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기\n이미지 설명: 파워 테일게이트 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n•\t테일게이트를 안전하게 열거나 닫을 수 있도록 차량 주변에 최소 여유 공간을 확보하십시오. 최소 공간이 확\n보되지 않은 상태로 테일게이트를 작동하면 테일게이트가 주변의 벽, 천장, 차랑 등에 부딪혀 손상될 수 있으\n며, 주변 사람에게 부상을 입힐 수도 있습니다.\n•\t파워 테일게이트가 정상적으로 작동하지 않아 수동으로 작동해야 하는 경우 무리한 힘을 가하지 마십시오.\n파워 테일게이트가 손상될 수 있습니다.",
+          "cosine_similarity": 0.5445562523868231,
+          "tfidf_similarity": 0.7335463670009728,
+          "rrf_score": 0.03028233151183971,
+          "dense_rank": 1,
+          "tfidf_rank": 12,
+          "matched_terms": [
+            {
+              "term": "테일게이트",
+              "contribution": 0.41205298150149583
+            },
+            {
+              "term": "파워",
+              "contribution": 0.321493385499477
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p229_image_01",
+          "rank": 5,
+          "section_id": "s0232_p227",
+          "chunk_type": "image",
+          "pdf_pages": [
+            229
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 열고 닫기\n이미지 설명: 파워 테일게이트 열고 닫기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n파워 테일게이트 내부 버튼\n파워 테일게이트 버튼을 누르면 경고음과 함께 테일게이트가 열리거나 닫힙니다.",
+          "cosine_similarity": 0.49857592698270264,
+          "tfidf_similarity": 0.8797985074289691,
+          "rrf_score": 0.029571646010002173,
+          "dense_rank": 13,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "파워",
+              "contribution": 0.5225806938395618
+            },
+            {
+              "term": "테일게이트",
+              "contribution": 0.3572178135894073
+            }
+          ],
+          "relevant": true
+        }
+      ]
+    },
+    "candidate_hit": {
+      "cosine": 1,
+      "tfidf": 1
+    },
+    "union_candidate_hit": 1,
+    "gold_ranks": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+        "cosine": 1,
+        "tfidf": 12,
+        "hybrid": 4
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+        "cosine": 3,
+        "tfidf": 8,
+        "hybrid": 3
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+        "cosine": 7,
+        "tfidf": 2,
+        "hybrid": 1
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_002",
+        "cosine": 22,
+        "tfidf": 23,
+        "hybrid": 23
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_003",
+        "cosine": 18,
+        "tfidf": 1,
+        "hybrid": 6
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_004",
+        "cosine": 11,
+        "tfidf": 22,
+        "hybrid": 19
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_005",
+        "cosine": 14,
+        "tfidf": 5,
+        "hybrid": 7
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_006",
+        "cosine": 16,
+        "tfidf": 10,
+        "hybrid": 17
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_007",
+        "cosine": 9,
+        "tfidf": 18,
+        "hybrid": 18
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_01",
+        "cosine": 6,
+        "tfidf": 16,
+        "hybrid": 9
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+        "cosine": 5,
+        "tfidf": 17,
+        "hybrid": 8
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p228_image_01",
+        "cosine": 19,
+        "tfidf": 6,
+        "hybrid": 15
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p228_image_02",
+        "cosine": 20,
+        "tfidf": 14,
+        "hybrid": 20
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p229_image_01",
+        "cosine": 13,
+        "tfidf": 3,
+        "hybrid": 5
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+        "cosine": 8,
+        "tfidf": 15,
+        "hybrid": 11
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_002",
+        "cosine": 17,
+        "tfidf": 7,
+        "hybrid": 14
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0233_p229_text_001",
+        "cosine": 29,
+        "tfidf": 24,
+        "hybrid": 25
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0233_p229_text_002",
+        "cosine": 24,
+        "tfidf": 4,
+        "hybrid": 16
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+        "cosine": 2,
+        "tfidf": 9,
+        "hybrid": 2
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+        "cosine": 4,
+        "tfidf": 19,
+        "hybrid": 10
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_003",
+        "cosine": 28,
+        "tfidf": 26,
+        "hybrid": 26
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_004",
+        "cosine": 21,
+        "tfidf": 20,
+        "hybrid": 22
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001",
+        "cosine": 10,
+        "tfidf": 13,
+        "hybrid": 12
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_002",
+        "cosine": 12,
+        "tfidf": 11,
+        "hybrid": 13
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0236_p231_p231_image_01",
+        "cosine": 23,
+        "tfidf": 29,
+        "hybrid": 24
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0236_p231_text_001",
+        "cosine": 34,
+        "tfidf": 27,
+        "hybrid": 29
+      }
+    ]
+  },
+  {
+    "id": "A04",
+    "section": "A",
+    "origin_ids": [
+      "G11"
+    ],
+    "question": "도어 잠금 장치",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p172_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_011",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_012",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_p177_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_p178_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0194_p179_p179_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0194_p179_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p179_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p180_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_003"
+    ],
+    "query_nouns": [
+      "도어",
+      "잠금",
+      "장치"
+    ],
+    "query_vocabulary_terms": [
+      "도어",
+      "잠금",
+      "장치"
+    ],
+    "tfidf_positive_documents": 1162,
+    "metrics": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "top5": {
+      "cosine": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+          "rank": 1,
+          "section_id": "s0191_p175",
+          "chunk_type": "text",
+          "pdf_pages": [
+            176
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n본문:\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.\n\n운전석 도어 핸들\n\n운전석 도어 핸들을 당기면 잠금이 해제되며 도어가 열립니다.\n\n동승석/뒷좌석 도어 핸들\n도어 핸들을 당기면 도어 잠금이 해제되고, 다시 당기면 도어가 열립니다.\n\n[경고]",
+          "cosine_similarity": 0.6294124714137619,
+          "tfidf_similarity": 0.7556560832621305,
+          "rrf_score": 0.030679156908665108,
+          "dense_rank": 1,
+          "tfidf_rank": 10,
+          "matched_terms": [
+            {
+              "term": "도어",
+              "contribution": 0.4217731608311572
+            },
+            {
+              "term": "잠금",
+              "contribution": 0.3108608115171948
+            },
+            {
+              "term": "장치",
+              "contribution": 0.023022110913778523
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+          "rank": 2,
+          "section_id": "s0189_p172",
+          "chunk_type": "text",
+          "pdf_pages": [
+            172
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기\n본문:\n도어 잠금 장치 사용하기\n[주의]\n\n•\t도어를 열거나 닫을 때 신체 일부가 도어에 부딪치거나 도어와 차체 사이에 끼이지 않도록 주의하십시오.\n•\t도어를 닫은 후 도어가 완전히 닫혔는지 확인하십시오. 불완전하게 닫힌 도어가 다시 열릴 수 있습니다.\n•\t비상 키를 차 안에 두지 마십시오. 비상시 도어를 열 수 없습니다.\n\n[알아두기]\n•\t스마트 키로 도어를 잠그거나 잠금 해제하는 방법에 대한 자세한 설명은 '스마트 키 사용하기'를 참고하십시\n오.\n•\t디지털 키로 도어를 잠그거나 잠금 해제하는 방법에 대한 자세한 설명은 '디지털 키 사용하기'를 참고하십시\n오.",
+          "cosine_similarity": 0.6198068020362651,
+          "tfidf_similarity": 0.7547502575226496,
+          "rrf_score": 0.030017921146953404,
+          "dense_rank": 2,
+          "tfidf_rank": 12,
+          "matched_terms": [
+            {
+              "term": "도어",
+              "contribution": 0.4797451649657004
+            },
+            {
+              "term": "잠금",
+              "contribution": 0.23572540115924054
+            },
+            {
+              "term": "장치",
+              "contribution": 0.03927969139770865
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+          "rank": 3,
+          "section_id": "s0191_p175",
+          "chunk_type": "image",
+          "pdf_pages": [
+            176
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n이미지 설명: 차량 내부에서 잠금/잠금 해제의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.\n운전석 도어 핸들\n운전석 도어 핸들을 당기면 잠금이 해제되며 도어가 열립니다.\n동승석/뒷좌석 도어 핸들",
+          "cosine_similarity": 0.6184192488886273,
+          "tfidf_similarity": 0.7839347968907246,
+          "rrf_score": 0.031024531024531024,
+          "dense_rank": 3,
+          "tfidf_rank": 6,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.4365835637245971
+            },
+            {
+              "term": "도어",
+              "contribution": 0.3231014527463679
+            },
+            {
+              "term": "장치",
+              "contribution": 0.02424978041975968
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+          "rank": 4,
+          "section_id": "s0190_p172",
+          "chunk_type": "text",
+          "pdf_pages": [
+            174
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 밖에서 잠금/잠금 해제\n본문:\n자동 잠금 기능\n운전자가 시동을 끈 후 스마트 키 또는 디지털 키(UWB)를 휴대하고 차에서 일정 거리를 벗어나면 자동으로 도\n어가 잠기는 기능을 제공합니다.",
+          "cosine_similarity": 0.6141741509582358,
+          "tfidf_similarity": 0.6490766697313703,
+          "rrf_score": 0.027529761904761904,
+          "dense_rank": 4,
+          "tfidf_rank": 24,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.4653520741082816
+            },
+            {
+              "term": "도어",
+              "contribution": 0.11479736731283806
+            },
+            {
+              "term": "장치",
+              "contribution": 0.06892722831025065
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+          "rank": 5,
+          "section_id": "s0190_p172",
+          "chunk_type": "text",
+          "pdf_pages": [
+            172,
+            173
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 밖에서 잠금/잠금 해제\n본문:\n차량 밖에서 잠금/잠금 해제\n\n도어 잠금\n스마트 키를 휴대하고 도어 핸들의 잠금/잠금 해제 센서를 터치하십시오.\n•\t비상 경고등이 1회 깜빡이고, 알림음이 울리며 모든 도어가 잠깁니다.\n\n도어 잠금 해제\n\n'접근 시 잠금 해제'를 설정한 경우\n\n인포테인먼트 시스템 설정 메뉴에서 차량 > 도어 > 접근 시 잠금 해제를 설정한 경우, 스마트 키를 휴대하고 앞\n좌석(운전석/동승석) 도어 바깥쪽 도어 핸들 측으로 접근(1 m 이내)하면 자동으로 잠금 해제되면서 바깥쪽 도\n어 핸들이 튀어 나옵니다. 이때 비상 경고등이 2회 깜빡이며 확인음도 2회 울립니다.\n\n'접근 시 잠금 해제'를 설정하지 않은 경우\n\n수동식\n\n자동식",
+          "cosine_similarity": 0.6039069924090616,
+          "tfidf_similarity": 0.7088159206305995,
+          "rrf_score": 0.028371628371628373,
+          "dense_rank": 5,
+          "tfidf_rank": 17,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.4490078267548687
+            },
+            {
+              "term": "도어",
+              "contribution": 0.24167000013604464
+            },
+            {
+              "term": "장치",
+              "contribution": 0.018138093739686084
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "tfidf": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+          "rank": 1,
+          "section_id": "s0191_p175",
+          "chunk_type": "image",
+          "pdf_pages": [
+            176
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n이미지 설명: 차량 내부에서 잠금/잠금 해제의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n중앙 도어 잠금/잠금 해제 버튼\n도어 잠금(1)\n운전석 도어의 도어 잠금( Ď ) 버튼을 누르면 모든 도어가 잠깁니다.\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.",
+          "cosine_similarity": 0.6020254411587557,
+          "tfidf_similarity": 0.8440251054176925,
+          "rrf_score": 0.03131881575727918,
+          "dense_rank": 7,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.4716697950057764
+            },
+            {
+              "term": "도어",
+              "contribution": 0.3490676439644488
+            },
+            {
+              "term": "장치",
+              "contribution": 0.023287666447467322
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_001",
+          "rank": 2,
+          "section_id": "s0191_p175",
+          "chunk_type": "text",
+          "pdf_pages": [
+            175,
+            176
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n본문:\n차량 내부에서 잠금/잠금 해제\n[경고]\n\n•\t주행 전 도어가 완전히 닫혔는지 확인하고, 운전석 도어의 도어 잠금 버튼을 눌러 모든 도어를 잠그십시오.\n•\t특히 어린이가 탑승한 경우, 주행 중 모든 도어를 잠금 상태로 유지하십시오. 차량이 이동하는 중 실수로 차\n량의 도어가 열리면 심각한 사고가 발생할 수 있습니다.\n\n[주의]\n\n차량 및 부품의 파손을 방지하려면 도어와 도어 핸들을 조작할 때 무리한 힘을 가하지 마십시오.\n\n중앙 도어 잠금/잠금 해제 버튼\n\n도어 잠금(1)\n운전석 도어의 도어 잠금( Ď ) 버튼을 누르면 모든 도어가 잠깁니다.\n\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.\n\n운전석 도어 핸들",
+          "cosine_similarity": 0.5850505360464304,
+          "tfidf_similarity": 0.8397948538458722,
+          "rrf_score": 0.030017921146953404,
+          "dense_rank": 12,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "도어",
+              "contribution": 0.45171946310705613
+            },
+            {
+              "term": "잠금",
+              "contribution": 0.37300740554088474
+            },
+            {
+              "term": "장치",
+              "contribution": 0.015067985197931314
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_001",
+          "rank": 3,
+          "section_id": "s0193_p178",
+          "chunk_type": "text",
+          "pdf_pages": [
+            178
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 자동 도어 잠금/잠금 해제 설정하기\n본문:\n자동 도어 잠금/잠금 해제 설정하기\n인포테인먼트 시스템에서 설정 > 차량 > 도어 > 자동 잠금 또는 자동 잠금 해제를 선택해 자동 잠금 기능을\n설정할 수 있습니다.\n•\t도어 자동 잠금: 주행 속도 및 변속과 연동되는 도어 자동 잠금 기능을 제공합니다.\n•\t도어 자동 잠금 해제: 'P'(주차) 변속 및 시동 'OFF'와 연동되는 도어 자동 잠금 해제 기능을 제공합니다.\n\n[주의]\n\n•\t자동 잠금 기능이 작동하는 경우, 안전한 주행을 위해 도어 잠금 버튼이나 중앙 도어 잠금 버튼을 눌러 강제\n로 잠금을 해제하지 마십시오.\n•\t도어 잠금 장치 또는 차량의 배터리에 문제가 있는 경우 자동 도어 잠금 및 잠금 해제 기능이 정상적으로 작\n동하지 않을 수 있습니다.",
+          "cosine_similarity": 0.5457902647689177,
+          "tfidf_similarity": 0.833397746853458,
+          "rrf_score": 0.026984126984126985,
+          "dense_rank": 30,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.5219471096159511
+            },
+            {
+              "term": "도어",
+              "contribution": 0.28970720049838466
+            },
+            {
+              "term": "장치",
+              "contribution": 0.021743436739122168
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+          "rank": 4,
+          "section_id": "s0193_p178",
+          "chunk_type": "text",
+          "pdf_pages": [
+            178
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 자동 도어 잠금/잠금 해제 설정하기\n본문:\n충돌 감지 자동 도어 잠금 해제\n시동 'ON' 상태에서 도어가 잠겨 있을 때 충돌 센서가 충격을 감지하면 도어 잠금 장치가 자동으로 해제됩니다.\n\n차속 감응 자동 도어 잠금\n주행 속도가 약 15 km/h 이상이 되면 모든 도어가 자동으로 잠기고, 시동을 끄면 자동으로 잠금이 해제됩니다.",
+          "cosine_similarity": 0.5990100705955146,
+          "tfidf_similarity": 0.7952246770613596,
+          "rrf_score": 0.030330882352941176,
+          "dense_rank": 8,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.40274709982224505
+            },
+            {
+              "term": "도어",
+              "contribution": 0.3477368698608343
+            },
+            {
+              "term": "장치",
+              "contribution": 0.04474070737828021
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_005",
+          "rank": 5,
+          "section_id": "s0191_p175",
+          "chunk_type": "text",
+          "pdf_pages": [
+            177
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n본문:\n[알아두기]\n•\t주행 중에는 항상 도어를 잠그십시오. 정차 중 또는 서행 중 타인이 도어를 열고 침입하는 경우를 방지할 수\n있습니다.\n•\t도어가 열려 있는 동안에는 운전석 도어의 중앙 도어 잠금 버튼을 눌러도 도어가 잠기지 않습니다.\n•\t차량 안에 어린이나 동물이 탑승한 상태로 도어가 잠긴 경우, 비상 키로 운전석 도어의 잠금을 해제할 수 있\n습니다. 자세한 설명은 다음의 '비상 키 사용하기'를 참고하십시오.",
+          "cosine_similarity": 0.5794513435703808,
+          "tfidf_similarity": 0.7842757435657128,
+          "rrf_score": 0.02854251012145749,
+          "dense_rank": 16,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "도어",
+              "contribution": 0.4315382068005996
+            },
+            {
+              "term": "잠금",
+              "contribution": 0.3239479368320582
+            },
+            {
+              "term": "장치",
+              "contribution": 0.028789599933054938
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "hybrid": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+          "rank": 1,
+          "section_id": "s0191_p175",
+          "chunk_type": "image",
+          "pdf_pages": [
+            176
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n이미지 설명: 차량 내부에서 잠금/잠금 해제의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n중앙 도어 잠금/잠금 해제 버튼\n도어 잠금(1)\n운전석 도어의 도어 잠금( Ď ) 버튼을 누르면 모든 도어가 잠깁니다.\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.",
+          "cosine_similarity": 0.6020254411587557,
+          "tfidf_similarity": 0.8440251054176925,
+          "rrf_score": 0.03131881575727918,
+          "dense_rank": 7,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.4716697950057764
+            },
+            {
+              "term": "도어",
+              "contribution": 0.3490676439644488
+            },
+            {
+              "term": "장치",
+              "contribution": 0.023287666447467322
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+          "rank": 2,
+          "section_id": "s0191_p175",
+          "chunk_type": "image",
+          "pdf_pages": [
+            176
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n이미지 설명: 차량 내부에서 잠금/잠금 해제의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.\n운전석 도어 핸들\n운전석 도어 핸들을 당기면 잠금이 해제되며 도어가 열립니다.\n동승석/뒷좌석 도어 핸들",
+          "cosine_similarity": 0.6184192488886273,
+          "tfidf_similarity": 0.7839347968907246,
+          "rrf_score": 0.031024531024531024,
+          "dense_rank": 3,
+          "tfidf_rank": 6,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.4365835637245971
+            },
+            {
+              "term": "도어",
+              "contribution": 0.3231014527463679
+            },
+            {
+              "term": "장치",
+              "contribution": 0.02424978041975968
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+          "rank": 3,
+          "section_id": "s0191_p175",
+          "chunk_type": "text",
+          "pdf_pages": [
+            176
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n본문:\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.\n\n운전석 도어 핸들\n\n운전석 도어 핸들을 당기면 잠금이 해제되며 도어가 열립니다.\n\n동승석/뒷좌석 도어 핸들\n도어 핸들을 당기면 도어 잠금이 해제되고, 다시 당기면 도어가 열립니다.\n\n[경고]",
+          "cosine_similarity": 0.6294124714137619,
+          "tfidf_similarity": 0.7556560832621305,
+          "rrf_score": 0.030679156908665108,
+          "dense_rank": 1,
+          "tfidf_rank": 10,
+          "matched_terms": [
+            {
+              "term": "도어",
+              "contribution": 0.4217731608311572
+            },
+            {
+              "term": "잠금",
+              "contribution": 0.3108608115171948
+            },
+            {
+              "term": "장치",
+              "contribution": 0.023022110913778523
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+          "rank": 4,
+          "section_id": "s0193_p178",
+          "chunk_type": "text",
+          "pdf_pages": [
+            178
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 자동 도어 잠금/잠금 해제 설정하기\n본문:\n충돌 감지 자동 도어 잠금 해제\n시동 'ON' 상태에서 도어가 잠겨 있을 때 충돌 센서가 충격을 감지하면 도어 잠금 장치가 자동으로 해제됩니다.\n\n차속 감응 자동 도어 잠금\n주행 속도가 약 15 km/h 이상이 되면 모든 도어가 자동으로 잠기고, 시동을 끄면 자동으로 잠금이 해제됩니다.",
+          "cosine_similarity": 0.5990100705955146,
+          "tfidf_similarity": 0.7952246770613596,
+          "rrf_score": 0.030330882352941176,
+          "dense_rank": 8,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "잠금",
+              "contribution": 0.40274709982224505
+            },
+            {
+              "term": "도어",
+              "contribution": 0.3477368698608343
+            },
+            {
+              "term": "장치",
+              "contribution": 0.04474070737828021
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+          "rank": 5,
+          "section_id": "s0189_p172",
+          "chunk_type": "text",
+          "pdf_pages": [
+            172
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기\n본문:\n도어 잠금 장치 사용하기\n[주의]\n\n•\t도어를 열거나 닫을 때 신체 일부가 도어에 부딪치거나 도어와 차체 사이에 끼이지 않도록 주의하십시오.\n•\t도어를 닫은 후 도어가 완전히 닫혔는지 확인하십시오. 불완전하게 닫힌 도어가 다시 열릴 수 있습니다.\n•\t비상 키를 차 안에 두지 마십시오. 비상시 도어를 열 수 없습니다.\n\n[알아두기]\n•\t스마트 키로 도어를 잠그거나 잠금 해제하는 방법에 대한 자세한 설명은 '스마트 키 사용하기'를 참고하십시\n오.\n•\t디지털 키로 도어를 잠그거나 잠금 해제하는 방법에 대한 자세한 설명은 '디지털 키 사용하기'를 참고하십시\n오.",
+          "cosine_similarity": 0.6198068020362651,
+          "tfidf_similarity": 0.7547502575226496,
+          "rrf_score": 0.030017921146953404,
+          "dense_rank": 2,
+          "tfidf_rank": 12,
+          "matched_terms": [
+            {
+              "term": "도어",
+              "contribution": 0.4797451649657004
+            },
+            {
+              "term": "잠금",
+              "contribution": 0.23572540115924054
+            },
+            {
+              "term": "장치",
+              "contribution": 0.03927969139770865
+            }
+          ],
+          "relevant": true
+        }
+      ]
+    },
+    "candidate_hit": {
+      "cosine": 1,
+      "tfidf": 1
+    },
+    "union_candidate_hit": 1,
+    "gold_ranks": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+        "cosine": 2,
+        "tfidf": 12,
+        "hybrid": 5
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p172_image_01",
+        "cosine": 22,
+        "tfidf": 23,
+        "hybrid": 23
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_01",
+        "cosine": 9,
+        "tfidf": 26,
+        "hybrid": 20
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_02",
+        "cosine": 14,
+        "tfidf": 15,
+        "hybrid": 14
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+        "cosine": 5,
+        "tfidf": 17,
+        "hybrid": 9
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_002",
+        "cosine": 17,
+        "tfidf": 16,
+        "hybrid": 19
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003",
+        "cosine": 10,
+        "tfidf": 9,
+        "hybrid": 7
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_004",
+        "cosine": 18,
+        "tfidf": 30,
+        "hybrid": 25
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_005",
+        "cosine": 31,
+        "tfidf": 33,
+        "hybrid": 31
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_006",
+        "cosine": 6,
+        "tfidf": 22,
+        "hybrid": 11
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_007",
+        "cosine": 21,
+        "tfidf": 41,
+        "hybrid": 29
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_008",
+        "cosine": 35,
+        "tfidf": 92,
+        "hybrid": 44
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+        "cosine": 4,
+        "tfidf": 24,
+        "hybrid": 10
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_010",
+        "cosine": 19,
+        "tfidf": 13,
+        "hybrid": 18
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_011",
+        "cosine": 29,
+        "tfidf": 42,
+        "hybrid": 33
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_012",
+        "cosine": 33,
+        "tfidf": 38,
+        "hybrid": 35
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+        "cosine": 7,
+        "tfidf": 1,
+        "hybrid": 1
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+        "cosine": 3,
+        "tfidf": 6,
+        "hybrid": 2
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_001",
+        "cosine": 12,
+        "tfidf": 2,
+        "hybrid": 6
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+        "cosine": 1,
+        "tfidf": 10,
+        "hybrid": 3
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_003",
+        "cosine": 23,
+        "tfidf": 34,
+        "hybrid": 28
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_004",
+        "cosine": 15,
+        "tfidf": 14,
+        "hybrid": 15
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_005",
+        "cosine": 16,
+        "tfidf": 5,
+        "hybrid": 8
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0192_p177_p177_image_01",
+        "cosine": 36,
+        "tfidf": 29,
+        "hybrid": 32
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0192_p177_p178_image_01",
+        "cosine": 32,
+        "tfidf": 21,
+        "hybrid": 27
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_001",
+        "cosine": 38,
+        "tfidf": 35,
+        "hybrid": 37
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_002",
+        "cosine": 24,
+        "tfidf": 27,
+        "hybrid": 26
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_003",
+        "cosine": 37,
+        "tfidf": 62,
+        "hybrid": 45
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_004",
+        "cosine": 11,
+        "tfidf": 20,
+        "hybrid": 16
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_001",
+        "cosine": 30,
+        "tfidf": 3,
+        "hybrid": 13
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+        "cosine": 8,
+        "tfidf": 4,
+        "hybrid": 4
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0194_p179_p179_image_01",
+        "cosine": 13,
+        "tfidf": 18,
+        "hybrid": 17
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0194_p179_text_001",
+        "cosine": 20,
+        "tfidf": 8,
+        "hybrid": 12
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p179_image_02",
+        "cosine": 59,
+        "tfidf": 58,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p180_image_01",
+        "cosine": 108,
+        "tfidf": 99,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_001",
+        "cosine": 40,
+        "tfidf": 63,
+        "hybrid": 48
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_002",
+        "cosine": 28,
+        "tfidf": 65,
+        "hybrid": 42
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_003",
+        "cosine": 69,
+        "tfidf": 79,
+        "hybrid": null
+      }
+    ]
+  },
+  {
+    "id": "A05",
+    "section": "A",
+    "origin_ids": [
+      "G16"
+    ],
+    "question": "와이퍼",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p271_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p272_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p273_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_p273_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_p274_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p535_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_009"
+    ],
+    "query_nouns": [
+      "와이퍼"
+    ],
+    "query_vocabulary_terms": [
+      "와이퍼"
+    ],
+    "tfidf_positive_documents": 48,
+    "metrics": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "top5": {
+      "cosine": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+          "rank": 1,
+          "section_id": "s0288_p271",
+          "chunk_type": "text",
+          "pdf_pages": [
+            271
+          ],
+          "page_content": "목차: 편의 장치 > 와이퍼\n본문:\n와이퍼\n시동 'ON' 상태에서 와이퍼 스위치를 위로 밀거나 아래로 당겨 와이퍼를 작동할 수 있습니다.\n[알아두기]\n•\t눈 오는 날 주행 중 와이퍼를 작동하면 쌓인 눈으로 인해 와이퍼 작동이 멈출 수 있습니다. 이런 현상은 무리\n한 작동으로 인한 와이퍼 파손과 안전 사고를 방지하기 위한 것으로, 고장이 아닙니다. 와이퍼가 멈추면 유리\n창 상단 또는 하단에 쌓인 눈을 제거한 후 와이퍼를 작동하십시오.\n•\t업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인포테인먼\n트 시스템 웹 매뉴얼을 참고하십시오.\n\n[주의]",
+          "cosine_similarity": 0.4081646777516714,
+          "tfidf_similarity": 0.8800781883487664,
+          "rrf_score": 0.03278688524590164,
+          "dense_rank": 1,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8800781883487664
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+          "rank": 2,
+          "section_id": "s0288_p271",
+          "chunk_type": "text",
+          "pdf_pages": [
+            271
+          ],
+          "page_content": "목차: 편의 장치 > 와이퍼\n본문:\n[주의]\n\n•\t와셔액이 없을 때에는 와셔액을 분사하지 마십시오. 와셔액 펌프가 손상됩니다.\n•\t와셔액 양을 수시로 확인하고 보충하십시오. 와셔액 양 점검에 대한 자세한 설명은 '와셔액 보충하기'을 참고\n하십시오.\n•\t유리창이 건조할 때는 와이퍼를 작동하지 마십시오.\n•\t유리창과 와이퍼를 청소할 때 가솔린이나 페인트 희석제 등의 유기 용제를 사용하지 마십시오.\n•\t유리창을 닦을 때 왁스용 걸레나 발수 코팅제를 사용하지 마십시오. 유리창이 오염되면 와이퍼 작동 중 소음\n과 떨림이 발생하거나 와이퍼가 손상될 수 있습니다.\n•\t와이퍼에 인위적인 힘을 가하거나 강제로 작동하지 마십시오.\n•\t와이퍼가 얼어 있을 때 강제로 작동하면 와이퍼 링크가 분리되거나 모터가 손상될 수 있습니다.\n\n[경고]",
+          "cosine_similarity": 0.3614397355199118,
+          "tfidf_similarity": 0.6057017271826466,
+          "rrf_score": 0.02749266862170088,
+          "dense_rank": 2,
+          "tfidf_rank": 28,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.6057017271826466
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0391_p358_text_002",
+          "rank": 3,
+          "section_id": "s0391_p358",
+          "chunk_type": "text",
+          "pdf_pages": [
+            358
+          ],
+          "page_content": "목차: 시동 및 주행 > 안전 주행을 위한 정보 > 악천후 시의 주행\n본문:\n•\t폭우가 내릴 때는 시야 확보가 어려울 수 있으므로, 서행하며 더욱 충분한 제동 거리를 확보하십시오.\n•\t와이퍼가 성능을 유지할 수 있도록 관리하십시오. 와이퍼 작동 시 유리가 잘 닦이지 않거나 줄무늬가 생기면\n와이퍼 블레이드를 교체하십시오.\n•\t타이어가 성능을 유지할 수 있도록 관리하십시오. 마모된 타이어를 장착한 상태로 젖은 길이나 빗길에서 급\n정차하면 타이어가 미끄러져 사고가 발생할 수 있습니다.",
+          "cosine_similarity": 0.3564754100119318,
+          "tfidf_similarity": 0.43660290351041053,
+          "rrf_score": 0.0265113137453563,
+          "dense_rank": 3,
+          "tfidf_rank": 34,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.43660290351041053
+            }
+          ],
+          "relevant": false
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+          "rank": 4,
+          "section_id": "s0517_p532",
+          "chunk_type": "image",
+          "pdf_pages": [
+            533
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n이미지 설명: 와이퍼 블레이드 점검하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n5\t와이퍼 스위치를 조작해 와이퍼를 작동하십시오.\n와이퍼가 정상 위치로 돌아간 후 시동을 끄십시오\nB타입\n1\t와이퍼 암을 앞으로 당겨 세우십시오.\n2\t잠금 커버를 열고(1) 블레이드를 아래로 내린 후(2) 와이퍼 암으로부터 분리하십시오(3).",
+          "cosine_similarity": 0.35141369267431444,
+          "tfidf_similarity": 0.8181178383028337,
+          "rrf_score": 0.031009615384615385,
+          "dense_rank": 4,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8181178383028337
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0163_p146_p149_image_01",
+          "rank": 5,
+          "section_id": "s0163_p146",
+          "chunk_type": "image",
+          "pdf_pages": [
+            149
+          ],
+          "page_content": "목차: 클러스터 > 경고등 및 표시등 확인하기 > 클러스터 메시지 확인하기\n이미지 설명: 클러스터 메시지 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n와이퍼 모드\n와이퍼 모드 표시 여부를 설정하려면,\n인포테인먼트 시스템에서 설정 > 클러\n와이퍼 스위치를 조작하면 선택된 모\n타이어 공기압 낮음",
+          "cosine_similarity": 0.33595194250054744,
+          "tfidf_similarity": 0.5313131935864814,
+          "rrf_score": 0.026373626373626377,
+          "dense_rank": 5,
+          "tfidf_rank": 31,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.5313131935864814
+            }
+          ],
+          "relevant": false
+        }
+      ],
+      "tfidf": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+          "rank": 1,
+          "section_id": "s0288_p271",
+          "chunk_type": "text",
+          "pdf_pages": [
+            271
+          ],
+          "page_content": "목차: 편의 장치 > 와이퍼\n본문:\n와이퍼\n시동 'ON' 상태에서 와이퍼 스위치를 위로 밀거나 아래로 당겨 와이퍼를 작동할 수 있습니다.\n[알아두기]\n•\t눈 오는 날 주행 중 와이퍼를 작동하면 쌓인 눈으로 인해 와이퍼 작동이 멈출 수 있습니다. 이런 현상은 무리\n한 작동으로 인한 와이퍼 파손과 안전 사고를 방지하기 위한 것으로, 고장이 아닙니다. 와이퍼가 멈추면 유리\n창 상단 또는 하단에 쌓인 눈을 제거한 후 와이퍼를 작동하십시오.\n•\t업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인포테인먼\n트 시스템 웹 매뉴얼을 참고하십시오.\n\n[주의]",
+          "cosine_similarity": 0.4081646777516714,
+          "tfidf_similarity": 0.8800781883487664,
+          "rrf_score": 0.03278688524590164,
+          "dense_rank": 1,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8800781883487664
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_006",
+          "rank": 2,
+          "section_id": "s0289_p271",
+          "chunk_type": "text",
+          "pdf_pages": [
+            273
+          ],
+          "page_content": "목차: 편의 장치 > 와이퍼 > 앞유리 와이퍼 작동하기\n본문:\n•\t와이퍼를 사용할 필요가 없을 때에는 와이퍼를 끄십시오(스위치 위치: OFF). 와이퍼가 AUTO 모드에서 멈\n춰있는 경우 와이퍼가 갑자기 작동할 수 있습니다.\n•\t세차 전에는 와이퍼를 끄십시오(스위치 위치: OFF). 스위치를 AUTO 위치에 두고 세차하는 경우, 센서가 물\n을 감지하며 와이퍼가 작동해 와이퍼 부품이 손상될 수 있습니다.\n•\t앞유리에 설치된 센서 커버를 강제로 분리하지 마십시오. 관련 부품이 손상될 수 있습니다.\n•\t앞유리가 언 경우 와이퍼 스위치를 OFF 위치에 두십시오. 와이퍼가 작동하면 와이퍼 블레이드가 손상될 수\n있습니다.\n•\tAUTO 모드 작동 중 광학 센서가 사용되므로 주행 중 오염이나 갑작스런 밝기 변화가 발생하는 경우 순간적\n인 오작동이 발생할 수 있습니다.",
+          "cosine_similarity": 0.3100767365012149,
+          "tfidf_similarity": 0.8366636966054997,
+          "rrf_score": 0.02964254577157803,
+          "dense_rank": 14,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8366636966054997
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_005",
+          "rank": 3,
+          "section_id": "s0517_p532",
+          "chunk_type": "text",
+          "pdf_pages": [
+            532
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n본문:\n이드를 닦으십시오.\n-\t주 2회 정도 정기적으로 와이퍼를 작동하십시오. 오랫동안 와이퍼를 사용하지 않으면 와이퍼 블레이드가\n변형되어 소음이나 떨림이 발생할 수 있습니다.\n•\t다음과 같은 경우, 약 10초 동안 와이퍼가 작동하지 않을 수 있습니다. 이런 현상은 와이퍼 모터의 과부하를\n막기 위한 보호 기능이며, 고장이 아닙니다.\n-\t와이퍼 블레이드가 얼어 있을 때 와이퍼를 작동하는 경우\n-\t와셔액 없이 와이퍼를 계속 작동하는 경우",
+          "cosine_similarity": 0.3195261702692723,
+          "tfidf_similarity": 0.8360673878794865,
+          "rrf_score": 0.029957522915269395,
+          "dense_rank": 11,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8360673878794865
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_008",
+          "rank": 4,
+          "section_id": "s0517_p532",
+          "chunk_type": "text",
+          "pdf_pages": [
+            534
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n본문:\n[주의]\n와이퍼 블레이드를 제거한 와이퍼 암이 직접 유리창에 닿지 않도록 주의하십시오. 유리창이 파손될 수 있습\n니다.\n\n3\t새 와이퍼 블레이드를 와이퍼 암에 끼운 후(1) 블레이드를 위로 밀어 고정하고(2) 잠금 커버를 닫으십시오(\n3).\n\n4\t와이퍼를 암을 유리창 위로 눕힌 후 시동을 거십시오.\n5\t와이퍼 스위치를 조작해 와이퍼를 작동하십시오.\n•\t와이퍼가 정상 위치로 돌아간 후 시동을 끄십시오.\n\n뒷유리 와이퍼 블레이드 교체하기\n1\t와이퍼 암을 앞으로 당겨 세우십시오.\n2\t와이퍼 블레이드를 젖힌 후(1) 화살표 방향으로 당겨(2) 와이퍼 암으로부터 분리하십시오.\n\n[주의]\n와이퍼 블레이드를 제거한 와이퍼 암이 직접 유리창에 닿지 않도록 주의하십시오. 유리창이 파손될 수 있습\n니다.",
+          "cosine_similarity": 0.3108510530665315,
+          "tfidf_similarity": 0.8278177326187774,
+          "rrf_score": 0.0293236301369863,
+          "dense_rank": 13,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8278177326187774
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+          "rank": 5,
+          "section_id": "s0517_p532",
+          "chunk_type": "image",
+          "pdf_pages": [
+            533
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n이미지 설명: 와이퍼 블레이드 점검하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n5\t와이퍼 스위치를 조작해 와이퍼를 작동하십시오.\n와이퍼가 정상 위치로 돌아간 후 시동을 끄십시오\nB타입\n1\t와이퍼 암을 앞으로 당겨 세우십시오.\n2\t잠금 커버를 열고(1) 블레이드를 아래로 내린 후(2) 와이퍼 암으로부터 분리하십시오(3).",
+          "cosine_similarity": 0.35141369267431444,
+          "tfidf_similarity": 0.8181178383028337,
+          "rrf_score": 0.031009615384615385,
+          "dense_rank": 4,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8181178383028337
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "hybrid": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+          "rank": 1,
+          "section_id": "s0288_p271",
+          "chunk_type": "text",
+          "pdf_pages": [
+            271
+          ],
+          "page_content": "목차: 편의 장치 > 와이퍼\n본문:\n와이퍼\n시동 'ON' 상태에서 와이퍼 스위치를 위로 밀거나 아래로 당겨 와이퍼를 작동할 수 있습니다.\n[알아두기]\n•\t눈 오는 날 주행 중 와이퍼를 작동하면 쌓인 눈으로 인해 와이퍼 작동이 멈출 수 있습니다. 이런 현상은 무리\n한 작동으로 인한 와이퍼 파손과 안전 사고를 방지하기 위한 것으로, 고장이 아닙니다. 와이퍼가 멈추면 유리\n창 상단 또는 하단에 쌓인 눈을 제거한 후 와이퍼를 작동하십시오.\n•\t업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인포테인먼\n트 시스템 웹 매뉴얼을 참고하십시오.\n\n[주의]",
+          "cosine_similarity": 0.4081646777516714,
+          "tfidf_similarity": 0.8800781883487664,
+          "rrf_score": 0.03278688524590164,
+          "dense_rank": 1,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8800781883487664
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+          "rank": 2,
+          "section_id": "s0517_p532",
+          "chunk_type": "image",
+          "pdf_pages": [
+            533
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n이미지 설명: 와이퍼 블레이드 점검하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n5\t와이퍼 스위치를 조작해 와이퍼를 작동하십시오.\n와이퍼가 정상 위치로 돌아간 후 시동을 끄십시오\nB타입\n1\t와이퍼 암을 앞으로 당겨 세우십시오.\n2\t잠금 커버를 열고(1) 블레이드를 아래로 내린 후(2) 와이퍼 암으로부터 분리하십시오(3).",
+          "cosine_similarity": 0.35141369267431444,
+          "tfidf_similarity": 0.8181178383028337,
+          "rrf_score": 0.031009615384615385,
+          "dense_rank": 4,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8181178383028337
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+          "rank": 3,
+          "section_id": "s0517_p532",
+          "chunk_type": "image",
+          "pdf_pages": [
+            534
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n이미지 설명: 와이퍼 블레이드 점검하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n3\t새 와이퍼 블레이드를 와이퍼 암에 끼운 후(1) 블레이드를 위로 밀어 고정하고(2) 잠금 커버를 닫으십시오(\n3).\n4\t와이퍼를 암을 유리창 위로 눕힌 후 시동을 거십시오.\n5\t와이퍼 스위치를 조작해 와이퍼를 작동하십시오.\n•\t와이퍼가 정상 위치로 돌아간 후 시동을 끄십시오.",
+          "cosine_similarity": 0.332237618781714,
+          "tfidf_similarity": 0.8129168722912343,
+          "rrf_score": 0.03007688828584351,
+          "dense_rank": 7,
+          "tfidf_rank": 6,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8129168722912343
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_005",
+          "rank": 4,
+          "section_id": "s0517_p532",
+          "chunk_type": "text",
+          "pdf_pages": [
+            532
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n본문:\n이드를 닦으십시오.\n-\t주 2회 정도 정기적으로 와이퍼를 작동하십시오. 오랫동안 와이퍼를 사용하지 않으면 와이퍼 블레이드가\n변형되어 소음이나 떨림이 발생할 수 있습니다.\n•\t다음과 같은 경우, 약 10초 동안 와이퍼가 작동하지 않을 수 있습니다. 이런 현상은 와이퍼 모터의 과부하를\n막기 위한 보호 기능이며, 고장이 아닙니다.\n-\t와이퍼 블레이드가 얼어 있을 때 와이퍼를 작동하는 경우\n-\t와셔액 없이 와이퍼를 계속 작동하는 경우",
+          "cosine_similarity": 0.3195261702692723,
+          "tfidf_similarity": 0.8360673878794865,
+          "rrf_score": 0.029957522915269395,
+          "dense_rank": 11,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8360673878794865
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_006",
+          "rank": 5,
+          "section_id": "s0289_p271",
+          "chunk_type": "text",
+          "pdf_pages": [
+            273
+          ],
+          "page_content": "목차: 편의 장치 > 와이퍼 > 앞유리 와이퍼 작동하기\n본문:\n•\t와이퍼를 사용할 필요가 없을 때에는 와이퍼를 끄십시오(스위치 위치: OFF). 와이퍼가 AUTO 모드에서 멈\n춰있는 경우 와이퍼가 갑자기 작동할 수 있습니다.\n•\t세차 전에는 와이퍼를 끄십시오(스위치 위치: OFF). 스위치를 AUTO 위치에 두고 세차하는 경우, 센서가 물\n을 감지하며 와이퍼가 작동해 와이퍼 부품이 손상될 수 있습니다.\n•\t앞유리에 설치된 센서 커버를 강제로 분리하지 마십시오. 관련 부품이 손상될 수 있습니다.\n•\t앞유리가 언 경우 와이퍼 스위치를 OFF 위치에 두십시오. 와이퍼가 작동하면 와이퍼 블레이드가 손상될 수\n있습니다.\n•\tAUTO 모드 작동 중 광학 센서가 사용되므로 주행 중 오염이나 갑작스런 밝기 변화가 발생하는 경우 순간적\n인 오작동이 발생할 수 있습니다.",
+          "cosine_similarity": 0.3100767365012149,
+          "tfidf_similarity": 0.8366636966054997,
+          "rrf_score": 0.02964254577157803,
+          "dense_rank": 14,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "와이퍼",
+              "contribution": 0.8366636966054997
+            }
+          ],
+          "relevant": true
+        }
+      ]
+    },
+    "candidate_hit": {
+      "cosine": 1,
+      "tfidf": 1
+    },
+    "union_candidate_hit": 1,
+    "gold_ranks": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+        "cosine": 1,
+        "tfidf": 1,
+        "hybrid": 1
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+        "cosine": 2,
+        "tfidf": 28,
+        "hybrid": 9
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_003",
+        "cosine": 45,
+        "tfidf": 41,
+        "hybrid": 33
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p271_image_01",
+        "cosine": 114,
+        "tfidf": 19,
+        "hybrid": 37
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p272_image_01",
+        "cosine": 17,
+        "tfidf": 27,
+        "hybrid": 23
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p273_image_01",
+        "cosine": 80,
+        "tfidf": 15,
+        "hybrid": 35
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_001",
+        "cosine": 103,
+        "tfidf": 26,
+        "hybrid": 40
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_002",
+        "cosine": 36,
+        "tfidf": 8,
+        "hybrid": 21
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_003",
+        "cosine": 16,
+        "tfidf": 13,
+        "hybrid": 10
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_004",
+        "cosine": 25,
+        "tfidf": 22,
+        "hybrid": 25
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_005",
+        "cosine": 22,
+        "tfidf": 38,
+        "hybrid": 27
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_006",
+        "cosine": 14,
+        "tfidf": 2,
+        "hybrid": 5
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_007",
+        "cosine": 83,
+        "tfidf": 23,
+        "hybrid": 38
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0290_p273_p273_image_02",
+        "cosine": 108,
+        "tfidf": 11,
+        "hybrid": 34
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0290_p273_p274_image_01",
+        "cosine": 18,
+        "tfidf": 21,
+        "hybrid": 19
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0290_p273_text_001",
+        "cosine": 72,
+        "tfidf": 16,
+        "hybrid": 36
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0290_p273_text_002",
+        "cosine": 21,
+        "tfidf": 25,
+        "hybrid": 24
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01",
+        "cosine": 10,
+        "tfidf": 24,
+        "hybrid": 15
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_02",
+        "cosine": 12,
+        "tfidf": 9,
+        "hybrid": 8
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+        "cosine": 4,
+        "tfidf": 5,
+        "hybrid": 2
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+        "cosine": 7,
+        "tfidf": 6,
+        "hybrid": 3
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_02",
+        "cosine": 27,
+        "tfidf": 10,
+        "hybrid": 18
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p535_image_01",
+        "cosine": 26,
+        "tfidf": 17,
+        "hybrid": 22
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+        "cosine": 6,
+        "tfidf": 29,
+        "hybrid": 13
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_002",
+        "cosine": 28,
+        "tfidf": 32,
+        "hybrid": 29
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_003",
+        "cosine": 122,
+        "tfidf": 30,
+        "hybrid": 42
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_004",
+        "cosine": 33,
+        "tfidf": 18,
+        "hybrid": 26
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_005",
+        "cosine": 11,
+        "tfidf": 3,
+        "hybrid": 4
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_006",
+        "cosine": 15,
+        "tfidf": 20,
+        "hybrid": 17
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+        "cosine": 9,
+        "tfidf": 7,
+        "hybrid": 6
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_008",
+        "cosine": 13,
+        "tfidf": 4,
+        "hybrid": 7
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_009",
+        "cosine": 19,
+        "tfidf": 12,
+        "hybrid": 11
+      }
+    ]
+  },
+  {
+    "id": "A06",
+    "section": "A",
+    "origin_ids": [
+      "G18",
+      "G19"
+    ],
+    "question": "회생 제동",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0353_p326_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0353_p326_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0354_p326_p326_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0354_p326_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0355_p326_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0356_p327_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0356_p327_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_p327_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_p328_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_p328_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_p329_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p330_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p330_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p331_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p331_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_011",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_012",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_013",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_014"
+    ],
+    "query_nouns": [
+      "회생",
+      "제동"
+    ],
+    "query_vocabulary_terms": [
+      "제동",
+      "회생"
+    ],
+    "tfidf_positive_documents": 246,
+    "metrics": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "top5": {
+      "cosine": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+          "rank": 1,
+          "section_id": "s0349_p322",
+          "chunk_type": "image",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동량 확인하기\n이미지 설명: 회생 제동량 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n회생 제동량 확인하기\n클러스터에서 회생 제동량 단계를 확인할 수 있습니다.",
+          "cosine_similarity": 0.5004521647165233,
+          "tfidf_similarity": 0.8900534467714301,
+          "rrf_score": 0.03278688524590164,
+          "dense_rank": 1,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5763526856012322
+            },
+            {
+              "term": "제동",
+              "contribution": 0.31370076117019785
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+          "rank": 2,
+          "section_id": "s0347_p322",
+          "chunk_type": "text",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기\n본문:\n회생 제동 기능 사용하기\n패들 시프트 레버를 조작해 차량의 회생 제동량을 조절할 수 있습니다.\n주행 중 회생 제동량을 적절히 조절하면 차량의 연비를 개선하고 주행의 재미를 더할 수 있습니다.\n[알아두기]\n'회생 제동'이란 구동용 전기 모터가 감속할 때의 운동 에너지를 전기 에너지로 변환해 고전압 배터리를 충전하\n는 기술입니다.",
+          "cosine_similarity": 0.4943230560253871,
+          "tfidf_similarity": 0.6977617814313365,
+          "rrf_score": 0.02946236559139785,
+          "dense_rank": 2,
+          "tfidf_rank": 15,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.45183452532724877
+            },
+            {
+              "term": "제동",
+              "contribution": 0.2459272561040877
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+          "rank": 3,
+          "section_id": "s0349_p322",
+          "chunk_type": "text",
+          "pdf_pages": [
+            322,
+            323
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동량 확인하기\n본문:\n회생 제동량 확인하기\n\n클러스터에서 회생 제동량 단계를 확인할 수 있습니다.\n\n[알아두기]\n회생 제동량을 0단계로 설정한 경우, 시동을 껐다가 다시 걸면 제동량이 1단계로 변경됩니다.",
+          "cosine_similarity": 0.483053391908539,
+          "tfidf_similarity": 0.8539780295402009,
+          "rrf_score": 0.031746031746031744,
+          "dense_rank": 3,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5165783347869843
+            },
+            {
+              "term": "제동",
+              "contribution": 0.3373996947532165
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+          "rank": 4,
+          "section_id": "s0348_p322",
+          "chunk_type": "image",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 패들 시프트 레버 조작하기\n이미지 설명: 패들 시프트 레버 조작하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n패들 시프트 레버 조작하기\n1.\t회생 제동 증가 레버( ° )\n2.\t회생 제동 감소 레버( ² )\n회생 제동 증가 레버(1)\n•\t한 번 당겨 회생 제동량을 1단계 올릴 수 있습니다(감속도 증가).",
+          "cosine_similarity": 0.48079069922470236,
+          "tfidf_similarity": 0.5508965221554387,
+          "rrf_score": 0.02738970588235294,
+          "dense_rank": 4,
+          "tfidf_rank": 25,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.3567321616296196
+            },
+            {
+              "term": "제동",
+              "contribution": 0.19416436052581912
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+          "rank": 5,
+          "section_id": "s0159_p138",
+          "chunk_type": "text",
+          "pdf_pages": [
+            138,
+            139
+          ],
+          "page_content": "목차: 클러스터 > 계측기 > 회생 제동 단계 표시등\n본문:\n회생 제동 단계 표시등\n\nA타입\n\nB타입\n\n패들 시프트 레버로 설정한 회생 제동 단계를 표시합니다.\n•\t스마트 회생 시스템 작동 시 스마트 회생 시스템의 작동 상태 또한 표시합니다.\n•\t자세한 설명은 '회생 제동 기능 사용하기'와 '스마트 회생 제동 기능 사용하기'를 참고하십시오.",
+          "cosine_similarity": 0.47185716651941084,
+          "tfidf_similarity": 0.7990057835713755,
+          "rrf_score": 0.029877369007803793,
+          "dense_rank": 5,
+          "tfidf_rank": 9,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5753310129153587
+            },
+            {
+              "term": "제동",
+              "contribution": 0.22367477065601685
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "tfidf": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+          "rank": 1,
+          "section_id": "s0349_p322",
+          "chunk_type": "image",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동량 확인하기\n이미지 설명: 회생 제동량 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n회생 제동량 확인하기\n클러스터에서 회생 제동량 단계를 확인할 수 있습니다.",
+          "cosine_similarity": 0.5004521647165233,
+          "tfidf_similarity": 0.8900534467714301,
+          "rrf_score": 0.03278688524590164,
+          "dense_rank": 1,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5763526856012322
+            },
+            {
+              "term": "제동",
+              "contribution": 0.31370076117019785
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0354_p326_p326_image_01",
+          "rank": 2,
+          "section_id": "s0354_p326",
+          "chunk_type": "image",
+          "pdf_pages": [
+            326
+          ],
+          "page_content": "목차: 시동 및 주행 > 스마트 회생 제동 기능 사용하기 > 스마트 회생 제동 켜기\n이미지 설명: 스마트 회생 제동 켜기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n스마트 회생 제동 켜기\n주행 중(변속기 위치 D) 회생 제동 감소 레버( ² )를 1초 이상 당기면 스마트 회생 제동 기능이 켜집니다.\n•\t클러스터의 회생 제동 단계 표시등이 'AUTO'로 변경됩니다.\n•\t스마트 회생 제동 작동 중 회생 제동 증가 레버( ° )를 0.5초 이상 당긴 채 유지하면 원 페달 드라이빙 기\n능을 사용할 수 있습니다('원 페달 드라이빙 사용하기' 참고).",
+          "cosine_similarity": 0.42511722848615846,
+          "tfidf_similarity": 0.8542327869478753,
+          "rrf_score": 0.02928692699490662,
+          "dense_rank": 16,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5531570746362924
+            },
+            {
+              "term": "제동",
+              "contribution": 0.301075712311583
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+          "rank": 3,
+          "section_id": "s0349_p322",
+          "chunk_type": "text",
+          "pdf_pages": [
+            322,
+            323
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동량 확인하기\n본문:\n회생 제동량 확인하기\n\n클러스터에서 회생 제동량 단계를 확인할 수 있습니다.\n\n[알아두기]\n회생 제동량을 0단계로 설정한 경우, 시동을 껐다가 다시 걸면 제동량이 1단계로 변경됩니다.",
+          "cosine_similarity": 0.483053391908539,
+          "tfidf_similarity": 0.8539780295402009,
+          "rrf_score": 0.031746031746031744,
+          "dense_rank": 3,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5165783347869843
+            },
+            {
+              "term": "제동",
+              "contribution": 0.3373996947532165
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0357_p327_p327_image_01",
+          "rank": 4,
+          "section_id": "s0357_p327",
+          "chunk_type": "image",
+          "pdf_pages": [
+            327
+          ],
+          "page_content": "목차: 시동 및 주행 > 스마트 회생 제동 기능 사용하기 > 스마트 회생 제동량 설정하기\n이미지 설명: 스마트 회생 제동량 설정하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n스마트 회생 제동량 설정하기\n1.\t스마트 회생 제동 표시등\n2.\t회생 제동량\n3.\t전방 차량/과속 카메라 감지등\n•\t스마트 회생 시스템이 켜지면 클러스터에 'AUTO' 문구가 표시되고, 작동 조건에 따라 회생 제동량이 조절됩",
+          "cosine_similarity": 0.39067736856447854,
+          "tfidf_similarity": 0.8515841261604856,
+          "rrf_score": 0.02661401098901099,
+          "dense_rank": 31,
+          "tfidf_rank": 4,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5768561737374194
+            },
+            {
+              "term": "제동",
+              "contribution": 0.2747279524230663
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0354_p326_text_001",
+          "rank": 5,
+          "section_id": "s0354_p326",
+          "chunk_type": "text",
+          "pdf_pages": [
+            326
+          ],
+          "page_content": "목차: 시동 및 주행 > 스마트 회생 제동 기능 사용하기 > 스마트 회생 제동 켜기\n본문:\n스마트 회생 제동 켜기\n주행 중(변속기 위치 D) 회생 제동 감소 레버( ² )를 1초 이상 당기면 스마트 회생 제동 기능이 켜집니다.\n•\t클러스터의 회생 제동 단계 표시등이 'AUTO'로 변경됩니다.\n\n•\t스마트 회생 제동 작동 중 회생 제동 증가 레버( ° )를 0.5초 이상 당긴 채 유지하면 원 페달 드라이빙 기\n능을 사용할 수 있습니다('원 페달 드라이빙 사용하기' 참고).",
+          "cosine_similarity": 0.4302301412943577,
+          "tfidf_similarity": 0.8464063976511264,
+          "rrf_score": 0.0288981288981289,
+          "dense_rank": 14,
+          "tfidf_rank": 5,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5480891087673837
+            },
+            {
+              "term": "제동",
+              "contribution": 0.2983172888837426
+            }
+          ],
+          "relevant": true
+        }
+      ],
+      "hybrid": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+          "rank": 1,
+          "section_id": "s0349_p322",
+          "chunk_type": "image",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동량 확인하기\n이미지 설명: 회생 제동량 확인하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n회생 제동량 확인하기\n클러스터에서 회생 제동량 단계를 확인할 수 있습니다.",
+          "cosine_similarity": 0.5004521647165233,
+          "tfidf_similarity": 0.8900534467714301,
+          "rrf_score": 0.03278688524590164,
+          "dense_rank": 1,
+          "tfidf_rank": 1,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5763526856012322
+            },
+            {
+              "term": "제동",
+              "contribution": 0.31370076117019785
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+          "rank": 2,
+          "section_id": "s0349_p322",
+          "chunk_type": "text",
+          "pdf_pages": [
+            322,
+            323
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동량 확인하기\n본문:\n회생 제동량 확인하기\n\n클러스터에서 회생 제동량 단계를 확인할 수 있습니다.\n\n[알아두기]\n회생 제동량을 0단계로 설정한 경우, 시동을 껐다가 다시 걸면 제동량이 1단계로 변경됩니다.",
+          "cosine_similarity": 0.483053391908539,
+          "tfidf_similarity": 0.8539780295402009,
+          "rrf_score": 0.031746031746031744,
+          "dense_rank": 3,
+          "tfidf_rank": 3,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5165783347869843
+            },
+            {
+              "term": "제동",
+              "contribution": 0.3373996947532165
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+          "rank": 3,
+          "section_id": "s0159_p138",
+          "chunk_type": "text",
+          "pdf_pages": [
+            138,
+            139
+          ],
+          "page_content": "목차: 클러스터 > 계측기 > 회생 제동 단계 표시등\n본문:\n회생 제동 단계 표시등\n\nA타입\n\nB타입\n\n패들 시프트 레버로 설정한 회생 제동 단계를 표시합니다.\n•\t스마트 회생 시스템 작동 시 스마트 회생 시스템의 작동 상태 또한 표시합니다.\n•\t자세한 설명은 '회생 제동 기능 사용하기'와 '스마트 회생 제동 기능 사용하기'를 참고하십시오.",
+          "cosine_similarity": 0.47185716651941084,
+          "tfidf_similarity": 0.7990057835713755,
+          "rrf_score": 0.029877369007803793,
+          "dense_rank": 5,
+          "tfidf_rank": 9,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5753310129153587
+            },
+            {
+              "term": "제동",
+              "contribution": 0.22367477065601685
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+          "rank": 4,
+          "section_id": "s0347_p322",
+          "chunk_type": "text",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기\n본문:\n회생 제동 기능 사용하기\n패들 시프트 레버를 조작해 차량의 회생 제동량을 조절할 수 있습니다.\n주행 중 회생 제동량을 적절히 조절하면 차량의 연비를 개선하고 주행의 재미를 더할 수 있습니다.\n[알아두기]\n'회생 제동'이란 구동용 전기 모터가 감속할 때의 운동 에너지를 전기 에너지로 변환해 고전압 배터리를 충전하\n는 기술입니다.",
+          "cosine_similarity": 0.4943230560253871,
+          "tfidf_similarity": 0.6977617814313365,
+          "rrf_score": 0.02946236559139785,
+          "dense_rank": 2,
+          "tfidf_rank": 15,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.45183452532724877
+            },
+            {
+              "term": "제동",
+              "contribution": 0.2459272561040877
+            }
+          ],
+          "relevant": true
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0354_p326_p326_image_01",
+          "rank": 5,
+          "section_id": "s0354_p326",
+          "chunk_type": "image",
+          "pdf_pages": [
+            326
+          ],
+          "page_content": "목차: 시동 및 주행 > 스마트 회생 제동 기능 사용하기 > 스마트 회생 제동 켜기\n이미지 설명: 스마트 회생 제동 켜기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n스마트 회생 제동 켜기\n주행 중(변속기 위치 D) 회생 제동 감소 레버( ² )를 1초 이상 당기면 스마트 회생 제동 기능이 켜집니다.\n•\t클러스터의 회생 제동 단계 표시등이 'AUTO'로 변경됩니다.\n•\t스마트 회생 제동 작동 중 회생 제동 증가 레버( ° )를 0.5초 이상 당긴 채 유지하면 원 페달 드라이빙 기\n능을 사용할 수 있습니다('원 페달 드라이빙 사용하기' 참고).",
+          "cosine_similarity": 0.42511722848615846,
+          "tfidf_similarity": 0.8542327869478753,
+          "rrf_score": 0.02928692699490662,
+          "dense_rank": 16,
+          "tfidf_rank": 2,
+          "matched_terms": [
+            {
+              "term": "회생",
+              "contribution": 0.5531570746362924
+            },
+            {
+              "term": "제동",
+              "contribution": 0.301075712311583
+            }
+          ],
+          "relevant": true
+        }
+      ]
+    },
+    "candidate_hit": {
+      "cosine": 1,
+      "tfidf": 1
+    },
+    "union_candidate_hit": 1,
+    "gold_ranks": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_02",
+        "cosine": 10,
+        "tfidf": 20,
+        "hybrid": 13
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_03",
+        "cosine": 9,
+        "tfidf": 21,
+        "hybrid": 12
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+        "cosine": 5,
+        "tfidf": 9,
+        "hybrid": 3
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+        "cosine": 2,
+        "tfidf": 15,
+        "hybrid": 4
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+        "cosine": 4,
+        "tfidf": 25,
+        "hybrid": 11
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+        "cosine": 7,
+        "tfidf": 10,
+        "hybrid": 6
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+        "cosine": 1,
+        "tfidf": 1,
+        "hybrid": 1
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+        "cosine": 3,
+        "tfidf": 3,
+        "hybrid": 2
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+        "cosine": 6,
+        "tfidf": 13,
+        "hybrid": 8
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_001",
+        "cosine": 29,
+        "tfidf": 30,
+        "hybrid": 33
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_002",
+        "cosine": 34,
+        "tfidf": 47,
+        "hybrid": 36
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_003",
+        "cosine": 60,
+        "tfidf": 117,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_004",
+        "cosine": 48,
+        "tfidf": 91,
+        "hybrid": 56
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+        "cosine": 8,
+        "tfidf": 34,
+        "hybrid": 16
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_002",
+        "cosine": 81,
+        "tfidf": 120,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_003",
+        "cosine": 47,
+        "tfidf": 89,
+        "hybrid": 55
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0353_p326_text_001",
+        "cosine": 12,
+        "tfidf": 32,
+        "hybrid": 24
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0353_p326_text_002",
+        "cosine": 36,
+        "tfidf": 19,
+        "hybrid": 30
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0354_p326_p326_image_01",
+        "cosine": 16,
+        "tfidf": 2,
+        "hybrid": 5
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0354_p326_text_001",
+        "cosine": 14,
+        "tfidf": 5,
+        "hybrid": 7
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0355_p326_text_001",
+        "cosine": 19,
+        "tfidf": 7,
+        "hybrid": 10
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0356_p327_text_001",
+        "cosine": 30,
+        "tfidf": 11,
+        "hybrid": 19
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0356_p327_text_002",
+        "cosine": 17,
+        "tfidf": 14,
+        "hybrid": 15
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0357_p327_p327_image_01",
+        "cosine": 31,
+        "tfidf": 4,
+        "hybrid": 14
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0357_p327_p328_image_01",
+        "cosine": 35,
+        "tfidf": 8,
+        "hybrid": 18
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0357_p327_text_001",
+        "cosine": 18,
+        "tfidf": 6,
+        "hybrid": 9
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0357_p327_text_002",
+        "cosine": 40,
+        "tfidf": 23,
+        "hybrid": 34
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0358_p328_p328_image_02",
+        "cosine": 15,
+        "tfidf": 28,
+        "hybrid": 25
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0358_p328_p329_image_01",
+        "cosine": 28,
+        "tfidf": 12,
+        "hybrid": 17
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0358_p328_text_001",
+        "cosine": 24,
+        "tfidf": 16,
+        "hybrid": 23
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0358_p328_text_002",
+        "cosine": 51,
+        "tfidf": 44,
+        "hybrid": 52
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p330_image_01",
+        "cosine": 26,
+        "tfidf": 26,
+        "hybrid": 28
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p330_image_02",
+        "cosine": 22,
+        "tfidf": 17,
+        "hybrid": 21
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p331_image_01",
+        "cosine": 13,
+        "tfidf": 27,
+        "hybrid": 20
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p331_image_02",
+        "cosine": 20,
+        "tfidf": 33,
+        "hybrid": 29
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_01",
+        "cosine": 42,
+        "tfidf": 54,
+        "hybrid": 48
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_02",
+        "cosine": 41,
+        "tfidf": 55,
+        "hybrid": 46
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_03",
+        "cosine": 32,
+        "tfidf": 39,
+        "hybrid": 35
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_001",
+        "cosine": 33,
+        "tfidf": 18,
+        "hybrid": 27
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_002",
+        "cosine": 43,
+        "tfidf": 80,
+        "hybrid": 51
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_003",
+        "cosine": 45,
+        "tfidf": 38,
+        "hybrid": 38
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_004",
+        "cosine": 25,
+        "tfidf": 24,
+        "hybrid": 26
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_005",
+        "cosine": 53,
+        "tfidf": 56,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_006",
+        "cosine": 37,
+        "tfidf": 22,
+        "hybrid": 32
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_007",
+        "cosine": 44,
+        "tfidf": 40,
+        "hybrid": 39
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_008",
+        "cosine": 11,
+        "tfidf": 31,
+        "hybrid": 22
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_009",
+        "cosine": 38,
+        "tfidf": 85,
+        "hybrid": 44
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_010",
+        "cosine": 23,
+        "tfidf": 63,
+        "hybrid": 40
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_011",
+        "cosine": 56,
+        "tfidf": 74,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_012",
+        "cosine": 55,
+        "tfidf": 59,
+        "hybrid": null
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_013",
+        "cosine": 39,
+        "tfidf": 61,
+        "hybrid": 45
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_014",
+        "cosine": 46,
+        "tfidf": 36,
+        "hybrid": 37
+      }
+    ]
+  }
+]

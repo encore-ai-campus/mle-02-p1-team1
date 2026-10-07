@@ -1,0 +1,24 @@
+{
+  "dataset_version": "ioniq5-retrieval-baseline-v1-human-reviewed",
+  "question_count": 24,
+  "evaluated_at": "2026-10-06T10:46:42.310459+00:00",
+  "label_status": "human_evidence_review_complete",
+  "human_review": {
+    "scope": "G01-G24 정답 근거 전체",
+    "question_count": 24,
+    "status": "complete",
+    "reported_by": "user",
+    "note": "사용자가 24문항 전체의 정답 근거를 사람이 검수 완료했다고 확인함. 검수자 이름·검수일은 별도 제공되지 않음."
+  },
+  "started_at": "2026-10-06T10:45:10.324364+00:00",
+  "scope": "Raw standalone-question retrieval only; excludes parent expansion, intent checks and answer generation.",
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dimension": 1536,
+  "corpus_chunks": 2338,
+  "dataset_sha256": "9deb30ea1d75e043fa9bcf34c0a4d2d863d5b9b157de741789ca9f1851ba3094",
+  "corpus_sha256": "9d2fe6a3ed73283b43ddcec701b0c8e883e151ea5a982dd3e742dbd098e59d0b",
+  "evaluator_sha256": "958d3f1112b078f17bc96f8dc2db1b5d7a28bcb65af2889f3deb95f9ed338eb7",
+  "hit_at_5": 0.5833333333333334,
+  "mrr_at_5": 0.3888888888888889,
+  "mrr_full": 0.41695676467735193
+}

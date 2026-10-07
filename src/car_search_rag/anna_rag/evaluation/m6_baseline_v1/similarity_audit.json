@@ -1,0 +1,248 @@
+{
+  "score_type": "cosine_distance",
+  "formula": "cosine_similarity = 1 - cosine_distance",
+  "not_a_probability": true,
+  "source": "Unchanged M6 baseline results.json",
+  "questions": [
+    {
+      "id": "G01",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.456115179629177,
+      "top1_cosine_similarity": 0.543884820370823,
+      "first_gold_cosine_distance": 0.477378111543503,
+      "first_gold_cosine_similarity": 0.522621888456497,
+      "similarity_gap": 0.02126293191432599
+    },
+    {
+      "id": "G02",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.440986370859937,
+      "top1_cosine_similarity": 0.5590136291400629,
+      "first_gold_cosine_distance": 0.447109254938581,
+      "first_gold_cosine_similarity": 0.552890745061419,
+      "similarity_gap": 0.006122884078643975
+    },
+    {
+      "id": "G03",
+      "hit_at_5": 0,
+      "first_gold_rank": 6,
+      "top1_cosine_distance": 0.445698547666569,
+      "top1_cosine_similarity": 0.554301452333431,
+      "first_gold_cosine_distance": 0.462641724130504,
+      "first_gold_cosine_similarity": 0.537358275869496,
+      "similarity_gap": 0.01694317646393495
+    },
+    {
+      "id": "G04",
+      "hit_at_5": 1,
+      "first_gold_rank": 1,
+      "top1_cosine_distance": 0.443954039831235,
+      "top1_cosine_similarity": 0.5560459601687651,
+      "first_gold_cosine_distance": 0.443954039831235,
+      "first_gold_cosine_similarity": 0.5560459601687651,
+      "similarity_gap": 0.0
+    },
+    {
+      "id": "G05",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.544380236256364,
+      "top1_cosine_similarity": 0.455619763743636,
+      "first_gold_cosine_distance": 0.549296956854842,
+      "first_gold_cosine_similarity": 0.45070304314515797,
+      "similarity_gap": 0.0049167205984780304
+    },
+    {
+      "id": "G06",
+      "hit_at_5": 0,
+      "first_gold_rank": 12,
+      "top1_cosine_distance": 0.38816882338839,
+      "top1_cosine_similarity": 0.61183117661161,
+      "first_gold_cosine_distance": 0.461449531757906,
+      "first_gold_cosine_similarity": 0.5385504682420941,
+      "similarity_gap": 0.073280708369516
+    },
+    {
+      "id": "G07",
+      "hit_at_5": 0,
+      "first_gold_rank": 573,
+      "top1_cosine_distance": 0.572716584703233,
+      "top1_cosine_similarity": 0.42728341529676706,
+      "first_gold_cosine_distance": 0.708850984681103,
+      "first_gold_cosine_similarity": 0.29114901531889703,
+      "similarity_gap": 0.13613439997787002
+    },
+    {
+      "id": "G08",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.535975923780399,
+      "top1_cosine_similarity": 0.46402407621960096,
+      "first_gold_cosine_distance": 0.54846123278485,
+      "first_gold_cosine_similarity": 0.45153876721514996,
+      "similarity_gap": 0.012485309004450995
+    },
+    {
+      "id": "G09",
+      "hit_at_5": 0,
+      "first_gold_rank": 67,
+      "top1_cosine_distance": 0.536253143293154,
+      "top1_cosine_similarity": 0.463746856706846,
+      "first_gold_cosine_distance": 0.633868192072413,
+      "first_gold_cosine_similarity": 0.36613180792758704,
+      "similarity_gap": 0.09761504877925897
+    },
+    {
+      "id": "G10",
+      "hit_at_5": 1,
+      "first_gold_rank": 1,
+      "top1_cosine_distance": 0.415156444790756,
+      "top1_cosine_similarity": 0.584843555209244,
+      "first_gold_cosine_distance": 0.415156444790756,
+      "first_gold_cosine_similarity": 0.584843555209244,
+      "similarity_gap": 0.0
+    },
+    {
+      "id": "G11",
+      "hit_at_5": 1,
+      "first_gold_rank": 3,
+      "top1_cosine_distance": 0.403263700629828,
+      "top1_cosine_similarity": 0.5967362993701719,
+      "first_gold_cosine_distance": 0.493767341648064,
+      "first_gold_cosine_similarity": 0.506232658351936,
+      "similarity_gap": 0.09050364101823599
+    },
+    {
+      "id": "G12",
+      "hit_at_5": 1,
+      "first_gold_rank": 1,
+      "top1_cosine_distance": 0.526043952356321,
+      "top1_cosine_similarity": 0.47395604764367905,
+      "first_gold_cosine_distance": 0.526043952356321,
+      "first_gold_cosine_similarity": 0.47395604764367905,
+      "similarity_gap": 0.0
+    },
+    {
+      "id": "G13",
+      "hit_at_5": 0,
+      "first_gold_rank": 15,
+      "top1_cosine_distance": 0.486614196107161,
+      "top1_cosine_similarity": 0.5133858038928389,
+      "first_gold_cosine_distance": 0.539858970894637,
+      "first_gold_cosine_similarity": 0.46014102910536303,
+      "similarity_gap": 0.05324477478747597
+    },
+    {
+      "id": "G14",
+      "hit_at_5": 1,
+      "first_gold_rank": 1,
+      "top1_cosine_distance": 0.310422098718075,
+      "top1_cosine_similarity": 0.689577901281925,
+      "first_gold_cosine_distance": 0.310422098718075,
+      "first_gold_cosine_similarity": 0.689577901281925,
+      "similarity_gap": 0.0
+    },
+    {
+      "id": "G15",
+      "hit_at_5": 0,
+      "first_gold_rank": 8,
+      "top1_cosine_distance": 0.560479868418485,
+      "top1_cosine_similarity": 0.43952013158151504,
+      "first_gold_cosine_distance": 0.624230157956099,
+      "first_gold_cosine_similarity": 0.37576984204390096,
+      "similarity_gap": 0.06375028953761408
+    },
+    {
+      "id": "G16",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.580043576368249,
+      "top1_cosine_similarity": 0.419956423631751,
+      "first_gold_cosine_distance": 0.595413008264748,
+      "first_gold_cosine_similarity": 0.40458699173525203,
+      "similarity_gap": 0.015369431896498975
+    },
+    {
+      "id": "G17",
+      "hit_at_5": 0,
+      "first_gold_rank": 119,
+      "top1_cosine_distance": 0.545739550495296,
+      "top1_cosine_similarity": 0.454260449504704,
+      "first_gold_cosine_distance": 0.638798869511126,
+      "first_gold_cosine_similarity": 0.36120113048887403,
+      "similarity_gap": 0.09305931901582998
+    },
+    {
+      "id": "G18",
+      "hit_at_5": 1,
+      "first_gold_rank": 1,
+      "top1_cosine_distance": 0.558645907222627,
+      "top1_cosine_similarity": 0.44135409277737303,
+      "first_gold_cosine_distance": 0.558645907222627,
+      "first_gold_cosine_similarity": 0.44135409277737303,
+      "similarity_gap": 0.0
+    },
+    {
+      "id": "G19",
+      "hit_at_5": 0,
+      "first_gold_rank": 27,
+      "top1_cosine_distance": 0.449097899070784,
+      "top1_cosine_similarity": 0.550902100929216,
+      "first_gold_cosine_distance": 0.592353935256918,
+      "first_gold_cosine_similarity": 0.40764606474308196,
+      "similarity_gap": 0.14325603618613403
+    },
+    {
+      "id": "G20",
+      "hit_at_5": 0,
+      "first_gold_rank": 6,
+      "top1_cosine_distance": 0.296497989931271,
+      "top1_cosine_similarity": 0.703502010068729,
+      "first_gold_cosine_distance": 0.335874320864641,
+      "first_gold_cosine_similarity": 0.664125679135359,
+      "similarity_gap": 0.03937633093336995
+    },
+    {
+      "id": "G21",
+      "hit_at_5": 0,
+      "first_gold_rank": 314,
+      "top1_cosine_distance": 0.522036642329373,
+      "top1_cosine_similarity": 0.47796335767062703,
+      "first_gold_cosine_distance": 0.632758717356834,
+      "first_gold_cosine_similarity": 0.367241282643166,
+      "similarity_gap": 0.11072207502746101
+    },
+    {
+      "id": "G22",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.461130014762015,
+      "top1_cosine_similarity": 0.538869985237985,
+      "first_gold_cosine_distance": 0.470679524254444,
+      "first_gold_cosine_similarity": 0.5293204757455561,
+      "similarity_gap": 0.009549509492428998
+    },
+    {
+      "id": "G23",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.471258951953981,
+      "top1_cosine_similarity": 0.5287410480460191,
+      "first_gold_cosine_distance": 0.479219118097201,
+      "first_gold_cosine_similarity": 0.520780881902799,
+      "similarity_gap": 0.007960166143220038
+    },
+    {
+      "id": "G24",
+      "hit_at_5": 1,
+      "first_gold_rank": 2,
+      "top1_cosine_distance": 0.430044705520551,
+      "top1_cosine_similarity": 0.569955294479449,
+      "first_gold_cosine_distance": 0.450954207511186,
+      "first_gold_cosine_similarity": 0.549045792488814,
+      "similarity_gap": 0.02090950199063496
+    }
+  ]
+}

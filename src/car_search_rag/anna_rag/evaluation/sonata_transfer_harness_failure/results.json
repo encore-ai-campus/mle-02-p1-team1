@@ -1,0 +1,2506 @@
+[
+  {
+    "id": "A01",
+    "section": "A",
+    "origin_ids": [
+      "G01",
+      "G02",
+      "G03"
+    ],
+    "question": "전기차 충전 방식",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_p013_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_011",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_012",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_013",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_04",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_05",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_06",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_07",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p016_image_08",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p017_image_04",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_p020_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_04",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_p022_image_05",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0022_p021_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0024_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0025_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0025_p024_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p029_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p030_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_p030_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0030_p029_text_002"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_007"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+        "page": 14,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n전기차 충전 정보 확인하기\n차량을 충전하기 전에 반드시 알아야 하는 정보를 확인하고 숙지하십시오.\n\n충전 방식과 소요 시간\n전기차의 충전 방식은 다음과 같습니다.\n•\t완속 충전: 공공 충전소의 완속 충전기를 이용해 충전하십시오. 완속 충전 케이블(별매품)이 필요할 수 있습\n니다.\n•\t급속 충전: 공공 충전소의 급속 충전기를 이용해 충전하십시오. 급속 충전기의 사용 방법은 각 급속 충전기\n설치 회사에서 제공하는 별도 사용설명서를 참고하십시오.\n•\t휴대용 충전: 배터리 충전량이 적어 공공 충전소까지 이동하기 어려운 경우, 220 V 휴대용 충전기(별매품)\n를 이용해 가정용 전기로 차량을 충전할 수 있습니다.\n\n[주의]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+        "page": 11,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기\n본문:\n전기차 충전하기\n전기차의 충전과 관련된 상세 정보를 확인하고 차량을 충전하십시오.\n공공 충전소에서 완속 또는 급속 충전 케이블을 사용해 차량을 충전할 수 있습니다.\n•\t비상시 공공 충전소까지 차량을 이동할 수 없는 경우에는 휴대용 충전기를 사용해 일반 전원(AC 220 V)으\n로도 차량을 충전할 수 있습니다.\n•\t주변의 충전소 위치를 검색하려면 '충전소 검색 기능 사용하기'를 참고하십시오."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+        "page": 18,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 완속 충전기 사용하기\n본문:\n완속 충전기 사용하기\n공공 충전소에 설치된 완속 충전 케이블이나 별도로 구매한 완속 충전 케이블을 이용해 전기차를 충전하십시오.\n•\t주변의 충전소 위치를 검색하려면 '충전소 검색 기능 사용하기'를 참고하십시오.\n\n[경고]\n\n감전 및 화재, 폭발 등으로 인한 부상 및 재산상의 손실을 방지하려면 차량을 충전하기 전에 '전기차 충전 시 안\n전을 위한 주의사항'을 읽고 지시를 따르십시오.\n\n[주의]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002",
+        "page": 20,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 급속 충전기 사용하기\n본문:\n급속 충전 커넥터(차량 측)\n\n급속 충전기로 충전하기\n1\t브레이크 페달을 밟은 상태로 주차 브레이크를 체결하십시오.\n2\t각종 전원 스위치를 끄고, 변속 다이얼의 P 버튼을 눌러 'P'(주차)로 변속한 후 시동을 끄십시오.\n3\t차량 도어의 잠금이 해제된 상태에서 충전 도어의 열림 표시부를 눌러 충전 도어를 여십시오.\n4\t충전 인렛 커버를 열고 충전 커넥터와 충전 인렛에 먼지 등 이물질이 있는지 확인하십시오.\n•\t이물질이 있는 경우 에어건을 사용해 제거하십시오.\n\n[경고]\n충전 케이블의 충전 커넥터나 차량의 충전 인렛을 손으로 만지지 마십시오."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+        "page": 19,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 완속 충전기 사용하기\n본문:\n1.\t충전 커넥터(차량 측)\n2.\t충전 플러그(충전기 측)\n\n완속 충전기로 충전하기\n1\t브레이크 페달을 밟은 상태로 주차 브레이크를 체결하십시오.\n2\t각종 전원 스위치를 끄고, 변속 다이얼의 P 버튼을 눌러 'P'(주차)로 변속한 후 시동을 끄십시오.\n3\t차량 도어의 잠금이 해제된 상태에서 충전 도어의 열림 표시부를 눌러 충전 도어를 여십시오.\n4\t충전 인렛 커버를 열고 충전 커넥터와 충전 인렛에 먼지 등 이물질이 있는지 확인하십시오.\n•\t이물질이 있는 경우 에어건을 사용해 제거하십시오.\n\n[경고]\n충전 케이블의 충전 커넥터나 차량의 충전 인렛을 손으로 만지지 마십시오."
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 5.06362045899732,
+      "input_tokens": 2285,
+      "output_tokens": 274,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 19,
+          "chunk_id": 69,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_003",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 19,
+          "chunk_id": 66,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_p019_image_01",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 11,
+          "chunk_id": 28,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0017_p011_text_001",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 24,
+          "chunk_id": 94,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_001",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 17,
+          "chunk_id": 61,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_006",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 18,
+          "chunk_id": 67,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_001",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 20,
+          "chunk_id": 73,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_007",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 14,
+          "chunk_id": 56,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_001",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 18,
+          "chunk_id": 65,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_010",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 20,
+          "chunk_id": 76,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0021_p020_text_002",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0029479580116458237,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0029485829873010516,
+      "parallel_retrieval_latency_seconds": 0.0031616659834980965,
+      "reranking_latency_seconds": 5.06362045899732,
+      "total_search_latency_seconds": 5.066871749993879
+    },
+    "elapsed_s": 5.067007082980126
+  },
+  {
+    "id": "A02",
+    "section": "A",
+    "origin_ids": [
+      "G09",
+      "G10"
+    ],
+    "question": "스마트 키",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0170_p157_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0171_p158_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0172_p158_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0173_p158_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0175_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0176_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_p160_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0179_p161_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0179_p161_text_002"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0176_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_p160_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0176_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_p160_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0176_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0177_p159_p160_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+        "page": 157,
+        "text": "목차: 편의 장치 > 스마트 키 사용하기\n본문:\n스마트 키 사용하기\n스마트 키를 이용해 보다 편리하게 차량 기능을 활용할 수 있습니다.\n\n1.\tƗ 비상 경보\n2.\tď 도어 잠금 해제\n3.\tĎ 도어 잠금\n4.\tƙ 원격 시동\n5.\tû 테일게이트 잠금 해제/열림\n6.\tĒ / ē 원격 전후진(사양 적용 시)"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+        "page": 157,
+        "text": "목차: 편의 장치 > 스마트 키 사용하기\n이미지 설명: 스마트 키 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n스마트 키 사용하기\n스마트 키를 이용해 보다 편리하게 차량 기능을 활용할 수 있습니다.\n1.\tƗ 비상 경보\n2.\tď 도어 잠금 해제\n3.\tĎ 도어 잠금"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+        "page": 160,
+        "text": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n스마트 키 사용 시 주의사항\n•\t스마트 키를 항시 휴대하십시오.\n-\t스마트 키를 차량 근처에 두면 차량의 배터리가 방전될 수 있으므로 주의하십시오.\n-\t스마트 키가 없으면 차량의 시동을 걸 수 없습니다. 스마트 키를 분실한 경우, 당사 직영 하이테크센터나\n블루핸즈로 차량을 견인한 후 조치하십시오.\n•\t스마트 키는 완전 방수가 되지 않기 때문에 내부에 습기가 차거나 음료수 등의 액체가 유입되지 않도록 하십\n시오. 또한 가열하는 등 부적절한 취급을 삼가십시오. 내부 회로가 손상되어 스마트 키가 오작동할 수 있으며,\n이 경우에는 보증수리를 받을 수 없습니다.\n•\t스마트 키에 열쇠 고리 등 임의의 액세서리를 연결한 상태로 주머니, 가방 등에 보관하는 경우 의도치 않게"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+        "page": 160,
+        "text": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n•\t스마트 키에 열쇠 고리 등 임의의 액세서리를 연결한 상태로 주머니, 가방 등에 보관하는 경우 의도치 않게\n스마트 키 버튼이 눌릴 수 있으므로 주의하십시오.\n•\t다음과 같은 경우 전파 방해로 인해 스마트 키 기능이 작동하지 않거나 작동 거리가 짧아질 수 있습니다.\n-\t경찰서, 관공서, 방송국, 군부대, 송신탑, 공항, 항구 등 시설 근처에서 스마트 키를 사용하는 경우\n-\t스마트 키를 무전기, 스마트폰, 휴대용 충전기를 포함하는 이동 송수신 시스템과 함께 휴대하거나 전열 장\n치 옆에서 사용하는 경우\n-\t근처의 다른 차량에서 스마트 키를 사용하고 있는 경우\n-\t스마트 키를 다용도 소켓에 연결된 외부 기기 근처에 둔 경우"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+        "page": 160,
+        "text": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 사용 시 주의사항\n본문:\n-\t근처의 다른 차량에서 스마트 키를 사용하고 있는 경우\n-\t스마트 키를 다용도 소켓에 연결된 외부 기기 근처에 둔 경우\n•\t스마트 키가 작동하지 않는 경우 비상 키를 사용해 도어를 잠그거나 잠금을 해제하십시오.\n•\t스마트 키를 휴대하거나 차 안에 둔 상태로 시동을 걸 수 없는 경우, 스마트 키로 시동 버튼을 직접 누르십시\n오.\n•\t스마트 키로 시동 버튼을 눌러도 시동이 켜지지 않는 경우 당사 직영 하이테크센터나 블루핸즈에 문의해 차\n량을 점검 및 정비하십시오.\n•\t차량 유리창에 선팅 필름을 부착하는 경우, 주파수 수신율이 낮아져 스마트 키 작동 거리가 줄어들 수 있으며,\n금속성 선팅 필름을 부착하는 경우에는 주파수 수신율이 더욱 낮아질 수 있습니다."
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 4.116818500042427,
+      "input_tokens": 2178,
+      "output_tokens": 241,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 157,
+          "chunk_id": 645,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_p157_image_01",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 157,
+          "chunk_id": 646,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0169_p157_text_001",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 160,
+          "chunk_id": 663,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_002",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 160,
+          "chunk_id": 664,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_003",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 160,
+          "chunk_id": 662,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_001",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 159,
+          "chunk_id": 657,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0176_p159_text_001",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 160,
+          "chunk_id": 661,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_003",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 160,
+          "chunk_id": 658,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_p160_image_01",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 159,
+          "chunk_id": 659,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 161,
+          "chunk_id": 666,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0178_p160_text_005",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0007555410265922546,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0007561669917777181,
+      "parallel_retrieval_latency_seconds": 0.0010788750369101763,
+      "reranking_latency_seconds": 4.116818500042427,
+      "total_search_latency_seconds": 4.117987041012384
+    },
+    "elapsed_s": 4.118050332996063
+  },
+  {
+    "id": "A03",
+    "section": "A",
+    "origin_ids": [
+      "G13",
+      "G14",
+      "G15"
+    ],
+    "question": "파워 테일게이트",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p228_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p228_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p229_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0233_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0233_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0236_p231_p231_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0236_p231_text_001"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_01"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+        "page": 225,
+        "text": "목차: 편의 장치 > 파워 테일게이트 사용하기\n본문:\n파워 테일게이트 사용하기\n차량의 시동이 'ON'이고 변속기 위치가 'P'(주차)일 때, 또는 시동 'OFF' 상태에서 파워 테일게이트를 작동할 수\n있습니다.\n•\t변속기 위치가 'P'(주차)일 때 파워 테일게이트를 작동하십시오.\n•\t차량이 3 km/h 이상의 속도로 이동하는 중에는 파워 테일게이트를 열 수 없습니다.\n\n[주의]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+        "page": 227,
+        "text": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 열고 닫기\n본문:\n파워 테일게이트 열고 닫기\n\n스마트 키, 운전석 테일게이트 버튼\n\nA타입\n\nB타입\n\n테일게이트가 닫힌 상태에서 스마트 키 또는 운전석의 테일게이트 버튼을 1초 이상 길게 누십시오.\n•\t경고음과 함께 테일게이트가 열립니다.\n•\t작동 중 버튼을 짧게 누르면 테일게이트를 원하는 위치에서 정지시킬 수 있습니다.\n•\t열려 있는 테일게이트를 닫으려면, 테일게이트가 완전히 닫힐 때까지 스마트 키 또는 운전석의 테일게이트\n버튼을 길게 누르십시오.\n•\t테일게이트가 닫히는 중 테일게이트 버튼에서 손을 떼면 작동이 멈추고 약 5초 동안 경고음이 울립니다.\n•\t스마트 키의 테일게이트 버튼을 누르고 있는 동안 차량과 스마트 키 사이 거리가 약 10 m 이상으로 멀어지\n는 경우, 작동이 멈추고 약 5초 동안 경고음이 울립니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+        "page": 229,
+        "text": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 설정하기\n본문:\n파워 테일게이트 설정하기\n파워 테일게이트는 해당 기능이 설정된 경우에만 작동합니다. 파워 테일게이트 기능을 원하지 않을 경우에는 설\n정을 해제하십시오.\n\n열림/닫힘 속도 설정하기\n인포테인먼트 시스템의 설정 > 차량 > 도어 > 파워 테일게이트 열림 속도에서 열림/닫힘 속도를 선택하십시\n오.\n선택할 수 있는 옵션은 다음과 같습니다.\n•\t보통/ 빠르게(기본설정)\n\n열림 높이 설정하기\n인포테인먼트 시스템의 설정 > 차량 > 도어 > 파워 테일게이트 열림 높이에서 열림 높이를 선택하십시오.\n•\t완전 열림/ 3단계/ 2단계/ 1단계/ 사용자 높이 설정"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+        "page": 226,
+        "text": "목차: 편의 장치 > 파워 테일게이트 사용하기\n이미지 설명: 파워 테일게이트 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n•\t테일게이트를 안전하게 열거나 닫을 수 있도록 차량 주변에 최소 여유 공간을 확보하십시오. 최소 공간이 확\n보되지 않은 상태로 테일게이트를 작동하면 테일게이트가 주변의 벽, 천장, 차랑 등에 부딪혀 손상될 수 있으\n며, 주변 사람에게 부상을 입힐 수도 있습니다.\n•\t파워 테일게이트가 정상적으로 작동하지 않아 수동으로 작동해야 하는 경우 무리한 힘을 가하지 마십시오.\n파워 테일게이트가 손상될 수 있습니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001",
+        "page": 230,
+        "text": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 초기화하기\n본문:\n파워 테일게이트 초기화하기\n다음과 같은 경우 파워 테일게이트를 초기화해 잠김 위치를 확인하십시오.\n•\t방전된 배터리를 재충전한 경우\n•\t배터리를 교체하거나 제거 후 다시 설치한 경우\n•\t관련 퓨즈를 교체하거나 제거한 후 다시 설치한 경우\n1\t'P'(주차)로 변속하거나 차량의 시동을 끄십시오.\n2\t테일게이트를 열고, 알림음이 울릴 때까지 내부와 외부의 열림/닫힘 버튼을 동시에 길게 누르십시오.\n3\t수동으로 테일게이트를 완전히 닫으십시오.\n4\t테일게이트 외부 열림/닫힘 버튼을 눌러 테일게이트를 여십시오.\n5\t테일게이트가 완전히 열릴 때까지 기다리십시오.\n•\t테일게이트가 완전히 열리기 전에 멈추면 초기화가 완료되지 않습니다.\n[알아두기]"
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 4.023409874993376,
+      "input_tokens": 2165,
+      "output_tokens": 219,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 226,
+          "chunk_id": 916,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_01",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 229,
+          "chunk_id": 934,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 226,
+          "chunk_id": 917,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_p226_image_02",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 230,
+          "chunk_id": 935,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 227,
+          "chunk_id": 926,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_02",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 227,
+          "chunk_id": 925,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_p227_image_01",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 225,
+          "chunk_id": 918,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_001",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 227,
+          "chunk_id": 930,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0232_p227_text_001",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 227,
+          "chunk_id": 924,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0231_p225_text_007",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 230,
+          "chunk_id": 938,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0006579170003533363,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0006587920361198485,
+      "parallel_retrieval_latency_seconds": 0.0011428750003688037,
+      "reranking_latency_seconds": 4.023409874993376,
+      "total_search_latency_seconds": 4.024641167023219
+    },
+    "elapsed_s": 4.024702541006263
+  },
+  {
+    "id": "A04",
+    "section": "A",
+    "origin_ids": [
+      "G11"
+    ],
+    "question": "도어 잠금 장치",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p172_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_011",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_012",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_p177_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_p178_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0192_p177_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0194_p179_p179_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0194_p179_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p179_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p180_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_003"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_006"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+        "page": 172,
+        "text": "목차: 편의 장치 > 도어 잠금 장치 사용하기\n본문:\n도어 잠금 장치 사용하기\n[주의]\n\n•\t도어를 열거나 닫을 때 신체 일부가 도어에 부딪치거나 도어와 차체 사이에 끼이지 않도록 주의하십시오.\n•\t도어를 닫은 후 도어가 완전히 닫혔는지 확인하십시오. 불완전하게 닫힌 도어가 다시 열릴 수 있습니다.\n•\t비상 키를 차 안에 두지 마십시오. 비상시 도어를 열 수 없습니다.\n\n[알아두기]\n•\t스마트 키로 도어를 잠그거나 잠금 해제하는 방법에 대한 자세한 설명은 '스마트 키 사용하기'를 참고하십시\n오.\n•\t디지털 키로 도어를 잠그거나 잠금 해제하는 방법에 대한 자세한 설명은 '디지털 키 사용하기'를 참고하십시\n오."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+        "page": 176,
+        "text": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n이미지 설명: 차량 내부에서 잠금/잠금 해제의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n중앙 도어 잠금/잠금 해제 버튼\n도어 잠금(1)\n운전석 도어의 도어 잠금( Ď ) 버튼을 누르면 모든 도어가 잠깁니다.\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+        "page": 172,
+        "text": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 밖에서 잠금/잠금 해제\n본문:\n차량 밖에서 잠금/잠금 해제\n\n도어 잠금\n스마트 키를 휴대하고 도어 핸들의 잠금/잠금 해제 센서를 터치하십시오.\n•\t비상 경고등이 1회 깜빡이고, 알림음이 울리며 모든 도어가 잠깁니다.\n\n도어 잠금 해제\n\n'접근 시 잠금 해제'를 설정한 경우\n\n인포테인먼트 시스템 설정 메뉴에서 차량 > 도어 > 접근 시 잠금 해제를 설정한 경우, 스마트 키를 휴대하고 앞\n좌석(운전석/동승석) 도어 바깥쪽 도어 핸들 측으로 접근(1 m 이내)하면 자동으로 잠금 해제되면서 바깥쪽 도\n어 핸들이 튀어 나옵니다. 이때 비상 경고등이 2회 깜빡이며 확인음도 2회 울립니다.\n\n'접근 시 잠금 해제'를 설정하지 않은 경우\n\n수동식\n\n자동식"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+        "page": 176,
+        "text": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 내부에서 잠금/잠금 해제\n본문:\n도어 잠금 해제(2)\n운전석 도어의 잠금 해제( ď ) 버튼을 누르면 모든 도어의 잠금이 해제됩니다.\n\n운전석 도어 핸들\n\n운전석 도어 핸들을 당기면 잠금이 해제되며 도어가 열립니다.\n\n동승석/뒷좌석 도어 핸들\n도어 핸들을 당기면 도어 잠금이 해제되고, 다시 당기면 도어가 열립니다.\n\n[경고]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003",
+        "page": 173,
+        "text": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 차량 밖에서 잠금/잠금 해제\n본문:\n•\t센서를 터치해 도어를 잠근 경우, 3초 동안은 다시 센서를 터치해도 잠금이 해제되지 않습니다.\n•\t다음과 같은 경우, 도어 잠금 버튼을 누르거나 센서를 터치할 때 경고음이 울리고 도어가 잠기지 않습니다.\n-\t스마트 키가 차 안에 있는 경우\n-\t차량의 시동이 꺼지지 않은 경우\n-\t도어, 후드 또는 테일게이트가 열려 있는 경우\n•\t인포테인먼트 시스템 설정 메뉴의 차량 > 도어 > 2회 눌러 전체 잠금 해제(세이프티 언락 기능)를 설정한\n경우, 잠금 해제 시 운전석 도어의 잠금만 해제됩니다. 모든 도어의 잠금을 해제하려면 4초 이내에 잠금 해제\n버튼을 다시 한 번 누르십시오.\n•\t잠금 해제 후 30초 이내에 도어를 열지 않으면 도어가 다시 잠깁니다."
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 4.879423790960573,
+      "input_tokens": 2224,
+      "output_tokens": 299,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 176,
+          "chunk_id": 737,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_text_002",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 172,
+          "chunk_id": 718,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0189_p172_text_001",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 176,
+          "chunk_id": 735,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_02",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 174,
+          "chunk_id": 730,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_009",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 172,
+          "chunk_id": 722,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_001",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 174,
+          "chunk_id": 727,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_006",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 176,
+          "chunk_id": 734,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0191_p175_p176_image_01",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 178,
+          "chunk_id": 748,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0193_p178_text_002",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 173,
+          "chunk_id": 720,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_p173_image_01",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 173,
+          "chunk_id": 724,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0190_p172_text_003",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0005484159919433296,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0005489590112119913,
+      "parallel_retrieval_latency_seconds": 0.0009074999834410846,
+      "reranking_latency_seconds": 4.879423790960573,
+      "total_search_latency_seconds": 4.8804170829826035
+    },
+    "elapsed_s": 4.880549541965593
+  },
+  {
+    "id": "A05",
+    "section": "A",
+    "origin_ids": [
+      "G16"
+    ],
+    "question": "와이퍼",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p271_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p272_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_p273_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0289_p271_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_p273_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_p274_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0290_p273_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p535_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_009"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0391_p358_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0163_p146_p149_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0056_p053_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0391_p358_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0163_p146_p149_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0056_p053_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0391_p358_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0163_p146_p149_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0056_p053_text_002"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+        "page": 271,
+        "text": "목차: 편의 장치 > 와이퍼\n본문:\n와이퍼\n시동 'ON' 상태에서 와이퍼 스위치를 위로 밀거나 아래로 당겨 와이퍼를 작동할 수 있습니다.\n[알아두기]\n•\t눈 오는 날 주행 중 와이퍼를 작동하면 쌓인 눈으로 인해 와이퍼 작동이 멈출 수 있습니다. 이런 현상은 무리\n한 작동으로 인한 와이퍼 파손과 안전 사고를 방지하기 위한 것으로, 고장이 아닙니다. 와이퍼가 멈추면 유리\n창 상단 또는 하단에 쌓인 눈을 제거한 후 와이퍼를 작동하십시오.\n•\t업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인포테인먼\n트 시스템 웹 매뉴얼을 참고하십시오.\n\n[주의]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+        "page": 271,
+        "text": "목차: 편의 장치 > 와이퍼\n본문:\n[주의]\n\n•\t와셔액이 없을 때에는 와셔액을 분사하지 마십시오. 와셔액 펌프가 손상됩니다.\n•\t와셔액 양을 수시로 확인하고 보충하십시오. 와셔액 양 점검에 대한 자세한 설명은 '와셔액 보충하기'을 참고\n하십시오.\n•\t유리창이 건조할 때는 와이퍼를 작동하지 마십시오.\n•\t유리창과 와이퍼를 청소할 때 가솔린이나 페인트 희석제 등의 유기 용제를 사용하지 마십시오.\n•\t유리창을 닦을 때 왁스용 걸레나 발수 코팅제를 사용하지 마십시오. 유리창이 오염되면 와이퍼 작동 중 소음\n과 떨림이 발생하거나 와이퍼가 손상될 수 있습니다.\n•\t와이퍼에 인위적인 힘을 가하거나 강제로 작동하지 마십시오.\n•\t와이퍼가 얼어 있을 때 강제로 작동하면 와이퍼 링크가 분리되거나 모터가 손상될 수 있습니다.\n\n[경고]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+        "page": 532,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n본문:\n와이퍼 블레이드 점검하기\n와이퍼 블레이드를 주기적으로 점검하고 와이퍼 암과 블레이드에 쌓인 오염, 먼지 및 이물질을 제거하십시오.\n•\t와이퍼 블레이드를 밖으로 젖히고 물을 뿌린 후 깨끗한 헝겊으로 닦으십시오.\n\n[주의]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+        "page": 533,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n본문:\nA타입\n1\t와이퍼 암과 와이퍼 블레이드가 T자가 되도록 하십시오.\n2\t잠금쇠를 누르고(1) 블레이드를 아래로 내려(2) 분리하십시오.\n\n3\t분리의 역순으로 새 와이퍼 블레이드를 장착하십시오.\n4\t와이퍼를 암을 유리창 위로 눕힌 후 시동을 거십시오.\n5\t와이퍼 스위치를 조작해 와이퍼를 작동하십시오.\n와이퍼가 정상 위치로 돌아간 후 시동을 끄십시오\n\nB타입\n1\t와이퍼 암을 앞으로 당겨 세우십시오.\n2\t잠금 커버를 열고(1) 블레이드를 아래로 내린 후(2) 와이퍼 암으로부터 분리하십시오(3).\n\n[주의]\n와이퍼 블레이드를 제거한 와이퍼 암이 직접 유리창에 닿지 않도록 주의하십시오. 유리창이 파손될 수 있습\n니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01",
+        "page": 533,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 와이퍼 블레이드 점검하기\n이미지 설명: 와이퍼 블레이드 점검하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n•\t와이퍼가 최상단 위치에 멈춥니다.\nA타입\n1\t와이퍼 암과 와이퍼 블레이드가 T자가 되도록 하십시오.\n2\t잠금쇠를 누르고(1) 블레이드를 아래로 내려(2) 분리하십시오.\n3\t분리의 역순으로 새 와이퍼 블레이드를 장착하십시오."
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 3.68779125000583,
+      "input_tokens": 2132,
+      "output_tokens": 257,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 271,
+          "chunk_id": 1108,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 271,
+          "chunk_id": 1109,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_002",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 358,
+          "chunk_id": 1477,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0391_p358_text_002",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 533,
+          "chunk_id": 2204,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_03",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 149,
+          "chunk_id": 605,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0163_p146_p149_image_01",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 532,
+          "chunk_id": 2208,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_001",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 534,
+          "chunk_id": 2205,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p534_image_01",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 53,
+          "chunk_id": 237,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0056_p053_text_002",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 533,
+          "chunk_id": 2214,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_text_007",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 533,
+          "chunk_id": 2202,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0517_p532_p533_image_01",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0005976249813102186,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0005984999588690698,
+      "parallel_retrieval_latency_seconds": 0.0010665000299923122,
+      "reranking_latency_seconds": 3.68779125000583,
+      "total_search_latency_seconds": 3.688943332992494
+    },
+    "elapsed_s": 3.6890105830389075
+  },
+  {
+    "id": "A06",
+    "section": "A",
+    "origin_ids": [
+      "G18",
+      "G19"
+    ],
+    "question": "회생 제동",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0351_p323_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0353_p326_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0353_p326_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0354_p326_p326_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0354_p326_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0355_p326_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0356_p327_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0356_p327_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_p327_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_p328_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0357_p327_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_p328_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_p329_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0358_p328_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p330_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p330_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p331_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p331_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_p333_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_011",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_012",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_013",
+      "NE1_2027_ko_KR_4525f59eb857_s0359_p329_text_014"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_02"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_02"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_03",
+      "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_02"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+        "page": 322,
+        "text": "목차: 시동 및 주행 > 회생 제동 기능 사용하기\n본문:\n회생 제동 기능 사용하기\n패들 시프트 레버를 조작해 차량의 회생 제동량을 조절할 수 있습니다.\n주행 중 회생 제동량을 적절히 조절하면 차량의 연비를 개선하고 주행의 재미를 더할 수 있습니다.\n[알아두기]\n'회생 제동'이란 구동용 전기 모터가 감속할 때의 운동 에너지를 전기 에너지로 변환해 고전압 배터리를 충전하\n는 기술입니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+        "page": 322,
+        "text": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 패들 시프트 레버 조작하기\n본문:\n패들 시프트 레버 조작하기\n\n1.\t회생 제동 증가 레버( ° )\n2.\t회생 제동 감소 레버( ² )\n\n회생 제동 증가 레버(1)\n•\t한 번 당겨 회생 제동량을 1단계 올릴 수 있습니다(감속도 증가).\n•\t0.5초 이상 길게 당겨 회생 제동량을 계속해서 올릴 수 있습니다. 당긴 상태를 유지하면 차량이 정차합니다\n('원 페달 드라이빙 사용하기' 참고).\n\n회생 제동 감소 레버(2)\n•\t한 번 당겨 회생 제동량을 1단계 내릴 수 있습니다(감속도 감소).\n•\t스마트 회생 시스템이 켜진 상태에서 1초 이상 길게 당겨 스마트 회생 시스템을 끌 수 있습니다('스마트 회생\n제동 기능 사용하기' 참고)."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+        "page": 322,
+        "text": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동량 확인하기\n본문:\n회생 제동량 확인하기\n\n클러스터에서 회생 제동량 단계를 확인할 수 있습니다.\n\n[알아두기]\n회생 제동량을 0단계로 설정한 경우, 시동을 껐다가 다시 걸면 제동량이 1단계로 변경됩니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+        "page": 323,
+        "text": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동 기능 사용 제한\n본문:\n회생 제동 기능 사용 제한\n다음과 같은 상황에서는 회생 제동량을 변경할 수 없습니다.\n•\t회생 제동 증가/감소 레버를 동시에 당긴 경우\n•\t브레이크 페달로 차량을 감속 중인 경우\n•\t스마트 크루즈 컨트롤이 작동 중인 경우\n•\t배터리 충전량이 100 %인 상태에서 회생 제동을 지속하는 경우\n•\tSNOW 모드에 진입하거나 SNOW 모드를 사용 중인 경우\n\n드라이브 모드별 회생 제동량 변경 범위\n드라이브 모드에 따른 회생 제동량을 변경 범위는 다음과 같습니다('통합 주행 모드 시스템' 참고).\n\n회생 제동량 변경 범위\n드라이브 모드\n(단계)\n\nSNOW\t0-1\n\nECO\t0-3\n\nNORMAL\t0-3\n\nSPORT\t0-3"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+        "page": 324,
+        "text": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 아이 페달(i-PEDAL) 사용하기\n본문:\n아이 페달(i-PEDAL) 사용하기\n아이 페달( ž ) 기능을 사용하면 가속 페달만으로 차량을 가속하거나 감속 또는 정차할 수 있습니다.\n\n아이 페달 기능 켜기/끄기\n\n아이 페달 기능 켜기\n회생 제동량이 3단계일 때 회생 제동 증가 레버( ° )를 한 번 당기십시오.\n•\t기능이 켜지고 클러스터에 ' ž ' 문구가 표시됩니다.\n•\t스마트 회생 시스템이 켜진 동안에는 아이 페달 기능을 사용할 수 없습니다. 아이 페달 기능을 사용하려면 스\n마트 회생 시스템을 먼저 끄십시오.\n\n아이 페달 기능 끄기\n기능이 켜진 상태에서 회생 제동 감소 레버( ² )를 한 번 당기십시오.\n•\t또는, 'R'(후진)로 변속한 후 'D'(주행)로 변속하십시오.\n•\t기능이 꺼지고 회생 제동량 3단계로 상태가 변경됩니다.\n\n[주의]"
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 4.158826709026471,
+      "input_tokens": 1943,
+      "output_tokens": 306,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 322,
+          "chunk_id": 1324,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_p322_image_02",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 322,
+          "chunk_id": 1321,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0347_p322_text_001",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 322,
+          "chunk_id": 1325,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0349_p322_text_001",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 322,
+          "chunk_id": 1322,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 138,
+          "chunk_id": 577,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_text_001",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 323,
+          "chunk_id": 1326,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 322,
+          "chunk_id": 1323,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 324,
+          "chunk_id": 1331,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0352_p324_text_001",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 138,
+          "chunk_id": 576,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_03",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 138,
+          "chunk_id": 575,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0159_p138_p138_image_02",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0005585419712588191,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0005591249791905284,
+      "parallel_retrieval_latency_seconds": 0.0009392090141773224,
+      "reranking_latency_seconds": 4.158826709026471,
+      "total_search_latency_seconds": 4.159850083000492
+    },
+    "elapsed_s": 4.159924375009723
+  },
+  {
+    "id": "A07",
+    "section": "A",
+    "origin_ids": [
+      "G12"
+    ],
+    "question": "유리창 열고 닫기",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0222_p215_p215_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0222_p215_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p215_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p215_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_006"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p215_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_006"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p215_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001",
+        "page": 215,
+        "text": "목차: 편의 장치 > 유리창 열림/닫힘 장치 > 유리창 열고 닫기\n본문:\n유리창 열고 닫기\n\n유리창 열림/닫힘 스위치를 살며시 누르거나 당기면(위치 1) 유리창이 조금씩 열리거나 닫히고, 스위치를 놓으\n면 유리창이 멈춥니다.\n•\t전동식 유리창을 작동하기 위해서는 차량 전원이 'ON' 상태이거나 시동이 켜져 있어야 합니다.\n•\t시동 'OFF' 또는 'ACC' 상태가 된 후에도 약 3분 동안 유리창을 작동할 수 있습니다. 단, 3분 이내라도 운전\n석이나 동승석 도어를 연 후에는 유리창을 작동할 수 없습니다.\n•\t주행 중 유리창을 열었을 때 진동이 느껴지는 경우, 반대편 유리창을 조금 열면 진동을 줄일 수 있습니다.\n\n원터치 자동 유리창\n사양 적용 시\n유리창 열림/닫힘 스위치를 끝까지 누르거나 당기면(위치 2) 유리창이 한 번에 끝까지 열리거나 닫힙니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p215_image_02",
+        "page": 215,
+        "text": "목차: 편의 장치 > 유리창 열림/닫힘 장치 > 유리창 열고 닫기\n이미지 설명: 유리창 열고 닫기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n유리창 열고 닫기\n유리창 열림/닫힘 스위치를 살며시 누르거나 당기면(위치 1) 유리창이 조금씩 열리거나 닫히고, 스위치를 놓으\n면 유리창이 멈춥니다.\n•\t전동식 유리창을 작동하기 위해서는 차량 전원이 'ON' 상태이거나 시동이 켜져 있어야 합니다.\n•\t시동 'OFF' 또는 'ACC' 상태가 된 후에도 약 3분 동안 유리창을 작동할 수 있습니다. 단, 3분 이내라도 운전"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+        "page": 216,
+        "text": "목차: 편의 장치 > 유리창 열림/닫힘 장치 > 유리창 열고 닫기\n이미지 설명: 유리창 열고 닫기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n2\t유리창이 완전히 닫히고 난 후 약 1초 정도 계속 스위치를 당긴 상태로 유지한 후 스위치를 놓으십시오.\n물체 끼임 인식 기능(세이프티 파워 윈도우)\n원터치 자동 유리창 열림/닫힘 기능으로 유리창을 닫을 때, 유리창에 물체가 끼인 것이 인식되면 유리창이 멈춘\n후 다시 열립니다.\n•\t물체의 저항이 일정 정도 이하거나 스위치를 위치 1까지 살며시 당겨 수동으로 유리창을 닫는 경우 끼임 인"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_02",
+        "page": 217,
+        "text": "목차: 편의 장치 > 유리창 열림/닫힘 장치 > 유리창 열고 닫기\n이미지 설명: 유리창 열고 닫기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n원격 유리창 열림/닫힘 기능(리모트 윈도우 컨트롤)\n사양 적용 시\n시동이 꺼진 상태에서 스마트 키를 이용해 원격으로 유리창을 제어할 수 있습니다.\n•\t스마트 키의 도어 잠금 버튼(1)을 3초 이상 길게 누르면 도어가 잠기고 유리창이 올라갑니다.\n•\t스마트 키의 도어 잠금 해제 버튼(2)을 3초 이상 길게 누르면 도어 잠금이 해제되고 유리창이 내려갑니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+        "page": 216,
+        "text": "목차: 편의 장치 > 유리창 열림/닫힘 장치 > 유리창 열고 닫기\n본문:\n[주의]\n\n•\t유리창을 닫기 전에 장애물이 없는지 확인하십시오. 물체 끼임 인식 기능이 작동하더라도 약 4 mm 이하의\n물체가 창문 위쪽에 끼거나 유리창에 일정한 저항이 가해지지 않는 경우에는 유리창이 아래로 내려가지 않\n습니다.\n•\t유리창 작동을 초기화하기 전에 장애물이 없는지 확인하십시오. 유리창 작동을 초기화하는 중에는 장애물이\n감지되더라도 물체 끼임 인식 기능이 작동하지 않습니다.\n•\t유리창에 안테나 등 액세서리를 장착한 상태로 유리창을 닫는 경우 물체 끼임 인식 기능이 작동하지 않을 수\n있습니다.\n\n뒷좌석 유리창 열림/닫힘 잠금 버튼"
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 3.873702749959193,
+      "input_tokens": 2447,
+      "output_tokens": 290,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 215,
+          "chunk_id": 881,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p215_image_02",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 216,
+          "chunk_id": 889,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 216,
+          "chunk_id": 888,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_004",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 218,
+          "chunk_id": 892,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 216,
+          "chunk_id": 882,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 215,
+          "chunk_id": 885,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 217,
+          "chunk_id": 884,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_02",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 286,
+          "chunk_id": 1165,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 217,
+          "chunk_id": 883,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p217_image_01",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 217,
+          "chunk_id": 890,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_006",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0007014159928075969,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0007023749640211463,
+      "parallel_retrieval_latency_seconds": 0.0010432919953018427,
+      "reranking_latency_seconds": 3.873702749959193,
+      "total_search_latency_seconds": 3.8748163339914754
+    },
+    "elapsed_s": 3.8748557080398314
+  },
+  {
+    "id": "A08",
+    "section": "A",
+    "origin_ids": [
+      "G06",
+      "G07"
+    ],
+    "question": "전기 사용 V2L",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0032_p031_p031_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0032_p031_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0032_p031_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0034_p036_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_p036_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_p038_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_p039_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_002"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0034_p036_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0322_p300_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0322_p300_p300_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_005"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0034_p036_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0322_p300_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0322_p300_p300_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_005"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0034_p036_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0322_p300_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0322_p300_p300_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_002"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0034_p036_text_001",
+        "page": 36,
+        "text": "목차: 전기차 시작하기 > 전기 사용(V2L) 기능 활용하기\n본문:\n전기 사용(V2L) 기능 활용하기\n전기 사용(Vehicle to Load, V2L) 기능을 활용해 차량의 고전압 배터리로 가전 제품이나 전자 기기를 작동할\n수 있습니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0322_p300_text_001",
+        "page": 300,
+        "text": "목차: 편의 장치 > 실내 편의 장치 사용하기 > 전원 패널(V2L)\n본문:\n전원 패널(V2L)\n\n뒷좌석 시트 아래에 있는 전원 패널에 가전 기기 또는 전자 기기를 연결해 사용할 수 있습니다.\n•\t자세한 설명은 '전기 사용(V2L) 기능 활용하기'를 참고하십시오.\n[알아두기]\nV2L은 Vehicle to Load 의 약자입니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0322_p300_p300_image_01",
+        "page": 300,
+        "text": "목차: 편의 장치 > 실내 편의 장치 사용하기 > 전원 패널(V2L)\n이미지 설명: 전원 패널(V2L)의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n전원 패널(V2L)\n뒷좌석 시트 아래에 있는 전원 패널에 가전 기기 또는 전자 기기를 연결해 사용할 수 있습니다.\n•\t자세한 설명은 '전기 사용(V2L) 기능 활용하기'를 참고하십시오.\n[알아두기]\nV2L은 Vehicle to Load 의 약자입니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_001",
+        "page": 37,
+        "text": "목차: 전기차 시작하기 > 전기 사용(V2L) 기능 활용하기 > 차량 외부에서 전기 사용하기\n본문:\n차량 외부에서 전기 사용하기\n사양 적용 시\n\n차량의 충전 인렛에 V2L 커넥터를 연결한 후 전자 제품에 전원을 공급하십시오.\n•\t기능을 사용하기 전, '전기 사용 시 안전을 위한 주의사항'에 수록된 안전정보와 주의사항을 읽고 지시를 따\n르십시오.\n1\tV2L 커넥터의 콘센트 덮개를 여십시오.\n2\t연결하려는 제품의 플러그를 커넥터의 콘센트에 연결한 후 덮개를 닫으십시오.\n\n[경고]\n제품의 플러그 형상에 따라 V2L 커넥터의 콘센트 덮개가 완전히 닫히지 않을 수 있습니다. 콘센트 덮개가\n닫히지 않는 경우 비 또는 눈이 오는 날에는 V2L 커넥터를 사용하지 마십시오. 화재, 감전 및 부상의 위험이\n있습니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_002",
+        "page": 38,
+        "text": "목차: 전기차 시작하기 > 전기 사용(V2L) 기능 활용하기 > 차량 외부에서 전기 사용하기\n본문:\n3\t열림 스위치를 누른 상태로 커넥터의 연결 단자 보호 캡을 여십시오.\n4\t충전 도어를 열고 V2L 커넥터를 차량의 충전 인렛에 연결하십시오.\n•\t충전 도어를 연 후 60초 이내에 V2L 커넥터를 충전 인렛에 연결하십시오.\n5\tV2L 커넥터의 전원 스위치를 누르십시오.\n•\t전원이 공급되고 V2L 커넥터의 상태 표시등이 켜집니다.\n[알아두기]\n•\t차량의 충전 인렛에 V2L 커넥터를 연결하면 도난 방지를 위해 모든 도어와 커넥터가 자동으로 잠기므로 커\n넥터를 분리할 수 없습니다. V2L 커넥터를 분리하려면 도어 잠금을 해제한 후 열림 스위치를 누른 상태로 커\n넥터를 당기십시오.\n•\t전기를 사용하기 전 '완속 충전 설정하기'를 참고해 예약 공조 설정을 해제하십시오. 예약 공조 작동 설정에"
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 3.5271120840334333,
+      "input_tokens": 2487,
+      "output_tokens": 233,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 36,
+          "chunk_id": 144,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0034_p036_text_001",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 300,
+          "chunk_id": 1238,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0322_p300_text_001",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 300,
+          "chunk_id": 1237,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0322_p300_p300_image_01",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 37,
+          "chunk_id": 156,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_001",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 38,
+          "chunk_id": 157,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0036_p037_text_002",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 39,
+          "chunk_id": 165,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_002",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 39,
+          "chunk_id": 164,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0038_p039_text_001",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 39,
+          "chunk_id": 163,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_003",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 36,
+          "chunk_id": 149,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_004",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 37,
+          "chunk_id": 150,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0035_p036_text_005",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0003123750211670995,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.00031283299904316664,
+      "parallel_retrieval_latency_seconds": 0.0005336670437827706,
+      "reranking_latency_seconds": 3.5271120840334333,
+      "total_search_latency_seconds": 3.5277052500168793
+    },
+    "elapsed_s": 3.5277624579612166
+  },
+  {
+    "id": "A09",
+    "section": "A",
+    "origin_ids": [
+      "G14"
+    ],
+    "question": "배터리 관리",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p535_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p536_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_004",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_006",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_010"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p536_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p535_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_007"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p536_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p535_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_007"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p535_image_02",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_007",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_010",
+      "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p536_image_01"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_001",
+        "page": 535,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 배터리 관리하기\n본문:\n배터리 관리하기\n\n배터리를 수시로 점검하고 깨끗하게 유지하십시오.\n•\t오염된 상태로 방치하면 배터리의 수명이 단축됩니다.\n\n[주의]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_003",
+        "page": 535,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 배터리 관리하기\n본문:\n•\t배터리를 재충전하거나 점검하기 전, 모든 전기 장치의 전원을 끈 후 차량의 시동을 끄십시오.\n•\t배터리 성능을 최상으로 유지하려면 다음과 같이 하십시오.\n-\t배터리를 바르게 장착하십시오.\n-\t배터리 윗부분을 깨끗하고 건조된 상태로 유지하십시오.\n-\t배터리 단자와 연결부를 깨끗이 하고 꽉 조인 뒤, 석유 젤리나 단자 그리스로 코팅하십시오.\n-\t전해액이 흐른 경우 수용액이나 베이킹 소다 등으로 즉시 닦아내십시오.\n-\t차량을 오랫동안 사용하지 않는 경우 배터리 단자를 배터리로부터 분리하십시오.\n\n배터리 취급 시 주의사항\n\n배터리 취급 시 기본 수칙\n\nĚ\n배터리를 취급할 때 다음 지시 사항을 따르십시오"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p535_image_02",
+        "page": 535,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 배터리 관리하기\n이미지 설명: 배터리 관리하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n배터리 관리하기\n배터리를 수시로 점검하고 깨끗하게 유지하십시오.\n•\t오염된 상태로 방치하면 배터리의 수명이 단축됩니다.\n[주의]\n•\t배터리를 옮길 때 배터리 캐리어를 사용하거나 양손을 사용해 주의하며 들어 올리십시오. 플라스틱 재질의"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_008",
+        "page": 537,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 배터리 관리하기\n본문:\n•\t배터리를 바르게 고정하십시오. 주행 중 진동으로 인해 배터리 케이스와 극판이 손상될 수 있습니다.\n•\t배터리 코드 단자와 접점 둘레에 그리스를 도포해 산이 침투하는 것을 방지하십시오.\n•\t배터리를 완전히 충전된 상태로 유지하십시오. 특히, 기온이 매우 낮은 날 배터리의 충전량이 부족한 경우 배\n터리 내부의 액체가 얼어 케이스가 파손될 수 있으므로 주의하십시오.\n•\t배터리를 기울이지 마십시오. 인체에 해로운 전해액이 누출될 수 있습니다.\n•\t가급적 차량에 임의의 전기 장치를 장착하지 마십시오. 차량이나 전기 장치 기능에 문제가 생기거나 화재가\n발생할 수 있습니다.\n•\t블랙박스를 장착한 경우, 배터리 방전을 방지하려면 주행 중에만 블랙박스가 작동하도록 설정하십시오."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_002",
+        "page": 535,
+        "text": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 배터리 관리하기\n본문:\n[주의]\n\n•\t배터리를 옮길 때 배터리 캐리어를 사용하거나 양손을 사용해 주의하며 들어 올리십시오. 플라스틱 재질의\n배터리 케이스에 과도한 압력이 가해지면 인체에 해로운 전해액이 누출될 수 있습니다.\n•\t배터리 케이블이 연결된 상태로 배터리를 충전하지 마십시오.\n•\t시동이 켜진 상태로 전기 장치 및 점화 장치를 만지지 마십시오.\n•\t배터리 배기 호스를 분리하지 마십시오. 작업 중 배기 호스가 분리된 경우 배터리 배기구에 다시 설치하십시\n오.\n•\t배터리 교체 시 규격에 부합하며 품질과 성능이 적합한 제품만 사용하십시오. 순정부품은 품질과 성능을 당\n사에서 보증하는 부품입니다.\n•\t배터리와 관련된 점검 및 정비 작업이 필요한 경우 당사 직영 하이테크센터나 블루핸즈를 방문하십시오."
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 4.423796624992974,
+      "input_tokens": 2374,
+      "output_tokens": 315,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 536,
+          "chunk_id": 2218,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p536_image_01",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 535,
+          "chunk_id": 2219,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_001",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 535,
+          "chunk_id": 2217,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_p535_image_02",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 536,
+          "chunk_id": 2223,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_005",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 535,
+          "chunk_id": 2220,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_002",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 537,
+          "chunk_id": 2227,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_009",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 535,
+          "chunk_id": 2221,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_003",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 537,
+          "chunk_id": 2228,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_010",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 537,
+          "chunk_id": 2226,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_008",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 536,
+          "chunk_id": 2225,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0518_p535_text_007",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0005512090283446014,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0005519589758478105,
+      "parallel_retrieval_latency_seconds": 0.0008764169760979712,
+      "reranking_latency_seconds": 4.423796624992974,
+      "total_search_latency_seconds": 4.424743583018426
+    },
+    "elapsed_s": 4.424807041010354
+  },
+  {
+    "id": "A10",
+    "section": "A",
+    "origin_ids": [
+      "G17"
+    ],
+    "question": "유리창 습기 성에 제거",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0297_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 1.0,
+        "rank": 1
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0297_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0552_p565_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0297_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0552_p565_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0297_p286_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0552_p565_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001",
+        "page": 286,
+        "text": "목차: 편의 장치 > 유리창 습기/성에 제거하기 > 유리창 습기 자동으로 제거하기\n본문:\n유리창 습기 자동으로 제거하기\n1\t풍량과 온도를 설정하십시오.\n•\t빠르게 습기를 제거하려면 풍량을 최대로 설정하십시오.\n2\t앞유리 서리 제거 버튼을 누르십시오.\n•\t외기 순환 모드가 자동으로 선택되고, 외부 온도에 따라 에어컨이 자동으로 작동합니다(유리창 습기 방지\n기능 설정 시).\n•\t유리창 안쪽에 습기가 끼었을 때, 외기 순환 모드와 에어컨이 자동으로 선택되지 않는 경우 버튼을 눌러\n기능을 작동하십시오."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_003",
+        "page": 286,
+        "text": "목차: 편의 장치 > 유리창 습기/성에 제거하기 > 효과적인 유리창 습기 제거법\n본문:\n•\t기온이 낮을 때는 겨울용 와셔액을 사용해야 합니다. 여름용 와셔액을 사용하면 유리창 표면에 얼음이 얼 수\n있습니다.\n•\t기온이 낮을 때 앞유리 표면의 성에를 신속하게 제거하려면, 시동을 걸어 히터용 냉각수 온도를 빠르게 올린\n후 앞유리 서리 제거 기능을 켜고 온도와 풍량을 최대로 설정하십시오."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_001",
+        "page": 286,
+        "text": "목차: 편의 장치 > 유리창 습기/성에 제거하기 > 효과적인 유리창 습기 제거법\n본문:\n효과적인 유리창 습기 제거법\n•\t유리창 습기 방지 기능이 설정되어 있을 때 바람 방향을 유리창 위치( ī )로 선택하면 에어컨과 외기 유입\n모드가 자동으로 켜집니다.\n-\tA/C 버튼 또는 내기/외기 선택 버튼을 눌러 불필요한 기능을 끌 수 있습니다.\n-\t일부 차량에서는 풍량을 작게 설정한 상태로 바람 방향을 유리창 위치( ī )로 선택하면 풍량이 중간 세기\n근처로 자동 설정됩니다.\n-\t바람 방향을 유리창 위치( ī ) 이외의 위치로 선택하면 에어컨 설정과 내기/외기 모드는 설정이 이전 설\n정 상태로 돌아갑니다.\n•\t기온이 낮을 때 에어컨이 작동해 추위를 느끼는 경우, 설정 온도를 높이면 따뜻한 바람을 사용할 수 있습니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_002",
+        "page": 286,
+        "text": "목차: 편의 장치 > 유리창 습기/성에 제거하기 > 효과적인 유리창 습기 제거법\n본문:\n정 상태로 돌아갑니다.\n•\t기온이 낮을 때 에어컨이 작동해 추위를 느끼는 경우, 설정 온도를 높이면 따뜻한 바람을 사용할 수 있습니다.\n•\t매우 습한 날, 앞유리 서리 제거 모드를 켜고 에어컨이 켜진 상태로 장시간 주행하면 외부와의 온도 차로 인\n해 앞유리 바깥 표면에 습기가 발생할 수 있습니다.\n-\t와이퍼를 이용해 앞유리의 습기를 신속히 제거하십시오.\n-\t바람 방향을 상단 위치( ĭ )로 변경하면 유리창 바깥에 발생하는 습기를 줄일 수 있습니다.\n[알아두기]\n•\t외기 흡입구의 눈, 얼음 또는 낙엽 등 젖은 오물을 제거하면 유리창의 습기 발생을 줄일 수 있습니다.\n•\t기온이 낮을 때는 겨울용 와셔액을 사용해야 합니다. 여름용 와셔액을 사용하면 유리창 표면에 얼음이 얼 수\n있습니다."
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+        "page": 286,
+        "text": "목차: 편의 장치 > 유리창 습기/성에 제거하기\n본문:\n유리창 습기/성에 제거하기"
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 3.600862374994904,
+      "input_tokens": 2445,
+      "output_tokens": 257,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 286,
+          "chunk_id": 1165,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0296_p286_text_001",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 286,
+          "chunk_id": 1170,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 286,
+          "chunk_id": 1168,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_002",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 286,
+          "chunk_id": 1169,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_003",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 286,
+          "chunk_id": 1166,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0297_p286_text_001",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 286,
+          "chunk_id": 1167,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0298_p286_text_001",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 216,
+          "chunk_id": 889,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_005",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 565,
+          "chunk_id": 2338,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0552_p565_text_001",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 218,
+          "chunk_id": 892,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_008",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 215,
+          "chunk_id": 885,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_001",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0006138750468380749,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0006145410006865859,
+      "parallel_retrieval_latency_seconds": 0.0009652500157244503,
+      "reranking_latency_seconds": 3.600862374994904,
+      "total_search_latency_seconds": 3.6019016669597477
+    },
+    "elapsed_s": 3.601942917041015
+  },
+  {
+    "id": "B01",
+    "section": "B",
+    "origin_ids": [
+      "G01"
+    ],
+    "question": "충전이 끝났는데 차량에서 케이블이 안 빠져. 비상 해제 케이블은 어디에 있어?",
+    "relevant_chunk_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008"
+    ],
+    "baseline": {
+      "cosine": {
+        "hit": 1,
+        "rr": 0.5,
+        "rank": 2
+      },
+      "tfidf": {
+        "hit": 1,
+        "rr": 0.3333333333333333,
+        "rank": 3
+      },
+      "hybrid": {
+        "hit": 1,
+        "rr": 0.5,
+        "rank": 2
+      }
+    },
+    "after": {
+      "hit": 1,
+      "rr": 1.0,
+      "rank": 1
+    },
+    "vector10_hit": 1,
+    "keyword10_hit": 0,
+    "candidate_hit": 1,
+    "vector_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_p497_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_008"
+    ],
+    "keyword_ids": [],
+    "merged_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_p497_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_008"
+    ],
+    "ranked_ids": [
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+      "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_008",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_p497_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_005",
+      "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_003"
+    ],
+    "top5": [
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+        "page": 18,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n이미지 설명: 화물칸의 충전 커넥터 비상 해제 케이블을 확대해 보여주는 그림"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+        "page": 18,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n비상시 충전 커넥터 분리하기\n\n배터리가 방전이나 전기 배선 이상 등으로 인해 잠금 해제 버튼이 작동하지 않는 경우, 화물칸을 열고 비상 해제\n케이블을 가볍게 당겨 충전 인렛 잠금 장치의 잠금을 해제하십시오.\n•\t비상 해제 케이블을 당긴 후에도 잠금 해제 버튼이 작동하지 않는 경우 당사 직영 하이테크센터나 블루핸즈\n에서 차량을 점검하십시오.\n\n[경고]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+        "page": 18,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n[경고]\n\n•\t일반적인 방법으로 충전 케이블을 분리할 수 없는 경우에만 비상 해제 케이블을 사용하십시오. 계속 사용할\n경우 비상 해제 케이블 또는 충전 장비가 손상될 수 있습니다.\n•\t충전 케이블을 충전 포트에서 제거하려고 하면서 동시에 비상 해제 케이블을 당기지 마십시오. 충전 케이블\n을 제거하기 전에 비상 해제 케이블을 먼저 당기십시오. 이 지침을 따르지 않으면 감전 또는 중상을 입을 수\n있습니다.\n•\t차량이 충전 중이거나 주황색 고전압 배선이 노출된 상태에서는 이 절차를 수행하지 마십시오. 이 지침을 따\n르지 않으면 감전, 중상 또는 차량 손상이 발생할 수 있습니다. 이 절차를 안전하게 수행하는 방법이 확실하\n지 않으면, 당사 직영 하이테크센터나 블루핸즈에 문의하십시오.\n\n[주의]"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+        "page": 19,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 완속 충전기 사용하기\n본문:\n[주의]\n\n화재 및 폭발로 인한 부상 및 재산상의 손실을 방지하려면 다음 지시를 따르십시오.\n•\t완속 충전 케이블(사양 적용시)은 당사에서 제공된 순정 부품을 사용하십시오. 릴선 등 별도 연장 케이블을\n사용하거나 순정 부품을 사용하지 않을 경우 콘센트가 이상 현상을 일으켜 화재 및 폭발의 위험이 있습니다.\n•\t연장 케이블을 사용하지 마십시오.\n•\t충전에 필요한 정격 전압 및 최대 충전 전류를 확인하고, 사용하려는 충전기 전원이 요구사항을 만족하는지\n확인하십시오.\n•\t충전 시 냄새나 연기 등 이상 증상이 발생하는 경우 즉시 충전을 중지하십시오.\n\n1.\t충전 커넥터(차량 측)\n2.\t충전 플러그(충전기 측)"
+      },
+      {
+        "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+        "page": 13,
+        "text": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 시 안전을 위한 주의사항\n본문:\n•\t감전 사고의 위험이 있으므로 케이블 피복이나 커넥터가 손상된 충전 케이블은 사용하지 마십시오. 손상을\n발견한 경우 새 충전 케이블로 교체하십시오.\n•\t충전 케이블을 개조하거나 분해하지 마십시오. 화재, 감전, 부상의 위험이 있습니다.\n•\t충전 케이블을 무리한 힘으로 당기거나 비틀지 말고, 케이블이 꼬이지 않도록 관리하십시오. 케이블 내부의\n전원선이 끊어지거나 케이블의 절연 피복이 손상되면 감전 또는 화재가 발생할 수 있습니다.\n•\t충전 케이블을 바닥에 끌거나 케이블 위에 물건을 올리지 마십시오. 케이블의 절연 피복이 손상되면 감전 또\n는 화재가 발생할 수 있습니다.\n•\t열원 또는 열 기구 가까이서 충전 케이블을 사용하지 마십시오.\n•\t떨어뜨리거나 강한 충격을 가하지 말고 액체가 닿지 않도록 하십시오."
+      }
+    ],
+    "metadata": {
+      "success": true,
+      "model": "gpt-5.6-luna",
+      "latency_seconds": 2.925255207985174,
+      "input_tokens": 2405,
+      "output_tokens": 186,
+      "fallback_reason": null,
+      "candidate_count": 10,
+      "request_count": 1,
+      "retry_count": 0,
+      "candidate_mapping": [
+        {
+          "candidate_id": "C01",
+          "page_no": 18,
+          "chunk_id": 64,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_009",
+          "vector_rank": 1
+        },
+        {
+          "candidate_id": "C02",
+          "page_no": 18,
+          "chunk_id": 55,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+          "vector_rank": 2
+        },
+        {
+          "candidate_id": "C03",
+          "page_no": 497,
+          "chunk_id": 2077,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0493_p496_p497_image_01",
+          "vector_rank": 3
+        },
+        {
+          "candidate_id": "C04",
+          "page_no": 496,
+          "chunk_id": 2079,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_002",
+          "vector_rank": 4
+        },
+        {
+          "candidate_id": "C05",
+          "page_no": 18,
+          "chunk_id": 63,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+          "vector_rank": 5
+        },
+        {
+          "candidate_id": "C06",
+          "page_no": 19,
+          "chunk_id": 68,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_002",
+          "vector_rank": 6
+        },
+        {
+          "candidate_id": "C07",
+          "page_no": 497,
+          "chunk_id": 2082,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_005",
+          "vector_rank": 7
+        },
+        {
+          "candidate_id": "C08",
+          "page_no": 13,
+          "chunk_id": 38,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_009",
+          "vector_rank": 8
+        },
+        {
+          "candidate_id": "C09",
+          "page_no": 496,
+          "chunk_id": 2080,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0493_p496_text_003",
+          "vector_rank": 9
+        },
+        {
+          "candidate_id": "C10",
+          "page_no": 13,
+          "chunk_id": 37,
+          "database_chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0018_p011_text_008",
+          "vector_rank": 10
+        }
+      ],
+      "hybrid_enabled": true,
+      "keyword_phrases": [],
+      "keyword_terms": [],
+      "keyword_branch_failed": true,
+      "keyword_fallback_reason": "TypeError: Completions.create() got an unexpected keyword argument 'max_retries'",
+      "vector_candidate_count": 10,
+      "keyword_candidate_count": 0,
+      "merged_candidate_count": 10,
+      "vector_branch_latency_seconds": 0.0,
+      "keyword_extraction_latency_seconds": 0.0005811660084873438,
+      "keyword_car_lookup_latency_seconds": 0.0,
+      "keyword_like_latency_seconds": 0.0,
+      "keyword_branch_latency_seconds": 0.0005814580363221467,
+      "parallel_retrieval_latency_seconds": 0.0008943749708123505,
+      "reranking_latency_seconds": 2.925255207985174,
+      "total_search_latency_seconds": 2.926221000030637
+    },
+    "elapsed_s": 2.9263327500084415
+  }
+]

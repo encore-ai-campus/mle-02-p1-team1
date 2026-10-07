@@ -1,0 +1,4 @@
+{
+  "status": "aborted_validation",
+  "reason": "A07 candidate rank50 identical-vector tie; strict ID comparison rejected equivalent score. No retrieval settings or labels changed."
+}

@@ -1,0 +1,83 @@
+{
+  "scope": "saved preprocessing records, not live DB or user conversations",
+  "records_sha256": "f6bc2bf1ffb9b54febdea87b0862960a5eabe4aa2296d2206dfaaeff6f89bcd0",
+  "audit_sha256": "f6aa54511b4a6227576315fc6385cbc9445843957447cd5f739a98baac8e0025",
+  "versions": {
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2"
+  },
+  "sections": 552,
+  "chunks": 2338,
+  "images": 668,
+  "represented_pdf_pages": 556,
+  "chapter_sections": {
+    "편의 장치": 167,
+    "운전자 보조 기능": 88,
+    "시동 및 주행": 60,
+    "차량의 유지보수": 49,
+    "시트 및 안전 장치": 41,
+    "전기차 시작하기": 39,
+    "안전을 위한 주의사항": 34,
+    "차량 살펴보기": 23,
+    "비상시 응급 조치": 21,
+    "클러스터": 21,
+    "취급설명서에 대하여": 9
+  },
+  "chunk_types": {
+    "text": 1670,
+    "image": 668
+  },
+  "parent_chars": {
+    "count": 552.0,
+    "mean": 761.088768115942,
+    "std": 1045.7855171223205,
+    "min": 3.0,
+    "25%": 182.0,
+    "50%": 391.5,
+    "75%": 851.75,
+    "max": 10357.0
+  },
+  "child_chars": {
+    "count": 1670.0,
+    "mean": 263.89640718562873,
+    "std": 111.43244313004702,
+    "min": 2.0,
+    "25%": 176.25,
+    "50%": 290.0,
+    "75%": 362.0,
+    "max": 400.0
+  },
+  "caption_sources": {
+    "surrounding_text": 666,
+    "manual": 2
+  },
+  "required_field_checks": [
+    [
+      "부모 섹션",
+      552,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      "검색 청크",
+      2338,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      "이미지",
+      668,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "short_children_under_50": 72,
+  "parent_iqr_upper": 1856.375,
+  "parents_above_iqr_upper": 58
+}

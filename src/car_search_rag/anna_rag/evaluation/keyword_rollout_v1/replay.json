@@ -1,0 +1,260 @@
+{
+  "verification": "recorded LLM decisions replayed; live read-only keyword SQL and context",
+  "count": 34,
+  "pipeline_version": "ioniq5-ui-agent-v4-keyword-rerank",
+  "configuration": {
+    "method": "cosine_keyword_llm_rerank",
+    "top_k": 5,
+    "candidate_k": 10,
+    "max_candidates": 20,
+    "keyword_model": "gpt-6-luna",
+    "reranker_model": "gpt-5.6-luna",
+    "keyword_phrase_weight": 3,
+    "keyword_term_weight": 1,
+    "keyword_tie_break": "first PDF page, chunk_id ascending",
+    "keyword_failure": "vector candidates",
+    "rerank_failure": "original candidate order",
+    "policy_version": "sonata-transfer-f2c5976246f5"
+  },
+  "checks": [
+    {
+      "id": "A01",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 0,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A02",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 1,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A03",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 6,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A04",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 5,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A05",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 5,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A06",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 2,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A07",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 2,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A08",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 2,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A09",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 2,
+      "omitted_parents": 0
+    },
+    {
+      "id": "A10",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 0,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B01",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 1,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B02",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 1,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B03",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 3,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B04",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 4,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B05",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 0,
+      "omitted_parents": 1
+    },
+    {
+      "id": "B06",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 3,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B07",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 4,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B08",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 3,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B09",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 2,
+      "omitted_parents": 0
+    },
+    {
+      "id": "B10",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 7,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C01",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 1,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C02",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 2,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C03",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 4,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C04",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 4,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C05",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 2,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C06",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 3,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C07",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 0,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C08",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 6,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C09",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 1,
+      "omitted_parents": 0
+    },
+    {
+      "id": "C10",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 5,
+      "omitted_parents": 0
+    },
+    {
+      "id": "G15",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 12,
+      "omitted_parents": 0
+    },
+    {
+      "id": "G19",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 3,
+      "omitted_parents": 0
+    },
+    {
+      "id": "G21",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 3,
+      "omitted_parents": 0
+    },
+    {
+      "id": "G22",
+      "exact_top5": true,
+      "exact_candidates_and_prompt": true,
+      "image_count": 4,
+      "omitted_parents": 0
+    }
+  ],
+  "new_quality_measurement": false
+}

@@ -1,0 +1,18 @@
+{
+  "source_pdf": "src/car_search_rag/anna_rag/chatbot/manuals/NE1_2027_ko_KR.pdf",
+  "source_pdf_sha256": "4525f59eb85737ca87c3e0e0b43de9f36cb48ad2d5456f708f5861a0d6de9b1c",
+  "label_construction": "Before retrieval: manually selected PDF-grounded questions and evidence excerpts; mapped to text/image-description chunks containing evidence on the annotated PDF page. I5-01 also accepts the caption locating the emergency cable. Team semantic review pending.",
+  "m6_correct": 15,
+  "m7_correct": 17,
+  "recovered": [
+    "I5-03",
+    "I5-06",
+    "I5-07",
+    "I5-09"
+  ],
+  "regressed": [
+    "I5-10",
+    "I5-23"
+  ],
+  "production_changed": false
+}

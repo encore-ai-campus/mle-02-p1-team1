@@ -1,0 +1,44 @@
+[
+  {
+    "mode": "retrieval",
+    "question": "트렁크가 너무 높이 열려서 손이 안 닿아. 내가 원하는 높이를 저장하려면?",
+    "elapsed_s": 9.89422120800009,
+    "retrieval_method": "cosine_keyword_llm_rerank",
+    "keyword_failed": false,
+    "rerank_success": true,
+    "top5": [
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0207_p190_p190_image_01",
+      "NE1_2027_ko_KR_4525f59eb857_s0203_p187_text_001"
+    ],
+    "image_candidates": 1,
+    "answer_status": null,
+    "tool_statuses": [],
+    "db_read_only": true,
+    "history_written": false
+  },
+  {
+    "mode": "answer",
+    "question": "충전 중인데 바로 멈추려면 차에서 어떤 버튼을 눌러야 해?",
+    "elapsed_s": 14.49552420800319,
+    "retrieval_method": "cosine_keyword_llm_rerank",
+    "keyword_failed": false,
+    "rerank_success": true,
+    "top5": [
+      "NE1_2027_ko_KR_4525f59eb857_s0024_p024_text_001",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_003",
+      "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_002",
+      "NE1_2027_ko_KR_4525f59eb857_s0163_p146_text_021",
+      "NE1_2027_ko_KR_4525f59eb857_s0020_p018_text_006"
+    ],
+    "image_candidates": 0,
+    "answer_status": "answered",
+    "tool_statuses": [
+      "ready"
+    ],
+    "db_read_only": true,
+    "history_written": false
+  }
+]

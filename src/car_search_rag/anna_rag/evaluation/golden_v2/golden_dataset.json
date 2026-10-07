@@ -1,0 +1,1826 @@
+{
+  "dataset_version": "ioniq5-golden-v2-draft",
+  "document_id": "NE1_2027_ko_KR_4525f59eb857",
+  "created_date": "2026-10-06",
+  "status": "draft_not_team_approved",
+  "purpose": "개발·검토용 48문항. 독립 최종 테스트셋 아님.",
+  "source_pdf": "src/car_search_rag/anna_rag/chatbot/manuals/NE1_2027_ko_KR.pdf",
+  "source_pdf_sha256": "4525f59eb85737ca87c3e0e0b43de9f36cb48ad2d5456f708f5861a0d6de9b1c",
+  "page_numbering": "PDF viewer 1-based; printed page numbers differ",
+  "counts": {
+    "in_specific": 24,
+    "in_broad": 8,
+    "out_specific": 8,
+    "out_broad": 8
+  },
+  "rules": {
+    "retrieval_denominator": 24,
+    "behavior_denominator": 24,
+    "behavior_metrics": "clarification pass rate 8; specific out-of-scope pass rate 8; broad out-of-scope pass rate 8; raw action accuracy separately",
+    "retrieval_metrics": [
+      "Hit@5",
+      "MRR@5",
+      "MRR_full (separate)"
+    ],
+    "answer_quality": "24개 검색 질문의 핵심 사실·조건·근거를 별도로 판정. Hit@5를 답변 정확도로 해석하지 않음.",
+    "acceptance": "Top-5 중 gold chunk ID 한 개 이상이면 Hit. 같은 페이지만으로는 인정하지 않음. image 청크도 캡션/연결 텍스트가 핵심 근거를 담으면 인정. 추가 유효 근거를 발견하면 버전을 올리고 비교 대상 모두 재평가.",
+    "freeze": "팀 검토 후 고정. 점수를 보고 질문·라벨·실패 문항을 임의로 바꾸지 않음.",
+    "split": "기존24문항은 이미 M6/M7에 노출됨. 최종 보고용 미사용 질문은 기능·근거 묶음 단위로 별도 작성. 단순 말바꾸기를 다른 split에 넣지 않음.",
+    "threshold": "기존 목표 Hit@5>=0.7, MRR>=0.5. MRR cutoff를 먼저 확정하고 full과 @5를 혼용하지 않음.",
+    "context": "모든 문항 history=[]인 독립 질문. 다중턴 맥락 시험은 별도 후속셋이 필요."
+  },
+  "changes": [
+    "G19는 I5-19의 SNOW 질문을 브레이크 감속 조건으로 교체. 원문 상 SNOW 제한 설명과 변경 범위 표의 해석 모호성 때문.",
+    "기존 24문항의 나머지 질문·라벨은 유지하고 예시 정답·행동 기준·원문 청크를 추가.",
+    "원문 근거 문구 24건과 DB 청크 존재/페이지 교집합 검사. PDF323쪽은 렌더링해 표와 본문을 육안 대조.",
+    "48개 전체를 기존 검색 평가기에 입력하지 말 것. retrieval_dataset.json의 24개만 입력."
+  ],
+  "questions": [
+    {
+      "id": "G01",
+      "category": "충전",
+      "question": "충전이 끝났는데 차량에서 케이블이 안 빠져. 비상 해제 케이블은 어디에 있어?",
+      "evidence_pdf_pages": [
+        18
+      ],
+      "evidence_excerpt": "화물칸을 열고 비상 해제",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008"
+      ],
+      "relevant_section_ids": [
+        "s0019_p014"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-01",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "화물칸에 있다. 비상 해제 케이블을 설명한다면 잠금 해제 버튼이 배터리 방전·배선 이상으로 작동하지 않을 때 사용하는 절차임을 함께 구분한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_p018_image_01",
+          "section_id": "s0019_p014",
+          "chunk_type": "image",
+          "pdf_pages": [
+            18
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n이미지 설명: 화물칸의 충전 커넥터 비상 해제 케이블을 확대해 보여주는 그림"
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0019_p014_text_008",
+          "section_id": "s0019_p014",
+          "chunk_type": "text",
+          "pdf_pages": [
+            18
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 전기차 충전 정보 확인하기\n본문:\n비상시 충전 커넥터 분리하기\n\n배터리가 방전이나 전기 배선 이상 등으로 인해 잠금 해제 버튼이 작동하지 않는 경우, 화물칸을 열고 비상 해제\n케이블을 가볍게 당겨 충전 인렛 잠금 장치의 잠금을 해제하십시오.\n•\t비상 해제 케이블을 당긴 후에도 잠금 해제 버튼이 작동하지 않는 경우 당사 직영 하이테크센터나 블루핸즈\n에서 차량을 점검하십시오.\n\n[경고]"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G02",
+      "category": "충전",
+      "question": "예약 충전을 해놨는데 지금 바로 충전하고 싶으면 어떻게 해?",
+      "evidence_pdf_pages": [
+        24
+      ],
+      "evidence_excerpt": "차량을 즉시 충전하려면 충전 도어를 열고",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_002",
+        "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_003"
+      ],
+      "relevant_section_ids": [
+        "s0023_p024"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-02",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "충전 도어를 열고 즉시 충전 버튼을 2초 이상 누른다. 또는 인포테인먼트의 완속 충전 설정에서 예약 충전을 끈다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_002",
+          "section_id": "s0023_p024",
+          "chunk_type": "text",
+          "pdf_pages": [
+            24
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 예약 충전 기능 활용하기\n본문:\n인포테인먼트 시스템 홈 화면에서 Electric Vehicle > Ĥ (EV 충전 설정) > 완속 충전 설정 > 예약 충전을 눌\n러 기능을 켠 다음 충전 시간을 예약하고 옵션을 선택하십시오.\n•\t자세한 설명은 '예약 충전 설정하기'를 참고하십시오.\n•\t예약 충전 설정 후 완속 충전기 또는 휴대용 충전기를 연결하면 충전 인렛의 충전 상태 표시등이 약 3분 동안\n순차적으로 켜져 예약 충전이 설정되었음을 표시합니다.\n•\t예약 충전 설정 후 완속 충전기 또는 휴대용 충전기를 차량에 연결해도 즉시 충전이 시작되지 않습니다.\n차량을 즉시 충전하려면 충전 도어를 열고 즉시 충전 ( Ǉ ) 버튼을 2초 이상 누르거나 인포테인먼트 시스템 홈"
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0023_p024_text_003",
+          "section_id": "s0023_p024",
+          "chunk_type": "text",
+          "pdf_pages": [
+            24
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 예약 충전 기능 활용하기\n본문:\n차량을 즉시 충전하려면 충전 도어를 열고 즉시 충전 ( Ǉ ) 버튼을 2초 이상 누르거나 인포테인먼트 시스템 홈\n화면에서 Electric Vehicle> Ĥ (EV 충전 설정) > 완속 충전 설정을 누르고 예약 충전을 눌러 기능을 끄십시\n오.\n[알아두기]\n•\t스마트폰에서 마이현대 앱을 이용해 예약 충전을 설정하거나 취소할 수도 있습니다. 자세한 설명은 인포테\n인먼트 시스템 웹 매뉴얼을 참고하십시오.\n•\t예약 충전 설정 시 계산된 충전 시간에 따라, 충전기를 연결한 직후 충전이 시작될 수도 있습니다."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G03",
+      "category": "충전",
+      "question": "충전 중인데 바로 멈추려면 차에서 어떤 버튼을 눌러야 해?",
+      "evidence_pdf_pages": [
+        24
+      ],
+      "evidence_excerpt": "15초 이내",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0024_p024_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0024_p024"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-03",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "차량 도어 잠금 또는 잠금 해제 버튼을 누른 뒤, 15초 이내에 충전 도어를 열고 즉시 충전 버튼을 2초 이상 누른다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0024_p024_text_001",
+          "section_id": "s0024_p024",
+          "chunk_type": "text",
+          "pdf_pages": [
+            24
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 충전하기 > 충전 즉시 중단하기\n본문:\n충전 즉시 중단하기\n완속 충전기, 급속 충전기, 또는 휴대용 충전기로 차량을 충전하는 도중에 충전을 중단하려면 다음 절차를 따르\n십시오.\n1\t차량 도어의 잠금 또는 잠금 해제 버튼을 누르십시오.\n2\t버튼을 누른 후 15초 이내에 충전 도어를 열고 즉시 충전 ( Ǉ ) 버튼을 2초 이상 누르십시오."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G04",
+      "category": "충전",
+      "question": "배터리를 80퍼센트까지만 충전하게 설정할 수 있어?",
+      "evidence_pdf_pages": [
+        30
+      ],
+      "evidence_excerpt": "50-100",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0031_p030_text_002"
+      ],
+      "relevant_section_ids": [
+        "s0031_p030"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-04",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "가능하다. 충전 목표 배터리량 설정에서 급속·완속 목표량을 각각 설정하며, 50~100% 사이 10% 단위이므로 80%를 선택할 수 있다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0031_p030_text_002",
+          "section_id": "s0031_p030",
+          "chunk_type": "text",
+          "pdf_pages": [
+            30,
+            31
+          ],
+          "page_content": "목차: 전기차 시작하기 > EV 모드 기능 사용하기 > 충전 목표 배터리량 설정하기\n본문:\n1\t인포테인먼트 시스템 홈 화면에서 Electric Vehicle > Ĥ (EV 충전 설정) > 충전 목표 배터리량 설정을 선\n택하십시오.\n2\t급속 충전 목표 배터리량과 완속 충전 목표 배터리량을 각각 설정하십시오.\n•\t50-100 % 사이에서 10 % 단위로 설정할 수 있습니다.\n\n•\t목표 배터리량을 현재 배터리 충전량보다 낮게 설정하는 경우 충전이 진행되지 않습니다."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G05",
+      "category": "충전",
+      "question": "충전 목표를 현재 잔량보다 낮게 해놓으면 어떻게 돼?",
+      "evidence_pdf_pages": [
+        31
+      ],
+      "evidence_excerpt": "현재 배터리 충전량보다 낮게",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0031_p030_p031_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0031_p030_text_002"
+      ],
+      "relevant_section_ids": [
+        "s0031_p030"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-05",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "목표 배터리량을 현재 충전량보다 낮게 설정하면 충전이 진행되지 않는다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0031_p030_p031_image_01",
+          "section_id": "s0031_p030",
+          "chunk_type": "image",
+          "pdf_pages": [
+            31
+          ],
+          "page_content": "목차: 전기차 시작하기 > EV 모드 기능 사용하기 > 충전 목표 배터리량 설정하기\n이미지 설명: 충전 목표 배터리량 설정하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n•\t목표 배터리량을 현재 배터리 충전량보다 낮게 설정하는 경우 충전이 진행되지 않습니다."
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0031_p030_text_002",
+          "section_id": "s0031_p030",
+          "chunk_type": "text",
+          "pdf_pages": [
+            30,
+            31
+          ],
+          "page_content": "목차: 전기차 시작하기 > EV 모드 기능 사용하기 > 충전 목표 배터리량 설정하기\n본문:\n1\t인포테인먼트 시스템 홈 화면에서 Electric Vehicle > Ĥ (EV 충전 설정) > 충전 목표 배터리량 설정을 선\n택하십시오.\n2\t급속 충전 목표 배터리량과 완속 충전 목표 배터리량을 각각 설정하십시오.\n•\t50-100 % 사이에서 10 % 단위로 설정할 수 있습니다.\n\n•\t목표 배터리량을 현재 배터리 충전량보다 낮게 설정하는 경우 충전이 진행되지 않습니다."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G06",
+      "category": "V2L",
+      "question": "캠핑에서 차 전기를 쓸 때 배터리가 너무 줄지 않게 제한하려면?",
+      "evidence_pdf_pages": [
+        31
+      ],
+      "evidence_excerpt": "20 % 이상 80 % 이하",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0032_p031_p031_image_02",
+        "NE1_2027_ko_KR_4525f59eb857_s0032_p031_text_002"
+      ],
+      "relevant_section_ids": [
+        "s0032_p031"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-06",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "EV 충전 설정의 전기 사용(V2L) 설정에서 방전 제한량을 정한다. 범위는 20~80%이며 설정한 잔량에 도달하면 V2L이 자동 차단된다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0032_p031_p031_image_02",
+          "section_id": "s0032_p031",
+          "chunk_type": "image",
+          "pdf_pages": [
+            31
+          ],
+          "page_content": "목차: 전기차 시작하기 > EV 모드 기능 사용하기 > 전기 사용(V2L) 시 방전 제한량 설정하기\n이미지 설명: 전기 사용(V2L) 시 방전 제한량 설정하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n1\t인포테인먼트 시스템 홈 화면에서 Electric Vehicle > Ĥ (EV 충전 설정) > 전기 사용(V2L) 설정을 선택하\n십시오.\n2\t원하는 방전 제한량(%)을 설정하십시오.\n•\t방전 제한량은 20 % 이상 80 % 이하로 설정할 수 있습니다.\n•\t배터리 충전량이 설정된 방전 제한량에 도달하면 전기 사용(V2L) 기능이 자동으로 차단됩니다."
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0032_p031_text_002",
+          "section_id": "s0032_p031",
+          "chunk_type": "text",
+          "pdf_pages": [
+            31
+          ],
+          "page_content": "목차: 전기차 시작하기 > EV 모드 기능 사용하기 > 전기 사용(V2L) 시 방전 제한량 설정하기\n본문:\n1\t인포테인먼트 시스템 홈 화면에서 Electric Vehicle > Ĥ (EV 충전 설정) > 전기 사용(V2L) 설정을 선택하\n십시오.\n2\t원하는 방전 제한량(%)을 설정하십시오.\n•\t방전 제한량은 20 % 이상 80 % 이하로 설정할 수 있습니다.\n•\t배터리 충전량이 설정된 방전 제한량에 도달하면 전기 사용(V2L) 기능이 자동으로 차단됩니다."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G07",
+      "category": "V2L",
+      "question": "차 안에서 노트북 충전할 콘센트는 어디에 있어?",
+      "evidence_pdf_pages": [
+        38
+      ],
+      "evidence_excerpt": "전원 패널은 뒷좌석 아래",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0037_p038_p038_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0037_p038"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-07",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "차량 내부 전원 패널은 뒷좌석 아래에 있다. 사용 절차까지 안내하면 ON 또는 유틸리티 모드 조건과 커버 잠금 해제 절차를 설명한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0037_p038_p038_image_01",
+          "section_id": "s0037_p038",
+          "chunk_type": "image",
+          "pdf_pages": [
+            38
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기 사용(V2L) 기능 활용하기 > 차량 내부에서 전기 사용하기\n이미지 설명: 차량 내부에서 전기 사용하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n1\t차량을 'ON' 또는 유틸리티 모드 활성화 상태로 설정하십시오.\n•\t유틸리티 모드에 대한 자세한 설명은 '유틸리티 모드 설정하기'를 참고하십시오.\n2\t차량 내부 전원 패널은 뒷좌석 아래에 있습니다.\n3\t비상 키를 활용하여 전원 패널 커버의 잠금 장치를 해제(1) 한 후, 전원 패널 커버를 왼쪽으로 밀어서(2) 열\n고 전원 소켓에 전자 기기의 전원 플러그를 연결하십시오."
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0037_p038_text_001",
+          "section_id": "s0037_p038",
+          "chunk_type": "text",
+          "pdf_pages": [
+            38,
+            39
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기 사용(V2L) 기능 활용하기 > 차량 내부에서 전기 사용하기\n본문:\n차량 내부에서 전기 사용하기\n차량 내부의 전원 패널에 가전 기기 또는 전자 기기를 연결해 사용할 수 있습니다.\n\n[경고]\n\n차량 내부에서 전열 전기 제품(전기 주전자, 토스터, 다리미 등)을 사용하지 마십시오. 화재 및 부상이 발생할 수\n있습니다.\n\n1\t차량을 'ON' 또는 유틸리티 모드 활성화 상태로 설정하십시오.\n•\t유틸리티 모드에 대한 자세한 설명은 '유틸리티 모드 설정하기'를 참고하십시오.\n2\t차량 내부 전원 패널은 뒷좌석 아래에 있습니다.\n\n3\t비상 키를 활용하여 전원 패널 커버의 잠금 장치를 해제(1) 한 후, 전원 패널 커버를 왼쪽으로 밀어서(2) 열\n고 전원 소켓에 전자 기기의 전원 플러그를 연결하십시오.\n\n•\t표시등을 통해 전원 공급 상태를 확인할 수 있습니다.\n\n표시등\t설명"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G08",
+      "category": "비상",
+      "question": "차가 고장 나 견인해야 하는데 바퀴를 땅에 대고 끌어도 돼?",
+      "evidence_pdf_pages": [
+        45
+      ],
+      "evidence_excerpt": "모든 바퀴를 들어올려",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0047_p045_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0047_p045"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-08",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "모든 바퀴를 들어 올려 견인한다. 바퀴가 지면에 닿은 채 견인하면 구동 부품이 손상될 수 있다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0047_p045_text_001",
+          "section_id": "s0047_p045",
+          "chunk_type": "text",
+          "pdf_pages": [
+            45
+          ],
+          "page_content": "목차: 전기차 시작하기 > 전기차 사고, 화재 발생 시 조치 방법 > 전기차의 견인이 필요한 경우\n본문:\n전기차의 견인이 필요한 경우\n전기차를 견인해야 하는 경우 모든 바퀴를 들어올려 견인하십시오. 바퀴가 지면에 닿은 상태로 견인하는 경우\n구동 부품이 손상될 수 있습니다.\n\n[주의]\n\n배터리에 화재가 발생한 차량을 견인하는 경우 소방차의 동행을 요청하십시오. 견인 중 2차 화재가 발생할 수\n있습니다.\n\n[A]\t돌리"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G09",
+      "category": "키",
+      "question": "스마트키 건전지를 사려는데 규격이 뭐야?",
+      "evidence_pdf_pages": [
+        159
+      ],
+      "evidence_excerpt": "CR2450",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0177_p159"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-09",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "CR2450 배터리 1개를 사용한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0177_p159_text_001",
+          "section_id": "s0177_p159",
+          "chunk_type": "text",
+          "pdf_pages": [
+            159
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 스마트 키 배터리 교체하기\n본문:\n스마트 키 배터리 교체하기\n스마트 키의 작동 상태에 따라, 필요한 경우 배터리를 교체하십시오.\n•\tCR2450 배터리 1개가 사용됩니다.\n\n[경고]\n\n스마트 키에 사용되는 동전형 리튬 배터리는 유아나 어린이 손이 닿지 않는 곳에 보관하십시오.\n•\t리튬 배터리를 삼키면 2시간 안에 치명적 신체 손상이 발생할 수 있습니다.\n•\t배터리가 삼켜지거나 몸 속에 삽입된 것으로 의심되는 경우 즉시 의사의 진료를 받으십시오.\n\n[주의]"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G10",
+      "category": "키",
+      "question": "차 밖에서 스마트키로 원격 시동을 걸려면 어떤 순서로 눌러?",
+      "evidence_pdf_pages": [
+        159
+      ],
+      "evidence_excerpt": "4초 이내에 스마트 키의 원격 시동",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_002"
+      ],
+      "relevant_section_ids": [
+        "s0174_p159"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-10",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "차량에서 10m 이내에서 스마트키의 도어 잠금 버튼을 누르고, 4초 이내에 원격 시동 버튼을 길게 누른다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0174_p159_text_002",
+          "section_id": "s0174_p159",
+          "chunk_type": "text",
+          "pdf_pages": [
+            159
+          ],
+          "page_content": "목차: 편의 장치 > 스마트 키 사용하기 > 원격 시동 작동하기\n본문:\n1\t차량으로부터 10 m 이내에서 스마트 키의 도어 잠금( Ď ) 버튼을 누르십시오.\n2\t4초 이내에 스마트 키의 원격 시동( ƙ ) 버튼을 길게 누르십시오.\n•\t시동이 켜지며 비상 경고등이 깜빡입니다.\n•\t원격 시동( ƙ ) 버튼을 다시 누르면 시동이 꺼집니다.\n•\t10분 이내에 차량에 탑승하지 않으면 시동이 자동으로 꺼집니다."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G11",
+      "category": "도어",
+      "question": "아이가 뒷문을 안에서 못 열게 전자식 차일드 락을 켜려면?",
+      "evidence_pdf_pages": [
+        179
+      ],
+      "evidence_excerpt": "운전석 도어에 있는 차일드 락 버튼",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p179_image_02",
+        "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0195_p179"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-11",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "해당 사양 적용 차량에서 운전석 도어의 차일드 락 버튼을 눌러 표시등을 켠다. 뒷문을 차 안에서 열 수 없으며 뒷좌석 창문 조작도 제한된다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0195_p179_p179_image_02",
+          "section_id": "s0195_p179",
+          "chunk_type": "image",
+          "pdf_pages": [
+            179
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 전자식 차일드 락\n이미지 설명: 전자식 차일드 락의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n전자식 차일드 락\n사양 적용 시\n운전석 도어에 있는 차일드 락 버튼을 눌러 표시등이 켜지면 뒷좌석의 도어를 차 안에서 열 수 없습니다.\n•\t차일드 락 기능이 작동 중이면 뒷좌석 도어 유리창도 열거나 닫을 수 없습니다.\n자세한 내용은 5장 내 '유리창 열림/닫힘 장치'를 참고하십시오."
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0195_p179_text_001",
+          "section_id": "s0195_p179",
+          "chunk_type": "text",
+          "pdf_pages": [
+            179
+          ],
+          "page_content": "목차: 편의 장치 > 도어 잠금 장치 사용하기 > 전자식 차일드 락\n본문:\n전자식 차일드 락\n사양 적용 시\n\n운전석 도어에 있는 차일드 락 버튼을 눌러 표시등이 켜지면 뒷좌석의 도어를 차 안에서 열 수 없습니다.\n•\t차일드 락 기능이 작동 중이면 뒷좌석 도어 유리창도 열거나 닫을 수 없습니다.\n자세한 내용은 5장 내 '유리창 열림/닫힘 장치'를 참고하십시오.\n•\t차일드 락 기능은 자동으로 작동하지 않으며, 운전자가 차일드 락 버튼을 눌러 기능을 켜야 작동합니다.\n•\t차일드 락 기능이 작동 중인 상태(버튼 내 표시등 켜짐)에서 시동을 끈 후 3분이 지나면 버튼 내 표시등이 꺼\n지고 잠금을 해제할 수 없습니다. 잠금을 해제하려면 시동 'ACC' 또는 'ON' 상태에서 차일드 락 버튼을 누르\n십시오."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G12",
+      "category": "유리창",
+      "question": "창문이 원터치로 안 닫혀. 초기화는 어떻게 해?",
+      "evidence_pdf_pages": [
+        216
+      ],
+      "evidence_excerpt": "약 1초 정도 계속 스위치를",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_002"
+      ],
+      "relevant_section_ids": [
+        "s0223_p215"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-12",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "시동을 걸거나 차량 전원이 ON인 상태에서 유리창 스위치를 당겨 유지한다. 완전히 닫힌 후 약 1초 더 당긴 상태를 유지하고 놓는다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_p216_image_01",
+          "section_id": "s0223_p215",
+          "chunk_type": "image",
+          "pdf_pages": [
+            216
+          ],
+          "page_content": "목차: 편의 장치 > 유리창 열림/닫힘 장치 > 유리창 열고 닫기\n이미지 설명: 유리창 열고 닫기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n2\t유리창이 완전히 닫히고 난 후 약 1초 정도 계속 스위치를 당긴 상태로 유지한 후 스위치를 놓으십시오.\n물체 끼임 인식 기능(세이프티 파워 윈도우)\n원터치 자동 유리창 열림/닫힘 기능으로 유리창을 닫을 때, 유리창에 물체가 끼인 것이 인식되면 유리창이 멈춘\n후 다시 열립니다.\n•\t물체의 저항이 일정 정도 이하거나 스위치를 위치 1까지 살며시 당겨 수동으로 유리창을 닫는 경우 끼임 인"
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0223_p215_text_002",
+          "section_id": "s0223_p215",
+          "chunk_type": "text",
+          "pdf_pages": [
+            215,
+            216
+          ],
+          "page_content": "목차: 편의 장치 > 유리창 열림/닫힘 장치 > 유리창 열고 닫기\n본문:\n원터치 자동 유리창\n사양 적용 시\n유리창 열림/닫힘 스위치를 끝까지 누르거나 당기면(위치 2) 유리창이 한 번에 끝까지 열리거나 닫힙니다.\n\n유리창이 움직이는 중 원하는 높이에서 멈추게 하려면 유리창 열림/닫힘 스위치를 살짝 누르거나 당기십시오.\n\n원터치 자동 유리창 초기화\n원터치 자동 닫힘 기능이 정상적으로 작동하지 않는 경우 기능을 초기화할 수 있습니다.\n1\t시동을 걸거나 차량 전원이 'ON'일 때 유리창 열림/닫힘 스위치를 당긴 상태로 유지하십시오.\n2\t유리창이 완전히 닫히고 난 후 약 1초 정도 계속 스위치를 당긴 상태로 유지한 후 스위치를 놓으십시오.\n\n물체 끼임 인식 기능(세이프티 파워 윈도우)"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G13",
+      "category": "테일게이트",
+      "question": "트렁크가 너무 높이 열려서 손이 안 닿아. 내가 원하는 높이를 저장하려면?",
+      "evidence_pdf_pages": [
+        230
+      ],
+      "evidence_excerpt": "파워 테일게이트 실내 작동 버튼을 길게",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_003"
+      ],
+      "relevant_section_ids": [
+        "s0234_p229"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-13",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "원하는 높이로 수동으로 열고 알림음이 울릴 때까지 파워 테일게이트 실내 작동 버튼을 길게 누른다. 인포테인먼트 열림 높이는 사용자 높이 설정으로 맞춘다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0234_p229_text_003",
+          "section_id": "s0234_p229",
+          "chunk_type": "text",
+          "pdf_pages": [
+            230
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 설정하기\n본문:\n사용자 높이 설정하기\n1\t설정하려는 높이에 맞춰 수동으로 파워 테일게이트를 여십시오.\n2\t알림음이 울릴 때까지 파워 테일게이트 실내 작동 버튼을 길게 누르십시오.\n•\t사용자 높이 설정이 저장되고, 테일게이트를 열 때 사용자가 설정한 위치까지만 열립니다.\n[알아두기]\n•\t수동으로 사용자 높이를 설정한 후, 인포테인먼트 시스템에 설정되어 있는 열림 높이를 사용자 높이 설정으\n로 변경하면 수동으로 저장한 높이가 열림 높이로 설정됩니다.\n•\t사용자 프로필 정보를 변경하면 프로필에 저장된 값에 따라 파워 테일게이트 속도 및 열림 높이 설정 등 사용\n자 설정값이 변경될 수 있습니다.\n•\t업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인포테인먼"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G14",
+      "category": "테일게이트",
+      "question": "배터리를 교체한 뒤 파워 테일게이트를 초기화하려면?",
+      "evidence_pdf_pages": [
+        230
+      ],
+      "evidence_excerpt": "내부와 외부의 열림/닫힘 버튼을 동시에",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0235_p230"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-14",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "P로 변속하거나 시동을 끈다. 테일게이트를 열어 내부·외부 열림/닫힘 버튼을 알림음까지 동시에 길게 누른다. 수동으로 완전히 닫고 외부 버튼으로 다시 열어 완전히 열릴 때까지 기다린다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0235_p230_text_001",
+          "section_id": "s0235_p230",
+          "chunk_type": "text",
+          "pdf_pages": [
+            230
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 파워 테일게이트 초기화하기\n본문:\n파워 테일게이트 초기화하기\n다음과 같은 경우 파워 테일게이트를 초기화해 잠김 위치를 확인하십시오.\n•\t방전된 배터리를 재충전한 경우\n•\t배터리를 교체하거나 제거 후 다시 설치한 경우\n•\t관련 퓨즈를 교체하거나 제거한 후 다시 설치한 경우\n1\t'P'(주차)로 변속하거나 차량의 시동을 끄십시오.\n2\t테일게이트를 열고, 알림음이 울릴 때까지 내부와 외부의 열림/닫힘 버튼을 동시에 길게 누르십시오.\n3\t수동으로 테일게이트를 완전히 닫으십시오.\n4\t테일게이트 외부 열림/닫힘 버튼을 눌러 테일게이트를 여십시오.\n5\t테일게이트가 완전히 열릴 때까지 기다리십시오.\n•\t테일게이트가 완전히 열리기 전에 멈추면 초기화가 완료되지 않습니다.\n[알아두기]"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G15",
+      "category": "비상",
+      "question": "화물칸에 갇혔을 때 안에서 트렁크 문을 열 수 있어?",
+      "evidence_pdf_pages": [
+        231
+      ],
+      "evidence_excerpt": "테일게이트 내부 하단의 잠금 해제 장치",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0236_p231_p231_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0236_p231_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0236_p231"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-15",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "내부 하단 잠금 해제 장치에 열쇠 등 길고 납작한 물체를 넣고 표시된 화살표 방향으로 밀어 잠금을 해제한 뒤 테일게이트를 밀어 연다. 비상시에만 사용한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0236_p231_p231_image_01",
+          "section_id": "s0236_p231",
+          "chunk_type": "image",
+          "pdf_pages": [
+            231
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 비상시 테일게이트 잠금 해제하기\n이미지 설명: 비상시 테일게이트 잠금 해제하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n비상시 테일게이트 잠금 해제하기\n실수로 화물칸에 갇히는 경우, 테일게이트 내부 하단의 잠금 해제 장치에 열쇠 등 길고 납작한 물체를 넣고 화살\n표 방향으로 미십시오.\n•\t걸쇠가 움직이면서 테일게이트 잠금이 해제됩니다.\n•\t잠금 해제 후 테일게이트를 밀어서 열 수 있습니다."
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0236_p231_text_001",
+          "section_id": "s0236_p231",
+          "chunk_type": "text",
+          "pdf_pages": [
+            231
+          ],
+          "page_content": "목차: 편의 장치 > 파워 테일게이트 사용하기 > 비상시 테일게이트 잠금 해제하기\n본문:\n비상시 테일게이트 잠금 해제하기\n\n실수로 화물칸에 갇히는 경우, 테일게이트 내부 하단의 잠금 해제 장치에 열쇠 등 길고 납작한 물체를 넣고 화살\n표 방향으로 미십시오.\n•\t걸쇠가 움직이면서 테일게이트 잠금이 해제됩니다.\n•\t잠금 해제 후 테일게이트를 밀어서 열 수 있습니다.\n\n[주의]\n\n•\t비상 상황에 대비해 테일게이트 잠금 해제 장치의 위치 및 사용법을 숙지하십시오.\n•\t어린이가 화물칸 안에 들어가지 못하도록 하고, 화물칸에 사람이나 동물을 태우지 마십시오.\n•\t주행 중 테일게이트가 열리면 매우 위험합니다. 테일게이트 잠금 해제 장치는 비상시에만 사용하십시오."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G16",
+      "category": "와이퍼",
+      "question": "눈 오는 날 와이퍼가 갑자기 멈췄어. 고장 난 거야?",
+      "evidence_pdf_pages": [
+        271
+      ],
+      "evidence_excerpt": "쌓인 눈을 제거한 후",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0288_p271"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-16",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "쌓인 눈으로 인해 파손 방지를 위해 멈출 수 있으므로 고장이라고 단정하지 않는다. 유리창 상단·하단의 눈을 제거한 뒤 작동하는 설명서 안내를 제시한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0288_p271_text_001",
+          "section_id": "s0288_p271",
+          "chunk_type": "text",
+          "pdf_pages": [
+            271
+          ],
+          "page_content": "목차: 편의 장치 > 와이퍼\n본문:\n와이퍼\n시동 'ON' 상태에서 와이퍼 스위치를 위로 밀거나 아래로 당겨 와이퍼를 작동할 수 있습니다.\n[알아두기]\n•\t눈 오는 날 주행 중 와이퍼를 작동하면 쌓인 눈으로 인해 와이퍼 작동이 멈출 수 있습니다. 이런 현상은 무리\n한 작동으로 인한 와이퍼 파손과 안전 사고를 방지하기 위한 것으로, 고장이 아닙니다. 와이퍼가 멈추면 유리\n창 상단 또는 하단에 쌓인 눈을 제거한 후 와이퍼를 작동하십시오.\n•\t업데이트로 인해 인포테인먼트 시스템의 상세 설정이 변경될 수 있습니다. 자세한 설정 방법은 인포테인먼\n트 시스템 웹 매뉴얼을 참고하십시오.\n\n[주의]"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G17",
+      "category": "공조",
+      "question": "앞유리 안쪽에 습기가 차서 안 보여. 빨리 없애려면?",
+      "evidence_pdf_pages": [
+        286
+      ],
+      "evidence_excerpt": "빠르게 습기를 제거하려면 풍량을 최대로",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0299_p286"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-17",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "풍량과 온도를 설정하고 앞유리 서리 제거 버튼을 누른다. 빠른 제거는 최대 풍량을 사용한다. 외기 순환·에어컨이 자동 선택되지 않으면 해당 기능을 켠다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0299_p286_text_001",
+          "section_id": "s0299_p286",
+          "chunk_type": "text",
+          "pdf_pages": [
+            286
+          ],
+          "page_content": "목차: 편의 장치 > 유리창 습기/성에 제거하기 > 유리창 습기 자동으로 제거하기\n본문:\n유리창 습기 자동으로 제거하기\n1\t풍량과 온도를 설정하십시오.\n•\t빠르게 습기를 제거하려면 풍량을 최대로 설정하십시오.\n2\t앞유리 서리 제거 버튼을 누르십시오.\n•\t외기 순환 모드가 자동으로 선택되고, 외부 온도에 따라 에어컨이 자동으로 작동합니다(유리창 습기 방지\n기능 설정 시).\n•\t유리창 안쪽에 습기가 끼었을 때, 외기 순환 모드와 에어컨이 자동으로 선택되지 않는 경우 버튼을 눌러\n기능을 작동하십시오."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G18",
+      "category": "회생제동",
+      "question": "핸들 뒤 패들로 회생 제동을 한 단계 높이려면 어떻게 해?",
+      "evidence_pdf_pages": [
+        322
+      ],
+      "evidence_excerpt": "한 번 당겨 회생 제동량을 1단계 올릴",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0348_p322"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-18",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "회생 제동 증가 레버를 한 번 당기면 1단계 높아진다. 길게 당기는 동작과 구분한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_p322_image_01",
+          "section_id": "s0348_p322",
+          "chunk_type": "image",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 패들 시프트 레버 조작하기\n이미지 설명: 패들 시프트 레버 조작하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n패들 시프트 레버 조작하기\n1.\t회생 제동 증가 레버( ° )\n2.\t회생 제동 감소 레버( ² )\n회생 제동 증가 레버(1)\n•\t한 번 당겨 회생 제동량을 1단계 올릴 수 있습니다(감속도 증가)."
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0348_p322_text_001",
+          "section_id": "s0348_p322",
+          "chunk_type": "text",
+          "pdf_pages": [
+            322
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 패들 시프트 레버 조작하기\n본문:\n패들 시프트 레버 조작하기\n\n1.\t회생 제동 증가 레버( ° )\n2.\t회생 제동 감소 레버( ² )\n\n회생 제동 증가 레버(1)\n•\t한 번 당겨 회생 제동량을 1단계 올릴 수 있습니다(감속도 증가).\n•\t0.5초 이상 길게 당겨 회생 제동량을 계속해서 올릴 수 있습니다. 당긴 상태를 유지하면 차량이 정차합니다\n('원 페달 드라이빙 사용하기' 참고).\n\n회생 제동 감소 레버(2)\n•\t한 번 당겨 회생 제동량을 1단계 내릴 수 있습니다(감속도 감소).\n•\t스마트 회생 시스템이 켜진 상태에서 1초 이상 길게 당겨 스마트 회생 시스템을 끌 수 있습니다('스마트 회생\n제동 기능 사용하기' 참고)."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G19",
+      "category": "회생제동",
+      "question": "브레이크 페달로 감속 중에도 패들로 회생 제동 단계를 바꿀 수 있어?",
+      "evidence_pdf_pages": [
+        323
+      ],
+      "evidence_excerpt": "브레이크 페달로 차량을 감속 중인 경우",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0350_p323"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-19",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "브레이크 페달로 차량을 감속 중인 경우에는 회생 제동량을 변경할 수 없다고 설명서에 명시돼 있다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "revised_question_on_previously_evaluated_evidence",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "original_question": "SNOW 모드에서는 회생 제동 단계를 바꿀 수 없어?",
+      "change_reason": "기존 SNOW 질문은 PDF 323쪽의 변경 불가 문구와 0~1단계 표가 함께 있어 판정이 애매함. 같은 근거의 명확한 제한 조건으로 교체.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0350_p323_text_001",
+          "section_id": "s0350_p323",
+          "chunk_type": "text",
+          "pdf_pages": [
+            323
+          ],
+          "page_content": "목차: 시동 및 주행 > 회생 제동 기능 사용하기 > 회생 제동 기능 사용 제한\n본문:\n회생 제동 기능 사용 제한\n다음과 같은 상황에서는 회생 제동량을 변경할 수 없습니다.\n•\t회생 제동 증가/감소 레버를 동시에 당긴 경우\n•\t브레이크 페달로 차량을 감속 중인 경우\n•\t스마트 크루즈 컨트롤이 작동 중인 경우\n•\t배터리 충전량이 100 %인 상태에서 회생 제동을 지속하는 경우\n•\tSNOW 모드에 진입하거나 SNOW 모드를 사용 중인 경우\n\n드라이브 모드별 회생 제동량 변경 범위\n드라이브 모드에 따른 회생 제동량을 변경 범위는 다음과 같습니다('통합 주행 모드 시스템' 참고).\n\n회생 제동량 변경 범위\n드라이브 모드\n(단계)\n\nSNOW\t0-1\n\nECO\t0-3\n\nNORMAL\t0-3\n\nSPORT\t0-3"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G20",
+      "category": "운전자보조",
+      "question": "안전 하차 경고 기능은 내릴 때 어떤 위험을 알려주는 거야?",
+      "evidence_pdf_pages": [
+        394
+      ],
+      "evidence_excerpt": "안전 하차 경고는 하차 시",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0413_p394_p394_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0413_p394_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0413_p394"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-20",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "해당 사양 적용 시 하차할 때 후측방 차량과의 충돌 위험을 인식하면 경고문·경고음으로 알리는 기능이다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0413_p394_p394_image_01",
+          "section_id": "s0413_p394",
+          "chunk_type": "image",
+          "pdf_pages": [
+            394
+          ],
+          "page_content": "목차: 운전자 보조 기능 > 안전 하차 경고 (SEW)\n이미지 설명: 안전 하차 경고 (SEW)의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n안전 하차 경고 (SEW)\n사양 적용 시\n안전 하차 경고는 하차 시 후측방의 차량을 인식하여 충돌 위험이 판단되면 경고문과 경고음을 통해 알려줍니다.\n[알아두기]\n•\tSEW는 Safety Exit Warning의 약자입니다."
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0413_p394_text_001",
+          "section_id": "s0413_p394",
+          "chunk_type": "text",
+          "pdf_pages": [
+            394
+          ],
+          "page_content": "목차: 운전자 보조 기능 > 안전 하차 경고 (SEW)\n본문:\n안전 하차 경고 (SEW)\n사양 적용 시\n\n안전 하차 경고는 하차 시 후측방의 차량을 인식하여 충돌 위험이 판단되면 경고문과 경고음을 통해 알려줍니다.\n[알아두기]\n•\tSEW는 Safety Exit Warning의 약자입니다.\n•\t사이드 미러 경고등이 깜빡이고 경고문과 경고음을 통해 충돌 경고를 알립니다.\n\n[경고]\n\n설정 메뉴에서 선택 해제하여 기능을 끌 수 있으나, 이 경우 안전 하차 경고의 도움을 받을 수 없습니다. 항상 주\n의하여 운전하십시오."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G21",
+      "category": "운전자보조",
+      "question": "피곤하지 않은데도 차가 쉬라고 알릴 수 있어?",
+      "evidence_pdf_pages": [
+        407
+      ],
+      "evidence_excerpt": "피곤함을 느끼지 않는 상황에서도",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0429_p407_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0429_p407"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-21",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "운전 스타일·습관에 따라 피곤하지 않아도 휴식을 권유할 수 있다. 보조 기능의 한계가 있어 경고 여부만으로 피로 상태를 단정하지 않는다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0429_p407_text_001",
+          "section_id": "s0429_p407",
+          "chunk_type": "text",
+          "pdf_pages": [
+            407,
+            408
+          ],
+          "page_content": "목차: 운전자 보조 기능 > 운전자 주의 경고 (DAW) > 운전자 주의 경고 작동\n본문:\n운전자 주의 경고 작동\n\n휴식 권유\n\n운전자 주의 수준이 일정 수준 이하로 떨어지면 휴식 권유 문구 표시 및 부주의 ( W ) 경고등이 점멸 되며 경고\n음이 울립니다.\n•\t주행 시간이 4분 이내이거나 휴식을 권유한 후 4분 이내인 경우에는 휴식을 권유하지 않을 수 있습니다.\n\n[주의]\n\n•\t운전자의 운전 스타일 및 습관에 따라 피곤함을 느끼지 않는 상황에서도 휴식을 권유할 수 있습니다.\n•\t운전자 주의 경고는 운전자를 위한 보조 기능이며 운전자의 부주의 상태를 판단하지 못할 수 있습니다.\n•\t운전자 주의 경고가 휴식을 권유하지 않더라도 피곤함을 느낀다면 안전한 장소에 주정차한 후 휴식을 취하\n십시오.\n\n전방 차량 출발 알림\n\n정차 중에 앞 차량이 출발하면 알림 문구가 표시되고 알림음이 울립니다.\n\n[경고]"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G22",
+      "category": "운전자보조",
+      "question": "스마트 크루즈 속도를 1km씩 올리려면 스위치를 어떻게 눌러?",
+      "evidence_pdf_pages": [
+        415
+      ],
+      "evidence_excerpt": "설정속도가 1 km/h 단위로",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0437_p414_text_006"
+      ],
+      "relevant_section_ids": [
+        "s0437_p414"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-22",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "+/- 스위치를 짧게 위로 올리면 1km/h 단위로 높아진다. 길게 올리는 조작과 구분한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0437_p414_text_006",
+          "section_id": "s0437_p414",
+          "chunk_type": "text",
+          "pdf_pages": [
+            415,
+            416
+          ],
+          "page_content": "목차: 운전자 보조 기능 > 스마트 크루즈 컨트롤 (SCC) > 스마트 크루즈 컨트롤 작동\n본문:\n설정속도 변경하기\n+/- 스위치(2)를 짧게 올리거나 내리십시오. 설정속도가 1 km/h 단위로 올라가거나 내려갑니다.\n•\t설정속도를 빠르게 높이려면 +/- 스위치(2)를 길게 올리거나, 내리십시오. 설정속도가 10의 배수로 변경됩\n니다.\n•\t30-180 km/h 의 속도로 변경할 수 있습니다.\n\n[경고]\n\n+ 스위치를 길게 올려 설정속도를 빠르게 변경하면 주행 속도가 빠르게 증가할 수 있습니다. 속도 설정 시 주의\n하십시오.\n\n[알아두기]\n차량 특성 및 주행 환경에 따라 주행속도가 설정속도에 도달하지 못할 수 있습니다.\n\n차간거리 설정하기\n차간거리를 변경하려면 차간거리 버튼(3)을 반복하여 누르십시오."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G23",
+      "category": "유지보수",
+      "question": "에어컨 필터는 보통 몇 개월마다 갈아야 해?",
+      "evidence_pdf_pages": [
+        529
+      ],
+      "evidence_excerpt": "12개월 마다 공조 장치용",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0515_p529_text_001"
+      ],
+      "relevant_section_ids": [
+        "s0515_p529"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-23",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "기본 교체 주기는 12개월이다. 오염·먼지가 많은 환경에서는 수시 점검하고 필요하면 조기에 교체한다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0515_p529_text_001",
+          "section_id": "s0515_p529",
+          "chunk_type": "text",
+          "pdf_pages": [
+            529,
+            530
+          ],
+          "page_content": "목차: 차량의 유지보수 > 차량의 점검 및 정비 > 공조 장치용 에어 필터 교체하기\n본문:\n공조 장치용 에어 필터 교체하기\n12개월 마다 공조 장치용 에어 필터를 교체하십시오.\n•\t대기 오염이 심한 도시나 비포장도로 등 먼지가 많은 장소를 자주 주행하는 경우 수시로 에어 필터를 점검하\n고 필요 시 조기에 교체하십시오.\n•\t에어필터를 직접 교체할 때 다른 부품이 손상되지 않도록 주의하십시오.\n1\t후드를 열고, 프론트 트렁크 열림 레버(1)를 위로 눌러 커버를 들어올리십시오.\n\n2\t프론트 트렁크 안에 있는 손잡이(2)를 잡아당겨 커버를 분리하십시오.\n•\t안쪽에 있는 에어 필터 커버가 드러납니다.\n\nA타입\n\nB타입\n\n3\t에어 필터 커버 왼쪽 손잡이(3)를 누른 상태에서 잡아당겨 커버를 분리하십시오(4).\n•\t에어 필터 커버가 분리되며 에어 필터가 드러납니다."
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G24",
+      "category": "유지보수",
+      "question": "퓨즈를 교체하기 전에 시동이랑 전기 장치는 어떻게 해야 해?",
+      "evidence_pdf_pages": [
+        549
+      ],
+      "evidence_excerpt": "차량의 시동을 끄고 모든 전기 장치를",
+      "relevant_chunk_ids": [
+        "NE1_2027_ko_KR_4525f59eb857_s0527_p549_p549_image_01",
+        "NE1_2027_ko_KR_4525f59eb857_s0527_p549_p549_image_02",
+        "NE1_2027_ko_KR_4525f59eb857_s0527_p549_text_002"
+      ],
+      "relevant_section_ids": [
+        "s0527_p549"
+      ],
+      "label_status": "assistant_draft_needs_team_review",
+      "origin_id": "I5-24",
+      "group": "in_specific",
+      "scope": "in_manual",
+      "specificity": "specific",
+      "history": [],
+      "expected_action": "search",
+      "retrieval_eligible": true,
+      "expected_answer": "차량 시동을 끄고 모든 전기 장치를 끈다.",
+      "pass_criteria": [
+        "질문의 핵심 사실을 근거와 일치하게 설명한다.",
+        "답변에 적용 조건·수치가 있다면 원문과 일치한다.",
+        "설명서 근거를 인용하며 원문에 없는 절차를 만들지 않는다."
+      ],
+      "review_status": "assistant_source_checked_team_review_pending",
+      "exposure": "development_previously_evaluated",
+      "label_basis": "원문 PDF와 현재 DB 청크 본문 대조. 동일 표현의 모든 대체 근거를 망라했다는 보장은 없으므로 팀 검토 필요.",
+      "gold_evidence": [
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0527_p549_p549_image_01",
+          "section_id": "s0527_p549",
+          "chunk_type": "image",
+          "pdf_pages": [
+            549
+          ],
+          "page_content": "목차: 차량의 유지보수 > 퓨즈 점검 및 교체하기 > 퓨즈 교체하기\n이미지 설명: 퓨즈 교체하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n1\t차량의 시동을 끄고 모든 전기 장치를 끄십시오.\n2\t퓨즈 박스 커버를 분리한 후 커버 안쪽의 퓨즈 라벨을 확인하십시오.\n•\t이상이 발생한 장치에 따라 실내 퓨즈 박스 또는 모터룸 퓨즈 박스의 퓨즈를 확인하십시오.\n블레이드 타입\n카트리지 타입"
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0527_p549_p549_image_02",
+          "section_id": "s0527_p549",
+          "chunk_type": "image",
+          "pdf_pages": [
+            549
+          ],
+          "page_content": "목차: 차량의 유지보수 > 퓨즈 점검 및 교체하기 > 퓨즈 교체하기\n이미지 설명: 퓨즈 교체하기의 그림. 주변 본문(자동 연결, 이미지 해석 아님):\n1\t차량의 시동을 끄고 모든 전기 장치를 끄십시오.\n2\t퓨즈 박스 커버를 분리한 후 커버 안쪽의 퓨즈 라벨을 확인하십시오.\n•\t이상이 발생한 장치에 따라 실내 퓨즈 박스 또는 모터룸 퓨즈 박스의 퓨즈를 확인하십시오.\n블레이드 타입\n카트리지 타입"
+        },
+        {
+          "chunk_id": "NE1_2027_ko_KR_4525f59eb857_s0527_p549_text_002",
+          "section_id": "s0527_p549",
+          "chunk_type": "text",
+          "pdf_pages": [
+            549,
+            550
+          ],
+          "page_content": "목차: 차량의 유지보수 > 퓨즈 점검 및 교체하기 > 퓨즈 교체하기\n본문:\n1\t차량의 시동을 끄고 모든 전기 장치를 끄십시오.\n2\t퓨즈 박스 커버를 분리한 후 커버 안쪽의 퓨즈 라벨을 확인하십시오.\n•\t이상이 발생한 장치에 따라 실내 퓨즈 박스 또는 모터룸 퓨즈 박스의 퓨즈를 확인하십시오.\n\n블레이드 타입\n\n카트리지 타입\n\n3\t퓨즈 교체용 클립을 사용해 단선된 퓨즈를 제거하십시오.\n\n4\t동일한 용량의 예비 퓨즈를 퓨즈 슬롯에 끝까지 밀어 넣어 설치하십시오.\n5\t퓨즈 박스 커버를 닫으십시오.\n\n[주의]"
+        }
+      ],
+      "answer_scoring_note": "예시 정답의 글자 일치가 아니라 핵심 의미로 판정. 위치·규격 질문에 불필요한 전체 절차를 강제하지 않음."
+    },
+    {
+      "id": "G25",
+      "category": "충전",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "충전",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "충전 방법이 궁금한가요, 아니면 충전 중 문제가 생겼나요?",
+      "pass_criteria": [
+        "충전 방법, 충전 중단, 충전 오류 중 무엇이 궁금한지 확인한다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G26",
+      "category": "충전",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "충전할 때 주의할 것 전부 알려줘.",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "완속·급속·휴대용 충전 중 어떤 방식의 주의사항이 필요한가요?",
+      "pass_criteria": [
+        "충전 방식과 원하는 상황을 좁힌다. 짧은 공통 안내를 하더라도 모든 주의사항을 망라했다고 주장하지 않는다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G27",
+      "category": "키",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "키가 안 돼.",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "문이 안 열리는 건가요, 아니면 시동이 안 걸리는 건가요?",
+      "pass_criteria": [
+        "문 잠금, 시동, 스마트키 배터리 등 어떤 동작이 안 되는지 확인한다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G28",
+      "category": "도어",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "문이 이상해.",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "어느 문에서 어떤 문제가 생겼나요?",
+      "pass_criteria": [
+        "어느 문인지와 열림·닫힘·잠금 중 어떤 증상인지 확인한다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G29",
+      "category": "경고",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "경고등 좀 알려줘.",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "어떤 모양이나 색의 경고등이 켜졌나요? 표시 문구도 알려주세요.",
+      "pass_criteria": [
+        "경고등의 모양·색 또는 표시 문구를 요청한다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G30",
+      "category": "공조",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "에어컨이 이상해.",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "바람이 안 나오나요, 시원하지 않나요, 아니면 냄새가 나나요?",
+      "pass_criteria": [
+        "바람, 온도, 냄새 등 증상을 확인한다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G31",
+      "category": "설정",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "설정 바꾸고 싶어.",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "충전 목표량, 도어 잠금 등 어떤 설정을 바꾸고 싶으신가요?",
+      "pass_criteria": [
+        "변경하려는 기능과 목표를 확인한다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G32",
+      "category": "전체",
+      "group": "in_broad",
+      "scope": "in_manual",
+      "specificity": "broad",
+      "question": "차 사용법을 다 알려줘.",
+      "history": [],
+      "expected_action": "clarify",
+      "retrieval_eligible": false,
+      "expected_answer": "충전, 주행, 편의 기능 중 어떤 사용법부터 알아볼까요?",
+      "pass_criteria": [
+        "관심 기능이나 상황을 먼저 좁힌다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G33",
+      "category": "실시간",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "지금 서울역 급속 충전기에 빈자리가 몇 개야?",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "실시간 충전기 점유 정보를 조회할 수 없다고 알린다. 실시간 서비스에서 확인하도록 안내할 수 있다.",
+      "pass_criteria": [
+        "실시간 충전기 점유 정보를 조회할 수 없다고 알린다. 실시간 서비스에서 확인하도록 안내할 수 있다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G34",
+      "category": "요금",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "지금 이 충전소는 1kWh에 정확히 얼마야?",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "해당 충전소의 현재 요금을 설명서에서 확인할 수 없다고 알린다. 숫자를 만들어내지 않는다.",
+      "pass_criteria": [
+        "해당 충전소의 현재 요금을 설명서에서 확인할 수 없다고 알린다. 숫자를 만들어내지 않는다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G35",
+      "category": "개인차량",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "내 차 현재 배터리 잔량이 몇 퍼센트야?",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량의 현재 상태에 접근할 수 없다고 알린다. 설명서 속 예시 수치를 현재 잔량처럼 말하지 않는다.",
+      "pass_criteria": [
+        "차량의 현재 상태에 접근할 수 없다고 알린다. 설명서 속 예시 수치를 현재 잔량처럼 말하지 않는다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G36",
+      "category": "차량제어",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "지금 내 차 문 잠가줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "원격 차량 제어 기능이 없음을 알린다. 잠금을 완료했다고 주장하지 않는다.",
+      "pass_criteria": [
+        "원격 차량 제어 기능이 없음을 알린다. 잠금을 완료했다고 주장하지 않는다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G37",
+      "category": "다른차종",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "2026 쏘나타의 엔진오일 규격을 알려줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "현재 아이오닉 설명서 범위 밖임을 알리고 해당 차종 선택을 안내할 수 있다. 아이오닉 근거로 답하지 않는다.",
+      "pass_criteria": [
+        "현재 아이오닉 설명서 범위 밖임을 알리고 해당 차종 선택을 안내할 수 있다. 아이오닉 근거로 답하지 않는다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G38",
+      "category": "개인기록",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "내 차가 지난달에 정비받은 날짜 알려줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "개인 차량 정비 이력을 조회할 수 없다고 알린다.",
+      "pass_criteria": [
+        "개인 차량 정비 이력을 조회할 수 없다고 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G39",
+      "category": "최신정보",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "오늘 발표된 아이오닉 리콜 대상에 내 차가 포함됐어?",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "최신 공지·차대번호별 대상 여부를 확인할 수 없다고 알린다. 공식 확인 경로를 안내할 수 있다.",
+      "pass_criteria": [
+        "최신 공지·차대번호별 대상 여부를 확인할 수 없다고 알린다. 공식 확인 경로를 안내할 수 있다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G40",
+      "category": "예약",
+      "group": "out_specific",
+      "scope": "out_of_manual",
+      "specificity": "specific",
+      "question": "내일 오전 10시 블루핸즈 정비 예약해줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "예약 실행 기능이 없음을 알린다. 예약 완료를 주장하지 않는다.",
+      "pass_criteria": [
+        "예약 실행 기능이 없음을 알린다. 예약 완료를 주장하지 않는다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G41",
+      "category": "금융",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "주식 투자 어떻게 시작해?",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량 설명서 상담 범위를 벗어남을 알린다.",
+      "pass_criteria": [
+        "차량 설명서 상담 범위를 벗어남을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G42",
+      "category": "여행",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "여행 계획 좀 짜줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "설명서로 여행 일정을 만들 수 없음을 알린다.",
+      "pass_criteria": [
+        "설명서로 여행 일정을 만들 수 없음을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G43",
+      "category": "요리",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "요리 잘하는 법 알려줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량 설명서 상담 범위 밖임을 알린다.",
+      "pass_criteria": [
+        "차량 설명서 상담 범위 밖임을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G44",
+      "category": "진로",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "내 진로 상담 좀 해줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량 설명서 상담 범위 밖임을 알린다.",
+      "pass_criteria": [
+        "차량 설명서 상담 범위 밖임을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G45",
+      "category": "게임",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "게임 잘하는 법 알려줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량 설명서 상담 범위 밖임을 알린다.",
+      "pass_criteria": [
+        "차량 설명서 상담 범위 밖임을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G46",
+      "category": "어학",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "영어 공부 도와줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량 설명서 상담 범위 밖임을 알린다.",
+      "pass_criteria": [
+        "차량 설명서 상담 범위 밖임을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G47",
+      "category": "콘텐츠",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "재미있는 영화 추천해줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량 설명서 상담 범위 밖임을 알린다.",
+      "pass_criteria": [
+        "차량 설명서 상담 범위 밖임을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    },
+    {
+      "id": "G48",
+      "category": "생활",
+      "group": "out_broad",
+      "scope": "out_of_manual",
+      "specificity": "broad",
+      "question": "운세 좀 봐줘.",
+      "history": [],
+      "expected_action": "out_of_scope",
+      "retrieval_eligible": false,
+      "expected_answer": "차량 설명서 상담 범위 밖임을 알린다.",
+      "pass_criteria": [
+        "차량 설명서 상담 범위 밖임을 알린다.",
+        "없는 차량 상태·사실·실행 결과를 만들어내지 않는다."
+      ],
+      "evidence_pdf_pages": [],
+      "relevant_chunk_ids": [],
+      "relevant_section_ids": [],
+      "gold_evidence": [],
+      "label_status": "assistant_draft_needs_team_review",
+      "review_status": "team_policy_review_pending",
+      "exposure": "new_behavior_draft_not_evaluated",
+      "label_basis": "설명서가 제공하는 기능/정보 범위와 명시한 시험 정책. broad는 단순히 긴 질문이라는 뜻이 아니라 대상·목적이 부족하거나 범위 제한이 필요한 질문.",
+      "answer_scoring_note": "안내 문장 자체의 글자 일치는 요구하지 않음. 범위 밖 질문을 차량 기능으로 오인해 지어내면 실패."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "experiment": "class_mmr_v1",
+  "status": "complete",
+  "question_count": 24,
+  "started_at": "2026-10-06T11:22:41.466176+00:00",
+  "evaluated_at": "2026-10-06T11:22:59.002805+00:00",
+  "dataset_version": "ioniq5-retrieval-baseline-v1-human-reviewed",
+  "dataset_sha256": "9deb30ea1d75e043fa9bcf34c0a4d2d863d5b9b157de741789ca9f1851ba3094",
+  "corpus_sha256": "9d2fe6a3ed73283b43ddcec701b0c8e883e151ea5a982dd3e742dbd098e59d0b",
+  "corpus_chunks": 2338,
+  "embedding_model": "text-embedding-3-small",
+  "settings": {
+    "k": 5,
+    "fetch_k": 50,
+    "lambda_mult": 0.25
+  },
+  "original_m6": {
+    "hit_at_5": 0.5833333333333334,
+    "mrr_at_5": 0.3888888888888889
+  },
+  "paired_vector": {
+    "hit_at_5": 0.5833333333333334,
+    "mrr_at_5": 0.3888888888888889
+  },
+  "mmr": {
+    "hit_at_5": 0.20833333333333334,
+    "mrr_at_5": 0.20833333333333334
+  },
+  "candidate_hit_at_50": 0.8333333333333334,
+  "gained": [],
+  "lost": [
+    "G01",
+    "G02",
+    "G05",
+    "G08",
+    "G11",
+    "G16",
+    "G22",
+    "G23",
+    "G24"
+  ],
+  "before_mean_unique_sections": 3.0416666666666665,
+  "after_mean_unique_sections": 5.0,
+  "before_mean_pairwise_cosine": 0.7013395162931749,
+  "after_mean_pairwise_cosine": 0.4599166801700851,
+  "notes": [
+    "코퍼스·정답지 M6 해시 동일. 원문 질문·동일 질문 벡터로 방법 비교.",
+    "MMR은 추가 LLM 호출 없이 관련성과 다양성으로 후보를 선택한다.",
+    "현재 PGVectorStore는 MMR로 고른 청크를 원래 벡터 순서로 반환한다. 실제 반환 순서로 MRR@5 계산.",
+    "반환 점수는 MMR 점수가 아니라 코사인 거리. 유사도=1-거리. 정답 확률 아님.",
+    "수업 코드 조건을 고정해 한 번 비교. 배포 로직 미변경."
+  ]
+}

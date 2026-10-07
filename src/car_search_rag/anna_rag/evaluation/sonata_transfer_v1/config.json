@@ -1,0 +1,31 @@
+{
+  "started_at": "2026-10-06T12:56:07.661725+00:00",
+  "corpus_sha256": "9d2fe6a3ed73283b43ddcec701b0c8e883e151ea5a982dd3e742dbd098e59d0b",
+  "sonata_service_sha256": "f2c5976246f56041aab75a70b093978c38cfde83c8098af0bd2db36e0e0ed009",
+  "sonata_sql_sha256": "804fc7f7d71139962c6def670603f72bbf19cb32056b7b9277a72d2dbed9655e",
+  "question_count": 34,
+  "vector_k": 10,
+  "keyword_k": 10,
+  "keyword_phrase_weight": 3,
+  "keyword_term_weight": 1,
+  "rerank_model": "gpt-5.6-luna",
+  "keyword_model": "gpt-6-luna",
+  "rerank_timeout": 15,
+  "rerank_retries": 1,
+  "rerank_completion_tokens": 1200,
+  "final_k": 5,
+  "corpus_chunks": 2338,
+  "mapping": [
+    "문서는 기존 아이오닉 page_content 전체를 사용(목차 포함, 이미지 설명 청크 포함).",
+    "아이오닉은 소나타의 페이지별 chunk_no가 없어 PDF 첫 페이지와 chunk_id 오름차순을 동점 기준으로 대응.",
+    "벡터 후보는 검증된 기존 PGVector top50에서 top10을 고정 재사용. 실제 API 임베딩/벡터 조회 시간은 측정에서 제외.",
+    "LIKE는 소나타와 같은 대소문자 구분·구문 3점/단어 1점. DB 조회만 anna_rag로 변경.",
+    "소나타 _keyword_branch, _search_manual_hybrid, rerank_search_results 원본 메서드 그대로 호출.",
+    "키워드 모델 timeout 30초/max_retries=0: 평가 무한 대기 방지용 전송 설정만 변경.",
+    "질문 재작성·의도 판단·답변 생성·부모 문맥 확장은 제외한 검색기 비교."
+  ],
+  "question_sets": {
+    "abc_sha256": "a1525105f6ee19038715fd2ac538110cea3720f8692c5540007093a41b23fa4d",
+    "original24_sha256": "9deb30ea1d75e043fa9bcf34c0a4d2d863d5b9b157de741789ca9f1851ba3094"
+  }
+}

@@ -15,12 +15,53 @@ ROOT = Path(__file__).resolve().parents[4]
 if str(ROOT / 'src') not in sys.path:
     sys.path.insert(0, str(ROOT / 'src'))
 
+# 독립 문서 URL은 챗봇 UI/백엔드 초기화 전에 처리합니다.
+if st.query_params.get('document') == 'ioniq5':
+    from car_search_rag.anna_rag.chatbot.work_document import render_work_document
+
+    st.set_page_config(page_title='IONIQ 5 · 작업 Document', layout='wide')
+    render_work_document()
+    st.stop()
+
+# 검색 품질 대시보드는 챗봇 공통 화면과 분리해 독립 페이지로 엽니다.
+if st.query_params.get('view') == 'quality_dashboard':
+    st.set_page_config(page_title='IONIQ 5 · 사용 현황', page_icon='📊', layout='wide')
+    st.markdown('''<style>
+    [data-testid="stHeader"], [data-testid="stToolbar"],
+    [data-testid="stSidebar"], [data-testid="stFooter"],
+    [data-testid="stStatusWidget"] {display:none!important;}
+    .stApp {background:#f7f7f8;color:#242424;}
+    .block-container {max-width:1120px;padding:34px 42px 80px;}
+    h1 {font-size:32px!important;font-weight:680!important;letter-spacing:-.04em;}
+    h2,h3 {letter-spacing:-.025em;}
+    .stApp p,.stApp label,.stApp button,.stApp input {font-family:system-ui,-apple-system,sans-serif;}
+    [data-testid="stMetric"] {background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:16px 18px;}
+    [data-testid="stExpander"] {background:#fff;border:1px solid #e8e8e8;border-radius:8px;}
+    .quality-question {background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:18px 20px;margin:12px 0 18px;}
+    .quality-question-label {color:#777;font-size:12px;margin-bottom:6px;}
+    .quality-question-text {font-size:16px;font-weight:600;line-height:1.6;}
+    .quality-question-meta {color:#777;font-size:13px;margin-top:8px;}
+    [data-baseweb="tab-list"] {gap:16px;border-bottom:1px solid #e5e5e5;}
+    [data-baseweb="tab"] {background:transparent!important;}
+    .stButton button,.stLinkButton a {border-radius:6px!important;}
+    [data-testid="stBaseButton-primary"] {background:#333!important;border-color:#333!important;}
+    @media(max-width:700px) {.block-container {padding:24px 16px 56px;} h1 {font-size:26px!important;}}
+    </style>''', unsafe_allow_html=True)
+    try:
+        from car_search_rag.anna_rag.chatbot.usage_dashboard import render_usage_dashboard
+
+        render_usage_dashboard()
+    except Exception as error:
+        st.error('사용 현황을 불러오지 못했어요. 연결 상태를 확인해 주세요.')
+        st.caption(f'오류 유형: {type(error).__name__}')
+    st.stop()
+
 from car_search_rag.anna_rag.chatbot.registry import VEHICLES, load_backend
 from car_search_rag.anna_rag.chatbot.navigation import (
     detach_chat, request_chat_exit, EXIT_TRANSITION, RETURN_TRANSITION,
 )
 from car_search_rag.anna_rag.chatbot.answer_view import (
-    render_answer, format_answer, verified_answer_images,
+    render_answer, format_answer, verified_answer_images, take_stream_chunk,
 )
 from car_search_rag.anna_rag.chatbot.casper_image_view import render_casper_images
 from car_search_rag.anna_rag.chatbot.exit_confirmation import exit_confirmation
@@ -47,6 +88,12 @@ st.markdown("""<style>
  font-family:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif!important;
 }
 .stApp {background:#f6f5fa;color:#21212b;}
+/* 처음 로드되는 UI의 회색 Suspense 박스 대신 기존 점 로딩을 사용합니다.
+   자리는 유지하므로 입력창/사이드바가 로드될 때 레이아웃이 튀지 않습니다. */
+.stApp [data-testid="stSkeleton"] {visibility:hidden!important;}
+/* 종료 확인은 document.body에 모달을 띄우는 이벤트 전용 컴포넌트입니다.
+   JS가 준비되기 전의 로딩 박스까지 포함해 본문에는 자리를 만들지 않습니다. */
+.st-key-exit_confirmation {display:none!important;}
 .block-container {max-width:980px;padding:2.8rem 2rem 2rem;}
 [data-testid="stHeader"] {background:transparent;pointer-events:none;}
 [data-testid="stToolbar"] {display:none;}
@@ -258,7 +305,8 @@ def backend_for(vehicle_id):
 
 def init_state():
     defaults = {'active_vehicle': None, 'conversation_id': None, 'messages': [],
-                'pending': None, 'request_error': False, 'session_notice': None}
+                'pending': None, 'request_error': False, 'session_notice': None,
+                'ioniq5_active_view': 'chat'}
     for key, value in defaults.items():
         if key not in st.session_state:
             st.session_state[key] = value
@@ -345,12 +393,11 @@ def show_packet(message, render_body=True):
                 st.image(image['data'], caption=caption or None,
                          alt=description or '차량 사용설명서 이미지')
 
-    # 모델이 만든 URL 대신 DB가 반환한 문서명/페이지 정보를 사용합니다.
-    cited = set(packet['answer'].get('cited_labels', []))
-    retrieved = packet.get('source_display') == 'retrieved'
-    sources = [s for s in packet.get('sources', []) if retrieved or s.get('label') in cited]
+    # 검색 자료 목록을 요청한 차종만 펼침 메뉴를 표시합니다.
+    # 인용 출처는 응답 데이터에 유지하되 별도의 '설명서 출처 확인' 메뉴는 표시하지 않습니다.
+    sources = packet.get('sources', []) if packet.get('source_display') == 'retrieved' else []
     if sources:
-        with st.expander('검색에 사용한 설명서' if retrieved else '설명서 출처 확인'):
+        with st.expander('검색에 사용한 설명서'):
             for s in sources:
                 pages = ', '.join(map(str, s.get('pdf_pages', [])))
                 st.write(f"[{s['label']}] {s['title']} · PDF {pages}페이지")
@@ -426,8 +473,15 @@ if st.session_state.active_vehicle is not None:
                     use_container_width=True,
                 )
             else:
-                st.button('데이터 대시보드', key='menu_data_dashboard', use_container_width=True)
-                st.button('작업 Document', key='menu_work_document', use_container_width=True)
+                if st.session_state.active_vehicle == 'ioniq5':
+                    st.link_button('챗봇 사용 현황', '?view=quality_dashboard',
+                                   key='menu_data_dashboard', use_container_width=True)
+                    st.link_button('작업 Document', '?document=ioniq5',
+                                   key='menu_work_document', use_container_width=True)
+                else:
+                    st.button('데이터 대시보드', key='menu_data_dashboard', disabled=True,
+                              use_container_width=True)
+                    st.button('작업 Document', key='menu_work_document', use_container_width=True)
 if st.session_state.session_notice:
     st.info(st.session_state.session_notice)
     st.session_state.session_notice = None
@@ -531,7 +585,6 @@ with st.sidebar:
                            use_container_width=True, on_click='ignore', key='manual_download')
     else:
         st.caption('다운로드할 설명서가 아직 등록되지 않았습니다.')
-
 # Sonata 대시보드는 공통 사이드바를 그린 뒤 채팅 시작/질문 처리 전에 표시합니다.
 # 기존 conversation/session/backend 상태는 건드리지 않고 현재 화면만 전환합니다.
 if vehicle_id == 'sonata' and st.session_state.sonata_active_view == 'dashboard':
@@ -671,8 +724,7 @@ if st.session_state.pending and (not st.session_state.request_error or retry):
                             job['buffer'] = ''
                             break
                         if job['buffer']:
-                            job['text'] += job['buffer'][:3]
-                            job['buffer'] = job['buffer'][3:]
+                            take_stream_chunk(job, complete=future.done() and events.empty())
                             loading.empty()
                             draft.markdown(format_answer(job['text']))
                         time.sleep(.045)

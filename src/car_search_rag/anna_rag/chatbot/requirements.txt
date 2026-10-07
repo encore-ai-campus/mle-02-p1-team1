@@ -17,6 +17,9 @@ pillow==12.3.0
 
 # 산타페의 기존 검색 정렬 및 모듈 import에 필요한 의존성
 scikit-learn==1.9.1
+# 아이오닉 TF-IDF: 평가 때와 같은 한국어 명사 추출기와 사전 버전
+kiwipiepy==0.23.2
+kiwipiepy_model==0.23.0
 huggingface-hub>=0.30,<2
 
 # 캐스퍼 팀원의 E5 로컬 임베딩 모델. Linux 배포에는 CUDA 패키지 없이 CPU wheel을 설치합니다.

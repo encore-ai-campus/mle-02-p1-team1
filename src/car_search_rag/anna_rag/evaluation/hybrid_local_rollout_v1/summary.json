@@ -1,0 +1,114 @@
+{
+  "verified_at": "2026-10-06T12:33:21.218768+00:00",
+  "fixed_candidate_replays": 34,
+  "verified_ids": [
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "G23",
+    "G24",
+    "A01",
+    "A02",
+    "A03",
+    "A04",
+    "A05",
+    "A06",
+    "A07",
+    "A08",
+    "A09",
+    "A10"
+  ],
+  "ranking_and_scores_match": true,
+  "live_db_prepare_rag": [
+    {
+      "id": "G03",
+      "child_count": 5,
+      "parent_count": 4,
+      "image_candidates": 1,
+      "omitted_parents": 0,
+      "lexical_only_results": 0,
+      "elapsed_ms": 3661
+    },
+    {
+      "id": "G06",
+      "child_count": 5,
+      "parent_count": 3,
+      "image_candidates": 1,
+      "omitted_parents": 0,
+      "lexical_only_results": 0,
+      "elapsed_ms": 2004
+    },
+    {
+      "id": "G07",
+      "child_count": 5,
+      "parent_count": 3,
+      "image_candidates": 2,
+      "omitted_parents": 0,
+      "lexical_only_results": 0,
+      "elapsed_ms": 2006
+    },
+    {
+      "id": "G09",
+      "child_count": 5,
+      "parent_count": 2,
+      "image_candidates": 1,
+      "omitted_parents": 1,
+      "lexical_only_results": 0,
+      "elapsed_ms": 2101
+    },
+    {
+      "id": "G17",
+      "child_count": 5,
+      "parent_count": 4,
+      "image_candidates": 2,
+      "omitted_parents": 0,
+      "lexical_only_results": 0,
+      "elapsed_ms": 1876
+    }
+  ],
+  "warmup_ms": 4668,
+  "config": {
+    "method": "cosine_tfidf_rrf",
+    "top_k": 5,
+    "candidate_k": 50,
+    "rrf_constant": 60,
+    "weights": [
+      1,
+      1
+    ],
+    "tokenizer": "Kiwi noun len>1",
+    "lowercase": true,
+    "tfidf_norm": "l2",
+    "smooth_idf": true,
+    "sublinear_tf": false,
+    "lexical_positive_only": true,
+    "tie_break": "chunk_id ascending",
+    "tfidf_chunks": 2338,
+    "tfidf_corpus_sha256": "fdc9c28a6de6f22cf1c682e4c609a981e7c15fb1f0837557131c4b67f7bba1aa"
+  },
+  "pipeline_version": "ioniq5-ui-agent-v3-hybrid",
+  "limits": [
+    "질문 벡터 재사용: 새 임베딩 API 호출 없음",
+    "검색 및 부모·이미지 연결 검증. 의도 판단·답변 LLM·세션 저장은 실행하지 않음.",
+    "DB 기본 트랜잭션 읽기 전용. 저장 데이터/배포/GitHub 변경 없음."
+  ]
+}
