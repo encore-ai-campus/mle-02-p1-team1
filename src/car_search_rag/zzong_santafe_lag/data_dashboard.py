@@ -57,6 +57,9 @@ def render_data_dashboard():
     st.dataframe(pd.DataFrame([{"점검 항목":QUALITY_LABELS[k],"대상 건수":v}
                                for k,v in summary["quality_checks"].items()]), hide_index=True)
     st.subheader("분석에서 확인한 점")
+    # 추가 평가 결과는 저장 파일만 읽어 화면 전환 때 유료 호출을 반복하지 않습니다.
+    from .review_dashboard import render_review_results
+    render_review_results()
     ratio = c["reviewed_parents"] / c["effective_parents"] * 100
     st.write(f"검토된 부모는 {c['reviewed_parents']}개({ratio:.1f}%)입니다. 미검토 자료가 많아 원문 제공과 답변 보류 처리가 필요합니다.")
     st.write("본문 길이 차이가 있어 검색용 청크와 전체 원문 문맥을 함께 관리합니다. 검색 성능은 별도 평가로 확인해야 합니다.")

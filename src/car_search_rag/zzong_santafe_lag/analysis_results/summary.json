@@ -1,18 +1,18 @@
 {
-  "created_at": "2026-10-06T07:48:01.485064+00:00",
+  "created_at": "2026-10-07T02:24:21.992237+00:00",
   "source_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
   "pdf_sha256": "8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b",
-  "review_revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+  "review_revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
   "counts": {
     "pdf_pages": 779,
     "base_parents": 527,
     "base_chunks": 2213,
     "effective_parents": 527,
-    "effective_chunks": 2216,
+    "effective_chunks": 2224,
     "linked_unique_images": 864,
-    "image_links": 1155,
-    "reviewed_parents": 25,
-    "unreviewed_parents": 502,
+    "image_links": 1152,
+    "reviewed_parents": 33,
+    "unreviewed_parents": 494,
     "parent_referenced_pages": 738
   },
   "type_counts": {
@@ -23,25 +23,25 @@
     "table_with_images": 1
   },
   "review_counts": {
-    "auto_draft_needs_review": 502,
-    "visually_reviewed_source": 11,
+    "auto_draft_needs_review": 494,
+    "visually_reviewed_source": 19,
     "sample_verified": 14
   },
   "length_statistics": {
     "characters": {
       "count": 527.0,
-      "mean": 804.51,
-      "std": 1136.02,
+      "mean": 808.53,
+      "std": 1142.16,
       "min": 2.0,
       "25%": 179.5,
-      "50%": 398.0,
-      "75%": 920.5,
+      "50%": 400.0,
+      "75%": 923.5,
       "max": 9336.0
     },
     "chunks": {
       "count": 527.0,
-      "mean": 4.2,
-      "std": 5.3,
+      "mean": 4.22,
+      "std": 5.32,
       "min": 1.0,
       "25%": 1.0,
       "50%": 2.0,
@@ -49,7 +49,7 @@
       "max": 44.0
     }
   },
-  "length_chunk_rank_correlation": 0.9719,
+  "length_chunk_rank_correlation": 0.9721,
   "quality_checks": {
     "empty_content": 0,
     "empty_title": 0,
@@ -556,17 +556,6 @@
       ]
     },
     {
-      "record_id": "auto_topic_135",
-      "title": "운전석 자세 메모리 시스템",
-      "content_type": "figure_with_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 422,
-      "chunks": 2,
-      "source_pages": [
-        229
-      ]
-    },
-    {
       "record_id": "auto_topic_136",
       "title": "개인화 설정",
       "content_type": "figure_with_text",
@@ -597,17 +586,6 @@
       "chunks": 3,
       "source_pages": [
         230,
-        231
-      ]
-    },
-    {
-      "record_id": "auto_topic_139",
-      "title": "운전석 자세 메모리 시스템 초기화",
-      "content_type": "instruction_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 728,
-      "chunks": 4,
-      "source_pages": [
         231
       ]
     },
@@ -724,24 +702,6 @@
       "chunks": 1,
       "source_pages": [
         239
-      ]
-    },
-    {
-      "record_id": "auto_topic_149",
-      "title": "실내 미러",
-      "content_type": "figure_with_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 4414,
-      "chunks": 20,
-      "source_pages": [
-        239,
-        240,
-        241,
-        242,
-        243,
-        244,
-        245,
-        246
       ]
     },
     {
@@ -875,18 +835,6 @@
       "chunks": 1,
       "source_pages": [
         22
-      ]
-    },
-    {
-      "record_id": "auto_topic_160",
-      "title": "선루프 초기화",
-      "content_type": "figure_with_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 531,
-      "chunks": 3,
-      "source_pages": [
-        263,
-        264
       ]
     },
     {
@@ -2295,20 +2243,6 @@
       ]
     },
     {
-      "record_id": "auto_topic_274",
-      "title": "엔진 시동 전 확인할 사항",
-      "content_type": "figure_with_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 2289,
-      "chunks": 11,
-      "source_pages": [
-        383,
-        384,
-        385,
-        386
-      ]
-    },
-    {
       "record_id": "auto_topic_275",
       "title": "엔진 정지 방법",
       "content_type": "figure_with_text",
@@ -2317,17 +2251,6 @@
       "chunks": 2,
       "source_pages": [
         386,
-        387
-      ]
-    },
-    {
-      "record_id": "auto_topic_276",
-      "title": "스마트 키 원격 시동",
-      "content_type": "figure_with_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 356,
-      "chunks": 2,
-      "source_pages": [
         387
       ]
     },
@@ -4296,17 +4219,6 @@
       ]
     },
     {
-      "record_id": "auto_topic_420",
-      "title": "주행 중 시동이 꺼진 경우",
-      "content_type": "instruction_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 143,
-      "chunks": 1,
-      "source_pages": [
-        661
-      ]
-    },
-    {
       "record_id": "auto_topic_421",
       "title": "브레이크 제동력이 좋지 않을 경우",
       "content_type": "instruction_text",
@@ -5756,24 +5668,6 @@
       ]
     },
     {
-      "record_id": "auto_topic_73",
-      "title": "안전벨트 구속 장치",
-      "content_type": "figure_with_text",
-      "verification_status": "auto_draft_needs_review",
-      "characters": 3666,
-      "chunks": 17,
-      "source_pages": [
-        105,
-        106,
-        107,
-        108,
-        109,
-        110,
-        111,
-        112
-      ]
-    },
-    {
       "record_id": "auto_topic_74",
       "title": "안전벨트 프리텐셔너",
       "content_type": "figure_with_text",
@@ -6385,6 +6279,113 @@
       "chunks": 3,
       "source_pages": [
         278
+      ]
+    },
+    {
+      "record_id": "auto_topic_135",
+      "title": "운전석 자세 메모리 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 481,
+      "chunks": 3,
+      "source_pages": [
+        229
+      ]
+    },
+    {
+      "record_id": "auto_topic_139",
+      "title": "운전석 자세 메모리 시스템 초기화",
+      "content_type": "instruction_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 756,
+      "chunks": 4,
+      "source_pages": [
+        231
+      ]
+    },
+    {
+      "record_id": "auto_topic_149",
+      "title": "실내 미러",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 4884,
+      "chunks": 21,
+      "source_pages": [
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246
+      ]
+    },
+    {
+      "record_id": "auto_topic_160",
+      "title": "선루프 초기화",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 1407,
+      "chunks": 7,
+      "source_pages": [
+        262,
+        263,
+        264
+      ]
+    },
+    {
+      "record_id": "auto_topic_274",
+      "title": "엔진 시동 전 확인할 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 2379,
+      "chunks": 11,
+      "source_pages": [
+        383,
+        384,
+        385,
+        386
+      ]
+    },
+    {
+      "record_id": "auto_topic_276",
+      "title": "스마트 키 원격 시동",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 423,
+      "chunks": 2,
+      "source_pages": [
+        387
+      ]
+    },
+    {
+      "record_id": "auto_topic_420",
+      "title": "주행 중 시동이 꺼진 경우",
+      "content_type": "instruction_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 143,
+      "chunks": 1,
+      "source_pages": [
+        661
+      ]
+    },
+    {
+      "record_id": "auto_topic_73",
+      "title": "안전벨트 구속 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 4192,
+      "chunks": 19,
+      "source_pages": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
       ]
     }
   ],

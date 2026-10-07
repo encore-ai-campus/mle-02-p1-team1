@@ -1,0 +1,18 @@
+{
+  "revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+  "previous_revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+  "added_reviewed_parents": 8,
+  "preserved_revision_parents": 5,
+  "reviewed_parents": 33,
+  "pending_parents": 494,
+  "revision_chunks": 96,
+  "legacy_tables_unchanged": true,
+  "vector_readback_equal": true,
+  "image_bytes_checked": 26,
+  "new_image_links": 23,
+  "removed_image_links": 3,
+  "db_written": true,
+  "activated_locally": true,
+  "deployment_requires_code_and_selection_update": true,
+  "raw_text_preserved": true
+}

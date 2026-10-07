@@ -1,0 +1,366 @@
+[
+  {
+    "index": 0,
+    "id": "cccb72fb-df40-4aac-bc7d-8b7a10e02b85",
+    "parent_record_id": "auto_topic_135",
+    "page": 229,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0229_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "c3b3d134e6709ebedd2b11897c7bb393072a2183b1463a00432fd6873d86af32",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 1,
+    "id": "7818957e-05d7-4fc1-93ae-518a74b76cdb",
+    "parent_record_id": "auto_topic_149",
+    "page": 239,
+    "key": "/I4",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0239_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "2a30d843e9a44a15bf8a5d34cfe71efdc7158d049b06b04983b0cf82030e7dec",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 2,
+    "id": "8d1a7434-1c9c-4fdd-925f-34cbbfa6f50e",
+    "parent_record_id": "auto_topic_149",
+    "page": 241,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0241_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "fa8afeb939ceb2d79221f2b77a9022b0dd6f0fc3c90a4305d4b394640dc3c43c",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 3,
+    "id": "596c6ae6-09f1-4cfe-81cd-76e12c8ee6dc",
+    "parent_record_id": "auto_topic_149",
+    "page": 242,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0242_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "20db9847c730d8e78e1e216539bddb50af32da2e1bb78ea5336c2499f32fd13f",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 4,
+    "id": "5afca38c-cb95-4c3c-9acb-77103833ab40",
+    "parent_record_id": "auto_topic_149",
+    "page": 242,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0242_image_02.jpg",
+    "bytes_equal": true,
+    "sha256": "22a4273ba002b68c4ef5a2eea3da8cba4c71c311c27f33fba7b0c0e269ff4106",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 5,
+    "id": "75ff58a8-f774-465b-8dc1-21775dd3ce40",
+    "parent_record_id": "auto_topic_149",
+    "page": 243,
+    "key": "/I3",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0243_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "8975c5116e22690d146fcc952677fcad05bbeb826c9a08ba83b4ab9a591c8316",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 6,
+    "id": "8b66bee3-6eb5-4aed-99bd-1a12757949e2",
+    "parent_record_id": "auto_topic_149",
+    "page": 243,
+    "key": "/I4",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0243_image_02.jpg",
+    "bytes_equal": true,
+    "sha256": "076287717260ec9d242586f7c81187232360006b649395a3747514c4502d0673",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 7,
+    "id": "6f70dcc7-12e4-4029-a0f1-5057d45c9f63",
+    "parent_record_id": "auto_topic_149",
+    "page": 244,
+    "key": "/I3",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0244_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "84d88644638f546e3d2bf8676e106405641352e8e977822216303258c9a4241a",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 8,
+    "id": "2c558c85-a20c-401f-8ab8-75d0e32a13aa",
+    "parent_record_id": "auto_topic_149",
+    "page": 245,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0245_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "9dc6c26c6e8a1991a938b90a25c7c04ad057e5689a31224b699e648a39f920bb",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 9,
+    "id": "4d844f08-5d6f-49d2-8157-367ba89729bd",
+    "parent_record_id": "auto_topic_149",
+    "page": 246,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0246_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "83242e95b076d869a93abe0ce66e4ba915268f3f2b497b081e6dcedbe48629a1",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 10,
+    "id": "d627730d-0e58-4830-b098-164b053da7c9",
+    "parent_record_id": "auto_topic_160",
+    "page": 263,
+    "key": "/I4",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0263_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "e391c14ab436049618cee91835935a9ee9738180631bc32c826fe12bdee653a8",
+    "size": [
+      688,
+      438
+    ]
+  },
+  {
+    "index": 11,
+    "id": "be361374-e3ba-4149-ad33-2bd465c268e5",
+    "parent_record_id": "auto_topic_160",
+    "page": 264,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0264_image_02.jpg",
+    "bytes_equal": true,
+    "sha256": "f42941c993868d4e63e0b118e781a5f8c18a093e21dbf4ac3243e902fa1f8783",
+    "size": [
+      688,
+      438
+    ]
+  },
+  {
+    "index": 12,
+    "id": "078cffe7-ea4f-4b90-87b3-82f72cbb087b",
+    "parent_record_id": "auto_topic_160",
+    "page": 264,
+    "key": "/I4",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0264_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "88dd10364d3444c56b4e93e568060db99988c8af6753a6559246c10d4ae58a8c",
+    "size": [
+      688,
+      439
+    ]
+  },
+  {
+    "index": 13,
+    "id": "70731c47-a1ad-474b-bd62-290967c7eabb",
+    "parent_record_id": "auto_topic_274",
+    "page": 385,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0385_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "7a09696804ac41c8bde85bc9377603e5cc40564afab66c51ade31513bb0117d9",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 14,
+    "id": "03f9ba80-1b96-4365-8448-31b4c1dea340",
+    "parent_record_id": "auto_topic_276",
+    "page": 387,
+    "key": "/I3",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0387_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "ffacebcca33fe870d7d7d6bbcfa9ff57b08d913a4a486fc6095df3a09545bb36",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 15,
+    "id": "b808399a-2226-48a9-93e1-d6a8d6781d55",
+    "parent_record_id": "auto_topic_73",
+    "page": 105,
+    "key": "/I3",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0105_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "bd556a78b42596dc45749ba6700893a13f05d609acad1e6523494de2fcaa7fc7",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 16,
+    "id": "5af66cff-bfa3-4bb3-bae6-40686148f806",
+    "parent_record_id": "auto_topic_73",
+    "page": 108,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0108_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "6fb0138ece0d7b2d2ad8cbf6b666fb54f91a98da9e4996dad7ccf78f0c7b2fe6",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 17,
+    "id": "05326668-c910-4504-aa61-7cacf30ab23c",
+    "parent_record_id": "auto_topic_73",
+    "page": 109,
+    "key": "/I3",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0109_image_03.jpg",
+    "bytes_equal": true,
+    "sha256": "ae267d56b0c23ff27c4aad8c416978789ab944dabeb6bbed17c721a02f8a8733",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 18,
+    "id": "41a6b5c8-cf42-431b-b5c4-42476df2de5d",
+    "parent_record_id": "auto_topic_73",
+    "page": 109,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0109_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "9872c9ae38f5aba9aef7727abeee715a6b7425a4fac4d32f6a7ae85d2a16a840",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 19,
+    "id": "a66abc50-3057-4b28-b1d9-b8ee8bb4c613",
+    "parent_record_id": "auto_topic_73",
+    "page": 109,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0109_image_02.jpg",
+    "bytes_equal": true,
+    "sha256": "542536a316aa02aeff4a74940c71d354ca672c49477cad8c1b06066ae05393d8",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 20,
+    "id": "c3a7a9d5-7c8d-4a20-a49f-5290cd733fa1",
+    "parent_record_id": "auto_topic_73",
+    "page": 110,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0110_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "8dc9f916b7f2d49fad96010e9038c8d21e319074fadb37ed01e217247b4a76f9",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 21,
+    "id": "d2b36df9-af68-41f8-aaa3-06baf83bc023",
+    "parent_record_id": "auto_topic_73",
+    "page": 110,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0110_image_02.jpg",
+    "bytes_equal": true,
+    "sha256": "76e9d60dbb76a103b7fbd9d465f81dce9764188d727800d490b1fd7a2aeb0c8b",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 22,
+    "id": "fe087faf-81e9-4535-879c-7b2fe5a31f00",
+    "parent_record_id": "auto_topic_73",
+    "page": 111,
+    "key": "/I1",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0111_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "43625348b456140123682f708e3298826d046e6f810461e46ec82c9e267162a9",
+    "size": [
+      686,
+      438
+    ]
+  },
+  {
+    "index": 23,
+    "id": "8c7f9f1b-a827-4011-8a8a-525c3516c36d",
+    "parent_record_id": "auto_topic_73",
+    "page": 111,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0111_image_02.jpg",
+    "bytes_equal": true,
+    "sha256": "437b096f3b8c1225ba044e8afa6950fdad17695d56d73f23ea4d9efd0c3aaaac",
+    "size": [
+      685,
+      437
+    ]
+  },
+  {
+    "index": 24,
+    "id": "515ce352-c184-4af3-b083-3b4ca4fabbc1",
+    "parent_record_id": "auto_topic_73",
+    "page": 112,
+    "key": "/I3",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0112_image_02.jpg",
+    "bytes_equal": true,
+    "sha256": "f375e3c750f416542a8182a8e00222062d685510304df65ab9fbc52194c5961d",
+    "size": [
+      687,
+      438
+    ]
+  },
+  {
+    "index": 25,
+    "id": "16cd2e99-d9c1-4f94-b19b-570c866b8979",
+    "parent_record_id": "auto_topic_73",
+    "page": 112,
+    "key": "/I2",
+    "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0112_image_01.jpg",
+    "bytes_equal": true,
+    "sha256": "bd77246e38582358f892769100bb75ce0a704233a42763baf1ad93af582cc587",
+    "size": [
+      686,
+      438
+    ]
+  }
+]

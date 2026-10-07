@@ -1,0 +1,8 @@
+{
+  "revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+  "payload_sha256": "6f0d299987d962af942af8c309476e1a2107d3c8cc1a0c0743f433524783b167",
+  "new_parents": 8,
+  "preserved_parents": 5,
+  "new_chunks": 68,
+  "openai_input_tokens": 15104
+}

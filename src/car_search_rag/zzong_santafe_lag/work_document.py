@@ -67,6 +67,8 @@ def render_work_document():
     flow, lessons, models, story = st.tabs(["M0~M9", "수업 근거", "모델과 추가 설계", "발표와 시연"])
     with flow:
         render_milestones()
+        from .review_dashboard import render_review_results
+        render_review_results()
         render_saved_comparisons()
         for row in content["milestones"]:
             with st.expander(f"{row['stage']} {row['name']} 구현 파일"):

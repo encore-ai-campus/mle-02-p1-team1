@@ -1,0 +1,121 @@
+{
+  "cases": [
+    {
+      "id": "B08",
+      "question": "실내 미러는 어떻게 조절하나요?",
+      "expected_record_id": "auto_topic_149",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "B09",
+      "question": "안전벨트를 올바르게 착용하는 방법을 알려주세요.",
+      "expected_record_id": "auto_topic_73",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "B14",
+      "question": "선루프 초기화 방법을 알려주세요.",
+      "expected_record_id": "auto_topic_160",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "B15",
+      "question": "엔진 시동 전에 확인해야 할 사항은 무엇인가요?",
+      "expected_record_id": "auto_topic_274",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "B16",
+      "question": "스마트 키 원격 시동은 어떻게 사용하나요?",
+      "expected_record_id": "auto_topic_276",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "B17",
+      "question": "주행 중 시동이 꺼진 경우 설명서에서는 어떻게 안내하나요?",
+      "expected_record_id": "auto_topic_420",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "B20",
+      "question": "운전석 자세 메모리 시스템은 어떻게 초기화하나요?",
+      "expected_record_id": "auto_topic_139",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C03",
+      "question": "정차 중인데 시동이 안 걸려.",
+      "expected_record_id": "auto_topic_274",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C04",
+      "question": "시동이 안 걸리고 계기판은 켜져 있어.",
+      "expected_record_id": "auto_topic_274",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C05",
+      "question": "버튼 눌러도 시동 안 걸리고 계기판도 안 켜져.",
+      "expected_record_id": "auto_topic_274",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C06",
+      "question": "달리다가 갑자기 시동이 꺼졌어.",
+      "expected_record_id": "auto_topic_420",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C10",
+      "question": "뒤 보는 거울이 밤에 너무 눈부셔.",
+      "expected_record_id": "auto_topic_149",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C14",
+      "question": "천장 유리가 끝까지 안 닫히는데 다시 맞추는 거 있어?",
+      "expected_record_id": "auto_topic_160",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C15",
+      "question": "배터리 뺐다 연결했더니 지붕 쪽 창문이 이상하게 움직여.",
+      "expected_record_id": "auto_topic_160",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C16",
+      "question": "허리 쪽 벨트가 불편한데 배 위로 올려서 매도 돼?",
+      "expected_record_id": "auto_topic_73",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "C20",
+      "question": "의자 위치 저장해둔 게 안 맞아. 처음부터 다시 맞출 수 있어?",
+      "expected_record_id": "auto_topic_139",
+      "kind": "same_50_questions"
+    },
+    {
+      "id": "R01",
+      "question": "스마트 테일게이트의 뒤쪽 감지 범위는 몇 cm인가요?",
+      "expected_record_id": "auto_topic_174",
+      "kind": "existing_review_regression"
+    },
+    {
+      "id": "R02",
+      "question": "실외 미러 조절 스위치의 L과 R은 무엇을 선택하나요?",
+      "expected_record_id": "auto_topic_150",
+      "kind": "existing_review_regression"
+    },
+    {
+      "id": "R03",
+      "question": "스마트 테일게이트 감지 중 중지할 때 키의 번호별 버튼을 알려줘.",
+      "expected_record_id": "auto_topic_173",
+      "kind": "existing_review_regression"
+    }
+  ],
+  "before_revision": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+  "after_revision": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+  "scope": "동일 질문·검색 및 초기 발췌 비교. 사람 확정 정답률이나 생성 답변 정확도와 구분함"
+}
