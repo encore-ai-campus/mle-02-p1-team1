@@ -16,7 +16,7 @@ class SonataAdapterTests(unittest.TestCase):
     def test_adapter_delegates_to_runtime_and_preserves_final_answer(self):
         history = [{'role':'user','content':'이전 질문'}]
         reply = SimpleNamespace(chunks=iter(['검색 초안']), answer='Agent 최종 답변', error=None,
-            sources=[{'page_no':25,'chunk_no':1}], images=[], download_html='<html>기록</html>')
+            sources=[{'page_no':25,'chunk_no':1}], images=[], verified_images=[], download_html='<html>기록</html>')
         events=[]
         with patch.object(backend,'prepare_reply',return_value=reply) as prepare:
             packet=backend.answer_question('질문',history,lambda k,v:events.append((k,v)))
@@ -27,7 +27,7 @@ class SonataAdapterTests(unittest.TestCase):
         self.assertEqual(packet['download_html'],'<html>기록</html>')
 
     def test_greeting_without_sources_is_not_no_evidence(self):
-        reply=SimpleNamespace(chunks=iter(()),answer='안녕하세요',error=None,sources=[],images=[],download_html=None)
+        reply=SimpleNamespace(chunks=iter(()),answer='안녕하세요',error=None,sources=[],images=[],verified_images=[],download_html=None)
         with patch.object(backend,'prepare_reply',return_value=reply):
             packet=backend.answer_question('안녕',[])
         self.assertEqual(packet['answer']['status'],'answered')

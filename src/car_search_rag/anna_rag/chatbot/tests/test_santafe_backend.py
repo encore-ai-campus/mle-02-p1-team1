@@ -6,9 +6,10 @@ from car_search_rag.zzong_santafe_lag.app import SantafeBackend, prepare_entry
 
 def fake_service():
     service = Mock()
+    service.evidence_service = None  # PDF 저장 정보가 없는 응답을 재현합니다.
     service.prepare_evidence.side_effect = lambda q, top_k: {
         'question': q, 'answer': '원문 발췌', 'status': 'evidence_excerpt',
-        'sources': [{'label':'1', 'title':'제목', 'source_pages':[44], 'quote':'근거'}],
+        'sources': [{'citation_id':1, 'label':'1', 'title':'제목', 'source_pages':[44], 'quote':'근거'}],
         'images': [{'public_url':'https://example.com/car.png', 'pdf_page_number':44,
                     'descriptions':[{'description':'그림 설명'}]}]}
     service.preview.return_value = {'ready_for_generation':True, 'reason':''}
@@ -26,11 +27,14 @@ class SantafeTests(unittest.TestCase):
         backend.chat(sid,'두번째 질문')
         service.generate.assert_not_called()
         service.prepare_evidence.assert_called_with('두번째 질문',top_k=5)
-        self.assertEqual(packet['answer']['text'],'원문 발췌')
+        self.assertEqual(packet['native_result']['answer'], '원문 발췌')
+        self.assertIn('설명서에서 관련 자료를 찾았습니다.', packet['answer']['text'])
+        self.assertIn('답변 정리하기', packet['answer']['text'])
         self.assertEqual(packet['actions'][0]['id'],'generate')
         backend.perform_action(sid,packet,'generate')
         again = backend.perform_action(sid,packet,'generate')
-        self.assertEqual(again['answer']['text'],'생성 답변')
+        self.assertEqual(again['native_result']['answer'], '생성 답변')
+        self.assertEqual(again['answer']['text'], '### 답변\n\n생성 답변')
         self.assertEqual(again['actions'],[])
         service.generate.assert_called_once()
         self.assertEqual(backend.get_related_images(again)[0]['pdf_page'],44)

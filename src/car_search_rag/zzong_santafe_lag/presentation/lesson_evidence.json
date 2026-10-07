@@ -1,0 +1,266 @@
+{
+  "checked_date": "2026-10-07",
+  "cell_numbering": "1-based notebook cell order",
+  "lessons": [
+    {
+      "concept": "TF-IDF",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\5_자연어처리\\4_TF_IDF.ipynb",
+      "relative": "5_자연어처리/4_TF_IDF.ipynb",
+      "sha256": "b49aca557a8d2a025e24758882a11852131bf3bfd2a295c58c054ada8afe87ab",
+      "matches": [
+        {
+          "cell": 7,
+          "excerpt": "from sklearn.feature_extraction.text import TfidfVectorizer"
+        },
+        {
+          "cell": 9,
+          "excerpt": "vec = TfidfVectorizer(tokenizer=extract_nouns, token_pattern=None)"
+        }
+      ]
+    },
+    {
+      "concept": "임베딩",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\5_자연어처리\\6_임베딩_벡터.ipynb",
+      "relative": "5_자연어처리/6_임베딩_벡터.ipynb",
+      "sha256": "9eb6d7b463f2e1b7202a15ba7187ccd07323359263042f5d4a55fdf1601ecfa8",
+      "matches": [
+        {
+          "cell": 3,
+          "excerpt": "from sentence_transformers import SentenceTransformer"
+        },
+        {
+          "cell": 3,
+          "excerpt": "model = SentenceTransformer(\"dragonkue/multilingual-e5-small-ko-v2\")"
+        },
+        {
+          "cell": 23,
+          "excerpt": "from sentence_transformers import SentenceTransformer"
+        },
+        {
+          "cell": 23,
+          "excerpt": "model = SentenceTransformer(\"paraphrase-multilingual-MiniLM-L12-v2\")"
+        },
+        {
+          "cell": 27,
+          "excerpt": "from sentence_transformers import SentenceTransformer"
+        },
+        {
+          "cell": 27,
+          "excerpt": "model = SentenceTransformer("
+        },
+        {
+          "cell": 27,
+          "excerpt": "\"dragonkue/BGE-m3-ko\","
+        }
+      ]
+    },
+    {
+      "concept": "OpenAI 임베딩",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\5_자연어처리\\8_로컬_openai_임베딩.ipynb",
+      "relative": "5_자연어처리/8_로컬_openai_임베딩.ipynb",
+      "sha256": "c0c2590853c01b01e6ae2daa74423150c332bdf972713d1c61d26da914b3f827",
+      "matches": [
+        {
+          "cell": 4,
+          "excerpt": "response = client.embeddings.create(model=\"text-embedding-3-small\", input=\"안녕하세요 임베딩 테스트입니다.\")"
+        },
+        {
+          "cell": 7,
+          "excerpt": "doc_response = client.embeddings.create(model=\"text-embedding-3-small\", input=doc_list)"
+        },
+        {
+          "cell": 11,
+          "excerpt": "api_response = client.embeddings.create(model=\"text-embedding-3-small\", input=query)"
+        }
+      ]
+    },
+    {
+      "concept": "청킹",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\8_RAG파이프라인구축\\1_문서로드_청킹.ipynb",
+      "relative": "8_RAG파이프라인구축/1_문서로드_청킹.ipynb",
+      "sha256": "f739b7b2573481d022d90ed11d2b43edda2ed9cf0acbc61e94d3abb196c11140",
+      "matches": [
+        {
+          "cell": 9,
+          "excerpt": "- RecursiveCharacterTextSplitter"
+        },
+        {
+          "cell": 10,
+          "excerpt": "from langchain_text_splitters import RecursiveCharacterTextSplitter"
+        },
+        {
+          "cell": 10,
+          "excerpt": "splitter = RecursiveCharacterTextSplitter(chunk_size=400,"
+        }
+      ]
+    },
+    {
+      "concept": "LCEL",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\8_RAG파이프라인구축\\4_LCEL_실습.ipynb",
+      "relative": "8_RAG파이프라인구축/4_LCEL_실습.ipynb",
+      "sha256": "d8276c29197866d95954da2d073d562d78882063392205bdbc83afaaa3da4b1b",
+      "matches": [
+        {
+          "cell": 6,
+          "excerpt": "from langchain_core.prompts import ChatPromptTemplate"
+        },
+        {
+          "cell": 6,
+          "excerpt": "prompt = ChatPromptTemplate.from_messages(["
+        },
+        {
+          "cell": 10,
+          "excerpt": "from langchain_core.output_parsers import StrOutputParser, ListOutputParser, CommaSeparatedListOutputParser"
+        },
+        {
+          "cell": 13,
+          "excerpt": "prompt = ChatPromptTemplate.from_messages(["
+        },
+        {
+          "cell": 15,
+          "excerpt": "from langchain_core.prompts import ChatPromptTemplate"
+        },
+        {
+          "cell": 15,
+          "excerpt": "from langchain_openai import ChatOpenAI"
+        },
+        {
+          "cell": 15,
+          "excerpt": "from langchain_core.output_parsers import StrOutputParser"
+        },
+        {
+          "cell": 16,
+          "excerpt": "prompt = ChatPromptTemplate.from_template(\"\"\""
+        },
+        {
+          "cell": 16,
+          "excerpt": "llm = ChatOpenAI(model=\"gpt-5.6-luna\")"
+        },
+        {
+          "cell": 16,
+          "excerpt": "parser = StrOutputParser()"
+        }
+      ]
+    },
+    {
+      "concept": "pgvector",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\9_관계형DB_pgvector\\3_pgvector.ipynb",
+      "relative": "9_관계형DB_pgvector/3_pgvector.ipynb",
+      "sha256": "b6356d0084d55327bc0784d0095b9e388e2fc02fca496d4554cb273b694a1e73",
+      "matches": [
+        {
+          "cell": 4,
+          "excerpt": "conn.execute(\"CREATE EXTENSION IF NOT EXISTS vector\")"
+        },
+        {
+          "cell": 6,
+          "excerpt": "### vector 타입 파이썬과 연결 - register_vector"
+        },
+        {
+          "cell": 7,
+          "excerpt": "from pgvector.psycopg import register_vector"
+        },
+        {
+          "cell": 7,
+          "excerpt": "register_vector(conn)"
+        }
+      ]
+    },
+    {
+      "concept": "기술 통계",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\4_통계및-EDA\\1_기초통계.ipynb",
+      "relative": "4_통계및-EDA/1_기초통계.ipynb",
+      "sha256": "9d903c4eb34a7c1a36158bffc83a44f6d6c98da0eb2ec29eeac257c72d3b4689",
+      "matches": [
+        {
+          "cell": 5,
+          "excerpt": "median_value = df['시험점수'].median()"
+        },
+        {
+          "cell": 11,
+          "excerpt": "df['용돈'].median()"
+        },
+        {
+          "cell": 14,
+          "excerpt": "df.describe()"
+        },
+        {
+          "cell": 15,
+          "excerpt": "df.describe().loc['25%']['시험점수']"
+        },
+        {
+          "cell": 16,
+          "excerpt": "df.describe()['시험점수']['25%']"
+        }
+      ]
+    },
+    {
+      "concept": "분포",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\4_통계및-EDA\\2_분포시각화-이상치.ipynb",
+      "relative": "4_통계및-EDA/2_분포시각화-이상치.ipynb",
+      "sha256": "af9dcb354a9b423d597910d11d280c61c898229bba9a6e9ce81c44e1369b4cb6",
+      "matches": [
+        {
+          "cell": 2,
+          "excerpt": "df[\"시험점수\"].hist(bins=15)"
+        },
+        {
+          "cell": 3,
+          "excerpt": "df[\"시험점수\"].hist("
+        },
+        {
+          "cell": 5,
+          "excerpt": "df['용돈'].hist(bins=10)"
+        },
+        {
+          "cell": 6,
+          "excerpt": "sns.histplot(df['시험점수'],"
+        },
+        {
+          "cell": 8,
+          "excerpt": "sns. boxplot(x=df['용돈'])"
+        },
+        {
+          "cell": 9,
+          "excerpt": "sns. boxplot(data=df[['용돈', '시험점수']])"
+        },
+        {
+          "cell": 10,
+          "excerpt": "sns. boxplot(data=df[['용돈', '시험점수','공부시간']])"
+        },
+        {
+          "cell": 18,
+          "excerpt": "df[\"공부시간\"].hist(bins=15)"
+        },
+        {
+          "cell": 19,
+          "excerpt": "df[\"공부시간\"].hist(bins=15, color=\"skyblue\", edgecolor=\"black\")"
+        }
+      ]
+    },
+    {
+      "concept": "상관분석",
+      "path": "C:\\study-with-ai\\src\\study_with_ai\\4_통계및-EDA\\3_상관분석.ipynb",
+      "relative": "4_통계및-EDA/3_상관분석.ipynb",
+      "sha256": "648d25c2bfa03e0171e9f232c36c1cdc30de1736b21aeb4aaa9e64648cf83a3c",
+      "matches": [
+        {
+          "cell": 8,
+          "excerpt": "corr = df['공부시간'].corr(df['시험점수'])"
+        },
+        {
+          "cell": 10,
+          "excerpt": "corr_matrix = df[[\"공부시간\", \"시험점수\", \"용돈\"]].corr()"
+        }
+      ]
+    }
+  ],
+  "additional_model_scan": {
+    "notebook_count": 33,
+    "matches": {
+      "jhgan/ko-sroberta-multitask-mrl": [],
+      "gpt-6-luna": []
+    }
+  },
+  "scope": "현재 컴퓨터의 수업 파일. Notion 수업 원본의 최신 변경까지 대조한 결과는 아님."
+}

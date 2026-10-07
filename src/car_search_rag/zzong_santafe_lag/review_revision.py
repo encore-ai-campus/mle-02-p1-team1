@@ -18,6 +18,9 @@ ACTIVE_FILE = FOLDER / "active.json"
 # 개인 선택 파일이 있으면 우선하며, DB에 없는 버전은 검증 오류로 중단합니다.
 SHARED_SELECTION = Path(__file__).resolve().parent / "review_revision_selection.json"
 RECORD_IDS = {"auto_topic_150", "auto_topic_171", "auto_topic_172", "auto_topic_173", "auto_topic_174"}
+# 2차 원본 대조 8개는 기존 5개를 보존한 누적 버전으로만 허용합니다.
+BATCH2_RECORD_IDS = {"auto_topic_135", "auto_topic_139", "auto_topic_149", "auto_topic_160",
+                     "auto_topic_274", "auto_topic_276", "auto_topic_420", "auto_topic_73"}
 
 
 def selection_file():
@@ -50,8 +53,9 @@ def validate_bundle(bundle):
             or payload["openai_model"] != MODEL or payload["openai_recipe"] != RECIPE):
         raise ValueError("검토 버전의 원문·모델·내용 식별값이 다릅니다.")
     parents = {row["record_id"]: row for row in payload["parents"]}
-    if set(parents) != RECORD_IDS or len(chunks) != len(payload["chunk_inputs"]):
-        raise ValueError("검토한 부모 5개 또는 청크 개수가 다릅니다.")
+    if (set(parents) not in (RECORD_IDS, RECORD_IDS | BATCH2_RECORD_IDS)
+            or len(parents) != len(payload['parents']) or len(chunks) != len(payload["chunk_inputs"])):
+        raise ValueError("승인된 검토 부모 범위 또는 청크 개수가 다릅니다.")
     expected = {row["record_id"]: row for row in payload["chunk_inputs"]}
     if len(expected) != len(chunks) or {row["record_id"] for row in chunks} != set(expected):
         raise ValueError("청크 ID가 누락·중복되었습니다.")
@@ -100,6 +104,7 @@ def combine(bundle, rows, chunks, images, backend):
         return rows, chunks, images
     validate_bundle(bundle)
     payload = bundle["payload"]
+    replaced_ids = {row['record_id'] for row in payload['parents']}
     original = {row["record_id"]: row for row in rows}
     for identity, expected in payload["base_content_sha256"].items():
         if text_sha(original[identity]["content"]) != expected:
@@ -110,11 +115,11 @@ def combine(bundle, rows, chunks, images, backend):
         old = original_images[str(row["id"])]
         if any(row[key] != old[key] for key in ("pdf_page_number", "pdf_image_key", "storage_path", "image_key_sha256")):
             raise ValueError("보완 그림이 기존 업로드한 파일과 다릅니다.")
-    new_rows = [deepcopy(row) for row in rows if row["record_id"] not in RECORD_IDS] + deepcopy(payload["parents"])
-    new_chunks = [row for row in chunks if row["metadata"]["parent_record_id"] not in RECORD_IDS]
+    new_rows = [deepcopy(row) for row in rows if row["record_id"] not in replaced_ids] + deepcopy(payload["parents"])
+    new_chunks = [row for row in chunks if row["metadata"]["parent_record_id"] not in replaced_ids]
     for row in bundle["chunks"]:
         field = "openai_embedding" if backend == "openai" else "local_embedding"
         new_chunks.append({"record_id": row["record_id"], "content": row["content"],
                            "metadata": row["metadata"], "embedding": np.asarray(row[field], dtype=np.float32)})
-    new_images = [row for row in images if row["parent_record_id"] not in RECORD_IDS] + deepcopy(payload["images"])
+    new_images = [row for row in images if row["parent_record_id"] not in replaced_ids] + deepcopy(payload["images"])
     return new_rows, sorted(new_chunks, key=lambda row: row["record_id"]), new_images

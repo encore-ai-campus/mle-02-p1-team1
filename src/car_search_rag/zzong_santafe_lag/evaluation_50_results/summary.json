@@ -1,0 +1,37 @@
+{
+  "completed": 50,
+  "failure_count": 0,
+  "finalization_recovered": true,
+  "status_counts": {
+    "needs_review": 23,
+    "insufficient_evidence": 1,
+    "evidence_excerpt": 23,
+    "needs_clarification": 3
+  },
+  "search_calls": 47,
+  "generation_calls": 0,
+  "db_written": false,
+  "human_confirmed": false,
+  "ai_provisional_counts": {
+    "실패": 18,
+    "통과": 29,
+    "부분": 3
+  },
+  "groups": {
+    "A": {
+      "실패": 9,
+      "통과": 1
+    },
+    "B": {
+      "통과": 18,
+      "실패": 2
+    },
+    "C": {
+      "통과": 10,
+      "부분": 3,
+      "실패": 7
+    }
+  },
+  "quality_metrics": null,
+  "note": "초기 응답의 AI 잠정 판정. 생성 답변·사용자 확정 골든셋·Hit@5·MRR는 미평가."
+}

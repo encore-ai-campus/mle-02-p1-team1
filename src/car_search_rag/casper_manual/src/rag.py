@@ -1,6 +1,7 @@
 """E5 → Supabase → OpenAI 흐름과 모델 사전 다운로드를 제공하는 모듈."""
 import os
 import logging
+import re
 from functools import lru_cache
 from pathlib import Path
 from threading import Lock
@@ -14,8 +15,38 @@ MODEL_NAME = "intfloat/multilingual-e5-base"
 EMBEDDING_VERSION = "v1"
 LLM_MODEL = "gpt-6-luna"
 MAX_ANSWER_IMAGES = 6
+SEARCH_RPC = "match_manual_chunks_hybrid"
 logger = logging.getLogger(__name__)
 DEFAULT_TOP_K = 5
+
+
+def extract_search_terms(question):
+    """LLM 호출 없이 질문에서 검색 단어를 추출합니다. 형태소 분석기는 아닙니다."""
+    stopwords = {
+        "차량", "자동차", "캐스퍼", "일렉트릭", "궁금", "궁금해", "궁금해요",
+        "궁금합니다", "궁금한데", "알려", "알려줘", "알려주세요", "알려줄래",
+        "알려주세", "설명", "설명해", "설명해줘", "설명해주세요", "보여줘",
+        "어떻게", "어떤", "무엇", "뭐야", "있나요", "인가요", "되나요",
+        "얼마", "얼마야", "얼마인가요", "얼마인지", "알고", "싶어", "싶어요",
+        "대해", "대한", "관련", "같은", "수치", "그냥", "좀", "해주세요",
+        "궁금하다는", "거야", "것", "때", "해", "줘",
+    }
+    particles = ("에서는", "으로는", "에게는", "에서", "으로", "까지", "부터",
+                 "에는", "이란", "라는", "이라고", "의", "을", "를", "은", "는",
+                 "이", "가", "에", "도", "와", "과")
+    terms = []
+    for token in re.findall(r"[가-힣a-zA-Z0-9]+", question.casefold()):
+        if token in stopwords:
+            continue
+        # 너무 짧은 어근을 만들지 않고 조사 하나만 제거합니다.
+        if re.fullmatch(r"[가-힣]+", token):
+            for particle in particles:
+                if token.endswith(particle) and len(token) - len(particle) >= 2:
+                    token = token[:-len(particle)]
+                    break
+        if len(token) >= 2 and token not in stopwords and token not in terms:
+            terms.append(token)
+    return terms[:16]
 
 
 def download_model_weights(progress_callback=None):
@@ -59,12 +90,20 @@ class ManualRAG:
             raise ValueError("질문을 입력해 주세요.")
         if not isinstance(top_k, int) or not 1 <= top_k <= 20:
             raise ValueError("top_k는 1~20 사이의 정수여야 합니다.")
+        if len(question) > 2000:
+            raise ValueError("질문은 2,000자 이내로 입력해 주세요.")
+        terms = extract_search_terms(question)
         with self._search_lock:
             vector = self.model.encode(f"query: {question}", normalize_embeddings=True)
-            response = self.supabase.rpc("match_manual_chunks", {
+            # 검색 방식이 바뀌었는데도 조용히 옛 함수로 돌아가지 않도록 실패를 알립니다.
+            response = self.supabase.rpc(SEARCH_RPC, {
                 "query_embedding": vector.tolist(), "match_count": top_k,
                 "filter_model": MODEL_NAME, "filter_version": EMBEDDING_VERSION,
+                "query_text": question, "query_terms": terms,
+                "candidate_count": max(50, top_k * 5),
             }).execute()
+        logger.info("Manual search: rpc=%s terms=%s results=%s", SEARCH_RPC,
+                    len(terms), len(response.data or []))
         return response.data or []
 
     def attach_source_images(self, sources, per_source=3, total_unique=12):

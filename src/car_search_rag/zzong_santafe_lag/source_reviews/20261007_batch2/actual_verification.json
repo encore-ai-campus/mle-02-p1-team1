@@ -1,0 +1,615 @@
+{
+  "revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+  "active_db_matches_candidate": true,
+  "results": [
+    {
+      "id": "B14",
+      "question": "선루프 초기화 방법을 알려주세요.",
+      "expected_record_id": "auto_topic_160",
+      "kind": "same_50_questions",
+      "revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+      "actual_db_matches_candidate": true,
+      "generation_status": "generated_answer",
+      "result": {
+        "question": "선루프 초기화 방법을 알려주세요.",
+        "status": "generated_answer",
+        "answer_mode": "pdf_grounded_llm",
+        "answer": "### 핵심 답변\n\n- 초기화가 필요한 경우는 선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때, 관련 퓨즈를 교체했을 때, 또는 선루프가 정상적으로 작동하지 않을 때입니다. [1]\n\n- 시동을 걸거나 차량 전원을 ‘ON’ 상태로 두십시오. [1]\n\n- 앞좌석 선루프는 앞좌석용 스위치로, 뒷좌석 파워 선블라인드는 뒷좌석용 스위치로 조작하십시오. [1]\n\n- 해당 스위치로 선루프 글라스 또는 파워 선블라인드를 완전히 닫은 뒤 스위치에서 손을 떼십시오. [1]\n\n- 닫힌 상태에서 스위치를 앞쪽으로 눌러 글라스 또는 선블라인드가 살짝 한 번 움직일 때까지 계속 누른 다음 손을 떼십시오. [1]\n\n- 다시 스위치를 앞쪽으로 계속 눌러 글라스 또는 선블라인드가 열렸다가 완전히 닫힐 때까지 기다리십시오. [1]\n\n### 추가 설명\n\n- 선루프 레일의 먼지를 정기적으로 제거하십시오. 글라스와 루프 판넬 사이의 먼지는 소음을 일으킬 수 있으므로 선루프를 열고 깨끗한 천으로 정기적으로 제거하십시오. [1]\n\n### 꼭 지킬 주의사항\n\n- 슬라이드 열림·닫힘 동작이 끝나기 전에 스위치에서 손을 떼면 처음부터 다시 초기화하십시오. [1]\n\n- 초기화하지 않으면 선루프가 제대로 작동하지 않을 수 있습니다. [1]\n\n- 초기화 중에도 얼굴, 팔, 손 등 신체나 장애물이 선루프에 끼이지 않도록 확인하십시오. 신체 일부가 끼어 다칠 수 있습니다. [1]\n\n- 물체 끼임 인식 기능을 시험하려고 신체를 일부러 사용하지 마십시오. 선루프가 다시 열릴 수 있어도 신체 일부가 낄 수 있습니다. [1]\n\n- 글라스 또는 파워 선블라인드가 완전히 열리거나 닫히면 스위치에서 손을 떼십시오. 계속 누르면 선루프 모터가 고장 날 수 있습니다. [1]\n\n- 선루프 슬라이드·틸트 열림 및 닫힘 조작을 연속해서 하면 모터나 선루프가 고장 날 수 있습니다. [1]\n\n- 영하의 기온이거나 선루프가 얼었거나 눈으로 덮여 있을 때는 작동하지 마십시오. 작동되지 않을 수 있고, 강제로 작동시키면 손상될 수 있습니다. [1]\n\n- 비가 내린 후나 세차 직후에는 선루프 글라스를 열거나 열린 상태로 주행하지 마십시오. 실내로 물이 들어올 수 있습니다. [1]\n\n- 선루프 글라스가 열린 상태에서 화물이 튀어나오지 않게 하십시오. 주행 중 갑자기 멈추면 선루프가 손상될 수 있습니다. [1]\n\n- 주행 중 열린 선루프 사이로 손이나 머리 등 신체 일부를 내밀지 마십시오. 차량이 갑자기 정지하면 다칠 수 있습니다. [1]\n\n출처:\n[1] PDF 262, 263, 264쪽 / 매뉴얼 시작 258쪽 · 선루프 초기화",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "auto_topic_160",
+            "title": "선루프 초기화",
+            "source_pages": [
+              262,
+              263,
+              264
+            ],
+            "manual_page_number": 258,
+            "verification_status": "visually_reviewed_source",
+            "quote": "선루프 초기화 앞좌석 뒷좌석 다음과 같은 경우에는 선루프를 초기화하십시오. 앞좌석 선루프는 앞좌석용 스위치, 뒷좌석 파워 선블라인드는 뒷좌석용 스위치를 사용하십시오. 선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때 또는 관련 퓨즈를 교체하였을 때 선루프가 정상적으로 작동하지 않을 경우 \n1. 시동을 걸거나 차량 전원을 'ON' 상태로 두십시오. \n2. 선루프 스위치로 앞좌석 선루프 글라스 또는 뒷좌석 파워 선블라인드를 완전히 닫은 후 손을 떼 십시오. \n3. 선루프 글라스 또는 파워 선블라인드가 닫힌 상태에서 스위치를 앞쪽으로 눌러 선루프 글라스 또는 파워 선블라인드가 살짝 한번 움직일 때까지 계속 눌렀다 손을 떼십시오. \n4. 선루프 글라스 또는 파워 선블라인드가 열렸다가 완전히 닫힐 때까지 다시 한번 선루프스위치 를 앞쪽으로 계속 누르십시오. 슬라이드 열림/닫힘 동작이 끝나기 전에는 스위치에서 손을 떼지 마십시오. 도중에 손을 떼면, 처음부터 다시 초기화를 진행하십시오. [주의] 선루프를 초기화하지 않으면 선루프가 제대로 작동하지 않을 수 있습니다.\n[초기화 시 함께 지킬 주의사항 · PDF 262~263쪽]\n선루프를 작동할 때는 얼굴, 팔, 손 그밖의 장애물이 없는지 반드시 확인하십시오. 신체의 일부가 선루프에 끼어 다칠 수 있습니다.\n물체 끼임 인식 기능을 시험하기 위해 의도적으로 신체를 사용하지 마십시오. 다시 열릴 수는 있지만 신체 일부가 낄 수 있습니다.\n파워 선블라인드 또는 선루프 글라스가 완전히 열리거나 닫히면 스위치에서 손을 떼십시오. 계속 누르고 있으면 선루프 모터가 고장 날 수 있습니다.\n선루프 슬라이드 열림/닫힘, 틸트 열림/닫힘 등의 조작을 연속해서 할 경우, 모터나 선루프가 고장 날 수 있습니다.\n정기적으로 선루프 레일 부분에 쌓인 먼지를 제거하십시오.\n선루프 글라스와 루프 판넬 사이에 쌓인 먼지에 의해 소음이 발생할 수 있습니다. 선루프를 열고 깨끗한 천을 사용하여 정기적으로 먼지를 제거하십시오.\n영하의 기온 또는 선루프가 얼었거나 눈으로 덮여 있는 상태에서 선루프를 작동하지 마십시오. 선루프가 작동되지 않을 수 있으며, 강제로 작동시키면 선루프가 손상될 수 있습니다.\n비가 내린 후나 세차 직후에 선루프 글라스를 열거나 열린 상태로 주행하면, 실내로 물이 들어올 수 있습니다.\n선루프 글라스가 열린 상태에서 화물이 튀어나오지 않도록 하십시오. 주행 중에 갑자기 멈추게 되면 선루프가 손상 될 수 있습니다.\n주행 중에 선루프가 열린 사이로 손이나 머리 등 신체의 일부를 내밀지 마십시오. 차량이 갑작스럽게 정지하면 다칠 수 있습니다.\n[그림 설명]\nPDF 263쪽: 앞좌석 선루프 초기화에 사용하는 FRONT 스위치와 누르는 방향을 보여준다.\nPDF 264쪽: 뒷좌석 파워 선블라인드 초기화에 사용하는 REAR 스위치와 누르는 방향을 보여준다.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "선루프 초기화\n앞좌석\n2C_DualSunroofInitialize\n\n뒷좌석\n2C_DualSunroofInitialize_1\n다음과 같은 경우에는 선루프를 초기화하십시오. 앞좌석 선루프는 앞좌석용 스위치, 뒷좌석 파워\n선블라인드는 뒷좌석용 스위치를 사용하십시오.\n선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때 또는 관련 퓨즈를 교체하였을\n때\n선루프가 정상적으로 작동하지 않을 경우\n시동을 걸거나 차량 전원을 'ON' 상태로 두십시오.\n선루프 스위치로 앞좌석 선루프 글라스 또는 뒷좌석 파워 선블라인드를 완전히 닫은 후 손을 떼\n십시오.\n선루프 글라스 또는 파워 선블라인드가 닫힌 상태에서 스위치를 앞쪽으로 눌러 선루프 글라스\n또는 파워 선블라인드가 살짝 한번 움직일 때까지 계속 눌렀다 손을 떼십시오.\n선루프 글라스 또는 파워 선블라인드가 열렸다가 완전히 닫힐 때까지 다시 한번 선루프스위치\n를 앞쪽으로 계속 누르십시오.\n슬라이드 열림/닫힘 동작이 끝나기 전에는 스위치에서 손을 떼지 마십시오. 도중에 손을 떼면,\n처음부터 다시 초기화를 진행하십시오.\n ઱੄ \n선루프를 초기화하지 않으면 선루프가 제대로 작동하지 않을 수 있습니다.\n",
+            "citation_required": true,
+            "citation_requirement_reason": "선택한 본문 또는 필수 연결 문맥",
+            "label": "[1] PDF 262, 263, 264쪽 / 매뉴얼 시작 258쪽",
+            "cited_in_answer": true
+          }
+        ],
+        "images": [
+          {
+            "pdf_page_number": 263,
+            "file_name": null,
+            "pdf_image_key": "/I4",
+            "image_key_sha256": "f46431218087b4cb57241d31f1fc9e252182476a75f7c4d6fa3852466bb6054b",
+            "width": null,
+            "height": null,
+            "local_path": null,
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0263_image_01.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0263_image_01.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "auto_topic_160",
+                "description": "앞좌석 선루프 초기화에 사용하는 FRONT 스위치와 누르는 방향을 보여준다.",
+                "linkage_status": "visually_verified"
+              }
+            ]
+          },
+          {
+            "pdf_page_number": 264,
+            "file_name": null,
+            "pdf_image_key": "/I1",
+            "image_key_sha256": "54d9ef230be925602f728be55137460dbc5b1260ca107c0f3b5fd60d86c57736",
+            "width": null,
+            "height": null,
+            "local_path": null,
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0264_image_02.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0264_image_02.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "auto_topic_160",
+                "description": "뒷좌석 파워 선블라인드 초기화에 사용하는 REAR 스위치와 누르는 방향을 보여준다.",
+                "linkage_status": "visually_verified"
+              }
+            ]
+          }
+        ],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "openai_1536_purpose_specific",
+        "embedding_model": "text-embedding-3-small",
+        "embedding_run_id": "ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e",
+        "review_revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+        "query_embedding_api_called": true,
+        "matched_chunk_record_id": "auto_topic_160_chunk_0",
+        "evidence_selection": {
+          "rule_version": "intent_directive_v1",
+          "intent": "procedure",
+          "selected_parent_record_id": "auto_topic_160",
+          "original_rank": 1
+        },
+        "semantic_answerability_validated": false,
+        "llm_called": true,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "출처 번호·형식만 검사했습니다. 원문과 수치·조건·경고의 의미 대조는 필요합니다.",
+        "retrieval_recovery": {
+          "rule_version": "bounded_candidate_expansion_v1",
+          "initial_status": "evidence_excerpt",
+          "candidate_expansion_used": false,
+          "initial_candidate_count": 5,
+          "checked_candidate_count": 5,
+          "additional_query_embedding_calls": 0,
+          "additional_database_search_calls": 0
+        },
+        "input_processing": {
+          "rule_version": "conservative_terms_v1",
+          "original_question": "선루프 초기화 방법을 알려주세요.",
+          "search_question": "선루프 초기화 방법을 알려주세요.",
+          "term_changes": [],
+          "clarification_message": ""
+        },
+        "generation_model": "gpt-6-luna",
+        "generation_attempted": true,
+        "evidence_excerpt": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 262, 263, 264쪽 / 매뉴얼 시작 258쪽 · 선루프 초기화\n선루프 초기화 앞좌석 뒷좌석 다음과 같은 경우에는 선루프를 초기화하십시오. 앞좌석 선루프는 앞좌석용 스위치, 뒷좌석 파워 선블라인드는 뒷좌석용 스위치를 사용하십시오. 선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때 또는 관련 퓨즈를 교체하였을 때 선루프가 정상적으로 작동하지 않을 경우 \n1. 시동을 걸거나 차량 전원을 'ON' 상태로 두십시오. \n2. 선루프 스위치로 앞좌석 선루프 글라스 또는 뒷좌석 파워 선블라인드를 완전히 닫은 후 손을 떼 십시오. \n3. 선루프 글라스 또는 파워 선블라인드가 닫힌 상태에서 스위치를 앞쪽으로 눌러 선루프 글라스 또는 파워 선블라인드가 살짝 한번 움직일 때까지 계속 눌렀다 손을 떼십시오. \n4. 선루프 글라스 또는 파워 선블라인드가 열렸다가 완전히 닫힐 때까지 다시 한번 선루프스위치 를 앞쪽으로 계속 누르십시오. 슬라이드 열림/닫힘 동작이 끝나기 전에는 스위치에서 손을 떼지 마십시오. 도중에 손을 떼면, 처음부터 다시 초기화를 진행하십시오. [주의] 선루프를 초기화하지 않으면 선루프가 제대로 작동하지 않을 수 있습니다.\n[초기화 시 함께 지킬 주의사항 · PDF 262~263쪽]\n선루프를 작동할 때는 얼굴, 팔, 손 그밖의 장애물이 없는지 반드시 확인하십시오. 신체의 일부가 선루프에 끼어 다칠 수 있습니다.\n물체 끼임 인식 기능을 시험하기 위해 의도적으로 신체를 사용하지 마십시오. 다시 열릴 수는 있지만 신체 일부가 낄 수 있습니다.\n파워 선블라인드 또는 선루프 글라스가 완전히 열리거나 닫히면 스위치에서 손을 떼십시오. 계속 누르고 있으면 선루프 모터가 고장 날 수 있습니다.\n선루프 슬라이드 열림/닫힘, 틸트 열림/닫힘 등의 조작을 연속해서 할 경우, 모터나 선루프가 고장 날 수 있습니다.\n정기적으로 선루프 레일 부분에 쌓인 먼지를 제거하십시오.\n선루프 글라스와 루프 판넬 사이에 쌓인 먼지에 의해 소음이 발생할 수 있습니다. 선루프를 열고 깨끗한 천을 사용하여 정기적으로 먼지를 제거하십시오.\n영하의 기온 또는 선루프가 얼었거나 눈으로 덮여 있는 상태에서 선루프를 작동하지 마십시오. 선루프가 작동되지 않을 수 있으며, 강제로 작동시키면 선루프가 손상될 수 있습니다.\n비가 내린 후나 세차 직후에 선루프 글라스를 열거나 열린 상태로 주행하면, 실내로 물이 들어올 수 있습니다.\n선루프 글라스가 열린 상태에서 화물이 튀어나오지 않도록 하십시오. 주행 중에 갑자기 멈추게 되면 선루프가 손상 될 수 있습니다.\n주행 중에 선루프가 열린 사이로 손이나 머리 등 신체의 일부를 내밀지 마십시오. 차량이 갑작스럽게 정지하면 다칠 수 있습니다.\n[그림 설명]\nPDF 263쪽: 앞좌석 선루프 초기화에 사용하는 FRONT 스위치와 누르는 방향을 보여준다.\nPDF 264쪽: 뒷좌석 파워 선블라인드 초기화에 사용하는 REAR 스위치와 누르는 방향을 보여준다.",
+        "image_pixels_sent": false,
+        "generation_settings": {
+          "generation_model": "gpt-6-luna",
+          "temperature": 0.0,
+          "reasoning_effort": "none",
+          "api_mode": "chat_completions",
+          "max_output_tokens": 1400,
+          "max_prompt_characters": 32000,
+          "timeout_seconds": 45,
+          "automatic_retries": 0,
+          "api_key_configured": true,
+          "api_key_validated": false,
+          "image_pixels_sent": false,
+          "llm_called": false
+        },
+        "token_usage": {
+          "input_tokens": 2162,
+          "output_tokens": 880,
+          "total_tokens": 3042,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 1138,
+            "cache_creation": 1021
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        },
+        "response_model": "gpt-6-luna",
+        "generation_diagnostics": {
+          "stage": "validated",
+          "raw_response": "{\"items\":[{\"section\":\"answer\",\"text\":\"초기화가 필요한 경우는 선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때, 관련 퓨즈를 교체했을 때, 또는 선루프가 정상적으로 작동하지 않을 때입니다.\",\"citation_ids\":[1]},{\"section\":\"answer\",\"text\":\"시동을 걸거나 차량 전원을 ‘ON’ 상태로 두십시오.\",\"citation_ids\":[1]},{\"section\":\"answer\",\"text\":\"앞좌석 선루프는 앞좌석용 스위치로, 뒷좌석 파워 선블라인드는 뒷좌석용 스위치로 조작하십시오.\",\"citation_ids\":[1]},{\"section\":\"answer\",\"text\":\"해당 스위치로 선루프 글라스 또는 파워 선블라인드를 완전히 닫은 뒤 스위치에서 손을 떼십시오.\",\"citation_ids\":[1]},{\"section\":\"answer\",\"text\":\"닫힌 상태에서 스위치를 앞쪽으로 눌러 글라스 또는 선블라인드가 살짝 한 번 움직일 때까지 계속 누른 다음 손을 떼십시오.\",\"citation_ids\":[1]},{\"section\":\"answer\",\"text\":\"다시 스위치를 앞쪽으로 계속 눌러 글라스 또는 선블라인드가 열렸다가 완전히 닫힐 때까지 기다리십시오.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"슬라이드 열림·닫힘 동작이 끝나기 전에 스위치에서 손을 떼면 처음부터 다시 초기화하십시오.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"초기화하지 않으면 선루프가 제대로 작동하지 않을 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"초기화 중에도 얼굴, 팔, 손 등 신체나 장애물이 선루프에 끼이지 않도록 확인하십시오. 신체 일부가 끼어 다칠 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"물체 끼임 인식 기능을 시험하려고 신체를 일부러 사용하지 마십시오. 선루프가 다시 열릴 수 있어도 신체 일부가 낄 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"글라스 또는 파워 선블라인드가 완전히 열리거나 닫히면 스위치에서 손을 떼십시오. 계속 누르면 선루프 모터가 고장 날 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"선루프 슬라이드·틸트 열림 및 닫힘 조작을 연속해서 하면 모터나 선루프가 고장 날 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"details\",\"text\":\"선루프 레일의 먼지를 정기적으로 제거하십시오. 글라스와 루프 판넬 사이의 먼지는 소음을 일으킬 수 있으므로 선루프를 열고 깨끗한 천으로 정기적으로 제거하십시오.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"영하의 기온이거나 선루프가 얼었거나 눈으로 덮여 있을 때는 작동하지 마십시오. 작동되지 않을 수 있고, 강제로 작동시키면 손상될 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"비가 내린 후나 세차 직후에는 선루프 글라스를 열거나 열린 상태로 주행하지 마십시오. 실내로 물이 들어올 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"선루프 글라스가 열린 상태에서 화물이 튀어나오지 않게 하십시오. 주행 중 갑자기 멈추면 선루프가 손상될 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"주행 중 열린 선루프 사이로 손이나 머리 등 신체 일부를 내밀지 마십시오. 차량이 갑자기 정지하면 다칠 수 있습니다.\",\"citation_ids\":[1]}],\"unanswered\":[]}",
+          "finish_reason": "stop",
+          "uncited_reference_ids": []
+        },
+        "generation_notice": "",
+        "answer_items": [
+          {
+            "section": "answer",
+            "text": "초기화가 필요한 경우는 선루프 모터와 연결된 배터리 전원이 차단되거나 방전되었을 때, 관련 퓨즈를 교체했을 때, 또는 선루프가 정상적으로 작동하지 않을 때입니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "answer",
+            "text": "시동을 걸거나 차량 전원을 ‘ON’ 상태로 두십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "answer",
+            "text": "앞좌석 선루프는 앞좌석용 스위치로, 뒷좌석 파워 선블라인드는 뒷좌석용 스위치로 조작하십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "answer",
+            "text": "해당 스위치로 선루프 글라스 또는 파워 선블라인드를 완전히 닫은 뒤 스위치에서 손을 떼십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "answer",
+            "text": "닫힌 상태에서 스위치를 앞쪽으로 눌러 글라스 또는 선블라인드가 살짝 한 번 움직일 때까지 계속 누른 다음 손을 떼십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "answer",
+            "text": "다시 스위치를 앞쪽으로 계속 눌러 글라스 또는 선블라인드가 열렸다가 완전히 닫힐 때까지 기다리십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "슬라이드 열림·닫힘 동작이 끝나기 전에 스위치에서 손을 떼면 처음부터 다시 초기화하십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "초기화하지 않으면 선루프가 제대로 작동하지 않을 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "초기화 중에도 얼굴, 팔, 손 등 신체나 장애물이 선루프에 끼이지 않도록 확인하십시오. 신체 일부가 끼어 다칠 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "물체 끼임 인식 기능을 시험하려고 신체를 일부러 사용하지 마십시오. 선루프가 다시 열릴 수 있어도 신체 일부가 낄 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "글라스 또는 파워 선블라인드가 완전히 열리거나 닫히면 스위치에서 손을 떼십시오. 계속 누르면 선루프 모터가 고장 날 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "선루프 슬라이드·틸트 열림 및 닫힘 조작을 연속해서 하면 모터나 선루프가 고장 날 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "details",
+            "text": "선루프 레일의 먼지를 정기적으로 제거하십시오. 글라스와 루프 판넬 사이의 먼지는 소음을 일으킬 수 있으므로 선루프를 열고 깨끗한 천으로 정기적으로 제거하십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "영하의 기온이거나 선루프가 얼었거나 눈으로 덮여 있을 때는 작동하지 마십시오. 작동되지 않을 수 있고, 강제로 작동시키면 손상될 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "비가 내린 후나 세차 직후에는 선루프 글라스를 열거나 열린 상태로 주행하지 마십시오. 실내로 물이 들어올 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "선루프 글라스가 열린 상태에서 화물이 튀어나오지 않게 하십시오. 주행 중 갑자기 멈추면 선루프가 손상될 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "주행 중 열린 선루프 사이로 손이나 머리 등 신체 일부를 내밀지 마십시오. 차량이 갑자기 정지하면 다칠 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          }
+        ],
+        "answer_layout_version": "sections_v1",
+        "citation_ids_validated": true
+      }
+    },
+    {
+      "id": "B16",
+      "question": "스마트 키 원격 시동은 어떻게 사용하나요?",
+      "expected_record_id": "auto_topic_276",
+      "kind": "same_50_questions",
+      "revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+      "actual_db_matches_candidate": true,
+      "generation_status": "generated_answer",
+      "result": {
+        "question": "스마트 키 원격 시동은 어떻게 사용하나요?",
+        "status": "generated_answer",
+        "answer_mode": "pdf_grounded_llm",
+        "answer": "### 핵심 답변\n\n- 차량에서 10 m 이내에 서서 스마트 키의 도어 잠금 버튼을 누른 뒤, 4초 이내에 원격 시동 버튼을 길게 누르세요. 시동이 걸리면 비상 경고등이 깜빡입니다. [1]\n\n- 원격 시동을 끄려면 원격 시동 버튼을 다시 누르세요. [1]\n\n### 꼭 지킬 주의사항\n\n- 기어가 ‘P’(주차) 상태일 때만 원격으로 시동을 걸 수 있습니다. [1]\n\n- 도어가 잠겨 있어도 후드나 테일게이트가 열려 있으면 원격으로 시동을 걸 수 없습니다. [1]\n\n- 원격 시동 상태에서 스마트 키를 휴대하지 않고 차량에 탑승하면 일반 시동으로 바뀌지 않습니다. [1]\n\n- 원격 시동 후 10분 이내에 차량에 탑승하지 않으면 시동이 자동으로 꺼집니다. [1]\n\n- 엔진을 장시간 공회전하지 마세요. [1]\n\n출처:\n[1] PDF 387쪽 / 매뉴얼 382쪽 · 스마트 키 원격 시동",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "auto_topic_276",
+            "title": "스마트 키 원격 시동",
+            "source_pages": [
+              387
+            ],
+            "manual_page_number": 382,
+            "verification_status": "visually_reviewed_source",
+            "quote": "스마트 키 원격 시동 차량과 10 m 이내 거리에서 스마트 키의 도어 잠금 버튼(잠금 기호)을 누른 후 4초 이내에 원격 시동 버 튼(원격 시동 기호)을 길게 누르십시오. 시동이 걸리면 비상 경고등이 깜빡입니다. 원격 시동을 끄려면 원격 시동 버튼(원격 시동 기호)을 다시 누르십시오. [참고] 기어가 'P'(주차) 상태일 때에만 원격으로 시동을 걸 수 있습니다. 원격 시동 상태에서 스마트 키를 휴대하지 않고 차량에 탑승하면 일반 시동으로 바뀌지 않습니 다. 원격 시동 상태에서 10분 이내에 차량에 탑승하지 않으면 자동으로 시동이 꺼집니다. 도어가 잠겨있더라도 후드나 테일게이트가 열려 있으면 원격으로 시동을 걸 수 없습니다. 엔진을 장시간 공회전하지 마십시오.\n[그림 설명]\nPDF 387쪽: 스마트 키의 도어 잠금 버튼과 원격 시동 버튼을 보여준다.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "스마트 키 원격 시동\n2C_SmartKeyRemoteStartButton_2\n차량과 10 m 이내 거리에서 스마트 키의 도어 잠금 버튼( Ď)을 누른 후 4초 이내에 원격 시동 버\n튼(Ĕ)을 길게 누르십시오.\n시동이 걸리면 비상 경고등이 깜빡입니다.\n원격 시동을 끄려면 원격 시동 버튼( Ĕ)을 다시 누르십시오.\nӝ \n기어가 'P'(주차) 상태일 때에만 원격으로 시동을 걸 수 있습니다.\n원격 시동 상태에서 스마트 키를 휴대하지 않고 차량에 탑승하면 일반 시동으로 바뀌지 않습니\n다.\n원격 시동 상태에서 10분 이내에 차량에 탑승하지 않으면 자동으로 시동이 꺼집니다.\n도어가 잠겨있더라도 후드나 테일게이트가 열려 있으면 원격으로 시동을 걸 수 없습니다.\n엔진을 장시간 공회전하지 마십시오.\n",
+            "citation_required": true,
+            "citation_requirement_reason": "선택한 본문 또는 필수 연결 문맥",
+            "label": "[1] PDF 387쪽 / 매뉴얼 382쪽",
+            "cited_in_answer": true
+          }
+        ],
+        "images": [
+          {
+            "pdf_page_number": 387,
+            "file_name": null,
+            "pdf_image_key": "/I3",
+            "image_key_sha256": "3083d9acfc55c216e3543a0ffb014e25906e41ba4d17a8614d457c95225d9972",
+            "width": null,
+            "height": null,
+            "local_path": null,
+            "storage_bucket": "images",
+            "storage_path": "cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0387_image_01.jpg",
+            "upload_status": "uploaded",
+            "public_url": "https://hbuvewommtcmbbynsvht.supabase.co/storage/v1/object/public/images/cars/hyundai/santafe_hev/zzong_santafe_lag/8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b/page_0387_image_01.jpg",
+            "descriptions": [
+              {
+                "parent_record_id": "auto_topic_276",
+                "description": "스마트 키의 도어 잠금 버튼과 원격 시동 버튼을 보여준다.",
+                "linkage_status": "visually_verified"
+              }
+            ]
+          }
+        ],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "openai_1536_purpose_specific",
+        "embedding_model": "text-embedding-3-small",
+        "embedding_run_id": "ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e",
+        "review_revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+        "query_embedding_api_called": true,
+        "matched_chunk_record_id": "auto_topic_276_chunk_0",
+        "evidence_selection": {
+          "rule_version": "intent_directive_v1",
+          "intent": "procedure",
+          "selected_parent_record_id": "auto_topic_276",
+          "original_rank": 1
+        },
+        "semantic_answerability_validated": false,
+        "llm_called": true,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "출처 번호·형식만 검사했습니다. 원문과 수치·조건·경고의 의미 대조는 필요합니다.",
+        "retrieval_recovery": {
+          "rule_version": "bounded_candidate_expansion_v1",
+          "initial_status": "evidence_excerpt",
+          "candidate_expansion_used": false,
+          "initial_candidate_count": 5,
+          "checked_candidate_count": 5,
+          "additional_query_embedding_calls": 0,
+          "additional_database_search_calls": 0
+        },
+        "input_processing": {
+          "rule_version": "conservative_terms_v1",
+          "original_question": "스마트 키 원격 시동은 어떻게 사용하나요?",
+          "search_question": "스마트 키 원격 시동은 어떻게 사용하나요?",
+          "term_changes": [],
+          "clarification_message": ""
+        },
+        "generation_model": "gpt-6-luna",
+        "generation_attempted": true,
+        "evidence_excerpt": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 387쪽 / 매뉴얼 382쪽 · 스마트 키 원격 시동\n스마트 키 원격 시동 차량과 10 m 이내 거리에서 스마트 키의 도어 잠금 버튼(잠금 기호)을 누른 후 4초 이내에 원격 시동 버 튼(원격 시동 기호)을 길게 누르십시오. 시동이 걸리면 비상 경고등이 깜빡입니다. 원격 시동을 끄려면 원격 시동 버튼(원격 시동 기호)을 다시 누르십시오. [참고] 기어가 'P'(주차) 상태일 때에만 원격으로 시동을 걸 수 있습니다. 원격 시동 상태에서 스마트 키를 휴대하지 않고 차량에 탑승하면 일반 시동으로 바뀌지 않습니 다. 원격 시동 상태에서 10분 이내에 차량에 탑승하지 않으면 자동으로 시동이 꺼집니다. 도어가 잠겨있더라도 후드나 테일게이트가 열려 있으면 원격으로 시동을 걸 수 없습니다. 엔진을 장시간 공회전하지 마십시오.\n[그림 설명]\nPDF 387쪽: 스마트 키의 도어 잠금 버튼과 원격 시동 버튼을 보여준다.",
+        "image_pixels_sent": false,
+        "generation_settings": {
+          "generation_model": "gpt-6-luna",
+          "temperature": 0.0,
+          "reasoning_effort": "none",
+          "api_mode": "chat_completions",
+          "max_output_tokens": 1400,
+          "max_prompt_characters": 32000,
+          "timeout_seconds": 45,
+          "automatic_retries": 0,
+          "api_key_configured": true,
+          "api_key_validated": false,
+          "image_pixels_sent": false,
+          "llm_called": false
+        },
+        "token_usage": {
+          "input_tokens": 1553,
+          "output_tokens": 306,
+          "total_tokens": 1859,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 1138,
+            "cache_creation": 412
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        },
+        "response_model": "gpt-6-luna",
+        "generation_diagnostics": {
+          "stage": "validated",
+          "raw_response": "{\"items\":[{\"section\":\"answer\",\"text\":\"차량에서 10 m 이내에 서서 스마트 키의 도어 잠금 버튼을 누른 뒤, 4초 이내에 원격 시동 버튼을 길게 누르세요. 시동이 걸리면 비상 경고등이 깜빡입니다.\",\"citation_ids\":[1]},{\"section\":\"answer\",\"text\":\"원격 시동을 끄려면 원격 시동 버튼을 다시 누르세요.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"기어가 ‘P’(주차) 상태일 때만 원격으로 시동을 걸 수 있습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"도어가 잠겨 있어도 후드나 테일게이트가 열려 있으면 원격으로 시동을 걸 수 없습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"원격 시동 상태에서 스마트 키를 휴대하지 않고 차량에 탑승하면 일반 시동으로 바뀌지 않습니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"원격 시동 후 10분 이내에 차량에 탑승하지 않으면 시동이 자동으로 꺼집니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"엔진을 장시간 공회전하지 마세요.\",\"citation_ids\":[1]}],\"unanswered\":[]}",
+          "finish_reason": "stop",
+          "uncited_reference_ids": []
+        },
+        "generation_notice": "",
+        "answer_items": [
+          {
+            "section": "answer",
+            "text": "차량에서 10 m 이내에 서서 스마트 키의 도어 잠금 버튼을 누른 뒤, 4초 이내에 원격 시동 버튼을 길게 누르세요. 시동이 걸리면 비상 경고등이 깜빡입니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "answer",
+            "text": "원격 시동을 끄려면 원격 시동 버튼을 다시 누르세요.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "기어가 ‘P’(주차) 상태일 때만 원격으로 시동을 걸 수 있습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "도어가 잠겨 있어도 후드나 테일게이트가 열려 있으면 원격으로 시동을 걸 수 없습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "원격 시동 상태에서 스마트 키를 휴대하지 않고 차량에 탑승하면 일반 시동으로 바뀌지 않습니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "원격 시동 후 10분 이내에 차량에 탑승하지 않으면 시동이 자동으로 꺼집니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "엔진을 장시간 공회전하지 마세요.",
+            "citation_ids": [
+              1
+            ]
+          }
+        ],
+        "answer_layout_version": "sections_v1",
+        "citation_ids_validated": true
+      }
+    },
+    {
+      "id": "B20",
+      "question": "운전석 자세 메모리 시스템은 어떻게 초기화하나요?",
+      "expected_record_id": "auto_topic_139",
+      "kind": "same_50_questions",
+      "revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+      "actual_db_matches_candidate": true,
+      "generation_status": "generated_answer",
+      "result": {
+        "question": "운전석 자세 메모리 시스템은 어떻게 초기화하나요?",
+        "status": "generated_answer",
+        "answer_mode": "pdf_grounded_llm",
+        "answer": "### 핵심 답변\n\n- 시동을 ‘ON’으로 하고 ‘P’(주차)에 둔 뒤 운전석 도어를 여십시오. 좌석을 최대한 앞으로 당기고 등받이도 최대한 앞으로 젖히십시오. 1번 버튼과 운전석 전방 이동 스위치를 약 2초 동안 동시에 누른 다음, 알림음이 울리면 손을 떼십시오. 좌석과 등받이가 자동으로 뒤쪽으로 이동한 뒤 정중앙으로 이동하고 경고음이 울리면 초기화가 끝납니다. [1]\n\n### 추가 설명\n\n- 초기화 중 운전석 작동과 경고음이 멈추면 초기화를 다시 진행하십시오. 초기화가 끝나면 운전자에게 맞게 좌석을 조절하고 운전석 자세 메모리 시스템에 다시 저장하십시오. [1]\n\n- 운전석 자세 메모리 시스템 버튼이나 운전석 조절 스위치를 누르거나, ‘P’(주차)에서 다른 위치로 변속하거나, 차량이 3 km/h 이상의 속도로 움직이거나, 운전석 도어를 닫으면 초기화가 정지되고 경고음이 멈춥니다. [1]\n\n### 꼭 지킬 주의사항\n\n- 초기화 전에 운전석 주변에 장애물이 없도록 하십시오. [1]\n\n출처:\n[1] PDF 231쪽 / 매뉴얼 226쪽 · 운전석 자세 메모리 시스템 초기화",
+        "sources": [
+          {
+            "citation_id": 1,
+            "record_id": "auto_topic_139",
+            "title": "운전석 자세 메모리 시스템 초기화",
+            "source_pages": [
+              231
+            ],
+            "manual_page_number": 226,
+            "verification_status": "visually_reviewed_source",
+            "quote": "운전석 자세 메모리 시스템 초기화 운전석 자세 메모리 시스템이 정상적으로 작동하지 않을 경우 다음과 같이 초기화하십시오. 초기화 방법 \n1. 시동 'ON' 상태에서 'P'(주차)로 변속하고 운전석 도어를 여십시오. \n2. 운전석 전후 위치 및 등받이 각도 조절 스위치를 이용하여 좌석을 최대한 앞으로 당기고 등받이 도 최대한 앞으로 젖히십시오. \n3. 1번 버튼과 운전석 전방 이동 스위치를 동시에 누르십시오(약 2초). \n4. 알림음이 울리면 스위치에서 손을 떼십시오. 초기화 진행 \n1. 경고음이 작동하며 초기화 진행을 시작합니다. \n2. 좌석 및 등받이가 뒤쪽으로 자동 이동합니다. 동작 중에 경고음이 계속 작동합니다. \n3. 다시 좌석 및 등받이가 정중앙으로 이동하고 경고음이 울리며 초기화가 끝납니다. 단, 다음과 같은 경우에는 초기화 진행이 정지되며 경고음이 멈춥니다. 운전석 자세 메모리 시스템 버튼을 눌렀을 때 운전석 조절 스위치를 눌렀을 때 'P'(주차)에서 다른 위치로 변속할 때 차량이 3 km/h 이상의 속도로 움직일 때 운전석 도어를 닫았을 때 [주의] 초기화를 진행하기 전에 운전석 주변에 장애물이 없도록 하십시오. [참고] 초기화 중에 운전석 작동 및 경고음이 멈추면 다시 한번 초기화를 진행하십시오. 초기화가 끝나면 운전자에게 맞게 좌석을 조절하고, 다시 운전석 자세 메모리 시스템에 저장하 십시오. [참고] 인포테인먼트 시스템은 업데이트로 변경될 수 있습니다. 자세한 내용은 인포테인먼트 시스템 웹 매뉴얼을 참고하십시오.",
+            "quote_source": "stored_parent_content",
+            "raw_text": "운전석 자세 메모리 시스템 초기화\n운전석 자세 메모리 시스템이 정상적으로 작동하지 않을 경우 다음과 같이 초기화하십시오.\n초기화 방법\n시동 'ON' 상태에서 'P'(주차)로 변속하고 운전석 도어를 여십시오.\n운전석 전후 위치 및 등받이 각도 조절 스위치를 이용하여 좌석을 최대한 앞으로 당기고 등받이\n도 최대한 앞으로 젖히십시오.\n1번 버튼과 운전석 전방 이동 스위치를 동시에 누르십시오(약 2초).\n알림음이 울리면 스위치에서 손을 떼십시오.\n초기화 진행\n경고음이 작동하며 초기화 진행을 시작합니다.\n좌석 및 등받이가 뒤쪽으로 자동 이동합니다. 동작 중에 경고음이 계속 작동합니다.\n다시 좌석 및 등받이가 정중앙으로 이동하고 경고음이 울리며 초기화가 끝납니다.\n단, 다음과 같은 경우에는 초기화 진행이 정지되며 경고음이 멈춥니다.\n운전석 자세 메모리 시스템 버튼을 눌렀을 때\n운전석 조절 스위치를 눌렀을 때\n'P'(주차)에서 다른 위치로 변속할 때\n차량이 3 km/h 이상의 속도로 움직일 때\n운전석 도어를 닫았을 때\n ઱੄ \n초기화를 진행하기 전에 운전석 주변에 장애물이 없도록 하십시오.\nӝ \n초기화 중에 운전석 작동 및 경고음이 멈추면 다시 한번 초기화를 진행하십시오.\n초기화가 끝나면 운전자에게 맞게 좌석을 조절하고, 다시 운전석 자세 메모리 시스템에 저장하\n십시오.\nӝ \n인포테인먼트 시스템은 업데이트로 변경될 수 있습니다. 자세한 내용은 인포테인먼트 시스템 웹\n매뉴얼을 참고하십시오.\n",
+            "citation_required": true,
+            "citation_requirement_reason": "선택한 본문 또는 필수 연결 문맥",
+            "label": "[1] PDF 231쪽 / 매뉴얼 226쪽",
+            "cited_in_answer": true
+          }
+        ],
+        "images": [],
+        "pending_image_references": [],
+        "review_candidates": [],
+        "run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+        "search_method": "openai_1536_purpose_specific",
+        "embedding_model": "text-embedding-3-small",
+        "embedding_run_id": "ca3e71ef-8d77-4cdb-b4d2-9d48753dbb4e",
+        "review_revision_id": "696591ca-c3fb-56d7-87bc-b47a5b4b0d45",
+        "query_embedding_api_called": true,
+        "matched_chunk_record_id": "auto_topic_139_chunk_0",
+        "evidence_selection": {
+          "rule_version": "intent_directive_v1",
+          "intent": "procedure",
+          "selected_parent_record_id": "auto_topic_139",
+          "original_rank": 1
+        },
+        "semantic_answerability_validated": false,
+        "llm_called": true,
+        "db_written": false,
+        "storage_uploaded": false,
+        "retrieval_performed": true,
+        "limitation": "출처 번호·형식만 검사했습니다. 원문과 수치·조건·경고의 의미 대조는 필요합니다.",
+        "retrieval_recovery": {
+          "rule_version": "bounded_candidate_expansion_v1",
+          "initial_status": "evidence_excerpt",
+          "candidate_expansion_used": false,
+          "initial_candidate_count": 5,
+          "checked_candidate_count": 5,
+          "additional_query_embedding_calls": 0,
+          "additional_database_search_calls": 0
+        },
+        "input_processing": {
+          "rule_version": "conservative_terms_v1",
+          "original_question": "운전석 자세 메모리 시스템은 어떻게 초기화하나요?",
+          "search_question": "운전석 자세 메모리 시스템은 어떻게 초기화하나요?",
+          "term_changes": [],
+          "clarification_message": ""
+        },
+        "generation_model": "gpt-6-luna",
+        "generation_attempted": true,
+        "evidence_excerpt": "설명서에서 확인한 관련 내용입니다.\n\n[1] PDF 231쪽 / 매뉴얼 226쪽 · 운전석 자세 메모리 시스템 초기화\n운전석 자세 메모리 시스템 초기화 운전석 자세 메모리 시스템이 정상적으로 작동하지 않을 경우 다음과 같이 초기화하십시오. 초기화 방법 \n1. 시동 'ON' 상태에서 'P'(주차)로 변속하고 운전석 도어를 여십시오. \n2. 운전석 전후 위치 및 등받이 각도 조절 스위치를 이용하여 좌석을 최대한 앞으로 당기고 등받이 도 최대한 앞으로 젖히십시오. \n3. 1번 버튼과 운전석 전방 이동 스위치를 동시에 누르십시오(약 2초). \n4. 알림음이 울리면 스위치에서 손을 떼십시오. 초기화 진행 \n1. 경고음이 작동하며 초기화 진행을 시작합니다. \n2. 좌석 및 등받이가 뒤쪽으로 자동 이동합니다. 동작 중에 경고음이 계속 작동합니다. \n3. 다시 좌석 및 등받이가 정중앙으로 이동하고 경고음이 울리며 초기화가 끝납니다. 단, 다음과 같은 경우에는 초기화 진행이 정지되며 경고음이 멈춥니다. 운전석 자세 메모리 시스템 버튼을 눌렀을 때 운전석 조절 스위치를 눌렀을 때 'P'(주차)에서 다른 위치로 변속할 때 차량이 3 km/h 이상의 속도로 움직일 때 운전석 도어를 닫았을 때 [주의] 초기화를 진행하기 전에 운전석 주변에 장애물이 없도록 하십시오. [참고] 초기화 중에 운전석 작동 및 경고음이 멈추면 다시 한번 초기화를 진행하십시오. 초기화가 끝나면 운전자에게 맞게 좌석을 조절하고, 다시 운전석 자세 메모리 시스템에 저장하 십시오. [참고] 인포테인먼트 시스템은 업데이트로 변경될 수 있습니다. 자세한 내용은 인포테인먼트 시스템 웹 매뉴얼을 참고하십시오.",
+        "image_pixels_sent": false,
+        "generation_settings": {
+          "generation_model": "gpt-6-luna",
+          "temperature": 0.0,
+          "reasoning_effort": "none",
+          "api_mode": "chat_completions",
+          "max_output_tokens": 1400,
+          "max_prompt_characters": 32000,
+          "timeout_seconds": 45,
+          "automatic_retries": 0,
+          "api_key_configured": true,
+          "api_key_validated": false,
+          "image_pixels_sent": false,
+          "llm_called": false
+        },
+        "token_usage": {
+          "input_tokens": 1747,
+          "output_tokens": 327,
+          "total_tokens": 2074,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 1138,
+            "cache_creation": 606
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 0
+          }
+        },
+        "response_model": "gpt-6-luna",
+        "generation_diagnostics": {
+          "stage": "validated",
+          "raw_response": "{\"items\":[{\"section\":\"answer\",\"text\":\"시동을 ‘ON’으로 하고 ‘P’(주차)에 둔 뒤 운전석 도어를 여십시오. 좌석을 최대한 앞으로 당기고 등받이도 최대한 앞으로 젖히십시오. 1번 버튼과 운전석 전방 이동 스위치를 약 2초 동안 동시에 누른 다음, 알림음이 울리면 손을 떼십시오. 좌석과 등받이가 자동으로 뒤쪽으로 이동한 뒤 정중앙으로 이동하고 경고음이 울리면 초기화가 끝납니다.\",\"citation_ids\":[1]},{\"section\":\"caution\",\"text\":\"초기화 전에 운전석 주변에 장애물이 없도록 하십시오.\",\"citation_ids\":[1]},{\"section\":\"details\",\"text\":\"초기화 중 운전석 작동과 경고음이 멈추면 초기화를 다시 진행하십시오. 초기화가 끝나면 운전자에게 맞게 좌석을 조절하고 운전석 자세 메모리 시스템에 다시 저장하십시오.\",\"citation_ids\":[1]},{\"section\":\"details\",\"text\":\"운전석 자세 메모리 시스템 버튼이나 운전석 조절 스위치를 누르거나, ‘P’(주차)에서 다른 위치로 변속하거나, 차량이 3 km/h 이상의 속도로 움직이거나, 운전석 도어를 닫으면 초기화가 정지되고 경고음이 멈춥니다.\",\"citation_ids\":[1]}],\"unanswered\":[]}",
+          "finish_reason": "stop",
+          "uncited_reference_ids": []
+        },
+        "generation_notice": "",
+        "answer_items": [
+          {
+            "section": "answer",
+            "text": "시동을 ‘ON’으로 하고 ‘P’(주차)에 둔 뒤 운전석 도어를 여십시오. 좌석을 최대한 앞으로 당기고 등받이도 최대한 앞으로 젖히십시오. 1번 버튼과 운전석 전방 이동 스위치를 약 2초 동안 동시에 누른 다음, 알림음이 울리면 손을 떼십시오. 좌석과 등받이가 자동으로 뒤쪽으로 이동한 뒤 정중앙으로 이동하고 경고음이 울리면 초기화가 끝납니다.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "caution",
+            "text": "초기화 전에 운전석 주변에 장애물이 없도록 하십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "details",
+            "text": "초기화 중 운전석 작동과 경고음이 멈추면 초기화를 다시 진행하십시오. 초기화가 끝나면 운전자에게 맞게 좌석을 조절하고 운전석 자세 메모리 시스템에 다시 저장하십시오.",
+            "citation_ids": [
+              1
+            ]
+          },
+          {
+            "section": "details",
+            "text": "운전석 자세 메모리 시스템 버튼이나 운전석 조절 스위치를 누르거나, ‘P’(주차)에서 다른 위치로 변속하거나, 차량이 3 km/h 이상의 속도로 움직이거나, 운전석 도어를 닫으면 초기화가 정지되고 경고음이 멈춥니다.",
+            "citation_ids": [
+              1
+            ]
+          }
+        ],
+        "answer_layout_version": "sections_v1",
+        "citation_ids_validated": true
+      }
+    }
+  ],
+  "scope": "대표 3문항의 실제 DB 검색과 생성 검사. 의미 정확도는 별도 원문 대조 필요"
+}
