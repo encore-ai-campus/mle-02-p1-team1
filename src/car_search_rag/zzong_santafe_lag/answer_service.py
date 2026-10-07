@@ -40,6 +40,12 @@ def question_terms(question):
 def outside_pdf_reason(question):
     """실시간 조회·개별 차량 고장 진단 요청만 명시적 표현으로 구별합니다. 모든 범위 밖 질문 분류기는 아닙니다."""
     text = re.sub(r"\s+", "", question.lower())
+    # 날짜를 지정한 날씨 조회만 구별합니다. 비·눈이 올 때의 차량 사용법은 그대로 검색합니다.
+    dated_weather = (any(word in text for word in ("오늘","내일","모레","이번주","주말","현재","지금"))
+                     and bool(re.search(r"날씨|기온|강수|비(?:가|는|도)?(?:와|오|올)|눈(?:이|은|도)?(?:와|오|올)", text)))
+    vehicle_context = any(word in text for word in ("차량","자동차","미러","와이퍼","선루프","운전","주행","테일게이트","성에","타이어"))
+    if dated_weather and not vehicle_context:
+        return "날씨 예보는 자동차 사용설명서에서 확인할 수 없습니다. 날씨 앱이나 기상청 예보를 확인해주세요. 차량 사용법에 관한 질문은 도와드릴 수 있습니다."
     if any(word in text for word in ("최신리콜", "현재리콜", "오늘날씨", "현재가격", "오늘가격", "실시간교통")):
         return "실시간 또는 최신 정보는 제공된 PDF 한 개로 확인할 수 없습니다."
     personal = any(word in text for word in ("내차", "내차량", "지금차", "현재차"))

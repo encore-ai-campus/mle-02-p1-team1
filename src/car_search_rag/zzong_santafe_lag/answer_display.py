@@ -64,8 +64,8 @@ def format_answer_for_display(result, *, evidence_preview=False):
         )
     if status == "needs_review":
         return (
-            "관련 자료는 찾았지만, 원본 설명서와의 확인이 남아 있어 답변을 보류합니다.\n\n"
-            "자료 검토가 완료된 후 답변할 수 있습니다. 지금은 원본 PDF에서 해당 내용을 확인해주세요."
+            "현재 자료만으로는 질문에 대한 답변 근거를 확인하지 못했습니다.\n\n"
+            "아래에 원문 후보가 표시되면 참고용으로 확인해주세요. 후보 자료가 질문의 답을 담고 있다고 확정한 것은 아닙니다."
         )
     if evidence_preview and status == "evidence_excerpt" and result.get("sources"):
         return format_evidence_preview(result)

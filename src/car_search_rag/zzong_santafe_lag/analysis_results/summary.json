@@ -1,0 +1,6402 @@
+{
+  "created_at": "2026-10-06T07:48:01.485064+00:00",
+  "source_run_id": "ca9d2721-3d48-42a8-8748-3935e78515e5",
+  "pdf_sha256": "8fef11ef06a5ec675868b54b00b49b40de6bd4445f9f123fd0b4f6e0c5daad1b",
+  "review_revision_id": "a8970bd7-630f-55fd-bfdd-1e5194d13a3b",
+  "counts": {
+    "pdf_pages": 779,
+    "base_parents": 527,
+    "base_chunks": 2213,
+    "effective_parents": 527,
+    "effective_chunks": 2216,
+    "linked_unique_images": 864,
+    "image_links": 1155,
+    "reviewed_parents": 25,
+    "unreviewed_parents": 502,
+    "parent_referenced_pages": 738
+  },
+  "type_counts": {
+    "figure_with_text": 377,
+    "instruction_text": 141,
+    "structured_table": 3,
+    "vehicle_overview_navigation": 5,
+    "table_with_images": 1
+  },
+  "review_counts": {
+    "auto_draft_needs_review": 502,
+    "visually_reviewed_source": 11,
+    "sample_verified": 14
+  },
+  "length_statistics": {
+    "characters": {
+      "count": 527.0,
+      "mean": 804.51,
+      "std": 1136.02,
+      "min": 2.0,
+      "25%": 179.5,
+      "50%": 398.0,
+      "75%": 920.5,
+      "max": 9336.0
+    },
+    "chunks": {
+      "count": 527.0,
+      "mean": 4.2,
+      "std": 5.3,
+      "min": 1.0,
+      "25%": 1.0,
+      "50%": 2.0,
+      "75%": 5.0,
+      "max": 44.0
+    }
+  },
+  "length_chunk_rank_correlation": 0.9719,
+  "quality_checks": {
+    "empty_content": 0,
+    "empty_title": 0,
+    "missing_pages": 0,
+    "invalid_pages": 0,
+    "duplicate_record_ids": 0,
+    "exact_duplicate_content_excess": 0,
+    "orphan_chunks": 0,
+    "parents_without_chunks": 0
+  },
+  "parents": [
+    {
+      "record_id": "auto_topic_0",
+      "title": "PDF 1쪽 제목 미확인 구간",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1233,
+      "chunks": 7,
+      "source_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "record_id": "auto_topic_1",
+      "title": "PDF 5쪽 제목 미확인 구간",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 117,
+      "chunks": 1,
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "record_id": "auto_topic_10",
+      "title": "경고등/표시등 및 클러스터 표시창 정보",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 684,
+      "chunks": 4,
+      "source_pages": [
+        14,
+        15
+      ]
+    },
+    {
+      "record_id": "auto_topic_100",
+      "title": "클러스터 표시창 정보",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1254,
+      "chunks": 6,
+      "source_pages": [
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ]
+    },
+    {
+      "record_id": "auto_topic_101",
+      "title": "인포테인먼트 시스템 차량 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 209,
+      "chunks": 1,
+      "source_pages": [
+        181
+      ]
+    },
+    {
+      "record_id": "auto_topic_102",
+      "title": "차량 설정하기",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 115,
+      "chunks": 1,
+      "source_pages": [
+        181
+      ]
+    },
+    {
+      "record_id": "auto_topic_103",
+      "title": "스마트 키",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        188
+      ]
+    },
+    {
+      "record_id": "auto_topic_104",
+      "title": "스마트 키 사용 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3451,
+      "chunks": 17,
+      "source_pages": [
+        188,
+        189,
+        190,
+        191,
+        192
+      ]
+    },
+    {
+      "record_id": "auto_topic_105",
+      "title": "스마트 키 사용 시 주의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1919,
+      "chunks": 10,
+      "source_pages": [
+        192,
+        193
+      ]
+    },
+    {
+      "record_id": "auto_topic_106",
+      "title": "건전지 교체 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 816,
+      "chunks": 4,
+      "source_pages": [
+        193,
+        194
+      ]
+    },
+    {
+      "record_id": "auto_topic_107",
+      "title": "이모빌라이저 시스템",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 552,
+      "chunks": 3,
+      "source_pages": [
+        195
+      ]
+    },
+    {
+      "record_id": "auto_topic_108",
+      "title": "현대 디지털 키",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 97,
+      "chunks": 1,
+      "source_pages": [
+        196
+      ]
+    },
+    {
+      "record_id": "auto_topic_109",
+      "title": "디지털 키 (스마트폰 )",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5719,
+      "chunks": 26,
+      "source_pages": [
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203
+      ]
+    },
+    {
+      "record_id": "auto_topic_11",
+      "title": "하이브리드 시스템 경고 메시지",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 755,
+      "chunks": 3,
+      "source_pages": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "record_id": "auto_topic_110",
+      "title": "디지털 키 (카드 키)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2503,
+      "chunks": 12,
+      "source_pages": [
+        203,
+        204,
+        205,
+        206
+      ]
+    },
+    {
+      "record_id": "auto_topic_111",
+      "title": "프로필 및 차량 설정 개인화",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1879,
+      "chunks": 9,
+      "source_pages": [
+        207,
+        208,
+        209
+      ]
+    },
+    {
+      "record_id": "auto_topic_112",
+      "title": "중고차 구입/디지털 키 관련 차량 정비",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 397,
+      "chunks": 2,
+      "source_pages": [
+        209
+      ]
+    },
+    {
+      "record_id": "auto_topic_113",
+      "title": "작동 제한 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 510,
+      "chunks": 2,
+      "source_pages": [
+        209,
+        210
+      ]
+    },
+    {
+      "record_id": "auto_topic_114",
+      "title": "지문 인증 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 257,
+      "chunks": 1,
+      "source_pages": [
+        211
+      ]
+    },
+    {
+      "record_id": "auto_topic_115",
+      "title": "지문 인증 시스템 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 926,
+      "chunks": 4,
+      "source_pages": [
+        211,
+        212
+      ]
+    },
+    {
+      "record_id": "auto_topic_116",
+      "title": "지문 인증 시스템 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1090,
+      "chunks": 5,
+      "source_pages": [
+        212,
+        213,
+        214
+      ]
+    },
+    {
+      "record_id": "auto_topic_117",
+      "title": "지문 인증 시스템 제한 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1291,
+      "chunks": 7,
+      "source_pages": [
+        214,
+        215
+      ]
+    },
+    {
+      "record_id": "auto_topic_118",
+      "title": "중고차 구입",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 197,
+      "chunks": 1,
+      "source_pages": [
+        215
+      ]
+    },
+    {
+      "record_id": "auto_topic_119",
+      "title": "원격 시동 전환",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 247,
+      "chunks": 1,
+      "source_pages": [
+        215
+      ]
+    },
+    {
+      "record_id": "auto_topic_12",
+      "title": "관성 주행 안내",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 603,
+      "chunks": 3,
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "record_id": "auto_topic_120",
+      "title": "도어",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2,
+      "chunks": 1,
+      "source_pages": [
+        216
+      ]
+    },
+    {
+      "record_id": "auto_topic_121",
+      "title": "차 밖에서의 잠금/잠금 해제",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1482,
+      "chunks": 7,
+      "source_pages": [
+        216,
+        217,
+        218
+      ]
+    },
+    {
+      "record_id": "auto_topic_122",
+      "title": "차 안에서의 잠금/잠금 해제",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1382,
+      "chunks": 6,
+      "source_pages": [
+        218,
+        219,
+        220
+      ]
+    },
+    {
+      "record_id": "auto_topic_123",
+      "title": "충돌 감지 자동 도어 잠금 해제 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 146,
+      "chunks": 1,
+      "source_pages": [
+        220
+      ]
+    },
+    {
+      "record_id": "auto_topic_124",
+      "title": "차속 감응 자동 도어 잠금 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 142,
+      "chunks": 1,
+      "source_pages": [
+        220
+      ]
+    },
+    {
+      "record_id": "auto_topic_125",
+      "title": "자동 도어 잠금/잠금 해제 기능",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 309,
+      "chunks": 2,
+      "source_pages": [
+        220,
+        221
+      ]
+    },
+    {
+      "record_id": "auto_topic_126",
+      "title": "전자식 차일드 락",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1026,
+      "chunks": 5,
+      "source_pages": [
+        221,
+        222
+      ]
+    },
+    {
+      "record_id": "auto_topic_127",
+      "title": "어드밴스드 후석 승객 알림",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 50,
+      "chunks": 1,
+      "source_pages": [
+        223
+      ]
+    },
+    {
+      "record_id": "auto_topic_128",
+      "title": "후석 승객 알림 설정",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 140,
+      "chunks": 1,
+      "source_pages": [
+        223
+      ]
+    },
+    {
+      "record_id": "auto_topic_129",
+      "title": "후석 승객 알림 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1553,
+      "chunks": 8,
+      "source_pages": [
+        223,
+        224,
+        225,
+        226
+      ]
+    },
+    {
+      "record_id": "auto_topic_13",
+      "title": "대기 환경 보호 주행",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 739,
+      "chunks": 4,
+      "source_pages": [
+        18,
+        19
+      ]
+    },
+    {
+      "record_id": "auto_topic_130",
+      "title": "도난 경보 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 201,
+      "chunks": 1,
+      "source_pages": [
+        227
+      ]
+    },
+    {
+      "record_id": "auto_topic_131",
+      "title": "경계 상태",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 710,
+      "chunks": 3,
+      "source_pages": [
+        227
+      ]
+    },
+    {
+      "record_id": "auto_topic_132",
+      "title": "경보 상태",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 176,
+      "chunks": 1,
+      "source_pages": [
+        227
+      ]
+    },
+    {
+      "record_id": "auto_topic_133",
+      "title": "경보 보류",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 204,
+      "chunks": 1,
+      "source_pages": [
+        228
+      ]
+    },
+    {
+      "record_id": "auto_topic_134",
+      "title": "경계 및 경보 상태 해제",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 507,
+      "chunks": 3,
+      "source_pages": [
+        228
+      ]
+    },
+    {
+      "record_id": "auto_topic_135",
+      "title": "운전석 자세 메모리 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 422,
+      "chunks": 2,
+      "source_pages": [
+        229
+      ]
+    },
+    {
+      "record_id": "auto_topic_136",
+      "title": "개인화 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 110,
+      "chunks": 1,
+      "source_pages": [
+        229
+      ]
+    },
+    {
+      "record_id": "auto_topic_137",
+      "title": "도어에 있는 버튼에 의한 기억",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 534,
+      "chunks": 3,
+      "source_pages": [
+        230
+      ]
+    },
+    {
+      "record_id": "auto_topic_138",
+      "title": "승하차 편의 기능",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 472,
+      "chunks": 3,
+      "source_pages": [
+        230,
+        231
+      ]
+    },
+    {
+      "record_id": "auto_topic_139",
+      "title": "운전석 자세 메모리 시스템 초기화",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 728,
+      "chunks": 4,
+      "source_pages": [
+        231
+      ]
+    },
+    {
+      "record_id": "auto_topic_14",
+      "title": "선회 성능 보조/긴급 회피 조향 성능 보조",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 741,
+      "chunks": 4,
+      "source_pages": [
+        19,
+        20
+      ]
+    },
+    {
+      "record_id": "auto_topic_140",
+      "title": "스마트 자세 제어 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 473,
+      "chunks": 2,
+      "source_pages": [
+        232
+      ]
+    },
+    {
+      "record_id": "auto_topic_141",
+      "title": "스티어링 휠 (조향 핸들)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 14,
+      "chunks": 1,
+      "source_pages": [
+        233
+      ]
+    },
+    {
+      "record_id": "auto_topic_142",
+      "title": "전동 파워 스티어링",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1109,
+      "chunks": 6,
+      "source_pages": [
+        233
+      ]
+    },
+    {
+      "record_id": "auto_topic_143",
+      "title": "스티어링 위치 조절",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1001,
+      "chunks": 5,
+      "source_pages": [
+        233,
+        234,
+        235
+      ]
+    },
+    {
+      "record_id": "auto_topic_144",
+      "title": "스티어링 휠 열선 (조향 핸들 열선)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 802,
+      "chunks": 4,
+      "source_pages": [
+        235,
+        236
+      ]
+    },
+    {
+      "record_id": "auto_topic_145",
+      "title": "경음기",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 237,
+      "chunks": 2,
+      "source_pages": [
+        237
+      ]
+    },
+    {
+      "record_id": "auto_topic_146",
+      "title": "스티어링 휠 그립 감지 센서",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 616,
+      "chunks": 3,
+      "source_pages": [
+        237,
+        238
+      ]
+    },
+    {
+      "record_id": "auto_topic_147",
+      "title": "스티어링 휠 진동 경고",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 210,
+      "chunks": 1,
+      "source_pages": [
+        238
+      ]
+    },
+    {
+      "record_id": "auto_topic_148",
+      "title": "미러",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2,
+      "chunks": 1,
+      "source_pages": [
+        239
+      ]
+    },
+    {
+      "record_id": "auto_topic_149",
+      "title": "실내 미러",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 4414,
+      "chunks": 20,
+      "source_pages": [
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246
+      ]
+    },
+    {
+      "record_id": "auto_topic_15",
+      "title": "e-Ride",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 368,
+      "chunks": 2,
+      "source_pages": [
+        20,
+        21
+      ]
+    },
+    {
+      "record_id": "auto_topic_151",
+      "title": "하이패스 시스템 (ETCS)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3764,
+      "chunks": 18,
+      "source_pages": [
+        250,
+        251,
+        252,
+        253
+      ]
+    },
+    {
+      "record_id": "auto_topic_152",
+      "title": "유리창 열림/닫힘 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 147,
+      "chunks": 1,
+      "source_pages": [
+        254
+      ]
+    },
+    {
+      "record_id": "auto_topic_153",
+      "title": "전동식",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2137,
+      "chunks": 10,
+      "source_pages": [
+        254,
+        255,
+        256,
+        257
+      ]
+    },
+    {
+      "record_id": "auto_topic_154",
+      "title": "원격 유리창 열림/닫힘 기능 (리모트 윈도우 컨트롤)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 610,
+      "chunks": 3,
+      "source_pages": [
+        257,
+        258
+      ]
+    },
+    {
+      "record_id": "auto_topic_155",
+      "title": "듀얼 와이드 선루프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 403,
+      "chunks": 2,
+      "source_pages": [
+        259
+      ]
+    },
+    {
+      "record_id": "auto_topic_156",
+      "title": "선블라인드 (앞)/파워 선블라인드 (뒤)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 466,
+      "chunks": 3,
+      "source_pages": [
+        259,
+        260,
+        261
+      ]
+    },
+    {
+      "record_id": "auto_topic_157",
+      "title": "틸트 열림/닫힘 (앞좌석)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 183,
+      "chunks": 1,
+      "source_pages": [
+        261
+      ]
+    },
+    {
+      "record_id": "auto_topic_158",
+      "title": "슬라이드 열림/닫힘 (앞좌석)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 180,
+      "chunks": 1,
+      "source_pages": [
+        261,
+        262
+      ]
+    },
+    {
+      "record_id": "auto_topic_159",
+      "title": "물체 끼임 인식 기능",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 859,
+      "chunks": 4,
+      "source_pages": [
+        262,
+        263
+      ]
+    },
+    {
+      "record_id": "auto_topic_16",
+      "title": "하이브리드 시스템 안전 주의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 18,
+      "chunks": 1,
+      "source_pages": [
+        22
+      ]
+    },
+    {
+      "record_id": "auto_topic_160",
+      "title": "선루프 초기화",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 531,
+      "chunks": 3,
+      "source_pages": [
+        263,
+        264
+      ]
+    },
+    {
+      "record_id": "auto_topic_161",
+      "title": "선루프 열림 경고",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 189,
+      "chunks": 1,
+      "source_pages": [
+        264,
+        265
+      ]
+    },
+    {
+      "record_id": "auto_topic_162",
+      "title": "후드",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2,
+      "chunks": 1,
+      "source_pages": [
+        266
+      ]
+    },
+    {
+      "record_id": "auto_topic_163",
+      "title": "후드 여는 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 145,
+      "chunks": 1,
+      "source_pages": [
+        266
+      ]
+    },
+    {
+      "record_id": "auto_topic_164",
+      "title": "후드 닫는 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 654,
+      "chunks": 3,
+      "source_pages": [
+        266,
+        267
+      ]
+    },
+    {
+      "record_id": "auto_topic_165",
+      "title": "파워 테일게이트",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 8,
+      "chunks": 1,
+      "source_pages": [
+        268
+      ]
+    },
+    {
+      "record_id": "auto_topic_166",
+      "title": "파워 테일게이트 작동 조건",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1817,
+      "chunks": 9,
+      "source_pages": [
+        268,
+        269,
+        270
+      ]
+    },
+    {
+      "record_id": "auto_topic_167",
+      "title": "파워 테일게이트 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1351,
+      "chunks": 7,
+      "source_pages": [
+        270,
+        271,
+        272,
+        273
+      ]
+    },
+    {
+      "record_id": "auto_topic_168",
+      "title": "파워 테일게이트 설정 방법",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 755,
+      "chunks": 4,
+      "source_pages": [
+        273
+      ]
+    },
+    {
+      "record_id": "auto_topic_169",
+      "title": "파워 테일게이트 초기화",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 474,
+      "chunks": 3,
+      "source_pages": [
+        273,
+        274
+      ]
+    },
+    {
+      "record_id": "auto_topic_17",
+      "title": "고전압 배터리 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 326,
+      "chunks": 2,
+      "source_pages": [
+        22
+      ]
+    },
+    {
+      "record_id": "auto_topic_170",
+      "title": "비상시 파워 테일게이트 잠금 해제",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 300,
+      "chunks": 2,
+      "source_pages": [
+        274
+      ]
+    },
+    {
+      "record_id": "auto_topic_175",
+      "title": "연료 주입구",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 6,
+      "chunks": 1,
+      "source_pages": [
+        279
+      ]
+    },
+    {
+      "record_id": "auto_topic_176",
+      "title": "연료 주입구 여는 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 587,
+      "chunks": 3,
+      "source_pages": [
+        279,
+        280
+      ]
+    },
+    {
+      "record_id": "auto_topic_177",
+      "title": "연료 주입구 닫는 방법",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1675,
+      "chunks": 8,
+      "source_pages": [
+        280,
+        281
+      ]
+    },
+    {
+      "record_id": "auto_topic_178",
+      "title": "헤드업 디스플레이 (HUD)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 127,
+      "chunks": 1,
+      "source_pages": [
+        282
+      ]
+    },
+    {
+      "record_id": "auto_topic_179",
+      "title": "기능 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 219,
+      "chunks": 1,
+      "source_pages": [
+        282
+      ]
+    },
+    {
+      "record_id": "auto_topic_18",
+      "title": "고전압 배터리 시스템 분해/조립 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1218,
+      "chunks": 6,
+      "source_pages": [
+        23
+      ]
+    },
+    {
+      "record_id": "auto_topic_180",
+      "title": "HUD 표시정보",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 148,
+      "chunks": 1,
+      "source_pages": [
+        283
+      ]
+    },
+    {
+      "record_id": "auto_topic_181",
+      "title": "사용 시 주의사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 580,
+      "chunks": 4,
+      "source_pages": [
+        283,
+        284
+      ]
+    },
+    {
+      "record_id": "auto_topic_182",
+      "title": "빌트인 캠 (Built-in Cam)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 230,
+      "chunks": 1,
+      "source_pages": [
+        285
+      ]
+    },
+    {
+      "record_id": "auto_topic_183",
+      "title": "빌트인 캠 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2625,
+      "chunks": 12,
+      "source_pages": [
+        285,
+        286,
+        287,
+        288,
+        289
+      ]
+    },
+    {
+      "record_id": "auto_topic_184",
+      "title": "빌트인 캠 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1930,
+      "chunks": 9,
+      "source_pages": [
+        290,
+        291,
+        292
+      ]
+    },
+    {
+      "record_id": "auto_topic_185",
+      "title": "빌트인 캠 영상 확인",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 754,
+      "chunks": 3,
+      "source_pages": [
+        292,
+        293,
+        294
+      ]
+    },
+    {
+      "record_id": "auto_topic_186",
+      "title": "휴대폰 앱 연결",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 688,
+      "chunks": 3,
+      "source_pages": [
+        294,
+        295
+      ]
+    },
+    {
+      "record_id": "auto_topic_187",
+      "title": "빌트인 캠 소프트웨어 업데이트",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 318,
+      "chunks": 2,
+      "source_pages": [
+        295
+      ]
+    },
+    {
+      "record_id": "auto_topic_188",
+      "title": "빌트인 캠 사양",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 334,
+      "chunks": 2,
+      "source_pages": [
+        295,
+        296
+      ]
+    },
+    {
+      "record_id": "auto_topic_189",
+      "title": "영상 저장 위치 및 저장 기준",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1573,
+      "chunks": 8,
+      "source_pages": [
+        296,
+        297
+      ]
+    },
+    {
+      "record_id": "auto_topic_19",
+      "title": "고전압 모터 커넥터(엔진룸)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 125,
+      "chunks": 1,
+      "source_pages": [
+        24
+      ]
+    },
+    {
+      "record_id": "auto_topic_190",
+      "title": "무선 소프트웨어 업데이트",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 97,
+      "chunks": 1,
+      "source_pages": [
+        298
+      ]
+    },
+    {
+      "record_id": "auto_topic_191",
+      "title": "소프트웨어 자동 다운로드",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 127,
+      "chunks": 1,
+      "source_pages": [
+        298
+      ]
+    },
+    {
+      "record_id": "auto_topic_192",
+      "title": "소프트웨어 업데이트 승인",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1803,
+      "chunks": 8,
+      "source_pages": [
+        298,
+        299,
+        300
+      ]
+    },
+    {
+      "record_id": "auto_topic_193",
+      "title": "조명",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2,
+      "chunks": 1,
+      "source_pages": [
+        301
+      ]
+    },
+    {
+      "record_id": "auto_topic_194",
+      "title": "실외 조명 스위치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 726,
+      "chunks": 4,
+      "source_pages": [
+        301,
+        302
+      ]
+    },
+    {
+      "record_id": "auto_topic_195",
+      "title": "전조등 상향, 하향 변환",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 489,
+      "chunks": 3,
+      "source_pages": [
+        303
+      ]
+    },
+    {
+      "record_id": "auto_topic_196",
+      "title": "방향 지시 및 차선 변경",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 621,
+      "chunks": 4,
+      "source_pages": [
+        304
+      ]
+    },
+    {
+      "record_id": "auto_topic_197",
+      "title": "배터리 방전 방지 기능 (조명 자동 꺼짐)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 308,
+      "chunks": 2,
+      "source_pages": [
+        304,
+        305
+      ]
+    },
+    {
+      "record_id": "auto_topic_198",
+      "title": "전자 제어 장치 안정화 기능",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 391,
+      "chunks": 2,
+      "source_pages": [
+        305
+      ]
+    },
+    {
+      "record_id": "auto_topic_199",
+      "title": "전조등 각도 조절 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 529,
+      "chunks": 3,
+      "source_pages": [
+        305,
+        306
+      ]
+    },
+    {
+      "record_id": "auto_topic_2",
+      "title": "하이브리드 자동차 개요",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 12,
+      "chunks": 1,
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "record_id": "auto_topic_20",
+      "title": "고전압 차단 스위치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 305,
+      "chunks": 2,
+      "source_pages": [
+        24
+      ]
+    },
+    {
+      "record_id": "auto_topic_200",
+      "title": "헤드램프 에스코트",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 600,
+      "chunks": 3,
+      "source_pages": [
+        306
+      ]
+    },
+    {
+      "record_id": "auto_topic_201",
+      "title": "주간 주행등 (DRL: Daytime Running Light)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 434,
+      "chunks": 3,
+      "source_pages": [
+        306,
+        307
+      ]
+    },
+    {
+      "record_id": "auto_topic_202",
+      "title": "후진 가이드 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 143,
+      "chunks": 1,
+      "source_pages": [
+        307
+      ]
+    },
+    {
+      "record_id": "auto_topic_203",
+      "title": "웰컴 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1247,
+      "chunks": 5,
+      "source_pages": [
+        307,
+        308
+      ]
+    },
+    {
+      "record_id": "auto_topic_204",
+      "title": "하이빔 보조 (HBA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 351,
+      "chunks": 2,
+      "source_pages": [
+        309
+      ]
+    },
+    {
+      "record_id": "auto_topic_205",
+      "title": "하이빔 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 147,
+      "chunks": 1,
+      "source_pages": [
+        310
+      ]
+    },
+    {
+      "record_id": "auto_topic_206",
+      "title": "하이빔 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 837,
+      "chunks": 4,
+      "source_pages": [
+        310,
+        311
+      ]
+    },
+    {
+      "record_id": "auto_topic_207",
+      "title": "하이빔 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 961,
+      "chunks": 4,
+      "source_pages": [
+        311,
+        312
+      ]
+    },
+    {
+      "record_id": "auto_topic_208",
+      "title": "실내등",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 365,
+      "chunks": 2,
+      "source_pages": [
+        313
+      ]
+    },
+    {
+      "record_id": "auto_topic_209",
+      "title": "앞좌석 맵 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 293,
+      "chunks": 2,
+      "source_pages": [
+        313
+      ]
+    },
+    {
+      "record_id": "auto_topic_21",
+      "title": "공기흡입구",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 446,
+      "chunks": 2,
+      "source_pages": [
+        25
+      ]
+    },
+    {
+      "record_id": "auto_topic_210",
+      "title": "뒷좌석 퍼스널 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 46,
+      "chunks": 1,
+      "source_pages": [
+        314
+      ]
+    },
+    {
+      "record_id": "auto_topic_211",
+      "title": "선바이저 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 47,
+      "chunks": 1,
+      "source_pages": [
+        314
+      ]
+    },
+    {
+      "record_id": "auto_topic_212",
+      "title": "글로브 박스 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 143,
+      "chunks": 1,
+      "source_pages": [
+        314,
+        315
+      ]
+    },
+    {
+      "record_id": "auto_topic_213",
+      "title": "양방향 멀티 콘솔 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 154,
+      "chunks": 1,
+      "source_pages": [
+        315
+      ]
+    },
+    {
+      "record_id": "auto_topic_214",
+      "title": "실내 버튼 조명",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 484,
+      "chunks": 3,
+      "source_pages": [
+        315,
+        316
+      ]
+    },
+    {
+      "record_id": "auto_topic_215",
+      "title": "무드 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 275,
+      "chunks": 2,
+      "source_pages": [
+        316
+      ]
+    },
+    {
+      "record_id": "auto_topic_216",
+      "title": "화물칸 램프",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 197,
+      "chunks": 1,
+      "source_pages": [
+        317
+      ]
+    },
+    {
+      "record_id": "auto_topic_217",
+      "title": "와이퍼/와셔",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 6,
+      "chunks": 1,
+      "source_pages": [
+        318
+      ]
+    },
+    {
+      "record_id": "auto_topic_218",
+      "title": "와이퍼 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2091,
+      "chunks": 11,
+      "source_pages": [
+        318,
+        319,
+        320
+      ]
+    },
+    {
+      "record_id": "auto_topic_219",
+      "title": "와셔액 분출",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1131,
+      "chunks": 6,
+      "source_pages": [
+        321,
+        322
+      ]
+    },
+    {
+      "record_id": "auto_topic_22",
+      "title": "차량 사고 및 화재 발생 시 조치사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 891,
+      "chunks": 5,
+      "source_pages": [
+        26
+      ]
+    },
+    {
+      "record_id": "auto_topic_220",
+      "title": "히터 및 에어컨 (자동 조절식)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 838,
+      "chunks": 5,
+      "source_pages": [
+        323,
+        324,
+        325
+      ]
+    },
+    {
+      "record_id": "auto_topic_221",
+      "title": "전자동 조절 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 654,
+      "chunks": 4,
+      "source_pages": [
+        325,
+        326
+      ]
+    },
+    {
+      "record_id": "auto_topic_222",
+      "title": "수동 조절 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5506,
+      "chunks": 27,
+      "source_pages": [
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336
+      ]
+    },
+    {
+      "record_id": "auto_topic_223",
+      "title": "공조 장치용 에어필터",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 512,
+      "chunks": 3,
+      "source_pages": [
+        336,
+        337
+      ]
+    },
+    {
+      "record_id": "auto_topic_224",
+      "title": "에어컨 냉매 및 압축기 윤활유량 점검",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 717,
+      "chunks": 4,
+      "source_pages": [
+        337,
+        338
+      ]
+    },
+    {
+      "record_id": "auto_topic_225",
+      "title": "유리창 습기/성에 제거 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 15,
+      "chunks": 1,
+      "source_pages": [
+        339
+      ]
+    },
+    {
+      "record_id": "auto_topic_226",
+      "title": "실내 측 유리창 습기 제거 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 245,
+      "chunks": 1,
+      "source_pages": [
+        339
+      ]
+    },
+    {
+      "record_id": "auto_topic_227",
+      "title": "실외 측 유리 성에 제거 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 417,
+      "chunks": 2,
+      "source_pages": [
+        339,
+        340
+      ]
+    },
+    {
+      "record_id": "auto_topic_228",
+      "title": "서리 제거 (열선)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 376,
+      "chunks": 2,
+      "source_pages": [
+        341
+      ]
+    },
+    {
+      "record_id": "auto_topic_229",
+      "title": "뒷유리 서리 제거 (열선)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 239,
+      "chunks": 1,
+      "source_pages": [
+        341
+      ]
+    },
+    {
+      "record_id": "auto_topic_23",
+      "title": "주차 브레이크 (EPB) 를 이용한 비상 제동이 필요한 경우",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 867,
+      "chunks": 5,
+      "source_pages": [
+        27
+      ]
+    },
+    {
+      "record_id": "auto_topic_230",
+      "title": "주요 기능 및 기타 설정 (히터 및 에어컨)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 93,
+      "chunks": 1,
+      "source_pages": [
+        342
+      ]
+    },
+    {
+      "record_id": "auto_topic_231",
+      "title": "애프터 블로우 (에어컨 자동 건조)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 768,
+      "chunks": 4,
+      "source_pages": [
+        342
+      ]
+    },
+    {
+      "record_id": "auto_topic_232",
+      "title": "오토 디포그 (자동 김 서림 제거 기능)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 846,
+      "chunks": 5,
+      "source_pages": [
+        343,
+        344
+      ]
+    },
+    {
+      "record_id": "auto_topic_233",
+      "title": "습기 발생 저감",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 428,
+      "chunks": 2,
+      "source_pages": [
+        344
+      ]
+    },
+    {
+      "record_id": "auto_topic_234",
+      "title": "선루프 실내 공기 순환",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 146,
+      "chunks": 1,
+      "source_pages": [
+        344
+      ]
+    },
+    {
+      "record_id": "auto_topic_235",
+      "title": "와셔액 냄새 유입 방지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 388,
+      "chunks": 2,
+      "source_pages": [
+        344,
+        345
+      ]
+    },
+    {
+      "record_id": "auto_topic_236",
+      "title": "외부 공기 차단 기능 (터널 및 기타 차단 구간)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 900,
+      "chunks": 5,
+      "source_pages": [
+        345,
+        346
+      ]
+    },
+    {
+      "record_id": "auto_topic_237",
+      "title": "스마트 열선/통풍 (운전석 공조 연동 자동 제어)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 247,
+      "chunks": 2,
+      "source_pages": [
+        346
+      ]
+    },
+    {
+      "record_id": "auto_topic_238",
+      "title": "다용도 보관함",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 549,
+      "chunks": 3,
+      "source_pages": [
+        347
+      ]
+    },
+    {
+      "record_id": "auto_topic_239",
+      "title": "양방향 멀티 콘솔",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 363,
+      "chunks": 2,
+      "source_pages": [
+        347,
+        348
+      ]
+    },
+    {
+      "record_id": "auto_topic_24",
+      "title": "차량 내부",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        32
+      ]
+    },
+    {
+      "record_id": "auto_topic_240",
+      "title": "글로브 박스",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 152,
+      "chunks": 1,
+      "source_pages": [
+        348
+      ]
+    },
+    {
+      "record_id": "auto_topic_241",
+      "title": "동승석 멀티 트레이",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 68,
+      "chunks": 1,
+      "source_pages": [
+        348
+      ]
+    },
+    {
+      "record_id": "auto_topic_242",
+      "title": "동승석 오픈 트레이",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 86,
+      "chunks": 1,
+      "source_pages": [
+        349
+      ]
+    },
+    {
+      "record_id": "auto_topic_243",
+      "title": "전방 트레이",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 168,
+      "chunks": 1,
+      "source_pages": [
+        349
+      ]
+    },
+    {
+      "record_id": "auto_topic_244",
+      "title": "슬라이딩 트레이",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 190,
+      "chunks": 1,
+      "source_pages": [
+        350
+      ]
+    },
+    {
+      "record_id": "auto_topic_245",
+      "title": "화물칸 수납 정리함",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 77,
+      "chunks": 1,
+      "source_pages": [
+        350,
+        351
+      ]
+    },
+    {
+      "record_id": "auto_topic_246",
+      "title": "실내 편의 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 8,
+      "chunks": 1,
+      "source_pages": [
+        352
+      ]
+    },
+    {
+      "record_id": "auto_topic_247",
+      "title": "컵 홀더",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 663,
+      "chunks": 3,
+      "source_pages": [
+        352,
+        353
+      ]
+    },
+    {
+      "record_id": "auto_topic_248",
+      "title": "UV-C 살균 소독 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2014,
+      "chunks": 11,
+      "source_pages": [
+        354,
+        355,
+        356
+      ]
+    },
+    {
+      "record_id": "auto_topic_249",
+      "title": "선바이저",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 392,
+      "chunks": 2,
+      "source_pages": [
+        356,
+        357
+      ]
+    },
+    {
+      "record_id": "auto_topic_25",
+      "title": "엔진룸",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 189,
+      "chunks": 1,
+      "source_pages": [
+        37
+      ]
+    },
+    {
+      "record_id": "auto_topic_250",
+      "title": "다용도 소켓",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 912,
+      "chunks": 5,
+      "source_pages": [
+        357,
+        358
+      ]
+    },
+    {
+      "record_id": "auto_topic_251",
+      "title": "USB 충전 단자",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 815,
+      "chunks": 4,
+      "source_pages": [
+        358,
+        359,
+        360
+      ]
+    },
+    {
+      "record_id": "auto_topic_252",
+      "title": "스마트폰 무선 충전 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2380,
+      "chunks": 10,
+      "source_pages": [
+        360,
+        361,
+        362,
+        363
+      ]
+    },
+    {
+      "record_id": "auto_topic_253",
+      "title": "AC 220 V 인버터",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 956,
+      "chunks": 5,
+      "source_pages": [
+        363,
+        364
+      ]
+    },
+    {
+      "record_id": "auto_topic_254",
+      "title": "코트 후크",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 202,
+      "chunks": 1,
+      "source_pages": [
+        365
+      ]
+    },
+    {
+      "record_id": "auto_topic_255",
+      "title": "쇼핑백 후크",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 181,
+      "chunks": 1,
+      "source_pages": [
+        366
+      ]
+    },
+    {
+      "record_id": "auto_topic_256",
+      "title": "카 매트 후크",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 382,
+      "chunks": 3,
+      "source_pages": [
+        366,
+        367
+      ]
+    },
+    {
+      "record_id": "auto_topic_257",
+      "title": "뒷좌석 도어 커튼",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 335,
+      "chunks": 2,
+      "source_pages": [
+        367
+      ]
+    },
+    {
+      "record_id": "auto_topic_258",
+      "title": "화물 고정 장치 (그물망)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 348,
+      "chunks": 2,
+      "source_pages": [
+        368
+      ]
+    },
+    {
+      "record_id": "auto_topic_259",
+      "title": "실외 편의 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 8,
+      "chunks": 1,
+      "source_pages": [
+        369
+      ]
+    },
+    {
+      "record_id": "auto_topic_26",
+      "title": "차량 제원",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 171,
+      "chunks": 1,
+      "source_pages": [
+        38
+      ]
+    },
+    {
+      "record_id": "auto_topic_260",
+      "title": "루프랙",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 927,
+      "chunks": 5,
+      "source_pages": [
+        369,
+        370
+      ]
+    },
+    {
+      "record_id": "auto_topic_261",
+      "title": "히든 타입 어시스트 핸들",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 533,
+      "chunks": 3,
+      "source_pages": [
+        370,
+        371
+      ]
+    },
+    {
+      "record_id": "auto_topic_262",
+      "title": "인포테인먼트 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 161,
+      "chunks": 1,
+      "source_pages": [
+        372
+      ]
+    },
+    {
+      "record_id": "auto_topic_263",
+      "title": "안테나",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 181,
+      "chunks": 1,
+      "source_pages": [
+        372
+      ]
+    },
+    {
+      "record_id": "auto_topic_264",
+      "title": "오디오 리모컨",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 503,
+      "chunks": 3,
+      "source_pages": [
+        373
+      ]
+    },
+    {
+      "record_id": "auto_topic_265",
+      "title": "인포테인먼트 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 273,
+      "chunks": 2,
+      "source_pages": [
+        374
+      ]
+    },
+    {
+      "record_id": "auto_topic_266",
+      "title": "USB 단자",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 696,
+      "chunks": 3,
+      "source_pages": [
+        374,
+        375
+      ]
+    },
+    {
+      "record_id": "auto_topic_267",
+      "title": "블루투스 핸즈프리",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 727,
+      "chunks": 4,
+      "source_pages": [
+        375,
+        376
+      ]
+    },
+    {
+      "record_id": "auto_topic_268",
+      "title": "음성 인식 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 44,
+      "chunks": 1,
+      "source_pages": [
+        377
+      ]
+    },
+    {
+      "record_id": "auto_topic_269",
+      "title": "블루링크 (Bluelink)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 241,
+      "chunks": 1,
+      "source_pages": [
+        377
+      ]
+    },
+    {
+      "record_id": "auto_topic_27",
+      "title": "타이어 및 휠",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 344,
+      "chunks": 2,
+      "source_pages": [
+        38
+      ]
+    },
+    {
+      "record_id": "auto_topic_270",
+      "title": "하이브리드 운전 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 714,
+      "chunks": 4,
+      "source_pages": [
+        381
+      ]
+    },
+    {
+      "record_id": "auto_topic_271",
+      "title": "시동 버튼",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        382
+      ]
+    },
+    {
+      "record_id": "auto_topic_272",
+      "title": "시동 버튼 조명",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 127,
+      "chunks": 1,
+      "source_pages": [
+        382
+      ]
+    },
+    {
+      "record_id": "auto_topic_273",
+      "title": "시동 버튼 위치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1201,
+      "chunks": 6,
+      "source_pages": [
+        382,
+        383
+      ]
+    },
+    {
+      "record_id": "auto_topic_274",
+      "title": "엔진 시동 전 확인할 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2289,
+      "chunks": 11,
+      "source_pages": [
+        383,
+        384,
+        385,
+        386
+      ]
+    },
+    {
+      "record_id": "auto_topic_275",
+      "title": "엔진 정지 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 430,
+      "chunks": 2,
+      "source_pages": [
+        386,
+        387
+      ]
+    },
+    {
+      "record_id": "auto_topic_276",
+      "title": "스마트 키 원격 시동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 356,
+      "chunks": 2,
+      "source_pages": [
+        387
+      ]
+    },
+    {
+      "record_id": "auto_topic_277",
+      "title": "자동 변속기 (전자식 변속 칼럼)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 18,
+      "chunks": 1,
+      "source_pages": [
+        388
+      ]
+    },
+    {
+      "record_id": "auto_topic_278",
+      "title": "자동 변속기 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 4012,
+      "chunks": 20,
+      "source_pages": [
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394
+      ]
+    },
+    {
+      "record_id": "auto_topic_279",
+      "title": "클러스터 표시창 경고문",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 940,
+      "chunks": 5,
+      "source_pages": [
+        394,
+        395,
+        396,
+        397
+      ]
+    },
+    {
+      "record_id": "auto_topic_28",
+      "title": "타이어 에너지 소비 효율 등급",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 28,
+      "chunks": 1,
+      "source_pages": [
+        39
+      ]
+    },
+    {
+      "record_id": "auto_topic_280",
+      "title": "패들 쉬프트 (수동 변속 모드)",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 461,
+      "chunks": 3,
+      "source_pages": [
+        397
+      ]
+    },
+    {
+      "record_id": "auto_topic_281",
+      "title": "올바른 운전 요령",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1497,
+      "chunks": 8,
+      "source_pages": [
+        398,
+        399
+      ]
+    },
+    {
+      "record_id": "auto_topic_282",
+      "title": "회생 제동 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 203,
+      "chunks": 1,
+      "source_pages": [
+        400
+      ]
+    },
+    {
+      "record_id": "auto_topic_283",
+      "title": "회생 제동 시스템 사용하기",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1153,
+      "chunks": 6,
+      "source_pages": [
+        400,
+        401
+      ]
+    },
+    {
+      "record_id": "auto_topic_284",
+      "title": "주행 모드별 패들 쉬프트의 기능",
+      "content_type": "structured_table",
+      "verification_status": "visually_reviewed_source",
+      "characters": 400,
+      "chunks": 2,
+      "source_pages": [
+        402
+      ]
+    },
+    {
+      "record_id": "auto_topic_285",
+      "title": "회생 제동 시스템 사용 제한",
+      "content_type": "instruction_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 249,
+      "chunks": 1,
+      "source_pages": [
+        402
+      ]
+    },
+    {
+      "record_id": "auto_topic_286",
+      "title": "스마트 회생 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 299,
+      "chunks": 2,
+      "source_pages": [
+        404
+      ]
+    },
+    {
+      "record_id": "auto_topic_287",
+      "title": "스마트 회생 시스템 켜기/끄기",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 419,
+      "chunks": 3,
+      "source_pages": [
+        404
+      ]
+    },
+    {
+      "record_id": "auto_topic_288",
+      "title": "스마트 회생 작동 조건",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 395,
+      "chunks": 3,
+      "source_pages": [
+        404,
+        405
+      ]
+    },
+    {
+      "record_id": "auto_topic_289",
+      "title": "스마트 회생 제동량 확인 및 설정하기",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 665,
+      "chunks": 4,
+      "source_pages": [
+        405,
+        406
+      ]
+    },
+    {
+      "record_id": "auto_topic_29",
+      "title": "타이어 에너지 소비 효율 등급",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 475,
+      "chunks": 3,
+      "source_pages": [
+        39
+      ]
+    },
+    {
+      "record_id": "auto_topic_290",
+      "title": "스마트 회생 시스템 일시 해제하기",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 321,
+      "chunks": 2,
+      "source_pages": [
+        406
+      ]
+    },
+    {
+      "record_id": "auto_topic_291",
+      "title": "전방 감지 센서(전방 레이더)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 190,
+      "chunks": 1,
+      "source_pages": [
+        406,
+        407
+      ]
+    },
+    {
+      "record_id": "auto_topic_292",
+      "title": "센서 이상으로 인한 시스템 경고",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 289,
+      "chunks": 2,
+      "source_pages": [
+        407
+      ]
+    },
+    {
+      "record_id": "auto_topic_293",
+      "title": "스마트 회생 시스템 사용 시의 주의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 4359,
+      "chunks": 20,
+      "source_pages": [
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413
+      ]
+    },
+    {
+      "record_id": "auto_topic_294",
+      "title": "제동 장치",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        414
+      ]
+    },
+    {
+      "record_id": "auto_topic_295",
+      "title": "브레이크",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1181,
+      "chunks": 6,
+      "source_pages": [
+        414
+      ]
+    },
+    {
+      "record_id": "auto_topic_296",
+      "title": "올바른 제동 요령",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 284,
+      "chunks": 2,
+      "source_pages": [
+        415
+      ]
+    },
+    {
+      "record_id": "auto_topic_297",
+      "title": "전자식 파킹 브레이크 (EPB)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3298,
+      "chunks": 16,
+      "source_pages": [
+        415,
+        416,
+        417,
+        418,
+        419
+      ]
+    },
+    {
+      "record_id": "auto_topic_298",
+      "title": "브레이크 디스크 클리닝 (BDC)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 532,
+      "chunks": 3,
+      "source_pages": [
+        419
+      ]
+    },
+    {
+      "record_id": "auto_topic_299",
+      "title": "브레이크 디스크 와이핑 (BDW)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 88,
+      "chunks": 1,
+      "source_pages": [
+        420
+      ]
+    },
+    {
+      "record_id": "auto_topic_3",
+      "title": "하이브리드 자동차",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 88,
+      "chunks": 1,
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "record_id": "auto_topic_30",
+      "title": "타이어 속도 등급",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 288,
+      "chunks": 2,
+      "source_pages": [
+        40
+      ]
+    },
+    {
+      "record_id": "auto_topic_300",
+      "title": "자동 정차 기능 (Auto Hold)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2108,
+      "chunks": 11,
+      "source_pages": [
+        420,
+        421,
+        422,
+        423
+      ]
+    },
+    {
+      "record_id": "auto_topic_301",
+      "title": "ABS (Anti-Lock Brake System)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2025,
+      "chunks": 10,
+      "source_pages": [
+        423,
+        424
+      ]
+    },
+    {
+      "record_id": "auto_topic_302",
+      "title": "차체 자세 제어 (ESC) 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2557,
+      "chunks": 13,
+      "source_pages": [
+        424,
+        425,
+        426,
+        427
+      ]
+    },
+    {
+      "record_id": "auto_topic_303",
+      "title": "샤시 통합 제어 (VSM)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1023,
+      "chunks": 5,
+      "source_pages": [
+        427,
+        428
+      ]
+    },
+    {
+      "record_id": "auto_topic_304",
+      "title": "경사로 밀림 방지 (HAC)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 511,
+      "chunks": 3,
+      "source_pages": [
+        428,
+        429
+      ]
+    },
+    {
+      "record_id": "auto_topic_305",
+      "title": "횡풍 안정 제어 (CSC)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1134,
+      "chunks": 6,
+      "source_pages": [
+        429,
+        430
+      ]
+    },
+    {
+      "record_id": "auto_topic_306",
+      "title": "급제동 경보 (ESS)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 447,
+      "chunks": 2,
+      "source_pages": [
+        430,
+        431
+      ]
+    },
+    {
+      "record_id": "auto_topic_307",
+      "title": "다중 충돌방지 자동 제동 (MCB)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 863,
+      "chunks": 4,
+      "source_pages": [
+        431,
+        432
+      ]
+    },
+    {
+      "record_id": "auto_topic_308",
+      "title": "경사로 저속 주행 (DBC)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1815,
+      "chunks": 9,
+      "source_pages": [
+        432,
+        433,
+        434
+      ]
+    },
+    {
+      "record_id": "auto_topic_309",
+      "title": "급제동 브레이크 보조 시스템 (BAS)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 295,
+      "chunks": 2,
+      "source_pages": [
+        434,
+        435
+      ]
+    },
+    {
+      "record_id": "auto_topic_31",
+      "title": "에어컨 시스템",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 193,
+      "chunks": 1,
+      "source_pages": [
+        41
+      ]
+    },
+    {
+      "record_id": "auto_topic_310",
+      "title": "4륜구동 장치 (HTRAC)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 174,
+      "chunks": 1,
+      "source_pages": [
+        436
+      ]
+    },
+    {
+      "record_id": "auto_topic_311",
+      "title": "전자식 AWD ( 일반 주행 모드)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 150,
+      "chunks": 1,
+      "source_pages": [
+        436
+      ]
+    },
+    {
+      "record_id": "auto_topic_312",
+      "title": "험로 주행 모드 (Terrain Mode)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1429,
+      "chunks": 9,
+      "source_pages": [
+        436,
+        437
+      ]
+    },
+    {
+      "record_id": "auto_topic_313",
+      "title": "AWD 차량의 운전 요령",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3340,
+      "chunks": 17,
+      "source_pages": [
+        438,
+        439,
+        440,
+        441
+      ]
+    },
+    {
+      "record_id": "auto_topic_314",
+      "title": "타이어 관련 유의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 794,
+      "chunks": 4,
+      "source_pages": [
+        441,
+        442
+      ]
+    },
+    {
+      "record_id": "auto_topic_315",
+      "title": "견인 관련 유의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 161,
+      "chunks": 1,
+      "source_pages": [
+        442
+      ]
+    },
+    {
+      "record_id": "auto_topic_316",
+      "title": "정비 관련 유의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 158,
+      "chunks": 1,
+      "source_pages": [
+        443
+      ]
+    },
+    {
+      "record_id": "auto_topic_317",
+      "title": "기타 유의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 382,
+      "chunks": 2,
+      "source_pages": [
+        443
+      ]
+    },
+    {
+      "record_id": "auto_topic_318",
+      "title": "통합 주행 모드 시스템 (2WD)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 18,
+      "chunks": 1,
+      "source_pages": [
+        444
+      ]
+    },
+    {
+      "record_id": "auto_topic_319",
+      "title": "드라이브 모드 (Drive Mode) 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 189,
+      "chunks": 1,
+      "source_pages": [
+        444
+      ]
+    },
+    {
+      "record_id": "auto_topic_32",
+      "title": "전구의 용량",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 346,
+      "chunks": 2,
+      "source_pages": [
+        42
+      ]
+    },
+    {
+      "record_id": "auto_topic_320",
+      "title": "드라이브 모드별 특징",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1775,
+      "chunks": 9,
+      "source_pages": [
+        444,
+        445,
+        446
+      ]
+    },
+    {
+      "record_id": "auto_topic_321",
+      "title": "통합 주행 모드 시스템 (AWD)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 18,
+      "chunks": 1,
+      "source_pages": [
+        447
+      ]
+    },
+    {
+      "record_id": "auto_topic_322",
+      "title": "드라이브 모드 (Drive Mode) 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 194,
+      "chunks": 1,
+      "source_pages": [
+        447
+      ]
+    },
+    {
+      "record_id": "auto_topic_323",
+      "title": "드라이브 모드별 특징",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2025,
+      "chunks": 11,
+      "source_pages": [
+        447,
+        448,
+        449
+      ]
+    },
+    {
+      "record_id": "auto_topic_324",
+      "title": "지능형 공기유동 제어기 (AAF)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 194,
+      "chunks": 1,
+      "source_pages": [
+        450
+      ]
+    },
+    {
+      "record_id": "auto_topic_325",
+      "title": "시스템 이상",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 445,
+      "chunks": 2,
+      "source_pages": [
+        450,
+        451
+      ]
+    },
+    {
+      "record_id": "auto_topic_326",
+      "title": "경제적 운전",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 587,
+      "chunks": 3,
+      "source_pages": [
+        452
+      ]
+    },
+    {
+      "record_id": "auto_topic_327",
+      "title": "안전 운전",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 395,
+      "chunks": 2,
+      "source_pages": [
+        453
+      ]
+    },
+    {
+      "record_id": "auto_topic_328",
+      "title": "험한 길에서의 주행",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 467,
+      "chunks": 3,
+      "source_pages": [
+        453
+      ]
+    },
+    {
+      "record_id": "auto_topic_329",
+      "title": "차 바퀴가 빠져 헛도는 경우",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 918,
+      "chunks": 5,
+      "source_pages": [
+        453,
+        454
+      ]
+    },
+    {
+      "record_id": "auto_topic_33",
+      "title": "추천 오일 및 용량",
+      "content_type": "structured_table",
+      "verification_status": "visually_reviewed_source",
+      "characters": 575,
+      "chunks": 4,
+      "source_pages": [
+        43
+      ]
+    },
+    {
+      "record_id": "auto_topic_330",
+      "title": "커브길 주행 시",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 86,
+      "chunks": 1,
+      "source_pages": [
+        454
+      ]
+    },
+    {
+      "record_id": "auto_topic_331",
+      "title": "야간 주행",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 297,
+      "chunks": 2,
+      "source_pages": [
+        454
+      ]
+    },
+    {
+      "record_id": "auto_topic_332",
+      "title": "악천후 시의 주행",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 506,
+      "chunks": 3,
+      "source_pages": [
+        454,
+        455
+      ]
+    },
+    {
+      "record_id": "auto_topic_333",
+      "title": "고속도로 주행",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 815,
+      "chunks": 4,
+      "source_pages": [
+        455
+      ]
+    },
+    {
+      "record_id": "auto_topic_334",
+      "title": "여름철 운전",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 137,
+      "chunks": 1,
+      "source_pages": [
+        455,
+        456
+      ]
+    },
+    {
+      "record_id": "auto_topic_335",
+      "title": "겨울철 운전",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1078,
+      "chunks": 5,
+      "source_pages": [
+        457
+      ]
+    },
+    {
+      "record_id": "auto_topic_336",
+      "title": "눈길 또는 빙판길 주행",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2304,
+      "chunks": 11,
+      "source_pages": [
+        457,
+        458,
+        459
+      ]
+    },
+    {
+      "record_id": "auto_topic_337",
+      "title": "운전자 보조 알아두기",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 72,
+      "chunks": 1,
+      "source_pages": [
+        464
+      ]
+    },
+    {
+      "record_id": "auto_topic_338",
+      "title": "전방 충돌방지 보조 (FCA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2036,
+      "chunks": 10,
+      "source_pages": [
+        465,
+        466,
+        467,
+        468,
+        469,
+        470
+      ]
+    },
+    {
+      "record_id": "auto_topic_339",
+      "title": "전방 충돌방지 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1857,
+      "chunks": 9,
+      "source_pages": [
+        470,
+        471,
+        472,
+        473
+      ]
+    },
+    {
+      "record_id": "auto_topic_34",
+      "title": "자기 인증 라벨",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 55,
+      "chunks": 1,
+      "source_pages": [
+        46
+      ]
+    },
+    {
+      "record_id": "auto_topic_340",
+      "title": "전방 충돌방지 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 6408,
+      "chunks": 33,
+      "source_pages": [
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486
+      ]
+    },
+    {
+      "record_id": "auto_topic_341",
+      "title": "전방 충돌방지 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5914,
+      "chunks": 27,
+      "source_pages": [
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493,
+        494,
+        495,
+        496
+      ]
+    },
+    {
+      "record_id": "auto_topic_342",
+      "title": "차로 이탈방지 보조 (LKA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 313,
+      "chunks": 2,
+      "source_pages": [
+        497
+      ]
+    },
+    {
+      "record_id": "auto_topic_343",
+      "title": "차로 이탈방지 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 829,
+      "chunks": 4,
+      "source_pages": [
+        497,
+        498
+      ]
+    },
+    {
+      "record_id": "auto_topic_344",
+      "title": "차로 이탈방지 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1269,
+      "chunks": 6,
+      "source_pages": [
+        499,
+        500,
+        501,
+        502
+      ]
+    },
+    {
+      "record_id": "auto_topic_345",
+      "title": "차로 이탈방지 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2359,
+      "chunks": 11,
+      "source_pages": [
+        503,
+        504,
+        505
+      ]
+    },
+    {
+      "record_id": "auto_topic_346",
+      "title": "후측방 충돌방지 보조 (BCA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 950,
+      "chunks": 5,
+      "source_pages": [
+        506,
+        507,
+        508
+      ]
+    },
+    {
+      "record_id": "auto_topic_347",
+      "title": "후측방 충돌방지 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 778,
+      "chunks": 4,
+      "source_pages": [
+        508,
+        509
+      ]
+    },
+    {
+      "record_id": "auto_topic_348",
+      "title": "후측방 충돌방지 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1950,
+      "chunks": 10,
+      "source_pages": [
+        510,
+        511,
+        512
+      ]
+    },
+    {
+      "record_id": "auto_topic_349",
+      "title": "후측방 충돌방지 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2950,
+      "chunks": 16,
+      "source_pages": [
+        513,
+        514,
+        515,
+        516,
+        517
+      ]
+    },
+    {
+      "record_id": "auto_topic_35",
+      "title": "타이어 공기압",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 62,
+      "chunks": 1,
+      "source_pages": [
+        47
+      ]
+    },
+    {
+      "record_id": "auto_topic_350",
+      "title": "안전 하차 보조 (SEA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 370,
+      "chunks": 2,
+      "source_pages": [
+        518,
+        519
+      ]
+    },
+    {
+      "record_id": "auto_topic_351",
+      "title": "안전 하차 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 484,
+      "chunks": 2,
+      "source_pages": [
+        519,
+        520
+      ]
+    },
+    {
+      "record_id": "auto_topic_352",
+      "title": "안전 하차 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1180,
+      "chunks": 6,
+      "source_pages": [
+        520,
+        521,
+        522
+      ]
+    },
+    {
+      "record_id": "auto_topic_353",
+      "title": "안전 하차 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1308,
+      "chunks": 7,
+      "source_pages": [
+        523,
+        524
+      ]
+    },
+    {
+      "record_id": "auto_topic_354",
+      "title": "수동 속도 제한 보조 (MSLA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 179,
+      "chunks": 1,
+      "source_pages": [
+        525
+      ]
+    },
+    {
+      "record_id": "auto_topic_355",
+      "title": "수동 속도 제한 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 959,
+      "chunks": 5,
+      "source_pages": [
+        525,
+        526,
+        527
+      ]
+    },
+    {
+      "record_id": "auto_topic_356",
+      "title": "지능형 속도 제한 보조 (ISLA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 353,
+      "chunks": 2,
+      "source_pages": [
+        528
+      ]
+    },
+    {
+      "record_id": "auto_topic_357",
+      "title": "지능형 속도 제한 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 763,
+      "chunks": 4,
+      "source_pages": [
+        529
+      ]
+    },
+    {
+      "record_id": "auto_topic_358",
+      "title": "지능형 속도 제한 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1260,
+      "chunks": 6,
+      "source_pages": [
+        530,
+        531,
+        532
+      ]
+    },
+    {
+      "record_id": "auto_topic_359",
+      "title": "지능형 속도 제한 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1895,
+      "chunks": 9,
+      "source_pages": [
+        532,
+        533,
+        534
+      ]
+    },
+    {
+      "record_id": "auto_topic_36",
+      "title": "엔진 번호",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 39,
+      "chunks": 1,
+      "source_pages": [
+        48
+      ]
+    },
+    {
+      "record_id": "auto_topic_360",
+      "title": "운전자 주의 경고 (DAW)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 402,
+      "chunks": 2,
+      "source_pages": [
+        535
+      ]
+    },
+    {
+      "record_id": "auto_topic_361",
+      "title": "운전자 주의 경고 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 448,
+      "chunks": 2,
+      "source_pages": [
+        536
+      ]
+    },
+    {
+      "record_id": "auto_topic_362",
+      "title": "운전자 주의 경고 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 777,
+      "chunks": 4,
+      "source_pages": [
+        537,
+        538
+      ]
+    },
+    {
+      "record_id": "auto_topic_363",
+      "title": "운전자 주의 경고 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1526,
+      "chunks": 8,
+      "source_pages": [
+        539,
+        540,
+        541,
+        542
+      ]
+    },
+    {
+      "record_id": "auto_topic_364",
+      "title": "후측방 모니터 (BVM)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 241,
+      "chunks": 2,
+      "source_pages": [
+        543,
+        544
+      ]
+    },
+    {
+      "record_id": "auto_topic_365",
+      "title": "후측방 모니터 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 114,
+      "chunks": 1,
+      "source_pages": [
+        544
+      ]
+    },
+    {
+      "record_id": "auto_topic_366",
+      "title": "후측방 모니터 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 235,
+      "chunks": 1,
+      "source_pages": [
+        544,
+        545
+      ]
+    },
+    {
+      "record_id": "auto_topic_367",
+      "title": "후측방 모니터 이상",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 352,
+      "chunks": 2,
+      "source_pages": [
+        545
+      ]
+    },
+    {
+      "record_id": "auto_topic_368",
+      "title": "스마트 크루즈 컨트롤 (SCC)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 508,
+      "chunks": 3,
+      "source_pages": [
+        546,
+        547
+      ]
+    },
+    {
+      "record_id": "auto_topic_369",
+      "title": "스마트 크루즈 컨트롤 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1137,
+      "chunks": 5,
+      "source_pages": [
+        547,
+        548
+      ]
+    },
+    {
+      "record_id": "auto_topic_37",
+      "title": "오픈소스 소프트웨어 정보",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 285,
+      "chunks": 2,
+      "source_pages": [
+        48
+      ]
+    },
+    {
+      "record_id": "auto_topic_370",
+      "title": "스마트 크루즈 컨트롤 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5897,
+      "chunks": 26,
+      "source_pages": [
+        549,
+        550,
+        551,
+        552,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560
+      ]
+    },
+    {
+      "record_id": "auto_topic_371",
+      "title": "스마트 크루즈 컨트롤 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3357,
+      "chunks": 16,
+      "source_pages": [
+        560,
+        561,
+        562,
+        563,
+        564,
+        565,
+        566
+      ]
+    },
+    {
+      "record_id": "auto_topic_372",
+      "title": "내비게이션 기반 스마트 크루즈 컨트롤 (NSCC)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 456,
+      "chunks": 3,
+      "source_pages": [
+        567
+      ]
+    },
+    {
+      "record_id": "auto_topic_373",
+      "title": "내비게이션 기반 스마트 크루즈 컨트롤 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 196,
+      "chunks": 1,
+      "source_pages": [
+        567
+      ]
+    },
+    {
+      "record_id": "auto_topic_374",
+      "title": "내비게이션 기반 스마트 크루즈 컨트롤 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1688,
+      "chunks": 8,
+      "source_pages": [
+        568,
+        569,
+        570
+      ]
+    },
+    {
+      "record_id": "auto_topic_375",
+      "title": "작동 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3124,
+      "chunks": 14,
+      "source_pages": [
+        570,
+        571,
+        572,
+        573,
+        574
+      ]
+    },
+    {
+      "record_id": "auto_topic_376",
+      "title": "차로 유지 보조 (LFA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 245,
+      "chunks": 1,
+      "source_pages": [
+        575
+      ]
+    },
+    {
+      "record_id": "auto_topic_377",
+      "title": "차로 유지 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 307,
+      "chunks": 2,
+      "source_pages": [
+        575,
+        576
+      ]
+    },
+    {
+      "record_id": "auto_topic_378",
+      "title": "차로 유지 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1166,
+      "chunks": 6,
+      "source_pages": [
+        576,
+        577,
+        578,
+        579
+      ]
+    },
+    {
+      "record_id": "auto_topic_379",
+      "title": "차로 유지 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 299,
+      "chunks": 2,
+      "source_pages": [
+        580
+      ]
+    },
+    {
+      "record_id": "auto_topic_38",
+      "title": "1일 1회 일상 점검",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 161,
+      "chunks": 1,
+      "source_pages": [
+        51
+      ]
+    },
+    {
+      "record_id": "auto_topic_380",
+      "title": "고속도로 주행 보조 (HDA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 470,
+      "chunks": 2,
+      "source_pages": [
+        581,
+        582
+      ]
+    },
+    {
+      "record_id": "auto_topic_381",
+      "title": "고속도로 주행 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 719,
+      "chunks": 3,
+      "source_pages": [
+        583,
+        584
+      ]
+    },
+    {
+      "record_id": "auto_topic_382",
+      "title": "고속도로 주행 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 4588,
+      "chunks": 22,
+      "source_pages": [
+        584,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592
+      ]
+    },
+    {
+      "record_id": "auto_topic_383",
+      "title": "고속도로 주행 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1856,
+      "chunks": 8,
+      "source_pages": [
+        593,
+        594,
+        595
+      ]
+    },
+    {
+      "record_id": "auto_topic_384",
+      "title": "후방 모니터 (RVM)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 153,
+      "chunks": 1,
+      "source_pages": [
+        596
+      ]
+    },
+    {
+      "record_id": "auto_topic_385",
+      "title": "후방 모니터 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 742,
+      "chunks": 4,
+      "source_pages": [
+        596,
+        597
+      ]
+    },
+    {
+      "record_id": "auto_topic_386",
+      "title": "후방 모니터 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1143,
+      "chunks": 7,
+      "source_pages": [
+        598,
+        599
+      ]
+    },
+    {
+      "record_id": "auto_topic_387",
+      "title": "후방 모니터 이상 및 제한 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 715,
+      "chunks": 4,
+      "source_pages": [
+        599,
+        600
+      ]
+    },
+    {
+      "record_id": "auto_topic_388",
+      "title": "서라운드 뷰 모니터 (SVM)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 240,
+      "chunks": 2,
+      "source_pages": [
+        601
+      ]
+    },
+    {
+      "record_id": "auto_topic_389",
+      "title": "서라운드 뷰 모니터 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1187,
+      "chunks": 6,
+      "source_pages": [
+        602,
+        603,
+        604
+      ]
+    },
+    {
+      "record_id": "auto_topic_39",
+      "title": "PDF 55쪽 제목 미확인 구간",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 89,
+      "chunks": 1,
+      "source_pages": [
+        55
+      ]
+    },
+    {
+      "record_id": "auto_topic_390",
+      "title": "서라운드 뷰 모니터 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2973,
+      "chunks": 17,
+      "source_pages": [
+        604,
+        605,
+        606,
+        607,
+        608
+      ]
+    },
+    {
+      "record_id": "auto_topic_391",
+      "title": "서라운드 뷰 모니터 이상 및 제한 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1027,
+      "chunks": 5,
+      "source_pages": [
+        608,
+        609
+      ]
+    },
+    {
+      "record_id": "auto_topic_392",
+      "title": "후방 교차 충돌방지 보조 (RCCA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 350,
+      "chunks": 2,
+      "source_pages": [
+        610,
+        611
+      ]
+    },
+    {
+      "record_id": "auto_topic_393",
+      "title": "후방 교차 충돌방지 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 543,
+      "chunks": 3,
+      "source_pages": [
+        611,
+        612
+      ]
+    },
+    {
+      "record_id": "auto_topic_394",
+      "title": "후방 교차 충돌방지 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1930,
+      "chunks": 11,
+      "source_pages": [
+        612,
+        613,
+        614,
+        615
+      ]
+    },
+    {
+      "record_id": "auto_topic_395",
+      "title": "후방 교차 충돌방지 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2600,
+      "chunks": 15,
+      "source_pages": [
+        615,
+        616,
+        617,
+        618,
+        619,
+        620
+      ]
+    },
+    {
+      "record_id": "auto_topic_396",
+      "title": "전방/후방 주차 거리 경고 (PDW)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 205,
+      "chunks": 1,
+      "source_pages": [
+        621
+      ]
+    },
+    {
+      "record_id": "auto_topic_397",
+      "title": "전방/후방 주차 거리 경고 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 460,
+      "chunks": 2,
+      "source_pages": [
+        622
+      ]
+    },
+    {
+      "record_id": "auto_topic_398",
+      "title": "주차 거리 경고 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1228,
+      "chunks": 7,
+      "source_pages": [
+        623,
+        624
+      ]
+    },
+    {
+      "record_id": "auto_topic_399",
+      "title": "주차 거리 경고 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1637,
+      "chunks": 8,
+      "source_pages": [
+        625,
+        626,
+        627
+      ]
+    },
+    {
+      "record_id": "auto_topic_4",
+      "title": "주요기능",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 528,
+      "chunks": 3,
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "record_id": "auto_topic_40",
+      "title": "에어백 관련 주의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 187,
+      "chunks": 1,
+      "source_pages": [
+        55
+      ]
+    },
+    {
+      "record_id": "auto_topic_400",
+      "title": "전방/측방/후방 주차 거리 경고 (PDW)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 230,
+      "chunks": 1,
+      "source_pages": [
+        628
+      ]
+    },
+    {
+      "record_id": "auto_topic_401",
+      "title": "주차 거리 경고 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 453,
+      "chunks": 2,
+      "source_pages": [
+        629
+      ]
+    },
+    {
+      "record_id": "auto_topic_402",
+      "title": "주차 거리 경고 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1962,
+      "chunks": 10,
+      "source_pages": [
+        630,
+        631,
+        632
+      ]
+    },
+    {
+      "record_id": "auto_topic_403",
+      "title": "주차 거리 경고 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1722,
+      "chunks": 8,
+      "source_pages": [
+        633,
+        634,
+        635
+      ]
+    },
+    {
+      "record_id": "auto_topic_404",
+      "title": "후방 주차 충돌방지 보조 (PCA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 197,
+      "chunks": 1,
+      "source_pages": [
+        636
+      ]
+    },
+    {
+      "record_id": "auto_topic_405",
+      "title": "후방 주차 충돌방지 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 567,
+      "chunks": 3,
+      "source_pages": [
+        636,
+        637
+      ]
+    },
+    {
+      "record_id": "auto_topic_406",
+      "title": "후방 주차 충돌방지 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 882,
+      "chunks": 5,
+      "source_pages": [
+        638,
+        639
+      ]
+    },
+    {
+      "record_id": "auto_topic_407",
+      "title": "후방 주차 충돌방지 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3515,
+      "chunks": 16,
+      "source_pages": [
+        639,
+        640,
+        641,
+        642,
+        643,
+        644
+      ]
+    },
+    {
+      "record_id": "auto_topic_408",
+      "title": "원격 스마트 주차 보조 (RSPA)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 686,
+      "chunks": 4,
+      "source_pages": [
+        645,
+        646
+      ]
+    },
+    {
+      "record_id": "auto_topic_409",
+      "title": "원격 스마트 주차 보조 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 261,
+      "chunks": 1,
+      "source_pages": [
+        647
+      ]
+    },
+    {
+      "record_id": "auto_topic_41",
+      "title": "유아/어린이의 에어백 관련 주의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 523,
+      "chunks": 3,
+      "source_pages": [
+        55,
+        56
+      ]
+    },
+    {
+      "record_id": "auto_topic_410",
+      "title": "원격 스마트 주차 보조 작동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3924,
+      "chunks": 17,
+      "source_pages": [
+        647,
+        648,
+        649,
+        650,
+        651,
+        652
+      ]
+    },
+    {
+      "record_id": "auto_topic_411",
+      "title": "원격 스마트 주차 보조 이상 및 제한 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3092,
+      "chunks": 14,
+      "source_pages": [
+        652,
+        653,
+        654,
+        655,
+        656,
+        657
+      ]
+    },
+    {
+      "record_id": "auto_topic_412",
+      "title": "단품 인증",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        658
+      ]
+    },
+    {
+      "record_id": "auto_topic_413",
+      "title": "전방 레이더",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 6,
+      "chunks": 1,
+      "source_pages": [
+        658
+      ]
+    },
+    {
+      "record_id": "auto_topic_414",
+      "title": "전측방 레이더/후측방 레이더",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 15,
+      "chunks": 1,
+      "source_pages": [
+        658
+      ]
+    },
+    {
+      "record_id": "auto_topic_415",
+      "title": "주행 중 경고",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 7,
+      "chunks": 1,
+      "source_pages": [
+        660
+      ]
+    },
+    {
+      "record_id": "auto_topic_416",
+      "title": "비상 경고등",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 236,
+      "chunks": 1,
+      "source_pages": [
+        660
+      ]
+    },
+    {
+      "record_id": "auto_topic_417",
+      "title": "주행 중 차량 고장 시 대처 방법",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 18,
+      "chunks": 1,
+      "source_pages": [
+        661
+      ]
+    },
+    {
+      "record_id": "auto_topic_418",
+      "title": "교차로/건널목에서 시동이 꺼진 경우",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 231,
+      "chunks": 2,
+      "source_pages": [
+        661
+      ]
+    },
+    {
+      "record_id": "auto_topic_419",
+      "title": "주행 중 펑크가 나면",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 370,
+      "chunks": 2,
+      "source_pages": [
+        661
+      ]
+    },
+    {
+      "record_id": "auto_topic_42",
+      "title": "주정차 중 차내 수면 금지",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 254,
+      "chunks": 2,
+      "source_pages": [
+        56
+      ]
+    },
+    {
+      "record_id": "auto_topic_420",
+      "title": "주행 중 시동이 꺼진 경우",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 143,
+      "chunks": 1,
+      "source_pages": [
+        661
+      ]
+    },
+    {
+      "record_id": "auto_topic_421",
+      "title": "브레이크 제동력이 좋지 않을 경우",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 214,
+      "chunks": 1,
+      "source_pages": [
+        661
+      ]
+    },
+    {
+      "record_id": "auto_topic_422",
+      "title": "주행 중 차량이 고장 난 경우",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 272,
+      "chunks": 2,
+      "source_pages": [
+        662
+      ]
+    },
+    {
+      "record_id": "auto_topic_423",
+      "title": "고장 자동차 정지 표지판 (안전 삼각대)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 516,
+      "chunks": 3,
+      "source_pages": [
+        662,
+        663
+      ]
+    },
+    {
+      "record_id": "auto_topic_424",
+      "title": "엔진 시동이 걸리지 않을 때 대처 방법",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 21,
+      "chunks": 1,
+      "source_pages": [
+        664
+      ]
+    },
+    {
+      "record_id": "auto_topic_425",
+      "title": "하이브리드 스타트 모터가 회전하지 않을 때",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 111,
+      "chunks": 1,
+      "source_pages": [
+        664
+      ]
+    },
+    {
+      "record_id": "auto_topic_426",
+      "title": "하이브리드 스타트 모터는 회전하지만 시동이 걸리지 않을 때",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 133,
+      "chunks": 1,
+      "source_pages": [
+        664
+      ]
+    },
+    {
+      "record_id": "auto_topic_427",
+      "title": "비상 시동",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        665
+      ]
+    },
+    {
+      "record_id": "auto_topic_428",
+      "title": "점프 스타트",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1224,
+      "chunks": 6,
+      "source_pages": [
+        665,
+        666
+      ]
+    },
+    {
+      "record_id": "auto_topic_429",
+      "title": "밀기 시동",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 43,
+      "chunks": 1,
+      "source_pages": [
+        666
+      ]
+    },
+    {
+      "record_id": "auto_topic_43",
+      "title": "음주·과로 운전 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 441,
+      "chunks": 2,
+      "source_pages": [
+        57
+      ]
+    },
+    {
+      "record_id": "auto_topic_430",
+      "title": "엔진 과열",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1463,
+      "chunks": 8,
+      "source_pages": [
+        667,
+        668
+      ]
+    },
+    {
+      "record_id": "auto_topic_431",
+      "title": "타이어 공기압 경보 시스템 (TPMS)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 217,
+      "chunks": 1,
+      "source_pages": [
+        669,
+        670
+      ]
+    },
+    {
+      "record_id": "auto_topic_432",
+      "title": "타이어 공기압 확인",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 475,
+      "chunks": 3,
+      "source_pages": [
+        670
+      ]
+    },
+    {
+      "record_id": "auto_topic_433",
+      "title": "저압 타이어를 감지",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 916,
+      "chunks": 4,
+      "source_pages": [
+        670,
+        671,
+        672
+      ]
+    },
+    {
+      "record_id": "auto_topic_434",
+      "title": "타이어 공기압 경보 시스템 이상",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 707,
+      "chunks": 4,
+      "source_pages": [
+        672
+      ]
+    },
+    {
+      "record_id": "auto_topic_435",
+      "title": "타이어를 교체할 경우",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1009,
+      "chunks": 5,
+      "source_pages": [
+        673
+      ]
+    },
+    {
+      "record_id": "auto_topic_436",
+      "title": "타이어 펑크 시 조치 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 14,
+      "chunks": 1,
+      "source_pages": [
+        674
+      ]
+    },
+    {
+      "record_id": "auto_topic_437",
+      "title": "타이어 응급 처치 키트 (TMK)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5316,
+      "chunks": 28,
+      "source_pages": [
+        674,
+        675,
+        676,
+        677,
+        678,
+        679,
+        680,
+        681,
+        682
+      ]
+    },
+    {
+      "record_id": "auto_topic_438",
+      "title": "차량 견인",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        683
+      ]
+    },
+    {
+      "record_id": "auto_topic_439",
+      "title": "견인 트럭으로 견인 시",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 772,
+      "chunks": 4,
+      "source_pages": [
+        683,
+        684,
+        685
+      ]
+    },
+    {
+      "record_id": "auto_topic_44",
+      "title": "인화성·폭발성 물질 차내 방치 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 122,
+      "chunks": 1,
+      "source_pages": [
+        57
+      ]
+    },
+    {
+      "record_id": "auto_topic_440",
+      "title": "탈부착 견인 후크",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 403,
+      "chunks": 2,
+      "source_pages": [
+        685,
+        686
+      ]
+    },
+    {
+      "record_id": "auto_topic_441",
+      "title": "일반 차량으로 견인 시",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1765,
+      "chunks": 8,
+      "source_pages": [
+        687,
+        688,
+        689
+      ]
+    },
+    {
+      "record_id": "auto_topic_442",
+      "title": "사고 및 차량 화재 시 응급조치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 17,
+      "chunks": 1,
+      "source_pages": [
+        690
+      ]
+    },
+    {
+      "record_id": "auto_topic_443",
+      "title": "사고 또는 고장 시 행동 요령",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 322,
+      "chunks": 2,
+      "source_pages": [
+        690
+      ]
+    },
+    {
+      "record_id": "auto_topic_444",
+      "title": "차량 화재 시",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 398,
+      "chunks": 2,
+      "source_pages": [
+        690,
+        691
+      ]
+    },
+    {
+      "record_id": "auto_topic_445",
+      "title": "폭설 시 행동요령",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 627,
+      "chunks": 3,
+      "source_pages": [
+        692
+      ]
+    },
+    {
+      "record_id": "auto_topic_446",
+      "title": "엔진룸의 명칭",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 116,
+      "chunks": 1,
+      "source_pages": [
+        695
+      ]
+    },
+    {
+      "record_id": "auto_topic_447",
+      "title": "점검 및 정비",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 304,
+      "chunks": 2,
+      "source_pages": [
+        696
+      ]
+    },
+    {
+      "record_id": "auto_topic_448",
+      "title": "필수 준수 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 373,
+      "chunks": 2,
+      "source_pages": [
+        696
+      ]
+    },
+    {
+      "record_id": "auto_topic_449",
+      "title": "점검 및 정비 시 주의 사항",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1139,
+      "chunks": 6,
+      "source_pages": [
+        696,
+        697
+      ]
+    },
+    {
+      "record_id": "auto_topic_45",
+      "title": "창문 밖으로 손 또는 얼굴 내밀기 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 89,
+      "chunks": 1,
+      "source_pages": [
+        57
+      ]
+    },
+    {
+      "record_id": "auto_topic_450",
+      "title": "일상 점검",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 781,
+      "chunks": 4,
+      "source_pages": [
+        698,
+        699
+      ]
+    },
+    {
+      "record_id": "auto_topic_451",
+      "title": "정기 점검 주기",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 390,
+      "chunks": 2,
+      "source_pages": [
+        700
+      ]
+    },
+    {
+      "record_id": "auto_topic_452",
+      "title": "통상 조건",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2270,
+      "chunks": 10,
+      "source_pages": [
+        700,
+        701,
+        702,
+        703
+      ]
+    },
+    {
+      "record_id": "auto_topic_453",
+      "title": "가혹 조건",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1030,
+      "chunks": 5,
+      "source_pages": [
+        703,
+        704
+      ]
+    },
+    {
+      "record_id": "auto_topic_454",
+      "title": "엔진 오일",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 183,
+      "chunks": 1,
+      "source_pages": [
+        705
+      ]
+    },
+    {
+      "record_id": "auto_topic_455",
+      "title": "엔진 오일량 점검 및 보충",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 666,
+      "chunks": 3,
+      "source_pages": [
+        705,
+        706
+      ]
+    },
+    {
+      "record_id": "auto_topic_456",
+      "title": "엔진 오일 및 필터의 교체",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 905,
+      "chunks": 4,
+      "source_pages": [
+        706,
+        707
+      ]
+    },
+    {
+      "record_id": "auto_topic_457",
+      "title": "냉각수 점검",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 6,
+      "chunks": 1,
+      "source_pages": [
+        708
+      ]
+    },
+    {
+      "record_id": "auto_topic_458",
+      "title": "냉각수량 점검 및 보충",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1487,
+      "chunks": 7,
+      "source_pages": [
+        708,
+        709,
+        710
+      ]
+    },
+    {
+      "record_id": "auto_topic_459",
+      "title": "냉각수의 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 296,
+      "chunks": 2,
+      "source_pages": [
+        710,
+        711
+      ]
+    },
+    {
+      "record_id": "auto_topic_46",
+      "title": "도어/테일게이트 /유리창을 열고 닫을 때 조심",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 344,
+      "chunks": 2,
+      "source_pages": [
+        57
+      ]
+    },
+    {
+      "record_id": "auto_topic_460",
+      "title": "브레이크액",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        712
+      ]
+    },
+    {
+      "record_id": "auto_topic_461",
+      "title": "브레이크액 양 점검 및 보충",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 923,
+      "chunks": 5,
+      "source_pages": [
+        712,
+        713
+      ]
+    },
+    {
+      "record_id": "auto_topic_462",
+      "title": "자동 변속기 오일",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 71,
+      "chunks": 1,
+      "source_pages": [
+        714
+      ]
+    },
+    {
+      "record_id": "auto_topic_463",
+      "title": "와셔액",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3,
+      "chunks": 1,
+      "source_pages": [
+        715
+      ]
+    },
+    {
+      "record_id": "auto_topic_464",
+      "title": "와셔액 점검 및 보충",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 400,
+      "chunks": 3,
+      "source_pages": [
+        715
+      ]
+    },
+    {
+      "record_id": "auto_topic_465",
+      "title": "벨트",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2,
+      "chunks": 1,
+      "source_pages": [
+        716
+      ]
+    },
+    {
+      "record_id": "auto_topic_466",
+      "title": "하이브리드 스타트 & 제너레이터 (HSG) 구동 벨트 점검",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 368,
+      "chunks": 2,
+      "source_pages": [
+        716
+      ]
+    },
+    {
+      "record_id": "auto_topic_467",
+      "title": "에어클리너",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5,
+      "chunks": 1,
+      "source_pages": [
+        717
+      ]
+    },
+    {
+      "record_id": "auto_topic_468",
+      "title": "에어클리너 필터 점검 및 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 756,
+      "chunks": 4,
+      "source_pages": [
+        717,
+        718
+      ]
+    },
+    {
+      "record_id": "auto_topic_469",
+      "title": "공조 장치용 에어필터",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 11,
+      "chunks": 1,
+      "source_pages": [
+        719
+      ]
+    },
+    {
+      "record_id": "auto_topic_47",
+      "title": "주행 중 엔진 정지 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 98,
+      "chunks": 1,
+      "source_pages": [
+        57,
+        58
+      ]
+    },
+    {
+      "record_id": "auto_topic_470",
+      "title": "에어필터 점검",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 159,
+      "chunks": 1,
+      "source_pages": [
+        719
+      ]
+    },
+    {
+      "record_id": "auto_topic_471",
+      "title": "에어필터 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 276,
+      "chunks": 2,
+      "source_pages": [
+        719,
+        720,
+        721
+      ]
+    },
+    {
+      "record_id": "auto_topic_472",
+      "title": "와이퍼 블레이드",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 8,
+      "chunks": 1,
+      "source_pages": [
+        722
+      ]
+    },
+    {
+      "record_id": "auto_topic_473",
+      "title": "블레이드 점검",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 936,
+      "chunks": 4,
+      "source_pages": [
+        722
+      ]
+    },
+    {
+      "record_id": "auto_topic_474",
+      "title": "블레이드 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 762,
+      "chunks": 4,
+      "source_pages": [
+        723,
+        724,
+        725
+      ]
+    },
+    {
+      "record_id": "auto_topic_475",
+      "title": "배터리",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3,
+      "chunks": 1,
+      "source_pages": [
+        726
+      ]
+    },
+    {
+      "record_id": "auto_topic_476",
+      "title": "배터리 관리",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2083,
+      "chunks": 10,
+      "source_pages": [
+        726,
+        727,
+        728,
+        729
+      ]
+    },
+    {
+      "record_id": "auto_topic_477",
+      "title": "배터리 재연결 시 초기화/재설정",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 815,
+      "chunks": 5,
+      "source_pages": [
+        729,
+        730
+      ]
+    },
+    {
+      "record_id": "auto_topic_478",
+      "title": "12 V 리튬 보조 배터리",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 375,
+      "chunks": 2,
+      "source_pages": [
+        730
+      ]
+    },
+    {
+      "record_id": "auto_topic_479",
+      "title": "타이어 및 휠 점검",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 10,
+      "chunks": 1,
+      "source_pages": [
+        731
+      ]
+    },
+    {
+      "record_id": "auto_topic_48",
+      "title": "주정차 중 휴대 전화 사용",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 314,
+      "chunks": 2,
+      "source_pages": [
+        58
+      ]
+    },
+    {
+      "record_id": "auto_topic_480",
+      "title": "타이어 관리",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 127,
+      "chunks": 1,
+      "source_pages": [
+        731
+      ]
+    },
+    {
+      "record_id": "auto_topic_481",
+      "title": "공기압 관리",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 654,
+      "chunks": 3,
+      "source_pages": [
+        731
+      ]
+    },
+    {
+      "record_id": "auto_topic_482",
+      "title": "타이어 위치 교환",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 198,
+      "chunks": 1,
+      "source_pages": [
+        731,
+        732
+      ]
+    },
+    {
+      "record_id": "auto_topic_483",
+      "title": "휠 얼라인먼트 및 타이어 밸런스",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 306,
+      "chunks": 2,
+      "source_pages": [
+        732
+      ]
+    },
+    {
+      "record_id": "auto_topic_484",
+      "title": "타이어 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1207,
+      "chunks": 6,
+      "source_pages": [
+        732,
+        733
+      ]
+    },
+    {
+      "record_id": "auto_topic_485",
+      "title": "휠 교체",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 187,
+      "chunks": 1,
+      "source_pages": [
+        733
+      ]
+    },
+    {
+      "record_id": "auto_topic_486",
+      "title": "타이어 측면 표시",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2133,
+      "chunks": 10,
+      "source_pages": [
+        734,
+        735,
+        736
+      ]
+    },
+    {
+      "record_id": "auto_topic_487",
+      "title": "저편평비 타이어",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 634,
+      "chunks": 3,
+      "source_pages": [
+        736
+      ]
+    },
+    {
+      "record_id": "auto_topic_488",
+      "title": "퓨즈 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 884,
+      "chunks": 5,
+      "source_pages": [
+        737,
+        738
+      ]
+    },
+    {
+      "record_id": "auto_topic_489",
+      "title": "실내 퓨즈",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 414,
+      "chunks": 2,
+      "source_pages": [
+        738,
+        739
+      ]
+    },
+    {
+      "record_id": "auto_topic_49",
+      "title": "어린이 탑승 시 주의 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 337,
+      "chunks": 2,
+      "source_pages": [
+        58
+      ]
+    },
+    {
+      "record_id": "auto_topic_490",
+      "title": "엔진룸 퓨즈박스",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 552,
+      "chunks": 3,
+      "source_pages": [
+        739,
+        740
+      ]
+    },
+    {
+      "record_id": "auto_topic_491",
+      "title": "퓨즈/릴레이 라벨",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 184,
+      "chunks": 1,
+      "source_pages": [
+        741,
+        742,
+        743
+      ]
+    },
+    {
+      "record_id": "auto_topic_492",
+      "title": "전구의 교체",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1414,
+      "chunks": 8,
+      "source_pages": [
+        744
+      ]
+    },
+    {
+      "record_id": "auto_topic_493",
+      "title": "전조등, 방향지시등 , 차폭등, 주간 주행등 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 257,
+      "chunks": 2,
+      "source_pages": [
+        745
+      ]
+    },
+    {
+      "record_id": "auto_topic_494",
+      "title": "옆 방향지시등 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 71,
+      "chunks": 1,
+      "source_pages": [
+        746
+      ]
+    },
+    {
+      "record_id": "auto_topic_495",
+      "title": "미등, 제동등, 방향지시등 , 후퇴등 교체(LED 타입)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 321,
+      "chunks": 2,
+      "source_pages": [
+        746,
+        747
+      ]
+    },
+    {
+      "record_id": "auto_topic_496",
+      "title": "보조 제동등의 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 61,
+      "chunks": 1,
+      "source_pages": [
+        747
+      ]
+    },
+    {
+      "record_id": "auto_topic_497",
+      "title": "번호판등의 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 57,
+      "chunks": 1,
+      "source_pages": [
+        748
+      ]
+    },
+    {
+      "record_id": "auto_topic_498",
+      "title": "실내등 전구의 교체",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 168,
+      "chunks": 1,
+      "source_pages": [
+        748,
+        749,
+        750
+      ]
+    },
+    {
+      "record_id": "auto_topic_499",
+      "title": "차체 손질",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 252,
+      "chunks": 2,
+      "source_pages": [
+        751
+      ]
+    },
+    {
+      "record_id": "auto_topic_5",
+      "title": "배터리에 대한 정보",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 154,
+      "chunks": 1,
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "record_id": "auto_topic_50",
+      "title": "주위 안전 확인",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 89,
+      "chunks": 1,
+      "source_pages": [
+        58
+      ]
+    },
+    {
+      "record_id": "auto_topic_500",
+      "title": "외장 손질",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 4056,
+      "chunks": 18,
+      "source_pages": [
+        751,
+        752,
+        753,
+        754,
+        755
+      ]
+    },
+    {
+      "record_id": "auto_topic_501",
+      "title": "내장 손질",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3523,
+      "chunks": 16,
+      "source_pages": [
+        755,
+        756,
+        757,
+        758
+      ]
+    },
+    {
+      "record_id": "auto_topic_502",
+      "title": "배기가스 허용 기준",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 10,
+      "chunks": 1,
+      "source_pages": [
+        759
+      ]
+    },
+    {
+      "record_id": "auto_topic_503",
+      "title": "유해 배기가스",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 154,
+      "chunks": 1,
+      "source_pages": [
+        759
+      ]
+    },
+    {
+      "record_id": "auto_topic_504",
+      "title": "운행차 배기가스 허용 기준",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1143,
+      "chunks": 7,
+      "source_pages": [
+        759,
+        760
+      ]
+    },
+    {
+      "record_id": "auto_topic_505",
+      "title": "배기가스 저감을 위한 차량 관리",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 454,
+      "chunks": 2,
+      "source_pages": [
+        761
+      ]
+    },
+    {
+      "record_id": "auto_topic_506",
+      "title": "배기가스 제어 장치의 관리 및 정비",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 71,
+      "chunks": 1,
+      "source_pages": [
+        762
+      ]
+    },
+    {
+      "record_id": "auto_topic_507",
+      "title": "점화 플러그",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 331,
+      "chunks": 2,
+      "source_pages": [
+        762
+      ]
+    },
+    {
+      "record_id": "auto_topic_508",
+      "title": "에어클리너",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 38,
+      "chunks": 1,
+      "source_pages": [
+        762
+      ]
+    },
+    {
+      "record_id": "auto_topic_509",
+      "title": "촉매 변환 장치",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1000,
+      "chunks": 5,
+      "source_pages": [
+        762,
+        763
+      ]
+    },
+    {
+      "record_id": "auto_topic_51",
+      "title": "주행 중 도어, 테일게이트 잠금 유지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 206,
+      "chunks": 1,
+      "source_pages": [
+        58
+      ]
+    },
+    {
+      "record_id": "auto_topic_52",
+      "title": "주정차 시 배기 파이프 주변 화재 및 화상 위험",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 271,
+      "chunks": 2,
+      "source_pages": [
+        59
+      ]
+    },
+    {
+      "record_id": "auto_topic_53",
+      "title": "밀폐된 공간에서 엔진 시동 후 차량 점검 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 144,
+      "chunks": 1,
+      "source_pages": [
+        59
+      ]
+    },
+    {
+      "record_id": "auto_topic_54",
+      "title": "주차할 때 주의 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 115,
+      "chunks": 1,
+      "source_pages": [
+        59
+      ]
+    },
+    {
+      "record_id": "auto_topic_55",
+      "title": "교차로나 건널목에서의 긴급 상황 대처",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 90,
+      "chunks": 1,
+      "source_pages": [
+        59
+      ]
+    },
+    {
+      "record_id": "auto_topic_56",
+      "title": "편의장비 추가 장착 시 임의 배선 사용 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 175,
+      "chunks": 1,
+      "source_pages": [
+        59
+      ]
+    },
+    {
+      "record_id": "auto_topic_57",
+      "title": "차량 개조 금지",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 370,
+      "chunks": 2,
+      "source_pages": [
+        59,
+        60
+      ]
+    },
+    {
+      "record_id": "auto_topic_58",
+      "title": "각종 시트 커버류 작업 시 유의",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 239,
+      "chunks": 1,
+      "source_pages": [
+        60
+      ]
+    },
+    {
+      "record_id": "auto_topic_59",
+      "title": "차량 내 가죽 제품의 특성",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 500,
+      "chunks": 3,
+      "source_pages": [
+        60
+      ]
+    },
+    {
+      "record_id": "auto_topic_6",
+      "title": "하이브리드 운전 시스템",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 12,
+      "chunks": 1,
+      "source_pages": [
+        9
+      ]
+    },
+    {
+      "record_id": "auto_topic_60",
+      "title": "당사 직영 하이테크센터나 블루핸즈 이용",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 132,
+      "chunks": 1,
+      "source_pages": [
+        60,
+        61
+      ]
+    },
+    {
+      "record_id": "auto_topic_61",
+      "title": "자가 정비 시 주의 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 199,
+      "chunks": 1,
+      "source_pages": [
+        61
+      ]
+    },
+    {
+      "record_id": "auto_topic_62",
+      "title": "기타 주의 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1638,
+      "chunks": 8,
+      "source_pages": [
+        61,
+        62
+      ]
+    },
+    {
+      "record_id": "auto_topic_63",
+      "title": "신차 길들이기",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 261,
+      "chunks": 2,
+      "source_pages": [
+        62
+      ]
+    },
+    {
+      "record_id": "auto_topic_64",
+      "title": "좌석",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3020,
+      "chunks": 14,
+      "source_pages": [
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    {
+      "record_id": "auto_topic_65",
+      "title": "앞좌석",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 6643,
+      "chunks": 30,
+      "source_pages": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85
+      ]
+    },
+    {
+      "record_id": "auto_topic_66",
+      "title": "뒷좌석",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 7074,
+      "chunks": 34,
+      "source_pages": [
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ]
+    },
+    {
+      "record_id": "auto_topic_67",
+      "title": "열선 시트",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 32,
+      "chunks": 1,
+      "source_pages": [
+        101
+      ]
+    },
+    {
+      "record_id": "auto_topic_68",
+      "title": "앞좌석 열선 시트 사용",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 553,
+      "chunks": 3,
+      "source_pages": [
+        101
+      ]
+    },
+    {
+      "record_id": "auto_topic_69",
+      "title": "뒷좌석 열선 시트 사용",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1270,
+      "chunks": 7,
+      "source_pages": [
+        102,
+        103
+      ]
+    },
+    {
+      "record_id": "auto_topic_7",
+      "title": "하이브리드 에너지 흐름도",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 590,
+      "chunks": 3,
+      "source_pages": [
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "record_id": "auto_topic_70",
+      "title": "통풍 시트",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 33,
+      "chunks": 1,
+      "source_pages": [
+        104
+      ]
+    },
+    {
+      "record_id": "auto_topic_71",
+      "title": "앞좌석 통풍 시트 사용",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1042,
+      "chunks": 5,
+      "source_pages": [
+        104,
+        105
+      ]
+    },
+    {
+      "record_id": "auto_topic_72",
+      "title": "안전벨트",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 4,
+      "chunks": 1,
+      "source_pages": [
+        105
+      ]
+    },
+    {
+      "record_id": "auto_topic_73",
+      "title": "안전벨트 구속 장치",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3666,
+      "chunks": 17,
+      "source_pages": [
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112
+      ]
+    },
+    {
+      "record_id": "auto_topic_74",
+      "title": "안전벨트 프리텐셔너",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1284,
+      "chunks": 7,
+      "source_pages": [
+        112,
+        113
+      ]
+    },
+    {
+      "record_id": "auto_topic_75",
+      "title": "안전벨트 사용 시 유의 사항",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 642,
+      "chunks": 3,
+      "source_pages": [
+        113,
+        114
+      ]
+    },
+    {
+      "record_id": "auto_topic_76",
+      "title": "안전벨트의 적절한 관리",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 304,
+      "chunks": 2,
+      "source_pages": [
+        114
+      ]
+    },
+    {
+      "record_id": "auto_topic_77",
+      "title": "어린이 보호용 장치 (보조 좌석)",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 18,
+      "chunks": 1,
+      "source_pages": [
+        115
+      ]
+    },
+    {
+      "record_id": "auto_topic_78",
+      "title": "어린이 보호용 장치의 장착",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3646,
+      "chunks": 17,
+      "source_pages": [
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ]
+    },
+    {
+      "record_id": "auto_topic_79",
+      "title": "에어백 (보조 구속 장치)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 131,
+      "chunks": 1,
+      "source_pages": [
+        121
+      ]
+    },
+    {
+      "record_id": "auto_topic_8",
+      "title": "회생 제동/ECO/ 파워 게이지",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 356,
+      "chunks": 2,
+      "source_pages": [
+        12,
+        13
+      ]
+    },
+    {
+      "record_id": "auto_topic_80",
+      "title": "에어백 관련 부품",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1710,
+      "chunks": 8,
+      "source_pages": [
+        122,
+        123,
+        124
+      ]
+    },
+    {
+      "record_id": "auto_topic_81",
+      "title": "에어백 경고등",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 369,
+      "chunks": 2,
+      "source_pages": [
+        124
+      ]
+    },
+    {
+      "record_id": "auto_topic_82",
+      "title": "에어백 장치의 구성 및 기능",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2109,
+      "chunks": 10,
+      "source_pages": [
+        125,
+        126
+      ]
+    },
+    {
+      "record_id": "auto_topic_83",
+      "title": "안전벨트 착용의 중요성",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 305,
+      "chunks": 2,
+      "source_pages": [
+        126,
+        127
+      ]
+    },
+    {
+      "record_id": "auto_topic_84",
+      "title": "운전석 에어백/무릎 에어백",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 29,
+      "chunks": 1,
+      "source_pages": [
+        127
+      ]
+    },
+    {
+      "record_id": "auto_topic_85",
+      "title": "운전석 에어백/무릎 에어백",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 322,
+      "chunks": 2,
+      "source_pages": [
+        127,
+        128
+      ]
+    },
+    {
+      "record_id": "auto_topic_86",
+      "title": "동승석 에어백",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 773,
+      "chunks": 4,
+      "source_pages": [
+        128,
+        129
+      ]
+    },
+    {
+      "record_id": "auto_topic_87",
+      "title": "승객 구분 시스템 (OCS)",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 3435,
+      "chunks": 18,
+      "source_pages": [
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136
+      ]
+    },
+    {
+      "record_id": "auto_topic_88",
+      "title": "사이드 에어백",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 660,
+      "chunks": 3,
+      "source_pages": [
+        136,
+        137
+      ]
+    },
+    {
+      "record_id": "auto_topic_89",
+      "title": "커튼 에어백",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 924,
+      "chunks": 4,
+      "source_pages": [
+        138,
+        139
+      ]
+    },
+    {
+      "record_id": "auto_topic_9",
+      "title": "고전압 배터리 충전량 (SOC) 표시계",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 154,
+      "chunks": 1,
+      "source_pages": [
+        13,
+        14
+      ]
+    },
+    {
+      "record_id": "auto_topic_90",
+      "title": "에어백의 작동/비작동 조건",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 1948,
+      "chunks": 10,
+      "source_pages": [
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145
+      ]
+    },
+    {
+      "record_id": "auto_topic_91",
+      "title": "에어백 정비",
+      "content_type": "instruction_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 971,
+      "chunks": 5,
+      "source_pages": [
+        145
+      ]
+    },
+    {
+      "record_id": "auto_topic_92",
+      "title": "에어백 경고 라벨",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 224,
+      "chunks": 1,
+      "source_pages": [
+        146
+      ]
+    },
+    {
+      "record_id": "auto_topic_93",
+      "title": "클러스터",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 137,
+      "chunks": 1,
+      "source_pages": [
+        148
+      ]
+    },
+    {
+      "record_id": "auto_topic_94",
+      "title": "클러스터 조명 밝기 조절",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 166,
+      "chunks": 1,
+      "source_pages": [
+        149
+      ]
+    },
+    {
+      "record_id": "auto_topic_95",
+      "title": "계측기",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 2476,
+      "chunks": 12,
+      "source_pages": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ]
+    },
+    {
+      "record_id": "auto_topic_96",
+      "title": "경고등 및 표시등",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 9336,
+      "chunks": 44,
+      "source_pages": [
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168
+      ]
+    },
+    {
+      "record_id": "auto_topic_97",
+      "title": "클러스터 표시창 정보",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 5515,
+      "chunks": 25,
+      "source_pages": [
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174
+      ]
+    },
+    {
+      "record_id": "auto_topic_98",
+      "title": "클러스터 표시창",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 61,
+      "chunks": 1,
+      "source_pages": [
+        175
+      ]
+    },
+    {
+      "record_id": "auto_topic_99",
+      "title": "클러스터 메뉴 설정",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 143,
+      "chunks": 1,
+      "source_pages": [
+        175
+      ]
+    },
+    {
+      "record_id": "overview_30",
+      "title": "차량 외부 I",
+      "content_type": "vehicle_overview_navigation",
+      "verification_status": "sample_verified",
+      "characters": 220,
+      "chunks": 1,
+      "source_pages": [
+        30
+      ]
+    },
+    {
+      "record_id": "overview_31",
+      "title": "차량 외부 II",
+      "content_type": "vehicle_overview_navigation",
+      "verification_status": "sample_verified",
+      "characters": 271,
+      "chunks": 2,
+      "source_pages": [
+        31
+      ]
+    },
+    {
+      "record_id": "overview_33",
+      "title": "차량 내부 I",
+      "content_type": "vehicle_overview_navigation",
+      "verification_status": "sample_verified",
+      "characters": 553,
+      "chunks": 3,
+      "source_pages": [
+        33,
+        34
+      ]
+    },
+    {
+      "record_id": "overview_34",
+      "title": "차량 내부 II",
+      "content_type": "vehicle_overview_navigation",
+      "verification_status": "sample_verified",
+      "characters": 729,
+      "chunks": 3,
+      "source_pages": [
+        34,
+        35
+      ]
+    },
+    {
+      "record_id": "overview_35",
+      "title": "차량 내부 III",
+      "content_type": "vehicle_overview_navigation",
+      "verification_status": "sample_verified",
+      "characters": 299,
+      "chunks": 2,
+      "source_pages": [
+        35,
+        36
+      ]
+    },
+    {
+      "record_id": "reviewed_oil_notes_43",
+      "title": "추천 오일 및 용량 — 각주 및 주의사항",
+      "content_type": "instruction_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 784,
+      "chunks": 4,
+      "source_pages": [
+        43
+      ]
+    },
+    {
+      "record_id": "reviewed_paddle_table_398",
+      "title": "드라이브 모드 별 패들 쉬프트 레버 기능",
+      "content_type": "structured_table",
+      "verification_status": "visually_reviewed_source",
+      "characters": 324,
+      "chunks": 2,
+      "source_pages": [
+        398
+      ]
+    },
+    {
+      "record_id": "sample_topic_0",
+      "title": "엔진룸 점검",
+      "content_type": "figure_with_text",
+      "verification_status": "sample_verified",
+      "characters": 481,
+      "chunks": 3,
+      "source_pages": [
+        52
+      ]
+    },
+    {
+      "record_id": "sample_topic_1",
+      "title": "규격 타이어 장착 및 타이어 공기압 수시 점검",
+      "content_type": "instruction_text",
+      "verification_status": "sample_verified",
+      "characters": 330,
+      "chunks": 2,
+      "source_pages": [
+        52
+      ]
+    },
+    {
+      "record_id": "sample_topic_2",
+      "title": "클러스터 및 페달류 점검",
+      "content_type": "instruction_text",
+      "verification_status": "sample_verified",
+      "characters": 162,
+      "chunks": 1,
+      "source_pages": [
+        52,
+        53
+      ]
+    },
+    {
+      "record_id": "sample_topic_3",
+      "title": "올바른 운전 자세",
+      "content_type": "instruction_text",
+      "verification_status": "sample_verified",
+      "characters": 203,
+      "chunks": 1,
+      "source_pages": [
+        53
+      ]
+    },
+    {
+      "record_id": "sample_topic_4",
+      "title": "좌석, 스티어링 휠, 미러 조정",
+      "content_type": "instruction_text",
+      "verification_status": "sample_verified",
+      "characters": 319,
+      "chunks": 2,
+      "source_pages": [
+        53
+      ]
+    },
+    {
+      "record_id": "sample_topic_5",
+      "title": "운전석 주변 점검",
+      "content_type": "instruction_text",
+      "verification_status": "sample_verified",
+      "characters": 177,
+      "chunks": 1,
+      "source_pages": [
+        53
+      ]
+    },
+    {
+      "record_id": "seatbelt_54",
+      "title": "안전벨트 착용",
+      "content_type": "figure_with_text",
+      "verification_status": "sample_verified",
+      "characters": 894,
+      "chunks": 4,
+      "source_pages": [
+        54
+      ]
+    },
+    {
+      "record_id": "table_44",
+      "title": "온도에 따른 엔진 오일 SAE 점도 분류표",
+      "content_type": "table_with_images",
+      "verification_status": "sample_verified",
+      "characters": 131,
+      "chunks": 1,
+      "source_pages": [
+        44
+      ]
+    },
+    {
+      "record_id": "unreviewed_paddle_limit_403",
+      "title": "시스템 제한 경고",
+      "content_type": "figure_with_text",
+      "verification_status": "auto_draft_needs_review",
+      "characters": 344,
+      "chunks": 2,
+      "source_pages": [
+        403
+      ]
+    },
+    {
+      "record_id": "vin_45",
+      "title": "차대번호 (VIN)",
+      "content_type": "figure_with_text",
+      "verification_status": "sample_verified",
+      "characters": 234,
+      "chunks": 2,
+      "source_pages": [
+        45
+      ]
+    },
+    {
+      "record_id": "auto_topic_150",
+      "title": "실외 미러",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 2655,
+      "chunks": 13,
+      "source_pages": [
+        246,
+        247,
+        248,
+        249
+      ]
+    },
+    {
+      "record_id": "auto_topic_171",
+      "title": "스마트 테일게이트",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 141,
+      "chunks": 1,
+      "source_pages": [
+        275
+      ]
+    },
+    {
+      "record_id": "auto_topic_172",
+      "title": "스마트 테일게이트 작동 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 1388,
+      "chunks": 7,
+      "source_pages": [
+        275,
+        276
+      ]
+    },
+    {
+      "record_id": "auto_topic_173",
+      "title": "스마트 테일게이트 기능 중지 방법",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 723,
+      "chunks": 4,
+      "source_pages": [
+        276,
+        277
+      ]
+    },
+    {
+      "record_id": "auto_topic_174",
+      "title": "감지 영역",
+      "content_type": "figure_with_text",
+      "verification_status": "visually_reviewed_source",
+      "characters": 441,
+      "chunks": 3,
+      "source_pages": [
+        278
+      ]
+    }
+  ],
+  "db_written": false,
+  "embedding_calls": 0,
+  "generation_calls": 0,
+  "limitations": [
+    "단일 설명서의 저장 자료 분석이며 차량 이용자의 행동 통계가 아닙니다.",
+    "검토된 부모 비율은 답변 정확도나 전체 PDF 검토 완료율이 아닙니다.",
+    "쪽수 집계는 부모 자료가 참조한 페이지이며 추출 성공률이 아닙니다.",
+    "문자 수와 청크 수의 순위 상관은 인과관계나 검색 품질을 입증하지 않습니다.",
+    "같은 글 중복은 정상 반복 경고일 수 있어 자동으로 삭제하지 않습니다.",
+    "단일 설명서 전체 저장 목록의 기술 통계입니다. 모집단 추론용 가설 검정은 하지 않았습니다."
+  ]
+}
