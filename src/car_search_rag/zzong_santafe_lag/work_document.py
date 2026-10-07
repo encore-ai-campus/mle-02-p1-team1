@@ -64,6 +64,11 @@ def render_work_document():
     content = load_content()
     st.title("싼타페 작업 Document")
     st.write(content["thesis"])
+    # 검색 구조 설명은 저장 문서만 읽습니다. 문서를 펼쳐도 DB·유료 모델을 호출하지 않습니다.
+    guide = FOLDER / "chatbot_search_guide.md"
+    if guide.exists():
+        with st.expander("챗봇과 검색기 구조 쉽게 이해하기"):
+            st.markdown(guide.read_text(encoding="utf-8"))
     flow, lessons, models, story = st.tabs(["M0~M9", "수업 근거", "모델과 추가 설계", "발표와 시연"])
     with flow:
         render_milestones()

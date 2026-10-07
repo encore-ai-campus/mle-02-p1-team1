@@ -1,0 +1,30 @@
+{
+  "checked_date": "2026-10-07",
+  "url": "https://ioniq5-manual-chatbot.streamlit.app/",
+  "method": "실제 브라우저에서 SANTA FE 선택 후 작업 Document 확인",
+  "local_team_revision_before_document_update": "a5578fe",
+  "current_ui_observation": {
+    "work_document_opens": true,
+    "batch2_heading_visible": true,
+    "heading": "원문 8개 보완 · 2026-10-07",
+    "reviewed_parents_displayed": 33,
+    "expected_source_selection_displayed": "0/16 → 10/16",
+    "report_download_button_visible": true,
+    "download_button": "8개 검토 보고서 다운로드"
+  },
+  "previous_observation": {
+    "reviewed_parents_displayed": 33,
+    "pending_parents_displayed": 494,
+    "effective_chunks_displayed": 2224,
+    "batch2_heading_visible": false,
+    "chat_question": "스마트 키 원격 시동은 어떻게 사용하나요?",
+    "chat_failed_after_one_retry": true,
+    "notice": "답변을 완료하지 못했어요. 다시 시도하거나 새 대화를 시작해 주세요."
+  },
+  "limitations": [
+    "이번 작업 문서 재확인에서는 질문 검색·생성 응답을 다시 실행하지 않았습니다.",
+    "새 구조 설명 문서는 이번 커밋 이후의 배포 반영이 필요합니다.",
+    "배포 서버 오류의 상세 원인은 관리자 로그를 확인하기 전까지 확정하지 않습니다.",
+    "파일 다운로드 버튼의 표시는 확인했으며 다운로드 동작은 재검증하지 않았습니다."
+  ]
+}
