@@ -383,7 +383,9 @@ def show_packet(message, render_body=True):
 
 init_state()
 returning_to_vehicles = st.session_state.pop('returning_to_vehicles', False)
-# 대시보드 상태는 Sonata 화면에만 적용합니다.
+# 차종별 화면 상태를 분리해 다른 차량의 대화와 메뉴 상태를 보존합니다.
+if st.session_state.active_vehicle == 'santafe':
+    st.session_state.setdefault('santafe_active_view', 'chat')
 if st.session_state.active_vehicle == 'sonata':
     st.session_state.setdefault('sonata_active_view', 'chat')
 
@@ -416,7 +418,18 @@ st.markdown("""<style>
 if st.session_state.active_vehicle is not None:
     with st.container(key='vehicle_menu'):
         with st.popover('메뉴', icon=':material/menu:', key='vehicle_menu_popover'):
-            if st.session_state.active_vehicle == 'sonata':
+            if st.session_state.active_vehicle == 'santafe':
+                # 저장된 개인 자료 화면만 전환하며 기존 대화와 진행 중 답변은 유지합니다.
+                if st.button('데이터 대시보드', key='santafe_menu_dashboard', use_container_width=True):
+                    st.session_state.santafe_active_view = 'dashboard'
+                    st.rerun()
+                if st.button('작업 Document', key='santafe_menu_document', use_container_width=True):
+                    st.session_state.santafe_active_view = 'document'
+                    st.rerun()
+                if st.button('챗봇', key='santafe_menu_chat', use_container_width=True):
+                    st.session_state.santafe_active_view = 'chat'
+                    st.rerun()
+            elif st.session_state.active_vehicle == 'sonata':
                 if st.button('데이터 대시보드', key='menu_data_dashboard', use_container_width=True):
                     st.session_state.sonata_active_view = 'dashboard'
                     st.rerun()
@@ -531,6 +544,19 @@ with st.sidebar:
                            use_container_width=True, on_click='ignore', key='manual_download')
     else:
         st.caption('다운로드할 설명서가 아직 등록되지 않았습니다.')
+
+# 싼타페 자료는 선택한 경우에만 불러오고 DB·검색·생성 연결 전에 멈춥니다.
+if vehicle_id == 'santafe' and st.session_state.santafe_active_view in ('dashboard', 'document'):
+    if st.session_state.santafe_active_view == 'dashboard':
+        from car_search_rag.zzong_santafe_lag.data_dashboard import render_dashboard
+        render_dashboard()
+    else:
+        from car_search_rag.zzong_santafe_lag.work_document import render_work_document
+        render_work_document()
+    if st.button('← 챗봇으로 돌아가기', key='santafe_material_back'):
+        st.session_state.santafe_active_view = 'chat'
+        st.rerun()
+    st.stop()
 
 # Sonata 대시보드는 공통 사이드바를 그린 뒤 채팅 시작/질문 처리 전에 표시합니다.
 # 기존 conversation/session/backend 상태는 건드리지 않고 현재 화면만 전환합니다.
