@@ -22,3 +22,11 @@ venv/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# 개인 보고서 원문·디버그 로그와 렌더링 임시 파일은 로컬에 보관합니다.
+# 공유할 요약은 src/car_search_rag/zzong_santafe_lag 문서와 보고서에서 관리합니다.
+/data/zzong_santafe_lag/reports/*
+!/data/zzong_santafe_lag/reports/README.md
+/data/zzong_santafe_lag/team_exports/
+/tmp/
+/.chart-data-*/
