@@ -1,0 +1,968 @@
+{
+  "metadata": {
+    "run_id": "casper-hybrid-phase2-30-20261006-07",
+    "status": "completed_reviewed",
+    "app_url": "https://chatbotprojectrepo-qgvrupzzwaxd4pzzmnjh5y.streamlit.app/",
+    "observation_dates": [
+      "2026-10-06",
+      "2026-10-07"
+    ],
+    "top_k": 5,
+    "dataset_version": "1.0-pre-run",
+    "dataset_sha256": "b7a705ffbfb027c24a181744a3e80d0793bb38a1144f31681a45773a5df727a3",
+    "source_id_mapping": "165 displayed source bodies uniquely matched to baseline CSV (150 golden + 15 extra).",
+    "answer_model": "gpt-6-luna (사용자 제공; 현재 서버 미검증)",
+    "database": "개인 DB 적용 사용자 확인; 배포 서버 연결은 UI에서 미검증",
+    "image_input_status": "앱 메시지 관찰; 서버 요청 독립 검증 아님",
+    "limitations": [
+      "30개는 선정한 초기 사례입니다. 전체 사용자 성공률이나 대규모 검증으로 일반화하지 않습니다.",
+      "초기·1차·2차는 배포 앱을 다른 시점에 관찰한 비교입니다. DB·모델·코드 커밋 동일성을 서버에서 확인하지 않아 검색 함수만의 인과 효과를 분리한 실험이 아닙니다.",
+      "2차 Q012~Q027은 10월 6일 기록, Q001~Q011과 Q028~Q030은 10월 7일 기록입니다. 앞 11개는 근거 패널 저장 부족과 세션 종료 때문에 재실행했습니다. 점수 선택을 위한 반복 실험은 아니며 이전 캡처도 보존했습니다.",
+      "매 질문 Top-5 전체 본문·제목·페이지를 원본 CSV와 대조해 유일한 ID 후보를 찾았습니다. DB 전체 내용·임베딩의 동일성까지 검증한 것은 아닙니다.",
+      "gpt-6-luna와 E5 v1은 프로젝트·사용자 제공 설정입니다. 현재 서버의 실제 모델·DB 연결·RPC 호출은 직접 검증하지 않았습니다.",
+      "화면의 실제 그림 전달 메시지는 관찰했지만 LLM 요청 본문을 별도로 확인하지 않았습니다. 이미지 정답 목록이 없으므로 이미지 Recall이나 시각 이해 정확도는 계산하지 않았습니다.",
+      "채점은 AI 작성자가 고정 기준과 답변·본문을 대조한 것입니다. 원본 PDF의 모든 그림 판독이나 독립 전문가 채점은 수행하지 않았습니다.",
+      "Q012는 질문보다 넓은 D 기어 기준이 포함되어 있습니다. 기존 세 버전에 같은 기준을 적용했습니다.",
+      "처리 시간은 앱 표시값으로 준비·브라우저 대기 시간을 제외합니다. 서로 다른 실행 시점·이미지 수 등의 영향을 받습니다."
+    ]
+  },
+  "versions": [
+    {
+      "label": "초기",
+      "summary": {
+        "executed": 30,
+        "not_run": 0,
+        "execution_errors": 0,
+        "retrieval_scored_cases": 23,
+        "retrieval_hit_count": 20,
+        "hit_at_5": 0.8695652173913043,
+        "required_fact_coverage_macro_at_5": 0.8695652173913043,
+        "required_fact_coverage_micro_at_5": 0.92,
+        "covered_facts": 46,
+        "total_facts": 50,
+        "overall_counts": {
+          "pass": 24,
+          "partial": 5,
+          "fail": 1
+        },
+        "mean_app_elapsed_seconds": 3.9266666666666667,
+        "scope_note": "선정한 30개에 대한 초기 평가. 무작위 대규모 표본이 아니며 실제 사용자 성공률 추정치가 아님.",
+        "Positive": {
+          "count": 18,
+          "pass": 14,
+          "partial": 3,
+          "fail": 1
+        },
+        "Negative": {
+          "count": 6,
+          "pass": 6,
+          "partial": 0,
+          "fail": 0
+        },
+        "Edge": {
+          "count": 6,
+          "pass": 4,
+          "partial": 2,
+          "fail": 0
+        }
+      }
+    },
+    {
+      "label": "1차 · 이미지 연결",
+      "summary": {
+        "executed": 30,
+        "not_run": 0,
+        "execution_errors": 0,
+        "overall_counts": {
+          "pass": 25,
+          "fail": 1,
+          "partial": 4
+        },
+        "overall_pass_rate": 0.8333333333333334,
+        "retrieval_scored_cases": 23,
+        "retrieval_hit_count": 20,
+        "hit_at_5": 0.8695652173913043,
+        "required_fact_coverage_macro_at_5": 0.8695652173913043,
+        "required_fact_coverage_micro_at_5": 0.92,
+        "covered_facts": 46,
+        "total_facts": 50,
+        "mean_app_elapsed_seconds": 4.0,
+        "median_app_elapsed_seconds": 3.9,
+        "same_retrieved_chunk_order_case_count": 30,
+        "image_display_case_count": 24,
+        "image_display_occurrences": 55,
+        "unique_displayed_images": 45,
+        "image_case_counts": {
+          "context": 9,
+          "none": 6,
+          "unrelated": 7,
+          "direct": 8
+        },
+        "image_occurrence_relevance_counts": {
+          "context": 27,
+          "unrelated": 14,
+          "direct": 14
+        },
+        "Positive": {
+          "count": 18,
+          "pass": 15,
+          "partial": 2,
+          "fail": 1
+        },
+        "Negative": {
+          "count": 6,
+          "pass": 6,
+          "partial": 0,
+          "fail": 0
+        },
+        "Edge": {
+          "count": 6,
+          "pass": 4,
+          "partial": 2,
+          "fail": 0
+        }
+      }
+    },
+    {
+      "label": "2차 · 검색 개선",
+      "summary": {
+        "executed": 30,
+        "overall_counts": {
+          "pass": 25,
+          "partial": 4,
+          "fail": 1
+        },
+        "retrieval_scored_cases": 23,
+        "retrieval_hit_count": 22,
+        "hit_at_5": 0.9565217391304348,
+        "covered_facts": 48,
+        "total_facts": 50,
+        "fully_covered_cases": 21,
+        "mean_app_elapsed_seconds": 6.72,
+        "median_app_elapsed_seconds": 6.449999999999999,
+        "image_display_case_count": 29,
+        "image_display_occurrences": 93,
+        "unique_displayed_images": 67,
+        "image_input_case_count_reported": 29,
+        "image_inputs_reported_total": 89,
+        "required_fact_coverage_micro_at_5": 0.96,
+        "required_fact_coverage_macro_at_5": 0.9347826086956522,
+        "Positive": {
+          "count": 18,
+          "pass": 17,
+          "partial": 1
+        },
+        "Negative": {
+          "count": 6,
+          "partial": 1,
+          "pass": 5
+        },
+        "Edge": {
+          "count": 6,
+          "partial": 2,
+          "pass": 3,
+          "fail": 1
+        }
+      }
+    }
+  ],
+  "cases": [
+    {
+      "test_id": "Q001",
+      "question": "완속 충전 커넥터 잠금 모드는 어디서 설정하며, 세 가지 모드는 어떻게 다른가요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "설정 경로와 세 가지 모드를 모두 답했고 [4] 본문에서 확인했다."
+    },
+    {
+      "test_id": "Q002",
+      "question": "예약 충전 기능은 어떤 충전 방식에서 사용할 수 있나요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "완속·휴대용 충전에서만 예약 충전을 사용할 수 있다고 답했다."
+    },
+    {
+      "test_id": "Q003",
+      "question": "배터리 방전이나 배선 이상으로 충전 커넥터 잠금 해제 버튼이 작동하지 않을 때는 어떻게 해야 하나요?",
+      "category": "Positive",
+      "initial": "partial",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "후드·비상 고리, 계속 버튼이 작동하지 않으면 점검, 강제 분리 금지를 모두 설명했다."
+    },
+    {
+      "test_id": "Q004",
+      "question": "완속 충전 케이블에 연장 케이블을 연결해도 되나요? 충전 중 냄새나 연기가 나면 어떻게 해야 하나요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "연장 케이블 금지와 냄새·연기 시 즉시 중지를 설명했다."
+    },
+    {
+      "test_id": "Q005",
+      "question": "차량 시동을 끈 상태에서는 충전 상태 정보가 얼마나 표시되나요? 도어를 열면 어떻게 되나요?",
+      "category": "Positive",
+      "initial": "fail",
+      "phase1": "fail",
+      "phase2": "pass",
+      "initial_hit": false,
+      "phase1_hit": false,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "최대 1분과 도어 개방 시 지속 표시를 정확히 답했다. 초기·1차에서 없던 AXEV_00114가 1위에 있다."
+    },
+    {
+      "test_id": "Q006",
+      "question": "스마트 키로 원격 시동을 거는 순서와 버튼을 누르는 시간 조건을 알려주세요.",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "10m 이내, 잠금 후 4초 이내, 원격 시동 2초 이상, P 조건을 모두 답했다."
+    },
+    {
+      "test_id": "Q007",
+      "question": "스마트 키에 사용하는 배터리 규격과 개수, 어린이 관련 보관 주의사항은 무엇인가요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "CR2032 1개와 어린이 접근 금지를 답했다. 배터리 화학 유형의 표현은 수집된 매뉴얼 본문을 그대로 따른 것이며 이번 기준은 규격·개수·보관이다."
+    },
+    {
+      "test_id": "Q008",
+      "question": "어린이 보호용 뒷도어 잠금 장치는 어떻게 설정하고, 설정 후에는 어떻게 문을 여나요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "뒷도어 스위치를 오른쪽으로 돌리고 외부 핸들로 열도록 설명했다."
+    },
+    {
+      "test_id": "Q009",
+      "question": "전자식 주차 브레이크 EPB를 수동으로 체결하고 해제하는 방법을 알려주세요.",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "정차·브레이크·당김으로 체결, 시동·브레이크·누름으로 해제한다는 두 절차를 설명했다."
+    },
+    {
+      "test_id": "Q010",
+      "question": "차로 이탈방지 보조 LKA를 켜고 끄는 방법과 작동 속도 범위를 알려주세요.",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "시동 ON·길게 누르기와 약 60~200km/h를 답했다."
+    },
+    {
+      "test_id": "Q011",
+      "question": "차로 유지 보조 LFA는 어떤 조건에서 조향을 돕고, 핸들을 계속 잡지 않으면 어떻게 되나요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "차선 또는 앞차·140km/h 이하, 경고 후 해제, 항상 핸들 잡기를 설명했다."
+    },
+    {
+      "test_id": "Q012",
+      "question": "스마트 크루즈 컨트롤 SCC는 앞차가 있을 때와 없을 때 작동 속도 범위가 어떻게 다른가요?",
+      "category": "Positive",
+      "initial": "partial",
+      "phase1": "partial",
+      "phase2": "partial",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "속도 범위는 정확하나 고정 기준의 D 기어 조건을 빠뜨렸다. 질문보다 넓게 정해진 기존 기준의 한계를 유지해 부분 충족으로 판정했다."
+    },
+    {
+      "test_id": "Q013",
+      "question": "와이퍼가 얼어 있을 때 강제로 작동해도 되나요? 와셔액이 없을 때 분사해도 되나요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "얼어 있는 와이퍼의 강제 작동 금지와 빈 와셔액 상태의 분사 금지를 설명했다."
+    },
+    {
+      "test_id": "Q014",
+      "question": "차량의 C타입 USB 충전 단자로 음악 파일을 재생할 수 있나요? 사용 시 시동 상태는 어떻게 해야 하나요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "C타입은 충전 전용·음악 재생 불가이며 시동을 켠 상태로 충전한다고 답했다."
+    },
+    {
+      "test_id": "Q015",
+      "question": "스마트폰 무선 충전을 시작하는 조건과 충전 중 표시등 색을 알려주세요.",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "Qi·모든 도어 닫힘·시동 ON·패드 중앙·주황색 표시등을 설명했다."
+    },
+    {
+      "test_id": "Q016",
+      "question": "타이어 공기압 경보 시스템 TPMS를 초기화하는 순서와 완료 확인 방법을 알려주세요.",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "권장 공기압, 시동·정차, 메뉴·OK 길게·저장, 팝업과 4초 점멸 후 꺼짐을 모두 설명했다."
+    },
+    {
+      "test_id": "Q017",
+      "question": "어린이 보조좌석은 어느 좌석에 설치해야 하고, 하나의 앵커에 두 개를 고정해도 되나요?",
+      "category": "Positive",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "뒷좌석만 사용하고 하나의 앵커에 두 개 이상 고정하지 않도록 설명했다."
+    },
+    {
+      "test_id": "Q018",
+      "question": "안전벨트의 어깨띠와 골반띠는 어디를 지나도록 착용해야 하나요? 너무 느슨하게 착용해도 되나요?",
+      "category": "Positive",
+      "initial": "partial",
+      "phase1": "partial",
+      "phase2": "pass",
+      "initial_hit": false,
+      "phase1_hit": false,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "어깨·가슴과 골반 위치, 느슨하게 착용하면 보호 효과가 감소한다는 근거를 모두 설명했다."
+    },
+    {
+      "test_id": "Q019",
+      "question": "내 캐스퍼의 현재 배터리 건강 상태 SOH는 정확히 몇 퍼센트인가요?",
+      "category": "Negative",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "partial",
+      "initial_hit": null,
+      "phase1_hit": null,
+      "phase2_hit": null,
+      "phase2_fact_coverage": null,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "현재 SOH를 지어내지 않고 SOC와도 구분했다. 그러나 고정 기대 행동의 실제 진단 정보 필요·점검 안내가 빠져 부분 충족으로 판정했다."
+    },
+    {
+      "test_id": "Q020",
+      "question": "지금 내 주변 충전소 중 빈 충전기가 있는 곳의 이름과 현재 대기 시간을 알려주세요.",
+      "category": "Negative",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": null,
+      "phase1_hit": null,
+      "phase2_hit": null,
+      "phase2_fact_coverage": null,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "위치·실시간 상태에 접근할 수 없다고 밝히고 충전소나 대기 시간을 지어내지 않았다."
+    },
+    {
+      "test_id": "Q021",
+      "question": "내 캐스퍼의 올해 자동차 보험료를 정확히 얼마 내야 하는지 알려주세요.",
+      "category": "Negative",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": null,
+      "phase1_hit": null,
+      "phase2_hit": null,
+      "phase2_fact_coverage": null,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "보험료를 확인할 수 없다고 답하고 금액을 만들지 않았다."
+    },
+    {
+      "test_id": "Q022",
+      "question": "2027년형 싼타페 디젤의 엔진오일 교환 용량을 알려주세요.",
+      "category": "Negative",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": null,
+      "phase1_hit": null,
+      "phase2_hit": null,
+      "phase2_fact_coverage": null,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "차종이 다른 자료임을 구분하고 싼타페 엔진오일 용량을 만들어내지 않았다."
+    },
+    {
+      "test_id": "Q023",
+      "question": "오늘 배포된 캐스퍼 인포테인먼트 업데이트의 버전 번호와 변경 내용을 알려주세요.",
+      "category": "Negative",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": null,
+      "phase1_hit": null,
+      "phase2_hit": null,
+      "phase2_fact_coverage": null,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "오늘의 배포 정보는 확인 불가라고 답했다. 예시 그림의 버전은 오늘 배포된 버전이 아니라고 구분했다. 예시 문자 OCR의 정확성은 별도 검증하지 않았다."
+    },
+    {
+      "test_id": "Q024",
+      "question": "2028년형 캐스퍼 일렉트릭의 확정 배터리 용량과 새 주행 보조 기능을 알려주세요.",
+      "category": "Negative",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": null,
+      "phase1_hit": null,
+      "phase2_hit": null,
+      "phase2_fact_coverage": null,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "2028년형 확정 사양을 확인 불가로 답하고 예시 기능을 새 기능으로 단정하지 않았다."
+    },
+    {
+      "test_id": "Q025",
+      "question": "차로 이탈방지 보조 LKA와 차로 유지 보조 LFA는 같은 버튼을 누른다는데, 각각 어떻게 켜고 끄나요?",
+      "category": "Edge",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "partial",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 0.5,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "LKA 조작은 답했지만 LFA는 확인 불가로 답했다. 상위 5개가 LKA에 집중되어 LFA의 필수 근거 AXEV_01498가 없다. 근거를 하나 찾은 Hit@5만으로는 이 누락을 드러낼 수 없다."
+    },
+    {
+      "test_id": "Q026",
+      "question": "충전 커넥터 잠금 모드를 사용 안 함으로 설정했으니 급속 충전 중에도 커넥터가 잠기지 않는 게 맞죠?",
+      "category": "Edge",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "급속 충전의 자동 잠금과 종료 후 자동 해제를 설명했다. 제목이 ICCB인 [2]에도 앞부분의 급속 충전 내용이 포함되어 인용을 본문 기준으로 확인했다."
+    },
+    {
+      "test_id": "Q027",
+      "question": "스마트키 밧데리 머 써야해? 몇개 들어가?",
+      "category": "Edge",
+      "initial": "partial",
+      "phase1": "partial",
+      "phase2": "fail",
+      "initial_hit": false,
+      "phase1_hit": false,
+      "phase2_hit": false,
+      "phase2_fact_coverage": 0.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "CR2032 규격과 1개를 모두 답하지 못했다. 초기·1차는 개수라도 답했으나 이번에는 둘 다 확인 불가여서 실패로 판정했다."
+    },
+    {
+      "test_id": "Q028",
+      "question": "충전이 안 돼요. 어떻게 해야 하나요?",
+      "category": "Edge",
+      "initial": "partial",
+      "phase1": "partial",
+      "phase2": "partial",
+      "initial_hit": null,
+      "phase1_hit": null,
+      "phase2_hit": null,
+      "phase2_fact_coverage": null,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "특정 고장을 단정하지 않았지만 충전 방식·연결 상태·경고 표시를 추가로 묻지 않았다. 일반 안전 안내만 제공하여 부분 충족이다."
+    },
+    {
+      "test_id": "Q029",
+      "question": "휴대폰을 무선 충전 패드 중앙에 놨는데 실내가 아주 더운 날 충전이 중단됐어요. 고장인가요? 온도가 내려가면 어떻게 되나요?",
+      "category": "Edge",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "고온 보호로 중단될 수 있고 온도 하강 후 재작동함을 설명했다. “고장으로 보이지 않습니다”는 확정 표현은 아니어서 기준을 충족하나, 실제 고장 여부는 단정할 수 없다는 표현이 더 명확하다."
+    },
+    {
+      "test_id": "Q030",
+      "question": "타이어 공기압을 조정한 뒤 TPMS를 초기화하려고 해요. 타이어가 차가운 상태의 기준과 초기화 완료 확인 방법을 함께 알려주세요.",
+      "category": "Edge",
+      "initial": "pass",
+      "phase1": "pass",
+      "phase2": "pass",
+      "initial_hit": true,
+      "phase1_hit": true,
+      "phase2_hit": true,
+      "phase2_fact_coverage": 1.0,
+      "same_order_as_initial": false,
+      "same_set_as_initial": false,
+      "notes": "차가운 상태의 3시간·1.6km, 권장 공기압, 팝업과 4초 점멸 후 꺼짐을 설명했다."
+    }
+  ],
+  "supplementary_results": [
+    {
+      "test_id": "S001",
+      "answer": "캐스퍼 일렉트릭의 차량 치수는 트림별로 다음과 같습니다. 표의 치수는 실제 첨부된 제원 그림에서도 확인됩니다. [1] [그림 1]\n\n항목\t기본형\t라운지\t크로스\n전장\t3,825 mm\t3,825 mm\t3,845 mm\n전폭\t1,610 mm\t1,610 mm\t1,610 mm\n전고\t1,575 mm / 1,610 mm*¹\t1,575 mm / 1,610 mm*¹\t1,575 mm / 1,610 mm¹ / 1,715 mm²\n축거\t2,580 mm\t2,580 mm\t2,580 mm\n\n*¹ 루프랙 적용 시, *² 루프바스켓 적용 시입니다. [1]\n\n윤거는 타이어 규격에 따라 다릅니다. 185/65 R15 장착 시 기본형은 전륜 1,414 mm·후륜 1,425 mm이고, 205/45 R17 장착 시 세 트림 모두 전륜 1,402 mm·후륜 1,413 mm입니다. [1] [그림 1]\n\n타이어·휠 규격은 185/65 R15—5.5J×15, 205/45 R17—6.5J×17이며, 휠 너트 체결 토크는 11–13 kgf·m입니다. [1]\n안전 참고: 이 차량은 타이어 응급처치 키트(TMK)를 제공하며, 예비 타이어는 별도로 제공되지 않습니다. [1]",
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "source_title": "차량 제원",
+          "page_start": 63,
+          "page_end": 66,
+          "similarity": 0.8362,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:  각 도로의 규정 속도 이내로 주행하십시오. 해발 고도가 높을수록 대기 압력이 낮아집니다. 해발 고도가 높은 지역을 주행할 때에는 필요에 따라 공기압 을 보충하십시오(해발 고도 1,000 m 증가 시 1.5 psi 추가). 공기 주입 시 타이어 측면에 표기된 최대 공기압을 초과하지 않도록 주의하십시오. 타이어 에너지 소비 효율 등급 타이어 제조 사 규격 에너지 소비 효율 등급 타이어 소음도*3 회전 저항(RRC)*1 젖은 노면 제동력(G)* 2 한국 185",
+          "matched_chunk_id_candidates": [
+            "AXEV_00220"
+          ]
+        },
+        {
+          "rank": 2,
+          "source_title": "치수",
+          "page_start": 63,
+          "page_end": 63,
+          "similarity": 0.8272,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:",
+          "matched_chunk_id_candidates": [
+            "AXEV_00224"
+          ]
+        },
+        {
+          "rank": 3,
+          "source_title": "타이어 및 휠 규격",
+          "page_start": 63,
+          "page_end": 63,
+          "similarity": 0.8261,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:",
+          "matched_chunk_id_candidates": [
+            "AXEV_00225"
+          ]
+        },
+        {
+          "rank": 4,
+          "source_title": "차량 제원",
+          "page_start": 63,
+          "page_end": 66,
+          "similarity": 0.8322,
+          "chunk_text": "시 1.5 psi 추가). 공기 주입 시 타이어 측면에 표기된 최대 공기압을 초과하지 않도록 주의하십시오. 타이어 에너지 소비 효율 등급 타이어 제조 사 규격 에너지 소비 효율 등급 타이어 소음도*3 회전 저항(RRC)*1 젖은 노면 제동력(G)* 2 한국 185/65 R15 88H 2 3 A 205/45 R17 88V 2 3 AA 금호 185/65 R15 88H 2 3 A 넥센 205/45 R17 88V 2 3 A 타이어에 가해지는 하중에 대한 회전 저항의 비율. 1-4등급으로 구분되며, 1등급에 가까울수록 에너지 소비 효율이 높습니다. 기준 타이어 대비 해당 타이어의 젖은 노면 제동 성능 비율. 1-4등급으로 구분되며, 1등급에 가까울수록 젖은 노면 제동력이 우수 합니다. 타이어 소음 허용기준 대비 해당 타이어의 소음도. AA등급과 A등급이 있으며 AA등급이 A등급 대비 소음도가 우수합니다. ইف 타이어 사이즈가 동일하더라도 에너지 소비 효율 등급 및 소음도 등급이 다를 수 있습니다. 일부 정보는 사전 통보 없이 변경될 수 있습니다. 최신 정보는 타이어 제조사 홈페이지에서 확인할 수 있습니 다. 타이어 속도 등급 속도 등급은 타이어의 최대 안전 주행 속도를 의미하며, 타이어 측면에 타이어 규격과 함께 표기되어 있습니다. 자세한 설명은 타이어 및 휠 규격을 참고하십시오. 속도 등급 최대 속도 속도 등급 최대 속도 S 180 km/h(112 mph) V 240 km/h(149 mph) T 190 km/h(118 mph) W 270 km/h(168 mph) H 210 km/h(130 mph) Y 300 km/h(186 mph) 에어컨 시스템 구분 사양 용량 에어컨 냉매 R-1234yf 550±25 g 차량 살펴보기 56 • • • *1: *",
+          "matched_chunk_id_candidates": [
+            "AXEV_00221"
+          ]
+        },
+        {
+          "rank": 5,
+          "source_title": "차량 제원",
+          "page_start": 63,
+          "page_end": 66,
+          "similarity": 0.8307,
+          "chunk_text": "km/h(149 mph) T 190 km/h(118 mph) W 270 km/h(168 mph) H 210 km/h(130 mph) Y 300 km/h(186 mph) 에어컨 시스템 구분 사양 용량 에어컨 냉매 R-1234yf 550±25 g 차량 살펴보기 56 • • • *1: *2: *3: • • 구분 사양 용량 냉동유 REF POE-1 180±10 g  에어컨 시스템의 유지보수 작업 시 지정된 냉매만 사용하십시오. 이외의 냉매를 사용하는 경우 냉방 성능이 저 하되거나 관련 부품이 심각하게 손상될 수 있습니다. 조명등 규격 구분 형식 용량 전방 전조등 (상향/하향) A타입 H19 55/60W B타입 LED - 방향지시등 LED - 차폭등 LED - 주간 주행등 LED - 측면 방향지시등(펜더) WY5W 5W 측면 방향지시등(실외 미러) LED - 후방 제동등 A타입 P21/5W 21/5W B타입 LED - 미등 A타입 W5W 5W B타입 LED - 방향지시등 LED - 후진등 LED - 번호판등 A타입 W5W 5W B타입 LED - 보조 제동등 A타입 W5W 5W B타입 LED - 실내 앞좌석 램프 LED - 뒷좌석 룸 램프 LED - 선바이저 램프 LED - 차량 살펴보기 57 구분 형식 용량 무드 램프 LED - 화물칸 램프 FESTOON 10W LED - LED(Light-Emitting Diode): 발광소자 오일, 브레이크액 및 냉각수 용량 구분 사양 용량 배터리 전기 배터리 - 전자식 변속 다이얼 오일 HK ATF 6S SP4M-1 0.75 ± 0.03 l 브레이크액 SAE J1704 DOT-4 LV, FM VSS 116 DOT",
+          "matched_chunk_id_candidates": [
+            "AXEV_00222"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "filename": "p0063_vector_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0063_vector_01.png",
+          "caption": "기본형, 라운지, 크로스 차량의 전장·전폭·전고와 전륜·후륜 윤거, 축거를 비교한 치수 표입니다. 윤거 값은 타이어 규격별로 나뉘어 표시되어 있습니다.",
+          "pdf_page": 63,
+          "source_ranks": [
+            1,
+            2
+          ],
+          "display_label": "그림 1 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0063_vector_02.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0063_vector_02.png",
+          "caption": "타이어 형식과 휠 규격별 권장 공기압을 앞·뒤 타이어 및 두 가지 탑승 인원·짐 그림 조건으로 나누어 표시한 표입니다. 오른쪽에는 휠 너트 체결 토크가 표시되어 있습니다.",
+          "pdf_page": 63,
+          "source_ranks": [
+            1,
+            3
+          ],
+          "display_label": "그림 2 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0065_vector_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0065_vector_01.png",
+          "caption": "냉동유의 사양과 용량을 나타낸 표입니다. 사양은 REF POE-1, 용량은 180±10 g입니다.",
+          "pdf_page": 65,
+          "source_ranks": [
+            5
+          ],
+          "display_label": "그림 3 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0065_vector_03.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0065_vector_03.png",
+          "caption": "전방, 후방, 실내 조명등의 형식과 용량을 정리한 표입니다. 전조등·제동등 등 일부 항목은 A타입과 B타입으로 나누어 표시합니다.",
+          "pdf_page": 65,
+          "source_ranks": [
+            5
+          ],
+          "display_label": "그림 4 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0066_vector_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0066_vector_01.png",
+          "caption": "무드 램프와 화물칸 램프의 형식 및 용량을 나타낸 표입니다. 화물칸 램프는 FESTOON 10W와 LED로 표시되어 있습니다.",
+          "pdf_page": 66,
+          "source_ranks": [
+            5
+          ],
+          "display_label": "그림 5 · 실제 그림을 답변 모델에 전달"
+        }
+      ],
+      "elapsed_seconds": 10.6,
+      "question": "차량 제원이 궁금해",
+      "observed_at": "2026-10-06T23:50:43.720Z",
+      "image_input_count_reported": 5,
+      "image_transmission_status": "앱 화면의 전달 메시지. 서버 요청 독립 검증 아님."
+    },
+    {
+      "test_id": "S002",
+      "answer": "캐스퍼 일렉트릭의 주요 치수는 트림별로 다음과 같습니다. 단위는 mm입니다.[1]\n\n항목\t기본형\t라운지\t크로스\n전장\t3,825\t3,825\t3,845\n전폭\t1,610\t1,610\t1,610\n전고\t1,575 / 1,610*\t1,575 / 1,610*\t1,575 / 1,610* / 1,715**\n축거\t2,580\t2,580\t2,580\n\n전고의 *1은 루프랙 적용 시, *2는 루프바스켓 적용 시를 뜻합니다.[1] 표에서도 기본형·라운지와 크로스의 치수가 각각 이렇게 구분되어 있습니다.[그림 1] [1]\n\n참고로 윤거는 타이어 규격에 따라 다릅니다. 205/45 R17 기준 전륜 1,402 mm·후륜 1,413 mm이며, 185/65 R15는 기본형에만 표기되어 전륜 1,414 mm·후륜 1,425 mm입니다.[1]",
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "source_title": "차량 제원",
+          "page_start": 63,
+          "page_end": 66,
+          "similarity": 0.8431,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:  각 도로의 규정 속도 이내로 주행하십시오. 해발 고도가 높을수록 대기 압력이 낮아집니다. 해발 고도가 높은 지역을 주행할 때에는 필요에 따라 공기압 을 보충하십시오(해발 고도 1,000 m 증가 시 1.5 psi 추가). 공기 주입 시 타이어 측면에 표기된 최대 공기압을 초과하지 않도록 주의하십시오. 타이어 에너지 소비 효율 등급 타이어 제조 사 규격 에너지 소비 효율 등급 타이어 소음도*3 회전 저항(RRC)*1 젖은 노면 제동력(G)* 2 한국 185",
+          "matched_chunk_id_candidates": [
+            "AXEV_00220"
+          ]
+        },
+        {
+          "rank": 2,
+          "source_title": "치수",
+          "page_start": 63,
+          "page_end": 63,
+          "similarity": 0.8363,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:",
+          "matched_chunk_id_candidates": [
+            "AXEV_00224"
+          ]
+        },
+        {
+          "rank": 3,
+          "source_title": "타이어 및 휠 규격",
+          "page_start": 63,
+          "page_end": 63,
+          "similarity": 0.8364,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:",
+          "matched_chunk_id_candidates": [
+            "AXEV_00225"
+          ]
+        },
+        {
+          "rank": 4,
+          "source_title": "차량 제원",
+          "page_start": 63,
+          "page_end": 66,
+          "similarity": 0.8291,
+          "chunk_text": "시 1.5 psi 추가). 공기 주입 시 타이어 측면에 표기된 최대 공기압을 초과하지 않도록 주의하십시오. 타이어 에너지 소비 효율 등급 타이어 제조 사 규격 에너지 소비 효율 등급 타이어 소음도*3 회전 저항(RRC)*1 젖은 노면 제동력(G)* 2 한국 185/65 R15 88H 2 3 A 205/45 R17 88V 2 3 AA 금호 185/65 R15 88H 2 3 A 넥센 205/45 R17 88V 2 3 A 타이어에 가해지는 하중에 대한 회전 저항의 비율. 1-4등급으로 구분되며, 1등급에 가까울수록 에너지 소비 효율이 높습니다. 기준 타이어 대비 해당 타이어의 젖은 노면 제동 성능 비율. 1-4등급으로 구분되며, 1등급에 가까울수록 젖은 노면 제동력이 우수 합니다. 타이어 소음 허용기준 대비 해당 타이어의 소음도. AA등급과 A등급이 있으며 AA등급이 A등급 대비 소음도가 우수합니다. ইف 타이어 사이즈가 동일하더라도 에너지 소비 효율 등급 및 소음도 등급이 다를 수 있습니다. 일부 정보는 사전 통보 없이 변경될 수 있습니다. 최신 정보는 타이어 제조사 홈페이지에서 확인할 수 있습니 다. 타이어 속도 등급 속도 등급은 타이어의 최대 안전 주행 속도를 의미하며, 타이어 측면에 타이어 규격과 함께 표기되어 있습니다. 자세한 설명은 타이어 및 휠 규격을 참고하십시오. 속도 등급 최대 속도 속도 등급 최대 속도 S 180 km/h(112 mph) V 240 km/h(149 mph) T 190 km/h(118 mph) W 270 km/h(168 mph) H 210 km/h(130 mph) Y 300 km/h(186 mph) 에어컨 시스템 구분 사양 용량 에어컨 냉매 R-1234yf 550±25 g 차량 살펴보기 56 • • • *1: *",
+          "matched_chunk_id_candidates": [
+            "AXEV_00221"
+          ]
+        },
+        {
+          "rank": 5,
+          "source_title": "차량 제원",
+          "page_start": 63,
+          "page_end": 66,
+          "similarity": 0.8239,
+          "chunk_text": "km/h(149 mph) T 190 km/h(118 mph) W 270 km/h(168 mph) H 210 km/h(130 mph) Y 300 km/h(186 mph) 에어컨 시스템 구분 사양 용량 에어컨 냉매 R-1234yf 550±25 g 차량 살펴보기 56 • • • *1: *2: *3: • • 구분 사양 용량 냉동유 REF POE-1 180±10 g  에어컨 시스템의 유지보수 작업 시 지정된 냉매만 사용하십시오. 이외의 냉매를 사용하는 경우 냉방 성능이 저 하되거나 관련 부품이 심각하게 손상될 수 있습니다. 조명등 규격 구분 형식 용량 전방 전조등 (상향/하향) A타입 H19 55/60W B타입 LED - 방향지시등 LED - 차폭등 LED - 주간 주행등 LED - 측면 방향지시등(펜더) WY5W 5W 측면 방향지시등(실외 미러) LED - 후방 제동등 A타입 P21/5W 21/5W B타입 LED - 미등 A타입 W5W 5W B타입 LED - 방향지시등 LED - 후진등 LED - 번호판등 A타입 W5W 5W B타입 LED - 보조 제동등 A타입 W5W 5W B타입 LED - 실내 앞좌석 램프 LED - 뒷좌석 룸 램프 LED - 선바이저 램프 LED - 차량 살펴보기 57 구분 형식 용량 무드 램프 LED - 화물칸 램프 FESTOON 10W LED - LED(Light-Emitting Diode): 발광소자 오일, 브레이크액 및 냉각수 용량 구분 사양 용량 배터리 전기 배터리 - 전자식 변속 다이얼 오일 HK ATF 6S SP4M-1 0.75 ± 0.03 l 브레이크액 SAE J1704 DOT-4 LV, FM VSS 116 DOT",
+          "matched_chunk_id_candidates": [
+            "AXEV_00222"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "filename": "p0063_vector_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0063_vector_01.png",
+          "caption": "기본형, 라운지, 크로스 차량의 전장·전폭·전고와 전륜·후륜 윤거, 축거를 비교한 치수 표입니다. 윤거 값은 타이어 규격별로 나뉘어 표시되어 있습니다.",
+          "pdf_page": 63,
+          "source_ranks": [
+            1,
+            2
+          ],
+          "display_label": "그림 1 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0063_vector_02.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0063_vector_02.png",
+          "caption": "타이어 형식과 휠 규격별 권장 공기압을 앞·뒤 타이어 및 두 가지 탑승 인원·짐 그림 조건으로 나누어 표시한 표입니다. 오른쪽에는 휠 너트 체결 토크가 표시되어 있습니다.",
+          "pdf_page": 63,
+          "source_ranks": [
+            1,
+            3
+          ],
+          "display_label": "그림 2 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0065_vector_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0065_vector_01.png",
+          "caption": "냉동유의 사양과 용량을 나타낸 표입니다. 사양은 REF POE-1, 용량은 180±10 g입니다.",
+          "pdf_page": 65,
+          "source_ranks": [
+            5
+          ],
+          "display_label": "그림 3 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0065_vector_03.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0065_vector_03.png",
+          "caption": "전방, 후방, 실내 조명등의 형식과 용량을 정리한 표입니다. 전조등·제동등 등 일부 항목은 A타입과 B타입으로 나누어 표시합니다.",
+          "pdf_page": 65,
+          "source_ranks": [
+            5
+          ],
+          "display_label": "그림 4 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0066_vector_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0066_vector_01.png",
+          "caption": "무드 램프와 화물칸 램프의 형식 및 용량을 나타낸 표입니다. 화물칸 램프는 FESTOON 10W와 LED로 표시되어 있습니다.",
+          "pdf_page": 66,
+          "source_ranks": [
+            5
+          ],
+          "display_label": "그림 5 · 실제 그림을 답변 모델에 전달"
+        }
+      ],
+      "elapsed_seconds": 6.3,
+      "question": "차량 제원이 궁금해. 전장, 전폭, 전고 같은 수치가 궁금하다는 거야",
+      "observed_at": "2026-10-06T23:50:55.179Z",
+      "image_input_count_reported": 5,
+      "image_transmission_status": "앱 화면의 전달 메시지. 서버 요청 독립 검증 아님."
+    },
+    {
+      "test_id": "S003",
+      "answer": "캐스퍼 크로스의 축거는 2,580 mm입니다. [3]",
+      "retrieved_sources": [
+        {
+          "rank": 1,
+          "source_title": "차량 살펴보기",
+          "page_start": 51,
+          "page_end": 68,
+          "similarity": 0.7831,
+          "chunk_text": "................................................446 스티어링 휠.................................................................................................................................. 165 스티어링 휠 위치 조절................................................................................................................... 165 시트............................................................................................................................................... 72 차량 살펴보기 52 1. 2. 3. 4. 5. 6. 7. 8. 9. 10. 11. 12. 13. 14. 15. 스티어링 휠 조작 버튼 1C_SteeringWheelControlOverview 조명 스위치.................................................................................................................................. 194 와이퍼/와셔 스위치.......................................................................................................................207 패들 쉬프트.................................................................................................................................. 262 주행 보조 버튼.......................................................................................................................342, 360 클러스터 메뉴 설정 버튼.................................................................................................................138 차간거리 버튼................................................................................................................................344 차로 주행 보조 버튼............................................................................................................... 315, 356 전자식 변속 다이얼........................................................................................................................ 255 오디오 리모컨 스위치.................................................................................................................... 244 음성 인식 버튼............................................................................................................................... 248 블루투스 핸즈프리 버튼................................................................................................................. 247 차량 살펴보기 53 1. 2. 3. 4. 5. 6. 7. 8. 9. 10. 11. 모터룸 모터룸 내부 부품에 대한 자세한 설명은 모터룸의 명칭을 참고하십시오. 차량 살펴보기 54 차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580",
+          "matched_chunk_id_candidates": [
+            "AXEV_00199"
+          ]
+        },
+        {
+          "rank": 2,
+          "source_title": "차량 살펴보기",
+          "page_start": 51,
+          "page_end": 68,
+          "similarity": 0.7797,
+          "chunk_text": "mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:  각 도로의 규정 속도 이내로 주행하십시오. 해발 고도가 높을수록 대기 압력이 낮아집니다. 해발 고도가 높은 지역을 주행할 때에는 필요에 따라 공기압 을 보충하십시오(해발 고도 1,000 m 증가 시 1.5 psi 추가). 공기 주입 시 타이어 측면에 표기된 최대 공기압을 초과하지 않도록 주의하십시오. 타이어 에너지 소비 효율 등급 타이어 제조 사 규격 에너지 소비 효율 등급 타이어 소음도*3 회전 저항(RRC)*1 젖은 노면 제동력(G)* 2 한국 185/65 R15 88H 2 3 A 205/45 R17 88V 2 3 AA 금호 185/65 R15 88H 2 3 A 넥센 205/45 R17 88V 2 3 A 타이어에 가해지는 하중에 대한 회",
+          "matched_chunk_id_candidates": [
+            "AXEV_00200"
+          ]
+        },
+        {
+          "rank": 3,
+          "source_title": "차량 제원",
+          "page_start": 63,
+          "page_end": 66,
+          "similarity": 0.7915,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:  각 도로의 규정 속도 이내로 주행하십시오. 해발 고도가 높을수록 대기 압력이 낮아집니다. 해발 고도가 높은 지역을 주행할 때에는 필요에 따라 공기압 을 보충하십시오(해발 고도 1,000 m 증가 시 1.5 psi 추가). 공기 주입 시 타이어 측면에 표기된 최대 공기압을 초과하지 않도록 주의하십시오. 타이어 에너지 소비 효율 등급 타이어 제조 사 규격 에너지 소비 효율 등급 타이어 소음도*3 회전 저항(RRC)*1 젖은 노면 제동력(G)* 2 한국 185",
+          "matched_chunk_id_candidates": [
+            "AXEV_00220"
+          ]
+        },
+        {
+          "rank": 4,
+          "source_title": "치수",
+          "page_start": 63,
+          "page_end": 63,
+          "similarity": 0.7916,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:",
+          "matched_chunk_id_candidates": [
+            "AXEV_00224"
+          ]
+        },
+        {
+          "rank": 5,
+          "source_title": "타이어 및 휠 규격",
+          "page_start": 63,
+          "page_end": 63,
+          "similarity": 0.7881,
+          "chunk_text": "차량 제원 치수 항 목 치 수 기본형 라운지 크로스 전장 3,825 mm 3,825 mm 3,845 mm 전폭 1,610 mm 1,610 mm 1,610 mm 전고 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1 1,575 mm/1,610 mm* 1/1,715 mm*2 윤거 전륜 185/65 R15 1,414 mm - - 205/45 R17 1,402 mm 1,402 mm 1,402 mm 후륜 185/65 R15 1,425 mm - - 205/45 R17 1,413 mm 1,413 mm 1,413 mm 축거 2,580 mm 2,580 mm 2,580 mm 루프랙 적용시 루프바스켓 적용시 타이어 및 휠 규격 형 식 휠 추천 공기압 kPa (psi) 휠 너트 체 결 토크 kg f·m     앞 뒤 앞 뒤 185/65 R15 5.5JX15 250(36) 250(36) 250(36) 260(38) 11-13 205/45 R17 6.5JX17 250(36)/2 50(36)*1 235(34)/2 35(34)*1 250(36)/2 60(38)*1 260(38)/2 60(38)*1 크로스 ইف 타이어 응급처치 키트(TMK)를 제공하는 차량으로 예비 타이어는 별도로 제공되지 않습니다. 차량 살펴보기 55 *1: *2: *1:",
+          "matched_chunk_id_candidates": [
+            "AXEV_00225"
+          ]
+        }
+      ],
+      "images": [
+        {
+          "filename": "p0061_image_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0061_image_01.png",
+          "caption": "스티어링 휠 좌우의 조명·와이퍼 레버와 버튼, 패들 쉬프트 및 전자식 변속 다이얼을 번호로 표시한 그림입니다. 확대 그림에는 좌우 조작부와 변속 다이얼이 각각 보입니다.",
+          "pdf_page": 61,
+          "source_ranks": [
+            1
+          ],
+          "display_label": "그림 1 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0063_vector_01.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0063_vector_01.png",
+          "caption": "기본형, 라운지, 크로스 차량의 전장·전폭·전고와 전륜·후륜 윤거, 축거를 비교한 치수 표입니다. 윤거 값은 타이어 규격별로 나뉘어 표시되어 있습니다.",
+          "pdf_page": 63,
+          "source_ranks": [
+            3,
+            4
+          ],
+          "display_label": "그림 2 · 실제 그림을 답변 모델에 전달"
+        },
+        {
+          "filename": "p0063_vector_02.png",
+          "public_url": "https://awdlkxyhpljbjsrcomdm.supabase.co/storage/v1/object/public/images/cars/hyundai/casper/AXEV_2027_ko_KR_aa1465589f86/p0063_vector_02.png",
+          "caption": "타이어 형식과 휠 규격별 권장 공기압을 앞·뒤 타이어 및 두 가지 탑승 인원·짐 그림 조건으로 나누어 표시한 표입니다. 오른쪽에는 휠 너트 체결 토크가 표시되어 있습니다.",
+          "pdf_page": 63,
+          "source_ranks": [
+            3,
+            5
+          ],
+          "display_label": "그림 3 · 실제 그림을 답변 모델에 전달"
+        }
+      ],
+      "elapsed_seconds": 2.9,
+      "question": "캐스퍼 크로스의 축거를 알려줘",
+      "observed_at": "2026-10-06T23:51:11.061Z",
+      "image_input_count_reported": 3,
+      "image_transmission_status": "앱 화면의 전달 메시지. 서버 요청 독립 검증 아님."
+    }
+  ],
+  "retrieval_changes": {
+    "order_changed_vs_initial": 30,
+    "set_changed_vs_initial": 30
+  },
+  "conclusion": "정답 근거 확보는 개선됐지만 답변 판정은 1차와 같은 25개 충족입니다. 개선과 회귀가 함께 발생해 전면 개선으로 볼 수 없습니다."
+}
