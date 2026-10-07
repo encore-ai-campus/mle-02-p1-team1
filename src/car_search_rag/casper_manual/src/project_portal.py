@@ -625,3 +625,70 @@ def render_project_page(page):
     {"프로젝트 한눈에": render_overview, "01 데이터·전처리": render_stage1,
      "02 데이터 분석": render_stage2, "03 검색·답변 구조": render_stage3,
      "04 검색 품질 평가": render_stage4, "05 최종 결과 요약": render_final_summary, "06 DB 검색 함수 이해하기": render_search_function_guide}[page]()
+
+
+
+def render_project_portal():
+    """팀 UI의 오른쪽 콘텐츠 영역에서 호출하는 가로 탭 산출물 화면.
+
+    호출 위치 예시:
+        with right_column:
+            render_project_portal()
+
+    차량 정보, 산출물 버튼, 뒤로 가기와 전체 화면 전환은 팀 UI에서 관리합니다.
+    개인 앱에서는 기존 render_project_page(page)를 그대로 사용할 수 있습니다.
+    """
+    # 팀 화면 전체나 사이드바에 스타일을 적용하지 않고 이 영역만 꾸밉니다.
+    st.markdown("""<style>
+    .st-key-casper_deliverables .portal-hero {
+        margin:0 0 24px; padding:24px 26px;
+        background:rgba(19,136,120,.08); border:1px solid rgba(19,136,120,.18);
+        border-radius:16px;
+    }
+    .st-key-casper_deliverables .portal-hero .eyebrow {
+        color:#138878; font-size:11px; font-weight:700;
+        letter-spacing:.12em; margin-bottom:10px;
+    }
+    .st-key-casper_deliverables .portal-hero h1 {
+        font-size:1.9rem; line-height:1.35; margin:0 0 12px; padding:0;
+    }
+    .st-key-casper_deliverables .portal-hero p { margin:0; line-height:1.8; }
+    .st-key-casper_deliverables .step-list { display:grid; gap:12px; margin:16px 0; }
+    .st-key-casper_deliverables .step-card {
+        display:flex; gap:14px; padding:16px 18px;
+        border:1px solid rgba(128,145,160,.22); border-radius:12px;
+    }
+    .st-key-casper_deliverables .step-no {
+        flex-shrink:0; width:30px; height:30px; border-radius:8px;
+        background:rgba(19,136,120,.12); color:#138878;
+        text-align:center; line-height:30px; font-weight:700;
+    }
+    .st-key-casper_deliverables .step-card p { margin:4px 0 0; line-height:1.75; }
+    .st-key-casper_deliverables .portal-note {
+        border-left:3px solid #138878; padding:12px 16px;
+        background:rgba(19,136,120,.08); border-radius:0 8px 8px 0;
+        margin:16px 0; line-height:1.8;
+    }
+    .st-key-casper_deliverables [data-testid="stMetric"] {
+        border:1px solid rgba(128,145,160,.22); border-radius:12px; padding:14px;
+    }
+    .st-key-casper_deliverables [data-testid="stVegaLiteChart"] { margin:8px 0 16px; }
+    @media(max-width:700px) {
+        .st-key-casper_deliverables .portal-hero { padding:18px; }
+        .st-key-casper_deliverables .portal-hero h1 { font-size:1.5rem; }
+    }
+    </style>""", unsafe_allow_html=True)
+    sections = [
+        ("개요", render_overview),
+        ("01 데이터", render_stage1),
+        ("02 분석", render_stage2),
+        ("03 RAG 구조", render_stage3),
+        ("04 평가", render_stage4),
+        ("05 최종 결과", render_final_summary),
+        ("06 검색 함수", render_search_function_guide),
+    ]
+    with st.container(key="casper_deliverables"):
+        tabs = st.tabs([label for label, _ in sections])
+        for tab, (_, render) in zip(tabs, sections):
+            with tab:
+                render()
